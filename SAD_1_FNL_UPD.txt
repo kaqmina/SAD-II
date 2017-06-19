@@ -1,0 +1,19 @@
+A Proposed System for Persons with Disability Affairs Office (PDAO)
+Bolton St., Poblacion District, Davao City
+
+Comments:
+-        Profiling and Membership Management System
+o        Notification should be sent a month before the expiration date.
+-        Assistive Device Referral System
+o        Starting the event with a request from PWD, then PDAO refers the PWD to a sponsor.
+
+
+
+-        Domain Class Diagram
+o        Project – Project Progress = 1..M
+o        Project – Budget = Merge the Budget Table to Project.
+o        Project Budget – Project Items = Since Budget is removed then connect Project with Items. 1..M
+o        Req_Device and Device In/Out = Merge then put status
+o        Disability – Device = Change 0..1 to 0..M
+o        Renew_PWD and Notif_PWD = Merge
+o        PWD – Employee = Create Associative Table. Name as PWD-Emp_Log.
