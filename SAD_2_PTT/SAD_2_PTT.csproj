@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Junk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Junk.Designer.cs">
+      <DependentUpon>Junk.cs</DependentUpon>
+    </Compile>
     <Compile Include="main_btn_active.cs" />
     <Compile Include="main_form.cs">
       <SubType>Form</SubType>
@@ -55,6 +61,9 @@
     <Compile Include="main_functions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Junk.resx">
+      <DependentUpon>Junk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\notification-bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
