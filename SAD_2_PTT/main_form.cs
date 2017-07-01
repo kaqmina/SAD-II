@@ -17,7 +17,7 @@ namespace SAD_2_PTT
             InitializeComponent();
         }
         main_functions main_func = new main_functions();
-        main_btn_active main_btn = new main_btn_active();
+        main_btn_active main_btn = new main_btn_active(this);
 
         #region FormControlBox CB - 00
         private void btn_close_Click(object sender, EventArgs e)
@@ -43,6 +43,7 @@ namespace SAD_2_PTT
         {
             main_btn.btn_method(btn_current, btn_profilepic);
             btn_current = btn_profilepic;
+            main_btn.btn_profilepic = true;
             //slide_out.Start();
         }
 
@@ -50,20 +51,26 @@ namespace SAD_2_PTT
         {
             main_btn.btn_method(btn_current, btn_dashboard);
             btn_current = btn_dashboard;
-            slide_in.Start();
+            lbl_current_text("dashboard");
+            main_btn.btn_dashboard = true;
+            //slide_in.Start();
         }
 
         private void btn_pwd_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_pwd);
             btn_current = btn_pwd;
-            slide_out.Start();
+            lbl_current_text("pwd");
+            main_btn.btn_pwd = true;
+            //slide_out.Start();
         }
 
         private void btn_device_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_device);
             btn_current = btn_device;
+            lbl_current_text("devices");
+            main_btn.btn_device = true;
             //slide_out.Start();
         }
 
@@ -71,6 +78,8 @@ namespace SAD_2_PTT
         {
             main_btn.btn_method(btn_current, btn_projects);
             btn_current = btn_projects;
+            lbl_current_text("projects");
+            main_btn.btn_project = true;
             //slide_out.Start();
         }
 
@@ -78,6 +87,8 @@ namespace SAD_2_PTT
         {
             main_btn.btn_method(btn_current, btn_reports);
             btn_current = btn_reports;
+            lbl_current_text("reports");
+            main_btn.btn_report = true;
             //slide_out.Start();
         }
 
@@ -85,6 +96,8 @@ namespace SAD_2_PTT
         {
             main_btn.btn_method(btn_current, btn_settings);
             btn_current = btn_settings;
+            lbl_current_text("settings");
+            main_btn.btn_settings = true;
             //slide_out.Start();
         }
         #endregion
@@ -97,13 +110,26 @@ namespace SAD_2_PTT
             main_properties();
             string date = DateTime.Now.ToString("MMMM dd, yyyy");
             date_today.Text = date.ToUpper();
+            lbl_current_text("dashboard");
+            main_btn.reference_to_main = this;
+            
         }
 
         private void main_properties()
         {
+            //size
             sidenav.Size = new Size(212, 608);
             main_tab.Size = new Size(71, 608); //283, 608 <-- main_tab Size
-            side_tab.Size = new Size(71, 608);
+            side_tab.Size = new Size(71, 608); //1069, 589 <-- panels
+            pnl_dashboard.Size = new Size(1069, 589);
+            pnl_pwd.Size = new Size(1069, 589);
+
+            //visibility
+            pnl_pwd.Visible = false;
+
+            //location
+            pnl_dashboard.Location = new Point(0, 50);
+            pnl_pwd.Location = new Point(0, 50);
         }
         #endregion
 
@@ -160,6 +186,40 @@ namespace SAD_2_PTT
             dragmove(sender, e);
         }
 
+        #endregion
+
+        #region CurrentPanelHeading - 00
+        public void lbl_current_text(string current)
+        {
+            if (current == "dashboard")
+            {
+                lbl_current.Text = "PDAO Software";
+            }
+            else if (current == "pwd")
+            {
+                lbl_current.Text = "MEMBERSHIP";
+            }
+            else if (current == "devices")
+            {
+                lbl_current.Text = "ASSISTIVE DEVICE";
+            }
+            else if (current == "projects")
+            {
+                lbl_current.Text = "PROJECTS";
+            }
+            else if (current == "reports")
+            {
+                lbl_current.Text = "REPORTS";
+            }
+            else if (current == "settings")
+            {
+                lbl_current.Text = "SETTINGS";
+            }
+            else
+            {
+                lbl_current.Text = " ";
+            }
+        }
         #endregion
 
 

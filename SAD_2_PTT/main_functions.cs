@@ -14,6 +14,7 @@ namespace SAD_2_PTT
         {
             current_form.Close();
         }
+        public main_form reference_to_main { get; set; }
 
         public void btn_min(Form current_form)
         {
@@ -29,6 +30,6 @@ namespace SAD_2_PTT
         }
         #endregion
 
-
+        
     }
 }
