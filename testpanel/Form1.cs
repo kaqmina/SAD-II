@@ -72,7 +72,7 @@ namespace testpanel
             }
             else if (check == 4)
             {
-                panel3.Visible = true;//kgjkvjhj
+                panel3.Visible = true;//kgjkvjhjdfdf
                 panel4.Visible = false;
                 check--;
             }
