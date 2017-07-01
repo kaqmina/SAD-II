@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="main_btn_active.cs" />
     <Compile Include="main_form.cs">
       <SubType>Form</SubType>
