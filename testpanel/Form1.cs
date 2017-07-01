@@ -61,7 +61,7 @@ namespace testpanel
             {
                 button6.Enabled = false;
                 panel1.Visible = true;
-                panel2.Visible = false;//jhgvhjvhv
+                panel2.Visible = false;
                 check--;
             }
             else if (check == 3)
@@ -72,7 +72,7 @@ namespace testpanel
             }
             else if (check == 4)
             {
-                panel3.Visible = true;
+                panel3.Visible = true;//kgjkvjhj
                 panel4.Visible = false;
                 check--;
             }
