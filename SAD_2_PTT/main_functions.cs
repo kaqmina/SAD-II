@@ -28,5 +28,7 @@ namespace SAD_2_PTT
                 current_form.WindowState = FormWindowState.Normal;
         }
         #endregion
+
+
     }
 }

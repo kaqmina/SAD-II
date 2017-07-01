@@ -93,5 +93,32 @@
   <ItemGroup>
     <None Include="Resources\menu01.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-with-a-clock-time-tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-icon-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\membership_pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\device_pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\project_pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reports_pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-gears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

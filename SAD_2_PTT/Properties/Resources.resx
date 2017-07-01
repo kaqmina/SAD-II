@@ -124,10 +124,37 @@
   <data name="control_max" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\control_max.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="control_min" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\control_min.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="device_pwd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\device_pwd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menu01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar-with-a-clock-time-tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar-with-a-clock-time-tools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="project_pwd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\project_pwd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home-icon-silhouette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home-icon-silhouette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="membership_pwd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\membership_pwd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reports_pwd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reports_pwd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings-gears" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings-gears.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

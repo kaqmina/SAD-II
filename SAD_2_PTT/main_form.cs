@@ -50,14 +50,14 @@ namespace SAD_2_PTT
         {
             main_btn.btn_method(btn_current, btn_dashboard);
             btn_current = btn_dashboard;
-            //slide_in.Start();
+            slide_in.Start();
         }
 
         private void btn_pwd_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_pwd);
             btn_current = btn_pwd;
-            //slide_out.Start();
+            slide_out.Start();
         }
 
         private void btn_device_Click(object sender, EventArgs e)
@@ -95,12 +95,14 @@ namespace SAD_2_PTT
             btn_current = btn_dashboard;
             btn_dashboard_Click(sender, e);
             main_properties();
+            string date = DateTime.Now.ToString("MMMM dd, yyyy");
+            date_today.Text = date.ToUpper();
         }
 
         private void main_properties()
         {
             sidenav.Size = new Size(212, 608);
-            main_tab.Size = new Size(283, 608); //283, 608 <-- main_tab Size
+            main_tab.Size = new Size(71, 608); //283, 608 <-- main_tab Size
             side_tab.Size = new Size(71, 608);
         }
         #endregion
@@ -109,9 +111,9 @@ namespace SAD_2_PTT
 
         private void slide_out_Tick(object sender, EventArgs e)
         {
-            while (main_tab.Width != 283)
+            while (main_tab.Width <= 283)
             {
-                main_tab.Width++;
+                main_tab.Width = main_tab.Width + 3;
             }
 
             slide_out.Stop();
@@ -119,14 +121,47 @@ namespace SAD_2_PTT
 
         private void slide_in_Tick(object sender, EventArgs e)
         {
-            while (main_tab.Width != 71)
+            while (main_tab.Width >= 71)
             {
-                main_tab.Width--;
+                main_tab.Width = main_tab.Width - 3;
             }
 
             slide_in.Stop();
         }
+
+
         #endregion
+
+        #region FormDrag FD - 00
+        public Point mouseLocation;
+
+        public void dragdown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        public void dragmove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePos;
+            }
+        }
+
+        private void dboard_head_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragdown(sender, e);
+        }
+
+        private void dboard_head_MouseMove(object sender, MouseEventArgs e)
+        {
+            dragmove(sender, e);
+        }
+
+        #endregion
+
 
     }
 }
