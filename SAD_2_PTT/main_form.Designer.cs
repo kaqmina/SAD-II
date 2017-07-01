@@ -43,11 +43,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.date_today = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.heading1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dboard_head = new System.Windows.Forms.Panel();
+            this.lbl_name = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_profile = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.btn_device = new System.Windows.Forms.Button();
             this.btn_pwd = new System.Windows.Forms.Button();
             this.btn_dashboard = new System.Windows.Forms.Button();
-            this.lbl_name = new System.Windows.Forms.Label();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
@@ -219,17 +219,6 @@
             this.date_today.TabIndex = 9;
             this.date_today.Text = "TODAY";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label1.Location = new System.Drawing.Point(19, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "DBL";
-            // 
             // heading1
             // 
             this.heading1.AutoSize = true;
@@ -262,6 +251,17 @@
             this.dboard_head.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dboard_head_MouseDown);
             this.dboard_head.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dboard_head_MouseMove);
             // 
+            // lbl_name
+            // 
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.lbl_name.Location = new System.Drawing.Point(919, 16);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(72, 17);
+            this.lbl_name.TabIndex = 11;
+            this.lbl_name.Text = "Hi, ADMIN.";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -272,6 +272,18 @@
             this.label3.Size = new System.Drawing.Size(35, 37);
             this.label3.TabIndex = 11;
             this.label3.Text = "  ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label1.Image = global::SAD_2_PTT.Properties.Resources.dashboard;
+            this.label1.Location = new System.Drawing.Point(24, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 45);
+            this.label1.TabIndex = 4;
+            this.label1.Text = " ";
             // 
             // btn_profile
             // 
@@ -426,17 +438,6 @@
             this.btn_dashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_dashboard.UseVisualStyleBackColor = false;
             this.btn_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
-            // 
-            // lbl_name
-            // 
-            this.lbl_name.AutoSize = true;
-            this.lbl_name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.lbl_name.Location = new System.Drawing.Point(919, 16);
-            this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(72, 17);
-            this.lbl_name.TabIndex = 11;
-            this.lbl_name.Text = "Hi, ADMIN.";
             // 
             // main_form
             // 
