@@ -34,7 +34,7 @@ namespace SAD_2_PTT
 
         public void btn_deactivate(Button btn_current)
         {
-            btn_current.BackColor = System.Drawing.Color.Transparent;
+            btn_current.BackColor = System.Drawing.Color.Transparent; 
         }
         #endregion
     }

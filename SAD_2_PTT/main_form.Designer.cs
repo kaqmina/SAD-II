@@ -155,7 +155,7 @@
             this.sidenav.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidenav.Location = new System.Drawing.Point(71, 0);
             this.sidenav.Name = "sidenav";
-            this.sidenav.Size = new System.Drawing.Size(212, 608);
+            this.sidenav.Size = new System.Drawing.Size(194, 608);
             this.sidenav.TabIndex = 3;
             // 
             // side_tab
