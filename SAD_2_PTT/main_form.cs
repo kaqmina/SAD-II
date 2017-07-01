@@ -17,7 +17,7 @@ namespace SAD_2_PTT
             InitializeComponent();
         }
         main_functions main_func = new main_functions();
-        main_btn_active main_btn = new main_btn_active(this);
+        main_btn_active main_btn = new main_btn_active();
 
         #region FormControlBox CB - 00
         private void btn_close_Click(object sender, EventArgs e)
@@ -50,6 +50,7 @@ namespace SAD_2_PTT
         private void btn_dashboard_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_dashboard);
+            pnl_deactivate(btn_current.Name);
             btn_current = btn_dashboard;
             lbl_current_text("dashboard");
             main_btn.btn_dashboard = true;
@@ -59,6 +60,7 @@ namespace SAD_2_PTT
         private void btn_pwd_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_pwd);
+            pnl_deactivate(btn_current.Name);
             btn_current = btn_pwd;
             lbl_current_text("pwd");
             main_btn.btn_pwd = true;
@@ -68,6 +70,7 @@ namespace SAD_2_PTT
         private void btn_device_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_device);
+            pnl_deactivate(btn_current.Name);
             btn_current = btn_device;
             lbl_current_text("devices");
             main_btn.btn_device = true;
@@ -77,6 +80,7 @@ namespace SAD_2_PTT
         private void btn_projects_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_projects);
+            pnl_deactivate(btn_current.Name);
             btn_current = btn_projects;
             lbl_current_text("projects");
             main_btn.btn_project = true;
@@ -86,6 +90,7 @@ namespace SAD_2_PTT
         private void btn_reports_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_reports);
+            pnl_deactivate(btn_current.Name);
             btn_current = btn_reports;
             lbl_current_text("reports");
             main_btn.btn_report = true;
@@ -95,6 +100,7 @@ namespace SAD_2_PTT
         private void btn_settings_Click(object sender, EventArgs e)
         {
             main_btn.btn_method(btn_current, btn_settings);
+            pnl_deactivate(btn_current.Name);
             btn_current = btn_settings;
             lbl_current_text("settings");
             main_btn.btn_settings = true;
@@ -111,7 +117,7 @@ namespace SAD_2_PTT
             string date = DateTime.Now.ToString("MMMM dd, yyyy");
             date_today.Text = date.ToUpper();
             lbl_current_text("dashboard");
-            main_btn.reference_to_main = this;
+            
             
         }
 
@@ -188,30 +194,32 @@ namespace SAD_2_PTT
 
         #endregion
 
-        #region CurrentPanelHeading - 00
-        public void lbl_current_text(string current)
+        #region CurrentPanel - 00
+        public void lbl_current_text(string activate)
         {
-            if (current == "dashboard")
+            if (activate == "dashboard")
             {
                 lbl_current.Text = "PDAO Software";
+                pnl_dashboard.Visible = true;
             }
-            else if (current == "pwd")
+            else if (activate == "pwd")
             {
                 lbl_current.Text = "MEMBERSHIP";
+                pnl_pwd.Visible = true;
             }
-            else if (current == "devices")
+            else if (activate == "devices")
             {
                 lbl_current.Text = "ASSISTIVE DEVICE";
             }
-            else if (current == "projects")
+            else if (activate == "projects")
             {
                 lbl_current.Text = "PROJECTS";
             }
-            else if (current == "reports")
+            else if (activate == "reports")
             {
                 lbl_current.Text = "REPORTS";
             }
-            else if (current == "settings")
+            else if (activate == "settings")
             {
                 lbl_current.Text = "SETTINGS";
             }
@@ -220,7 +228,41 @@ namespace SAD_2_PTT
                 lbl_current.Text = " ";
             }
         }
+
+        private void pnl_deactivate(string deactivate)
+        {
+            if (deactivate == "btn_dashboard")
+            {
+                pnl_dashboard.Visible = false;
+            }
+            else if (deactivate == "btn_pwd")
+            {
+                pnl_pwd.Visible = false;
+            }
+            else if (deactivate == "btn_device")
+            {
+
+            }
+            else if (deactivate == "btn_project")
+            {
+
+            }
+            else if (deactivate == "btn_report")
+            {
+
+            }
+            else if (deactivate == "btn_settings")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
         #endregion
+
 
 
     }
