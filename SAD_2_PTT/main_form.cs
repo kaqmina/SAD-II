@@ -130,6 +130,7 @@ namespace SAD_2_PTT
             //location
             pnl_dashboard.Location = new Point(0, 50);
             pnl_pwd.Location = new Point(0, 50);
+            pnl_notif_pp.Location = new Point(767, 50);
         }
         #endregion
 
@@ -260,6 +261,7 @@ namespace SAD_2_PTT
         #endregion
 
         #region NotificationProfie NP - 123 //FIX PROFILE
+
         public bool pnl_n_pp = false;
 
         private void btn_notification_Click(object sender, EventArgs e)
@@ -277,7 +279,6 @@ namespace SAD_2_PTT
                 main_btn.btn_notif_pp_deactivate(btn_notification);
                 pnl_n_pp = false;
             }
-            
         }
 
         private void btn_notification_MouseHover(object sender, EventArgs e)
@@ -287,14 +288,15 @@ namespace SAD_2_PTT
 
         private void pnl_notif_pp_MouseLeave(object sender, EventArgs e)
         {
-            main_btn.btn_notif_pp_deactivate(btn_notification);
-            pnl_notif_pp.Visible = false;
-            pnl_n_pp = false;
+            //main_btn.btn_notif_pp_deactivate(btn_notification);
+            //btn_notification.Image = SAD_2_PTT.Properties.Resources.notification_deactivated;
+            //pnl_notif_pp.Visible = false;
+            //pnl_n_pp = false;
         }
 
         private void btn_profile_Click(object sender, EventArgs e) //FIX
         {
-            if (pnl_n_pp == false)
+            /*if (pnl_n_pp == false)
             {
                 pnl_notif_pp.Visible = true;
                 main_btn.btn_notif_pp_active(btn_profile);
@@ -305,7 +307,7 @@ namespace SAD_2_PTT
                 pnl_notif_pp.Visible = false;
                 main_btn.btn_notif_pp_deactivate(btn_profile);
                 pnl_n_pp = false;
-            }
+            }*/
         }
 
         #endregion
