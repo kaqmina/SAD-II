@@ -128,18 +128,24 @@ namespace SAD_2_PTT
             pnl_dashboard.Size = new Size(1069, 589);
             pnl_pwd.Size = new Size(1069, 589);
             pnl_notif_pp.Size = new Size(302, 233);
-            pnl_devices.Size = new Size(1069, 589); 
+            pnl_devices.Size = new Size(1069, 589);
+            pnl_projects.Size = new Size(1069, 589);
+            pnl_reports.Size = new Size(1069, 589);
 
             //visibility
             pnl_pwd.Visible = false;
             pnl_notif_pp.Visible = false;
             pnl_devices.Visible = false;
+            pnl_reports.Visible = false;
+            pnl_projects.Visible = false;
 
             //location
             pnl_dashboard.Location = new Point(0, 50);
             pnl_pwd.Location = new Point(0, 50);
             pnl_notif_pp.Location = new Point(767, 50);
             pnl_devices.Location = new Point(0, 50);
+            pnl_reports.Location = new Point(0, 50);
+            pnl_projects.Location = new Point(0, 50);
         }
         #endregion
 
@@ -219,10 +225,12 @@ namespace SAD_2_PTT
             else if (activate == "projects")
             {
                 lbl_current.Text = "PROJECTS";
+                pnl_projects.Visible = true;
             }
             else if (activate == "reports")
             {
                 lbl_current.Text = "REPORTS";
+                pnl_reports.Visible = true;
             }
             else if (activate == "settings")
             {

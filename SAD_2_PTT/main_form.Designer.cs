@@ -148,6 +148,9 @@
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
+            this.pnl_projects = new System.Windows.Forms.Panel();
+            this.pnl_reports = new System.Windows.Forms.Panel();
+            this.button31 = new System.Windows.Forms.Button();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
@@ -242,10 +245,12 @@
             // 
             this.main_content.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.main_content.Controls.Add(this.pnl_notif_pp);
-            this.main_content.Controls.Add(this.pnl_devices);
             this.main_content.Controls.Add(this.pnl_pwd);
             this.main_content.Controls.Add(this.pnl_dashboard);
+            this.main_content.Controls.Add(this.pnl_devices);
             this.main_content.Controls.Add(this.dboard_head);
+            this.main_content.Controls.Add(this.pnl_reports);
+            this.main_content.Controls.Add(this.pnl_projects);
             this.main_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_content.Location = new System.Drawing.Point(68, 0);
             this.main_content.Name = "main_content";
@@ -334,9 +339,9 @@
             this.pnl_devices.Controls.Add(this.panel11);
             this.pnl_devices.Controls.Add(this.pnl_devices_req_tab);
             this.pnl_devices.Controls.Add(this.panel13);
-            this.pnl_devices.Location = new System.Drawing.Point(0, 50);
+            this.pnl_devices.Location = new System.Drawing.Point(78, 50);
             this.pnl_devices.Name = "pnl_devices";
-            this.pnl_devices.Size = new System.Drawing.Size(1069, 589);
+            this.pnl_devices.Size = new System.Drawing.Size(991, 589);
             this.pnl_devices.TabIndex = 20;
             // 
             // label17
@@ -516,7 +521,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1069, 33);
+            this.panel13.Size = new System.Drawing.Size(991, 33);
             this.panel13.TabIndex = 0;
             // 
             // button19
@@ -539,14 +544,12 @@
             // 
             // pnl_pwd
             // 
-            this.pnl_pwd.Controls.Add(this.panel9);
             this.pnl_pwd.Controls.Add(this.panel8);
-            this.pnl_pwd.Controls.Add(this.label10);
             this.pnl_pwd.Controls.Add(this.panel2);
             this.pnl_pwd.Controls.Add(this.panel7);
-            this.pnl_pwd.Location = new System.Drawing.Point(122, 50);
+            this.pnl_pwd.Location = new System.Drawing.Point(0, 50);
             this.pnl_pwd.Name = "pnl_pwd";
-            this.pnl_pwd.Size = new System.Drawing.Size(947, 589);
+            this.pnl_pwd.Size = new System.Drawing.Size(1069, 589);
             this.pnl_pwd.TabIndex = 11;
             // 
             // panel9
@@ -554,7 +557,7 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.btn_pwd_search);
             this.panel9.Controls.Add(this.textBox1);
-            this.panel9.Location = new System.Drawing.Point(531, 47);
+            this.panel9.Location = new System.Drawing.Point(534, 43);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(251, 25);
             this.panel9.TabIndex = 19;
@@ -571,26 +574,27 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel8.Controls.Add(this.button31);
             this.panel8.Controls.Add(this.button14);
             this.panel8.Controls.Add(this.label14);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(681, 33);
+            this.panel8.Location = new System.Drawing.Point(803, 33);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(266, 556);
             this.panel8.TabIndex = 18;
             // 
             // button14
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.button14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button14.FlatAppearance.BorderSize = 0;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button14.Location = new System.Drawing.Point(133, 502);
+            this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button14.Location = new System.Drawing.Point(134, 511);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(115, 33);
+            this.button14.Size = new System.Drawing.Size(133, 43);
             this.button14.TabIndex = 24;
-            this.button14.Text = "Full View";
+            this.button14.Text = "VIEW MORE";
             this.button14.UseVisualStyleBackColor = false;
             // 
             // label14
@@ -609,7 +613,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label10.Location = new System.Drawing.Point(19, 44);
+            this.label10.Location = new System.Drawing.Point(11, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 30);
             this.label10.TabIndex = 17;
@@ -618,22 +622,25 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.list_pwd);
-            this.panel2.Location = new System.Drawing.Point(22, 87);
+            this.panel2.Location = new System.Drawing.Point(0, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 481);
+            this.panel2.Size = new System.Drawing.Size(796, 556);
             this.panel2.TabIndex = 16;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(166, 22);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label13.Location = new System.Drawing.Point(166, 50);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 13);
             this.label13.TabIndex = 26;
@@ -643,7 +650,7 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(141, 19);
+            this.button2.Location = new System.Drawing.Point(141, 47);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 25;
@@ -653,7 +660,8 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(101, 22);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label12.Location = new System.Drawing.Point(101, 50);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(32, 13);
             this.label12.TabIndex = 24;
@@ -663,7 +671,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(76, 19);
+            this.button1.Location = new System.Drawing.Point(76, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 23;
@@ -674,7 +682,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label11.Location = new System.Drawing.Point(13, 20);
+            this.label11.Location = new System.Drawing.Point(13, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 17);
             this.label11.TabIndex = 22;
@@ -684,9 +692,9 @@
             // 
             this.list_pwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.list_pwd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.list_pwd.Location = new System.Drawing.Point(13, 57);
+            this.list_pwd.Location = new System.Drawing.Point(11, 78);
             this.list_pwd.Name = "list_pwd";
-            this.list_pwd.Size = new System.Drawing.Size(734, 410);
+            this.list_pwd.Size = new System.Drawing.Size(775, 465);
             this.list_pwd.TabIndex = 0;
             // 
             // panel7
@@ -698,7 +706,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(947, 33);
+            this.panel7.Size = new System.Drawing.Size(1069, 33);
             this.panel7.TabIndex = 0;
             // 
             // button13
@@ -729,9 +737,9 @@
             this.pnl_dashboard.Controls.Add(this.panel1);
             this.pnl_dashboard.Controls.Add(this.panel6);
             this.pnl_dashboard.Controls.Add(this.panel3);
-            this.pnl_dashboard.Location = new System.Drawing.Point(0, 50);
+            this.pnl_dashboard.Location = new System.Drawing.Point(88, 50);
             this.pnl_dashboard.Name = "pnl_dashboard";
-            this.pnl_dashboard.Size = new System.Drawing.Size(1069, 589);
+            this.pnl_dashboard.Size = new System.Drawing.Size(981, 589);
             this.pnl_dashboard.TabIndex = 10;
             // 
             // panel5
@@ -1733,6 +1741,34 @@
             this.button30.Text = "Requests..";
             this.button30.UseVisualStyleBackColor = true;
             // 
+            // pnl_projects
+            // 
+            this.pnl_projects.Location = new System.Drawing.Point(78, 50);
+            this.pnl_projects.Name = "pnl_projects";
+            this.pnl_projects.Size = new System.Drawing.Size(991, 589);
+            this.pnl_projects.TabIndex = 21;
+            // 
+            // pnl_reports
+            // 
+            this.pnl_reports.Location = new System.Drawing.Point(78, 50);
+            this.pnl_reports.Name = "pnl_reports";
+            this.pnl_reports.Size = new System.Drawing.Size(991, 589);
+            this.pnl_reports.TabIndex = 22;
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button31.FlatAppearance.BorderSize = 0;
+            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button31.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button31.Location = new System.Drawing.Point(-1, 511);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(133, 43);
+            this.button31.TabIndex = 25;
+            this.button31.Text = "EDIT";
+            this.button31.UseVisualStyleBackColor = false;
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1757,7 +1793,6 @@
             this.pnl_devices_req_tab.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.pnl_pwd.ResumeLayout(false);
-            this.pnl_pwd.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -1904,6 +1939,9 @@
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Panel pnl_projects;
+        private System.Windows.Forms.Panel pnl_reports;
+        private System.Windows.Forms.Button button31;
     }
 }
 
