@@ -84,5 +84,11 @@ namespace testpanel
                 check--;
             }
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Form2 frm2 = new Form2();
+            frm2.ShowDialog();
+        }
     }
 }
