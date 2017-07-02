@@ -34,7 +34,6 @@
             this.sidenav = new System.Windows.Forms.Panel();
             this.side_tab = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
-            this.btn_profilepic = new System.Windows.Forms.Button();
             this.slide_in = new System.Windows.Forms.Timer(this.components);
             this.slide_out = new System.Windows.Forms.Timer(this.components);
             this.main_content = new System.Windows.Forms.Panel();
@@ -135,6 +134,20 @@
             this.btn_device = new System.Windows.Forms.Button();
             this.btn_pwd = new System.Windows.Forms.Button();
             this.btn_dashboard = new System.Windows.Forms.Button();
+            this.btn_profilepic = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
@@ -154,9 +167,11 @@
             this.pnl_dashboard.SuspendLayout();
             this.panel4.SuspendLayout();
             this.dash_statistics.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_tab
@@ -212,23 +227,6 @@
             this.button7.Size = new System.Drawing.Size(71, 55);
             this.button7.TabIndex = 10;
             this.button7.UseVisualStyleBackColor = false;
-            // 
-            // btn_profilepic
-            // 
-            this.btn_profilepic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(85)))), ((int)(((byte)(34)))));
-            this.btn_profilepic.BackgroundImage = global::SAD_2_PTT.Properties.Resources.TWICE_KK_01;
-            this.btn_profilepic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_profilepic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_profilepic.FlatAppearance.BorderSize = 0;
-            this.btn_profilepic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
-            this.btn_profilepic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(74)))), ((int)(((byte)(85)))));
-            this.btn_profilepic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_profilepic.Location = new System.Drawing.Point(0, 0);
-            this.btn_profilepic.Name = "btn_profilepic";
-            this.btn_profilepic.Size = new System.Drawing.Size(71, 50);
-            this.btn_profilepic.TabIndex = 4;
-            this.btn_profilepic.UseVisualStyleBackColor = false;
-            this.btn_profilepic.Click += new System.EventHandler(this.btn_profilepic_Click);
             // 
             // slide_in
             // 
@@ -731,9 +729,9 @@
             this.pnl_dashboard.Controls.Add(this.panel1);
             this.pnl_dashboard.Controls.Add(this.panel6);
             this.pnl_dashboard.Controls.Add(this.panel3);
-            this.pnl_dashboard.Location = new System.Drawing.Point(158, 50);
+            this.pnl_dashboard.Location = new System.Drawing.Point(0, 50);
             this.pnl_dashboard.Name = "pnl_dashboard";
-            this.pnl_dashboard.Size = new System.Drawing.Size(911, 589);
+            this.pnl_dashboard.Size = new System.Drawing.Size(1069, 589);
             this.pnl_dashboard.TabIndex = 10;
             // 
             // panel5
@@ -766,7 +764,7 @@
             this.button11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
             this.button11.Location = new System.Drawing.Point(0, 72);
             this.button11.Name = "button11";
@@ -780,7 +778,7 @@
             this.button10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
             this.button10.Location = new System.Drawing.Point(0, 123);
             this.button10.Name = "button10";
@@ -794,7 +792,7 @@
             this.button9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
             this.button9.Location = new System.Drawing.Point(0, 174);
             this.button9.Name = "button9";
@@ -808,7 +806,7 @@
             this.button8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
             this.button8.Location = new System.Drawing.Point(0, 225);
             this.button8.Name = "button8";
@@ -822,7 +820,7 @@
             this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
             this.button6.Location = new System.Drawing.Point(0, 276);
             this.button6.Name = "button6";
@@ -836,7 +834,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
-            this.linkLabel1.Location = new System.Drawing.Point(290, 22);
+            this.linkLabel1.Location = new System.Drawing.Point(290, 23);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(47, 13);
             this.linkLabel1.TabIndex = 23;
@@ -848,7 +846,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label9.Location = new System.Drawing.Point(139, 23);
+            this.label9.Location = new System.Drawing.Point(139, 24);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 13);
             this.label9.TabIndex = 22;
@@ -992,6 +990,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.panel10);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.label22);
             this.panel1.Location = new System.Drawing.Point(852, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(194, 502);
@@ -1080,11 +1081,13 @@
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBox2.Location = new System.Drawing.Point(-1, -1);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(217, 25);
             this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "  Search here..";
             // 
             // panel14
             // 
@@ -1533,6 +1536,203 @@
             this.btn_dashboard.UseVisualStyleBackColor = false;
             this.btn_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
             // 
+            // btn_profilepic
+            // 
+            this.btn_profilepic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(85)))), ((int)(((byte)(34)))));
+            this.btn_profilepic.BackgroundImage = global::SAD_2_PTT.Properties.Resources.TWICE_KK_01;
+            this.btn_profilepic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_profilepic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_profilepic.FlatAppearance.BorderSize = 0;
+            this.btn_profilepic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.btn_profilepic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(74)))), ((int)(((byte)(85)))));
+            this.btn_profilepic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_profilepic.Location = new System.Drawing.Point(0, 0);
+            this.btn_profilepic.Name = "btn_profilepic";
+            this.btn_profilepic.Size = new System.Drawing.Size(71, 50);
+            this.btn_profilepic.TabIndex = 4;
+            this.btn_profilepic.UseVisualStyleBackColor = false;
+            this.btn_profilepic.Click += new System.EventHandler(this.btn_profilepic_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label22.Location = new System.Drawing.Point(17, 17);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(85, 21);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "REQUESTS";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label24.Location = new System.Drawing.Point(103, 23);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(50, 13);
+            this.label24.TabIndex = 23;
+            this.label24.Text = "Pending";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel10.Controls.Add(this.button26);
+            this.panel10.Controls.Add(this.button27);
+            this.panel10.Controls.Add(this.button28);
+            this.panel10.Controls.Add(this.button29);
+            this.panel10.Controls.Add(this.button30);
+            this.panel10.Controls.Add(this.button21);
+            this.panel10.Controls.Add(this.button22);
+            this.panel10.Controls.Add(this.button23);
+            this.panel10.Controls.Add(this.button24);
+            this.panel10.Controls.Add(this.button25);
+            this.panel10.Location = new System.Drawing.Point(-6, 58);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(205, 412);
+            this.panel10.TabIndex = 24;
+            // 
+            // button21
+            // 
+            this.button21.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button21.FlatAppearance.BorderSize = 0;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button21.Location = new System.Drawing.Point(0, 157);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(205, 51);
+            this.button21.TabIndex = 33;
+            this.button21.Text = "Requests..";
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // button22
+            // 
+            this.button22.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button22.FlatAppearance.BorderSize = 0;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button22.Location = new System.Drawing.Point(0, 208);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(205, 51);
+            this.button22.TabIndex = 32;
+            this.button22.Text = "Requests..";
+            this.button22.UseVisualStyleBackColor = true;
+            // 
+            // button23
+            // 
+            this.button23.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button23.FlatAppearance.BorderSize = 0;
+            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button23.Location = new System.Drawing.Point(0, 259);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(205, 51);
+            this.button23.TabIndex = 31;
+            this.button23.Text = "Requests..";
+            this.button23.UseVisualStyleBackColor = true;
+            // 
+            // button24
+            // 
+            this.button24.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button24.FlatAppearance.BorderSize = 0;
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button24.Location = new System.Drawing.Point(0, 310);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(205, 51);
+            this.button24.TabIndex = 30;
+            this.button24.Text = "Requests..";
+            this.button24.UseVisualStyleBackColor = true;
+            // 
+            // button25
+            // 
+            this.button25.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button25.FlatAppearance.BorderSize = 0;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button25.Location = new System.Drawing.Point(0, 361);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(205, 51);
+            this.button25.TabIndex = 29;
+            this.button25.Text = "Requests..";
+            this.button25.UseVisualStyleBackColor = true;
+            // 
+            // button26
+            // 
+            this.button26.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button26.FlatAppearance.BorderSize = 0;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button26.Location = new System.Drawing.Point(0, -98);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(205, 51);
+            this.button26.TabIndex = 38;
+            this.button26.Text = "Project name here..";
+            this.button26.UseVisualStyleBackColor = true;
+            // 
+            // button27
+            // 
+            this.button27.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button27.FlatAppearance.BorderSize = 0;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button27.Location = new System.Drawing.Point(0, -47);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(205, 51);
+            this.button27.TabIndex = 37;
+            this.button27.Text = "Project name here..";
+            this.button27.UseVisualStyleBackColor = true;
+            // 
+            // button28
+            // 
+            this.button28.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button28.FlatAppearance.BorderSize = 0;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button28.Location = new System.Drawing.Point(0, 4);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(205, 51);
+            this.button28.TabIndex = 36;
+            this.button28.Text = "Requests..";
+            this.button28.UseVisualStyleBackColor = true;
+            // 
+            // button29
+            // 
+            this.button29.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button29.FlatAppearance.BorderSize = 0;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button29.Location = new System.Drawing.Point(0, 55);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(205, 51);
+            this.button29.TabIndex = 35;
+            this.button29.Text = "Requests..";
+            this.button29.UseVisualStyleBackColor = true;
+            // 
+            // button30
+            // 
+            this.button30.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button30.FlatAppearance.BorderSize = 0;
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
+            this.button30.Location = new System.Drawing.Point(0, 106);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(205, 51);
+            this.button30.TabIndex = 34;
+            this.button30.Text = "Requests..";
+            this.button30.UseVisualStyleBackColor = true;
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1572,12 +1772,15 @@
             this.panel4.PerformLayout();
             this.dash_statistics.ResumeLayout(false);
             this.dash_statistics.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.dboard_head.ResumeLayout(false);
             this.dboard_head.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1688,6 +1891,19 @@
         private System.Windows.Forms.Button pnl_devices_req_4;
         private System.Windows.Forms.Button pnl_devices_req_3;
         private System.Windows.Forms.Button pnl_devices_req_2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
     }
 }
 
