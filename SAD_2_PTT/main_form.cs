@@ -20,20 +20,12 @@ namespace SAD_2_PTT
         main_btn_active main_btn = new main_btn_active();
 
         #region FormControlBox CB - 00
+
         private void btn_close_Click(object sender, EventArgs e)
         {
             main_func.btn_close(this);
         }
 
-        private void btn_max_Click(object sender, EventArgs e)
-        {
-            main_func.btn_max(this);
-        }
-
-        private void btn_min_Click(object sender, EventArgs e)
-        {
-            main_func.btn_min(this);
-        }
         #endregion
 
         #region MainButtonActivation MB - 00 --> PP DB PWD DR PM RP ST
@@ -261,9 +253,46 @@ namespace SAD_2_PTT
             }
         }
 
+
+
         #endregion
 
+        #region NotificationProfie NP - 123
+        public bool pnl_n_pp = false;
 
+        private void btn_notification_Click(object sender, EventArgs e)
+        {
+            if(pnl_n_pp == false)
+            {
+                pnl_notif_pp.Visible = true;
+                main_btn.btn_notif_pp_active(btn_notification);
+                pnl_n_pp = true;
+            } else
+            {
+                pnl_notif_pp.Visible = false;
+                main_btn.btn_notif_pp_deactivate(btn_notification);
+                pnl_n_pp = false;
+            }
+            
+        }
 
+        private void btn_notification_MouseHover(object sender, EventArgs e)
+        {
+            btn_notification_Click(sender, e);
+        }
+
+        private void pnl_notif_pp_MouseLeave(object sender, EventArgs e)
+        {
+            main_btn.btn_notif_pp_deactivate(btn_notification);
+            pnl_notif_pp.Visible = false;
+            pnl_n_pp = false;
+        }
+
+        private void btn_notification_MouseLeave(object sender, EventArgs e)
+        {
+            pnl_notif_pp_MouseLeave(sender, e);
+        }
+
+        #endregion
     }
 }
