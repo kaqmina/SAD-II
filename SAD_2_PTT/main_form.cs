@@ -31,11 +31,11 @@ namespace SAD_2_PTT
         #region MainButtonActivation MB - 00 --> PP DB PWD DR PM RP ST
         public Button btn_current;
 
-        private void btn_profilepic_Click(object sender, EventArgs e)
+        private void btn_profilepic_Click(object sender, EventArgs e) //fix
         {
-            main_btn.btn_method(btn_current, btn_profilepic);
-            btn_current = btn_profilepic;
-            main_btn.btn_profilepic = true;
+            //main_btn.btn_method(btn_current, btn_profilepic);
+            //btn_current = btn_profilepic;
+            //main_btn.btn_profilepic = true;
             //slide_out.Start();
         }
 

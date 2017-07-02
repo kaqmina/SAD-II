@@ -56,9 +56,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btn_pwd_search = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.list_pwd = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_pwd_add = new System.Windows.Forms.Button();
@@ -103,6 +100,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btn_pwd_search = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
@@ -110,7 +110,6 @@
             this.pnl_pwd.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.list_pwd)).BeginInit();
             this.panel7.SuspendLayout();
             this.pnl_dashboard.SuspendLayout();
@@ -118,6 +117,7 @@
             this.dash_statistics.SuspendLayout();
             this.panel3.SuspendLayout();
             this.dboard_head.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_tab
@@ -371,6 +371,7 @@
             // 
             // pnl_pwd
             // 
+            this.pnl_pwd.Controls.Add(this.panel9);
             this.pnl_pwd.Controls.Add(this.panel8);
             this.pnl_pwd.Controls.Add(this.label10);
             this.pnl_pwd.Controls.Add(this.panel2);
@@ -420,7 +421,6 @@
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.list_pwd);
             this.panel2.Location = new System.Drawing.Point(22, 87);
             this.panel2.Name = "panel2";
@@ -431,7 +431,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(166, 21);
+            this.label13.Location = new System.Drawing.Point(166, 22);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 13);
             this.label13.TabIndex = 26;
@@ -441,7 +441,7 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(141, 18);
+            this.button2.Location = new System.Drawing.Point(141, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 25;
@@ -477,37 +477,6 @@
             this.label11.Size = new System.Drawing.Size(61, 17);
             this.label11.TabIndex = 22;
             this.label11.Text = "Filter by :";
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.btn_pwd_search);
-            this.panel9.Controls.Add(this.textBox1);
-            this.panel9.Location = new System.Drawing.Point(547, 18);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 25);
-            this.panel9.TabIndex = 2;
-            // 
-            // btn_pwd_search
-            // 
-            this.btn_pwd_search.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_pwd_search.FlatAppearance.BorderSize = 0;
-            this.btn_pwd_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pwd_search.Image = global::SAD_2_PTT.Properties.Resources.search;
-            this.btn_pwd_search.Location = new System.Drawing.Point(162, 0);
-            this.btn_pwd_search.Name = "btn_pwd_search";
-            this.btn_pwd_search.Size = new System.Drawing.Size(36, 23);
-            this.btn_pwd_search.TabIndex = 2;
-            this.btn_pwd_search.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(-1, -1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 25);
-            this.textBox1.TabIndex = 0;
             // 
             // list_pwd
             // 
@@ -1091,6 +1060,37 @@
             this.button12.Text = "There are no new notifications..";
             this.button12.UseVisualStyleBackColor = false;
             // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.btn_pwd_search);
+            this.panel9.Controls.Add(this.textBox1);
+            this.panel9.Location = new System.Drawing.Point(531, 47);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(251, 25);
+            this.panel9.TabIndex = 19;
+            // 
+            // btn_pwd_search
+            // 
+            this.btn_pwd_search.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_pwd_search.FlatAppearance.BorderSize = 0;
+            this.btn_pwd_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pwd_search.Image = global::SAD_2_PTT.Properties.Resources.search;
+            this.btn_pwd_search.Location = new System.Drawing.Point(217, 0);
+            this.btn_pwd_search.Name = "btn_pwd_search";
+            this.btn_pwd_search.Size = new System.Drawing.Size(32, 23);
+            this.btn_pwd_search.TabIndex = 2;
+            this.btn_pwd_search.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(-1, -1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(217, 25);
+            this.textBox1.TabIndex = 0;
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1112,8 +1112,6 @@
             this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.list_pwd)).EndInit();
             this.panel7.ResumeLayout(false);
             this.pnl_dashboard.ResumeLayout(false);
@@ -1126,6 +1124,8 @@
             this.panel3.PerformLayout();
             this.dboard_head.ResumeLayout(false);
             this.dboard_head.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1188,9 +1188,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView list_pwd;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button btn_pwd_search;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label12;
@@ -1204,6 +1201,9 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btn_pwd_search;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
