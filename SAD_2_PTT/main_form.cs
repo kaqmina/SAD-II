@@ -122,15 +122,18 @@ namespace SAD_2_PTT
             pnl_dashboard.Size = new Size(1069, 589);
             pnl_pwd.Size = new Size(1069, 589);
             pnl_notif_pp.Size = new Size(302, 233);
+            pnl_devices.Size = new Size(1069, 589); 
 
             //visibility
             pnl_pwd.Visible = false;
             pnl_notif_pp.Visible = false;
+            pnl_devices.Visible = false;
 
             //location
             pnl_dashboard.Location = new Point(0, 50);
             pnl_pwd.Location = new Point(0, 50);
             pnl_notif_pp.Location = new Point(767, 50);
+            pnl_devices.Location = new Point(0, 50);
         }
         #endregion
 
@@ -205,6 +208,7 @@ namespace SAD_2_PTT
             else if (activate == "devices")
             {
                 lbl_current.Text = "ASSISTIVE DEVICE";
+                pnl_devices.Visible = true;
             }
             else if (activate == "projects")
             {
@@ -236,7 +240,7 @@ namespace SAD_2_PTT
             }
             else if (deactivate == "btn_device")
             {
-
+                pnl_devices.Visible = false;
             }
             else if (deactivate == "btn_project")
             {

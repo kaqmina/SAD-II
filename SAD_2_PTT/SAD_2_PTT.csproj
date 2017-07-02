@@ -168,5 +168,17 @@
   <ItemGroup>
     <None Include="Resources\notification-bell_active.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skyline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crutches.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disabled.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
