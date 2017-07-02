@@ -375,9 +375,9 @@
             this.pnl_pwd.Controls.Add(this.label10);
             this.pnl_pwd.Controls.Add(this.panel2);
             this.pnl_pwd.Controls.Add(this.panel7);
-            this.pnl_pwd.Location = new System.Drawing.Point(72, 50);
+            this.pnl_pwd.Location = new System.Drawing.Point(0, 50);
             this.pnl_pwd.Name = "pnl_pwd";
-            this.pnl_pwd.Size = new System.Drawing.Size(994, 589);
+            this.pnl_pwd.Size = new System.Drawing.Size(1066, 589);
             this.pnl_pwd.TabIndex = 11;
             // 
             // panel8
@@ -385,7 +385,7 @@
             this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel8.Controls.Add(this.label14);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(728, 33);
+            this.panel8.Location = new System.Drawing.Point(800, 33);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(266, 556);
             this.panel8.TabIndex = 18;
@@ -480,6 +480,7 @@
             // 
             // panel9
             // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.btn_pwd_search);
             this.panel9.Controls.Add(this.textBox1);
             this.panel9.Location = new System.Drawing.Point(547, 18);
@@ -489,24 +490,23 @@
             // 
             // btn_pwd_search
             // 
-            this.btn_pwd_search.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_pwd_search.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_pwd_search.FlatAppearance.BorderSize = 0;
             this.btn_pwd_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pwd_search.Image = global::SAD_2_PTT.Properties.Resources.search;
-            this.btn_pwd_search.Location = new System.Drawing.Point(173, 0);
+            this.btn_pwd_search.Location = new System.Drawing.Point(162, 0);
             this.btn_pwd_search.Name = "btn_pwd_search";
-            this.btn_pwd_search.Size = new System.Drawing.Size(30, 25);
+            this.btn_pwd_search.Size = new System.Drawing.Size(36, 23);
             this.btn_pwd_search.TabIndex = 2;
             this.btn_pwd_search.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Location = new System.Drawing.Point(-1, -1);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 25);
+            this.textBox1.Size = new System.Drawing.Size(163, 25);
             this.textBox1.TabIndex = 0;
             // 
             // list_pwd
@@ -527,7 +527,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(994, 33);
+            this.panel7.Size = new System.Drawing.Size(1066, 33);
             this.panel7.TabIndex = 0;
             // 
             // btn_pwd_add
