@@ -121,9 +121,11 @@ namespace SAD_2_PTT
             side_tab.Size = new Size(71, 608); //1069, 589 <-- panels
             pnl_dashboard.Size = new Size(1069, 589);
             pnl_pwd.Size = new Size(1069, 589);
+            pnl_notif_pp.Size = new Size(302, 233);
 
             //visibility
             pnl_pwd.Visible = false;
+            pnl_notif_pp.Visible = false;
 
             //location
             pnl_dashboard.Location = new Point(0, 50);
@@ -257,7 +259,7 @@ namespace SAD_2_PTT
 
         #endregion
 
-        #region NotificationProfie NP - 123
+        #region NotificationProfie NP - 123 //FIX PROFILE
         public bool pnl_n_pp = false;
 
         private void btn_notification_Click(object sender, EventArgs e)
@@ -265,11 +267,13 @@ namespace SAD_2_PTT
             if(pnl_n_pp == false)
             {
                 pnl_notif_pp.Visible = true;
+                btn_notification.Image = SAD_2_PTT.Properties.Resources.notification_bell_active;
                 main_btn.btn_notif_pp_active(btn_notification);
                 pnl_n_pp = true;
             } else
             {
                 pnl_notif_pp.Visible = false;
+                btn_notification.Image = SAD_2_PTT.Properties.Resources.notification_deactivated;
                 main_btn.btn_notif_pp_deactivate(btn_notification);
                 pnl_n_pp = false;
             }
@@ -288,11 +292,26 @@ namespace SAD_2_PTT
             pnl_n_pp = false;
         }
 
-        private void btn_notification_MouseLeave(object sender, EventArgs e)
+        private void btn_profile_Click(object sender, EventArgs e) //FIX
         {
-            pnl_notif_pp_MouseLeave(sender, e);
+            if (pnl_n_pp == false)
+            {
+                pnl_notif_pp.Visible = true;
+                main_btn.btn_notif_pp_active(btn_profile);
+                pnl_n_pp = true;
+            }
+            else
+            {
+                pnl_notif_pp.Visible = false;
+                main_btn.btn_notif_pp_deactivate(btn_profile);
+                pnl_n_pp = false;
+            }
         }
 
         #endregion
+
+
+
+
     }
 }
