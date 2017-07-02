@@ -966,6 +966,7 @@
             this.btn_profile.Size = new System.Drawing.Size(50, 50);
             this.btn_profile.TabIndex = 15;
             this.btn_profile.UseVisualStyleBackColor = false;
+            this.btn_profile.Click += new System.EventHandler(this.btn_profile_Click);
             // 
             // btn_notification
             // 
@@ -983,7 +984,6 @@
             this.btn_notification.TabIndex = 14;
             this.btn_notification.UseVisualStyleBackColor = false;
             this.btn_notification.Click += new System.EventHandler(this.btn_notification_Click);
-            this.btn_notification.MouseLeave += new System.EventHandler(this.btn_notification_MouseLeave);
             this.btn_notification.MouseHover += new System.EventHandler(this.btn_notification_MouseHover);
             // 
             // btn_close

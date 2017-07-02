@@ -48,19 +48,17 @@ namespace SAD_2_PTT
 
         public void btn_notif_pp_active(Button btn)
         {
-            btn.Image = SAD_2_PTT.Properties.Resources.notification_bell_active;
             btn.BackColor = System.Drawing.Color.FromArgb(49, 53, 65);
             
         }
 
         public void btn_notif_pp_deactivate(Button btn)
         {
-            btn.Image = SAD_2_PTT.Properties.Resources.notification_deactivated;
             btn.BackColor = System.Drawing.Color.Transparent;
-            
         }
 
         #endregion
+
 
     }
 }
