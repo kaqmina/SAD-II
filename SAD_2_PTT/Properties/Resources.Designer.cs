@@ -73,6 +73,16 @@ namespace SAD_2_PTT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BLACKPINK_01 {
+            get {
+                object obj = ResourceManager.GetObject("BLACKPINK_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
@@ -316,6 +326,26 @@ namespace SAD_2_PTT.Properties {
         internal static System.Drawing.Bitmap skyline {
             get {
                 object obj = ResourceManager.GetObject("skyline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TWICE_KK_01 {
+            get {
+                object obj = ResourceManager.GetObject("TWICE_KK_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TWICE_SG_01 {
+            get {
+                object obj = ResourceManager.GetObject("TWICE_SG_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

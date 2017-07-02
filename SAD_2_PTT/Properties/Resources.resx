@@ -199,4 +199,13 @@
   <data name="skyline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\skyline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BLACKPINK_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BLACKPINK_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TWICE_KK_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TWICE_KK_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TWICE_SG_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TWICE_SG_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

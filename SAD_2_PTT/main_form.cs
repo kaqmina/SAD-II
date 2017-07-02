@@ -46,6 +46,8 @@ namespace SAD_2_PTT
             btn_current = btn_dashboard;
             lbl_current_text("dashboard");
             main_btn.btn_dashboard = true;
+            btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_KK_01;
+            btn_profilepic.BackColor = Color.FromArgb(235, 85, 34);
             //slide_in.Start();
         }
 
@@ -56,6 +58,8 @@ namespace SAD_2_PTT
             btn_current = btn_pwd;
             lbl_current_text("pwd");
             main_btn.btn_pwd = true;
+            btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_SG_01;
+            btn_profilepic.BackColor = Color.FromArgb(10, 32, 81);
             //slide_out.Start();
         }
 
@@ -66,6 +70,8 @@ namespace SAD_2_PTT
             btn_current = btn_device;
             lbl_current_text("devices");
             main_btn.btn_device = true;
+            btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.BLACKPINK_01;
+            btn_profilepic.BackColor = Color.FromArgb(0, 0, 0);
             //slide_out.Start();
         }
 

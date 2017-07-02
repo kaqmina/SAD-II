@@ -180,5 +180,14 @@
   <ItemGroup>
     <None Include="Resources\disabled.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TWICE_KK_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TWICE_SG_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BLACKPINK_01.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

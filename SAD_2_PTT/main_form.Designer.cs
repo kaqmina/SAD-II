@@ -39,8 +39,33 @@
             this.slide_out = new System.Windows.Forms.Timer(this.components);
             this.main_content = new System.Windows.Forms.Panel();
             this.pnl_notif_pp = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pnl_devices = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.pnl_devices_lbl_overall = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.pnl_devices_lbl_perthismonth = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.pnl_devices_lbl_perlastmonth = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pnl_devices_req_tab = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button19 = new System.Windows.Forms.Button();
             this.pnl_pwd = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button14 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -80,13 +105,19 @@
             this.dboard_head = new System.Windows.Forms.Panel();
             this.lbl_current = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button14 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.pnl_devices_req_1 = new System.Windows.Forms.Button();
+            this.pnl_devices_req_2 = new System.Windows.Forms.Button();
+            this.pnl_devices_req_3 = new System.Windows.Forms.Button();
+            this.pnl_devices_req_4 = new System.Windows.Forms.Button();
+            this.pnl_devices_req_5 = new System.Windows.Forms.Button();
+            this.pnl_devices_req_6 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
             this.btn_pwd_search = new System.Windows.Forms.Button();
             this.btn_pwd_add = new System.Windows.Forms.Button();
             this.btn_pwd_view = new System.Windows.Forms.Button();
@@ -104,33 +135,18 @@
             this.btn_device = new System.Windows.Forms.Button();
             this.btn_pwd = new System.Windows.Forms.Button();
             this.btn_dashboard = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pnl_devices = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.pnl_devices_lbl_perlastmonth = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
             this.pnl_notif_pp.SuspendLayout();
+            this.pnl_devices.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnl_devices_req_tab.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.pnl_pwd.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.list_pwd)).BeginInit();
@@ -140,12 +156,7 @@
             this.dash_statistics.SuspendLayout();
             this.panel3.SuspendLayout();
             this.dboard_head.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel11.SuspendLayout();
-            this.pnl_devices.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_tab
@@ -204,8 +215,9 @@
             // 
             // btn_profilepic
             // 
-            this.btn_profilepic.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_profilepic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_profilepic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(85)))), ((int)(((byte)(34)))));
+            this.btn_profilepic.BackgroundImage = global::SAD_2_PTT.Properties.Resources.TWICE_KK_01;
+            this.btn_profilepic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_profilepic.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_profilepic.FlatAppearance.BorderSize = 0;
             this.btn_profilepic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
@@ -215,7 +227,6 @@
             this.btn_profilepic.Name = "btn_profilepic";
             this.btn_profilepic.Size = new System.Drawing.Size(71, 50);
             this.btn_profilepic.TabIndex = 4;
-            this.btn_profilepic.Text = "TWICE";
             this.btn_profilepic.UseVisualStyleBackColor = false;
             this.btn_profilepic.Click += new System.EventHandler(this.btn_profilepic_Click);
             // 
@@ -258,6 +269,276 @@
             this.pnl_notif_pp.Visible = false;
             this.pnl_notif_pp.MouseLeave += new System.EventHandler(this.pnl_notif_pp_MouseLeave);
             // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.White;
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button12.Location = new System.Drawing.Point(1, 177);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(297, 55);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "There are no new notifications..";
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button5.Location = new System.Drawing.Point(1, 123);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(297, 55);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "There are no new notifications..";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button4.Location = new System.Drawing.Point(1, 69);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(297, 55);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "There are no new notifications..";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button3.Location = new System.Drawing.Point(1, 15);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(297, 55);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "There are no new notifications..";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // pnl_devices
+            // 
+            this.pnl_devices.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pnl_devices.Controls.Add(this.label17);
+            this.pnl_devices.Controls.Add(this.label15);
+            this.pnl_devices.Controls.Add(this.label18);
+            this.pnl_devices.Controls.Add(this.label16);
+            this.pnl_devices.Controls.Add(this.panel12);
+            this.pnl_devices.Controls.Add(this.panel11);
+            this.pnl_devices.Controls.Add(this.pnl_devices_req_tab);
+            this.pnl_devices.Controls.Add(this.panel13);
+            this.pnl_devices.Location = new System.Drawing.Point(0, 50);
+            this.pnl_devices.Name = "pnl_devices";
+            this.pnl_devices.Size = new System.Drawing.Size(1069, 589);
+            this.pnl_devices.TabIndex = 20;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(359, 62);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(156, 13);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "Handed out Assistive Devices";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(125, 62);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 13);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Pending";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label18.Location = new System.Drawing.Point(266, 49);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(96, 30);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "HISTORY";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label16.Location = new System.Drawing.Point(16, 49);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(111, 30);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "REQUESTS";
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel12.Controls.Add(this.pnl_devices_lbl_overall);
+            this.panel12.Controls.Add(this.label23);
+            this.panel12.Controls.Add(this.pnl_devices_lbl_perthismonth);
+            this.panel12.Controls.Add(this.label21);
+            this.panel12.Controls.Add(this.pnl_devices_lbl_perlastmonth);
+            this.panel12.Controls.Add(this.label20);
+            this.panel12.Controls.Add(this.label19);
+            this.panel12.Location = new System.Drawing.Point(21, 506);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1027, 61);
+            this.panel12.TabIndex = 19;
+            // 
+            // pnl_devices_lbl_overall
+            // 
+            this.pnl_devices_lbl_overall.AutoSize = true;
+            this.pnl_devices_lbl_overall.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_lbl_overall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.pnl_devices_lbl_overall.Location = new System.Drawing.Point(635, 17);
+            this.pnl_devices_lbl_overall.Name = "pnl_devices_lbl_overall";
+            this.pnl_devices_lbl_overall.Size = new System.Drawing.Size(79, 30);
+            this.pnl_devices_lbl_overall.TabIndex = 33;
+            this.pnl_devices_lbl_overall.Text = "21, 111";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label23.Location = new System.Drawing.Point(522, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(116, 30);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "OVERALL : ";
+            // 
+            // pnl_devices_lbl_perthismonth
+            // 
+            this.pnl_devices_lbl_perthismonth.AutoSize = true;
+            this.pnl_devices_lbl_perthismonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_lbl_perthismonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.pnl_devices_lbl_perthismonth.Location = new System.Drawing.Point(423, 16);
+            this.pnl_devices_lbl_perthismonth.Name = "pnl_devices_lbl_perthismonth";
+            this.pnl_devices_lbl_perthismonth.Size = new System.Drawing.Size(35, 30);
+            this.pnl_devices_lbl_perthismonth.TabIndex = 32;
+            this.pnl_devices_lbl_perthismonth.Text = "95";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label21.Location = new System.Drawing.Point(273, 16);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(156, 30);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "THIS MONTH : ";
+            // 
+            // pnl_devices_lbl_perlastmonth
+            // 
+            this.pnl_devices_lbl_perlastmonth.AutoSize = true;
+            this.pnl_devices_lbl_perlastmonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_lbl_perlastmonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.pnl_devices_lbl_perlastmonth.Location = new System.Drawing.Point(164, 16);
+            this.pnl_devices_lbl_perlastmonth.Name = "pnl_devices_lbl_perlastmonth";
+            this.pnl_devices_lbl_perlastmonth.Size = new System.Drawing.Size(35, 30);
+            this.pnl_devices_lbl_perlastmonth.TabIndex = 30;
+            this.pnl_devices_lbl_perlastmonth.Text = "70";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(15, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(111, 13);
+            this.label20.TabIndex = 29;
+            this.label20.Text = "No. of Devices given";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label19.Location = new System.Drawing.Point(12, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(154, 30);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "LAST MONTH :";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel11.Controls.Add(this.panel14);
+            this.panel11.Controls.Add(this.dataGridView1);
+            this.panel11.Location = new System.Drawing.Point(271, 92);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(777, 393);
+            this.panel11.TabIndex = 18;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(14, 56);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(747, 321);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // pnl_devices_req_tab
+            // 
+            this.pnl_devices_req_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.pnl_devices_req_tab.Controls.Add(this.pnl_devices_req_6);
+            this.pnl_devices_req_tab.Controls.Add(this.pnl_devices_req_5);
+            this.pnl_devices_req_tab.Controls.Add(this.pnl_devices_req_4);
+            this.pnl_devices_req_tab.Controls.Add(this.pnl_devices_req_3);
+            this.pnl_devices_req_tab.Controls.Add(this.pnl_devices_req_2);
+            this.pnl_devices_req_tab.Controls.Add(this.pnl_devices_req_1);
+            this.pnl_devices_req_tab.Location = new System.Drawing.Point(21, 92);
+            this.pnl_devices_req_tab.Name = "pnl_devices_req_tab";
+            this.pnl_devices_req_tab.Size = new System.Drawing.Size(228, 393);
+            this.pnl_devices_req_tab.TabIndex = 17;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.panel13.Controls.Add(this.button15);
+            this.panel13.Controls.Add(this.button16);
+            this.panel13.Controls.Add(this.button17);
+            this.panel13.Controls.Add(this.button18);
+            this.panel13.Controls.Add(this.button19);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1069, 33);
+            this.panel13.TabIndex = 0;
+            // 
+            // button19
+            // 
+            this.button19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button19.FlatAppearance.BorderSize = 0;
+            this.button19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button19.Location = new System.Drawing.Point(0, 0);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(82, 33);
+            this.button19.TabIndex = 2;
+            this.button19.Text = "QUICKLINKS";
+            this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button19.UseVisualStyleBackColor = true;
+            // 
             // pnl_pwd
             // 
             this.pnl_pwd.Controls.Add(this.panel9);
@@ -265,10 +546,29 @@
             this.pnl_pwd.Controls.Add(this.label10);
             this.pnl_pwd.Controls.Add(this.panel2);
             this.pnl_pwd.Controls.Add(this.panel7);
-            this.pnl_pwd.Location = new System.Drawing.Point(127, 50);
+            this.pnl_pwd.Location = new System.Drawing.Point(122, 50);
             this.pnl_pwd.Name = "pnl_pwd";
-            this.pnl_pwd.Size = new System.Drawing.Size(942, 589);
+            this.pnl_pwd.Size = new System.Drawing.Size(947, 589);
             this.pnl_pwd.TabIndex = 11;
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.btn_pwd_search);
+            this.panel9.Controls.Add(this.textBox1);
+            this.panel9.Location = new System.Drawing.Point(531, 47);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(251, 25);
+            this.panel9.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(-1, -1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(217, 25);
+            this.textBox1.TabIndex = 0;
             // 
             // panel8
             // 
@@ -276,10 +576,24 @@
             this.panel8.Controls.Add(this.button14);
             this.panel8.Controls.Add(this.label14);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(676, 33);
+            this.panel8.Location = new System.Drawing.Point(681, 33);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(266, 556);
             this.panel8.TabIndex = 18;
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button14.Location = new System.Drawing.Point(133, 502);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(115, 33);
+            this.button14.TabIndex = 24;
+            this.button14.Text = "Full View";
+            this.button14.UseVisualStyleBackColor = false;
             // 
             // label14
             // 
@@ -386,7 +700,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(942, 33);
+            this.panel7.Size = new System.Drawing.Size(947, 33);
             this.panel7.TabIndex = 0;
             // 
             // button13
@@ -600,9 +914,9 @@
             this.btn_dashboard_stat4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dashboard_stat4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_dashboard_stat4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_dashboard_stat4.Location = new System.Drawing.Point(162, 157);
+            this.btn_dashboard_stat4.Location = new System.Drawing.Point(162, 158);
             this.btn_dashboard_stat4.Name = "btn_dashboard_stat4";
-            this.btn_dashboard_stat4.Size = new System.Drawing.Size(137, 80);
+            this.btn_dashboard_stat4.Size = new System.Drawing.Size(136, 80);
             this.btn_dashboard_stat4.TabIndex = 24;
             this.btn_dashboard_stat4.Text = "Learning";
             this.btn_dashboard_stat4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -763,94 +1077,178 @@
             this.lbl_name.TabIndex = 11;
             this.lbl_name.Text = "Hi, ADMIN.";
             // 
-            // button3
+            // textBox2
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button3.Location = new System.Drawing.Point(1, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(297, 55);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "There are no new notifications..";
-            this.button3.UseVisualStyleBackColor = false;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(-1, -1);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(217, 25);
+            this.textBox2.TabIndex = 0;
             // 
-            // button4
+            // panel14
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button4.Location = new System.Drawing.Point(1, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(297, 55);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "There are no new notifications..";
-            this.button4.UseVisualStyleBackColor = false;
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel14.Controls.Add(this.button20);
+            this.panel14.Controls.Add(this.textBox2);
+            this.panel14.Location = new System.Drawing.Point(510, 17);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(251, 25);
+            this.panel14.TabIndex = 29;
             // 
-            // button5
+            // pnl_devices_req_1
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button5.Location = new System.Drawing.Point(1, 123);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(297, 55);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "There are no new notifications..";
-            this.button5.UseVisualStyleBackColor = false;
+            this.pnl_devices_req_1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_devices_req_1.FlatAppearance.BorderSize = 0;
+            this.pnl_devices_req_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnl_devices_req_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_req_1.Location = new System.Drawing.Point(-5, 41);
+            this.pnl_devices_req_1.Name = "pnl_devices_req_1";
+            this.pnl_devices_req_1.Size = new System.Drawing.Size(240, 53);
+            this.pnl_devices_req_1.TabIndex = 0;
+            this.pnl_devices_req_1.Text = "Pending Request #1";
+            this.pnl_devices_req_1.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // pnl_devices_req_2
             // 
-            this.button12.BackColor = System.Drawing.Color.White;
-            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button12.Location = new System.Drawing.Point(1, 177);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(297, 55);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "There are no new notifications..";
-            this.button12.UseVisualStyleBackColor = false;
+            this.pnl_devices_req_2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_devices_req_2.FlatAppearance.BorderSize = 0;
+            this.pnl_devices_req_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnl_devices_req_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_req_2.Location = new System.Drawing.Point(-5, 92);
+            this.pnl_devices_req_2.Name = "pnl_devices_req_2";
+            this.pnl_devices_req_2.Size = new System.Drawing.Size(240, 53);
+            this.pnl_devices_req_2.TabIndex = 1;
+            this.pnl_devices_req_2.Text = "Pending Request #2";
+            this.pnl_devices_req_2.UseVisualStyleBackColor = false;
             // 
-            // panel9
+            // pnl_devices_req_3
             // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.btn_pwd_search);
-            this.panel9.Controls.Add(this.textBox1);
-            this.panel9.Location = new System.Drawing.Point(531, 47);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(251, 25);
-            this.panel9.TabIndex = 19;
+            this.pnl_devices_req_3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_devices_req_3.FlatAppearance.BorderSize = 0;
+            this.pnl_devices_req_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnl_devices_req_3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_req_3.Location = new System.Drawing.Point(-6, 144);
+            this.pnl_devices_req_3.Name = "pnl_devices_req_3";
+            this.pnl_devices_req_3.Size = new System.Drawing.Size(240, 53);
+            this.pnl_devices_req_3.TabIndex = 2;
+            this.pnl_devices_req_3.Text = "Pending Request #3";
+            this.pnl_devices_req_3.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // pnl_devices_req_4
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(-1, -1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 25);
-            this.textBox1.TabIndex = 0;
+            this.pnl_devices_req_4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_devices_req_4.FlatAppearance.BorderSize = 0;
+            this.pnl_devices_req_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnl_devices_req_4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_req_4.Location = new System.Drawing.Point(-6, 196);
+            this.pnl_devices_req_4.Name = "pnl_devices_req_4";
+            this.pnl_devices_req_4.Size = new System.Drawing.Size(240, 53);
+            this.pnl_devices_req_4.TabIndex = 3;
+            this.pnl_devices_req_4.Text = "Pending Request #4";
+            this.pnl_devices_req_4.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // pnl_devices_req_5
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button14.Location = new System.Drawing.Point(133, 502);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(115, 33);
-            this.button14.TabIndex = 24;
-            this.button14.Text = "Full View";
-            this.button14.UseVisualStyleBackColor = false;
+            this.pnl_devices_req_5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_devices_req_5.FlatAppearance.BorderSize = 0;
+            this.pnl_devices_req_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnl_devices_req_5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_req_5.Location = new System.Drawing.Point(-5, 248);
+            this.pnl_devices_req_5.Name = "pnl_devices_req_5";
+            this.pnl_devices_req_5.Size = new System.Drawing.Size(240, 53);
+            this.pnl_devices_req_5.TabIndex = 4;
+            this.pnl_devices_req_5.Text = "Pending Request #5";
+            this.pnl_devices_req_5.UseVisualStyleBackColor = false;
+            // 
+            // pnl_devices_req_6
+            // 
+            this.pnl_devices_req_6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_devices_req_6.FlatAppearance.BorderSize = 0;
+            this.pnl_devices_req_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnl_devices_req_6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_devices_req_6.Location = new System.Drawing.Point(-5, 300);
+            this.pnl_devices_req_6.Name = "pnl_devices_req_6";
+            this.pnl_devices_req_6.Size = new System.Drawing.Size(240, 53);
+            this.pnl_devices_req_6.TabIndex = 5;
+            this.pnl_devices_req_6.Text = "Pending Request #6";
+            this.pnl_devices_req_6.UseVisualStyleBackColor = false;
+            // 
+            // button20
+            // 
+            this.button20.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button20.FlatAppearance.BorderSize = 0;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Image = global::SAD_2_PTT.Properties.Resources.search;
+            this.button20.Location = new System.Drawing.Point(217, 0);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(32, 23);
+            this.button20.TabIndex = 2;
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button15.Image = global::SAD_2_PTT.Properties.Resources.disabled;
+            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button15.Location = new System.Drawing.Point(420, 0);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(108, 33);
+            this.button15.TabIndex = 6;
+            this.button15.Text = "Disability";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button16.Image = global::SAD_2_PTT.Properties.Resources.skyline;
+            this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button16.Location = new System.Drawing.Point(305, 0);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(115, 33);
+            this.button16.TabIndex = 5;
+            this.button16.Text = "Providers";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button17.Image = global::SAD_2_PTT.Properties.Resources.crutches;
+            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button17.Location = new System.Drawing.Point(190, 0);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(115, 33);
+            this.button17.TabIndex = 4;
+            this.button17.Text = "Devices";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            this.button18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button18.Image = global::SAD_2_PTT.Properties.Resources.history;
+            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button18.Location = new System.Drawing.Point(82, 0);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(108, 33);
+            this.button18.TabIndex = 3;
+            this.button18.Text = "History";
+            this.button18.UseVisualStyleBackColor = true;
             // 
             // btn_pwd_search
             // 
@@ -1135,277 +1533,6 @@
             this.btn_dashboard.UseVisualStyleBackColor = false;
             this.btn_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(125, 62);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 13);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Pending";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label16.Location = new System.Drawing.Point(16, 49);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(111, 30);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "REQUESTS";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel10.Location = new System.Drawing.Point(21, 92);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(228, 393);
-            this.panel10.TabIndex = 17;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 56);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 321);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(359, 62);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(156, 13);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "Handed out Assistive Devices";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label18.Location = new System.Drawing.Point(266, 49);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(96, 30);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "HISTORY";
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel11.Controls.Add(this.dataGridView1);
-            this.panel11.Location = new System.Drawing.Point(271, 92);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(777, 393);
-            this.panel11.TabIndex = 18;
-            // 
-            // pnl_devices
-            // 
-            this.pnl_devices.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pnl_devices.Controls.Add(this.label17);
-            this.pnl_devices.Controls.Add(this.label15);
-            this.pnl_devices.Controls.Add(this.label18);
-            this.pnl_devices.Controls.Add(this.label16);
-            this.pnl_devices.Controls.Add(this.panel12);
-            this.pnl_devices.Controls.Add(this.panel11);
-            this.pnl_devices.Controls.Add(this.panel10);
-            this.pnl_devices.Controls.Add(this.panel13);
-            this.pnl_devices.Location = new System.Drawing.Point(0, 50);
-            this.pnl_devices.Name = "pnl_devices";
-            this.pnl_devices.Size = new System.Drawing.Size(1069, 589);
-            this.pnl_devices.TabIndex = 20;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel12.Controls.Add(this.label24);
-            this.panel12.Controls.Add(this.label23);
-            this.panel12.Controls.Add(this.label22);
-            this.panel12.Controls.Add(this.label21);
-            this.panel12.Controls.Add(this.pnl_devices_lbl_perlastmonth);
-            this.panel12.Controls.Add(this.label20);
-            this.panel12.Controls.Add(this.label19);
-            this.panel12.Location = new System.Drawing.Point(21, 506);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1027, 61);
-            this.panel12.TabIndex = 19;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel13.Controls.Add(this.button15);
-            this.panel13.Controls.Add(this.button16);
-            this.panel13.Controls.Add(this.button17);
-            this.panel13.Controls.Add(this.button18);
-            this.panel13.Controls.Add(this.button19);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1069, 33);
-            this.panel13.TabIndex = 0;
-            // 
-            // button15
-            // 
-            this.button15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button15.Image = global::SAD_2_PTT.Properties.Resources.disabled;
-            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.Location = new System.Drawing.Point(420, 0);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(108, 33);
-            this.button15.TabIndex = 6;
-            this.button15.Text = "Disability";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button16.Image = global::SAD_2_PTT.Properties.Resources.skyline;
-            this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.Location = new System.Drawing.Point(305, 0);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(115, 33);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "Providers";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button17.Image = global::SAD_2_PTT.Properties.Resources.crutches;
-            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.Location = new System.Drawing.Point(190, 0);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(115, 33);
-            this.button17.TabIndex = 4;
-            this.button17.Text = "Devices";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button18.Image = global::SAD_2_PTT.Properties.Resources.history;
-            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.Location = new System.Drawing.Point(82, 0);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(108, 33);
-            this.button18.TabIndex = 3;
-            this.button18.Text = "History";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            this.button19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button19.Location = new System.Drawing.Point(0, 0);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(82, 33);
-            this.button19.TabIndex = 2;
-            this.button19.Text = "QUICKLINKS";
-            this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label19.Location = new System.Drawing.Point(12, 16);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(154, 30);
-            this.label19.TabIndex = 29;
-            this.label19.Text = "LAST MONTH :";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(15, 8);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(111, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "No. of Devices given";
-            // 
-            // pnl_devices_lbl_perlastmonth
-            // 
-            this.pnl_devices_lbl_perlastmonth.AutoSize = true;
-            this.pnl_devices_lbl_perlastmonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnl_devices_lbl_perlastmonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.pnl_devices_lbl_perlastmonth.Location = new System.Drawing.Point(164, 16);
-            this.pnl_devices_lbl_perlastmonth.Name = "pnl_devices_lbl_perlastmonth";
-            this.pnl_devices_lbl_perlastmonth.Size = new System.Drawing.Size(35, 30);
-            this.pnl_devices_lbl_perlastmonth.TabIndex = 30;
-            this.pnl_devices_lbl_perlastmonth.Text = "70";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label21.Location = new System.Drawing.Point(273, 16);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(156, 30);
-            this.label21.TabIndex = 31;
-            this.label21.Text = "THIS MONTH : ";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label22.Location = new System.Drawing.Point(423, 16);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(35, 30);
-            this.label22.TabIndex = 32;
-            this.label22.Text = "95";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label23.Location = new System.Drawing.Point(522, 16);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(116, 30);
-            this.label23.TabIndex = 32;
-            this.label23.Text = "OVERALL : ";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label24.Location = new System.Drawing.Point(635, 17);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(79, 30);
-            this.label24.TabIndex = 33;
-            this.label24.Text = "21, 111";
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1421,8 +1548,18 @@
             this.side_tab.ResumeLayout(false);
             this.main_content.ResumeLayout(false);
             this.pnl_notif_pp.ResumeLayout(false);
+            this.pnl_devices.ResumeLayout(false);
+            this.pnl_devices.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pnl_devices_req_tab.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.pnl_pwd.ResumeLayout(false);
             this.pnl_pwd.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1439,15 +1576,8 @@
             this.panel3.PerformLayout();
             this.dboard_head.ResumeLayout(false);
             this.dboard_head.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel11.ResumeLayout(false);
-            this.pnl_devices.ResumeLayout(false);
-            this.pnl_devices.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1538,7 +1668,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel pnl_devices_req_tab;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
@@ -1546,9 +1676,18 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label pnl_devices_lbl_overall;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label pnl_devices_lbl_perthismonth;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button pnl_devices_req_1;
+        private System.Windows.Forms.Button pnl_devices_req_6;
+        private System.Windows.Forms.Button pnl_devices_req_5;
+        private System.Windows.Forms.Button pnl_devices_req_4;
+        private System.Windows.Forms.Button pnl_devices_req_3;
+        private System.Windows.Forms.Button pnl_devices_req_2;
     }
 }
 
