@@ -189,5 +189,41 @@
   <ItemGroup>
     <None Include="Resources\BLACKPINK_01.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked_complete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pending-dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-return.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
