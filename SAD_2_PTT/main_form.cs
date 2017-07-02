@@ -46,8 +46,8 @@ namespace SAD_2_PTT
             btn_current = btn_dashboard;
             lbl_current_text("dashboard");
             main_btn.btn_dashboard = true;
-            btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_KK_01;
-            btn_profilepic.BackColor = Color.FromArgb(235, 85, 34);
+            //btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_KK_01;
+            //btn_profilepic.BackColor = Color.FromArgb(235, 85, 34);
             //slide_in.Start();
         }
 
@@ -58,8 +58,8 @@ namespace SAD_2_PTT
             btn_current = btn_pwd;
             lbl_current_text("pwd");
             main_btn.btn_pwd = true;
-            btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_SG_01;
-            btn_profilepic.BackColor = Color.FromArgb(10, 32, 81);
+            //btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_SG_01;
+           // btn_profilepic.BackColor = Color.FromArgb(10, 32, 81);
             //slide_out.Start();
         }
 
@@ -70,8 +70,8 @@ namespace SAD_2_PTT
             btn_current = btn_device;
             lbl_current_text("devices");
             main_btn.btn_device = true;
-            btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.BLACKPINK_01;
-            btn_profilepic.BackColor = Color.FromArgb(0, 0, 0);
+          //  btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.BLACKPINK_01;
+           // btn_profilepic.BackColor = Color.FromArgb(0, 0, 0);
             //slide_out.Start();
         }
 
@@ -121,31 +121,44 @@ namespace SAD_2_PTT
 
         private void main_properties()
         {
+            int x = 1069;
+            int y = 589;
+
             //size
             sidenav.Size = new Size(212, 608);
             main_tab.Size = new Size(71, 608); //283, 608 <-- main_tab Size
             side_tab.Size = new Size(71, 608); //1069, 589 <-- panels
-            pnl_dashboard.Size = new Size(1069, 589);
-            pnl_pwd.Size = new Size(1069, 589);
+            pnl_dashboard.Size = new Size(x, y);
+            pnl_pwd.Size = new Size(x, y);
             pnl_notif_pp.Size = new Size(302, 233);
-            pnl_devices.Size = new Size(1069, 589);
-            pnl_projects.Size = new Size(1069, 589);
-            pnl_reports.Size = new Size(1069, 589);
+            pnl_devices.Size = new Size(x, y);
+            pnl_projects.Size = new Size(x, y);
+            pnl_reports.Size = new Size(x, y);
+            pnl_profile.Size = new Size(x, y);
+            pnl_settings.Size = new Size(x, y);
 
+            bool status = false;
             //visibility
-            pnl_pwd.Visible = false;
-            pnl_notif_pp.Visible = false;
-            pnl_devices.Visible = false;
-            pnl_reports.Visible = false;
-            pnl_projects.Visible = false;
+            pnl_pwd.Visible = status;
+            pnl_notif_pp.Visible = status;
+            pnl_devices.Visible = status;
+            pnl_reports.Visible = status;
+            pnl_projects.Visible = status;
+            pnl_profile.Visible = status;
+            pnl_settings.Visible = status;
 
+            x = 0;
+            y = 50;
             //location
-            pnl_dashboard.Location = new Point(0, 50);
-            pnl_pwd.Location = new Point(0, 50);
+            pnl_dashboard.Location = new Point(x, y);
+            pnl_pwd.Location = new Point(x, y);
             pnl_notif_pp.Location = new Point(767, 50);
-            pnl_devices.Location = new Point(0, 50);
-            pnl_reports.Location = new Point(0, 50);
-            pnl_projects.Location = new Point(0, 50);
+            pnl_devices.Location = new Point(x, y);
+            pnl_reports.Location = new Point(x, y);
+            pnl_projects.Location = new Point(x, y);
+            pnl_profile.Location = new Point(x, y);
+            pnl_settings.Location = new Point(x, y);
+
         }
         #endregion
 
