@@ -15,6 +15,13 @@ namespace SAD_2_PTT
         public pwd_add()
         {
             InitializeComponent();
+
+            //Visibility Load
+            pnl_container.Visible = true;
+            pnl1.Visible = true;
+            pnl2.Visible = false;
+            pnl3.Visible = false;
+            pnl4.Visible = false;
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -44,6 +51,7 @@ namespace SAD_2_PTT
         {
             //Visibility
             pnl2.Visible = false;
+            pnl3.Visible = true;
         }
 
 
@@ -52,11 +60,28 @@ namespace SAD_2_PTT
         #region 3 4 Contact & Education Panel
         private void button3_Click(object sender, EventArgs e)
         {
-            //Visibility
+            //Visibility - PREV
             pnl3.Visible = false;
             pnl2.Visible = true;
         }
+        private void next3_Click(object sender, EventArgs e)
+        {
+            //Visibility
+            pnl3.Visible = false;
+            pnl4.Visible = true;
+        }
         #endregion
 
+        #region 5 6 Employee & Skill Panel
+        private void prev4_Click(object sender, EventArgs e)
+        {
+            //Visibility
+            pnl4.Visible = false;
+            pnl3.Visible = true;
+        }
+
+        #endregion
+
+     
     }
 }

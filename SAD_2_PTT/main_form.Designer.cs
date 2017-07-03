@@ -56,8 +56,8 @@
             this.pnl_devices_lbl_perthismonth = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.pnl_devices_lbl_perlastmonth = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.button20 = new System.Windows.Forms.Button();
@@ -163,6 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_devices_req_tab.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.pnl_profile.SuspendLayout();
             this.pnl_notif_pp.SuspendLayout();
             this.pnl_pwd.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -403,7 +404,6 @@
             // main_content
             // 
             this.main_content.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.main_content.Controls.Add(this.pnl_devices);
             this.main_content.Controls.Add(this.pnl_profile);
             this.main_content.Controls.Add(this.pnl_settings);
             this.main_content.Controls.Add(this.pnl_notif_pp);
@@ -430,7 +430,7 @@
             this.pnl_devices.Controls.Add(this.panel11);
             this.pnl_devices.Controls.Add(this.pnl_devices_req_tab);
             this.pnl_devices.Controls.Add(this.panel13);
-            this.pnl_devices.Location = new System.Drawing.Point(0, 50);
+            this.pnl_devices.Location = new System.Drawing.Point(1, 0);
             this.pnl_devices.Name = "pnl_devices";
             this.pnl_devices.Size = new System.Drawing.Size(1069, 589);
             this.pnl_devices.TabIndex = 20;
@@ -546,16 +546,6 @@
             this.pnl_devices_lbl_perlastmonth.TabIndex = 30;
             this.pnl_devices_lbl_perlastmonth.Text = "70";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(19, 503);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(111, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "No. of Devices given";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -566,6 +556,16 @@
             this.label19.Size = new System.Drawing.Size(136, 25);
             this.label19.TabIndex = 29;
             this.label19.Text = "LAST MONTH :";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(19, 503);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(111, 13);
+            this.label20.TabIndex = 29;
+            this.label20.Text = "No. of Devices given";
             // 
             // panel11
             // 
@@ -809,6 +809,7 @@
             // 
             // pnl_profile
             // 
+            this.pnl_profile.Controls.Add(this.pnl_devices);
             this.pnl_profile.Location = new System.Drawing.Point(0, 50);
             this.pnl_profile.Name = "pnl_profile";
             this.pnl_profile.Size = new System.Drawing.Size(1069, 589);
@@ -1811,6 +1812,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnl_devices_req_tab.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.pnl_profile.ResumeLayout(false);
             this.pnl_notif_pp.ResumeLayout(false);
             this.pnl_pwd.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
