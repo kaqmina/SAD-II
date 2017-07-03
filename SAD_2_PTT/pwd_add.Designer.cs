@@ -151,6 +151,30 @@
             this.textBox29 = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.textBox30 = new System.Windows.Forms.TextBox();
+            this.pnl6 = new System.Windows.Forms.Panel();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.fmn_txt = new System.Windows.Forms.TextBox();
+            this.ffn_txt = new System.Windows.Forms.TextBox();
+            this.fln_txt = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.mmn_txt = new System.Windows.Forms.TextBox();
+            this.mfn_txt = new System.Windows.Forms.TextBox();
+            this.mln_txt = new System.Windows.Forms.TextBox();
+            this.gmn_txt = new System.Windows.Forms.TextBox();
+            this.gfn_txt = new System.Windows.Forms.TextBox();
+            this.gln_txt = new System.Windows.Forms.TextBox();
+            this.amn_txt = new System.Windows.Forms.TextBox();
+            this.afn_txt = new System.Windows.Forms.TextBox();
+            this.aln_txt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -167,6 +191,8 @@
             this.pnl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.pnl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -348,6 +374,7 @@
             this.provtxt.Name = "provtxt";
             this.provtxt.Size = new System.Drawing.Size(171, 24);
             this.provtxt.TabIndex = 7;
+            this.provtxt.Enter += new System.EventHandler(this.provtxt_Enter);
             // 
             // muntxt
             // 
@@ -358,6 +385,7 @@
             this.muntxt.Name = "muntxt";
             this.muntxt.Size = new System.Drawing.Size(156, 24);
             this.muntxt.TabIndex = 6;
+            this.muntxt.Enter += new System.EventHandler(this.muntxt_Enter);
             // 
             // bartxt
             // 
@@ -368,6 +396,7 @@
             this.bartxt.Name = "bartxt";
             this.bartxt.Size = new System.Drawing.Size(156, 24);
             this.bartxt.TabIndex = 5;
+            this.bartxt.Enter += new System.EventHandler(this.bartxt_Enter);
             // 
             // hstxt
             // 
@@ -378,6 +407,7 @@
             this.hstxt.Name = "hstxt";
             this.hstxt.Size = new System.Drawing.Size(171, 24);
             this.hstxt.TabIndex = 4;
+            this.hstxt.Enter += new System.EventHandler(this.hstxt_Enter);
             // 
             // mntxt
             // 
@@ -388,6 +418,7 @@
             this.mntxt.Name = "mntxt";
             this.mntxt.Size = new System.Drawing.Size(151, 24);
             this.mntxt.TabIndex = 3;
+            this.mntxt.Enter += new System.EventHandler(this.mntxt_Enter);
             // 
             // fntxt
             // 
@@ -398,6 +429,7 @@
             this.fntxt.Name = "fntxt";
             this.fntxt.Size = new System.Drawing.Size(151, 24);
             this.fntxt.TabIndex = 2;
+            this.fntxt.Enter += new System.EventHandler(this.fntxt_Enter);
             // 
             // textBox4
             // 
@@ -418,6 +450,7 @@
             this.lntxt.Name = "lntxt";
             this.lntxt.Size = new System.Drawing.Size(151, 24);
             this.lntxt.TabIndex = 1;
+            this.lntxt.Enter += new System.EventHandler(this.lntxt_Enter);
             // 
             // label15
             // 
@@ -1261,6 +1294,7 @@
             this.next4.TabIndex = 2;
             this.next4.Text = "NEXT";
             this.next4.UseVisualStyleBackColor = false;
+            this.next4.Click += new System.EventHandler(this.next4_Click);
             // 
             // label35
             // 
@@ -1277,10 +1311,11 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl6);
+            this.pnl_container.Controls.Add(this.pnl4);
+            this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl5);
-            this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
@@ -1544,6 +1579,286 @@
             this.textBox30.TabIndex = 62;
             this.textBox30.Text = "comboBox";
             // 
+            // pnl6
+            // 
+            this.pnl6.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl6.Controls.Add(this.amn_txt);
+            this.pnl6.Controls.Add(this.afn_txt);
+            this.pnl6.Controls.Add(this.aln_txt);
+            this.pnl6.Controls.Add(this.gmn_txt);
+            this.pnl6.Controls.Add(this.gfn_txt);
+            this.pnl6.Controls.Add(this.gln_txt);
+            this.pnl6.Controls.Add(this.mmn_txt);
+            this.pnl6.Controls.Add(this.mfn_txt);
+            this.pnl6.Controls.Add(this.mln_txt);
+            this.pnl6.Controls.Add(this.label46);
+            this.pnl6.Controls.Add(this.label47);
+            this.pnl6.Controls.Add(this.textBox5);
+            this.pnl6.Controls.Add(this.label49);
+            this.pnl6.Controls.Add(this.fmn_txt);
+            this.pnl6.Controls.Add(this.ffn_txt);
+            this.pnl6.Controls.Add(this.fln_txt);
+            this.pnl6.Controls.Add(this.label50);
+            this.pnl6.Controls.Add(this.label52);
+            this.pnl6.Controls.Add(this.label53);
+            this.pnl6.Controls.Add(this.pictureBox9);
+            this.pnl6.Controls.Add(this.button2);
+            this.pnl6.Controls.Add(this.button4);
+            this.pnl6.Controls.Add(this.label54);
+            this.pnl6.Location = new System.Drawing.Point(0, 0);
+            this.pnl6.Name = "pnl6";
+            this.pnl6.Size = new System.Drawing.Size(757, 500);
+            this.pnl6.TabIndex = 30;
+            this.pnl6.Visible = false;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(87, 223);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(120, 15);
+            this.label46.TabIndex = 29;
+            this.label46.Text = "ACCOMPLISHED BY";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(87, 312);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(164, 15);
+            this.label47.TabIndex = 28;
+            this.label47.Text = "NAME OF REPORTING UNIT";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.Location = new System.Drawing.Point(269, 308);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(260, 24);
+            this.textBox5.TabIndex = 13;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(87, 187);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(115, 15);
+            this.label49.TabIndex = 19;
+            this.label49.Text = "GUARDIAN\'S NAME";
+            // 
+            // fmn_txt
+            // 
+            this.fmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fmn_txt.Location = new System.Drawing.Point(540, 106);
+            this.fmn_txt.Multiline = true;
+            this.fmn_txt.Name = "fmn_txt";
+            this.fmn_txt.Size = new System.Drawing.Size(151, 24);
+            this.fmn_txt.TabIndex = 3;
+            this.fmn_txt.Enter += new System.EventHandler(this.fmn_txt_Enter);
+            // 
+            // ffn_txt
+            // 
+            this.ffn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ffn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ffn_txt.Location = new System.Drawing.Point(383, 106);
+            this.ffn_txt.Multiline = true;
+            this.ffn_txt.Name = "ffn_txt";
+            this.ffn_txt.Size = new System.Drawing.Size(151, 24);
+            this.ffn_txt.TabIndex = 2;
+            this.ffn_txt.Enter += new System.EventHandler(this.ffn_txt_Enter);
+            // 
+            // fln_txt
+            // 
+            this.fln_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fln_txt.Location = new System.Drawing.Point(227, 106);
+            this.fln_txt.Multiline = true;
+            this.fln_txt.Name = "fln_txt";
+            this.fln_txt.Size = new System.Drawing.Size(151, 24);
+            this.fln_txt.TabIndex = 1;
+            this.fln_txt.Enter += new System.EventHandler(this.fln_txt_Enter);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(87, 150);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(104, 15);
+            this.label50.TabIndex = 7;
+            this.label50.Text = "MOTHER\'S NAME";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(87, 110);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(98, 15);
+            this.label52.TabIndex = 5;
+            this.label52.Text = "FATHER\'S NAME";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(108, 40);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(276, 30);
+            this.label53.TabIndex = 4;
+            this.label53.Text = "PARENTAL INFORMATION";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::SAD_2_PTT.Properties.Resources.num9;
+            this.pictureBox9.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox9.TabIndex = 3;
+            this.pictureBox9.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(657, 452);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(68, 29);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "ADD";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(552, 452);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 29);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "PREVIOUS";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.BackColor = System.Drawing.SystemColors.Window;
+            this.label54.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label54.Location = new System.Drawing.Point(28, 455);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(50, 21);
+            this.label54.TabIndex = 0;
+            this.label54.Text = "6 of 6";
+            // 
+            // mmn_txt
+            // 
+            this.mmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mmn_txt.Location = new System.Drawing.Point(540, 146);
+            this.mmn_txt.Multiline = true;
+            this.mmn_txt.Name = "mmn_txt";
+            this.mmn_txt.Size = new System.Drawing.Size(151, 24);
+            this.mmn_txt.TabIndex = 32;
+            this.mmn_txt.Enter += new System.EventHandler(this.mmn_txt_Enter);
+            // 
+            // mfn_txt
+            // 
+            this.mfn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mfn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mfn_txt.Location = new System.Drawing.Point(383, 146);
+            this.mfn_txt.Multiline = true;
+            this.mfn_txt.Name = "mfn_txt";
+            this.mfn_txt.Size = new System.Drawing.Size(151, 24);
+            this.mfn_txt.TabIndex = 31;
+            this.mfn_txt.Enter += new System.EventHandler(this.mfn_txt_Enter);
+            // 
+            // mln_txt
+            // 
+            this.mln_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mln_txt.Location = new System.Drawing.Point(227, 146);
+            this.mln_txt.Multiline = true;
+            this.mln_txt.Name = "mln_txt";
+            this.mln_txt.Size = new System.Drawing.Size(151, 24);
+            this.mln_txt.TabIndex = 30;
+            this.mln_txt.Enter += new System.EventHandler(this.mln_txt_Enter);
+            // 
+            // gmn_txt
+            // 
+            this.gmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gmn_txt.Location = new System.Drawing.Point(540, 184);
+            this.gmn_txt.Multiline = true;
+            this.gmn_txt.Name = "gmn_txt";
+            this.gmn_txt.Size = new System.Drawing.Size(151, 24);
+            this.gmn_txt.TabIndex = 35;
+            this.gmn_txt.Enter += new System.EventHandler(this.gmn_txt_Enter);
+            // 
+            // gfn_txt
+            // 
+            this.gfn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gfn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gfn_txt.Location = new System.Drawing.Point(383, 184);
+            this.gfn_txt.Multiline = true;
+            this.gfn_txt.Name = "gfn_txt";
+            this.gfn_txt.Size = new System.Drawing.Size(151, 24);
+            this.gfn_txt.TabIndex = 34;
+            this.gfn_txt.Enter += new System.EventHandler(this.gfn_txt_Enter);
+            // 
+            // gln_txt
+            // 
+            this.gln_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gln_txt.Location = new System.Drawing.Point(227, 184);
+            this.gln_txt.Multiline = true;
+            this.gln_txt.Name = "gln_txt";
+            this.gln_txt.Size = new System.Drawing.Size(151, 24);
+            this.gln_txt.TabIndex = 33;
+            this.gln_txt.Enter += new System.EventHandler(this.gln_txt_Enter);
+            // 
+            // amn_txt
+            // 
+            this.amn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.amn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amn_txt.Location = new System.Drawing.Point(540, 219);
+            this.amn_txt.Multiline = true;
+            this.amn_txt.Name = "amn_txt";
+            this.amn_txt.Size = new System.Drawing.Size(151, 24);
+            this.amn_txt.TabIndex = 38;
+            this.amn_txt.Enter += new System.EventHandler(this.amn_txt_Enter);
+            // 
+            // afn_txt
+            // 
+            this.afn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.afn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.afn_txt.Location = new System.Drawing.Point(383, 219);
+            this.afn_txt.Multiline = true;
+            this.afn_txt.Name = "afn_txt";
+            this.afn_txt.Size = new System.Drawing.Size(151, 24);
+            this.afn_txt.TabIndex = 37;
+            this.afn_txt.Enter += new System.EventHandler(this.afn_txt_Enter);
+            // 
+            // aln_txt
+            // 
+            this.aln_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.aln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aln_txt.Location = new System.Drawing.Point(227, 219);
+            this.aln_txt.Multiline = true;
+            this.aln_txt.Name = "aln_txt";
+            this.aln_txt.Size = new System.Drawing.Size(151, 24);
+            this.aln_txt.TabIndex = 36;
+            this.aln_txt.Enter += new System.EventHandler(this.aln_txt_Enter);
+            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1586,6 +1901,9 @@
             this.pnl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.pnl6.ResumeLayout(false);
+            this.pnl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1714,5 +2032,29 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Button next5;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel pnl6;
+        private System.Windows.Forms.TextBox amn_txt;
+        private System.Windows.Forms.TextBox afn_txt;
+        private System.Windows.Forms.TextBox aln_txt;
+        private System.Windows.Forms.TextBox gmn_txt;
+        private System.Windows.Forms.TextBox gfn_txt;
+        private System.Windows.Forms.TextBox gln_txt;
+        private System.Windows.Forms.TextBox mmn_txt;
+        private System.Windows.Forms.TextBox mfn_txt;
+        private System.Windows.Forms.TextBox mln_txt;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox fmn_txt;
+        private System.Windows.Forms.TextBox ffn_txt;
+        private System.Windows.Forms.TextBox fln_txt;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label54;
     }
 }

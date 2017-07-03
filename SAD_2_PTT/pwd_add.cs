@@ -27,6 +27,7 @@ namespace SAD_2_PTT
 
             //Style Text
             defaulttxt1();
+            defaulttxt9();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -43,6 +44,7 @@ namespace SAD_2_PTT
             pnl2.Visible = true;
         }
 
+        #region Text Style
         private void defaulttxt1(){
             //Guide text
             lntxt.Text = "Last Name";
@@ -56,8 +58,46 @@ namespace SAD_2_PTT
             //Style
             lntxt.ForeColor = fntxt.ForeColor = mntxt.ForeColor = Color.Silver;
             hstxt.ForeColor = bartxt.ForeColor = bartxt.ForeColor = Color.Silver;
-            provtxt.ForeColor = Color.Silver;
+            provtxt.ForeColor = muntxt.ForeColor = Color.Silver;
         }
+
+        private void lntxt_Enter(object sender, EventArgs e)
+        {
+            lntxt.Clear();
+            lntxt.ForeColor = Color.Black;
+        }
+        private void fntxt_Enter(object sender, EventArgs e)
+        {
+            fntxt.Clear();
+            fntxt.ForeColor = Color.Black;
+        }
+        private void mntxt_Enter(object sender, EventArgs e)
+        {
+            mntxt.Clear();
+            mntxt.ForeColor = Color.Black;
+        }
+        private void hstxt_Enter(object sender, EventArgs e)
+        {
+            hstxt.Clear();
+            hstxt.ForeColor = Color.Black;
+        }
+        private void bartxt_Enter(object sender, EventArgs e)
+        {
+            bartxt.Clear();
+            bartxt.ForeColor = Color.Black;
+        }
+        private void muntxt_Enter(object sender, EventArgs e)
+        {
+            muntxt.Clear();
+            muntxt.ForeColor = Color.Black;
+        }
+        private void provtxt_Enter(object sender, EventArgs e)
+        {
+            provtxt.Clear();
+            provtxt.ForeColor = Color.Black;
+        }
+        #endregion
+
         #endregion
 
         #region 2 Personal Information Panel
@@ -100,7 +140,12 @@ namespace SAD_2_PTT
             pnl4.Visible = false;
             pnl3.Visible = true;
         }
-
+        private void next4_Click(object sender, EventArgs e)
+        {
+            //Visibility
+            pnl4.Visible = false;
+            pnl5.Visible = true;
+        }
         #endregion
 
         #region 7 8 Organization & Other Panel
@@ -110,15 +155,101 @@ namespace SAD_2_PTT
             pnl5.Visible = false;
             pnl4.Visible = true;
         }
-
-
-        #endregion
-
         private void next5_Click(object sender, EventArgs e)
         {
             //Visibility
             pnl5.Visible = false;
-            //pnl6.Visible = true;
+            pnl6.Visible = true;
         }
+        #endregion
+
+        #region 9 Parental Information Panel
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Visibility - PREV
+            pnl6.Visible = false;
+            pnl5.Visible = true;
+        }
+
+        #region Text Style
+        private void defaulttxt9()
+        {
+            //Guide text
+            fln_txt.Text = mln_txt.Text = gln_txt.Text = aln_txt.Text = "Last Name";
+            ffn_txt.Text = mfn_txt.Text = gfn_txt.Text = afn_txt.Text = "First Name";
+            fmn_txt.Text = mmn_txt.Text = gmn_txt.Text = amn_txt.Text = "Middle Name";
+
+            //Style
+            fln_txt.ForeColor = mln_txt.ForeColor = gln_txt.ForeColor = aln_txt.ForeColor = Color.Silver;
+            ffn_txt.ForeColor = mfn_txt.ForeColor = gfn_txt.ForeColor = afn_txt.ForeColor = Color.Silver;
+            fmn_txt.ForeColor = mmn_txt.ForeColor = gmn_txt.ForeColor = amn_txt.ForeColor = Color.Silver;
+        }
+        private void fln_txt_Enter(object sender, EventArgs e)
+        {
+            fln_txt.Clear();
+            fln_txt.ForeColor = Color.Black;
+        }
+        private void ffn_txt_Enter(object sender, EventArgs e)
+        {
+            ffn_txt.Clear();
+            ffn_txt.ForeColor = Color.Black;
+        }
+        private void fmn_txt_Enter(object sender, EventArgs e)
+        {
+            fmn_txt.Clear();
+            fmn_txt.ForeColor = Color.Black;
+        }
+        private void mln_txt_Enter(object sender, EventArgs e)
+        {
+            mln_txt.Clear();
+            mln_txt.ForeColor = Color.Black;
+        }
+        private void mfn_txt_Enter(object sender, EventArgs e)
+        {
+            mfn_txt.Clear();
+            mfn_txt.ForeColor = Color.Black;
+        }
+
+        private void mmn_txt_Enter(object sender, EventArgs e)
+        {
+            mmn_txt.Clear();
+            mmn_txt.ForeColor = Color.Black;
+        }
+        private void gln_txt_Enter(object sender, EventArgs e)
+        {
+            gln_txt.Clear();
+            gln_txt.ForeColor = Color.Black;
+        }
+        private void gfn_txt_Enter(object sender, EventArgs e)
+        {
+            gfn_txt.Clear();
+            gfn_txt.ForeColor = Color.Black;
+        }
+        private void gmn_txt_Enter(object sender, EventArgs e)
+        {
+            gmn_txt.Clear();
+            gmn_txt.ForeColor = Color.Black;
+        }
+        private void aln_txt_Enter(object sender, EventArgs e)
+        {
+            aln_txt.Clear();
+            aln_txt.ForeColor = Color.Black;
+        }
+        private void afn_txt_Enter(object sender, EventArgs e)
+        {
+            afn_txt.Clear();
+            afn_txt.ForeColor = Color.Black;
+        }
+        private void amn_txt_Enter(object sender, EventArgs e)
+        {
+            amn_txt.Clear();
+            amn_txt.ForeColor = Color.Black;
+        }
+
+        #endregion
+
+        #endregion
+
+     
     }
 }
