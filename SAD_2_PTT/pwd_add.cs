@@ -246,10 +246,11 @@ namespace SAD_2_PTT
             amn_txt.ForeColor = Color.Black;
         }
 
-        #endregion
 
         #endregion
 
-     
+        #endregion
+
+
     }
 }
