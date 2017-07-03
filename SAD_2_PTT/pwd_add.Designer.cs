@@ -43,14 +43,14 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.provtxt = new System.Windows.Forms.TextBox();
+            this.muntxt = new System.Windows.Forms.TextBox();
+            this.bartxt = new System.Windows.Forms.TextBox();
+            this.hstxt = new System.Windows.Forms.TextBox();
+            this.mntxt = new System.Windows.Forms.TextBox();
+            this.fntxt = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.lntxt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -128,6 +128,29 @@
             this.label35 = new System.Windows.Forms.Label();
             this.pnl_container = new System.Windows.Forms.Panel();
             this.prev4 = new System.Windows.Forms.Button();
+            this.pnl5 = new System.Windows.Forms.Panel();
+            this.prev5 = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.next5 = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.textBox30 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -141,6 +164,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnl_container.SuspendLayout();
+            this.pnl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -201,14 +227,14 @@
             this.pnl2.Controls.Add(this.textBox12);
             this.pnl2.Controls.Add(this.label22);
             this.pnl2.Controls.Add(this.label20);
-            this.pnl2.Controls.Add(this.textBox11);
-            this.pnl2.Controls.Add(this.textBox10);
-            this.pnl2.Controls.Add(this.textBox8);
-            this.pnl2.Controls.Add(this.textBox7);
-            this.pnl2.Controls.Add(this.textBox5);
-            this.pnl2.Controls.Add(this.textBox9);
+            this.pnl2.Controls.Add(this.provtxt);
+            this.pnl2.Controls.Add(this.muntxt);
+            this.pnl2.Controls.Add(this.bartxt);
+            this.pnl2.Controls.Add(this.hstxt);
+            this.pnl2.Controls.Add(this.mntxt);
+            this.pnl2.Controls.Add(this.fntxt);
             this.pnl2.Controls.Add(this.textBox4);
-            this.pnl2.Controls.Add(this.textBox6);
+            this.pnl2.Controls.Add(this.lntxt);
             this.pnl2.Controls.Add(this.label15);
             this.pnl2.Controls.Add(this.label16);
             this.pnl2.Controls.Add(this.label17);
@@ -245,6 +271,7 @@
             // 
             // textBox16
             // 
+            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox16.Location = new System.Drawing.Point(198, 381);
             this.textBox16.Multiline = true;
             this.textBox16.Name = "textBox16";
@@ -254,6 +281,7 @@
             // 
             // textBox15
             // 
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox15.Location = new System.Drawing.Point(198, 345);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
@@ -263,6 +291,8 @@
             // 
             // textBox14
             // 
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.Location = new System.Drawing.Point(198, 305);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
@@ -271,6 +301,7 @@
             // 
             // textBox13
             // 
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox13.Location = new System.Drawing.Point(198, 267);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
@@ -280,6 +311,8 @@
             // 
             // textBox12
             // 
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.Location = new System.Drawing.Point(198, 228);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
@@ -306,70 +339,85 @@
             this.label20.TabIndex = 19;
             this.label20.Text = "GENDER";
             // 
-            // textBox11
+            // provtxt
             // 
-            this.textBox11.Location = new System.Drawing.Point(197, 179);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(171, 24);
-            this.textBox11.TabIndex = 7;
+            this.provtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.provtxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.provtxt.Location = new System.Drawing.Point(197, 179);
+            this.provtxt.Multiline = true;
+            this.provtxt.Name = "provtxt";
+            this.provtxt.Size = new System.Drawing.Size(171, 24);
+            this.provtxt.TabIndex = 7;
             // 
-            // textBox10
+            // muntxt
             // 
-            this.textBox10.Location = new System.Drawing.Point(535, 146);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(156, 24);
-            this.textBox10.TabIndex = 6;
+            this.muntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.muntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.muntxt.Location = new System.Drawing.Point(535, 146);
+            this.muntxt.Multiline = true;
+            this.muntxt.Name = "muntxt";
+            this.muntxt.Size = new System.Drawing.Size(156, 24);
+            this.muntxt.TabIndex = 6;
             // 
-            // textBox8
+            // bartxt
             // 
-            this.textBox8.Location = new System.Drawing.Point(373, 146);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(156, 24);
-            this.textBox8.TabIndex = 5;
+            this.bartxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bartxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bartxt.Location = new System.Drawing.Point(373, 146);
+            this.bartxt.Multiline = true;
+            this.bartxt.Name = "bartxt";
+            this.bartxt.Size = new System.Drawing.Size(156, 24);
+            this.bartxt.TabIndex = 5;
             // 
-            // textBox7
+            // hstxt
             // 
-            this.textBox7.Location = new System.Drawing.Point(197, 146);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(171, 24);
-            this.textBox7.TabIndex = 4;
+            this.hstxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.hstxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hstxt.Location = new System.Drawing.Point(197, 146);
+            this.hstxt.Multiline = true;
+            this.hstxt.Name = "hstxt";
+            this.hstxt.Size = new System.Drawing.Size(171, 24);
+            this.hstxt.TabIndex = 4;
             // 
-            // textBox5
+            // mntxt
             // 
-            this.textBox5.Location = new System.Drawing.Point(510, 99);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(151, 24);
-            this.textBox5.TabIndex = 3;
+            this.mntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mntxt.Location = new System.Drawing.Point(510, 99);
+            this.mntxt.Multiline = true;
+            this.mntxt.Name = "mntxt";
+            this.mntxt.Size = new System.Drawing.Size(151, 24);
+            this.mntxt.TabIndex = 3;
             // 
-            // textBox9
+            // fntxt
             // 
-            this.textBox9.Location = new System.Drawing.Point(353, 99);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(151, 24);
-            this.textBox9.TabIndex = 2;
+            this.fntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fntxt.Location = new System.Drawing.Point(353, 99);
+            this.fntxt.Multiline = true;
+            this.fntxt.Name = "fntxt";
+            this.fntxt.Size = new System.Drawing.Size(151, 24);
+            this.fntxt.TabIndex = 2;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(375, 179);
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.Location = new System.Drawing.Point(373, 179);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 24);
+            this.textBox4.Size = new System.Drawing.Size(156, 24);
             this.textBox4.TabIndex = 8;
             this.textBox4.Text = "region:comboBox";
             // 
-            // textBox6
+            // lntxt
             // 
-            this.textBox6.Location = new System.Drawing.Point(197, 99);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(151, 24);
-            this.textBox6.TabIndex = 1;
+            this.lntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lntxt.Location = new System.Drawing.Point(197, 99);
+            this.lntxt.Multiline = true;
+            this.lntxt.Name = "lntxt";
+            this.lntxt.Size = new System.Drawing.Size(151, 24);
+            this.lntxt.TabIndex = 1;
             // 
             // label15
             // 
@@ -1229,10 +1277,11 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl2);
+            this.pnl_container.Controls.Add(this.pnl1);
+            this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
-            this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
@@ -1251,6 +1300,249 @@
             this.prev4.Text = "PREVIOUS";
             this.prev4.UseVisualStyleBackColor = true;
             this.prev4.Click += new System.EventHandler(this.prev4_Click);
+            // 
+            // pnl5
+            // 
+            this.pnl5.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl5.Controls.Add(this.textBox30);
+            this.pnl5.Controls.Add(this.textBox27);
+            this.pnl5.Controls.Add(this.label43);
+            this.pnl5.Controls.Add(this.textBox28);
+            this.pnl5.Controls.Add(this.label44);
+            this.pnl5.Controls.Add(this.textBox29);
+            this.pnl5.Controls.Add(this.label45);
+            this.pnl5.Controls.Add(this.textBox26);
+            this.pnl5.Controls.Add(this.label42);
+            this.pnl5.Controls.Add(this.prev5);
+            this.pnl5.Controls.Add(this.label36);
+            this.pnl5.Controls.Add(this.pictureBox7);
+            this.pnl5.Controls.Add(this.textBox20);
+            this.pnl5.Controls.Add(this.label37);
+            this.pnl5.Controls.Add(this.textBox21);
+            this.pnl5.Controls.Add(this.label38);
+            this.pnl5.Controls.Add(this.textBox24);
+            this.pnl5.Controls.Add(this.label39);
+            this.pnl5.Controls.Add(this.label40);
+            this.pnl5.Controls.Add(this.pictureBox8);
+            this.pnl5.Controls.Add(this.next5);
+            this.pnl5.Controls.Add(this.label41);
+            this.pnl5.Location = new System.Drawing.Point(0, 0);
+            this.pnl5.Name = "pnl5";
+            this.pnl5.Size = new System.Drawing.Size(757, 500);
+            this.pnl5.TabIndex = 54;
+            this.pnl5.Visible = false;
+            // 
+            // prev5
+            // 
+            this.prev5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.prev5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prev5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prev5.Location = new System.Drawing.Point(552, 452);
+            this.prev5.Name = "prev5";
+            this.prev5.Size = new System.Drawing.Size(81, 29);
+            this.prev5.TabIndex = 53;
+            this.prev5.Text = "PREVIOUS";
+            this.prev5.UseVisualStyleBackColor = true;
+            this.prev5.Click += new System.EventHandler(this.prev5_Click);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(108, 241);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(238, 30);
+            this.label36.TabIndex = 35;
+            this.label36.Text = "OTHER INFORMATION";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SAD_2_PTT.Properties.Resources.num8;
+            this.pictureBox7.Location = new System.Drawing.Point(32, 223);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox7.TabIndex = 34;
+            this.pictureBox7.TabStop = false;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(318, 162);
+            this.textBox20.Multiline = true;
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(151, 22);
+            this.textBox20.TabIndex = 32;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(138, 169);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(110, 15);
+            this.label37.TabIndex = 33;
+            this.label37.Text = "OFFICE ADDRESS";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(318, 126);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(151, 22);
+            this.textBox21.TabIndex = 30;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(138, 131);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(117, 15);
+            this.label38.TabIndex = 31;
+            this.label38.Text = "CONTACT PERSON";
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(318, 92);
+            this.textBox24.Multiline = true;
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(151, 22);
+            this.textBox24.TabIndex = 4;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(138, 94);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(157, 15);
+            this.label39.TabIndex = 5;
+            this.label39.Text = "ORGANIZATION AFFLIATED";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(108, 40);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(359, 30);
+            this.label40.TabIndex = 4;
+            this.label40.Text = "ORGANIZATIONAL INFORMATION";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::SAD_2_PTT.Properties.Resources.num7;
+            this.pictureBox8.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(69, 71);
+            this.pictureBox8.TabIndex = 3;
+            this.pictureBox8.TabStop = false;
+            // 
+            // next5
+            // 
+            this.next5.BackColor = System.Drawing.SystemColors.Window;
+            this.next5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.next5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.next5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.next5.Location = new System.Drawing.Point(657, 452);
+            this.next5.Name = "next5";
+            this.next5.Size = new System.Drawing.Size(68, 29);
+            this.next5.TabIndex = 2;
+            this.next5.Text = "NEXT";
+            this.next5.UseVisualStyleBackColor = false;
+            this.next5.Click += new System.EventHandler(this.next5_Click);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.SystemColors.Window;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label41.Location = new System.Drawing.Point(28, 455);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(50, 21);
+            this.label41.TabIndex = 0;
+            this.label41.Text = "5 of 6";
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(318, 195);
+            this.textBox26.Multiline = true;
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(151, 22);
+            this.textBox26.TabIndex = 54;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(138, 202);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(104, 15);
+            this.label42.TabIndex = 55;
+            this.label42.Text = "TELEPHONE NO.";
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(318, 365);
+            this.textBox27.Multiline = true;
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(151, 22);
+            this.textBox27.TabIndex = 60;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(138, 370);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(104, 15);
+            this.label43.TabIndex = 61;
+            this.label43.Text = "TELEPHONE NO.";
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(318, 330);
+            this.textBox28.Multiline = true;
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(151, 22);
+            this.textBox28.TabIndex = 58;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(138, 335);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(110, 15);
+            this.label44.TabIndex = 59;
+            this.label44.Text = "OFFICE ADDRESS";
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(318, 294);
+            this.textBox29.Multiline = true;
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(151, 22);
+            this.textBox29.TabIndex = 56;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(138, 299);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(117, 15);
+            this.label45.TabIndex = 57;
+            this.label45.Text = "CONTACT PERSON";
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(482, 365);
+            this.textBox30.Multiline = true;
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(151, 22);
+            this.textBox30.TabIndex = 62;
+            this.textBox30.Text = "comboBox";
             // 
             // pwd_add
             // 
@@ -1290,6 +1582,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnl_container.ResumeLayout(false);
+            this.pnl5.ResumeLayout(false);
+            this.pnl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1328,14 +1624,14 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox provtxt;
+        private System.Windows.Forms.TextBox muntxt;
+        private System.Windows.Forms.TextBox bartxt;
+        private System.Windows.Forms.TextBox hstxt;
+        private System.Windows.Forms.TextBox mntxt;
+        private System.Windows.Forms.TextBox fntxt;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox lntxt;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -1395,5 +1691,28 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Panel pnl_container;
         private System.Windows.Forms.Button prev4;
+        private System.Windows.Forms.Panel pnl5;
+        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Button prev5;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Button next5;
+        private System.Windows.Forms.Label label41;
     }
 }

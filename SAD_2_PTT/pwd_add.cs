@@ -12,6 +12,7 @@ namespace SAD_2_PTT
 {
     public partial class pwd_add : Form
     {
+        #region Formload
         public pwd_add()
         {
             InitializeComponent();
@@ -22,13 +23,17 @@ namespace SAD_2_PTT
             pnl2.Visible = false;
             pnl3.Visible = false;
             pnl4.Visible = false;
+            pnl5.Visible = false;
+
+            //Style Text
+            defaulttxt1();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
+        #endregion
 
         #region 1 General Information Panel
         private void btn_next1_Click(object sender, EventArgs e)
@@ -36,6 +41,22 @@ namespace SAD_2_PTT
             //Visibility
             pnl1.Visible = false;
             pnl2.Visible = true;
+        }
+
+        private void defaulttxt1(){
+            //Guide text
+            lntxt.Text = "Last Name";
+            fntxt.Text = "First Name";
+            mntxt.Text = "Middle Name";
+            hstxt.Text = "House No. and Street";
+            bartxt.Text = "Barangay";
+            muntxt.Text = "Municipality";
+            provtxt.Text = "Province";
+
+            //Style
+            lntxt.ForeColor = fntxt.ForeColor = mntxt.ForeColor = Color.Silver;
+            hstxt.ForeColor = bartxt.ForeColor = bartxt.ForeColor = Color.Silver;
+            provtxt.ForeColor = Color.Silver;
         }
         #endregion
 
@@ -82,6 +103,22 @@ namespace SAD_2_PTT
 
         #endregion
 
-     
+        #region 7 8 Organization & Other Panel
+        private void prev5_Click(object sender, EventArgs e)
+        {
+            //Visibility
+            pnl5.Visible = false;
+            pnl4.Visible = true;
+        }
+
+
+        #endregion
+
+        private void next5_Click(object sender, EventArgs e)
+        {
+            //Visibility
+            pnl5.Visible = false;
+            //pnl6.Visible = true;
+        }
     }
 }
