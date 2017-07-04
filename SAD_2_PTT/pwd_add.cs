@@ -17,6 +17,8 @@ namespace SAD_2_PTT
         {
             InitializeComponent();
 
+            this.Opacity = 0;
+            startup_opacity.Start();
             //Visibility Load
             pnl_container.Visible = true;
             pnl1.Visible = true;
@@ -24,6 +26,7 @@ namespace SAD_2_PTT
             pnl3.Visible = false;
             pnl4.Visible = false;
             pnl5.Visible = false;
+            
 
             //Style Text
             defaulttxt1();
@@ -33,6 +36,11 @@ namespace SAD_2_PTT
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
         }
         #endregion
 

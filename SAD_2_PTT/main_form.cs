@@ -109,14 +109,14 @@ namespace SAD_2_PTT
         #region FormLoad
         private void main_form_Load(object sender, EventArgs e)
         {
+            this.Opacity = 0;
             btn_current = btn_dashboard;
             btn_dashboard_Click(sender, e);
             main_properties();
             string date = DateTime.Now.ToString("MMMM dd, yyyy");
             date_today.Text = date.ToUpper();
             lbl_current_text("dashboard");
-            
-            
+            startup_opacity.Start();
         }
 
         private void main_properties()
@@ -159,6 +159,11 @@ namespace SAD_2_PTT
             pnl_profile.Location = new Point(x, y);
             pnl_settings.Location = new Point(x, y);
 
+        }
+
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
         }
         #endregion
 
@@ -358,6 +363,7 @@ namespace SAD_2_PTT
             dboard_head.Enabled = false;
             pwd_fill_up_form.reference_to_main = this;
             pwd_fill_up_form.Location = new Point(loc_x, loc_y);
+            //open_form.Start();
             pwd_fill_up_form.ShowDialog();
         }
         #endregion
@@ -373,6 +379,17 @@ namespace SAD_2_PTT
             pwd_view_form.reference_to_main = this;
             pwd_view_form.Location = new Point(loc_x, loc_y);
             pwd_view_form.ShowDialog();
+        }
+
+        private void open_form_Tick(object sender, EventArgs e)
+        {
+            if(this.Opacity != 0.50)
+            {
+                this.Opacity -= 0.1;
+            } else
+            {
+                open_form.Stop();
+            }
         }
     }
 }
