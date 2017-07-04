@@ -346,7 +346,7 @@ namespace SAD_2_PTT
 
         #endregion
 
-
+        #region OpenAdd
 
         private void btn_pwd_add_Click(object sender, EventArgs e)
         {
@@ -359,6 +359,20 @@ namespace SAD_2_PTT
             pwd_fill_up_form.reference_to_main = this;
             pwd_fill_up_form.Location = new Point(loc_x, loc_y);
             pwd_fill_up_form.ShowDialog();
+        }
+        #endregion
+
+        private void btn_pwd_viewmore_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+
+            pwd_view pwd_view_form = new pwd_view();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            pwd_view_form.reference_to_main = this;
+            pwd_view_form.Location = new Point(loc_x, loc_y);
+            pwd_view_form.ShowDialog();
         }
     }
 }

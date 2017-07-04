@@ -150,32 +150,6 @@
         YII=
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4QcCBh4tnPZpBAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQ0SURBVHhe
-        7Zo9rw1RFIaPiEaoUCkUEkSp0Wio8QtUopAo3EKiUdCJQq/XaVRKoZNoKCRKiWhUQkMkeJ/J3Tf77rNm
-        5syZvdaZm/EmT3JyZmavj5nZH2vPIkCHxFWxJR6Jp+Kl+Ci+b8Nv/uMY53Au13DtntRxcVO8ED/F3zXh
-        WtqgLdqctA6KO+Kt+COsgMZAm7SNDWxNRvvFDfFFWI57gC1sYnujuiw+CMvJCLCND+E6IV4JyymLz+KJ
-        uCuuiUvitDi8Db/5j2Ocw7lcY7VlgS/4FKIL4quwHMl5Jx6Ic2JdcS1t0JZlIwef8M1V18UvYTmQeCa4
-        o7VFm7Rt2UzgGz5WF53NY2EZTbwW54W3sIEty4cEvlbrIGnoubAMwSdxRUQLm9i2fAJ8rpKErjvPnTgm
-        NiVsdz0N+D5KvE9Ww0BPfUBsWviAL5aPsHafQI9qdXi/xS0xNeETvpX+EsPg0YExtW2om2LwSfhm+Uws
-        g+YJbZMcHrWpq+11IKaVxNTSaoDOZgrvfJ/wsa1j7J02M2xYc3uGG4/efp/4JpKd+6KG8NUaIomtc2hk
-        hVVeBF7j/CmR26mVAITPedsJYjTFGtta0vI4eem2yG3VTACyXgViNOsJFBrKk8FrentS/BC5rdoJwPe8
-        /QSxLolqS3kiiw8PnRXvRWmvdgKQtYAi1l2i3maVsWqu6o6Ii+KhaFtReiSAGEo7xLqrxkjRsTyJNfhY
-        3RMUNlctjHokAFn1BGLeEZXX8gQKEWNFQGW7XXglgFhKW8TciNq7dYfGVHKSppIAYiltEXOz78AGRHmQ
-        elwNHRVnOigfTa8EIKvGSOzNLkx5IGrO/0bkdj0TYK0RiL3ZiioPUJmNUGQCiCm3BcTe7MeVByhPRygy
-        AcSU2wJibzYlywPU6CMUmQBiym0BsTc7s+UBj7K2pcgEWBMiYm+2p8sD7NZEKDIBxJTbAmL/n4DZvwKz
-        7wRnPwzOfiI0+6mw52KoT5EJaF0MeS6H+xSVgM7lMPIqiPQpKgGdBRHkVRLrU1QCektiEUVRSxEJsCZA
-        S0VRFFkWT4pIwEplcRS9MYK8EzBoY2QTW2PeCRi0NYaiN0c9EzB4cxRFb497JWDt7XE06w8kkmb9iQya
-        /UdSaNafySXN+kPJpFl/KosYNmb9sTSioa4nAbgTntPmJGx03XXA12rB5+J9avu8JcHiw2MVSZvWwiYH
-        30a/832iR20bInNYg1OIGFNZ4lrasNbzJfi0dm8/VIypbZMlC+px9NRUZilPU6PnjrJbA/zmP45xDuda
-        Nbw28GXwOF9DTC2ttUMU2F55euslOhtWWNZS2gtsYdOlo1tXrLEpNFBtscprY6FN2sZG63p+KqLeRtGR
-        yuuq3whacC1t0NZSDW+viNo7GxDswrAVxX4cm5LszLI9DfzmP45xDudyzU7d3keLxT8DbTtFN7UDtgAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pwd_add_back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

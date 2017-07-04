@@ -1024,7 +1024,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(265, 108);
+            this.label11.Location = new System.Drawing.Point(252, 158);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(264, 30);
             this.label11.TabIndex = 11;
@@ -1033,7 +1033,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(396, 276);
+            this.textBox3.Location = new System.Drawing.Point(375, 326);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(176, 26);
@@ -1042,7 +1042,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(396, 228);
+            this.textBox2.Location = new System.Drawing.Point(375, 278);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(176, 26);
@@ -1051,7 +1051,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(396, 182);
+            this.textBox1.Location = new System.Drawing.Point(375, 232);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(176, 26);
@@ -1061,7 +1061,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(227, 283);
+            this.label14.Location = new System.Drawing.Point(206, 333);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(104, 15);
             this.label14.TabIndex = 7;
@@ -1071,7 +1071,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(227, 234);
+            this.label13.Location = new System.Drawing.Point(206, 284);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 15);
             this.label13.TabIndex = 6;
@@ -1081,7 +1081,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(227, 187);
+            this.label12.Location = new System.Drawing.Point(206, 237);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(99, 15);
             this.label12.TabIndex = 5;
@@ -1089,8 +1089,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(358, 22);
+            this.pictureBox1.BackgroundImage = global::SAD_2_PTT.Properties.Resources.num1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(348, 72);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(73, 71);
             this.pictureBox1.TabIndex = 3;
@@ -1462,12 +1463,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
-            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);

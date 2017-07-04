@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace SAD_2_PTT
 {
-    public partial class pwd_edit : Form
+    public partial class pwd_view : Form
     {
-        public pwd_edit()
+        public pwd_view()
         {
             InitializeComponent();
         }
+        public main_form reference_to_main { get; set; }
     }
 }

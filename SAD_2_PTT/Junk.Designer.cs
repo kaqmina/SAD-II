@@ -200,9 +200,9 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox2.Location = new System.Drawing.Point(-1, -1);
+            this.textBox2.Location = new System.Drawing.Point(14, -1);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 25);
+            this.textBox2.Size = new System.Drawing.Size(202, 25);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "  Search here..";
             // 
@@ -468,7 +468,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 590);
+            this.ClientSize = new System.Drawing.Size(1069, 589);
             this.Controls.Add(this.pnl_devices);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Junk";

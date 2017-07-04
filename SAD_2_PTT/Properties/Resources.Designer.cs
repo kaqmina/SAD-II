@@ -403,6 +403,16 @@ namespace SAD_2_PTT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pwd {
+            get {
+                object obj = ResourceManager.GetObject("pwd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reports_pwd {
             get {
                 object obj = ResourceManager.GetObject("reports_pwd", resourceCulture);

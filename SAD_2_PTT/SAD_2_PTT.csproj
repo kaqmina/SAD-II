@@ -67,11 +67,11 @@
     <Compile Include="pwd_add.Designer.cs">
       <DependentUpon>pwd_add.cs</DependentUpon>
     </Compile>
-    <Compile Include="pwd_edit.cs">
+    <Compile Include="pwd_view.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pwd_edit.Designer.cs">
-      <DependentUpon>pwd_edit.cs</DependentUpon>
+    <Compile Include="pwd_view.Designer.cs">
+      <DependentUpon>pwd_view.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Junk.resx">
       <DependentUpon>Junk.cs</DependentUpon>
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="pwd_add.resx">
       <DependentUpon>pwd_add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pwd_edit.resx">
-      <DependentUpon>pwd_edit.cs</DependentUpon>
+    <EmbeddedResource Include="pwd_view.resx">
+      <DependentUpon>pwd_view.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -233,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow-return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pwd.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
