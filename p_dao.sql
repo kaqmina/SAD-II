@@ -99,12 +99,12 @@ CREATE TABLE `device_provider` (
   `dp_id` int(11) NOT NULL AUTO_INCREMENT,
   `dp_name` varchar(45) DEFAULT NULL COMMENT 'Required',
   `dp_desc` varchar(45) DEFAULT NULL,
-  `dp_type` int(11) DEFAULT NULL COMMENT 'Required\n---------------\nGovernment\nSponsor',
+  `dp_type` int(11) DEFAULT NULL COMMENT 'Required\n---------------\n0 - Government\n1 - Sponsor',
   `mobile_no` int(11) DEFAULT NULL,
   `tel_no` varchar(45) DEFAULT NULL,
   `email_add` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`dp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,6 +113,7 @@ CREATE TABLE `device_provider` (
 
 LOCK TABLES `device_provider` WRITE;
 /*!40000 ALTER TABLE `device_provider` DISABLE KEYS */;
+INSERT INTO `device_provider` VALUES (1,'Ateneo de Davao University','Can ask for donations.',1,0,'000000',NULL);
 /*!40000 ALTER TABLE `device_provider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +162,7 @@ CREATE TABLE `employee` (
   `username` varchar(45) NOT NULL COMMENT 'Required',
   `password` varchar(45) NOT NULL COMMENT 'Required',
   PRIMARY KEY (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +171,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'K Ann','Quinones','Mina','Davao CIty','Admin',NULL,NULL,1,'admin','admin'),(2,'Coleen Pia','Galero','Larena','Davao City','Admin',NULL,NULL,1,'root','root');
+INSERT INTO `employee` VALUES (1,'K Ann','Quinones','Mina','Davao CIty','Admin',NULL,NULL,1,'admin','admin'),(2,'Coleen Pia','Galero','Larena','Davao City','Admin',NULL,NULL,1,'root','root'),(3,'Abigail Blanche','Aquino','Bangay','Davao City','Admin',NULL,NULL,0,'admin','admin');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,6 +204,7 @@ CREATE TABLE `parental_info` (
 
 LOCK TABLES `parental_info` WRITE;
 /*!40000 ALTER TABLE `parental_info` DISABLE KEYS */;
+INSERT INTO `parental_info` VALUES (1,'Ricardo','Bayani','Mina','Marichu','Quinones','Mina','Jamie','Hernaez','Marianne'),(2,'Abigail','Aquino','Bangay','Abby','Aquino','Bangay','Food','Drinks','Sleep');
 /*!40000 ALTER TABLE `parental_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -355,7 +357,7 @@ CREATE TABLE `pwd` (
   `mobile_no` int(11) DEFAULT NULL,
   `email_add` varchar(45) DEFAULT NULL,
   `birthdate` date DEFAULT NULL COMMENT 'Required',
-  `sex` int(11) NOT NULL COMMENT 'Required',
+  `sex` int(11) NOT NULL COMMENT 'Required\n0 - Male\n1 - Female',
   `civil_status` int(11) DEFAULT NULL COMMENT 'Required',
   `accomplished_by` varchar(45) DEFAULT NULL,
   `educ_attainment` int(11) DEFAULT NULL,
@@ -363,11 +365,11 @@ CREATE TABLE `pwd` (
   `nature_of_employer` int(11) DEFAULT NULL,
   `type_of_skill` int(11) DEFAULT NULL,
   `status_pwd` int(11) DEFAULT NULL COMMENT 'Required\n-----------\n[Membership status]\nActive\nInactive',
-  `isArchived` tinyint(4) DEFAULT NULL,
+  `isArchived` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`pwd_id`),
   KEY `pwd_employee_id_idx` (`employee_id`),
   CONSTRAINT `pwd_employee_id` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -376,6 +378,7 @@ CREATE TABLE `pwd` (
 
 LOCK TABLES `pwd` WRITE;
 /*!40000 ALTER TABLE `pwd` DISABLE KEYS */;
+INSERT INTO `pwd` VALUES (1,1,4,NULL,NULL,'2017-06-20',NULL,'Mina','K Ann','Quinones','Davao City','Filipino','A',NULL,2823159,0,'secret@gmail.com','1998-10-04',1,1,'Marianne Hernaez',1,1,1,2,1,0),(2,2,6,NULL,NULL,'2017-06-20',NULL,'Bangay','Abigail Blanche','Aquino','Davao City','Filipino','B',NULL,0,0,'food@gmail.com','1999-07-13',1,2,'Jamie Pie Fernandez',2,3,1,4,1,0);
 /*!40000 ALTER TABLE `pwd` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -479,4 +482,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-04  9:24:43
+-- Dump completed on 2017-07-04 11:03:22
