@@ -54,11 +54,12 @@ namespace SAD_2_PTT
             bartxt.Text = "Barangay";
             muntxt.Text = "Municipality";
             provtxt.Text = "Province";
+            rel_cmbox.Text = "Religion";
 
             //Style
             lntxt.ForeColor = fntxt.ForeColor = mntxt.ForeColor = Color.Silver;
             hstxt.ForeColor = bartxt.ForeColor = bartxt.ForeColor = Color.Silver;
-            provtxt.ForeColor = muntxt.ForeColor = Color.Silver;
+            provtxt.ForeColor = muntxt.ForeColor = rel_cmbox.ForeColor = Color.Silver;
         }
 
         private void lntxt_Enter(object sender, EventArgs e)
