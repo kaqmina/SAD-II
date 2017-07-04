@@ -45,6 +45,7 @@
             this.slide_in = new System.Windows.Forms.Timer(this.components);
             this.slide_out = new System.Windows.Forms.Timer(this.components);
             this.main_content = new System.Windows.Forms.Panel();
+            this.pnl_profile = new System.Windows.Forms.Panel();
             this.pnl_devices = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
-            this.pnl_profile = new System.Windows.Forms.Panel();
             this.pnl_settings = new System.Windows.Forms.Panel();
             this.pnl_notif_pp = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
@@ -156,6 +156,7 @@
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
+            this.pnl_profile.SuspendLayout();
             this.pnl_devices.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -163,7 +164,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_devices_req_tab.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.pnl_profile.SuspendLayout();
             this.pnl_notif_pp.SuspendLayout();
             this.pnl_pwd.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -404,11 +404,11 @@
             // main_content
             // 
             this.main_content.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.main_content.Controls.Add(this.pnl_profile);
-            this.main_content.Controls.Add(this.pnl_settings);
+            this.main_content.Controls.Add(this.pnl_dashboard);
             this.main_content.Controls.Add(this.pnl_notif_pp);
             this.main_content.Controls.Add(this.pnl_pwd);
-            this.main_content.Controls.Add(this.pnl_dashboard);
+            this.main_content.Controls.Add(this.pnl_profile);
+            this.main_content.Controls.Add(this.pnl_settings);
             this.main_content.Controls.Add(this.dboard_head);
             this.main_content.Controls.Add(this.pnl_reports);
             this.main_content.Controls.Add(this.pnl_projects);
@@ -417,6 +417,14 @@
             this.main_content.Name = "main_content";
             this.main_content.Size = new System.Drawing.Size(1069, 639);
             this.main_content.TabIndex = 4;
+            // 
+            // pnl_profile
+            // 
+            this.pnl_profile.Controls.Add(this.pnl_devices);
+            this.pnl_profile.Location = new System.Drawing.Point(0, 50);
+            this.pnl_profile.Name = "pnl_profile";
+            this.pnl_profile.Size = new System.Drawing.Size(1069, 589);
+            this.pnl_profile.TabIndex = 0;
             // 
             // pnl_devices
             // 
@@ -807,14 +815,6 @@
             this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button19.UseVisualStyleBackColor = true;
             // 
-            // pnl_profile
-            // 
-            this.pnl_profile.Controls.Add(this.pnl_devices);
-            this.pnl_profile.Location = new System.Drawing.Point(0, 50);
-            this.pnl_profile.Name = "pnl_profile";
-            this.pnl_profile.Size = new System.Drawing.Size(1069, 589);
-            this.pnl_profile.TabIndex = 0;
-            // 
             // pnl_settings
             // 
             this.pnl_settings.Location = new System.Drawing.Point(0, 50);
@@ -1102,6 +1102,7 @@
             this.btn_pwd_add.Text = "ADD Member";
             this.btn_pwd_add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_pwd_add.UseVisualStyleBackColor = true;
+            this.btn_pwd_add.Click += new System.EventHandler(this.btn_pwd_add_Click);
             // 
             // btn_pwd_view
             // 
@@ -1148,9 +1149,9 @@
             this.pnl_dashboard.Controls.Add(this.panel1);
             this.pnl_dashboard.Controls.Add(this.panel6);
             this.pnl_dashboard.Controls.Add(this.panel3);
-            this.pnl_dashboard.Location = new System.Drawing.Point(88, 50);
+            this.pnl_dashboard.Location = new System.Drawing.Point(0, 50);
             this.pnl_dashboard.Name = "pnl_dashboard";
-            this.pnl_dashboard.Size = new System.Drawing.Size(981, 589);
+            this.pnl_dashboard.Size = new System.Drawing.Size(1069, 589);
             this.pnl_dashboard.TabIndex = 10;
             // 
             // panel5
@@ -1802,6 +1803,7 @@
             this.main_tab.ResumeLayout(false);
             this.side_tab.ResumeLayout(false);
             this.main_content.ResumeLayout(false);
+            this.pnl_profile.ResumeLayout(false);
             this.pnl_devices.ResumeLayout(false);
             this.pnl_devices.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -1812,7 +1814,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnl_devices_req_tab.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            this.pnl_profile.ResumeLayout(false);
             this.pnl_notif_pp.ResumeLayout(false);
             this.pnl_pwd.ResumeLayout(false);
             this.panel8.ResumeLayout(false);

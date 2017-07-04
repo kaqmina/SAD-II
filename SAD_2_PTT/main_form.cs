@@ -341,10 +341,15 @@ namespace SAD_2_PTT
             }*/
         }
 
+
+
+
         #endregion
 
-
-
-
+        private void btn_pwd_add_Click(object sender, EventArgs e)
+        {
+            pwd_add pwd = new pwd_add();
+            pwd.ShowDialog();
+        }
     }
 }
