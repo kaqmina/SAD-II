@@ -341,10 +341,25 @@ namespace SAD_2_PTT
             }*/
         }
 
+
+
+
         #endregion
 
 
 
-
+        private void btn_pwd_add_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+            
+            pwd_add pwd_fill_up_form = new pwd_add();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            pwd_head.Enabled = false;
+            pwd_fill_up_form.reference_to_main = this;
+            pwd_fill_up_form.Location = new Point(loc_x, loc_y);
+            pwd_fill_up_form.ShowDialog();
+        }
     }
 }

@@ -148,6 +148,8 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        public main_form reference_to_main { get; set; }
+
         #region 7 8 Organization & Other Panel
         private void prev5_Click(object sender, EventArgs e)
         {
@@ -246,10 +248,22 @@ namespace SAD_2_PTT
             amn_txt.ForeColor = Color.Black;
         }
 
-        #endregion
 
         #endregion
 
-     
+        #endregion
+
+        private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+            reference_to_main.pwd_head.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //transfer data to database
+        }
     }
 }
