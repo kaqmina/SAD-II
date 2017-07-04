@@ -248,10 +248,23 @@ namespace SAD_2_PTT
         }
 
 
-        #endregion
 
         #endregion
 
+        #endregion
 
+        public main_form reference_to_main { get; set; }
+
+        private void pwd_add_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //update database
+        }
+
+        private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+        }
     }
 }

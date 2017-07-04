@@ -1844,7 +1844,7 @@
         #endregion
         private System.Windows.Forms.Panel main_tab;
         private System.Windows.Forms.Panel sidenav;
-        private System.Windows.Forms.Panel side_tab;
+        public System.Windows.Forms.Panel side_tab;
         public System.Windows.Forms.Button btn_settings;
         private System.Windows.Forms.Button btn_logout;
         public System.Windows.Forms.Button btn_reports;
@@ -1857,7 +1857,7 @@
         private System.Windows.Forms.Timer slide_out;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel main_content;
-        private System.Windows.Forms.Panel dboard_head;
+        public System.Windows.Forms.Panel dboard_head;
         private System.Windows.Forms.Label lbl_name;
         public System.Windows.Forms.Label lbl_current;
         public System.Windows.Forms.Panel pnl_dashboard;
