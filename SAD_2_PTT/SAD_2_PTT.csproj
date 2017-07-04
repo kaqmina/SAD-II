@@ -67,6 +67,12 @@
     <Compile Include="pwd_add.Designer.cs">
       <DependentUpon>pwd_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="pwd_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwd_edit.Designer.cs">
+      <DependentUpon>pwd_edit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Junk.resx">
       <DependentUpon>Junk.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="pwd_add.resx">
       <DependentUpon>pwd_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pwd_edit.resx">
+      <DependentUpon>pwd_edit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

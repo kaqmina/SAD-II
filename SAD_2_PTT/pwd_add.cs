@@ -54,11 +54,12 @@ namespace SAD_2_PTT
             bartxt.Text = "Barangay";
             muntxt.Text = "Municipality";
             provtxt.Text = "Province";
+            rel_cmbox.Text = "Religion";
 
             //Style
             lntxt.ForeColor = fntxt.ForeColor = mntxt.ForeColor = Color.Silver;
             hstxt.ForeColor = bartxt.ForeColor = bartxt.ForeColor = Color.Silver;
-            provtxt.ForeColor = muntxt.ForeColor = Color.Silver;
+            provtxt.ForeColor = muntxt.ForeColor = rel_cmbox.ForeColor = Color.Silver;
         }
 
         private void lntxt_Enter(object sender, EventArgs e)
@@ -147,8 +148,6 @@ namespace SAD_2_PTT
             pnl5.Visible = true;
         }
         #endregion
-
-        public main_form reference_to_main { get; set; }
 
         #region 7 8 Organization & Other Panel
         private void prev5_Click(object sender, EventArgs e)
@@ -253,17 +252,6 @@ namespace SAD_2_PTT
 
         #endregion
 
-        private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reference_to_main.side_tab.Enabled = true;
-            reference_to_main.dboard_head.Enabled = true;
-            reference_to_main.pwd_head.Enabled = true;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            //transfer data to database
-        }
     }
 }

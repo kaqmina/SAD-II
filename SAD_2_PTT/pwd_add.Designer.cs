@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pwd_add));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.checklist = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -43,12 +42,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl2 = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rel_cmbox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -58,16 +60,16 @@
             this.hstxt = new System.Windows.Forms.TextBox();
             this.mntxt = new System.Windows.Forms.TextBox();
             this.fntxt = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.lntxt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_next2 = new System.Windows.Forms.Button();
             this.btn_prev2 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.pnl3 = new System.Windows.Forms.Panel();
             this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
@@ -80,7 +82,6 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.textBox22 = new System.Windows.Forms.TextBox();
@@ -88,7 +89,6 @@
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.next3 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -100,11 +100,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_next1 = new System.Windows.Forms.Button();
             this.page_num = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnl4 = new System.Windows.Forms.Panel();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.prev4 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
@@ -116,17 +119,13 @@
             this.radioButton18 = new System.Windows.Forms.RadioButton();
             this.radioButton19 = new System.Windows.Forms.RadioButton();
             this.radioButton20 = new System.Windows.Forms.RadioButton();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.next4 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.pnl_container = new System.Windows.Forms.Panel();
             this.pnl6 = new System.Windows.Forms.Panel();
             this.amn_txt = new System.Windows.Forms.TextBox();
@@ -148,78 +147,73 @@
             this.label50 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.pnl5 = new System.Windows.Forms.Panel();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.textBox28 = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.textBox26 = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.prev5 = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.next5 = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnl_container.SuspendLayout();
             this.pnl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.pnl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1066, 33);
+            this.panel1.Size = new System.Drawing.Size(1069, 33);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "New PWD Profile";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel3.Location = new System.Drawing.Point(0, 505);
+            this.panel3.Location = new System.Drawing.Point(0, 510);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(259, 54);
             this.panel3.TabIndex = 2;
@@ -236,7 +230,7 @@
             this.checklist.Controls.Add(this.label4);
             this.checklist.Controls.Add(this.label3);
             this.checklist.Controls.Add(this.label2);
-            this.checklist.Location = new System.Drawing.Point(0, 134);
+            this.checklist.Location = new System.Drawing.Point(0, 139);
             this.checklist.Name = "checklist";
             this.checklist.Size = new System.Drawing.Size(259, 353);
             this.checklist.TabIndex = 3;
@@ -334,12 +328,15 @@
             // pnl2
             // 
             this.pnl2.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl2.Controls.Add(this.comboBox3);
+            this.pnl2.Controls.Add(this.comboBox2);
+            this.pnl2.Controls.Add(this.textBox8);
+            this.pnl2.Controls.Add(this.textBox7);
+            this.pnl2.Controls.Add(this.comboBox1);
+            this.pnl2.Controls.Add(this.rel_cmbox);
             this.pnl2.Controls.Add(this.label21);
             this.pnl2.Controls.Add(this.label23);
-            this.pnl2.Controls.Add(this.textBox16);
-            this.pnl2.Controls.Add(this.textBox15);
             this.pnl2.Controls.Add(this.textBox14);
-            this.pnl2.Controls.Add(this.textBox13);
             this.pnl2.Controls.Add(this.textBox12);
             this.pnl2.Controls.Add(this.label22);
             this.pnl2.Controls.Add(this.label20);
@@ -349,7 +346,6 @@
             this.pnl2.Controls.Add(this.hstxt);
             this.pnl2.Controls.Add(this.mntxt);
             this.pnl2.Controls.Add(this.fntxt);
-            this.pnl2.Controls.Add(this.textBox4);
             this.pnl2.Controls.Add(this.lntxt);
             this.pnl2.Controls.Add(this.label15);
             this.pnl2.Controls.Add(this.label16);
@@ -359,17 +355,113 @@
             this.pnl2.Controls.Add(this.btn_next2);
             this.pnl2.Controls.Add(this.btn_prev2);
             this.pnl2.Controls.Add(this.label19);
+            this.pnl2.Controls.Add(this.textBox4);
+            this.pnl2.Controls.Add(this.textBox6);
             this.pnl2.Location = new System.Drawing.Point(0, 0);
             this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(753, 500);
+            this.pnl2.Size = new System.Drawing.Size(757, 500);
             this.pnl2.TabIndex = 11;
             this.pnl2.Visible = false;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox3.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox3.Location = new System.Drawing.Point(199, 386);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(150, 23);
+            this.comboBox3.TabIndex = 40;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox2.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox2.Location = new System.Drawing.Point(199, 347);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(150, 23);
+            this.comboBox2.TabIndex = 39;
+            // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox8.Enabled = false;
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(197, 385);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(154, 26);
+            this.textBox8.TabIndex = 38;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox7.Enabled = false;
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(197, 346);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(154, 26);
+            this.textBox7.TabIndex = 37;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox1.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox1.Location = new System.Drawing.Point(199, 268);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(150, 23);
+            this.comboBox1.TabIndex = 35;
+            // 
+            // rel_cmbox
+            // 
+            this.rel_cmbox.BackColor = System.Drawing.SystemColors.Window;
+            this.rel_cmbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rel_cmbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rel_cmbox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rel_cmbox.FormattingEnabled = true;
+            this.rel_cmbox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.rel_cmbox.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.rel_cmbox.Location = new System.Drawing.Point(377, 180);
+            this.rel_cmbox.Name = "rel_cmbox";
+            this.rel_cmbox.Size = new System.Drawing.Size(150, 23);
+            this.rel_cmbox.TabIndex = 30;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(76, 314);
+            this.label21.Location = new System.Drawing.Point(76, 311);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(70, 15);
             this.label21.TabIndex = 29;
@@ -385,45 +477,15 @@
             this.label23.TabIndex = 28;
             this.label23.Text = "Civil Status :";
             // 
-            // textBox16
-            // 
-            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox16.Location = new System.Drawing.Point(198, 381);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(151, 24);
-            this.textBox16.TabIndex = 13;
-            this.textBox16.Text = "comboBox";
-            // 
-            // textBox15
-            // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox15.Location = new System.Drawing.Point(198, 345);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(151, 24);
-            this.textBox15.TabIndex = 12;
-            this.textBox15.Text = "comboBox";
-            // 
             // textBox14
             // 
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(198, 305);
+            this.textBox14.Location = new System.Drawing.Point(198, 306);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(151, 24);
+            this.textBox14.Size = new System.Drawing.Size(154, 26);
             this.textBox14.TabIndex = 11;
-            // 
-            // textBox13
-            // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox13.Location = new System.Drawing.Point(198, 267);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(151, 24);
-            this.textBox13.TabIndex = 10;
-            this.textBox13.Text = "comboBox";
             // 
             // textBox12
             // 
@@ -432,7 +494,7 @@
             this.textBox12.Location = new System.Drawing.Point(198, 228);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(151, 24);
+            this.textBox12.Size = new System.Drawing.Size(154, 26);
             this.textBox12.TabIndex = 9;
             // 
             // label22
@@ -449,7 +511,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(76, 276);
+            this.label20.Location = new System.Drawing.Point(76, 271);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(54, 15);
             this.label20.TabIndex = 19;
@@ -459,10 +521,10 @@
             // 
             this.provtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.provtxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.provtxt.Location = new System.Drawing.Point(197, 179);
+            this.provtxt.Location = new System.Drawing.Point(197, 178);
             this.provtxt.Multiline = true;
             this.provtxt.Name = "provtxt";
-            this.provtxt.Size = new System.Drawing.Size(171, 24);
+            this.provtxt.Size = new System.Drawing.Size(171, 26);
             this.provtxt.TabIndex = 7;
             this.provtxt.Enter += new System.EventHandler(this.provtxt_Enter);
             // 
@@ -481,10 +543,10 @@
             // 
             this.bartxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bartxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bartxt.Location = new System.Drawing.Point(373, 146);
+            this.bartxt.Location = new System.Drawing.Point(375, 146);
             this.bartxt.Multiline = true;
             this.bartxt.Name = "bartxt";
-            this.bartxt.Size = new System.Drawing.Size(156, 24);
+            this.bartxt.Size = new System.Drawing.Size(154, 24);
             this.bartxt.TabIndex = 5;
             this.bartxt.Enter += new System.EventHandler(this.bartxt_Enter);
             // 
@@ -503,10 +565,10 @@
             // 
             this.mntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mntxt.Location = new System.Drawing.Point(510, 99);
+            this.mntxt.Location = new System.Drawing.Point(517, 99);
             this.mntxt.Multiline = true;
             this.mntxt.Name = "mntxt";
-            this.mntxt.Size = new System.Drawing.Size(151, 24);
+            this.mntxt.Size = new System.Drawing.Size(154, 26);
             this.mntxt.TabIndex = 3;
             this.mntxt.Enter += new System.EventHandler(this.mntxt_Enter);
             // 
@@ -514,22 +576,12 @@
             // 
             this.fntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fntxt.Location = new System.Drawing.Point(353, 99);
+            this.fntxt.Location = new System.Drawing.Point(357, 99);
             this.fntxt.Multiline = true;
             this.fntxt.Name = "fntxt";
-            this.fntxt.Size = new System.Drawing.Size(151, 24);
+            this.fntxt.Size = new System.Drawing.Size(154, 26);
             this.fntxt.TabIndex = 2;
             this.fntxt.Enter += new System.EventHandler(this.fntxt_Enter);
-            // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(373, 179);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 24);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.Text = "region:comboBox";
             // 
             // lntxt
             // 
@@ -538,7 +590,7 @@
             this.lntxt.Location = new System.Drawing.Point(197, 99);
             this.lntxt.Multiline = true;
             this.lntxt.Name = "lntxt";
-            this.lntxt.Size = new System.Drawing.Size(151, 24);
+            this.lntxt.Size = new System.Drawing.Size(154, 26);
             this.lntxt.TabIndex = 1;
             this.lntxt.Enter += new System.EventHandler(this.lntxt_Enter);
             // 
@@ -546,7 +598,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(76, 234);
+            this.label15.Location = new System.Drawing.Point(76, 233);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(80, 15);
             this.label15.TabIndex = 7;
@@ -556,7 +608,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(76, 155);
+            this.label16.Location = new System.Drawing.Point(76, 150);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(59, 15);
             this.label16.TabIndex = 6;
@@ -581,15 +633,6 @@
             this.label18.Size = new System.Drawing.Size(279, 30);
             this.label18.TabIndex = 4;
             this.label18.Text = "PERSONAL INFORMATION";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SAD_2_PTT.Properties.Resources.num2;
-            this.pictureBox2.Location = new System.Drawing.Point(32, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
             // 
             // btn_next2
             // 
@@ -630,6 +673,28 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "2 of 6";
             // 
+            // textBox4
+            // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.Enabled = false;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(375, 178);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(154, 26);
+            this.textBox4.TabIndex = 34;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Enabled = false;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(197, 266);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(154, 26);
+            this.textBox6.TabIndex = 36;
+            // 
             // pnl3
             // 
             this.pnl3.BackColor = System.Drawing.SystemColors.Window;
@@ -658,7 +723,7 @@
             this.pnl3.Controls.Add(this.label32);
             this.pnl3.Location = new System.Drawing.Point(0, 0);
             this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(753, 500);
+            this.pnl3.Size = new System.Drawing.Size(757, 500);
             this.pnl3.TabIndex = 30;
             this.pnl3.Visible = false;
             // 
@@ -792,28 +857,19 @@
             this.label33.TabIndex = 35;
             this.label33.Text = "EDUCATIONAL ATTAINMENT";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::SAD_2_PTT.Properties.Resources.num4;
-            this.pictureBox4.Location = new System.Drawing.Point(32, 200);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox4.TabIndex = 34;
-            this.pictureBox4.TabStop = false;
-            // 
             // textBox23
             // 
             this.textBox23.Location = new System.Drawing.Point(280, 167);
             this.textBox23.Multiline = true;
             this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(151, 22);
+            this.textBox23.Size = new System.Drawing.Size(154, 26);
             this.textBox23.TabIndex = 32;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(138, 169);
+            this.label29.Location = new System.Drawing.Point(141, 174);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(93, 15);
             this.label29.TabIndex = 33;
@@ -824,36 +880,36 @@
             this.textBox22.Location = new System.Drawing.Point(280, 129);
             this.textBox22.Multiline = true;
             this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(151, 22);
+            this.textBox22.Size = new System.Drawing.Size(154, 26);
             this.textBox22.TabIndex = 30;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(138, 131);
+            this.label28.Location = new System.Drawing.Point(141, 135);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(71, 15);
+            this.label28.Size = new System.Drawing.Size(68, 15);
             this.label28.TabIndex = 31;
-            this.label28.Text = "Mobile No. :";
+            this.label28.Text = "Mobile No :";
             // 
             // textBox25
             // 
             this.textBox25.Location = new System.Drawing.Point(280, 92);
             this.textBox25.Multiline = true;
             this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(151, 22);
+            this.textBox25.Size = new System.Drawing.Size(154, 26);
             this.textBox25.TabIndex = 4;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(138, 94);
+            this.label30.Location = new System.Drawing.Point(141, 95);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(93, 15);
+            this.label30.Size = new System.Drawing.Size(90, 15);
             this.label30.TabIndex = 5;
-            this.label30.Text = "Telephone No. :";
+            this.label30.Text = "Telephone No :";
             // 
             // label31
             // 
@@ -864,15 +920,6 @@
             this.label31.Size = new System.Drawing.Size(267, 30);
             this.label31.TabIndex = 4;
             this.label31.Text = "CONTACT INFORMATION";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(32, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(69, 71);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
             // 
             // next3
             // 
@@ -926,9 +973,9 @@
             this.pnl1.Controls.Add(this.pictureBox1);
             this.pnl1.Controls.Add(this.btn_next1);
             this.pnl1.Controls.Add(this.page_num);
-            this.pnl1.Location = new System.Drawing.Point(-2, 0);
+            this.pnl1.Location = new System.Drawing.Point(0, 0);
             this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(753, 500);
+            this.pnl1.Size = new System.Drawing.Size(757, 500);
             this.pnl1.TabIndex = 4;
             this.pnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -944,6 +991,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(396, 276);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -952,6 +1000,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(396, 228);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -960,6 +1009,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(396, 182);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -992,18 +1042,9 @@
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(227, 187);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 15);
+            this.label12.Size = new System.Drawing.Size(99, 15);
             this.label12.TabIndex = 5;
-            this.label12.Text = "Registration No. :";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(358, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.label12.Text = "Registration No :";
             // 
             // btn_next1
             // 
@@ -1031,26 +1072,14 @@
             this.page_num.TabIndex = 0;
             this.page_num.Text = "1 of 6";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-1, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(259, 54);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "        RETURN TO MEMBERSHIP";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pnl4
             // 
             this.pnl4.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl4.Controls.Add(this.comboBox6);
+            this.pnl4.Controls.Add(this.comboBox5);
+            this.pnl4.Controls.Add(this.textBox10);
+            this.pnl4.Controls.Add(this.textBox9);
+            this.pnl4.Controls.Add(this.comboBox4);
             this.pnl4.Controls.Add(this.prev4);
             this.pnl4.Controls.Add(this.label24);
             this.pnl4.Controls.Add(this.radioButton11);
@@ -1063,21 +1092,95 @@
             this.pnl4.Controls.Add(this.radioButton19);
             this.pnl4.Controls.Add(this.radioButton20);
             this.pnl4.Controls.Add(this.pictureBox5);
-            this.pnl4.Controls.Add(this.textBox17);
             this.pnl4.Controls.Add(this.label25);
-            this.pnl4.Controls.Add(this.textBox18);
             this.pnl4.Controls.Add(this.label26);
-            this.pnl4.Controls.Add(this.textBox19);
             this.pnl4.Controls.Add(this.label27);
             this.pnl4.Controls.Add(this.label34);
             this.pnl4.Controls.Add(this.pictureBox6);
             this.pnl4.Controls.Add(this.next4);
             this.pnl4.Controls.Add(this.label35);
+            this.pnl4.Controls.Add(this.textBox11);
             this.pnl4.Location = new System.Drawing.Point(0, 0);
             this.pnl4.Name = "pnl4";
-            this.pnl4.Size = new System.Drawing.Size(753, 500);
+            this.pnl4.Size = new System.Drawing.Size(757, 500);
             this.pnl4.TabIndex = 53;
             this.pnl4.Visible = false;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox6.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox6.Location = new System.Drawing.Point(319, 126);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(150, 23);
+            this.comboBox6.TabIndex = 59;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox5.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox5.Location = new System.Drawing.Point(319, 89);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(150, 23);
+            this.comboBox5.TabIndex = 58;
+            // 
+            // textBox10
+            // 
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox10.Enabled = false;
+            this.textBox10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(318, 125);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(154, 26);
+            this.textBox10.TabIndex = 56;
+            // 
+            // textBox9
+            // 
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox9.Enabled = false;
+            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(318, 88);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(154, 26);
+            this.textBox9.TabIndex = 55;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox4.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox4.Location = new System.Drawing.Point(319, 164);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(150, 23);
+            this.comboBox4.TabIndex = 54;
             // 
             // prev4
             // 
@@ -1106,7 +1209,7 @@
             // 
             this.radioButton11.AutoSize = true;
             this.radioButton11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton11.Location = new System.Drawing.Point(460, 363);
+            this.radioButton11.Location = new System.Drawing.Point(428, 362);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(131, 19);
             this.radioButton11.TabIndex = 52;
@@ -1118,7 +1221,7 @@
             // 
             this.radioButton12.AutoSize = true;
             this.radioButton12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton12.Location = new System.Drawing.Point(460, 338);
+            this.radioButton12.Location = new System.Drawing.Point(428, 337);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(126, 19);
             this.radioButton12.TabIndex = 51;
@@ -1130,7 +1233,7 @@
             // 
             this.radioButton13.AutoSize = true;
             this.radioButton13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton13.Location = new System.Drawing.Point(460, 313);
+            this.radioButton13.Location = new System.Drawing.Point(428, 312);
             this.radioButton13.Name = "radioButton13";
             this.radioButton13.Size = new System.Drawing.Size(75, 19);
             this.radioButton13.TabIndex = 50;
@@ -1142,12 +1245,12 @@
             // 
             this.radioButton15.AutoSize = true;
             this.radioButton15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton15.Location = new System.Drawing.Point(461, 254);
+            this.radioButton15.Location = new System.Drawing.Point(428, 253);
             this.radioButton15.Name = "radioButton15";
             this.radioButton15.Size = new System.Drawing.Size(184, 49);
             this.radioButton15.TabIndex = 48;
             this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "\r\nPlant and Machine Operators\r\nand Assemblers";
+            this.radioButton15.Text = "\r\nPlant and Machine Operators\r\nand Assemblers\r\n";
             this.radioButton15.UseVisualStyleBackColor = true;
             // 
             // radioButton16
@@ -1211,24 +1314,6 @@
     "utives Managers, Managing\r\nPropietors and Supervisors\r\n";
             this.radioButton20.UseVisualStyleBackColor = true;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::SAD_2_PTT.Properties.Resources.num6;
-            this.pictureBox5.Location = new System.Drawing.Point(32, 200);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox5.TabIndex = 34;
-            this.pictureBox5.TabStop = false;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(318, 162);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(151, 22);
-            this.textBox17.TabIndex = 32;
-            this.textBox17.Text = "comboBox";
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1239,15 +1324,6 @@
             this.label25.TabIndex = 33;
             this.label25.Text = "Type of Employment :";
             // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(318, 126);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(151, 22);
-            this.textBox18.TabIndex = 30;
-            this.textBox18.Text = "comboBox";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -1257,15 +1333,6 @@
             this.label26.Size = new System.Drawing.Size(118, 15);
             this.label26.TabIndex = 31;
             this.label26.Text = "Nature of Employer :";
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(318, 92);
-            this.textBox19.Multiline = true;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(151, 22);
-            this.textBox19.TabIndex = 4;
-            this.textBox19.Text = "comboBox";
             // 
             // label27
             // 
@@ -1286,15 +1353,6 @@
             this.label34.Size = new System.Drawing.Size(313, 30);
             this.label34.TabIndex = 4;
             this.label34.Text = "EMPLOYMENT INFORMATION";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::SAD_2_PTT.Properties.Resources.num5;
-            this.pictureBox6.Location = new System.Drawing.Point(32, 22);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(69, 71);
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
             // 
             // next4
             // 
@@ -1322,18 +1380,29 @@
             this.label35.TabIndex = 0;
             this.label35.Text = "4 of 6";
             // 
+            // textBox11
+            // 
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox11.Enabled = false;
+            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(318, 163);
+            this.textBox11.Multiline = true;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(154, 26);
+            this.textBox11.TabIndex = 57;
+            // 
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl6);
-            this.pnl_container.Controls.Add(this.pnl5);
-            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl2);
-            this.pnl_container.Location = new System.Drawing.Point(287, 62);
+            this.pnl_container.Controls.Add(this.pnl6);
+            this.pnl_container.Controls.Add(this.pnl5);
+            this.pnl_container.Controls.Add(this.pnl1);
+            this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
-            this.pnl_container.Size = new System.Drawing.Size(753, 500);
+            this.pnl_container.Size = new System.Drawing.Size(757, 500);
             this.pnl_container.TabIndex = 54;
             this.pnl_container.Visible = false;
             // 
@@ -1365,7 +1434,7 @@
             this.pnl6.Controls.Add(this.label54);
             this.pnl6.Location = new System.Drawing.Point(0, 0);
             this.pnl6.Name = "pnl6";
-            this.pnl6.Size = new System.Drawing.Size(753, 500);
+            this.pnl6.Size = new System.Drawing.Size(757, 500);
             this.pnl6.TabIndex = 30;
             this.pnl6.Visible = false;
             // 
@@ -1373,10 +1442,10 @@
             // 
             this.amn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.amn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amn_txt.Location = new System.Drawing.Point(540, 219);
+            this.amn_txt.Location = new System.Drawing.Point(552, 219);
             this.amn_txt.Multiline = true;
             this.amn_txt.Name = "amn_txt";
-            this.amn_txt.Size = new System.Drawing.Size(151, 24);
+            this.amn_txt.Size = new System.Drawing.Size(154, 26);
             this.amn_txt.TabIndex = 38;
             this.amn_txt.Enter += new System.EventHandler(this.amn_txt_Enter);
             // 
@@ -1384,10 +1453,10 @@
             // 
             this.afn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.afn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.afn_txt.Location = new System.Drawing.Point(383, 219);
+            this.afn_txt.Location = new System.Drawing.Point(389, 219);
             this.afn_txt.Multiline = true;
             this.afn_txt.Name = "afn_txt";
-            this.afn_txt.Size = new System.Drawing.Size(151, 24);
+            this.afn_txt.Size = new System.Drawing.Size(154, 26);
             this.afn_txt.TabIndex = 37;
             this.afn_txt.Enter += new System.EventHandler(this.afn_txt_Enter);
             // 
@@ -1398,7 +1467,7 @@
             this.aln_txt.Location = new System.Drawing.Point(227, 219);
             this.aln_txt.Multiline = true;
             this.aln_txt.Name = "aln_txt";
-            this.aln_txt.Size = new System.Drawing.Size(151, 24);
+            this.aln_txt.Size = new System.Drawing.Size(154, 26);
             this.aln_txt.TabIndex = 36;
             this.aln_txt.Enter += new System.EventHandler(this.aln_txt_Enter);
             // 
@@ -1406,10 +1475,10 @@
             // 
             this.gmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gmn_txt.Location = new System.Drawing.Point(540, 184);
+            this.gmn_txt.Location = new System.Drawing.Point(552, 184);
             this.gmn_txt.Multiline = true;
             this.gmn_txt.Name = "gmn_txt";
-            this.gmn_txt.Size = new System.Drawing.Size(151, 24);
+            this.gmn_txt.Size = new System.Drawing.Size(154, 26);
             this.gmn_txt.TabIndex = 35;
             this.gmn_txt.Enter += new System.EventHandler(this.gmn_txt_Enter);
             // 
@@ -1417,10 +1486,10 @@
             // 
             this.gfn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gfn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gfn_txt.Location = new System.Drawing.Point(383, 184);
+            this.gfn_txt.Location = new System.Drawing.Point(389, 184);
             this.gfn_txt.Multiline = true;
             this.gfn_txt.Name = "gfn_txt";
-            this.gfn_txt.Size = new System.Drawing.Size(151, 24);
+            this.gfn_txt.Size = new System.Drawing.Size(154, 26);
             this.gfn_txt.TabIndex = 34;
             this.gfn_txt.Enter += new System.EventHandler(this.gfn_txt_Enter);
             // 
@@ -1431,7 +1500,7 @@
             this.gln_txt.Location = new System.Drawing.Point(227, 184);
             this.gln_txt.Multiline = true;
             this.gln_txt.Name = "gln_txt";
-            this.gln_txt.Size = new System.Drawing.Size(151, 24);
+            this.gln_txt.Size = new System.Drawing.Size(154, 26);
             this.gln_txt.TabIndex = 33;
             this.gln_txt.Enter += new System.EventHandler(this.gln_txt_Enter);
             // 
@@ -1439,10 +1508,10 @@
             // 
             this.mmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mmn_txt.Location = new System.Drawing.Point(540, 146);
+            this.mmn_txt.Location = new System.Drawing.Point(552, 146);
             this.mmn_txt.Multiline = true;
             this.mmn_txt.Name = "mmn_txt";
-            this.mmn_txt.Size = new System.Drawing.Size(151, 24);
+            this.mmn_txt.Size = new System.Drawing.Size(154, 26);
             this.mmn_txt.TabIndex = 32;
             this.mmn_txt.Enter += new System.EventHandler(this.mmn_txt_Enter);
             // 
@@ -1450,10 +1519,10 @@
             // 
             this.mfn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mfn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mfn_txt.Location = new System.Drawing.Point(383, 146);
+            this.mfn_txt.Location = new System.Drawing.Point(389, 146);
             this.mfn_txt.Multiline = true;
             this.mfn_txt.Name = "mfn_txt";
-            this.mfn_txt.Size = new System.Drawing.Size(151, 24);
+            this.mfn_txt.Size = new System.Drawing.Size(154, 26);
             this.mfn_txt.TabIndex = 31;
             this.mfn_txt.Enter += new System.EventHandler(this.mfn_txt_Enter);
             // 
@@ -1464,7 +1533,7 @@
             this.mln_txt.Location = new System.Drawing.Point(227, 146);
             this.mln_txt.Multiline = true;
             this.mln_txt.Name = "mln_txt";
-            this.mln_txt.Size = new System.Drawing.Size(151, 24);
+            this.mln_txt.Size = new System.Drawing.Size(154, 26);
             this.mln_txt.TabIndex = 30;
             this.mln_txt.Enter += new System.EventHandler(this.mln_txt_Enter);
             // 
@@ -1474,9 +1543,9 @@
             this.label46.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.Location = new System.Drawing.Point(87, 223);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(106, 15);
+            this.label46.Size = new System.Drawing.Size(107, 15);
             this.label46.TabIndex = 29;
-            this.label46.Text = "Accomplished by :";
+            this.label46.Text = "Accomplished By :";
             // 
             // label47
             // 
@@ -1491,10 +1560,10 @@
             // textBox5
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(269, 308);
+            this.textBox5.Location = new System.Drawing.Point(243, 305);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(260, 24);
+            this.textBox5.Size = new System.Drawing.Size(260, 26);
             this.textBox5.TabIndex = 13;
             // 
             // label49
@@ -1511,10 +1580,10 @@
             // 
             this.fmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fmn_txt.Location = new System.Drawing.Point(540, 106);
+            this.fmn_txt.Location = new System.Drawing.Point(552, 106);
             this.fmn_txt.Multiline = true;
             this.fmn_txt.Name = "fmn_txt";
-            this.fmn_txt.Size = new System.Drawing.Size(151, 24);
+            this.fmn_txt.Size = new System.Drawing.Size(154, 26);
             this.fmn_txt.TabIndex = 3;
             this.fmn_txt.Enter += new System.EventHandler(this.fmn_txt_Enter);
             // 
@@ -1522,10 +1591,10 @@
             // 
             this.ffn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ffn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ffn_txt.Location = new System.Drawing.Point(383, 106);
+            this.ffn_txt.Location = new System.Drawing.Point(389, 106);
             this.ffn_txt.Multiline = true;
             this.ffn_txt.Name = "ffn_txt";
-            this.ffn_txt.Size = new System.Drawing.Size(151, 24);
+            this.ffn_txt.Size = new System.Drawing.Size(154, 26);
             this.ffn_txt.TabIndex = 2;
             this.ffn_txt.Enter += new System.EventHandler(this.ffn_txt_Enter);
             // 
@@ -1536,7 +1605,7 @@
             this.fln_txt.Location = new System.Drawing.Point(227, 106);
             this.fln_txt.Multiline = true;
             this.fln_txt.Name = "fln_txt";
-            this.fln_txt.Size = new System.Drawing.Size(151, 24);
+            this.fln_txt.Size = new System.Drawing.Size(154, 26);
             this.fln_txt.TabIndex = 1;
             this.fln_txt.Enter += new System.EventHandler(this.fln_txt_Enter);
             // 
@@ -1570,18 +1639,8 @@
             this.label53.TabIndex = 4;
             this.label53.Text = "PARENTAL INFORMATION";
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::SAD_2_PTT.Properties.Resources.num9;
-            this.pictureBox9.Location = new System.Drawing.Point(32, 22);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox9.TabIndex = 3;
-            this.pictureBox9.TabStop = false;
-            // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.SystemColors.Window;
             this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1595,7 +1654,6 @@
             // 
             // button4
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1622,50 +1680,122 @@
             // pnl5
             // 
             this.pnl5.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl5.Controls.Add(this.textBox30);
-            this.pnl5.Controls.Add(this.textBox27);
+            this.pnl5.Controls.Add(this.textBox21);
+            this.pnl5.Controls.Add(this.textBox20);
+            this.pnl5.Controls.Add(this.textBox19);
+            this.pnl5.Controls.Add(this.textBox18);
+            this.pnl5.Controls.Add(this.textBox17);
+            this.pnl5.Controls.Add(this.textBox16);
+            this.pnl5.Controls.Add(this.textBox15);
+            this.pnl5.Controls.Add(this.comboBox7);
             this.pnl5.Controls.Add(this.label43);
-            this.pnl5.Controls.Add(this.textBox28);
             this.pnl5.Controls.Add(this.label44);
-            this.pnl5.Controls.Add(this.textBox29);
             this.pnl5.Controls.Add(this.label45);
-            this.pnl5.Controls.Add(this.textBox26);
             this.pnl5.Controls.Add(this.label42);
             this.pnl5.Controls.Add(this.prev5);
             this.pnl5.Controls.Add(this.label36);
             this.pnl5.Controls.Add(this.pictureBox7);
-            this.pnl5.Controls.Add(this.textBox20);
             this.pnl5.Controls.Add(this.label37);
-            this.pnl5.Controls.Add(this.textBox21);
             this.pnl5.Controls.Add(this.label38);
-            this.pnl5.Controls.Add(this.textBox24);
             this.pnl5.Controls.Add(this.label39);
             this.pnl5.Controls.Add(this.label40);
             this.pnl5.Controls.Add(this.pictureBox8);
             this.pnl5.Controls.Add(this.next5);
             this.pnl5.Controls.Add(this.label41);
+            this.pnl5.Controls.Add(this.textBox13);
             this.pnl5.Location = new System.Drawing.Point(0, 0);
             this.pnl5.Name = "pnl5";
-            this.pnl5.Size = new System.Drawing.Size(753, 500);
+            this.pnl5.Size = new System.Drawing.Size(757, 500);
             this.pnl5.TabIndex = 54;
             this.pnl5.Visible = false;
             // 
-            // textBox30
+            // textBox21
             // 
-            this.textBox30.Location = new System.Drawing.Point(482, 365);
-            this.textBox30.Multiline = true;
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(151, 22);
-            this.textBox30.TabIndex = 62;
-            this.textBox30.Text = "comboBox";
+            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.Location = new System.Drawing.Point(313, 193);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(154, 26);
+            this.textBox21.TabIndex = 70;
             // 
-            // textBox27
+            // textBox20
             // 
-            this.textBox27.Location = new System.Drawing.Point(318, 365);
-            this.textBox27.Multiline = true;
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(151, 22);
-            this.textBox27.TabIndex = 60;
+            this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox20.Location = new System.Drawing.Point(313, 158);
+            this.textBox20.Multiline = true;
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(154, 26);
+            this.textBox20.TabIndex = 69;
+            // 
+            // textBox19
+            // 
+            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox19.Location = new System.Drawing.Point(313, 124);
+            this.textBox19.Multiline = true;
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(154, 26);
+            this.textBox19.TabIndex = 68;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox18.Location = new System.Drawing.Point(313, 89);
+            this.textBox18.Multiline = true;
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(154, 26);
+            this.textBox18.TabIndex = 67;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Location = new System.Drawing.Point(313, 359);
+            this.textBox17.Multiline = true;
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(154, 26);
+            this.textBox17.TabIndex = 66;
+            // 
+            // textBox16
+            // 
+            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox16.Location = new System.Drawing.Point(313, 324);
+            this.textBox16.Multiline = true;
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(154, 26);
+            this.textBox16.TabIndex = 65;
+            // 
+            // textBox15
+            // 
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Location = new System.Drawing.Point(313, 290);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(154, 26);
+            this.textBox15.TabIndex = 64;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox7.Items.AddRange(new object[] {
+            "",
+            "Region 1",
+            "Region 2",
+            "Region 3"});
+            this.comboBox7.Location = new System.Drawing.Point(474, 361);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(150, 23);
+            this.comboBox7.TabIndex = 63;
             // 
             // label43
             // 
@@ -1673,17 +1803,9 @@
             this.label43.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(138, 370);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(93, 15);
+            this.label43.Size = new System.Drawing.Size(89, 15);
             this.label43.TabIndex = 61;
-            this.label43.Text = "Telephone No. :";
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(318, 330);
-            this.textBox28.Multiline = true;
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(151, 22);
-            this.textBox28.TabIndex = 58;
+            this.label43.Text = "PhilHealth No :";
             // 
             // label44
             // 
@@ -1691,17 +1813,9 @@
             this.label44.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.Location = new System.Drawing.Point(138, 335);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(92, 15);
+            this.label44.Size = new System.Drawing.Size(60, 15);
             this.label44.TabIndex = 59;
-            this.label44.Text = "Office Address :";
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(318, 294);
-            this.textBox29.Multiline = true;
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(151, 22);
-            this.textBox29.TabIndex = 56;
+            this.label44.Text = "GSIS No :";
             // 
             // label45
             // 
@@ -1709,27 +1823,19 @@
             this.label45.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.Location = new System.Drawing.Point(138, 299);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(98, 15);
+            this.label45.Size = new System.Drawing.Size(56, 15);
             this.label45.TabIndex = 57;
-            this.label45.Text = "Contact Person :";
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(318, 195);
-            this.textBox26.Multiline = true;
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(151, 22);
-            this.textBox26.TabIndex = 54;
+            this.label45.Text = "SSS No :";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(138, 202);
+            this.label42.Location = new System.Drawing.Point(138, 201);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(87, 15);
+            this.label42.Size = new System.Drawing.Size(90, 15);
             this.label42.TabIndex = 55;
-            this.label42.Text = "Telephone No.";
+            this.label42.Text = "Telephone No :";
             // 
             // prev5
             // 
@@ -1754,40 +1860,15 @@
             this.label36.TabIndex = 35;
             this.label36.Text = "OTHER INFORMATION";
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::SAD_2_PTT.Properties.Resources.num8;
-            this.pictureBox7.Location = new System.Drawing.Point(32, 223);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox7.TabIndex = 34;
-            this.pictureBox7.TabStop = false;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(318, 162);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(151, 22);
-            this.textBox20.TabIndex = 32;
-            // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(138, 169);
+            this.label37.Location = new System.Drawing.Point(138, 165);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(92, 15);
             this.label37.TabIndex = 33;
             this.label37.Text = "Office Address :";
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(318, 126);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(151, 22);
-            this.textBox21.TabIndex = 30;
             // 
             // label38
             // 
@@ -1798,14 +1879,6 @@
             this.label38.Size = new System.Drawing.Size(98, 15);
             this.label38.TabIndex = 31;
             this.label38.Text = "Contact Person :";
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(318, 92);
-            this.textBox24.Multiline = true;
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(151, 22);
-            this.textBox24.TabIndex = 4;
             // 
             // label39
             // 
@@ -1826,15 +1899,6 @@
             this.label40.Size = new System.Drawing.Size(359, 30);
             this.label40.TabIndex = 4;
             this.label40.Text = "ORGANIZATIONAL INFORMATION";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::SAD_2_PTT.Properties.Resources.num7;
-            this.pictureBox8.Location = new System.Drawing.Point(32, 22);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(69, 71);
-            this.pictureBox8.TabIndex = 3;
-            this.pictureBox8.TabStop = false;
             // 
             // next5
             // 
@@ -1862,52 +1926,156 @@
             this.label41.TabIndex = 0;
             this.label41.Text = "5 of 6";
             // 
+            // textBox13
+            // 
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox13.Enabled = false;
+            this.textBox13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Location = new System.Drawing.Point(473, 359);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(154, 26);
+            this.textBox13.TabIndex = 56;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 67);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(259, 54);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "        RETURN TO MEMBERSHIP";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SAD_2_PTT.Properties.Resources.num2;
+            this.pictureBox2.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::SAD_2_PTT.Properties.Resources.num9;
+            this.pictureBox9.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox9.TabIndex = 3;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SAD_2_PTT.Properties.Resources.num8;
+            this.pictureBox7.Location = new System.Drawing.Point(32, 223);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox7.TabIndex = 34;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::SAD_2_PTT.Properties.Resources.num7;
+            this.pictureBox8.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(69, 71);
+            this.pictureBox8.TabIndex = 3;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::SAD_2_PTT.Properties.Resources.num6;
+            this.pictureBox5.Location = new System.Drawing.Point(32, 200);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox5.TabIndex = 34;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SAD_2_PTT.Properties.Resources.num5;
+            this.pictureBox6.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(69, 71);
+            this.pictureBox6.TabIndex = 3;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(358, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::SAD_2_PTT.Properties.Resources.num4;
+            this.pictureBox4.Location = new System.Drawing.Point(32, 200);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox4.TabIndex = 34;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(69, 71);
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1066, 589);
+            this.ClientSize = new System.Drawing.Size(1069, 589);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.checklist);
             this.Controls.Add(this.pnl_container);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "pwd_add";
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New PWD Profile";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.pwd_add_FormClosing);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.checklist.ResumeLayout(false);
             this.checklist.PerformLayout();
             this.pnl2.ResumeLayout(false);
             this.pnl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnl3.ResumeLayout(false);
             this.pnl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnl1.ResumeLayout(false);
             this.pnl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl4.ResumeLayout(false);
             this.pnl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnl_container.ResumeLayout(false);
             this.pnl6.ResumeLayout(false);
             this.pnl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.pnl5.ResumeLayout(false);
             this.pnl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1915,7 +2083,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel checklist;
         private System.Windows.Forms.Panel pnl1;
@@ -1939,10 +2106,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel pnl2;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
@@ -1952,7 +2116,6 @@
         private System.Windows.Forms.TextBox hstxt;
         private System.Windows.Forms.TextBox mntxt;
         private System.Windows.Forms.TextBox fntxt;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox lntxt;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -2001,11 +2164,8 @@
         private System.Windows.Forms.RadioButton radioButton20;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -2014,23 +2174,15 @@
         private System.Windows.Forms.Panel pnl_container;
         private System.Windows.Forms.Button prev4;
         private System.Windows.Forms.Panel pnl5;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox27;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox28;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox textBox29;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox26;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Button prev5;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -2060,5 +2212,28 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.ComboBox rel_cmbox;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.TextBox textBox13;
     }
 }

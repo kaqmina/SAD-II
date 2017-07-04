@@ -59,7 +59,31 @@ namespace SAD_2_PTT
 
         #endregion
 
+        #region TBOX 00
+        public void textcolor(TextBox t_box)
+        {
+            t_box.ForeColor = System.Drawing.Color.Silver;
+        }
 
+        public void btn_placeholder_first(TextBox t_box)
+        {
+            t_box.Text = "First Name";
+            textcolor(t_box);
+        }
+
+        public void btn_placeholder_last(TextBox t_box)
+        {
+            t_box.Text = "Last Name";
+            textcolor(t_box);
+        }
+
+        public void btn_placeholder_middlet(TextBox t_box)
+        {
+            t_box.Text = "Middle Name";
+            textcolor(t_box);
+        }
+
+        #endregion
 
     }
 }
