@@ -55,55 +55,55 @@ namespace SAD_2_PTT
         #region Text Style
         private void defaulttxt1(){
             //Guide text
-            lntxt.Text = "Last Name";
-            fntxt.Text = "First Name";
-            mntxt.Text = "Middle Name";
-            hstxt.Text = "House No. and Street";
-            bartxt.Text = "Barangay";
-            muntxt.Text = "Municipality";
-            provtxt.Text = "Province";
-            rel_cmbox.Text = "Religion";
+            ln_txt.Text = "Last Name";
+            fn_txt.Text = "First Name";
+            mn_txt.Text = "Middle Name";
+            hs_txt.Text = "House No. and Street";
+            bar_txt.Text = "Barangay";
+            mun_txt.Text = "Municipality";
+            prov_txt.Text = "Province";
+            region.Text = "Religion";
 
             //Style
-            lntxt.ForeColor = fntxt.ForeColor = mntxt.ForeColor = Color.Silver;
-            hstxt.ForeColor = bartxt.ForeColor = bartxt.ForeColor = Color.Silver;
-            provtxt.ForeColor = muntxt.ForeColor = rel_cmbox.ForeColor = Color.Silver;
+            ln_txt.ForeColor = fn_txt.ForeColor = mn_txt.ForeColor = Color.Silver;
+            hs_txt.ForeColor = bar_txt.ForeColor = bar_txt.ForeColor = Color.Silver;
+            prov_txt.ForeColor = mun_txt.ForeColor = region.ForeColor = Color.Silver;
         }
 
         private void lntxt_Enter(object sender, EventArgs e)
         {
-            lntxt.Clear();
-            lntxt.ForeColor = Color.Black;
+            ln_txt.Clear();
+            ln_txt.ForeColor = Color.Black;
         }
         private void fntxt_Enter(object sender, EventArgs e)
         {
-            fntxt.Clear();
-            fntxt.ForeColor = Color.Black;
+            fn_txt.Clear();
+            fn_txt.ForeColor = Color.Black;
         }
         private void mntxt_Enter(object sender, EventArgs e)
         {
-            mntxt.Clear();
-            mntxt.ForeColor = Color.Black;
+            mn_txt.Clear();
+            mn_txt.ForeColor = Color.Black;
         }
         private void hstxt_Enter(object sender, EventArgs e)
         {
-            hstxt.Clear();
-            hstxt.ForeColor = Color.Black;
+            hs_txt.Clear();
+            hs_txt.ForeColor = Color.Black;
         }
         private void bartxt_Enter(object sender, EventArgs e)
         {
-            bartxt.Clear();
-            bartxt.ForeColor = Color.Black;
+            bar_txt.Clear();
+            bar_txt.ForeColor = Color.Black;
         }
         private void muntxt_Enter(object sender, EventArgs e)
         {
-            muntxt.Clear();
-            muntxt.ForeColor = Color.Black;
+            mun_txt.Clear();
+            mun_txt.ForeColor = Color.Black;
         }
         private void provtxt_Enter(object sender, EventArgs e)
         {
-            provtxt.Clear();
-            provtxt.ForeColor = Color.Black;
+            prov_txt.Clear();
+            prov_txt.ForeColor = Color.Black;
         }
         #endregion
 
@@ -273,6 +273,11 @@ namespace SAD_2_PTT
         {
             reference_to_main.side_tab.Enabled = true;
             reference_to_main.dboard_head.Enabled = true;
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
