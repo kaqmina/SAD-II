@@ -51,6 +51,12 @@
     <Compile Include="Junk.Designer.cs">
       <DependentUpon>Junk.cs</DependentUpon>
     </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
     <Compile Include="main_btn_active.cs" />
     <Compile Include="main_form.cs">
       <SubType>Form</SubType>
@@ -73,8 +79,17 @@
     <Compile Include="pwd_view.Designer.cs">
       <DependentUpon>pwd_view.cs</DependentUpon>
     </Compile>
+    <Compile Include="splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splash.Designer.cs">
+      <DependentUpon>splash.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Junk.resx">
       <DependentUpon>Junk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
@@ -94,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pwd_view.resx">
       <DependentUpon>pwd_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splash.resx">
+      <DependentUpon>splash.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -236,6 +254,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uname.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

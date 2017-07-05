@@ -26,6 +26,7 @@ namespace SAD_2_PTT
             this.Close();
         }
 
+        #region FormLoad
         private void pwd_view_Load(object sender, EventArgs e)
         {
             this.Opacity = 0;
@@ -36,5 +37,6 @@ namespace SAD_2_PTT
         {
             this.Opacity += 0.1;
         }
+        #endregion
     }
 }

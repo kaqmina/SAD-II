@@ -292,8 +292,6 @@ namespace SAD_2_PTT
             }
         }
 
-
-
         #endregion
 
         #region NotificationProfie NP - 123 //FIX PROFILE
@@ -363,7 +361,6 @@ namespace SAD_2_PTT
             dboard_head.Enabled = false;
             pwd_fill_up_form.reference_to_main = this;
             pwd_fill_up_form.Location = new Point(loc_x, loc_y);
-            //open_form.Start();
             pwd_fill_up_form.ShowDialog();
         }
         #endregion
@@ -379,17 +376,6 @@ namespace SAD_2_PTT
             pwd_view_form.reference_to_main = this;
             pwd_view_form.Location = new Point(loc_x, loc_y);
             pwd_view_form.ShowDialog();
-        }
-
-        private void open_form_Tick(object sender, EventArgs e)
-        {
-            if(this.Opacity != 0.50)
-            {
-                this.Opacity -= 0.1;
-            } else
-            {
-                open_form.Stop();
-            }
         }
     }
 }

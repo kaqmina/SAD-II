@@ -16,7 +16,7 @@ namespace SAD_2_PTT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new main_form());
+            Application.Run(new login());
         }
     }
 }
