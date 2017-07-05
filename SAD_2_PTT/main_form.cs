@@ -163,7 +163,10 @@ namespace SAD_2_PTT
 
         private void startup_opacity_Tick(object sender, EventArgs e)
         {
-            this.Opacity += 0.1;
+            if (this.Opacity < 1)
+                this.Opacity += 0.1;
+            else
+                startup_opacity.Stop();
         }
         #endregion
 

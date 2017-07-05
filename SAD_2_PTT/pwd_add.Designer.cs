@@ -44,16 +44,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl2 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.civilstatus = new System.Windows.Forms.ComboBox();
+            this.bloodtype = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.gender = new System.Windows.Forms.ComboBox();
             this.rel_cmbox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.nationality = new System.Windows.Forms.TextBox();
+            this.dateofbirth = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.provtxt = new System.Windows.Forms.TextBox();
@@ -86,11 +86,11 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.mobileno = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.telno = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -99,9 +99,8 @@
             this.label32 = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pwd_appdate = new System.Windows.Forms.TextBox();
+            this.pwd_regisno = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -185,6 +184,9 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.pwd_add_back = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -344,16 +346,16 @@
             // pnl2
             // 
             this.pnl2.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl2.Controls.Add(this.comboBox3);
-            this.pnl2.Controls.Add(this.comboBox2);
+            this.pnl2.Controls.Add(this.civilstatus);
+            this.pnl2.Controls.Add(this.bloodtype);
             this.pnl2.Controls.Add(this.textBox8);
             this.pnl2.Controls.Add(this.textBox7);
-            this.pnl2.Controls.Add(this.comboBox1);
+            this.pnl2.Controls.Add(this.gender);
             this.pnl2.Controls.Add(this.rel_cmbox);
             this.pnl2.Controls.Add(this.label21);
             this.pnl2.Controls.Add(this.label23);
-            this.pnl2.Controls.Add(this.textBox14);
-            this.pnl2.Controls.Add(this.textBox12);
+            this.pnl2.Controls.Add(this.nationality);
+            this.pnl2.Controls.Add(this.dateofbirth);
             this.pnl2.Controls.Add(this.label22);
             this.pnl2.Controls.Add(this.label20);
             this.pnl2.Controls.Add(this.provtxt);
@@ -379,41 +381,43 @@
             this.pnl2.TabIndex = 11;
             this.pnl2.Visible = false;
             // 
-            // comboBox3
+            // civilstatus
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.civilstatus.BackColor = System.Drawing.SystemColors.Window;
+            this.civilstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.civilstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.civilstatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.civilstatus.FormattingEnabled = true;
+            this.civilstatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.civilstatus.Items.AddRange(new object[] {
+            "",
+            "Single",
+            "Married",
+            "Widow/er",
+            "Separated",
+            "Co-Habitation"});
+            this.civilstatus.Location = new System.Drawing.Point(199, 386);
+            this.civilstatus.Name = "civilstatus";
+            this.civilstatus.Size = new System.Drawing.Size(150, 23);
+            this.civilstatus.TabIndex = 40;
+            // 
+            // bloodtype
+            // 
+            this.bloodtype.BackColor = System.Drawing.SystemColors.Window;
+            this.bloodtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bloodtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bloodtype.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bloodtype.FormattingEnabled = true;
+            this.bloodtype.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bloodtype.Items.AddRange(new object[] {
             "",
             "Region 1",
             "Region 2",
             "Region 3"});
-            this.comboBox3.Location = new System.Drawing.Point(199, 386);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(150, 23);
-            this.comboBox3.TabIndex = 40;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox2.Items.AddRange(new object[] {
-            "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
-            this.comboBox2.Location = new System.Drawing.Point(199, 347);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 23);
-            this.comboBox2.TabIndex = 39;
+            this.bloodtype.Location = new System.Drawing.Point(199, 347);
+            this.bloodtype.Name = "bloodtype";
+            this.bloodtype.Size = new System.Drawing.Size(150, 23);
+            this.bloodtype.TabIndex = 39;
             // 
             // textBox8
             // 
@@ -437,23 +441,21 @@
             this.textBox7.Size = new System.Drawing.Size(154, 26);
             this.textBox7.TabIndex = 37;
             // 
-            // comboBox1
+            // gender
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Items.AddRange(new object[] {
-            "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
-            this.comboBox1.Location = new System.Drawing.Point(199, 268);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 23);
-            this.comboBox1.TabIndex = 35;
+            this.gender.BackColor = System.Drawing.SystemColors.Window;
+            this.gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gender.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gender.FormattingEnabled = true;
+            this.gender.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.gender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.gender.Location = new System.Drawing.Point(199, 268);
+            this.gender.Name = "gender";
+            this.gender.Size = new System.Drawing.Size(150, 23);
+            this.gender.TabIndex = 35;
             // 
             // rel_cmbox
             // 
@@ -493,25 +495,25 @@
             this.label23.TabIndex = 28;
             this.label23.Text = "Civil Status :";
             // 
-            // textBox14
+            // nationality
             // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(198, 306);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(154, 26);
-            this.textBox14.TabIndex = 11;
+            this.nationality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nationality.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nationality.Location = new System.Drawing.Point(198, 306);
+            this.nationality.Multiline = true;
+            this.nationality.Name = "nationality";
+            this.nationality.Size = new System.Drawing.Size(154, 26);
+            this.nationality.TabIndex = 11;
             // 
-            // textBox12
+            // dateofbirth
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(198, 228);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(154, 26);
-            this.textBox12.TabIndex = 9;
+            this.dateofbirth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dateofbirth.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateofbirth.Location = new System.Drawing.Point(198, 228);
+            this.dateofbirth.Multiline = true;
+            this.dateofbirth.Name = "dateofbirth";
+            this.dateofbirth.Size = new System.Drawing.Size(154, 26);
+            this.dateofbirth.TabIndex = 9;
             // 
             // label22
             // 
@@ -581,7 +583,7 @@
             // 
             this.mntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mntxt.Location = new System.Drawing.Point(517, 99);
+            this.mntxt.Location = new System.Drawing.Point(535, 99);
             this.mntxt.Multiline = true;
             this.mntxt.Name = "mntxt";
             this.mntxt.Size = new System.Drawing.Size(154, 26);
@@ -592,7 +594,7 @@
             // 
             this.fntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fntxt.Location = new System.Drawing.Point(357, 99);
+            this.fntxt.Location = new System.Drawing.Point(374, 99);
             this.fntxt.Multiline = true;
             this.fntxt.Name = "fntxt";
             this.fntxt.Size = new System.Drawing.Size(154, 26);
@@ -606,7 +608,7 @@
             this.lntxt.Location = new System.Drawing.Point(197, 99);
             this.lntxt.Multiline = true;
             this.lntxt.Name = "lntxt";
-            this.lntxt.Size = new System.Drawing.Size(154, 26);
+            this.lntxt.Size = new System.Drawing.Size(171, 26);
             this.lntxt.TabIndex = 1;
             this.lntxt.Enter += new System.EventHandler(this.lntxt_Enter);
             // 
@@ -735,11 +737,11 @@
             this.pnl3.Controls.Add(this.radioButton1);
             this.pnl3.Controls.Add(this.label33);
             this.pnl3.Controls.Add(this.pictureBox4);
-            this.pnl3.Controls.Add(this.textBox23);
+            this.pnl3.Controls.Add(this.email);
             this.pnl3.Controls.Add(this.label29);
-            this.pnl3.Controls.Add(this.textBox22);
+            this.pnl3.Controls.Add(this.mobileno);
             this.pnl3.Controls.Add(this.label28);
-            this.pnl3.Controls.Add(this.textBox25);
+            this.pnl3.Controls.Add(this.telno);
             this.pnl3.Controls.Add(this.label30);
             this.pnl3.Controls.Add(this.label31);
             this.pnl3.Controls.Add(this.pictureBox3);
@@ -891,13 +893,13 @@
             this.pictureBox4.TabIndex = 34;
             this.pictureBox4.TabStop = false;
             // 
-            // textBox23
+            // email
             // 
-            this.textBox23.Location = new System.Drawing.Point(280, 167);
-            this.textBox23.Multiline = true;
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(154, 26);
-            this.textBox23.TabIndex = 32;
+            this.email.Location = new System.Drawing.Point(280, 167);
+            this.email.Multiline = true;
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(154, 26);
+            this.email.TabIndex = 32;
             // 
             // label29
             // 
@@ -909,13 +911,13 @@
             this.label29.TabIndex = 33;
             this.label29.Text = "Email Address :";
             // 
-            // textBox22
+            // mobileno
             // 
-            this.textBox22.Location = new System.Drawing.Point(280, 129);
-            this.textBox22.Multiline = true;
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(154, 26);
-            this.textBox22.TabIndex = 30;
+            this.mobileno.Location = new System.Drawing.Point(280, 129);
+            this.mobileno.Multiline = true;
+            this.mobileno.Name = "mobileno";
+            this.mobileno.Size = new System.Drawing.Size(154, 26);
+            this.mobileno.TabIndex = 30;
             // 
             // label28
             // 
@@ -923,17 +925,17 @@
             this.label28.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(141, 135);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(68, 15);
+            this.label28.Size = new System.Drawing.Size(71, 15);
             this.label28.TabIndex = 31;
-            this.label28.Text = "Mobile No :";
+            this.label28.Text = "Mobile No. :";
             // 
-            // textBox25
+            // telno
             // 
-            this.textBox25.Location = new System.Drawing.Point(280, 92);
-            this.textBox25.Multiline = true;
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(154, 26);
-            this.textBox25.TabIndex = 4;
+            this.telno.Location = new System.Drawing.Point(280, 92);
+            this.telno.Multiline = true;
+            this.telno.Name = "telno";
+            this.telno.Size = new System.Drawing.Size(154, 26);
+            this.telno.TabIndex = 4;
             // 
             // label30
             // 
@@ -941,9 +943,9 @@
             this.label30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(141, 95);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(90, 15);
+            this.label30.Size = new System.Drawing.Size(93, 15);
             this.label30.TabIndex = 5;
-            this.label30.Text = "Telephone No :";
+            this.label30.Text = "Telephone No. :";
             // 
             // label31
             // 
@@ -1006,16 +1008,18 @@
             // pnl1
             // 
             this.pnl1.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl1.Controls.Add(this.comboBox8);
             this.pnl1.Controls.Add(this.label11);
-            this.pnl1.Controls.Add(this.textBox3);
-            this.pnl1.Controls.Add(this.textBox2);
-            this.pnl1.Controls.Add(this.textBox1);
+            this.pnl1.Controls.Add(this.pwd_appdate);
+            this.pnl1.Controls.Add(this.pwd_regisno);
             this.pnl1.Controls.Add(this.label14);
             this.pnl1.Controls.Add(this.label13);
             this.pnl1.Controls.Add(this.label12);
             this.pnl1.Controls.Add(this.pictureBox1);
             this.pnl1.Controls.Add(this.btn_next1);
             this.pnl1.Controls.Add(this.page_num);
+            this.pnl1.Controls.Add(this.label48);
+            this.pnl1.Controls.Add(this.label1);
             this.pnl1.Location = new System.Drawing.Point(0, 0);
             this.pnl1.Name = "pnl1";
             this.pnl1.Size = new System.Drawing.Size(757, 500);
@@ -1032,32 +1036,25 @@
             this.label11.TabIndex = 11;
             this.label11.Text = "GENERAL INFORMATION";
             // 
-            // textBox3
+            // pwd_appdate
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(375, 326);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 26);
-            this.textBox3.TabIndex = 10;
+            this.pwd_appdate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_appdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_appdate.Location = new System.Drawing.Point(375, 278);
+            this.pwd_appdate.Multiline = true;
+            this.pwd_appdate.Name = "pwd_appdate";
+            this.pwd_appdate.Size = new System.Drawing.Size(176, 26);
+            this.pwd_appdate.TabIndex = 9;
             // 
-            // textBox2
+            // pwd_regisno
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(375, 278);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 26);
-            this.textBox2.TabIndex = 9;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(375, 232);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 26);
-            this.textBox1.TabIndex = 8;
+            this.pwd_regisno.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_regisno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_regisno.Location = new System.Drawing.Point(375, 232);
+            this.pwd_regisno.Multiline = true;
+            this.pwd_regisno.Name = "pwd_regisno";
+            this.pwd_regisno.Size = new System.Drawing.Size(176, 26);
+            this.pwd_regisno.TabIndex = 8;
             // 
             // label14
             // 
@@ -1085,9 +1082,9 @@
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(206, 237);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 15);
+            this.label12.Size = new System.Drawing.Size(102, 15);
             this.label12.TabIndex = 5;
-            this.label12.Text = "Registration No :";
+            this.label12.Text = "Registration No. :";
             // 
             // pictureBox1
             // 
@@ -1465,10 +1462,10 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl2);
+            this.pnl_container.Controls.Add(this.pnl1);
+            this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
@@ -2057,6 +2054,54 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
+            // comboBox8
+            // 
+            this.comboBox8.AutoCompleteCustomSource.AddRange(new string[] {
+            "--Select Disability--",
+            "Psychological",
+            "Mental",
+            "Hearing",
+            "Visual",
+            "Learning",
+            "Speech Impairment",
+            "Orthopedic"});
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "Psychological",
+            "Mental",
+            "Hearing",
+            "Visual",
+            "Learning",
+            "Speech Impairment",
+            "Orthopedic"});
+            this.comboBox8.Location = new System.Drawing.Point(375, 325);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(176, 25);
+            this.comboBox8.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(373, 246);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(182, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "___________________________________";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(372, 292);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(182, 15);
+            this.label48.TabIndex = 14;
+            this.label48.Text = "___________________________________";
+            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2129,12 +2174,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox pwd_appdate;
+        private System.Windows.Forms.TextBox pwd_regisno;
         private System.Windows.Forms.Panel pnl2;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox nationality;
+        private System.Windows.Forms.TextBox dateofbirth;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox provtxt;
@@ -2155,16 +2199,16 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel pnl3;
-        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox telno;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button next3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox mobileno;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -2242,9 +2286,9 @@
         private System.Windows.Forms.ComboBox rel_cmbox;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox gender;
+        private System.Windows.Forms.ComboBox civilstatus;
+        private System.Windows.Forms.ComboBox bloodtype;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ComboBox comboBox6;
@@ -2264,5 +2308,8 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label pwd_add_lbl;
         private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label1;
     }
 }
