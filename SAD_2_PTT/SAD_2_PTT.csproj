@@ -264,5 +264,14 @@
   <ItemGroup>
     <None Include="Resources\log_close.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard-right-arrow-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow-key.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

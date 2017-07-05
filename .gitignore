@@ -240,3 +240,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/SAD_2_PTT/Resources/keyboard-right-arrow-button.png
+/SAD_2_PTT/Resources/left-arrow-key.png
+/SAD_2_PTT/Resources/line.png
