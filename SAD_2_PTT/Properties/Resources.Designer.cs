@@ -233,6 +233,16 @@ namespace SAD_2_PTT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap log_close {
+            get {
+                object obj = ResourceManager.GetObject("log_close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout {
             get {
                 object obj = ResourceManager.GetObject("logout", resourceCulture);
@@ -413,6 +423,16 @@ namespace SAD_2_PTT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pword {
+            get {
+                object obj = ResourceManager.GetObject("pword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reports_pwd {
             get {
                 object obj = ResourceManager.GetObject("reports_pwd", resourceCulture);
@@ -466,6 +486,16 @@ namespace SAD_2_PTT.Properties {
         internal static System.Drawing.Bitmap TWICE_SG_01 {
             get {
                 object obj = ResourceManager.GetObject("TWICE_SG_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uname {
+            get {
+                object obj = ResourceManager.GetObject("uname", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
