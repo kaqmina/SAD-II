@@ -277,7 +277,13 @@ namespace SAD_2_PTT
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-
+            string registration_no = pwd_regisno.Text;
+            string application_date = pwd_appdate.Text;
+            int disability = 0;//change later
+            string firstname = fn_txt.Text;
+            string lastname = ln_txt.Text;
+            string middlename = mn_txt.Text;
+            string 
         }
     }
 }

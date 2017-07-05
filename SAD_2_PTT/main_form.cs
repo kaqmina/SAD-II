@@ -419,6 +419,7 @@ namespace SAD_2_PTT
             pwd_grid.Columns["employee_id"].Visible = false;
             pwd_grid.Columns["end_date"].Visible = false;
             pwd_grid.Columns["nationality"].Visible = false;
+            pwd_grid.Columns["birthdate"].Visible = false;
             pwd_grid.Columns["picture"].Visible = false;
             pwd_grid.Columns["tel_no"].Visible = false;
             pwd_grid.Columns["mobile_no"].Visible = false;
@@ -430,9 +431,21 @@ namespace SAD_2_PTT
             pwd_grid.Columns["type_of_skill"].Visible = false;
             pwd_grid.Columns["status_pwd"].Visible = false;
             pwd_grid.Columns["isArchived"].Visible = false;
+            pwd_grid.Columns["address"].Visible = false;
 
+            pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
+            pwd_grid.Columns["lastname"].HeaderText = "Last Name";
+            pwd_grid.Columns["firstname"].HeaderText = "First Name";
+            pwd_grid.Columns["middlename"].HeaderText = "Middle Name";
+            pwd_grid.Columns["sex"].HeaderText = "Sex";
+            pwd_grid.Columns["disability_id"].HeaderText = "Disability";
+            pwd_grid.Columns["blood_type"].HeaderText = "Blood Type";
+            pwd_grid.Columns["civil_status"].HeaderText = "Civil Status";
+            pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
 
         }
+
+        #endregion
 
     }
 }
