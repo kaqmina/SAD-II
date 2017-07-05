@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SAD_2_PTT
 {
     public partial class main_form : Form
     {
+        public MySqlConnection conn;
         public main_form()
         {
             InitializeComponent();
+            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
         }
         main_functions main_func = new main_functions();
         main_btn_active main_btn = new main_btn_active();
@@ -58,6 +61,7 @@ namespace SAD_2_PTT
             btn_current = btn_pwd;
             lbl_current_text("pwd");
             main_btn.btn_pwd = true;
+            
             //btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_SG_01;
            // btn_profilepic.BackColor = Color.FromArgb(10, 32, 81);
             //slide_out.Start();
@@ -117,6 +121,7 @@ namespace SAD_2_PTT
             date_today.Text = date.ToUpper();
             lbl_current_text("dashboard");
             startup_opacity.Start();
+            pwd_data();
         }
 
         private void main_properties()
@@ -380,5 +385,67 @@ namespace SAD_2_PTT
             pwd_view_form.Location = new Point(loc_x, loc_y);
             pwd_view_form.ShowDialog();
         }
+
+        #region Connections
+        public void pwd_data()
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM pwd WHERE isArchived = 0", conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+
+                pwd_grid.DataSource = set;
+                pwd_format();
+                if (set.Rows.Count == 0)
+                {
+                    MessageBox.Show("No PWD Profiles added.");
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                MessageBox.Show("Database is empty.");
+            }
+        }
+
+        public void pwd_format()
+        {
+            pwd_grid.Columns["pwd_id"].Visible = false;
+            pwd_grid.Columns["employee_id"].Visible = false;
+            pwd_grid.Columns["end_date"].Visible = false;
+            pwd_grid.Columns["nationality"].Visible = false;
+            pwd_grid.Columns["birthdate"].Visible = false;
+            pwd_grid.Columns["picture"].Visible = false;
+            pwd_grid.Columns["tel_no"].Visible = false;
+            pwd_grid.Columns["mobile_no"].Visible = false;
+            pwd_grid.Columns["email_add"].Visible = false;
+            pwd_grid.Columns["accomplished_by"].Visible = false;
+            pwd_grid.Columns["educ_attainment"].Visible = false;
+            pwd_grid.Columns["employment_status"].Visible = false;
+            pwd_grid.Columns["nature_of_employer"].Visible = false;
+            pwd_grid.Columns["type_of_skill"].Visible = false;
+            pwd_grid.Columns["status_pwd"].Visible = false;
+            pwd_grid.Columns["isArchived"].Visible = false;
+            pwd_grid.Columns["address"].Visible = false;
+
+            pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
+            pwd_grid.Columns["lastname"].HeaderText = "Last Name";
+            pwd_grid.Columns["firstname"].HeaderText = "First Name";
+            pwd_grid.Columns["middlename"].HeaderText = "Middle Name";
+            pwd_grid.Columns["sex"].HeaderText = "Sex";
+            pwd_grid.Columns["disability_id"].HeaderText = "Disability";
+            pwd_grid.Columns["blood_type"].HeaderText = "Blood Type";
+            pwd_grid.Columns["civil_status"].HeaderText = "Civil Status";
+            pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
+
+        }
+
+        #endregion
+
     }
 }

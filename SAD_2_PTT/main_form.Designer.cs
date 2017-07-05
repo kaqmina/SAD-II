@@ -69,7 +69,7 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.button45 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.device_grid = new System.Windows.Forms.DataGridView();
             this.panel19 = new System.Windows.Forms.Panel();
             this.button32 = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.list_pwd = new System.Windows.Forms.DataGridView();
+            this.pwd_grid = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_pwd_add = new System.Windows.Forms.Button();
             this.btn_pwd_view = new System.Windows.Forms.Button();
@@ -161,13 +161,13 @@
             this.panel15.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.device_grid)).BeginInit();
             this.panel19.SuspendLayout();
             this.pnl_pwd.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.list_pwd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).BeginInit();
             this.panel7.SuspendLayout();
             this.pnl_dashboard.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -403,9 +403,9 @@
             // main_content
             // 
             this.main_content.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.main_content.Controls.Add(this.pnl_pwd);
             this.main_content.Controls.Add(this.pnl_notif_pp);
             this.main_content.Controls.Add(this.pnl_devices);
-            this.main_content.Controls.Add(this.pnl_pwd);
             this.main_content.Controls.Add(this.pnl_dashboard);
             this.main_content.Controls.Add(this.pnl_profile);
             this.main_content.Controls.Add(this.pnl_settings);
@@ -671,7 +671,7 @@
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel17.Controls.Add(this.panel16);
-            this.panel17.Controls.Add(this.dataGridView2);
+            this.panel17.Controls.Add(this.device_grid);
             this.panel17.Location = new System.Drawing.Point(262, 92);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(796, 485);
@@ -710,14 +710,17 @@
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "  Search here..";
             // 
-            // dataGridView2
+            // device_grid
             // 
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(10, 54);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(776, 421);
-            this.dataGridView2.TabIndex = 0;
+            this.device_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.device_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.device_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.device_grid.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.device_grid.Location = new System.Drawing.Point(10, 54);
+            this.device_grid.Name = "device_grid";
+            this.device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.device_grid.Size = new System.Drawing.Size(776, 421);
+            this.device_grid.TabIndex = 0;
             // 
             // panel19
             // 
@@ -887,7 +890,7 @@
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.list_pwd);
+            this.panel2.Controls.Add(this.pwd_grid);
             this.panel2.Location = new System.Drawing.Point(0, 33);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(796, 556);
@@ -988,14 +991,27 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Filter by :";
             // 
-            // list_pwd
+            // pwd_grid
             // 
-            this.list_pwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.list_pwd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.list_pwd.Location = new System.Drawing.Point(11, 78);
-            this.list_pwd.Name = "list_pwd";
-            this.list_pwd.Size = new System.Drawing.Size(775, 465);
-            this.list_pwd.TabIndex = 0;
+            this.pwd_grid.AllowUserToAddRows = false;
+            this.pwd_grid.AllowUserToDeleteRows = false;
+            this.pwd_grid.AllowUserToResizeColumns = false;
+            this.pwd_grid.AllowUserToResizeRows = false;
+            this.pwd_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.pwd_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.pwd_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pwd_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_grid.Location = new System.Drawing.Point(11, 78);
+            this.pwd_grid.MultiSelect = false;
+            this.pwd_grid.Name = "pwd_grid";
+            this.pwd_grid.ReadOnly = true;
+            this.pwd_grid.RowHeadersVisible = false;
+            this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pwd_grid.Size = new System.Drawing.Size(775, 465);
+            this.pwd_grid.TabIndex = 0;
             // 
             // panel7
             // 
@@ -1822,7 +1838,7 @@
             this.panel17.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.device_grid)).EndInit();
             this.panel19.ResumeLayout(false);
             this.pnl_pwd.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -1831,7 +1847,7 @@
             this.panel2.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.list_pwd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).EndInit();
             this.panel7.ResumeLayout(false);
             this.pnl_dashboard.ResumeLayout(false);
             this.pnl_dashboard.PerformLayout();
@@ -1907,7 +1923,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView list_pwd;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button2;
@@ -1968,7 +1983,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button45;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView device_grid;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button44;
@@ -1976,6 +1991,7 @@
         private System.Windows.Forms.Button button34;
         private System.Windows.Forms.Button button35;
         private System.Windows.Forms.Timer startup_opacity;
+        public System.Windows.Forms.DataGridView pwd_grid;
     }
 }
 

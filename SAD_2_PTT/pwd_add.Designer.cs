@@ -49,41 +49,41 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.gender = new System.Windows.Forms.ComboBox();
-            this.rel_cmbox = new System.Windows.Forms.ComboBox();
+            this.region = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.nationality = new System.Windows.Forms.TextBox();
             this.dateofbirth = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.provtxt = new System.Windows.Forms.TextBox();
-            this.muntxt = new System.Windows.Forms.TextBox();
-            this.bartxt = new System.Windows.Forms.TextBox();
-            this.hstxt = new System.Windows.Forms.TextBox();
-            this.mntxt = new System.Windows.Forms.TextBox();
-            this.fntxt = new System.Windows.Forms.TextBox();
-            this.lntxt = new System.Windows.Forms.TextBox();
+            this.prov_txt = new System.Windows.Forms.TextBox();
+            this.mun_txt = new System.Windows.Forms.TextBox();
+            this.bar_txt = new System.Windows.Forms.TextBox();
+            this.hs_txt = new System.Windows.Forms.TextBox();
+            this.mn_txt = new System.Windows.Forms.TextBox();
+            this.fn_txt = new System.Windows.Forms.TextBox();
+            this.ln_txt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_next2 = new System.Windows.Forms.Button();
-            this.btn_prev2 = new System.Windows.Forms.Button();
+            this.btn_prev1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.pnl3 = new System.Windows.Forms.Panel();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.educ11_none = new System.Windows.Forms.RadioButton();
+            this.educ9_vocational = new System.Windows.Forms.RadioButton();
+            this.educ8_postgrad = new System.Windows.Forms.RadioButton();
+            this.educ7_graduate = new System.Windows.Forms.RadioButton();
+            this.educ6_collegeunder = new System.Windows.Forms.RadioButton();
+            this.educ5_college = new System.Windows.Forms.RadioButton();
+            this.educ4_hsunder = new System.Windows.Forms.RadioButton();
+            this.educ3_hs = new System.Windows.Forms.RadioButton();
+            this.educ2_elemunder = new System.Windows.Forms.RadioButton();
+            this.educ1_elem = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.TextBox();
@@ -94,8 +94,8 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.next3 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_next3 = new System.Windows.Forms.Button();
+            this.btn_prev2 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
@@ -111,29 +111,29 @@
             this.label48 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl4 = new System.Windows.Forms.Panel();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.noemp = new System.Windows.Forms.ComboBox();
+            this.empstatus = new System.Windows.Forms.ComboBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.prev4 = new System.Windows.Forms.Button();
+            this.typeoemp = new System.Windows.Forms.ComboBox();
+            this.btn_prev3 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
-            this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.radioButton17 = new System.Windows.Forms.RadioButton();
-            this.radioButton18 = new System.Windows.Forms.RadioButton();
-            this.radioButton19 = new System.Windows.Forms.RadioButton();
-            this.radioButton20 = new System.Windows.Forms.RadioButton();
+            this.skill9 = new System.Windows.Forms.RadioButton();
+            this.skill8 = new System.Windows.Forms.RadioButton();
+            this.skill7 = new System.Windows.Forms.RadioButton();
+            this.skill6 = new System.Windows.Forms.RadioButton();
+            this.skill4 = new System.Windows.Forms.RadioButton();
+            this.skill3 = new System.Windows.Forms.RadioButton();
+            this.skill2 = new System.Windows.Forms.RadioButton();
+            this.skill5 = new System.Windows.Forms.RadioButton();
+            this.skill1 = new System.Windows.Forms.RadioButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.next4 = new System.Windows.Forms.Button();
+            this.btn_next4 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.pnl_container = new System.Windows.Forms.Panel();
@@ -149,7 +149,7 @@
             this.mln_txt = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.norunit = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.fmn_txt = new System.Windows.Forms.TextBox();
             this.ffn_txt = new System.Windows.Forms.TextBox();
@@ -158,23 +158,23 @@
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_prev6 = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.pnl5 = new System.Windows.Forms.Panel();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.orgtelno = new System.Windows.Forms.TextBox();
+            this.officeadd = new System.Windows.Forms.TextBox();
+            this.contactper = new System.Windows.Forms.TextBox();
+            this.orgaff = new System.Windows.Forms.TextBox();
+            this.philhealthno = new System.Windows.Forms.TextBox();
+            this.gsisno = new System.Windows.Forms.TextBox();
+            this.sssno = new System.Windows.Forms.TextBox();
+            this.philhealthstatus = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.prev5 = new System.Windows.Forms.Button();
+            this.btn_prev4 = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -182,7 +182,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.next5 = new System.Windows.Forms.Button();
+            this.btn_next5 = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.pwd_add_back = new System.Windows.Forms.Button();
@@ -351,27 +351,27 @@
             this.pnl2.Controls.Add(this.textBox8);
             this.pnl2.Controls.Add(this.textBox7);
             this.pnl2.Controls.Add(this.gender);
-            this.pnl2.Controls.Add(this.rel_cmbox);
+            this.pnl2.Controls.Add(this.region);
             this.pnl2.Controls.Add(this.label21);
             this.pnl2.Controls.Add(this.label23);
             this.pnl2.Controls.Add(this.nationality);
             this.pnl2.Controls.Add(this.dateofbirth);
             this.pnl2.Controls.Add(this.label22);
             this.pnl2.Controls.Add(this.label20);
-            this.pnl2.Controls.Add(this.provtxt);
-            this.pnl2.Controls.Add(this.muntxt);
-            this.pnl2.Controls.Add(this.bartxt);
-            this.pnl2.Controls.Add(this.hstxt);
-            this.pnl2.Controls.Add(this.mntxt);
-            this.pnl2.Controls.Add(this.fntxt);
-            this.pnl2.Controls.Add(this.lntxt);
+            this.pnl2.Controls.Add(this.prov_txt);
+            this.pnl2.Controls.Add(this.mun_txt);
+            this.pnl2.Controls.Add(this.bar_txt);
+            this.pnl2.Controls.Add(this.hs_txt);
+            this.pnl2.Controls.Add(this.mn_txt);
+            this.pnl2.Controls.Add(this.fn_txt);
+            this.pnl2.Controls.Add(this.ln_txt);
             this.pnl2.Controls.Add(this.label15);
             this.pnl2.Controls.Add(this.label16);
             this.pnl2.Controls.Add(this.label17);
             this.pnl2.Controls.Add(this.label18);
             this.pnl2.Controls.Add(this.pictureBox2);
             this.pnl2.Controls.Add(this.btn_next2);
-            this.pnl2.Controls.Add(this.btn_prev2);
+            this.pnl2.Controls.Add(this.btn_prev1);
             this.pnl2.Controls.Add(this.label19);
             this.pnl2.Controls.Add(this.textBox4);
             this.pnl2.Controls.Add(this.textBox6);
@@ -457,23 +457,23 @@
             this.gender.Size = new System.Drawing.Size(150, 23);
             this.gender.TabIndex = 35;
             // 
-            // rel_cmbox
+            // region
             // 
-            this.rel_cmbox.BackColor = System.Drawing.SystemColors.Window;
-            this.rel_cmbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.rel_cmbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rel_cmbox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rel_cmbox.FormattingEnabled = true;
-            this.rel_cmbox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rel_cmbox.Items.AddRange(new object[] {
+            this.region.BackColor = System.Drawing.SystemColors.Window;
+            this.region.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.region.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.region.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.region.FormattingEnabled = true;
+            this.region.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.region.Items.AddRange(new object[] {
             "",
             "Region 1",
             "Region 2",
             "Region 3"});
-            this.rel_cmbox.Location = new System.Drawing.Point(377, 180);
-            this.rel_cmbox.Name = "rel_cmbox";
-            this.rel_cmbox.Size = new System.Drawing.Size(150, 23);
-            this.rel_cmbox.TabIndex = 30;
+            this.region.Location = new System.Drawing.Point(377, 180);
+            this.region.Name = "region";
+            this.region.Size = new System.Drawing.Size(150, 23);
+            this.region.TabIndex = 30;
             // 
             // label21
             // 
@@ -535,82 +535,82 @@
             this.label20.TabIndex = 19;
             this.label20.Text = "Gender :";
             // 
-            // provtxt
+            // prov_txt
             // 
-            this.provtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.provtxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.provtxt.Location = new System.Drawing.Point(197, 178);
-            this.provtxt.Multiline = true;
-            this.provtxt.Name = "provtxt";
-            this.provtxt.Size = new System.Drawing.Size(171, 26);
-            this.provtxt.TabIndex = 7;
-            this.provtxt.Enter += new System.EventHandler(this.provtxt_Enter);
+            this.prov_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prov_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prov_txt.Location = new System.Drawing.Point(197, 178);
+            this.prov_txt.Multiline = true;
+            this.prov_txt.Name = "prov_txt";
+            this.prov_txt.Size = new System.Drawing.Size(171, 26);
+            this.prov_txt.TabIndex = 7;
+            this.prov_txt.Enter += new System.EventHandler(this.provtxt_Enter);
             // 
-            // muntxt
+            // mun_txt
             // 
-            this.muntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.muntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.muntxt.Location = new System.Drawing.Point(535, 146);
-            this.muntxt.Multiline = true;
-            this.muntxt.Name = "muntxt";
-            this.muntxt.Size = new System.Drawing.Size(156, 24);
-            this.muntxt.TabIndex = 6;
-            this.muntxt.Enter += new System.EventHandler(this.muntxt_Enter);
+            this.mun_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mun_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mun_txt.Location = new System.Drawing.Point(535, 146);
+            this.mun_txt.Multiline = true;
+            this.mun_txt.Name = "mun_txt";
+            this.mun_txt.Size = new System.Drawing.Size(156, 24);
+            this.mun_txt.TabIndex = 6;
+            this.mun_txt.Enter += new System.EventHandler(this.muntxt_Enter);
             // 
-            // bartxt
+            // bar_txt
             // 
-            this.bartxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bartxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bartxt.Location = new System.Drawing.Point(375, 146);
-            this.bartxt.Multiline = true;
-            this.bartxt.Name = "bartxt";
-            this.bartxt.Size = new System.Drawing.Size(154, 24);
-            this.bartxt.TabIndex = 5;
-            this.bartxt.Enter += new System.EventHandler(this.bartxt_Enter);
+            this.bar_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bar_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar_txt.Location = new System.Drawing.Point(375, 146);
+            this.bar_txt.Multiline = true;
+            this.bar_txt.Name = "bar_txt";
+            this.bar_txt.Size = new System.Drawing.Size(154, 24);
+            this.bar_txt.TabIndex = 5;
+            this.bar_txt.Enter += new System.EventHandler(this.bartxt_Enter);
             // 
-            // hstxt
+            // hs_txt
             // 
-            this.hstxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.hstxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hstxt.Location = new System.Drawing.Point(197, 146);
-            this.hstxt.Multiline = true;
-            this.hstxt.Name = "hstxt";
-            this.hstxt.Size = new System.Drawing.Size(171, 24);
-            this.hstxt.TabIndex = 4;
-            this.hstxt.Enter += new System.EventHandler(this.hstxt_Enter);
+            this.hs_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.hs_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hs_txt.Location = new System.Drawing.Point(197, 146);
+            this.hs_txt.Multiline = true;
+            this.hs_txt.Name = "hs_txt";
+            this.hs_txt.Size = new System.Drawing.Size(171, 24);
+            this.hs_txt.TabIndex = 4;
+            this.hs_txt.Enter += new System.EventHandler(this.hstxt_Enter);
             // 
-            // mntxt
+            // mn_txt
             // 
-            this.mntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mntxt.Location = new System.Drawing.Point(535, 99);
-            this.mntxt.Multiline = true;
-            this.mntxt.Name = "mntxt";
-            this.mntxt.Size = new System.Drawing.Size(154, 26);
-            this.mntxt.TabIndex = 3;
-            this.mntxt.Enter += new System.EventHandler(this.mntxt_Enter);
+            this.mn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mn_txt.Location = new System.Drawing.Point(535, 99);
+            this.mn_txt.Multiline = true;
+            this.mn_txt.Name = "mn_txt";
+            this.mn_txt.Size = new System.Drawing.Size(154, 26);
+            this.mn_txt.TabIndex = 3;
+            this.mn_txt.Enter += new System.EventHandler(this.mntxt_Enter);
             // 
-            // fntxt
+            // fn_txt
             // 
-            this.fntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fntxt.Location = new System.Drawing.Point(374, 99);
-            this.fntxt.Multiline = true;
-            this.fntxt.Name = "fntxt";
-            this.fntxt.Size = new System.Drawing.Size(154, 26);
-            this.fntxt.TabIndex = 2;
-            this.fntxt.Enter += new System.EventHandler(this.fntxt_Enter);
+            this.fn_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fn_txt.Location = new System.Drawing.Point(374, 99);
+            this.fn_txt.Multiline = true;
+            this.fn_txt.Name = "fn_txt";
+            this.fn_txt.Size = new System.Drawing.Size(154, 26);
+            this.fn_txt.TabIndex = 2;
+            this.fn_txt.Enter += new System.EventHandler(this.fntxt_Enter);
             // 
-            // lntxt
+            // ln_txt
             // 
-            this.lntxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lntxt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lntxt.Location = new System.Drawing.Point(197, 99);
-            this.lntxt.Multiline = true;
-            this.lntxt.Name = "lntxt";
-            this.lntxt.Size = new System.Drawing.Size(171, 26);
-            this.lntxt.TabIndex = 1;
-            this.lntxt.Enter += new System.EventHandler(this.lntxt_Enter);
+            this.ln_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ln_txt.Location = new System.Drawing.Point(197, 99);
+            this.ln_txt.Multiline = true;
+            this.ln_txt.Name = "ln_txt";
+            this.ln_txt.Size = new System.Drawing.Size(171, 26);
+            this.ln_txt.TabIndex = 1;
+            this.ln_txt.Enter += new System.EventHandler(this.lntxt_Enter);
             // 
             // label15
             // 
@@ -675,18 +675,18 @@
             this.btn_next2.UseVisualStyleBackColor = false;
             this.btn_next2.Click += new System.EventHandler(this.btn_next2_Click);
             // 
-            // btn_prev2
+            // btn_prev1
             // 
-            this.btn_prev2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btn_prev2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_prev2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_prev2.Location = new System.Drawing.Point(552, 452);
-            this.btn_prev2.Name = "btn_prev2";
-            this.btn_prev2.Size = new System.Drawing.Size(81, 29);
-            this.btn_prev2.TabIndex = 1;
-            this.btn_prev2.Text = "PREVIOUS";
-            this.btn_prev2.UseVisualStyleBackColor = true;
-            this.btn_prev2.Click += new System.EventHandler(this.btn_prev2_Click);
+            this.btn_prev1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_prev1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prev1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prev1.Location = new System.Drawing.Point(552, 452);
+            this.btn_prev1.Name = "btn_prev1";
+            this.btn_prev1.Size = new System.Drawing.Size(81, 29);
+            this.btn_prev1.TabIndex = 1;
+            this.btn_prev1.Text = "PREVIOUS";
+            this.btn_prev1.UseVisualStyleBackColor = true;
+            this.btn_prev1.Click += new System.EventHandler(this.btn_prev2_Click);
             // 
             // label19
             // 
@@ -725,16 +725,16 @@
             // pnl3
             // 
             this.pnl3.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl3.Controls.Add(this.radioButton10);
-            this.pnl3.Controls.Add(this.radioButton9);
-            this.pnl3.Controls.Add(this.radioButton8);
-            this.pnl3.Controls.Add(this.radioButton7);
-            this.pnl3.Controls.Add(this.radioButton6);
-            this.pnl3.Controls.Add(this.radioButton5);
-            this.pnl3.Controls.Add(this.radioButton4);
-            this.pnl3.Controls.Add(this.radioButton3);
-            this.pnl3.Controls.Add(this.radioButton2);
-            this.pnl3.Controls.Add(this.radioButton1);
+            this.pnl3.Controls.Add(this.educ11_none);
+            this.pnl3.Controls.Add(this.educ9_vocational);
+            this.pnl3.Controls.Add(this.educ8_postgrad);
+            this.pnl3.Controls.Add(this.educ7_graduate);
+            this.pnl3.Controls.Add(this.educ6_collegeunder);
+            this.pnl3.Controls.Add(this.educ5_college);
+            this.pnl3.Controls.Add(this.educ4_hsunder);
+            this.pnl3.Controls.Add(this.educ3_hs);
+            this.pnl3.Controls.Add(this.educ2_elemunder);
+            this.pnl3.Controls.Add(this.educ1_elem);
             this.pnl3.Controls.Add(this.label33);
             this.pnl3.Controls.Add(this.pictureBox4);
             this.pnl3.Controls.Add(this.email);
@@ -745,8 +745,8 @@
             this.pnl3.Controls.Add(this.label30);
             this.pnl3.Controls.Add(this.label31);
             this.pnl3.Controls.Add(this.pictureBox3);
-            this.pnl3.Controls.Add(this.next3);
-            this.pnl3.Controls.Add(this.button3);
+            this.pnl3.Controls.Add(this.btn_next3);
+            this.pnl3.Controls.Add(this.btn_prev2);
             this.pnl3.Controls.Add(this.label32);
             this.pnl3.Location = new System.Drawing.Point(0, 0);
             this.pnl3.Name = "pnl3";
@@ -754,125 +754,125 @@
             this.pnl3.TabIndex = 30;
             this.pnl3.Visible = false;
             // 
-            // radioButton10
+            // educ11_none
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton10.Location = new System.Drawing.Point(439, 374);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(55, 19);
-            this.radioButton10.TabIndex = 52;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "None";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.educ11_none.AutoSize = true;
+            this.educ11_none.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ11_none.Location = new System.Drawing.Point(439, 374);
+            this.educ11_none.Name = "educ11_none";
+            this.educ11_none.Size = new System.Drawing.Size(55, 19);
+            this.educ11_none.TabIndex = 52;
+            this.educ11_none.TabStop = true;
+            this.educ11_none.Text = "None";
+            this.educ11_none.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // educ9_vocational
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton9.Location = new System.Drawing.Point(439, 348);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(81, 19);
-            this.radioButton9.TabIndex = 51;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Vocational";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.educ9_vocational.AutoSize = true;
+            this.educ9_vocational.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ9_vocational.Location = new System.Drawing.Point(439, 348);
+            this.educ9_vocational.Name = "educ9_vocational";
+            this.educ9_vocational.Size = new System.Drawing.Size(81, 19);
+            this.educ9_vocational.TabIndex = 51;
+            this.educ9_vocational.TabStop = true;
+            this.educ9_vocational.Text = "Vocational";
+            this.educ9_vocational.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // educ8_postgrad
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8.Location = new System.Drawing.Point(439, 322);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(104, 19);
-            this.radioButton8.TabIndex = 50;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Post Graduate";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.educ8_postgrad.AutoSize = true;
+            this.educ8_postgrad.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ8_postgrad.Location = new System.Drawing.Point(439, 322);
+            this.educ8_postgrad.Name = "educ8_postgrad";
+            this.educ8_postgrad.Size = new System.Drawing.Size(104, 19);
+            this.educ8_postgrad.TabIndex = 50;
+            this.educ8_postgrad.TabStop = true;
+            this.educ8_postgrad.Text = "Post Graduate";
+            this.educ8_postgrad.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // educ7_graduate
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.Location = new System.Drawing.Point(439, 294);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(76, 19);
-            this.radioButton7.TabIndex = 49;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Graduate";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.educ7_graduate.AutoSize = true;
+            this.educ7_graduate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ7_graduate.Location = new System.Drawing.Point(439, 294);
+            this.educ7_graduate.Name = "educ7_graduate";
+            this.educ7_graduate.Size = new System.Drawing.Size(76, 19);
+            this.educ7_graduate.TabIndex = 49;
+            this.educ7_graduate.TabStop = true;
+            this.educ7_graduate.Text = "Graduate";
+            this.educ7_graduate.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // educ6_collegeunder
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton6.Location = new System.Drawing.Point(439, 268);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(154, 19);
-            this.radioButton6.TabIndex = 48;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "College Undergraduate";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.educ6_collegeunder.AutoSize = true;
+            this.educ6_collegeunder.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ6_collegeunder.Location = new System.Drawing.Point(439, 268);
+            this.educ6_collegeunder.Name = "educ6_collegeunder";
+            this.educ6_collegeunder.Size = new System.Drawing.Size(154, 19);
+            this.educ6_collegeunder.TabIndex = 48;
+            this.educ6_collegeunder.TabStop = true;
+            this.educ6_collegeunder.Text = "College Undergraduate";
+            this.educ6_collegeunder.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // educ5_college
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(154, 372);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(68, 19);
-            this.radioButton5.TabIndex = 47;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "College";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.educ5_college.AutoSize = true;
+            this.educ5_college.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ5_college.Location = new System.Drawing.Point(154, 372);
+            this.educ5_college.Name = "educ5_college";
+            this.educ5_college.Size = new System.Drawing.Size(68, 19);
+            this.educ5_college.TabIndex = 47;
+            this.educ5_college.TabStop = true;
+            this.educ5_college.Text = "College";
+            this.educ5_college.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // educ4_hsunder
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(154, 347);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(178, 19);
-            this.radioButton4.TabIndex = 46;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "High School Undergraduate";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.educ4_hsunder.AutoSize = true;
+            this.educ4_hsunder.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ4_hsunder.Location = new System.Drawing.Point(154, 347);
+            this.educ4_hsunder.Name = "educ4_hsunder";
+            this.educ4_hsunder.Size = new System.Drawing.Size(178, 19);
+            this.educ4_hsunder.TabIndex = 46;
+            this.educ4_hsunder.TabStop = true;
+            this.educ4_hsunder.Text = "High School Undergraduate";
+            this.educ4_hsunder.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // educ3_hs
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(154, 320);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(92, 19);
-            this.radioButton3.TabIndex = 45;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "High School";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.educ3_hs.AutoSize = true;
+            this.educ3_hs.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ3_hs.Location = new System.Drawing.Point(154, 320);
+            this.educ3_hs.Name = "educ3_hs";
+            this.educ3_hs.Size = new System.Drawing.Size(92, 19);
+            this.educ3_hs.TabIndex = 45;
+            this.educ3_hs.TabStop = true;
+            this.educ3_hs.Text = "High School";
+            this.educ3_hs.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // educ2_elemunder
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(154, 294);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(173, 19);
-            this.radioButton2.TabIndex = 44;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Elementary Undergraduate";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.educ2_elemunder.AutoSize = true;
+            this.educ2_elemunder.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ2_elemunder.Location = new System.Drawing.Point(154, 294);
+            this.educ2_elemunder.Name = "educ2_elemunder";
+            this.educ2_elemunder.Size = new System.Drawing.Size(173, 19);
+            this.educ2_elemunder.TabIndex = 44;
+            this.educ2_elemunder.TabStop = true;
+            this.educ2_elemunder.Text = "Elementary Undergraduate";
+            this.educ2_elemunder.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // educ1_elem
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(154, 268);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 19);
-            this.radioButton1.TabIndex = 43;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Elementary";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.educ1_elem.AutoSize = true;
+            this.educ1_elem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ1_elem.Location = new System.Drawing.Point(154, 268);
+            this.educ1_elem.Name = "educ1_elem";
+            this.educ1_elem.Size = new System.Drawing.Size(87, 19);
+            this.educ1_elem.TabIndex = 43;
+            this.educ1_elem.TabStop = true;
+            this.educ1_elem.Text = "Elementary";
+            this.educ1_elem.UseVisualStyleBackColor = true;
             // 
             // label33
             // 
@@ -966,32 +966,32 @@
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             // 
-            // next3
+            // btn_next3
             // 
-            this.next3.BackColor = System.Drawing.SystemColors.Window;
-            this.next3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.next3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.next3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next3.Location = new System.Drawing.Point(657, 452);
-            this.next3.Name = "next3";
-            this.next3.Size = new System.Drawing.Size(68, 29);
-            this.next3.TabIndex = 2;
-            this.next3.Text = "NEXT";
-            this.next3.UseVisualStyleBackColor = false;
-            this.next3.Click += new System.EventHandler(this.next3_Click);
+            this.btn_next3.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_next3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_next3.Location = new System.Drawing.Point(657, 452);
+            this.btn_next3.Name = "btn_next3";
+            this.btn_next3.Size = new System.Drawing.Size(68, 29);
+            this.btn_next3.TabIndex = 2;
+            this.btn_next3.Text = "NEXT";
+            this.btn_next3.UseVisualStyleBackColor = false;
+            this.btn_next3.Click += new System.EventHandler(this.next3_Click);
             // 
-            // button3
+            // btn_prev2
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(552, 452);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(81, 29);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "PREVIOUS";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_prev2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_prev2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prev2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prev2.Location = new System.Drawing.Point(552, 452);
+            this.btn_prev2.Name = "btn_prev2";
+            this.btn_prev2.Size = new System.Drawing.Size(81, 29);
+            this.btn_prev2.TabIndex = 1;
+            this.btn_prev2.Text = "PREVIOUS";
+            this.btn_prev2.UseVisualStyleBackColor = true;
+            this.btn_prev2.Click += new System.EventHandler(this.button3_Click);
             // 
             // label32
             // 
@@ -1173,29 +1173,29 @@
             // pnl4
             // 
             this.pnl4.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl4.Controls.Add(this.comboBox6);
-            this.pnl4.Controls.Add(this.comboBox5);
+            this.pnl4.Controls.Add(this.noemp);
+            this.pnl4.Controls.Add(this.empstatus);
             this.pnl4.Controls.Add(this.textBox10);
             this.pnl4.Controls.Add(this.textBox9);
-            this.pnl4.Controls.Add(this.comboBox4);
-            this.pnl4.Controls.Add(this.prev4);
+            this.pnl4.Controls.Add(this.typeoemp);
+            this.pnl4.Controls.Add(this.btn_prev3);
             this.pnl4.Controls.Add(this.label24);
-            this.pnl4.Controls.Add(this.radioButton11);
-            this.pnl4.Controls.Add(this.radioButton12);
-            this.pnl4.Controls.Add(this.radioButton13);
-            this.pnl4.Controls.Add(this.radioButton15);
-            this.pnl4.Controls.Add(this.radioButton16);
-            this.pnl4.Controls.Add(this.radioButton17);
-            this.pnl4.Controls.Add(this.radioButton18);
-            this.pnl4.Controls.Add(this.radioButton19);
-            this.pnl4.Controls.Add(this.radioButton20);
+            this.pnl4.Controls.Add(this.skill9);
+            this.pnl4.Controls.Add(this.skill8);
+            this.pnl4.Controls.Add(this.skill7);
+            this.pnl4.Controls.Add(this.skill6);
+            this.pnl4.Controls.Add(this.skill4);
+            this.pnl4.Controls.Add(this.skill3);
+            this.pnl4.Controls.Add(this.skill2);
+            this.pnl4.Controls.Add(this.skill5);
+            this.pnl4.Controls.Add(this.skill1);
             this.pnl4.Controls.Add(this.pictureBox5);
             this.pnl4.Controls.Add(this.label25);
             this.pnl4.Controls.Add(this.label26);
             this.pnl4.Controls.Add(this.label27);
             this.pnl4.Controls.Add(this.label34);
             this.pnl4.Controls.Add(this.pictureBox6);
-            this.pnl4.Controls.Add(this.next4);
+            this.pnl4.Controls.Add(this.btn_next4);
             this.pnl4.Controls.Add(this.label35);
             this.pnl4.Controls.Add(this.textBox11);
             this.pnl4.Location = new System.Drawing.Point(0, 0);
@@ -1204,41 +1204,44 @@
             this.pnl4.TabIndex = 53;
             this.pnl4.Visible = false;
             // 
-            // comboBox6
+            // noemp
             // 
-            this.comboBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.noemp.BackColor = System.Drawing.SystemColors.Window;
+            this.noemp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.noemp.Enabled = false;
+            this.noemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noemp.FormattingEnabled = true;
+            this.noemp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.noemp.Items.AddRange(new object[] {
             "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
-            this.comboBox6.Location = new System.Drawing.Point(319, 126);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(150, 23);
-            this.comboBox6.TabIndex = 59;
+            "Government",
+            "Private"});
+            this.noemp.Location = new System.Drawing.Point(319, 126);
+            this.noemp.Name = "noemp";
+            this.noemp.Size = new System.Drawing.Size(150, 23);
+            this.noemp.TabIndex = 59;
             // 
-            // comboBox5
+            // empstatus
             // 
-            this.comboBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.empstatus.BackColor = System.Drawing.SystemColors.Window;
+            this.empstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.empstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.empstatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empstatus.FormattingEnabled = true;
+            this.empstatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.empstatus.Items.AddRange(new object[] {
             "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
-            this.comboBox5.Location = new System.Drawing.Point(319, 89);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(150, 23);
-            this.comboBox5.TabIndex = 58;
+            "Employed",
+            "Unemployed",
+            "Displaced Worker",
+            "Resigned",
+            "Retired",
+            "Returning Overseas Filipino Worker"});
+            this.empstatus.Location = new System.Drawing.Point(319, 89);
+            this.empstatus.Name = "empstatus";
+            this.empstatus.Size = new System.Drawing.Size(150, 23);
+            this.empstatus.TabIndex = 58;
             // 
             // textBox10
             // 
@@ -1262,36 +1265,37 @@
             this.textBox9.Size = new System.Drawing.Size(154, 26);
             this.textBox9.TabIndex = 55;
             // 
-            // comboBox4
+            // typeoemp
             // 
-            this.comboBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.typeoemp.BackColor = System.Drawing.SystemColors.Window;
+            this.typeoemp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeoemp.Enabled = false;
+            this.typeoemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.typeoemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeoemp.FormattingEnabled = true;
+            this.typeoemp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.typeoemp.Items.AddRange(new object[] {
             "",
             "Region 1",
             "Region 2",
             "Region 3"});
-            this.comboBox4.Location = new System.Drawing.Point(319, 164);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(150, 23);
-            this.comboBox4.TabIndex = 54;
+            this.typeoemp.Location = new System.Drawing.Point(319, 164);
+            this.typeoemp.Name = "typeoemp";
+            this.typeoemp.Size = new System.Drawing.Size(150, 23);
+            this.typeoemp.TabIndex = 54;
             // 
-            // prev4
+            // btn_prev3
             // 
-            this.prev4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.prev4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prev4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prev4.Location = new System.Drawing.Point(552, 452);
-            this.prev4.Name = "prev4";
-            this.prev4.Size = new System.Drawing.Size(81, 29);
-            this.prev4.TabIndex = 53;
-            this.prev4.Text = "PREVIOUS";
-            this.prev4.UseVisualStyleBackColor = true;
-            this.prev4.Click += new System.EventHandler(this.prev4_Click);
+            this.btn_prev3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_prev3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prev3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prev3.Location = new System.Drawing.Point(552, 452);
+            this.btn_prev3.Name = "btn_prev3";
+            this.btn_prev3.Size = new System.Drawing.Size(81, 29);
+            this.btn_prev3.TabIndex = 53;
+            this.btn_prev3.Text = "PREVIOUS";
+            this.btn_prev3.UseVisualStyleBackColor = true;
+            this.btn_prev3.Click += new System.EventHandler(this.prev4_Click);
             // 
             // label24
             // 
@@ -1303,114 +1307,114 @@
             this.label24.TabIndex = 35;
             this.label24.Text = "TYPE OF SKILL";
             // 
-            // radioButton11
+            // skill9
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton11.Location = new System.Drawing.Point(428, 362);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(131, 19);
-            this.radioButton11.TabIndex = 52;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "Special Occupation";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.skill9.AutoSize = true;
+            this.skill9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill9.Location = new System.Drawing.Point(428, 362);
+            this.skill9.Name = "skill9";
+            this.skill9.Size = new System.Drawing.Size(131, 19);
+            this.skill9.TabIndex = 52;
+            this.skill9.TabStop = true;
+            this.skill9.Text = "Special Occupation";
+            this.skill9.UseVisualStyleBackColor = true;
             // 
-            // radioButton12
+            // skill8
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton12.Location = new System.Drawing.Point(428, 337);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(126, 19);
-            this.radioButton12.TabIndex = 51;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Unskilled Workers";
-            this.radioButton12.UseVisualStyleBackColor = true;
+            this.skill8.AutoSize = true;
+            this.skill8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill8.Location = new System.Drawing.Point(428, 337);
+            this.skill8.Name = "skill8";
+            this.skill8.Size = new System.Drawing.Size(126, 19);
+            this.skill8.TabIndex = 51;
+            this.skill8.TabStop = true;
+            this.skill8.Text = "Unskilled Workers";
+            this.skill8.UseVisualStyleBackColor = true;
             // 
-            // radioButton13
+            // skill7
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton13.Location = new System.Drawing.Point(428, 312);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(75, 19);
-            this.radioButton13.TabIndex = 50;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "Laborers";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.skill7.AutoSize = true;
+            this.skill7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill7.Location = new System.Drawing.Point(428, 312);
+            this.skill7.Name = "skill7";
+            this.skill7.Size = new System.Drawing.Size(75, 19);
+            this.skill7.TabIndex = 50;
+            this.skill7.TabStop = true;
+            this.skill7.Text = "Laborers";
+            this.skill7.UseVisualStyleBackColor = true;
             // 
-            // radioButton15
+            // skill6
             // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton15.Location = new System.Drawing.Point(428, 253);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(184, 49);
-            this.radioButton15.TabIndex = 48;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "\r\nPlant and Machine Operators\r\nand Assemblers\r\n";
-            this.radioButton15.UseVisualStyleBackColor = true;
+            this.skill6.AutoSize = true;
+            this.skill6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill6.Location = new System.Drawing.Point(428, 253);
+            this.skill6.Name = "skill6";
+            this.skill6.Size = new System.Drawing.Size(184, 49);
+            this.skill6.TabIndex = 48;
+            this.skill6.TabStop = true;
+            this.skill6.Text = "\r\nPlant and Machine Operators\r\nand Assemblers\r\n";
+            this.skill6.UseVisualStyleBackColor = true;
             // 
-            // radioButton16
+            // skill4
             // 
-            this.radioButton16.AutoSize = true;
-            this.radioButton16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton16.Location = new System.Drawing.Point(126, 386);
-            this.radioButton16.Name = "radioButton16";
-            this.radioButton16.Size = new System.Drawing.Size(258, 19);
-            this.radioButton16.TabIndex = 47;
-            this.radioButton16.TabStop = true;
-            this.radioButton16.Text = "Farmers, Forestry Workers and Fisherman";
-            this.radioButton16.UseVisualStyleBackColor = true;
+            this.skill4.AutoSize = true;
+            this.skill4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill4.Location = new System.Drawing.Point(126, 386);
+            this.skill4.Name = "skill4";
+            this.skill4.Size = new System.Drawing.Size(258, 19);
+            this.skill4.TabIndex = 47;
+            this.skill4.TabStop = true;
+            this.skill4.Text = "Farmers, Forestry Workers and Fisherman";
+            this.skill4.UseVisualStyleBackColor = true;
             // 
-            // radioButton17
+            // skill3
             // 
-            this.radioButton17.AutoSize = true;
-            this.radioButton17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton17.Location = new System.Drawing.Point(126, 361);
-            this.radioButton17.Name = "radioButton17";
-            this.radioButton17.Size = new System.Drawing.Size(251, 19);
-            this.radioButton17.TabIndex = 46;
-            this.radioButton17.TabStop = true;
-            this.radioButton17.Text = "Technicians and Associate Professionals";
-            this.radioButton17.UseVisualStyleBackColor = true;
+            this.skill3.AutoSize = true;
+            this.skill3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill3.Location = new System.Drawing.Point(126, 361);
+            this.skill3.Name = "skill3";
+            this.skill3.Size = new System.Drawing.Size(251, 19);
+            this.skill3.TabIndex = 46;
+            this.skill3.TabStop = true;
+            this.skill3.Text = "Technicians and Associate Professionals";
+            this.skill3.UseVisualStyleBackColor = true;
             // 
-            // radioButton18
+            // skill2
             // 
-            this.radioButton18.AutoSize = true;
-            this.radioButton18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton18.Location = new System.Drawing.Point(126, 337);
-            this.radioButton18.Name = "radioButton18";
-            this.radioButton18.Size = new System.Drawing.Size(102, 19);
-            this.radioButton18.TabIndex = 45;
-            this.radioButton18.TabStop = true;
-            this.radioButton18.Text = "Professionals";
-            this.radioButton18.UseVisualStyleBackColor = true;
+            this.skill2.AutoSize = true;
+            this.skill2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill2.Location = new System.Drawing.Point(126, 337);
+            this.skill2.Name = "skill2";
+            this.skill2.Size = new System.Drawing.Size(102, 19);
+            this.skill2.TabIndex = 45;
+            this.skill2.TabStop = true;
+            this.skill2.Text = "Professionals";
+            this.skill2.UseVisualStyleBackColor = true;
             // 
-            // radioButton19
+            // skill5
             // 
-            this.radioButton19.AutoSize = true;
-            this.radioButton19.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton19.Location = new System.Drawing.Point(126, 412);
-            this.radioButton19.Name = "radioButton19";
-            this.radioButton19.Size = new System.Drawing.Size(183, 19);
-            this.radioButton19.TabIndex = 44;
-            this.radioButton19.TabStop = true;
-            this.radioButton19.Text = "Trades and Related Workers";
-            this.radioButton19.UseVisualStyleBackColor = true;
+            this.skill5.AutoSize = true;
+            this.skill5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill5.Location = new System.Drawing.Point(126, 412);
+            this.skill5.Name = "skill5";
+            this.skill5.Size = new System.Drawing.Size(183, 19);
+            this.skill5.TabIndex = 44;
+            this.skill5.TabStop = true;
+            this.skill5.Text = "Trades and Related Workers";
+            this.skill5.UseVisualStyleBackColor = true;
             // 
-            // radioButton20
+            // skill1
             // 
-            this.radioButton20.AutoSize = true;
-            this.radioButton20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton20.Location = new System.Drawing.Point(126, 223);
-            this.radioButton20.Name = "radioButton20";
-            this.radioButton20.Size = new System.Drawing.Size(213, 109);
-            this.radioButton20.TabIndex = 43;
-            this.radioButton20.TabStop = true;
-            this.radioButton20.Text = "\r\n\r\n\r\nOfficials of Government and Social\r\nInterest Organizations, Corporate\r\nExec" +
+            this.skill1.AutoSize = true;
+            this.skill1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skill1.Location = new System.Drawing.Point(126, 223);
+            this.skill1.Name = "skill1";
+            this.skill1.Size = new System.Drawing.Size(213, 109);
+            this.skill1.TabIndex = 43;
+            this.skill1.TabStop = true;
+            this.skill1.Text = "\r\n\r\n\r\nOfficials of Government and Social\r\nInterest Organizations, Corporate\r\nExec" +
     "utives Managers, Managing\r\nPropietors and Supervisors\r\n";
-            this.radioButton20.UseVisualStyleBackColor = true;
+            this.skill1.UseVisualStyleBackColor = true;
             // 
             // pictureBox5
             // 
@@ -1470,19 +1474,19 @@
             this.pictureBox6.TabIndex = 3;
             this.pictureBox6.TabStop = false;
             // 
-            // next4
+            // btn_next4
             // 
-            this.next4.BackColor = System.Drawing.SystemColors.Window;
-            this.next4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.next4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.next4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next4.Location = new System.Drawing.Point(657, 452);
-            this.next4.Name = "next4";
-            this.next4.Size = new System.Drawing.Size(68, 29);
-            this.next4.TabIndex = 2;
-            this.next4.Text = "NEXT";
-            this.next4.UseVisualStyleBackColor = false;
-            this.next4.Click += new System.EventHandler(this.next4_Click);
+            this.btn_next4.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_next4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_next4.Location = new System.Drawing.Point(657, 452);
+            this.btn_next4.Name = "btn_next4";
+            this.btn_next4.Size = new System.Drawing.Size(68, 29);
+            this.btn_next4.TabIndex = 2;
+            this.btn_next4.Text = "NEXT";
+            this.btn_next4.UseVisualStyleBackColor = false;
+            this.btn_next4.Click += new System.EventHandler(this.next4_Click);
             // 
             // label35
             // 
@@ -1510,12 +1514,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl3);
-            this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
+            this.pnl_container.Controls.Add(this.pnl4);
+            this.pnl_container.Controls.Add(this.pnl3);
+            this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
@@ -1536,7 +1540,7 @@
             this.pnl6.Controls.Add(this.mln_txt);
             this.pnl6.Controls.Add(this.label46);
             this.pnl6.Controls.Add(this.label47);
-            this.pnl6.Controls.Add(this.textBox5);
+            this.pnl6.Controls.Add(this.norunit);
             this.pnl6.Controls.Add(this.label49);
             this.pnl6.Controls.Add(this.fmn_txt);
             this.pnl6.Controls.Add(this.ffn_txt);
@@ -1545,8 +1549,8 @@
             this.pnl6.Controls.Add(this.label52);
             this.pnl6.Controls.Add(this.label53);
             this.pnl6.Controls.Add(this.pictureBox9);
-            this.pnl6.Controls.Add(this.button2);
-            this.pnl6.Controls.Add(this.button4);
+            this.pnl6.Controls.Add(this.btn_add);
+            this.pnl6.Controls.Add(this.btn_prev6);
             this.pnl6.Controls.Add(this.label54);
             this.pnl6.Location = new System.Drawing.Point(0, 0);
             this.pnl6.Name = "pnl6";
@@ -1673,14 +1677,14 @@
             this.label47.TabIndex = 28;
             this.label47.Text = "Name of Reporting Unit :";
             // 
-            // textBox5
+            // norunit
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(243, 305);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(260, 26);
-            this.textBox5.TabIndex = 13;
+            this.norunit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.norunit.Location = new System.Drawing.Point(243, 305);
+            this.norunit.Multiline = true;
+            this.norunit.Name = "norunit";
+            this.norunit.Size = new System.Drawing.Size(260, 26);
+            this.norunit.TabIndex = 13;
             // 
             // label49
             // 
@@ -1764,31 +1768,32 @@
             this.pictureBox9.TabIndex = 3;
             this.pictureBox9.TabStop = false;
             // 
-            // button2
+            // btn_add
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(657, 452);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 29);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "ADD";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_add.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_add.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Location = new System.Drawing.Point(657, 452);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(68, 29);
+            this.btn_add.TabIndex = 2;
+            this.btn_add.Text = "ADD";
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // button4
+            // btn_prev6
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(552, 452);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 29);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "PREVIOUS";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_prev6.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_prev6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prev6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prev6.Location = new System.Drawing.Point(552, 452);
+            this.btn_prev6.Name = "btn_prev6";
+            this.btn_prev6.Size = new System.Drawing.Size(81, 29);
+            this.btn_prev6.TabIndex = 1;
+            this.btn_prev6.Text = "PREVIOUS";
+            this.btn_prev6.UseVisualStyleBackColor = true;
+            this.btn_prev6.Click += new System.EventHandler(this.button4_Click);
             // 
             // label54
             // 
@@ -1805,19 +1810,19 @@
             // pnl5
             // 
             this.pnl5.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl5.Controls.Add(this.textBox21);
-            this.pnl5.Controls.Add(this.textBox20);
-            this.pnl5.Controls.Add(this.textBox19);
-            this.pnl5.Controls.Add(this.textBox18);
-            this.pnl5.Controls.Add(this.textBox17);
-            this.pnl5.Controls.Add(this.textBox16);
-            this.pnl5.Controls.Add(this.textBox15);
-            this.pnl5.Controls.Add(this.comboBox7);
+            this.pnl5.Controls.Add(this.orgtelno);
+            this.pnl5.Controls.Add(this.officeadd);
+            this.pnl5.Controls.Add(this.contactper);
+            this.pnl5.Controls.Add(this.orgaff);
+            this.pnl5.Controls.Add(this.philhealthno);
+            this.pnl5.Controls.Add(this.gsisno);
+            this.pnl5.Controls.Add(this.sssno);
+            this.pnl5.Controls.Add(this.philhealthstatus);
             this.pnl5.Controls.Add(this.label43);
             this.pnl5.Controls.Add(this.label44);
             this.pnl5.Controls.Add(this.label45);
             this.pnl5.Controls.Add(this.label42);
-            this.pnl5.Controls.Add(this.prev5);
+            this.pnl5.Controls.Add(this.btn_prev4);
             this.pnl5.Controls.Add(this.label36);
             this.pnl5.Controls.Add(this.pictureBox7);
             this.pnl5.Controls.Add(this.label37);
@@ -1825,7 +1830,7 @@
             this.pnl5.Controls.Add(this.label39);
             this.pnl5.Controls.Add(this.label40);
             this.pnl5.Controls.Add(this.pictureBox8);
-            this.pnl5.Controls.Add(this.next5);
+            this.pnl5.Controls.Add(this.btn_next5);
             this.pnl5.Controls.Add(this.label41);
             this.pnl5.Controls.Add(this.textBox13);
             this.pnl5.Location = new System.Drawing.Point(0, 0);
@@ -1834,93 +1839,92 @@
             this.pnl5.TabIndex = 54;
             this.pnl5.Visible = false;
             // 
-            // textBox21
+            // orgtelno
             // 
-            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox21.Location = new System.Drawing.Point(313, 193);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(154, 26);
-            this.textBox21.TabIndex = 70;
+            this.orgtelno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.orgtelno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orgtelno.Location = new System.Drawing.Point(313, 193);
+            this.orgtelno.Multiline = true;
+            this.orgtelno.Name = "orgtelno";
+            this.orgtelno.Size = new System.Drawing.Size(154, 26);
+            this.orgtelno.TabIndex = 70;
             // 
-            // textBox20
+            // officeadd
             // 
-            this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox20.Location = new System.Drawing.Point(313, 158);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(154, 26);
-            this.textBox20.TabIndex = 69;
+            this.officeadd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.officeadd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officeadd.Location = new System.Drawing.Point(313, 158);
+            this.officeadd.Multiline = true;
+            this.officeadd.Name = "officeadd";
+            this.officeadd.Size = new System.Drawing.Size(154, 26);
+            this.officeadd.TabIndex = 69;
             // 
-            // textBox19
+            // contactper
             // 
-            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox19.Location = new System.Drawing.Point(313, 124);
-            this.textBox19.Multiline = true;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(154, 26);
-            this.textBox19.TabIndex = 68;
+            this.contactper.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contactper.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactper.Location = new System.Drawing.Point(313, 124);
+            this.contactper.Multiline = true;
+            this.contactper.Name = "contactper";
+            this.contactper.Size = new System.Drawing.Size(154, 26);
+            this.contactper.TabIndex = 68;
             // 
-            // textBox18
+            // orgaff
             // 
-            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.Location = new System.Drawing.Point(313, 89);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(154, 26);
-            this.textBox18.TabIndex = 67;
+            this.orgaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.orgaff.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orgaff.Location = new System.Drawing.Point(313, 89);
+            this.orgaff.Multiline = true;
+            this.orgaff.Name = "orgaff";
+            this.orgaff.Size = new System.Drawing.Size(154, 26);
+            this.orgaff.TabIndex = 67;
             // 
-            // textBox17
+            // philhealthno
             // 
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(313, 359);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(154, 26);
-            this.textBox17.TabIndex = 66;
+            this.philhealthno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.philhealthno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.philhealthno.Location = new System.Drawing.Point(313, 359);
+            this.philhealthno.Multiline = true;
+            this.philhealthno.Name = "philhealthno";
+            this.philhealthno.Size = new System.Drawing.Size(154, 26);
+            this.philhealthno.TabIndex = 66;
             // 
-            // textBox16
+            // gsisno
             // 
-            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(313, 324);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(154, 26);
-            this.textBox16.TabIndex = 65;
+            this.gsisno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gsisno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gsisno.Location = new System.Drawing.Point(313, 324);
+            this.gsisno.Multiline = true;
+            this.gsisno.Name = "gsisno";
+            this.gsisno.Size = new System.Drawing.Size(154, 26);
+            this.gsisno.TabIndex = 65;
             // 
-            // textBox15
+            // sssno
             // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(313, 290);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(154, 26);
-            this.textBox15.TabIndex = 64;
+            this.sssno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sssno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sssno.Location = new System.Drawing.Point(313, 290);
+            this.sssno.Multiline = true;
+            this.sssno.Name = "sssno";
+            this.sssno.Size = new System.Drawing.Size(154, 26);
+            this.sssno.TabIndex = 64;
             // 
-            // comboBox7
+            // philhealthstatus
             // 
-            this.comboBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.philhealthstatus.BackColor = System.Drawing.SystemColors.Window;
+            this.philhealthstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.philhealthstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.philhealthstatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.philhealthstatus.FormattingEnabled = true;
+            this.philhealthstatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.philhealthstatus.Items.AddRange(new object[] {
             "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
-            this.comboBox7.Location = new System.Drawing.Point(474, 361);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(150, 23);
-            this.comboBox7.TabIndex = 63;
+            "PhilHealth Member",
+            "PhilHealth Member Dependent"});
+            this.philhealthstatus.Location = new System.Drawing.Point(474, 361);
+            this.philhealthstatus.Name = "philhealthstatus";
+            this.philhealthstatus.Size = new System.Drawing.Size(150, 23);
+            this.philhealthstatus.TabIndex = 63;
             // 
             // label43
             // 
@@ -1928,9 +1932,9 @@
             this.label43.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(138, 370);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(89, 15);
+            this.label43.Size = new System.Drawing.Size(92, 15);
             this.label43.TabIndex = 61;
-            this.label43.Text = "PhilHealth No :";
+            this.label43.Text = "PhilHealth No. :";
             // 
             // label44
             // 
@@ -1938,9 +1942,9 @@
             this.label44.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.Location = new System.Drawing.Point(138, 335);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(60, 15);
+            this.label44.Size = new System.Drawing.Size(63, 15);
             this.label44.TabIndex = 59;
-            this.label44.Text = "GSIS No :";
+            this.label44.Text = "GSIS No. :";
             // 
             // label45
             // 
@@ -1948,9 +1952,9 @@
             this.label45.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.Location = new System.Drawing.Point(138, 299);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(56, 15);
+            this.label45.Size = new System.Drawing.Size(59, 15);
             this.label45.TabIndex = 57;
-            this.label45.Text = "SSS No :";
+            this.label45.Text = "SSS No. :";
             // 
             // label42
             // 
@@ -1958,22 +1962,22 @@
             this.label42.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.Location = new System.Drawing.Point(138, 201);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(90, 15);
+            this.label42.Size = new System.Drawing.Size(93, 15);
             this.label42.TabIndex = 55;
-            this.label42.Text = "Telephone No :";
+            this.label42.Text = "Telephone No. :";
             // 
-            // prev5
+            // btn_prev4
             // 
-            this.prev5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.prev5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prev5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prev5.Location = new System.Drawing.Point(552, 452);
-            this.prev5.Name = "prev5";
-            this.prev5.Size = new System.Drawing.Size(81, 29);
-            this.prev5.TabIndex = 53;
-            this.prev5.Text = "PREVIOUS";
-            this.prev5.UseVisualStyleBackColor = true;
-            this.prev5.Click += new System.EventHandler(this.prev5_Click);
+            this.btn_prev4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_prev4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prev4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prev4.Location = new System.Drawing.Point(552, 452);
+            this.btn_prev4.Name = "btn_prev4";
+            this.btn_prev4.Size = new System.Drawing.Size(81, 29);
+            this.btn_prev4.TabIndex = 53;
+            this.btn_prev4.Text = "PREVIOUS";
+            this.btn_prev4.UseVisualStyleBackColor = true;
+            this.btn_prev4.Click += new System.EventHandler(this.prev5_Click);
             // 
             // label36
             // 
@@ -2043,19 +2047,19 @@
             this.pictureBox8.TabIndex = 3;
             this.pictureBox8.TabStop = false;
             // 
-            // next5
+            // btn_next5
             // 
-            this.next5.BackColor = System.Drawing.SystemColors.Window;
-            this.next5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.next5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.next5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next5.Location = new System.Drawing.Point(657, 452);
-            this.next5.Name = "next5";
-            this.next5.Size = new System.Drawing.Size(68, 29);
-            this.next5.TabIndex = 2;
-            this.next5.Text = "NEXT";
-            this.next5.UseVisualStyleBackColor = false;
-            this.next5.Click += new System.EventHandler(this.next5_Click);
+            this.btn_next5.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_next5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_next5.Location = new System.Drawing.Point(657, 452);
+            this.btn_next5.Name = "btn_next5";
+            this.btn_next5.Size = new System.Drawing.Size(68, 29);
+            this.btn_next5.TabIndex = 2;
+            this.btn_next5.Text = "NEXT";
+            this.btn_next5.UseVisualStyleBackColor = false;
+            this.btn_next5.Click += new System.EventHandler(this.next5_Click);
             // 
             // label41
             // 
@@ -2181,20 +2185,20 @@
         private System.Windows.Forms.TextBox dateofbirth;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox provtxt;
-        private System.Windows.Forms.TextBox muntxt;
-        private System.Windows.Forms.TextBox bartxt;
-        private System.Windows.Forms.TextBox hstxt;
-        private System.Windows.Forms.TextBox mntxt;
-        private System.Windows.Forms.TextBox fntxt;
-        private System.Windows.Forms.TextBox lntxt;
+        private System.Windows.Forms.TextBox prov_txt;
+        private System.Windows.Forms.TextBox mun_txt;
+        private System.Windows.Forms.TextBox bar_txt;
+        private System.Windows.Forms.TextBox hs_txt;
+        private System.Windows.Forms.TextBox mn_txt;
+        private System.Windows.Forms.TextBox fn_txt;
+        private System.Windows.Forms.TextBox ln_txt;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btn_next2;
-        private System.Windows.Forms.Button btn_prev2;
+        private System.Windows.Forms.Button btn_prev1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
@@ -2203,8 +2207,8 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button next3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_next3;
+        private System.Windows.Forms.Button btn_prev2;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label29;
@@ -2212,27 +2216,27 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton educ11_none;
+        private System.Windows.Forms.RadioButton educ9_vocational;
+        private System.Windows.Forms.RadioButton educ8_postgrad;
+        private System.Windows.Forms.RadioButton educ7_graduate;
+        private System.Windows.Forms.RadioButton educ6_collegeunder;
+        private System.Windows.Forms.RadioButton educ5_college;
+        private System.Windows.Forms.RadioButton educ4_hsunder;
+        private System.Windows.Forms.RadioButton educ3_hs;
+        private System.Windows.Forms.RadioButton educ2_elemunder;
+        private System.Windows.Forms.RadioButton educ1_elem;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel pnl4;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton13;
-        private System.Windows.Forms.RadioButton radioButton15;
-        private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.RadioButton radioButton17;
-        private System.Windows.Forms.RadioButton radioButton18;
-        private System.Windows.Forms.RadioButton radioButton19;
-        private System.Windows.Forms.RadioButton radioButton20;
+        private System.Windows.Forms.RadioButton skill9;
+        private System.Windows.Forms.RadioButton skill8;
+        private System.Windows.Forms.RadioButton skill7;
+        private System.Windows.Forms.RadioButton skill6;
+        private System.Windows.Forms.RadioButton skill4;
+        private System.Windows.Forms.RadioButton skill3;
+        private System.Windows.Forms.RadioButton skill2;
+        private System.Windows.Forms.RadioButton skill5;
+        private System.Windows.Forms.RadioButton skill1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label25;
@@ -2240,16 +2244,16 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button next4;
+        private System.Windows.Forms.Button btn_next4;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Panel pnl_container;
-        private System.Windows.Forms.Button prev4;
+        private System.Windows.Forms.Button btn_prev3;
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Button prev5;
+        private System.Windows.Forms.Button btn_prev4;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label37;
@@ -2257,7 +2261,7 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button next5;
+        private System.Windows.Forms.Button btn_next5;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Panel pnl6;
         private System.Windows.Forms.TextBox amn_txt;
@@ -2271,7 +2275,7 @@
         private System.Windows.Forms.TextBox mln_txt;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox norunit;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox fmn_txt;
         private System.Windows.Forms.TextBox ffn_txt;
@@ -2280,10 +2284,10 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button btn_prev6;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.ComboBox rel_cmbox;
+        private System.Windows.Forms.ComboBox region;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.ComboBox gender;
@@ -2291,20 +2295,20 @@
         private System.Windows.Forms.ComboBox bloodtype;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox noemp;
+        private System.Windows.Forms.ComboBox empstatus;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox typeoemp;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.TextBox orgtelno;
+        private System.Windows.Forms.TextBox officeadd;
+        private System.Windows.Forms.TextBox contactper;
+        private System.Windows.Forms.TextBox orgaff;
+        private System.Windows.Forms.TextBox philhealthno;
+        private System.Windows.Forms.TextBox gsisno;
+        private System.Windows.Forms.TextBox sssno;
+        private System.Windows.Forms.ComboBox philhealthstatus;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label pwd_add_lbl;
         private System.Windows.Forms.Timer startup_opacity;
