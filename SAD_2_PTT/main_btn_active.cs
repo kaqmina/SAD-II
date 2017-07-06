@@ -17,8 +17,8 @@ namespace SAD_2_PTT
         public bool btn_report = false;
         public bool btn_settings = false;
         public bool btn_logout = false;
-        public Button btn_temp;
-        public Form main;
+        //public Button btn_temp;
+        //public Form main;
         public main_form reference_to_main { get; set; }
 
         #region MainButtonActivation MB - 00

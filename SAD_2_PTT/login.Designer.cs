@@ -162,7 +162,9 @@
             this.pword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pword.Location = new System.Drawing.Point(52, 254);
+            this.pword.MaxLength = 45;
             this.pword.Name = "pword";
+            this.pword.PasswordChar = '●';
             this.pword.Size = new System.Drawing.Size(183, 16);
             this.pword.TabIndex = 27;
             this.pword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -172,6 +174,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(53, 194);
+            this.textBox2.MaxLength = 45;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(183, 16);
             this.textBox2.TabIndex = 26;

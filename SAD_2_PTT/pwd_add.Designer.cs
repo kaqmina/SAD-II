@@ -98,6 +98,7 @@
             this.btn_prev2 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pwd_appdate = new System.Windows.Forms.TextBox();
             this.pwd_regisno = new System.Windows.Forms.TextBox();
@@ -107,6 +108,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_next1 = new System.Windows.Forms.Button();
             this.page_num = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnl4 = new System.Windows.Forms.Panel();
             this.noemp = new System.Windows.Forms.ComboBox();
             this.empstatus = new System.Windows.Forms.ComboBox();
@@ -184,9 +187,6 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.pwd_add_back = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -1026,6 +1026,34 @@
             this.pnl1.TabIndex = 4;
             this.pnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
+            // comboBox8
+            // 
+            this.comboBox8.AutoCompleteCustomSource.AddRange(new string[] {
+            "--Select Disability--",
+            "Psychological",
+            "Mental",
+            "Hearing",
+            "Visual",
+            "Learning",
+            "Speech Impairment",
+            "Orthopedic"});
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "Psychological",
+            "Mental",
+            "Hearing",
+            "Visual",
+            "Learning",
+            "Speech Impairment",
+            "Orthopedic"});
+            this.comboBox8.Location = new System.Drawing.Point(375, 325);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(176, 25);
+            this.comboBox8.TabIndex = 12;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -1121,6 +1149,26 @@
             this.page_num.Size = new System.Drawing.Size(50, 21);
             this.page_num.TabIndex = 0;
             this.page_num.Text = "1 of 6";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(372, 292);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(182, 15);
+            this.label48.TabIndex = 14;
+            this.label48.Text = "___________________________________";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(373, 246);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(182, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "___________________________________";
             // 
             // pnl4
             // 
@@ -1466,12 +1514,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl2);
+            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
@@ -2057,54 +2105,6 @@
             // 
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.AutoCompleteCustomSource.AddRange(new string[] {
-            "--Select Disability--",
-            "Psychological",
-            "Mental",
-            "Hearing",
-            "Visual",
-            "Learning",
-            "Speech Impairment",
-            "Orthopedic"});
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
-            "Psychological",
-            "Mental",
-            "Hearing",
-            "Visual",
-            "Learning",
-            "Speech Impairment",
-            "Orthopedic"});
-            this.comboBox8.Location = new System.Drawing.Point(375, 325);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(176, 25);
-            this.comboBox8.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(373, 246);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 15);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "___________________________________";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(372, 292);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(182, 15);
-            this.label48.TabIndex = 14;
-            this.label48.Text = "___________________________________";
             // 
             // pwd_add
             // 

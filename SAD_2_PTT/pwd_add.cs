@@ -283,7 +283,44 @@ namespace SAD_2_PTT
             string firstname = fn_txt.Text;
             string lastname = ln_txt.Text;
             string middlename = mn_txt.Text;
-            //string 
+            string has = hs_txt.Text;
+            string mun = mun_txt.Text;
+            string bar = bar_txt.Text;
+            string prov = prov_txt.Text;
+            string reg = region.Text;
+            string dob = dateofbirth.Text;
+            string sex = gender.Text;
+            string natio = nationality.Text;
+            string blood_type = bloodtype.Text;
+            string civil_status = civilstatus.Text;
+            string tel_no = telno.Text;
+            string mobile_no = mobileno.Text;
+            string e_mail = email.Text;
+            string emp_status = empstatus.Text;
+            string no_emp = noemp.Text;
+            string organiaff = orgaff.Text;
+            string contact_person = contactper.Text;
+            string office_address = officeadd.Text;
+            string org_telno = orgtelno.Text;
+            string sss_no = sssno.Text;
+            string gsis_no = gsisno.Text;
+            string phil_health_status = philhealthstatus.Text;
+            string phil_health_no = philhealthno.Text;
+            string father_ln = fln_txt.Text;
+            string father_fn = ffn_txt.Text;
+            string father_mn = fmn_txt.Text;
+            string mother_ln = mln_txt.Text;
+            string mother_fn = mfn_txt.Text;
+            string mother_mn = mmn_txt.Text;
+            string guardian_ln = gln_txt.Text;
+            string guardian_fn = gfn_txt.Text;
+            string guardian_mn = gmn_txt.Text;
+            //educ and typeskill
+        }
+
+        public void educ_attainment()
+        {
+
         }
     }
 }
