@@ -322,7 +322,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(557, 247);
+            this.label36.Location = new System.Drawing.Point(560, 233);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(91, 17);
             this.label36.TabIndex = 91;
@@ -332,7 +332,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(384, 247);
+            this.label24.Location = new System.Drawing.Point(387, 233);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(148, 17);
             this.label24.TabIndex = 78;
@@ -342,7 +342,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(75, 276);
+            this.label15.Location = new System.Drawing.Point(78, 262);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(82, 17);
             this.label15.TabIndex = 77;
@@ -352,7 +352,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(211, 306);
+            this.label22.Location = new System.Drawing.Point(214, 292);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(127, 17);
             this.label22.TabIndex = 76;
@@ -362,7 +362,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(211, 276);
+            this.label11.Location = new System.Drawing.Point(214, 262);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 17);
             this.label11.TabIndex = 75;
@@ -372,7 +372,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(208, 247);
+            this.label12.Location = new System.Drawing.Point(211, 233);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 17);
             this.label12.TabIndex = 74;
@@ -382,7 +382,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(75, 306);
+            this.label20.Location = new System.Drawing.Point(78, 292);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(102, 17);
             this.label20.TabIndex = 73;
@@ -392,7 +392,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(75, 247);
+            this.label18.Location = new System.Drawing.Point(78, 233);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(101, 17);
             this.label18.TabIndex = 72;
@@ -1145,9 +1145,9 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl3);
-            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Location = new System.Drawing.Point(255, 176);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(789, 348);
