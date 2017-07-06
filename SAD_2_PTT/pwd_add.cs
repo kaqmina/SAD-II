@@ -283,7 +283,7 @@ namespace SAD_2_PTT
             string firstname = fn_txt.Text;
             string lastname = ln_txt.Text;
             string middlename = mn_txt.Text;
-            string 
+            //string 
         }
     }
 }
