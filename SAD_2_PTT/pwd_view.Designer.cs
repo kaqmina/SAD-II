@@ -120,6 +120,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.pnl_container = new System.Windows.Forms.Panel();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).BeginInit();
             this.pnl_reg.SuspendLayout();
@@ -285,6 +287,8 @@
             // pnl1
             // 
             this.pnl1.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl1.Controls.Add(this.label66);
+            this.pnl1.Controls.Add(this.label65);
             this.pnl1.Controls.Add(this.panel8);
             this.pnl1.Controls.Add(this.label36);
             this.pnl1.Controls.Add(this.label24);
@@ -491,9 +495,8 @@
             this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBox1.Items.AddRange(new object[] {
             "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
+            "Active",
+            "Expired"});
             this.comboBox1.Location = new System.Drawing.Point(86, 20);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(134, 23);
@@ -1153,6 +1156,26 @@
             this.pnl_container.Size = new System.Drawing.Size(789, 348);
             this.pnl_container.TabIndex = 104;
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Location = new System.Drawing.Point(407, 71);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(81, 17);
+            this.label65.TabIndex = 101;
+            this.label65.Text = "Civil Status : ";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(512, 71);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(55, 17);
+            this.label66.TabIndex = 102;
+            this.label66.Text = "Married";
+            // 
             // pwd_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1313,5 +1336,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Panel pnl_container;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
     }
 }
