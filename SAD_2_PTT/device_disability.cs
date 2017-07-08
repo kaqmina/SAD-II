@@ -71,6 +71,7 @@ namespace SAD_2_PTT
         #endregion
 
         #region Buttons
+
         #region Add
 
         private void button1_Click(object sender, EventArgs e)
@@ -156,6 +157,7 @@ namespace SAD_2_PTT
             }
         }
         #endregion
+
         #endregion
     }
 }
