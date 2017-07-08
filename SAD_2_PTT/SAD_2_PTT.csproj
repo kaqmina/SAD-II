@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="device_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="device_add.Designer.cs">
+      <DependentUpon>device_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Junk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="splash.Designer.cs">
       <DependentUpon>splash.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="device_add.resx">
+      <DependentUpon>device_add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Junk.resx">
       <DependentUpon>Junk.cs</DependentUpon>
     </EmbeddedResource>
