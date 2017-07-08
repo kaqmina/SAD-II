@@ -23,6 +23,8 @@ namespace SAD_2_PTT
         private void device_disability_Load(object sender, EventArgs e)
         {
             DataLoad();
+            this.Opacity = 0;
+            startup_opacity.Start();
         }
 
         private void DataLoad()
@@ -67,6 +69,10 @@ namespace SAD_2_PTT
         {
             reference_to_main.side_tab.Enabled = true;
             reference_to_main.dboard_head.Enabled = true;
+        }
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
         }
         #endregion
 

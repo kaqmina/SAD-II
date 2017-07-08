@@ -978,6 +978,7 @@
             this.device_grid.GridColor = System.Drawing.SystemColors.ControlLight;
             this.device_grid.Location = new System.Drawing.Point(10, 54);
             this.device_grid.Name = "device_grid";
+            this.device_grid.RowHeadersVisible = false;
             this.device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.device_grid.Size = new System.Drawing.Size(776, 421);
             this.device_grid.TabIndex = 0;
