@@ -168,7 +168,6 @@
             this.cmbox_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbox_type.FormattingEnabled = true;
             this.cmbox_type.Items.AddRange(new object[] {
-            "",
             "Government",
             "Sponsor"});
             this.cmbox_type.Location = new System.Drawing.Point(138, 174);

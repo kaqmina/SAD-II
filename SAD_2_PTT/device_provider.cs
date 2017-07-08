@@ -85,8 +85,8 @@ namespace SAD_2_PTT
 
         private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbox_type.SelectedIndex == 1) type = 0;
-            else if (cmbox_type.SelectedIndex == 2) type = 1;
+            if (cmbox_type.SelectedIndex == 0) type = 0;
+            else if (cmbox_type.SelectedIndex == 1) type = 1;
         }
 
         private void Add()
@@ -126,7 +126,7 @@ namespace SAD_2_PTT
             txt_mobno.Clear();
             txt_telno.Clear();
             txt_email.Clear();
-            //dp_type
+            cmbox_type.Text = "";
 
             button1.Enabled = true;
             button1.BringToFront();

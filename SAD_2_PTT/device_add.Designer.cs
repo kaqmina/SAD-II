@@ -31,20 +31,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_ddesc = new System.Windows.Forms.Label();
+            this.lbl_dis = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.txt_dname = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txt_ddesc = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbox_dis = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -86,8 +86,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.lbl_ddesc);
+            this.panel2.Controls.Add(this.lbl_dis);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(0, 413);
@@ -95,28 +95,28 @@
             this.panel2.Size = new System.Drawing.Size(299, 155);
             this.panel2.TabIndex = 2;
             // 
-            // label10
+            // lbl_ddesc
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Window;
-            this.label10.Location = new System.Drawing.Point(40, 64);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 60);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Signal bonae signal bonae\r\njjirit jjirit jjirit jjirit\r\nnan neoreul wonhae nan ne" +
+            this.lbl_ddesc.AutoSize = true;
+            this.lbl_ddesc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ddesc.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_ddesc.Location = new System.Drawing.Point(40, 64);
+            this.lbl_ddesc.Name = "lbl_ddesc";
+            this.lbl_ddesc.Size = new System.Drawing.Size(226, 60);
+            this.lbl_ddesc.TabIndex = 3;
+            this.lbl_ddesc.Text = "Signal bonae signal bonae\r\njjirit jjirit jjirit jjirit\r\nnan neoreul wonhae nan ne" +
     "oreul wonhae\r\nwae baneungi eobtni";
             // 
-            // label9
+            // lbl_dis
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.Window;
-            this.label9.Location = new System.Drawing.Point(95, 11);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 17);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Orthopedic Disability\r\n";
+            this.lbl_dis.AutoSize = true;
+            this.lbl_dis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_dis.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_dis.Location = new System.Drawing.Point(95, 11);
+            this.lbl_dis.Name = "lbl_dis";
+            this.lbl_dis.Size = new System.Drawing.Size(130, 17);
+            this.lbl_dis.TabIndex = 2;
+            this.lbl_dis.Text = "Orthopedic Disability\r\n";
             // 
             // label5
             // 
@@ -143,41 +143,105 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.richTextBox1);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.comboBox1);
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.cmbox_dis);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.txt_dname);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.txt_ddesc);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.button2);
             this.panel4.Location = new System.Drawing.Point(322, 106);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(715, 207);
             this.panel4.TabIndex = 4;
             // 
-            // textBox2
+            // button5
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(130, 88);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 21);
-            this.textBox2.TabIndex = 27;
+            this.button5.BackColor = System.Drawing.SystemColors.Window;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(370, 162);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(68, 29);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "Clear";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // txt_dname
+            // 
+            this.txt_dname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_dname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_dname.Location = new System.Drawing.Point(131, 48);
+            this.txt_dname.Multiline = true;
+            this.txt_dname.Name = "txt_dname";
+            this.txt_dname.Size = new System.Drawing.Size(208, 21);
+            this.txt_dname.TabIndex = 27;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(128, 102);
+            this.label16.Location = new System.Drawing.Point(129, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(212, 15);
             this.label16.TabIndex = 28;
             this.label16.Text = "_________________________________________";
+            // 
+            // txt_ddesc
+            // 
+            this.txt_ddesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ddesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ddesc.Location = new System.Drawing.Point(454, 46);
+            this.txt_ddesc.Name = "txt_ddesc";
+            this.txt_ddesc.Size = new System.Drawing.Size(239, 89);
+            this.txt_ddesc.TabIndex = 16;
+            this.txt_ddesc.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(367, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 17);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Description :";
+            // 
+            // cmbox_dis
+            // 
+            this.cmbox_dis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbox_dis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbox_dis.FormattingEnabled = true;
+            this.cmbox_dis.Location = new System.Drawing.Point(131, 100);
+            this.cmbox_dis.Name = "cmbox_dis";
+            this.cmbox_dis.Size = new System.Drawing.Size(208, 25);
+            this.cmbox_dis.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 17);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Device Name :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 17);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Disability :";
             // 
             // button4
             // 
@@ -192,16 +256,6 @@
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(454, 46);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(239, 89);
-            this.richTextBox1.TabIndex = 16;
-            this.richTextBox1.Text = "";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
@@ -214,46 +268,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(367, 48);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 17);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Description :";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(130, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 25);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 92);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 17);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Device Name :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 17);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Disability :";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -267,6 +282,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel5
             // 
@@ -335,26 +351,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 104);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(299, 296);
             this.dataGridView1.TabIndex = 17;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(370, 162);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(68, 29);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Clear";
-            this.button5.UseVisualStyleBackColor = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // device_add
             // 
@@ -375,6 +382,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "device_add";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_add_FormClosing);
+            this.Load += new System.EventHandler(this.device_add_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -406,15 +414,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbox_dis;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_ddesc;
+        private System.Windows.Forms.Label lbl_dis;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txt_ddesc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_dname;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;
