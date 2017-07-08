@@ -47,7 +47,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_desc = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -239,23 +239,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.lbl_desc);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(0, 414);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(299, 155);
             this.panel2.TabIndex = 10;
             // 
-            // label10
+            // lbl_desc
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Window;
-            this.label10.Location = new System.Drawing.Point(44, 45);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 60);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Signal bonae signal bonae\r\njjirit jjirit jjirit jjirit\r\nnan neoreul wonhae nan ne" +
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desc.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_desc.Location = new System.Drawing.Point(44, 45);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(226, 60);
+            this.lbl_desc.TabIndex = 3;
+            this.lbl_desc.Text = "Signal bonae signal bonae\r\njjirit jjirit jjirit jjirit\r\nnan neoreul wonhae nan ne" +
     "oreul wonhae\r\nwae baneungi eobtni";
             // 
             // label5
@@ -374,7 +374,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_desc;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_type;
         private System.Windows.Forms.Label label16;

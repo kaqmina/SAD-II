@@ -133,6 +133,7 @@ namespace SAD_2_PTT
             dis_id = Convert.ToInt32(row.Cells["disability_id"].Value);
             txt_type.Text = dis_type;
             txt_desc.Text = dis_desc;
+            lbl_desc.Text = dis_desc;
         }
 
         private void Edit()

@@ -56,8 +56,8 @@ namespace SAD_2_PTT
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
 
-        String dp_name, dp_desc, tel_no, email;
-        int dp_type, dp_id, mob_no;
+        String dp_name, dp_desc, tel_no, email,dp_type;
+        int dp_id, mob_no, type, dpt;
 
         #endregion
 
@@ -82,15 +82,23 @@ namespace SAD_2_PTT
         {
             Add();
         }
+
+        private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbox_type.SelectedIndex == 1) type = 0;
+            else if (cmbox_type.SelectedIndex == 2) type = 1;
+        }
+
         private void Add()
         {
             dp_name = txt_name.Text;
             dp_desc = txt_desc.Text;
             tel_no = txt_telno.Text;
             email = txt_email.Text;
-            //dp_type
-            mob_no = Convert.ToInt32(txt_mobno.Text);
 
+            mob_no = Convert.ToInt32(txt_mobno.Text);
+            dp_type = type.ToString();
+            
             try
             {
                 con.Open();
@@ -142,20 +150,23 @@ namespace SAD_2_PTT
             dp_desc = row.Cells["dp_desc"].Value.ToString();
             tel_no = row.Cells["tel_no"].Value.ToString();
             email = row.Cells["email_add"].Value.ToString();
-            
+            dp_type = row.Cells["dp_type"].Value.ToString();
+
             dp_id = Convert.ToInt32(row.Cells["dp_id"].Value);
             mob_no = Convert.ToInt32(row.Cells["mobile_no"].Value);
-            dp_type = Convert.ToInt32(row.Cells["dp_type"].Value);
+
+            //dp_type
+            dpt = Int32.Parse(dp_type);
+            if (dpt == 0) cmbox_type.Text = "Government";
+            else if (dpt == 1) cmbox_type.Text = "Sponsor";
 
             txt_name.Text = dp_name;
             txt_desc.Text = dp_desc;
             txt_telno.Text = tel_no;
             txt_email.Text = email;
             txt_mobno.Text = mob_no.ToString();
-            //dp_type
-
+            lbl_desc.Text = dp_desc;
         }
-
         private void Edit()
         {
             dp_name = txt_name.Text;
@@ -163,7 +174,8 @@ namespace SAD_2_PTT
             tel_no = txt_telno.Text;
             email = txt_email.Text;
             mob_no = Convert.ToInt32(txt_mobno.Text);
-            //dp_type
+            dp_type = type.ToString();
+
             try
             {
                 con.Open();
