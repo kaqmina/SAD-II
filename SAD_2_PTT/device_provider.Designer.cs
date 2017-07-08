@@ -116,7 +116,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Window;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label10);
@@ -130,6 +130,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Window;
             this.label10.Location = new System.Drawing.Point(44, 84);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(226, 60);
@@ -140,10 +141,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Window;
             this.label5.Location = new System.Drawing.Point(12, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 15);
+            this.label5.Size = new System.Drawing.Size(89, 15);
             this.label5.TabIndex = 1;
             this.label5.Text = "DESCRIPTION :";
             // 
@@ -160,10 +162,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
             this.label2.Location = new System.Drawing.Point(12, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 15);
+            this.label2.Size = new System.Drawing.Size(128, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "DISABILITY CATERED :";
             // 
@@ -171,6 +174,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(65, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 15);
@@ -297,9 +301,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Location = new System.Drawing.Point(326, 344);
+            this.panel6.Location = new System.Drawing.Point(322, 344);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(715, 34);
+            this.panel6.Size = new System.Drawing.Size(719, 34);
             this.panel6.TabIndex = 15;
             // 
             // label9
@@ -317,9 +321,9 @@
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Window;
             this.panel5.Controls.Add(this.comboBox1);
-            this.panel5.Location = new System.Drawing.Point(326, 393);
+            this.panel5.Location = new System.Drawing.Point(322, 393);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(715, 173);
+            this.panel5.Size = new System.Drawing.Size(719, 173);
             this.panel5.TabIndex = 14;
             // 
             // textBox3
