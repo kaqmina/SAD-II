@@ -65,11 +65,6 @@
             this.btn_pwd_add = new System.Windows.Forms.Button();
             this.btn_pwd_view = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.pnl_notif_pp = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.pnl_devices = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -96,11 +91,16 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.device_grid = new System.Windows.Forms.DataGridView();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.button32 = new System.Windows.Forms.Button();
-            this.button44 = new System.Windows.Forms.Button();
+            this.btn_disability = new System.Windows.Forms.Button();
+            this.btn_providers = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
+            this.pnl_notif_pp = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.pnl_dashboard = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -163,13 +163,13 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).BeginInit();
             this.panel7.SuspendLayout();
-            this.pnl_notif_pp.SuspendLayout();
             this.pnl_devices.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.device_grid)).BeginInit();
             this.panel19.SuspendLayout();
+            this.pnl_notif_pp.SuspendLayout();
             this.pnl_dashboard.SuspendLayout();
             this.panel4.SuspendLayout();
             this.dash_statistics.SuspendLayout();
@@ -404,8 +404,8 @@
             // 
             this.main_content.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.main_content.Controls.Add(this.pnl_pwd);
-            this.main_content.Controls.Add(this.pnl_notif_pp);
             this.main_content.Controls.Add(this.pnl_devices);
+            this.main_content.Controls.Add(this.pnl_notif_pp);
             this.main_content.Controls.Add(this.pnl_dashboard);
             this.main_content.Controls.Add(this.pnl_profile);
             this.main_content.Controls.Add(this.pnl_settings);
@@ -423,7 +423,7 @@
             this.pnl_pwd.Controls.Add(this.panel8);
             this.pnl_pwd.Controls.Add(this.panel2);
             this.pnl_pwd.Controls.Add(this.panel7);
-            this.pnl_pwd.Location = new System.Drawing.Point(0, 50);
+            this.pnl_pwd.Location = new System.Drawing.Point(0, 0);
             this.pnl_pwd.Name = "pnl_pwd";
             this.pnl_pwd.Size = new System.Drawing.Size(1069, 589);
             this.pnl_pwd.TabIndex = 11;
@@ -467,7 +467,7 @@
             this.btn_pwd_viewmore.TabIndex = 24;
             this.btn_pwd_viewmore.Text = "VIEW MORE";
             this.btn_pwd_viewmore.UseVisualStyleBackColor = false;
-            this.btn_pwd_viewmore.Click += new System.EventHandler(this.btn_pwd_viewmore_Click);
+            this.btn_pwd_viewmore.Click += new System.EventHandler(this.btn_pwd_viewmore_Click_1);
             // 
             // label14
             // 
@@ -678,77 +678,6 @@
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // pnl_notif_pp
-            // 
-            this.pnl_notif_pp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_notif_pp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.pnl_notif_pp.Controls.Add(this.button12);
-            this.pnl_notif_pp.Controls.Add(this.button5);
-            this.pnl_notif_pp.Controls.Add(this.button4);
-            this.pnl_notif_pp.Controls.Add(this.button3);
-            this.pnl_notif_pp.Location = new System.Drawing.Point(1063, 50);
-            this.pnl_notif_pp.Name = "pnl_notif_pp";
-            this.pnl_notif_pp.Size = new System.Drawing.Size(14, 233);
-            this.pnl_notif_pp.TabIndex = 19;
-            this.pnl_notif_pp.Visible = false;
-            this.pnl_notif_pp.MouseLeave += new System.EventHandler(this.pnl_notif_pp_MouseLeave);
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.White;
-            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button12.Location = new System.Drawing.Point(1, 177);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(297, 55);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "There are no new notifications..";
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button5.Location = new System.Drawing.Point(1, 123);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(297, 55);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "There are no new notifications..";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button4.Location = new System.Drawing.Point(1, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(297, 55);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "There are no new notifications..";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button3.Location = new System.Drawing.Point(1, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(297, 55);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "There are no new notifications..";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // pnl_devices
             // 
             this.pnl_devices.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -765,7 +694,7 @@
             this.pnl_devices.Controls.Add(this.label34);
             this.pnl_devices.Controls.Add(this.panel17);
             this.pnl_devices.Controls.Add(this.panel19);
-            this.pnl_devices.Location = new System.Drawing.Point(0, 50);
+            this.pnl_devices.Location = new System.Drawing.Point(0, 0);
             this.pnl_devices.Name = "pnl_devices";
             this.pnl_devices.Size = new System.Drawing.Size(1069, 589);
             this.pnl_devices.TabIndex = 18;
@@ -1056,8 +985,8 @@
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel19.Controls.Add(this.button32);
-            this.panel19.Controls.Add(this.button44);
+            this.panel19.Controls.Add(this.btn_disability);
+            this.panel19.Controls.Add(this.btn_providers);
             this.panel19.Controls.Add(this.button33);
             this.panel19.Controls.Add(this.button34);
             this.panel19.Controls.Add(this.button35);
@@ -1067,37 +996,39 @@
             this.panel19.Size = new System.Drawing.Size(1069, 33);
             this.panel19.TabIndex = 0;
             // 
-            // button32
+            // btn_disability
             // 
-            this.button32.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button32.FlatAppearance.BorderSize = 0;
-            this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button32.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button32.Image = global::SAD_2_PTT.Properties.Resources.disabled;
-            this.button32.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button32.Location = new System.Drawing.Point(420, 0);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(108, 33);
-            this.button32.TabIndex = 6;
-            this.button32.Text = "Disability";
-            this.button32.UseVisualStyleBackColor = true;
+            this.btn_disability.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_disability.FlatAppearance.BorderSize = 0;
+            this.btn_disability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_disability.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_disability.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btn_disability.Image = global::SAD_2_PTT.Properties.Resources.disabled;
+            this.btn_disability.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_disability.Location = new System.Drawing.Point(420, 0);
+            this.btn_disability.Name = "btn_disability";
+            this.btn_disability.Size = new System.Drawing.Size(108, 33);
+            this.btn_disability.TabIndex = 6;
+            this.btn_disability.Text = "Disability";
+            this.btn_disability.UseVisualStyleBackColor = true;
+            this.btn_disability.Click += new System.EventHandler(this.btn_disability_Click);
             // 
-            // button44
+            // btn_providers
             // 
-            this.button44.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button44.FlatAppearance.BorderSize = 0;
-            this.button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button44.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button44.Image = global::SAD_2_PTT.Properties.Resources.skyline;
-            this.button44.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button44.Location = new System.Drawing.Point(305, 0);
-            this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(115, 33);
-            this.button44.TabIndex = 5;
-            this.button44.Text = "Providers";
-            this.button44.UseVisualStyleBackColor = true;
+            this.btn_providers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_providers.FlatAppearance.BorderSize = 0;
+            this.btn_providers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_providers.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_providers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btn_providers.Image = global::SAD_2_PTT.Properties.Resources.skyline;
+            this.btn_providers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_providers.Location = new System.Drawing.Point(305, 0);
+            this.btn_providers.Name = "btn_providers";
+            this.btn_providers.Size = new System.Drawing.Size(115, 33);
+            this.btn_providers.TabIndex = 5;
+            this.btn_providers.Text = "Providers";
+            this.btn_providers.UseVisualStyleBackColor = true;
+            this.btn_providers.Click += new System.EventHandler(this.btn_providers_Click);
             // 
             // button33
             // 
@@ -1114,6 +1045,7 @@
             this.button33.TabIndex = 4;
             this.button33.Text = "Devices";
             this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // button34
             // 
@@ -1148,6 +1080,77 @@
             this.button35.Text = "QUICKLINKS";
             this.button35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button35.UseVisualStyleBackColor = true;
+            // 
+            // pnl_notif_pp
+            // 
+            this.pnl_notif_pp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_notif_pp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.pnl_notif_pp.Controls.Add(this.button12);
+            this.pnl_notif_pp.Controls.Add(this.button5);
+            this.pnl_notif_pp.Controls.Add(this.button4);
+            this.pnl_notif_pp.Controls.Add(this.button3);
+            this.pnl_notif_pp.Location = new System.Drawing.Point(1063, 50);
+            this.pnl_notif_pp.Name = "pnl_notif_pp";
+            this.pnl_notif_pp.Size = new System.Drawing.Size(14, 233);
+            this.pnl_notif_pp.TabIndex = 19;
+            this.pnl_notif_pp.Visible = false;
+            this.pnl_notif_pp.MouseLeave += new System.EventHandler(this.pnl_notif_pp_MouseLeave);
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.White;
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button12.Location = new System.Drawing.Point(1, 177);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(297, 55);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "There are no new notifications..";
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button5.Location = new System.Drawing.Point(1, 123);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(297, 55);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "There are no new notifications..";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button4.Location = new System.Drawing.Point(1, 69);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(297, 55);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "There are no new notifications..";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.button3.Location = new System.Drawing.Point(1, 15);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(297, 55);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "There are no new notifications..";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // pnl_dashboard
             // 
@@ -1841,7 +1844,6 @@
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).EndInit();
             this.panel7.ResumeLayout(false);
-            this.pnl_notif_pp.ResumeLayout(false);
             this.pnl_devices.ResumeLayout(false);
             this.pnl_devices.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -1850,6 +1852,7 @@
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.device_grid)).EndInit();
             this.panel19.ResumeLayout(false);
+            this.pnl_notif_pp.ResumeLayout(false);
             this.pnl_dashboard.ResumeLayout(false);
             this.pnl_dashboard.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1985,8 +1988,8 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DataGridView device_grid;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Button button32;
-        private System.Windows.Forms.Button button44;
+        private System.Windows.Forms.Button btn_disability;
+        private System.Windows.Forms.Button btn_providers;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button34;
         private System.Windows.Forms.Button button35;

@@ -38,10 +38,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -50,6 +48,8 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -129,13 +129,13 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.richTextBox1);
-            this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Location = new System.Drawing.Point(322, 107);
@@ -166,17 +166,6 @@
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
             // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(265, 33);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(283, 14);
-            this.textBox2.TabIndex = 14;
-            this.textBox2.Text = "________________________________________________";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
@@ -199,16 +188,6 @@
             this.label8.Size = new System.Drawing.Size(81, 17);
             this.label8.TabIndex = 15;
             this.label8.Text = "Description :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(265, 22);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(283, 25);
-            this.textBox1.TabIndex = 13;
             // 
             // label7
             // 
@@ -291,6 +270,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "RETURN TO DEVICE";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
@@ -304,6 +284,26 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "Clear";
             this.button5.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(265, 19);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(240, 21);
+            this.textBox2.TabIndex = 27;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(263, 33);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(242, 15);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "_______________________________________________";
             // 
             // device_disability
             // 
@@ -320,7 +320,9 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_disability";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "device_disability";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_disability_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -348,10 +350,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
@@ -359,5 +359,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label16;
     }
 }

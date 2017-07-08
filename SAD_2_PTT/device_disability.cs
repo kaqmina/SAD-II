@@ -16,6 +16,17 @@ namespace SAD_2_PTT
         {
             InitializeComponent();
         }
+        public main_form reference_to_main { get; set; }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void device_disability_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+        }
     }
 }

@@ -373,7 +373,7 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        private void btn_pwd_viewmore_Click(object sender, EventArgs e)
+        private void btn_pwd_viewmore_Click_1(object sender, EventArgs e)
         {
             int loc_x = this.Location.X + 71;
             int loc_y = this.Location.Y + 50;
@@ -385,6 +385,52 @@ namespace SAD_2_PTT
             pwd_view_form.Location = new Point(loc_x, loc_y);
             pwd_view_form.ShowDialog();
         }
+
+        #region OpenDevice
+        private void button33_Click(object sender, EventArgs e)
+        {
+            
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+
+            device_add device = new device_add();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            device.reference_to_main = this;
+            device.Location = new Point(loc_x, loc_y);
+            device.ShowDialog();
+        }
+        #endregion
+
+        #region OpenDeviceProvider
+        private void btn_providers_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+
+            device_provider provider = new device_provider();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            provider.reference_to_main = this;
+            provider.Location = new Point(loc_x, loc_y);
+            provider.ShowDialog();
+        }
+        #endregion
+
+        #region OpenDisability
+        private void btn_disability_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+
+            device_disability disability = new device_disability();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            disability.reference_to_main = this;
+            disability.Location = new Point(loc_x, loc_y);
+            disability.ShowDialog();
+        }
+        #endregion
 
         #region Connections
         public void pwd_data()
@@ -445,7 +491,10 @@ namespace SAD_2_PTT
 
         }
 
+
+
         #endregion
 
+       
     }
 }
