@@ -12,6 +12,50 @@ namespace SAD_2_PTT
 {
     public partial class pwd_add : Form
     {
+        #region Variables
+        string application_date;// date
+        string firstname;
+        string lastname;
+        string middlename;
+        string has;
+        string mun;
+        string bar;
+        string prov;
+        string reg;
+        string dob;
+        string natio;
+        string blood_type;
+        string civil_status;
+        string e_mail;
+        string organiaff;
+        string contact_person;
+        string office_address;
+        string father_ln;
+        string father_fn;
+        string father_mn;
+        string mother_ln;
+        string mother_fn;
+        string mother_mn;
+        string guardian_ln;
+        string guardian_fn;
+        string guardian_mn;
+        int registration_no;
+        int disability;
+        int sex;
+        int tel_no;
+        int mobile_no;
+        int emp_status;
+        int no_emp;
+        int org_telno;
+        int sss_no;
+        int gsis_no;
+        int phil_health_status;
+        int phil_health_no;
+        int educ_att;
+        int to_skill;
+        bool all_required = false;
+        #endregion
+
         #region Formload
         public pwd_add()
         {
@@ -277,50 +321,67 @@ namespace SAD_2_PTT
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            string registration_no = pwd_regisno.Text;
-            string application_date = pwd_appdate.Text;
-            int disability = 0;//change later
-            string firstname = fn_txt.Text;
-            string lastname = ln_txt.Text;
-            string middlename = mn_txt.Text;
-            string has = hs_txt.Text;
-            string mun = mun_txt.Text;
-            string bar = bar_txt.Text;
-            string prov = prov_txt.Text;
-            string reg = region.Text;
-            string dob = dateofbirth.Text;
-            string sex = gender.Text;
-            string natio = nationality.Text;
-            string blood_type = bloodtype.Text;
-            string civil_status = civilstatus.Text;
-            string tel_no = telno.Text;
-            string mobile_no = mobileno.Text;
-            string e_mail = email.Text;
-            string emp_status = empstatus.Text;
-            string no_emp = noemp.Text;
-            string organiaff = orgaff.Text;
-            string contact_person = contactper.Text;
-            string office_address = officeadd.Text;
-            string org_telno = orgtelno.Text;
-            string sss_no = sssno.Text;
-            string gsis_no = gsisno.Text;
-            string phil_health_status = philhealthstatus.Text;
-            string phil_health_no = philhealthno.Text;
-            string father_ln = fln_txt.Text;
-            string father_fn = ffn_txt.Text;
-            string father_mn = fmn_txt.Text;
-            string mother_ln = mln_txt.Text;
-            string mother_fn = mfn_txt.Text;
-            string mother_mn = mmn_txt.Text;
-            string guardian_ln = gln_txt.Text;
-            string guardian_fn = gfn_txt.Text;
-            string guardian_mn = gmn_txt.Text;
+            application_date = pwd_appdate.Text;
+            firstname = fn_txt.Text;
+            lastname = ln_txt.Text;
+            middlename = mn_txt.Text;
+            has = hs_txt.Text;
+            mun = mun_txt.Text;
+            bar = bar_txt.Text;
+            prov = prov_txt.Text;
+            reg = region.Text;
+            dob = dateofbirth.Text;
+            organiaff = orgaff.Text;
+            contact_person = contactper.Text;
+            office_address = officeadd.Text;
+            natio = nationality.Text;
+            blood_type = bloodtype.Text;
+            civil_status = civilstatus.Text;
+            father_ln = fln_txt.Text;
+            father_fn = ffn_txt.Text;
+            father_mn = fmn_txt.Text;
+            mother_ln = mln_txt.Text;
+            mother_fn = mfn_txt.Text;
+            mother_mn = mmn_txt.Text;
+            guardian_ln = gln_txt.Text;
+            guardian_fn = gfn_txt.Text;
+            guardian_mn = gmn_txt.Text;
+            registration_no = int.Parse(pwd_regisno.Text);
+            //disability = 0;//change later
+            //sex = gender.Text;
+            //tel_no = telno.Text;
+            //mobile_no = mobileno.Text;
+            //e_mail = email.Text;
+            //emp_status = empstatus.Text;
+            //no_emp = noemp.Text;
+            //org_telno = orgtelno.Text;
+            //sss_no = sssno.Text;
+            //gsis_no = gsisno.Text;
+            //phil_health_status = philhealthstatus.Text;
+            //phil_health_no = philhealthno.Text;
             //educ and typeskill
         }
 
-        public void educ_attainment()
+        public int educ_attainment()
         {
+            return 0;
+        }
 
+        public int type_of_skill()
+        {
+            return 0;
+        }
+
+        private void disability_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            disability = disability_type.SelectedIndex;
+            if (disability_type.SelectedIndex.Equals(0))
+                all_required = false;
+        }
+
+        public void populate_cboxes()
+        {
+            
         }
     }
 }

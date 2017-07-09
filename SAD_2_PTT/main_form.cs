@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace SAD_2_PTT
 {
     public partial class main_form : Form
     {
-        public MySqlConnection conn;
+
         public main_form()
         {
             InitializeComponent();
-            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
+
         }
         main_functions main_func = new main_functions();
         main_btn_active main_btn = new main_btn_active();
+        connections conn = new connections();
 
         #region FormControlBox CB - 00
 
@@ -435,28 +435,8 @@ namespace SAD_2_PTT
         #region Connections
         public void pwd_data()
         {
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM pwd WHERE isArchived = 0", conn);
-                MySqlDataAdapter get = new MySqlDataAdapter(comm);
-                DataTable set = new DataTable();
-                get.Fill(set);
-
-
-                pwd_grid.DataSource = set;
-                pwd_format();
-                if (set.Rows.Count == 0)
-                {
-                    MessageBox.Show("No PWD Profiles added.");
-                }
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                MessageBox.Show("Database is empty.");
-            }
+            conn.pwd_grid_list(pwd_grid);
+            pwd_format();
         }
 
         public void pwd_format()
@@ -488,6 +468,7 @@ namespace SAD_2_PTT
             pwd_grid.Columns["blood_type"].HeaderText = "Blood Type";
             pwd_grid.Columns["civil_status"].HeaderText = "Civil Status";
             pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
+            pwd_grid.Columns["added_date"].HeaderText = "Date Added";
 
         }
 

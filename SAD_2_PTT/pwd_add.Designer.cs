@@ -69,6 +69,15 @@
             this.btn_next2 = new System.Windows.Forms.Button();
             this.btn_prev1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.pnl3 = new System.Windows.Forms.Panel();
             this.educ11_none = new System.Windows.Forms.RadioButton();
             this.educ9_vocational = new System.Windows.Forms.RadioButton();
@@ -93,8 +102,11 @@
             this.btn_next3 = new System.Windows.Forms.Button();
             this.btn_prev2 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.disability_type = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pwd_appdate = new System.Windows.Forms.TextBox();
             this.pwd_regisno = new System.Windows.Forms.TextBox();
@@ -154,6 +166,19 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_prev6 = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
             this.pnl5 = new System.Windows.Forms.Panel();
             this.orgtelno = new System.Windows.Forms.TextBox();
             this.officeadd = new System.Windows.Forms.TextBox();
@@ -177,40 +202,15 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btn_next5 = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
             this.pwd_add_back = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
-            this.label51 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -716,6 +716,96 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "2 of 6";
             // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(189, 315);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(162, 15);
+            this.label62.TabIndex = 49;
+            this.label62.Text = "_______________________________";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(189, 235);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(162, 15);
+            this.label61.TabIndex = 48;
+            this.label61.Text = "_______________________________";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(189, 180);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(162, 15);
+            this.label60.TabIndex = 47;
+            this.label60.Text = "_______________________________";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(509, 146);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(162, 15);
+            this.label59.TabIndex = 46;
+            this.label59.Text = "_______________________________";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(349, 146);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(162, 15);
+            this.label58.TabIndex = 45;
+            this.label58.Text = "_______________________________";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(189, 146);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(162, 15);
+            this.label57.TabIndex = 44;
+            this.label57.Text = "_______________________________";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(509, 102);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(162, 15);
+            this.label56.TabIndex = 43;
+            this.label56.Text = "_______________________________";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(349, 102);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(162, 15);
+            this.label55.TabIndex = 42;
+            this.label55.Text = "_______________________________";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(189, 102);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(162, 15);
+            this.label51.TabIndex = 41;
+            this.label51.Text = "_______________________________";
+            // 
             // pnl3
             // 
             this.pnl3.BackColor = System.Drawing.SystemColors.Window;
@@ -1008,10 +1098,40 @@
             this.label32.TabIndex = 0;
             this.label32.Text = "3 of 6";
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Location = new System.Drawing.Point(277, 175);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(162, 15);
+            this.label65.TabIndex = 55;
+            this.label65.Text = "_______________________________";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.Location = new System.Drawing.Point(277, 135);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(162, 15);
+            this.label64.TabIndex = 54;
+            this.label64.Text = "_______________________________";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.Location = new System.Drawing.Point(277, 96);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(162, 15);
+            this.label63.TabIndex = 53;
+            this.label63.Text = "_______________________________";
+            // 
             // pnl1
             // 
             this.pnl1.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl1.Controls.Add(this.comboBox8);
+            this.pnl1.Controls.Add(this.disability_type);
             this.pnl1.Controls.Add(this.label11);
             this.pnl1.Controls.Add(this.pwd_appdate);
             this.pnl1.Controls.Add(this.pwd_regisno);
@@ -1029,9 +1149,9 @@
             this.pnl1.TabIndex = 4;
             this.pnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // comboBox8
+            // disability_type
             // 
-            this.comboBox8.AutoCompleteCustomSource.AddRange(new string[] {
+            this.disability_type.AutoCompleteCustomSource.AddRange(new string[] {
             "--Select Disability--",
             "Psychological",
             "Mental",
@@ -1040,11 +1160,12 @@
             "Learning",
             "Speech Impairment",
             "Orthopedic"});
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.disability_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.disability_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.disability_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.disability_type.FormattingEnabled = true;
+            this.disability_type.Items.AddRange(new object[] {
+            "",
             "Psychological",
             "Mental",
             "Hearing",
@@ -1052,10 +1173,11 @@
             "Learning",
             "Speech Impairment",
             "Orthopedic"});
-            this.comboBox8.Location = new System.Drawing.Point(375, 322);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(180, 25);
-            this.comboBox8.TabIndex = 12;
+            this.disability_type.Location = new System.Drawing.Point(375, 322);
+            this.disability_type.Name = "disability_type";
+            this.disability_type.Size = new System.Drawing.Size(180, 25);
+            this.disability_type.TabIndex = 12;
+            this.disability_type.SelectedIndexChanged += new System.EventHandler(this.disability_type_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -1482,11 +1604,11 @@
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
             this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl3);
-            this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl4);
+            this.pnl_container.Controls.Add(this.pnl3);
+            this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
@@ -1787,6 +1909,136 @@
             this.label54.TabIndex = 0;
             this.label54.Text = "6 of 6";
             // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label84.Location = new System.Drawing.Point(548, 224);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(162, 15);
+            this.label84.TabIndex = 53;
+            this.label84.Text = "_______________________________";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.Location = new System.Drawing.Point(386, 224);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(162, 15);
+            this.label83.TabIndex = 52;
+            this.label83.Text = "_______________________________";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label82.Location = new System.Drawing.Point(224, 224);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(162, 15);
+            this.label82.TabIndex = 51;
+            this.label82.Text = "_______________________________";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label81.Location = new System.Drawing.Point(224, 150);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(162, 15);
+            this.label81.TabIndex = 50;
+            this.label81.Text = "_______________________________";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label80.Location = new System.Drawing.Point(386, 150);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(162, 15);
+            this.label80.TabIndex = 49;
+            this.label80.Text = "_______________________________";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label79.Location = new System.Drawing.Point(548, 150);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(162, 15);
+            this.label79.TabIndex = 48;
+            this.label79.Text = "_______________________________";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.Location = new System.Drawing.Point(224, 187);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(162, 15);
+            this.label78.TabIndex = 47;
+            this.label78.Text = "_______________________________";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.Location = new System.Drawing.Point(386, 187);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(162, 15);
+            this.label77.TabIndex = 46;
+            this.label77.Text = "_______________________________";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label76.Location = new System.Drawing.Point(548, 187);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(162, 15);
+            this.label76.TabIndex = 45;
+            this.label76.Text = "_______________________________";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(548, 113);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(162, 15);
+            this.label75.TabIndex = 44;
+            this.label75.Text = "_______________________________";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.Location = new System.Drawing.Point(386, 113);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(162, 15);
+            this.label74.TabIndex = 43;
+            this.label74.Text = "_______________________________";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.Location = new System.Drawing.Point(224, 113);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(162, 15);
+            this.label73.TabIndex = 42;
+            this.label73.Text = "_______________________________";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label85.Location = new System.Drawing.Point(232, 315);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(267, 15);
+            this.label85.TabIndex = 54;
+            this.label85.Text = "____________________________________________________";
+            // 
             // pnl5
             // 
             this.pnl5.BackColor = System.Drawing.SystemColors.Window;
@@ -2066,6 +2318,76 @@
             this.label41.TabIndex = 0;
             this.label41.Text = "5 of 6";
             // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Location = new System.Drawing.Point(310, 204);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(162, 15);
+            this.label69.TabIndex = 74;
+            this.label69.Text = "_______________________________";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(310, 168);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(162, 15);
+            this.label68.TabIndex = 73;
+            this.label68.Text = "_______________________________";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(310, 134);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(162, 15);
+            this.label67.TabIndex = 72;
+            this.label67.Text = "_______________________________";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(310, 97);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(162, 15);
+            this.label66.TabIndex = 71;
+            this.label66.Text = "_______________________________";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.Location = new System.Drawing.Point(310, 373);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(162, 15);
+            this.label72.TabIndex = 77;
+            this.label72.Text = "_______________________________";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.Location = new System.Drawing.Point(310, 338);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(162, 15);
+            this.label71.TabIndex = 76;
+            this.label71.Text = "_______________________________";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.Location = new System.Drawing.Point(310, 301);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(162, 15);
+            this.label70.TabIndex = 75;
+            this.label70.Text = "_______________________________";
+            // 
             // pwd_add_back
             // 
             this.pwd_add_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
@@ -2087,326 +2409,6 @@
             // 
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(189, 102);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(162, 15);
-            this.label51.TabIndex = 41;
-            this.label51.Text = "_______________________________";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(349, 102);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(162, 15);
-            this.label55.TabIndex = 42;
-            this.label55.Text = "_______________________________";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(509, 102);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(162, 15);
-            this.label56.TabIndex = 43;
-            this.label56.Text = "_______________________________";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(189, 146);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(162, 15);
-            this.label57.TabIndex = 44;
-            this.label57.Text = "_______________________________";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(349, 146);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(162, 15);
-            this.label58.TabIndex = 45;
-            this.label58.Text = "_______________________________";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(509, 146);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(162, 15);
-            this.label59.TabIndex = 46;
-            this.label59.Text = "_______________________________";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(189, 180);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(162, 15);
-            this.label60.TabIndex = 47;
-            this.label60.Text = "_______________________________";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(189, 235);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(162, 15);
-            this.label61.TabIndex = 48;
-            this.label61.Text = "_______________________________";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(189, 315);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(162, 15);
-            this.label62.TabIndex = 49;
-            this.label62.Text = "_______________________________";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(277, 96);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(162, 15);
-            this.label63.TabIndex = 53;
-            this.label63.Text = "_______________________________";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(277, 135);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(162, 15);
-            this.label64.TabIndex = 54;
-            this.label64.Text = "_______________________________";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(277, 175);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(162, 15);
-            this.label65.TabIndex = 55;
-            this.label65.Text = "_______________________________";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(310, 97);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(162, 15);
-            this.label66.TabIndex = 71;
-            this.label66.Text = "_______________________________";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(310, 134);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(162, 15);
-            this.label67.TabIndex = 72;
-            this.label67.Text = "_______________________________";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.Location = new System.Drawing.Point(310, 168);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(162, 15);
-            this.label68.TabIndex = 73;
-            this.label68.Text = "_______________________________";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(310, 204);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(162, 15);
-            this.label69.TabIndex = 74;
-            this.label69.Text = "_______________________________";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.Location = new System.Drawing.Point(310, 301);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(162, 15);
-            this.label70.TabIndex = 75;
-            this.label70.Text = "_______________________________";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.Location = new System.Drawing.Point(310, 338);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(162, 15);
-            this.label71.TabIndex = 76;
-            this.label71.Text = "_______________________________";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.Location = new System.Drawing.Point(310, 373);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(162, 15);
-            this.label72.TabIndex = 77;
-            this.label72.Text = "_______________________________";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.Location = new System.Drawing.Point(224, 113);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(162, 15);
-            this.label73.TabIndex = 42;
-            this.label73.Text = "_______________________________";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.Location = new System.Drawing.Point(386, 113);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(162, 15);
-            this.label74.TabIndex = 43;
-            this.label74.Text = "_______________________________";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(548, 113);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(162, 15);
-            this.label75.TabIndex = 44;
-            this.label75.Text = "_______________________________";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label76.Location = new System.Drawing.Point(548, 187);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(162, 15);
-            this.label76.TabIndex = 45;
-            this.label76.Text = "_______________________________";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.Location = new System.Drawing.Point(386, 187);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(162, 15);
-            this.label77.TabIndex = 46;
-            this.label77.Text = "_______________________________";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.Location = new System.Drawing.Point(224, 187);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(162, 15);
-            this.label78.TabIndex = 47;
-            this.label78.Text = "_______________________________";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label79.Location = new System.Drawing.Point(548, 150);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(162, 15);
-            this.label79.TabIndex = 48;
-            this.label79.Text = "_______________________________";
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label80.Location = new System.Drawing.Point(386, 150);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(162, 15);
-            this.label80.TabIndex = 49;
-            this.label80.Text = "_______________________________";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label81.Location = new System.Drawing.Point(224, 150);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(162, 15);
-            this.label81.TabIndex = 50;
-            this.label81.Text = "_______________________________";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.Location = new System.Drawing.Point(224, 224);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(162, 15);
-            this.label82.TabIndex = 51;
-            this.label82.Text = "_______________________________";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(386, 224);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(162, 15);
-            this.label83.TabIndex = 52;
-            this.label83.Text = "_______________________________";
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label84.Location = new System.Drawing.Point(548, 224);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(162, 15);
-            this.label84.TabIndex = 53;
-            this.label84.Text = "_______________________________";
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label85.Location = new System.Drawing.Point(232, 315);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(267, 15);
-            this.label85.TabIndex = 54;
-            this.label85.Text = "____________________________________________________";
             // 
             // pwd_add
             // 
@@ -2606,7 +2608,7 @@
         private System.Windows.Forms.ComboBox philhealthstatus;
         private System.Windows.Forms.Label pwd_add_lbl;
         private System.Windows.Forms.Timer startup_opacity;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox disability_type;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label62;

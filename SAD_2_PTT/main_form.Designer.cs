@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_form));
             this.main_tab = new System.Windows.Forms.Panel();
             this.sidenav = new System.Windows.Forms.Panel();
@@ -375,18 +377,20 @@
             // 
             // btn_profilepic
             // 
-            this.btn_profilepic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(85)))), ((int)(((byte)(34)))));
-            this.btn_profilepic.BackgroundImage = global::SAD_2_PTT.Properties.Resources.TWICE_KK_01;
+            this.btn_profilepic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btn_profilepic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_profilepic.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_profilepic.FlatAppearance.BorderSize = 0;
             this.btn_profilepic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(43)))));
             this.btn_profilepic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(74)))), ((int)(((byte)(85)))));
             this.btn_profilepic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_profilepic.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_profilepic.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_profilepic.Location = new System.Drawing.Point(0, 0);
             this.btn_profilepic.Name = "btn_profilepic";
             this.btn_profilepic.Size = new System.Drawing.Size(71, 50);
             this.btn_profilepic.TabIndex = 4;
+            this.btn_profilepic.Text = "PDAO";
             this.btn_profilepic.UseVisualStyleBackColor = false;
             this.btn_profilepic.Click += new System.EventHandler(this.btn_profilepic_Click);
             // 
@@ -403,9 +407,9 @@
             // main_content
             // 
             this.main_content.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.main_content.Controls.Add(this.pnl_notif_pp);
             this.main_content.Controls.Add(this.pnl_pwd);
             this.main_content.Controls.Add(this.pnl_devices);
-            this.main_content.Controls.Add(this.pnl_notif_pp);
             this.main_content.Controls.Add(this.pnl_dashboard);
             this.main_content.Controls.Add(this.pnl_profile);
             this.main_content.Controls.Add(this.pnl_settings);
@@ -423,7 +427,7 @@
             this.pnl_pwd.Controls.Add(this.panel8);
             this.pnl_pwd.Controls.Add(this.panel2);
             this.pnl_pwd.Controls.Add(this.panel7);
-            this.pnl_pwd.Location = new System.Drawing.Point(0, 0);
+            this.pnl_pwd.Location = new System.Drawing.Point(0, 50);
             this.pnl_pwd.Name = "pnl_pwd";
             this.pnl_pwd.Size = new System.Drawing.Size(1069, 589);
             this.pnl_pwd.TabIndex = 11;
@@ -602,13 +606,23 @@
             this.pwd_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pwd_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.pwd_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pwd_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.pwd_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pwd_grid.Location = new System.Drawing.Point(11, 78);
             this.pwd_grid.MultiSelect = false;
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(775, 465);
             this.pwd_grid.TabIndex = 0;
@@ -694,7 +708,7 @@
             this.pnl_devices.Controls.Add(this.label34);
             this.pnl_devices.Controls.Add(this.panel17);
             this.pnl_devices.Controls.Add(this.panel19);
-            this.pnl_devices.Location = new System.Drawing.Point(0, 0);
+            this.pnl_devices.Location = new System.Drawing.Point(0, 50);
             this.pnl_devices.Name = "pnl_devices";
             this.pnl_devices.Size = new System.Drawing.Size(1069, 589);
             this.pnl_devices.TabIndex = 18;
@@ -978,7 +992,6 @@
             this.device_grid.GridColor = System.Drawing.SystemColors.ControlLight;
             this.device_grid.Location = new System.Drawing.Point(10, 54);
             this.device_grid.Name = "device_grid";
-            this.device_grid.RowHeadersVisible = false;
             this.device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.device_grid.Size = new System.Drawing.Size(776, 421);
             this.device_grid.TabIndex = 0;
