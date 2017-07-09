@@ -50,8 +50,10 @@
             this.request_date = new System.Windows.Forms.DateTimePicker();
             this.date_in = new System.Windows.Forms.DateTimePicker();
             this.date_out = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbox_dev = new System.Windows.Forms.ComboBox();
+            this.cmbox_prov = new System.Windows.Forms.ComboBox();
+            this.cmbox_dis = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -62,7 +64,7 @@
             this.bar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.bar.Location = new System.Drawing.Point(0, 48);
             this.bar.Name = "bar";
-            this.bar.Size = new System.Drawing.Size(598, 33);
+            this.bar.Size = new System.Drawing.Size(587, 33);
             this.bar.TabIndex = 0;
             // 
             // btn_close
@@ -76,6 +78,7 @@
             this.btn_close.Size = new System.Drawing.Size(60, 49);
             this.btn_close.TabIndex = 1;
             this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // label1
             // 
@@ -91,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 30);
+            this.label2.Location = new System.Drawing.Point(21, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 15);
             this.label2.TabIndex = 3;
@@ -111,7 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 63);
+            this.label4.Location = new System.Drawing.Point(21, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 15);
             this.label4.TabIndex = 5;
@@ -121,7 +124,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 98);
+            this.label5.Location = new System.Drawing.Point(21, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 15);
             this.label5.TabIndex = 6;
@@ -140,8 +143,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Window;
-            this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.cmbox_dis);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.cmbox_prov);
+            this.panel2.Controls.Add(this.cmbox_dev);
             this.panel2.Controls.Add(this.date_out);
             this.panel2.Controls.Add(this.date_in);
             this.panel2.Controls.Add(this.request_date);
@@ -154,7 +159,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(21, 156);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(545, 286);
+            this.panel2.Size = new System.Drawing.Size(545, 309);
             this.panel2.TabIndex = 8;
             // 
             // panel3
@@ -210,7 +215,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 132);
+            this.label8.Location = new System.Drawing.Point(21, 161);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 15);
             this.label8.TabIndex = 7;
@@ -220,7 +225,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 248);
+            this.label9.Location = new System.Drawing.Point(20, 277);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 8;
@@ -230,7 +235,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 209);
+            this.label10.Location = new System.Drawing.Point(20, 238);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 9;
@@ -241,7 +246,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(212, 456);
+            this.button1.Location = new System.Drawing.Point(203, 471);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
@@ -253,7 +258,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.Window;
             this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(316, 456);
+            this.button2.Location = new System.Drawing.Point(307, 471);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -264,7 +269,7 @@
             // 
             this.txt_desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_desc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_desc.Location = new System.Drawing.Point(152, 132);
+            this.txt_desc.Location = new System.Drawing.Point(152, 161);
             this.txt_desc.Name = "txt_desc";
             this.txt_desc.Size = new System.Drawing.Size(353, 62);
             this.txt_desc.TabIndex = 17;
@@ -272,11 +277,10 @@
             // 
             // request_date
             // 
-            this.request_date.CalendarFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.request_date.CalendarTrailingForeColor = System.Drawing.SystemColors.Window;
-            this.request_date.CustomFormat = "mm/dd/yyyy";
+            this.request_date.CustomFormat = "mm/d/y";
             this.request_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.request_date.Location = new System.Drawing.Point(152, 98);
+            this.request_date.Location = new System.Drawing.Point(152, 127);
             this.request_date.Name = "request_date";
             this.request_date.Size = new System.Drawing.Size(200, 22);
             this.request_date.TabIndex = 18;
@@ -285,7 +289,7 @@
             // date_in
             // 
             this.date_in.CustomFormat = "";
-            this.date_in.Location = new System.Drawing.Point(152, 209);
+            this.date_in.Location = new System.Drawing.Point(152, 238);
             this.date_in.Name = "date_in";
             this.date_in.Size = new System.Drawing.Size(200, 22);
             this.date_in.TabIndex = 19;
@@ -293,51 +297,63 @@
             // date_out
             // 
             this.date_out.CustomFormat = "";
-            this.date_out.Location = new System.Drawing.Point(152, 241);
+            this.date_out.Location = new System.Drawing.Point(152, 270);
             this.date_out.Name = "date_out";
             this.date_out.Size = new System.Drawing.Size(200, 22);
             this.date_out.TabIndex = 20;
             // 
-            // comboBox2
+            // cmbox_dev
             // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Requested",
-            "Received",
-            "Handed Out"});
-            this.comboBox2.Location = new System.Drawing.Point(152, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 23);
-            this.comboBox2.TabIndex = 40;
+            this.cmbox_dev.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbox_dev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_dev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbox_dev.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbox_dev.FormattingEnabled = true;
+            this.cmbox_dev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cmbox_dev.Location = new System.Drawing.Point(152, 59);
+            this.cmbox_dev.Name = "cmbox_dev";
+            this.cmbox_dev.Size = new System.Drawing.Size(200, 23);
+            this.cmbox_dev.TabIndex = 40;
             // 
-            // comboBox3
+            // cmbox_prov
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Requested",
-            "Received",
-            "Handed Out"});
-            this.comboBox3.Location = new System.Drawing.Point(152, 63);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(200, 23);
-            this.comboBox3.TabIndex = 41;
+            this.cmbox_prov.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbox_prov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_prov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbox_prov.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbox_prov.FormattingEnabled = true;
+            this.cmbox_prov.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cmbox_prov.Location = new System.Drawing.Point(152, 92);
+            this.cmbox_prov.Name = "cmbox_prov";
+            this.cmbox_prov.Size = new System.Drawing.Size(200, 23);
+            this.cmbox_prov.TabIndex = 41;
+            // 
+            // cmbox_dis
+            // 
+            this.cmbox_dis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbox_dis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbox_dis.FormattingEnabled = true;
+            this.cmbox_dis.Location = new System.Drawing.Point(144, 22);
+            this.cmbox_dis.Name = "cmbox_dis";
+            this.cmbox_dis.Size = new System.Drawing.Size(208, 25);
+            this.cmbox_dis.TabIndex = 43;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(21, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 17);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Disability :";
             // 
             // device_request
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(587, 496);
+            this.ClientSize = new System.Drawing.Size(587, 506);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
@@ -349,7 +365,9 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_request";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "device_request";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_request_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -381,11 +399,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbox_prov;
+        private System.Windows.Forms.ComboBox cmbox_dev;
         private System.Windows.Forms.DateTimePicker date_out;
         private System.Windows.Forms.DateTimePicker date_in;
         private System.Windows.Forms.DateTimePicker request_date;
         private System.Windows.Forms.RichTextBox txt_desc;
+        private System.Windows.Forms.ComboBox cmbox_dis;
+        private System.Windows.Forms.Label label11;
     }
 }

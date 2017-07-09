@@ -432,6 +432,23 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region OpenRequestDevice
+        private void btn_request_Click(object sender, EventArgs e)
+        {
+            //arrange location laterz haha
+            int loc_x = this.Location.X + 210;
+            int loc_y = this.Location.Y + 86;
+
+            device_request req = new device_request();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            req.reference_to_main = this;
+            req.Location = new Point(loc_x, loc_y);
+            req.ShowDialog();
+        }
+
+        #endregion
+
         #region Connections
         public void pwd_data()
         {
@@ -474,8 +491,9 @@ namespace SAD_2_PTT
 
 
 
+
         #endregion
 
-       
+      
     }
 }
