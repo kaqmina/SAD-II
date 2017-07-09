@@ -43,12 +43,27 @@ namespace SAD_2_PTT
             }
         }
 
-        public void populate_cbox()
+        public void populate_cbox(ComboBox disability_type)
         {
             try
             {
                 conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM disability", conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
 
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    MessageBox.Show("No disabilities added.");
+                } else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        disability_type.Items.Add(data["disability_type"].ToString());
+                    }
+                }
                 conn.Close();
             } catch (Exception e)
             {

@@ -54,6 +54,7 @@ namespace SAD_2_PTT
         int educ_att;
         int to_skill;
         bool all_required = false;
+        connections conn = new connections();
         #endregion
 
         #region Formload
@@ -70,8 +71,8 @@ namespace SAD_2_PTT
             pnl3.Visible = false;
             pnl4.Visible = false;
             pnl5.Visible = false;
-            
 
+            populate_cboxes();
             //Style Text
             defaulttxt1();
             defaulttxt9();
@@ -381,7 +382,7 @@ namespace SAD_2_PTT
 
         public void populate_cboxes()
         {
-            
+            conn.populate_cbox(disability_type);
         }
     }
 }

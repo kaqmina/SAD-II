@@ -1160,19 +1160,13 @@
             "Learning",
             "Speech Impairment",
             "Orthopedic"});
+            this.disability_type.DisplayMember = "1";
             this.disability_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.disability_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.disability_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.disability_type.FormattingEnabled = true;
             this.disability_type.Items.AddRange(new object[] {
-            "",
-            "Psychological",
-            "Mental",
-            "Hearing",
-            "Visual",
-            "Learning",
-            "Speech Impairment",
-            "Orthopedic"});
+            ""});
             this.disability_type.Location = new System.Drawing.Point(375, 322);
             this.disability_type.Name = "disability_type";
             this.disability_type.Size = new System.Drawing.Size(180, 25);
