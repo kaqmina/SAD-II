@@ -79,16 +79,16 @@
             this.label55 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.pnl3 = new System.Windows.Forms.Panel();
-            this.educ11_none = new System.Windows.Forms.RadioButton();
-            this.educ9_vocational = new System.Windows.Forms.RadioButton();
-            this.educ8_postgrad = new System.Windows.Forms.RadioButton();
-            this.educ7_graduate = new System.Windows.Forms.RadioButton();
-            this.educ6_collegeunder = new System.Windows.Forms.RadioButton();
-            this.educ5_college = new System.Windows.Forms.RadioButton();
-            this.educ4_hsunder = new System.Windows.Forms.RadioButton();
-            this.educ3_hs = new System.Windows.Forms.RadioButton();
-            this.educ2_elemunder = new System.Windows.Forms.RadioButton();
-            this.educ1_elem = new System.Windows.Forms.RadioButton();
+            this.educ0 = new System.Windows.Forms.RadioButton();
+            this.educ9 = new System.Windows.Forms.RadioButton();
+            this.educ8 = new System.Windows.Forms.RadioButton();
+            this.educ7 = new System.Windows.Forms.RadioButton();
+            this.educ6 = new System.Windows.Forms.RadioButton();
+            this.educ5 = new System.Windows.Forms.RadioButton();
+            this.educ4 = new System.Windows.Forms.RadioButton();
+            this.educ3 = new System.Windows.Forms.RadioButton();
+            this.educ2 = new System.Windows.Forms.RadioButton();
+            this.educ1 = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.TextBox();
@@ -429,6 +429,7 @@
             this.civilstatus.Name = "civilstatus";
             this.civilstatus.Size = new System.Drawing.Size(156, 23);
             this.civilstatus.TabIndex = 40;
+            this.civilstatus.SelectedIndexChanged += new System.EventHandler(this.civilstatus_SelectedIndexChanged);
             // 
             // bloodtype
             // 
@@ -440,13 +441,15 @@
             this.bloodtype.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.bloodtype.Items.AddRange(new object[] {
             "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
+            "O",
+            "A",
+            "B",
+            "AB"});
             this.bloodtype.Location = new System.Drawing.Point(192, 343);
             this.bloodtype.Name = "bloodtype";
             this.bloodtype.Size = new System.Drawing.Size(156, 23);
             this.bloodtype.TabIndex = 39;
+            this.bloodtype.SelectedIndexChanged += new System.EventHandler(this.bloodtype_SelectedIndexChanged);
             // 
             // gender
             // 
@@ -457,12 +460,14 @@
             this.gender.FormattingEnabled = true;
             this.gender.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.gender.Items.AddRange(new object[] {
+            "",
             "Male",
             "Female"});
             this.gender.Location = new System.Drawing.Point(192, 267);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(154, 23);
             this.gender.TabIndex = 35;
+            this.gender.SelectedIndexChanged += new System.EventHandler(this.gender_SelectedIndexChanged);
             // 
             // region
             // 
@@ -540,9 +545,9 @@
             this.label20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(76, 271);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 15);
+            this.label20.Size = new System.Drawing.Size(33, 15);
             this.label20.TabIndex = 19;
-            this.label20.Text = "Gender :";
+            this.label20.Text = "Sex :";
             // 
             // prov_txt
             // 
@@ -809,16 +814,16 @@
             // pnl3
             // 
             this.pnl3.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl3.Controls.Add(this.educ11_none);
-            this.pnl3.Controls.Add(this.educ9_vocational);
-            this.pnl3.Controls.Add(this.educ8_postgrad);
-            this.pnl3.Controls.Add(this.educ7_graduate);
-            this.pnl3.Controls.Add(this.educ6_collegeunder);
-            this.pnl3.Controls.Add(this.educ5_college);
-            this.pnl3.Controls.Add(this.educ4_hsunder);
-            this.pnl3.Controls.Add(this.educ3_hs);
-            this.pnl3.Controls.Add(this.educ2_elemunder);
-            this.pnl3.Controls.Add(this.educ1_elem);
+            this.pnl3.Controls.Add(this.educ0);
+            this.pnl3.Controls.Add(this.educ9);
+            this.pnl3.Controls.Add(this.educ8);
+            this.pnl3.Controls.Add(this.educ7);
+            this.pnl3.Controls.Add(this.educ6);
+            this.pnl3.Controls.Add(this.educ5);
+            this.pnl3.Controls.Add(this.educ4);
+            this.pnl3.Controls.Add(this.educ3);
+            this.pnl3.Controls.Add(this.educ2);
+            this.pnl3.Controls.Add(this.educ1);
             this.pnl3.Controls.Add(this.label33);
             this.pnl3.Controls.Add(this.pictureBox4);
             this.pnl3.Controls.Add(this.email);
@@ -841,125 +846,135 @@
             this.pnl3.TabIndex = 30;
             this.pnl3.Visible = false;
             // 
-            // educ11_none
+            // educ0
             // 
-            this.educ11_none.AutoSize = true;
-            this.educ11_none.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ11_none.Location = new System.Drawing.Point(439, 374);
-            this.educ11_none.Name = "educ11_none";
-            this.educ11_none.Size = new System.Drawing.Size(55, 19);
-            this.educ11_none.TabIndex = 52;
-            this.educ11_none.TabStop = true;
-            this.educ11_none.Text = "None";
-            this.educ11_none.UseVisualStyleBackColor = true;
+            this.educ0.AutoSize = true;
+            this.educ0.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ0.Location = new System.Drawing.Point(439, 374);
+            this.educ0.Name = "educ0";
+            this.educ0.Size = new System.Drawing.Size(55, 19);
+            this.educ0.TabIndex = 52;
+            this.educ0.TabStop = true;
+            this.educ0.Tag = "";
+            this.educ0.Text = "None";
+            this.educ0.UseVisualStyleBackColor = true;
             // 
-            // educ9_vocational
+            // educ9
             // 
-            this.educ9_vocational.AutoSize = true;
-            this.educ9_vocational.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ9_vocational.Location = new System.Drawing.Point(439, 348);
-            this.educ9_vocational.Name = "educ9_vocational";
-            this.educ9_vocational.Size = new System.Drawing.Size(81, 19);
-            this.educ9_vocational.TabIndex = 51;
-            this.educ9_vocational.TabStop = true;
-            this.educ9_vocational.Text = "Vocational";
-            this.educ9_vocational.UseVisualStyleBackColor = true;
+            this.educ9.AutoSize = true;
+            this.educ9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ9.Location = new System.Drawing.Point(439, 348);
+            this.educ9.Name = "educ9";
+            this.educ9.Size = new System.Drawing.Size(81, 19);
+            this.educ9.TabIndex = 51;
+            this.educ9.TabStop = true;
+            this.educ9.Tag = "";
+            this.educ9.Text = "Vocational";
+            this.educ9.UseVisualStyleBackColor = true;
             // 
-            // educ8_postgrad
+            // educ8
             // 
-            this.educ8_postgrad.AutoSize = true;
-            this.educ8_postgrad.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ8_postgrad.Location = new System.Drawing.Point(439, 322);
-            this.educ8_postgrad.Name = "educ8_postgrad";
-            this.educ8_postgrad.Size = new System.Drawing.Size(104, 19);
-            this.educ8_postgrad.TabIndex = 50;
-            this.educ8_postgrad.TabStop = true;
-            this.educ8_postgrad.Text = "Post Graduate";
-            this.educ8_postgrad.UseVisualStyleBackColor = true;
+            this.educ8.AutoSize = true;
+            this.educ8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ8.Location = new System.Drawing.Point(439, 322);
+            this.educ8.Name = "educ8";
+            this.educ8.Size = new System.Drawing.Size(104, 19);
+            this.educ8.TabIndex = 50;
+            this.educ8.TabStop = true;
+            this.educ8.Tag = "";
+            this.educ8.Text = "Post Graduate";
+            this.educ8.UseVisualStyleBackColor = true;
             // 
-            // educ7_graduate
+            // educ7
             // 
-            this.educ7_graduate.AutoSize = true;
-            this.educ7_graduate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ7_graduate.Location = new System.Drawing.Point(439, 294);
-            this.educ7_graduate.Name = "educ7_graduate";
-            this.educ7_graduate.Size = new System.Drawing.Size(76, 19);
-            this.educ7_graduate.TabIndex = 49;
-            this.educ7_graduate.TabStop = true;
-            this.educ7_graduate.Text = "Graduate";
-            this.educ7_graduate.UseVisualStyleBackColor = true;
+            this.educ7.AutoSize = true;
+            this.educ7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ7.Location = new System.Drawing.Point(439, 294);
+            this.educ7.Name = "educ7";
+            this.educ7.Size = new System.Drawing.Size(76, 19);
+            this.educ7.TabIndex = 49;
+            this.educ7.TabStop = true;
+            this.educ7.Tag = "";
+            this.educ7.Text = "Graduate";
+            this.educ7.UseVisualStyleBackColor = true;
             // 
-            // educ6_collegeunder
+            // educ6
             // 
-            this.educ6_collegeunder.AutoSize = true;
-            this.educ6_collegeunder.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ6_collegeunder.Location = new System.Drawing.Point(439, 268);
-            this.educ6_collegeunder.Name = "educ6_collegeunder";
-            this.educ6_collegeunder.Size = new System.Drawing.Size(154, 19);
-            this.educ6_collegeunder.TabIndex = 48;
-            this.educ6_collegeunder.TabStop = true;
-            this.educ6_collegeunder.Text = "College Undergraduate";
-            this.educ6_collegeunder.UseVisualStyleBackColor = true;
+            this.educ6.AutoSize = true;
+            this.educ6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ6.Location = new System.Drawing.Point(439, 268);
+            this.educ6.Name = "educ6";
+            this.educ6.Size = new System.Drawing.Size(154, 19);
+            this.educ6.TabIndex = 48;
+            this.educ6.TabStop = true;
+            this.educ6.Tag = "";
+            this.educ6.Text = "College Undergraduate";
+            this.educ6.UseVisualStyleBackColor = true;
             // 
-            // educ5_college
+            // educ5
             // 
-            this.educ5_college.AutoSize = true;
-            this.educ5_college.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ5_college.Location = new System.Drawing.Point(154, 372);
-            this.educ5_college.Name = "educ5_college";
-            this.educ5_college.Size = new System.Drawing.Size(68, 19);
-            this.educ5_college.TabIndex = 47;
-            this.educ5_college.TabStop = true;
-            this.educ5_college.Text = "College";
-            this.educ5_college.UseVisualStyleBackColor = true;
+            this.educ5.AutoSize = true;
+            this.educ5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ5.Location = new System.Drawing.Point(154, 372);
+            this.educ5.Name = "educ5";
+            this.educ5.Size = new System.Drawing.Size(68, 19);
+            this.educ5.TabIndex = 47;
+            this.educ5.TabStop = true;
+            this.educ5.Tag = "";
+            this.educ5.Text = "College";
+            this.educ5.UseVisualStyleBackColor = true;
             // 
-            // educ4_hsunder
+            // educ4
             // 
-            this.educ4_hsunder.AutoSize = true;
-            this.educ4_hsunder.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ4_hsunder.Location = new System.Drawing.Point(154, 347);
-            this.educ4_hsunder.Name = "educ4_hsunder";
-            this.educ4_hsunder.Size = new System.Drawing.Size(178, 19);
-            this.educ4_hsunder.TabIndex = 46;
-            this.educ4_hsunder.TabStop = true;
-            this.educ4_hsunder.Text = "High School Undergraduate";
-            this.educ4_hsunder.UseVisualStyleBackColor = true;
+            this.educ4.AutoSize = true;
+            this.educ4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ4.Location = new System.Drawing.Point(154, 347);
+            this.educ4.Name = "educ4";
+            this.educ4.Size = new System.Drawing.Size(178, 19);
+            this.educ4.TabIndex = 46;
+            this.educ4.TabStop = true;
+            this.educ4.Tag = "";
+            this.educ4.Text = "High School Undergraduate";
+            this.educ4.UseVisualStyleBackColor = true;
             // 
-            // educ3_hs
+            // educ3
             // 
-            this.educ3_hs.AutoSize = true;
-            this.educ3_hs.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ3_hs.Location = new System.Drawing.Point(154, 320);
-            this.educ3_hs.Name = "educ3_hs";
-            this.educ3_hs.Size = new System.Drawing.Size(92, 19);
-            this.educ3_hs.TabIndex = 45;
-            this.educ3_hs.TabStop = true;
-            this.educ3_hs.Text = "High School";
-            this.educ3_hs.UseVisualStyleBackColor = true;
+            this.educ3.AutoSize = true;
+            this.educ3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ3.Location = new System.Drawing.Point(154, 320);
+            this.educ3.Name = "educ3";
+            this.educ3.Size = new System.Drawing.Size(92, 19);
+            this.educ3.TabIndex = 45;
+            this.educ3.TabStop = true;
+            this.educ3.Tag = "";
+            this.educ3.Text = "High School";
+            this.educ3.UseVisualStyleBackColor = true;
             // 
-            // educ2_elemunder
+            // educ2
             // 
-            this.educ2_elemunder.AutoSize = true;
-            this.educ2_elemunder.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ2_elemunder.Location = new System.Drawing.Point(154, 294);
-            this.educ2_elemunder.Name = "educ2_elemunder";
-            this.educ2_elemunder.Size = new System.Drawing.Size(173, 19);
-            this.educ2_elemunder.TabIndex = 44;
-            this.educ2_elemunder.TabStop = true;
-            this.educ2_elemunder.Text = "Elementary Undergraduate";
-            this.educ2_elemunder.UseVisualStyleBackColor = true;
+            this.educ2.AutoSize = true;
+            this.educ2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ2.Location = new System.Drawing.Point(154, 294);
+            this.educ2.Name = "educ2";
+            this.educ2.Size = new System.Drawing.Size(173, 19);
+            this.educ2.TabIndex = 44;
+            this.educ2.TabStop = true;
+            this.educ2.Tag = "";
+            this.educ2.Text = "Elementary Undergraduate";
+            this.educ2.UseVisualStyleBackColor = true;
             // 
-            // educ1_elem
+            // educ1
             // 
-            this.educ1_elem.AutoSize = true;
-            this.educ1_elem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educ1_elem.Location = new System.Drawing.Point(154, 268);
-            this.educ1_elem.Name = "educ1_elem";
-            this.educ1_elem.Size = new System.Drawing.Size(87, 19);
-            this.educ1_elem.TabIndex = 43;
-            this.educ1_elem.TabStop = true;
-            this.educ1_elem.Text = "Elementary";
-            this.educ1_elem.UseVisualStyleBackColor = true;
+            this.educ1.AutoSize = true;
+            this.educ1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educ1.Location = new System.Drawing.Point(154, 268);
+            this.educ1.Name = "educ1";
+            this.educ1.Size = new System.Drawing.Size(87, 19);
+            this.educ1.TabIndex = 43;
+            this.educ1.TabStop = true;
+            this.educ1.Tag = "";
+            this.educ1.Text = "Elementary";
+            this.educ1.UseVisualStyleBackColor = true;
             // 
             // label33
             // 
@@ -1337,6 +1352,7 @@
             this.noemp.Name = "noemp";
             this.noemp.Size = new System.Drawing.Size(150, 23);
             this.noemp.TabIndex = 59;
+            this.noemp.SelectedIndexChanged += new System.EventHandler(this.noemp_SelectedIndexChanged);
             // 
             // empstatus
             // 
@@ -1358,6 +1374,7 @@
             this.empstatus.Name = "empstatus";
             this.empstatus.Size = new System.Drawing.Size(150, 23);
             this.empstatus.TabIndex = 58;
+            this.empstatus.SelectedIndexChanged += new System.EventHandler(this.empstatus_SelectedIndexChanged);
             // 
             // typeoemp
             // 
@@ -1370,13 +1387,15 @@
             this.typeoemp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.typeoemp.Items.AddRange(new object[] {
             "",
-            "Region 1",
-            "Region 2",
-            "Region 3"});
+            "Contractual",
+            "Permanent",
+            "Self-Employed",
+            "Seasonal"});
             this.typeoemp.Location = new System.Drawing.Point(284, 161);
             this.typeoemp.Name = "typeoemp";
             this.typeoemp.Size = new System.Drawing.Size(150, 23);
             this.typeoemp.TabIndex = 54;
+            this.typeoemp.SelectedIndexChanged += new System.EventHandler(this.typeoemp_SelectedIndexChanged);
             // 
             // btn_prev3
             // 
@@ -1597,12 +1616,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl2);
+            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
@@ -2164,6 +2183,7 @@
             this.philhealthstatus.Name = "philhealthstatus";
             this.philhealthstatus.Size = new System.Drawing.Size(150, 23);
             this.philhealthstatus.TabIndex = 63;
+            this.philhealthstatus.SelectedIndexChanged += new System.EventHandler(this.philhealthstatus_SelectedIndexChanged);
             // 
             // label43
             // 
@@ -2514,16 +2534,16 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.RadioButton educ11_none;
-        private System.Windows.Forms.RadioButton educ9_vocational;
-        private System.Windows.Forms.RadioButton educ8_postgrad;
-        private System.Windows.Forms.RadioButton educ7_graduate;
-        private System.Windows.Forms.RadioButton educ6_collegeunder;
-        private System.Windows.Forms.RadioButton educ5_college;
-        private System.Windows.Forms.RadioButton educ4_hsunder;
-        private System.Windows.Forms.RadioButton educ3_hs;
-        private System.Windows.Forms.RadioButton educ2_elemunder;
-        private System.Windows.Forms.RadioButton educ1_elem;
+        private System.Windows.Forms.RadioButton educ0;
+        private System.Windows.Forms.RadioButton educ9;
+        private System.Windows.Forms.RadioButton educ8;
+        private System.Windows.Forms.RadioButton educ7;
+        private System.Windows.Forms.RadioButton educ6;
+        private System.Windows.Forms.RadioButton educ5;
+        private System.Windows.Forms.RadioButton educ4;
+        private System.Windows.Forms.RadioButton educ3;
+        private System.Windows.Forms.RadioButton educ2;
+        private System.Windows.Forms.RadioButton educ1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel pnl4;
         private System.Windows.Forms.RadioButton skill9;

@@ -25,7 +25,6 @@ namespace SAD_2_PTT
         string dob;
         string natio;
         string blood_type;
-        string civil_status;
         string e_mail;
         string organiaff;
         string contact_person;
@@ -46,6 +45,7 @@ namespace SAD_2_PTT
         int mobile_no;
         int emp_status;
         int no_emp;
+        int type_oemp;
         int org_telno;
         int sss_no;
         int gsis_no;
@@ -53,6 +53,7 @@ namespace SAD_2_PTT
         int phil_health_no;
         int educ_att;
         int to_skill;
+        int civil_status;
         bool all_required = false;
         connections conn = new connections();
         #endregion
@@ -306,20 +307,23 @@ namespace SAD_2_PTT
 
         #endregion
 
-        public main_form reference_to_main { get; set; }
-
-        private void pwd_add_back_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            //update database
-        }
-
+        #region FormClosing
         private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
         {
             reference_to_main.side_tab.Enabled = true;
             reference_to_main.dboard_head.Enabled = true;
         }
+        #endregion
 
+        public main_form reference_to_main { get; set; }
+
+        private void pwd_add_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //update datagrid view in datagrid
+        }
+
+        //add
         private void btn_add_Click(object sender, EventArgs e)
         {
             application_date = pwd_appdate.Text;
@@ -337,7 +341,6 @@ namespace SAD_2_PTT
             office_address = officeadd.Text;
             natio = nationality.Text;
             blood_type = bloodtype.Text;
-            civil_status = civilstatus.Text;
             father_ln = fln_txt.Text;
             father_fn = ffn_txt.Text;
             father_mn = fmn_txt.Text;
@@ -363,26 +366,112 @@ namespace SAD_2_PTT
             //educ and typeskill
         }
 
-        public int educ_attainment()
+        #region comboboxes/radiobuttons
+        public void educ_attainment()
         {
-            return 0;
+            if (educ1.Checked)
+                educ_att = 1;
+            else if (educ2.Checked)
+                educ_att = 2;
+            else if (educ3.Checked)
+                educ_att = 3;
+            else if (educ4.Checked)
+                educ_att = 4;
+            else if (educ5.Checked)
+                educ_att = 5;
+            else if (educ6.Checked)
+                educ_att = 6;
+            else if (educ7.Checked)
+                educ_att = 7;
+            else if (educ8.Checked)
+                educ_att = 8;
+            else if (educ9.Checked)
+                educ_att = 9;
+            else if (educ0.Checked)
+                educ_att = 0;
         }
 
-        public int type_of_skill()
+        public void type_of_skill()
         {
-            return 0;
+            if (skill1.Checked)
+                to_skill = 1;
+            else if (skill2.Checked)
+                to_skill = 2;
+            else if (skill3.Checked)
+                to_skill = 3;
+            else if (skill4.Checked)
+                to_skill = 4;
+            else if (skill5.Checked)
+                to_skill = 5;
+            else if (skill6.Checked)
+                to_skill = 6;
+            else if (skill7.Checked)
+                to_skill = 7;
+            else if (skill8.Checked)
+                to_skill = 8;
+            else if (skill9.Checked)
+                to_skill = 9;
+
         }
 
         private void disability_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             disability = disability_type.SelectedIndex;
-            if (disability_type.SelectedIndex.Equals(0))
-                all_required = false;
         }
 
         public void populate_cboxes()
         {
             conn.populate_cbox(disability_type);
+        }
+
+        private void gender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (gender.Text == "Male")
+                sex = 0;
+            else if (gender.Text == "Female")
+                sex = 1;
+        }
+
+        private void bloodtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            blood_type = bloodtype.Text;
+        }
+
+        private void civilstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            civil_status = civilstatus.SelectedIndex;
+        }
+
+        private void empstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            emp_status = empstatus.SelectedIndex;
+        }
+
+        private void noemp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            no_emp = noemp.SelectedIndex;
+        }
+
+        private void typeoemp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            type_oemp = typeoemp.SelectedIndex;
+        }
+
+        private void philhealthstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            phil_health_status = philhealthstatus.SelectedIndex;
+        }
+        #endregion
+
+        public bool check_all()
+        {
+            if (application_date == "")
+                all_required = false;
+            if (firstname == "")
+                all_required = false;
+
+            
+            return all_required;
         }
     }
 }
