@@ -94,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 59);
+            this.label2.Location = new System.Drawing.Point(21, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 15);
             this.label2.TabIndex = 3;
@@ -264,6 +264,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txt_desc
             // 
@@ -289,6 +290,7 @@
             // date_in
             // 
             this.date_in.CustomFormat = "";
+            this.date_in.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_in.Location = new System.Drawing.Point(152, 238);
             this.date_in.Name = "date_in";
             this.date_in.Size = new System.Drawing.Size(200, 22);
@@ -297,6 +299,7 @@
             // date_out
             // 
             this.date_out.CustomFormat = "";
+            this.date_out.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_out.Location = new System.Drawing.Point(152, 270);
             this.date_out.Name = "date_out";
             this.date_out.Size = new System.Drawing.Size(200, 22);

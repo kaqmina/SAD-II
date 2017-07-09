@@ -21,6 +21,10 @@ namespace SAD_2_PTT
             getDisability();
             getDevice();
             getProvider();
+
+            request_date.MaxDate = DateTime.Now;
+            date_in.MaxDate = DateTime.Now;
+            date_out.MaxDate = DateTime.Now;
         }
         private void getDisability()
         {
@@ -81,7 +85,7 @@ namespace SAD_2_PTT
                 while (dr.Read())
                 {
                     string provider = dr.GetString("dp_name");
-                    cmbox_dev.Items.Add(provider);
+                    cmbox_prov.Items.Add(provider);
                 }
                 con.Close();
             }
@@ -116,9 +120,23 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region Buttons
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        #region Clear
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cmbox_dis.Text = "";
+            cmbox_dev.Text = "";
+            cmbox_prov.Text = "";
+            txt_desc.Clear();
+
+        }
+        #endregion
+
+        #endregion
     }
 }
