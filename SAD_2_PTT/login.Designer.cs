@@ -44,6 +44,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // startup_opacity
@@ -221,6 +222,15 @@
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
+            // back
+            // 
+            this.back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.back.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.back.Location = new System.Drawing.Point(0, 0);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(312, 475);
+            this.back.TabIndex = 29;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +251,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.back);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -270,5 +281,6 @@
         private System.Windows.Forms.TextBox pword;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Panel back;
     }
 }
