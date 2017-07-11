@@ -19,7 +19,7 @@ namespace SAD_2_PTT
             InitializeComponent();
             con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
             getDisability();
-            getDevice();
+            //getDevice();
             getProvider();
 
             request_date.MaxDate = DateTime.Now;
@@ -118,12 +118,36 @@ namespace SAD_2_PTT
         {
             this.Close();
         }
+
+        private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            int d = cmbox_dis.SelectedIndex;
+            MySqlCommand com = new MySqlCommand("SELECT dev_name FROM device WHERE disability_id = " + d , con);
+            MySqlDataAdapter get = new MySqlDataAdapter(com);
+            DataTable set = new DataTable();
+            get.Fill(set);
+
+            int count = set.Rows.Count;
+            if (count == 0)
+            {
+                MessageBox.Show("No devices added.");
+            }
+            else
+            {
+                foreach (DataRow data in set.Rows)
+                {
+                    cmbox_dev.Items.Add(data["dev_name"].ToString());
+                }
+            }
+            con.Close();
+        }
         #endregion
 
         #region Buttons
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         #region Clear
