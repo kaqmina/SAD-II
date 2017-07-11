@@ -315,6 +315,8 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region PWD Add Event PA - 11
+
         public main_form reference_to_main { get; set; }
 
         private void pwd_add_back_Click(object sender, EventArgs e)
@@ -351,20 +353,18 @@ namespace SAD_2_PTT
             guardian_fn = gfn_txt.Text;
             guardian_mn = gmn_txt.Text;
             registration_no = int.Parse(pwd_regisno.Text);
-            //disability = 0;//change later
-            //sex = gender.Text;
-            //tel_no = telno.Text;
-            //mobile_no = mobileno.Text;
-            //e_mail = email.Text;
-            //emp_status = empstatus.Text;
-            //no_emp = noemp.Text;
-            //org_telno = orgtelno.Text;
-            //sss_no = sssno.Text;
-            //gsis_no = gsisno.Text;
-            //phil_health_status = philhealthstatus.Text;
-            //phil_health_no = philhealthno.Text;
-            //educ and typeskill
+            tel_no = int.Parse(telno.Text);
+            mobile_no = int.Parse(mobileno.Text);
+            e_mail = email.Text;
+            org_telno = int.Parse(orgtelno.Text);
+            sss_no = int.Parse(sssno.Text);
+            gsis_no = int.Parse(gsisno.Text);
+            phil_health_no = int.Parse(philhealthno.Text);
         }
+
+        
+
+        #endregion
 
         #region comboboxes/radiobuttons
         public void educ_attainment()
@@ -389,6 +389,8 @@ namespace SAD_2_PTT
                 educ_att = 9;
             else if (educ0.Checked)
                 educ_att = 0;
+            else
+                all_required = false;
         }
 
         public void type_of_skill()
@@ -411,12 +413,18 @@ namespace SAD_2_PTT
                 to_skill = 8;
             else if (skill9.Checked)
                 to_skill = 9;
+            else
+                all_required = false;
 
         }
 
         private void disability_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             disability = disability_type.SelectedIndex;
+            if (disability == 0)
+                all_required = false;
+            else
+                all_required = true;
         }
 
         public void populate_cboxes()
@@ -430,48 +438,66 @@ namespace SAD_2_PTT
                 sex = 0;
             else if (gender.Text == "Female")
                 sex = 1;
+
+            if (gender.Text == "")
+                all_required = false;
+            else
+                all_required = true;
         }
 
         private void bloodtype_SelectedIndexChanged(object sender, EventArgs e)
         {
             blood_type = bloodtype.Text;
+            if (blood_type == "")
+                all_required = false;
+            else
+                all_required = true;
         }
 
         private void civilstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             civil_status = civilstatus.SelectedIndex;
+            if (civil_status == 0)
+                all_required = false;
+            else
+                all_required = true;
         }
 
         private void empstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             emp_status = empstatus.SelectedIndex;
+            if (type_oemp == 0)
+                all_required = false;
+            else
+                all_required = true;
         }
 
         private void noemp_SelectedIndexChanged(object sender, EventArgs e)
         {
             no_emp = noemp.SelectedIndex;
+            if (type_oemp == 0)
+                all_required = false;
+            else
+                all_required = true;
         }
 
         private void typeoemp_SelectedIndexChanged(object sender, EventArgs e)
         {
             type_oemp = typeoemp.SelectedIndex;
+            if (type_oemp == 0)
+                all_required = false;
+            else
+                all_required = true;
         }
 
         private void philhealthstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             phil_health_status = philhealthstatus.SelectedIndex;
+            if(phil_health_status == 0)
+                all_required = false;
+            else
+                all_required = true;
         }
         #endregion
-
-        public bool check_all()
-        {
-            if (application_date == "")
-                all_required = false;
-            if (firstname == "")
-                all_required = false;
-
-            
-            return all_required;
-        }
     }
 }

@@ -12,7 +12,6 @@ namespace SAD_2_PTT
     class connections
     {
         public MySqlConnection conn;
-
         public connections()
         {
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
@@ -71,5 +70,27 @@ namespace SAD_2_PTT
                 MessageBox.Show(e.Message);
             }
         }
+
+        #region PWD ADD PA - 11
+        public void pwd_add_profile()
+        {
+            string query;
+            string variables;
+            query = "INSERT INTO p_dao.pwd(disability_id, address, blood_type, birthdate, picture, tel_no, mobile_no, email_add, civil_status,"
+                    + " nationality, end_date, added_date, application_date, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_skill)";
+            //variables = " VALUES ("+  +")";
+            try
+            {
+                conn.Open();
+                //MySqlCommand comm = new 
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Open();
+                MessageBox.Show(e.Message);
+            }
+        }
+        #endregion
     }
 }

@@ -685,6 +685,7 @@
             // btn_next2
             // 
             this.btn_next2.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next2.Enabled = false;
             this.btn_next2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1077,6 +1078,7 @@
             // btn_next3
             // 
             this.btn_next3.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next3.Enabled = false;
             this.btn_next3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1261,6 +1263,7 @@
             // btn_next1
             // 
             this.btn_next1.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next1.Enabled = false;
             this.btn_next1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1590,6 +1593,7 @@
             // btn_next4
             // 
             this.btn_next4.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next4.Enabled = false;
             this.btn_next4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1616,12 +1620,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl1);
+            this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
@@ -2177,8 +2181,8 @@
             this.philhealthstatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.philhealthstatus.Items.AddRange(new object[] {
             "",
-            "PhilHealth Member",
-            "PhilHealth Member Dependent"});
+            "Member",
+            "Member Dependent"});
             this.philhealthstatus.Location = new System.Drawing.Point(478, 361);
             this.philhealthstatus.Name = "philhealthstatus";
             this.philhealthstatus.Size = new System.Drawing.Size(150, 23);
@@ -2309,6 +2313,7 @@
             // btn_next5
             // 
             this.btn_next5.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next5.Enabled = false;
             this.btn_next5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
