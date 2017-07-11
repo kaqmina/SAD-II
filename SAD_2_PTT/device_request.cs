@@ -122,6 +122,8 @@ namespace SAD_2_PTT
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
             con.Open();
+            cmbox_dev.Items.Clear();
+            cmbox_dev.Items.Add("");
             int d = cmbox_dis.SelectedIndex;
             MySqlCommand com = new MySqlCommand("SELECT dev_name FROM device WHERE disability_id = " + d , con);
             MySqlDataAdapter get = new MySqlDataAdapter(com);
@@ -131,7 +133,7 @@ namespace SAD_2_PTT
             int count = set.Rows.Count;
             if (count == 0)
             {
-                MessageBox.Show("No devices added.");
+                MessageBox.Show("No devices added for this disability.");
             }
             else
             {
