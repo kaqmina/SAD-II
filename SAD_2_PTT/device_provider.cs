@@ -13,6 +13,34 @@ namespace SAD_2_PTT
 {
     public partial class device_provider : Form
     {
+        #region Declaration
+        public main_form reference_to_main { get; set; }
+        public MySqlConnection con;
+
+        String dp_name, dp_desc, tel_no, email, dp_type;
+        int dp_id, mob_no, type, dpt;
+
+        #endregion
+
+        #region Transition
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void device_provider_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+        }
+
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
+        }
+
+        #endregion
+
         #region FormLoad
         public device_provider()
         {
@@ -52,34 +80,6 @@ namespace SAD_2_PTT
                 con.Close();
             }
         }
-        #endregion
-
-        #region Declaration
-        public main_form reference_to_main { get; set; }
-        public MySqlConnection con;
-
-        String dp_name, dp_desc, tel_no, email,dp_type;
-        int dp_id, mob_no, type, dpt;
-
-        #endregion
-
-        #region Transition
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void device_provider_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reference_to_main.side_tab.Enabled = true;
-            reference_to_main.dboard_head.Enabled = true;
-        }
-
-        private void startup_opacity_Tick(object sender, EventArgs e)
-        {
-            this.Opacity += 0.1;
-        }
-
         #endregion
 
         #region Buttons
@@ -148,31 +148,38 @@ namespace SAD_2_PTT
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //btn add false
-            button1.Enabled = false;
-            button2.BringToFront();
+            if (e.RowIndex < 0)
+            {
+                //pass
+            }
+            else
+            {
+                //btn add false
+                button1.Enabled = false;
+                button2.BringToFront();
 
-            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            dp_name = row.Cells["dp_name"].Value.ToString();
-            dp_desc = row.Cells["dp_desc"].Value.ToString();
-            tel_no = row.Cells["tel_no"].Value.ToString();
-            email = row.Cells["email_add"].Value.ToString();
-            dp_type = row.Cells["dp_type"].Value.ToString();
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                dp_name = row.Cells["dp_name"].Value.ToString();
+                dp_desc = row.Cells["dp_desc"].Value.ToString();
+                tel_no = row.Cells["tel_no"].Value.ToString();
+                email = row.Cells["email_add"].Value.ToString();
+                dp_type = row.Cells["dp_type"].Value.ToString();
 
-            dp_id = Convert.ToInt32(row.Cells["dp_id"].Value);
-            mob_no = Convert.ToInt32(row.Cells["mobile_no"].Value);
+                dp_id = Convert.ToInt32(row.Cells["dp_id"].Value);
+                mob_no = Convert.ToInt32(row.Cells["mobile_no"].Value);
 
-            //dp_type
-            dpt = Int32.Parse(dp_type);
-            if (dpt == 0) cmbox_type.Text = "Government";
-            else if (dpt == 1) cmbox_type.Text = "Sponsor";
+                //dp_type
+                dpt = Int32.Parse(dp_type);
+                if (dpt == 0) cmbox_type.Text = "Government";
+                else if (dpt == 1) cmbox_type.Text = "Sponsor";
 
-            txt_name.Text = dp_name;
-            txt_desc.Text = dp_desc;
-            txt_telno.Text = tel_no;
-            txt_email.Text = email;
-            txt_mobno.Text = mob_no.ToString();
-            lbl_desc.Text = dp_desc;
+                txt_name.Text = dp_name;
+                txt_desc.Text = dp_desc;
+                txt_telno.Text = tel_no;
+                txt_email.Text = email;
+                txt_mobno.Text = mob_no.ToString();
+                lbl_desc.Text = dp_desc;
+            }
         }
         private void Edit()
         {

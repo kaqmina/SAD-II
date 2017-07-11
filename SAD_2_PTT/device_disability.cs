@@ -13,6 +13,31 @@ namespace SAD_2_PTT
 {
     public partial class device_disability : Form
     {
+        #region Declaration
+        public main_form reference_to_main { get; set; }
+        public MySqlConnection con;
+
+        String dis_type, dis_desc;
+        int dis_id;
+        #endregion
+
+        #region Transition
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void device_disability_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+        }
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
+        }
+        #endregion
+
         #region FormLoad
         public device_disability()
         {
@@ -48,31 +73,6 @@ namespace SAD_2_PTT
             {
                 MessageBox.Show("Error in DataLoad() : " + ex);
             }
-        }
-        #endregion
-
-        #region Declaration
-        public main_form reference_to_main { get; set; }
-        public MySqlConnection con;
-
-        String dis_type, dis_desc;
-        int dis_id;
-        #endregion
-
-        #region Transition
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void device_disability_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reference_to_main.side_tab.Enabled = true;
-            reference_to_main.dboard_head.Enabled = true;
-        }
-        private void startup_opacity_Tick(object sender, EventArgs e)
-        {
-            this.Opacity += 0.1;
         }
         #endregion
 
@@ -128,18 +128,25 @@ namespace SAD_2_PTT
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //btn add false
-            button1.Enabled = false;
-            button2.BringToFront();
+            if (e.RowIndex < 0)
+            {
+                //pass
+            }
+            else
+            {
+                //btn add false
+                button1.Enabled = false;
+                button2.BringToFront();
 
-            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            dis_type = row.Cells["disability_type"].Value.ToString();
-            dis_desc = row.Cells["disability_desc"].Value.ToString();
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                dis_type = row.Cells["disability_type"].Value.ToString();
+                dis_desc = row.Cells["disability_desc"].Value.ToString();
 
-            dis_id = Convert.ToInt32(row.Cells["disability_id"].Value);
-            txt_type.Text = dis_type;
-            txt_desc.Text = dis_desc;
-            lbl_desc.Text = dis_desc;
+                dis_id = Convert.ToInt32(row.Cells["disability_id"].Value);
+                txt_type.Text = dis_type;
+                txt_desc.Text = dis_desc;
+                lbl_desc.Text = dis_desc;
+            }
         }
 
         private void Edit()

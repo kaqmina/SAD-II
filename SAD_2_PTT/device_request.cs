@@ -13,6 +13,33 @@ namespace SAD_2_PTT
 {
     public partial class device_request : Form
     {
+        #region Declaration
+
+        public main_form reference_to_main { get; set; }
+        public MySqlConnection con;
+
+        String dr_dev, dr_prov, req_desc, d_dis,search;
+        DateTime req_dev, req_in, req_out;
+        #endregion
+
+        #region Transition
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void device_request_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+        }
+        // -- opacity
+        private void txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            txt_search.ForeColor = Color.Black;
+        }
+        #endregion
+
         #region FormLoad
         public device_request()
         {
@@ -22,10 +49,12 @@ namespace SAD_2_PTT
             getProvider();
             DataLoad();
 
-            request_date.MaxDate = DateTime.Now;
-            //date_in.MinDate = DateTime.Now;
-            //date_out.MinDate = DateTime.Now;
+            request_date.Value = DateTime.Now;
+            date_in.Value = DateTime.Now;
+            date_out.Value = DateTime.Now;
         }
+
+        #region Methods
         private void getDisability()
         {
             MySqlCommand com = new MySqlCommand("SELECT disability_type FROM disability", con);
@@ -40,6 +69,10 @@ namespace SAD_2_PTT
                 {
                     string dis = dr.GetString("disability_type");
                     cmbox_dis.Items.Add(dis);
+                }
+                if(cmbox_dis.Items.Count == 0)
+                {
+                    MessageBox.Show("No disabilities added.");
                 }
                 con.Close();
             }
@@ -99,6 +132,10 @@ namespace SAD_2_PTT
                     string provider = dr.GetString("dp_name");
                     cmbox_prov.Items.Add(provider);
                 }
+                if(cmbox_prov.Items.Count == 0)
+                {
+                    MessageBox.Show("No device provider added.");
+                }
                 con.Close();
             }
             catch (Exception ex)
@@ -107,9 +144,37 @@ namespace SAD_2_PTT
                 con.Close();
             }
         }
+        private void Search()
+        {
+            search = txt_search.Text;
+
+            try
+            {
+                con.Open();
+                MySqlCommand com = new MySqlCommand("SELECT pwd_id, CONCAT(lastname + ' ' + firstname + ' ' + middlename) AS fullname, registration_no FROM pwd WHERE lastname OR firstname OR middlename OR registration_no LIKE '%" + search + "%'", con);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in txt_search(): " + ex);
+                con.Close();
+            }
+        }
+        #endregion
+
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
             getDevice();
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            Search();
         }
 
         private void DataLoad()
@@ -117,7 +182,7 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, (lastname + ', ' + firstname + ' ' + middlename ) AS fullname FROM pwd", con);
+                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname + ' ' + firstname + ' ' + middlename ) AS fullname FROM pwd", con);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -134,54 +199,34 @@ namespace SAD_2_PTT
                 MessageBox.Show("Error in DataLoad() : " + ex);
             }
         }
-
-        private void txt_search_Enter(object sender, EventArgs e)
-        {
-            txt_search.Clear();
-        }
-        #endregion
-
-        #region Declaration
-
-        public main_form reference_to_main { get; set; }
-        public MySqlConnection con;
-
-        String dr_dev, dr_prov, req_desc, d_dis;
-
-        private void device_request_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reference_to_main.side_tab.Enabled = true;
-            reference_to_main.dboard_head.Enabled = true;
-        }
-
-        #endregion
-
-        #region Transition
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         #endregion
 
         #region Buttons
 
         #region Add
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Add();
+        }
         private void Add() {
             int d = cmbox_dis.SelectedIndex + 1;
             int dreq = cmbox_dev.SelectedIndex + 1;
             int dprov = cmbox_prov.SelectedIndex + 1;
 
+
             dr_dev = dreq.ToString();
             dr_prov = dprov.ToString();
             d_dis = d.ToString();
             req_desc = txt_desc.Text;
+            req_dev = request_date.Value.Date;
+            req_in = date_in.Value.Date;
+            req_out = date_out.Value.Date;
 
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("INSERT INTO device_log(disability_id,device_id,dp_id,req_desc) VALUES('" + d_dis + "','" + req_desc + "','" + dr_prov + "','" + req_desc + "')", con);
-                com.ExecuteNonQuery();
+                //MySqlCommand com = new MySqlCommand("INSERT INTO device_log(dp_id,pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + [pwd_id] + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
+                //com.ExecuteNonQuery();
                 con.Close();
                 //DataLoad();
 

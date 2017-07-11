@@ -13,6 +13,32 @@ namespace SAD_2_PTT
 {
     public partial class device_add : Form
     {
+        #region Declaration
+        public main_form reference_to_main { get; set; }
+        public MySqlConnection con;
+
+        String d_name, d_dis, d_desc;
+        int d_id;
+
+        #endregion
+
+        #region Transition
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void device_add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
+        }
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
+        }
+        #endregion
+
         #region FormLoad
         public device_add()
         {
@@ -76,32 +102,6 @@ namespace SAD_2_PTT
 
         #endregion
 
-        #region Declaration
-        public main_form reference_to_main { get; set; }
-        public MySqlConnection con;
-
-        String d_name, d_dis, d_desc;
-        int d_id;
-   
-        #endregion
-
-        #region Transition
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void device_add_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reference_to_main.side_tab.Enabled = true;
-            reference_to_main.dboard_head.Enabled = true;
-        }
-        private void startup_opacity_Tick(object sender, EventArgs e)
-        {
-            this.Opacity += 0.1;
-        }
-        #endregion
-
         #region Buttons
 
         #region Add
@@ -146,39 +146,45 @@ namespace SAD_2_PTT
             button1.Enabled = true;
             button1.BringToFront();
         }
+        #endregion
 
+        #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
             Edit();
         }
-        #endregion
-
-        #region Edit
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //btn add false
-            button1.Enabled = false;
-            button2.BringToFront();
-            
+            if (e.RowIndex < 0)
+            {
+                //pass
+            }
+            else
+            {
+                //btn add false
+                button1.Enabled = false;
+                button2.BringToFront();
 
-            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            d_name = row.Cells["dev_name"].Value.ToString();
-            d_desc = row.Cells["dev_desc"].Value.ToString();
 
-            d_id = Convert.ToInt32(row.Cells["device_id"].Value);
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                d_name = row.Cells["dev_name"].Value.ToString();
+                d_desc = row.Cells["dev_desc"].Value.ToString();
 
-            //disability id
-            int d = 0;
-            d = Convert.ToInt32(row.Cells["disability_id"].Value.ToString());
-            int dd = d - 1;
-            d_dis = cmbox_dis.Items[dd].ToString();
-            
+                d_id = Convert.ToInt32(row.Cells["device_id"].Value);
 
-            txt_dname.Text = d_name;
-            txt_ddesc.Text = d_desc;
-            cmbox_dis.Text = d_dis;
-            lbl_ddesc.Text = d_desc;
-            lbl_dis.Text = d_dis;
+                //disability id
+                int d = 0;
+                d = Convert.ToInt32(row.Cells["disability_id"].Value.ToString());
+                int dd = d - 1;
+                d_dis = cmbox_dis.Items[dd].ToString();
+
+
+                txt_dname.Text = d_name;
+                txt_ddesc.Text = d_desc;
+                cmbox_dis.Text = d_dis;
+                lbl_ddesc.Text = d_desc;
+                lbl_dis.Text = d_dis;
+            }
         }
         private void Edit()
         {
