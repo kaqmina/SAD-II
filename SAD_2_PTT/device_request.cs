@@ -151,7 +151,7 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT pwd_id, CONCAT(lastname + ' ' + firstname + ' ' + middlename) AS fullname, registration_no FROM pwd WHERE lastname OR firstname OR middlename OR registration_no LIKE '%" + search + "%'", con);
+                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR lastname  LIKE '%" + search + "%' OR firstname  LIKE '%" + search + "%' OR middlename  LIKE '%" + search + "%' OR registration_no LIKE '%" + search + "%'", con);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
 
@@ -166,6 +166,50 @@ namespace SAD_2_PTT
             }
         }
         #endregion
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                //pass
+            }
+            else
+            {
+                //btn add false
+                button1.Enabled = false;
+                button2.BringToFront();
+
+                #region nothing 
+                /* DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                // req_desc = row.Cells["req_desc"].Value.ToString();
+
+                 int  dl_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
+
+                 //disability id
+                 int d = 0;
+                 d = Convert.ToInt32(row.Cells["disability_id"].Value.ToString());
+                 int dd = d - 1;
+                 d_dis = cmbox_dis.Items[dd].ToString();
+
+                 //device requested
+                 int dr = 0;
+                 dr = Convert.ToInt32(row.Cells["dev_name"].Value.ToString());
+                 int dd1 = dr - 1;
+                 dr_dev = cmbox_dis.Items[dd1].ToString();
+
+                 //device provider
+                 int dp = 0;
+                 dp = Convert.ToInt32(row.Cells["dp_name"].Value.ToString());
+                 int dd2 = dp - 1;
+                 dr_prov = cmbox_dis.Items[dd2].ToString();
+
+                 txt_desc.Text = req_desc;
+                 cmbox_dis.Text = d_dis;
+                 cmbox_dev.Text = dr_dev;
+                 cmbox_prov.Text = dr_prov;*/
+                #endregion
+            }
+        }
 
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -182,7 +226,7 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname + ' ' + firstname + ' ' + middlename ) AS fullname FROM pwd", con);
+                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd", con);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
