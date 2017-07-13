@@ -367,11 +367,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 155);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(344, 309);
+            this.dataGridView1.Size = new System.Drawing.Size(311, 309);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -400,9 +400,9 @@
             this.pnl_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_search.Controls.Add(this.button45);
             this.pnl_search.Controls.Add(this.txt_search);
-            this.pnl_search.Location = new System.Drawing.Point(0, 97);
+            this.pnl_search.Location = new System.Drawing.Point(33, 97);
             this.pnl_search.Name = "pnl_search";
-            this.pnl_search.Size = new System.Drawing.Size(344, 25);
+            this.pnl_search.Size = new System.Drawing.Size(311, 25);
             this.pnl_search.TabIndex = 42;
             // 
             // button45
@@ -411,7 +411,7 @@
             this.button45.FlatAppearance.BorderSize = 0;
             this.button45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button45.Image = global::SAD_2_PTT.Properties.Resources.search;
-            this.button45.Location = new System.Drawing.Point(310, 0);
+            this.button45.Location = new System.Drawing.Point(277, 0);
             this.button45.Name = "button45";
             this.button45.Size = new System.Drawing.Size(32, 23);
             this.button45.TabIndex = 2;
