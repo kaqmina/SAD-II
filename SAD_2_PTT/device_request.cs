@@ -306,6 +306,8 @@ namespace SAD_2_PTT
         #endregion
 
         #region Edit
+        //SELECT deviceLOG_id, dp_id, device_id, pwd_id, req_date, req_desc, date_in, date_out, status FROM device_log 
+
         #endregion
 
         #endregion
