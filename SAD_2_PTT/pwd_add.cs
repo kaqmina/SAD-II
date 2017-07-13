@@ -39,8 +39,8 @@ namespace SAD_2_PTT
         string guardian_fn;
         string guardian_mn;
         string accom;
-        string end_date = null;
-        string added_date = null;
+        string end_date = "07/07/17";
+        string added_date;
         int registration_no;
         int disability;
         int sex;
@@ -368,10 +368,13 @@ namespace SAD_2_PTT
 
             string query;
             string variables;
-            query = "INSERT INTO p_dao.pwd(disability_id, address, blood_type, birthdate, tel_no, mobile_no, email_add, civil_status,"
+            query = "INSERT INTO p_dao.pwd(lastname, firstname, middlename, sex, disability_id, address, blood_type, birthdate, tel_no, mobile_no, email_add, civil_status,"
                     + " nationality, end_date, added_date, application_date, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_employment, type_of_skill)";
-            variables = " VALUES (" + disability + ", '" + (has + " " + mun + " " + bar + " " + prov + ", " + reg) + "', '" + blood_type + "', '" + dob + "', " + tel_no + ", " + mobile_no + ", '"
-            + e_mail + "', " + civil_status + ", '" + natio + "', '" + end_date + "', '"+ added_date + "', '" + application_date + "', '" + accom + "', " + educ_att + ", " + emp_status + ", " + no_emp + ", " + type_oemp + ", " + to_skill + ")";
+            variables = " VALUES ('" + lastname + "', '" + firstname + "', '" + middlename + "', " + sex + ", " + disability + ", '" + (has + " " + mun + " " + bar + " " + prov + ", " + reg) + "', '" + blood_type + "', '" + dob + "', " + tel_no + ", " + mobile_no + ", '"
+            + e_mail + "', " + civil_status + ", '" + natio + "', '" + end_date + "', '"+ (DateTime.Now.ToString("yyyy-MM-dd")) + "', '" + application_date + "', '" + accom + "', " + educ_att + ", " + emp_status + ", " + no_emp + ", " + type_oemp + ", " + to_skill + ")";
+
+            string per;
+            per = " ";
 
             conn.pwd_add_profile(query, variables);
         }
