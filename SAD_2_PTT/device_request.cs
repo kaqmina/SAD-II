@@ -20,6 +20,7 @@ namespace SAD_2_PTT
 
         String dr_dev, dr_prov, req_desc, d_dis,search, reg_no;
         DateTime req_dev, req_in, req_out;
+        int pwd_id;
         #endregion
 
         #region Transition
@@ -180,6 +181,11 @@ namespace SAD_2_PTT
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 reg_no = row.Cells["registration_no"].Value.ToString();
 
+                //pwd id
+                int id = 0;
+                id = Convert.ToInt32(row.Cells["pwd_id"].Value.ToString());
+                pwd_id = id;
+
                 lbl_reg.Text = reg_no;
 
                 #region nothing 
@@ -238,7 +244,6 @@ namespace SAD_2_PTT
                 dataGridView1.Columns["pwd_id"].Visible = false;              
                 dataGridView1.Columns["registration_no"].HeaderText = "Reg. No.";
                 dataGridView1.Columns["fullname"].HeaderText = "Full Name";
-
                 con.Close();
             }
             catch (Exception ex)
@@ -272,10 +277,9 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                //MySqlCommand com = new MySqlCommand("INSERT INTO device_log(dp_id,pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + [pwd_id] + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
-                //com.ExecuteNonQuery();
+                MySqlCommand com = new MySqlCommand("INSERT INTO device_log(dp_id,pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
+                com.ExecuteNonQuery();
                 con.Close();
-                //DataLoad();
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
 

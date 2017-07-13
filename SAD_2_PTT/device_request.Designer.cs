@@ -367,11 +367,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 155);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(344, 309);
+            this.dataGridView1.Size = new System.Drawing.Size(311, 309);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -422,9 +422,9 @@
             this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txt_search.Location = new System.Drawing.Point(-1, -1);
+            this.txt_search.Location = new System.Drawing.Point(32, -1);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(313, 25);
+            this.txt_search.Size = new System.Drawing.Size(280, 25);
             this.txt_search.TabIndex = 0;
             this.txt_search.Text = "  Search here..";
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
