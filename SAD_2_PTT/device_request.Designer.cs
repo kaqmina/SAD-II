@@ -173,6 +173,7 @@
             // 
             // cmbox_dis
             // 
+            this.cmbox_dis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbox_dis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbox_dis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbox_dis.FormattingEnabled = true;
@@ -232,6 +233,7 @@
             this.date_out.Name = "date_out";
             this.date_out.Size = new System.Drawing.Size(200, 22);
             this.date_out.TabIndex = 20;
+            this.date_out.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
             // 
             // date_in
             // 
@@ -241,11 +243,12 @@
             this.date_in.Name = "date_in";
             this.date_in.Size = new System.Drawing.Size(200, 22);
             this.date_in.TabIndex = 19;
+            this.date_in.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
             // 
             // request_date
             // 
             this.request_date.CalendarTrailingForeColor = System.Drawing.SystemColors.Window;
-            this.request_date.CustomFormat = "mm/d/y";
+            this.request_date.CustomFormat = "mm/dd/yyyy";
             this.request_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.request_date.Location = new System.Drawing.Point(152, 127);
             this.request_date.Name = "request_date";
@@ -342,6 +345,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -358,13 +362,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 155);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(344, 309);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // bar
             // 
@@ -418,6 +427,7 @@
             this.txt_search.Size = new System.Drawing.Size(313, 25);
             this.txt_search.TabIndex = 0;
             this.txt_search.Text = "  Search here..";
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
             // 
             // device_request
