@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnl_name = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_reg = new System.Windows.Forms.Label();
             this.pnl_reqform = new System.Windows.Forms.Panel();
             this.cmbox_dis = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -132,22 +132,22 @@
             // pnl_name
             // 
             this.pnl_name.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_name.Controls.Add(this.label7);
+            this.pnl_name.Controls.Add(this.lbl_reg);
             this.pnl_name.Controls.Add(this.label3);
             this.pnl_name.Location = new System.Drawing.Point(366, 91);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(329, 45);
             this.pnl_name.TabIndex = 7;
             // 
-            // label7
+            // lbl_reg
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(80, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 20);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "111111111";
+            this.lbl_reg.AutoSize = true;
+            this.lbl_reg.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_reg.Location = new System.Drawing.Point(80, 12);
+            this.lbl_reg.Name = "lbl_reg";
+            this.lbl_reg.Size = new System.Drawing.Size(81, 20);
+            this.lbl_reg.TabIndex = 5;
+            this.lbl_reg.Text = "111111111";
             // 
             // pnl_reqform
             // 
@@ -450,7 +450,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_request";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "device_request";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_request_FormClosing);
             this.pnl_name.ResumeLayout(false);
@@ -478,7 +478,7 @@
         private System.Windows.Forms.Panel pnl_reqform;
         private System.Windows.Forms.Panel pnl_status;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_reg;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

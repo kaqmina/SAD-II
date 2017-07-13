@@ -18,7 +18,7 @@ namespace SAD_2_PTT
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
 
-        String dr_dev, dr_prov, req_desc, d_dis,search;
+        String dr_dev, dr_prov, req_desc, d_dis,search, reg_no;
         DateTime req_dev, req_in, req_out;
         #endregion
 
@@ -161,7 +161,7 @@ namespace SAD_2_PTT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in txt_search(): " + ex);
+                MessageBox.Show("Error in Search(): " + ex);
                 con.Close();
             }
         }
@@ -175,9 +175,12 @@ namespace SAD_2_PTT
             }
             else
             {
-                //btn add false
-                button1.Enabled = false;
-                button2.BringToFront();
+                //button2.BringToFront();
+
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                reg_no = row.Cells["registration_no"].Value.ToString();
+
+                lbl_reg.Text = reg_no;
 
                 #region nothing 
                 /* DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
