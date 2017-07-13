@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,6 +70,12 @@
     </Compile>
     <Compile Include="device_request.Designer.cs">
       <DependentUpon>device_request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="device_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="device_view.Designer.cs">
+      <DependentUpon>device_view.cs</DependentUpon>
     </Compile>
     <Compile Include="Junk.cs">
       <SubType>Form</SubType>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="device_request.resx">
       <DependentUpon>device_request.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="device_view.resx">
+      <DependentUpon>device_view.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Junk.resx">
       <DependentUpon>Junk.cs</DependentUpon>

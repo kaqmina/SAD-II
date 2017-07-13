@@ -130,7 +130,7 @@ namespace SAD_2_PTT
             int y = 589;
 
             //size
-            sidenav.Size = new Size(212, 608);
+            //sidenav.Size = new Size(212, 608); <-- naga-error kasi 
             main_tab.Size = new Size(71, 608); //283, 608 <-- main_tab Size
             side_tab.Size = new Size(71, 608); //1069, 589 <-- panels
             pnl_dashboard.Size = new Size(x, y);
@@ -373,6 +373,7 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region OpenViewPWD
         private void btn_pwd_viewmore_Click_1(object sender, EventArgs e)
         {
             int loc_x = this.Location.X + 71;
@@ -385,6 +386,7 @@ namespace SAD_2_PTT
             pwd_view_form.Location = new Point(loc_x, loc_y);
             pwd_view_form.ShowDialog();
         }
+        #endregion
 
         #region OpenDevice
         private void button33_Click(object sender, EventArgs e)
@@ -449,6 +451,22 @@ namespace SAD_2_PTT
 
         #endregion
 
+        #region OpenViewRequests
+        private void link_view_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //arrange location laterz haha
+            int loc_x = this.Location.X + 210;
+            int loc_y = this.Location.Y + 86;
+
+            device_view view = new device_view();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            view.reference_to_main = this;
+            view.Location = new Point(loc_x, loc_y);
+            view.ShowDialog();
+        }
+        #endregion
+
         #region PWD Data
         public void pwd_data()
         {
@@ -492,8 +510,9 @@ namespace SAD_2_PTT
 
 
 
+
         #endregion
 
-      
+       
     }
 }

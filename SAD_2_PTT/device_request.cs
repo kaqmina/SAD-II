@@ -306,8 +306,8 @@ namespace SAD_2_PTT
         #endregion
 
         #region Edit
-        //SELECT deviceLOG_id, dp_id, device_id, pwd_id, req_date, req_desc, date_in, date_out, status FROM device_log 
-
+       
+        //UPDATE device_log SET dp_id = '" + + "', device_id = '" + + "',req_date = '" + + "', req_desc = '" + + "', date_in = '" + + "', date_out = '" + + "' WHERE pwd_id = '" + + "',con
         #endregion
 
         #endregion
