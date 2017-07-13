@@ -72,22 +72,18 @@ namespace SAD_2_PTT
         }
 
         #region PWD ADD PA - 11
-        public void pwd_add_profile()
+        public void pwd_add_profile(string query, string variable)
         {
-            string query;
-            string variables;
-            query = "INSERT INTO p_dao.pwd(disability_id, address, blood_type, birthdate, picture, tel_no, mobile_no, email_add, civil_status,"
-                    + " nationality, end_date, added_date, application_date, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_skill)";
-            //variables = " VALUES ("+  +")";
             try
             {
                 conn.Open();
-                //MySqlCommand comm = new 
+                MySqlCommand comm = new MySqlCommand((query + variable), conn);
+                comm.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception e)
             {
-                conn.Open();
+                conn.Close();
                 MessageBox.Show(e.Message);
             }
         }

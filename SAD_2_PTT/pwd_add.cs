@@ -22,7 +22,7 @@ namespace SAD_2_PTT
         string bar;
         string prov;
         string reg;
-        string dob;
+        string dob = null;
         string natio;
         string blood_type;
         string e_mail;
@@ -38,6 +38,9 @@ namespace SAD_2_PTT
         string guardian_ln;
         string guardian_fn;
         string guardian_mn;
+        string accom;
+        string end_date = null;
+        string added_date = null;
         int registration_no;
         int disability;
         int sex;
@@ -55,6 +58,7 @@ namespace SAD_2_PTT
         int to_skill;
         int civil_status;
         bool all_required = false;
+        Image picture = null;
         connections conn = new connections();
         #endregion
 
@@ -75,8 +79,8 @@ namespace SAD_2_PTT
 
             populate_cboxes();
             //Style Text
-            defaulttxt1();
-            defaulttxt9();
+            //defaulttxt1();
+            //defaulttxt9();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -118,13 +122,13 @@ namespace SAD_2_PTT
 
         private void lntxt_Enter(object sender, EventArgs e)
         {
-            ln_txt.Clear();
-            ln_txt.ForeColor = Color.Black;
+            //ln_txt.Clear();
+            //ln_txt.ForeColor = Color.Black;
         }
         private void fntxt_Enter(object sender, EventArgs e)
         {
-            fn_txt.Clear();
-            fn_txt.ForeColor = Color.Black;
+            //fn_txt.Clear();
+            //fn_txt.ForeColor = Color.Black;
         }
         private void mntxt_Enter(object sender, EventArgs e)
         {
@@ -352,6 +356,7 @@ namespace SAD_2_PTT
             guardian_ln = gln_txt.Text;
             guardian_fn = gfn_txt.Text;
             guardian_mn = gmn_txt.Text;
+            accom = aln_txt.Text + ", " + afn_txt.Text + " " + amn_txt.Text;
             registration_no = int.Parse(pwd_regisno.Text);
             tel_no = int.Parse(telno.Text);
             mobile_no = int.Parse(mobileno.Text);
@@ -360,9 +365,18 @@ namespace SAD_2_PTT
             sss_no = int.Parse(sssno.Text);
             gsis_no = int.Parse(gsisno.Text);
             phil_health_no = int.Parse(philhealthno.Text);
+
+            string query;
+            string variables;
+            query = "INSERT INTO p_dao.pwd(disability_id, address, blood_type, birthdate, tel_no, mobile_no, email_add, civil_status,"
+                    + " nationality, end_date, added_date, application_date, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_employment, type_of_skill)";
+            variables = " VALUES (" + disability + ", '" + (has + " " + mun + " " + bar + " " + prov + ", " + reg) + "', '" + blood_type + "', '" + dob + "', " + tel_no + ", " + mobile_no + ", '"
+            + e_mail + "', " + civil_status + ", '" + natio + "', '" + end_date + "', '"+ added_date + "', '" + application_date + "', '" + accom + "', " + educ_att + ", " + emp_status + ", " + no_emp + ", " + type_oemp + ", " + to_skill + ")";
+
+            conn.pwd_add_profile(query, variables);
         }
 
-        
+
 
         #endregion
 

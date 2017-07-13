@@ -142,6 +142,36 @@
             this.btn_next4 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.pnl_container = new System.Windows.Forms.Panel();
+            this.pnl5 = new System.Windows.Forms.Panel();
+            this.orgtelno = new System.Windows.Forms.TextBox();
+            this.officeadd = new System.Windows.Forms.TextBox();
+            this.contactper = new System.Windows.Forms.TextBox();
+            this.orgaff = new System.Windows.Forms.TextBox();
+            this.philhealthno = new System.Windows.Forms.TextBox();
+            this.gsisno = new System.Windows.Forms.TextBox();
+            this.sssno = new System.Windows.Forms.TextBox();
+            this.philhealthstatus = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.btn_prev4 = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.btn_next5 = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
             this.pnl6 = new System.Windows.Forms.Panel();
             this.amn_txt = new System.Windows.Forms.TextBox();
             this.afn_txt = new System.Windows.Forms.TextBox();
@@ -179,36 +209,6 @@
             this.label74 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
-            this.pnl5 = new System.Windows.Forms.Panel();
-            this.orgtelno = new System.Windows.Forms.TextBox();
-            this.officeadd = new System.Windows.Forms.TextBox();
-            this.contactper = new System.Windows.Forms.TextBox();
-            this.orgaff = new System.Windows.Forms.TextBox();
-            this.philhealthno = new System.Windows.Forms.TextBox();
-            this.gsisno = new System.Windows.Forms.TextBox();
-            this.sssno = new System.Windows.Forms.TextBox();
-            this.philhealthstatus = new System.Windows.Forms.ComboBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.btn_prev4 = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.btn_next5 = new System.Windows.Forms.Button();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
             this.pwd_add_back = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
@@ -224,11 +224,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnl_container.SuspendLayout();
-            this.pnl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.pnl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.pnl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -685,7 +685,6 @@
             // btn_next2
             // 
             this.btn_next2.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_next2.Enabled = false;
             this.btn_next2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1078,7 +1077,6 @@
             // btn_next3
             // 
             this.btn_next3.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_next3.Enabled = false;
             this.btn_next3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1263,7 +1261,6 @@
             // btn_next1
             // 
             this.btn_next1.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_next1.Enabled = false;
             this.btn_next1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1342,7 +1339,6 @@
             // 
             this.noemp.BackColor = System.Drawing.SystemColors.Window;
             this.noemp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.noemp.Enabled = false;
             this.noemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.noemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noemp.FormattingEnabled = true;
@@ -1383,7 +1379,6 @@
             // 
             this.typeoemp.BackColor = System.Drawing.SystemColors.Window;
             this.typeoemp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.typeoemp.Enabled = false;
             this.typeoemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.typeoemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeoemp.FormattingEnabled = true;
@@ -1593,7 +1588,6 @@
             // btn_next4
             // 
             this.btn_next4.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_next4.Enabled = false;
             this.btn_next4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1620,17 +1614,367 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl3);
+            this.pnl_container.Controls.Add(this.pnl6);
+            this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
             this.pnl_container.TabIndex = 54;
             this.pnl_container.Visible = false;
+            // 
+            // pnl5
+            // 
+            this.pnl5.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl5.Controls.Add(this.orgtelno);
+            this.pnl5.Controls.Add(this.officeadd);
+            this.pnl5.Controls.Add(this.contactper);
+            this.pnl5.Controls.Add(this.orgaff);
+            this.pnl5.Controls.Add(this.philhealthno);
+            this.pnl5.Controls.Add(this.gsisno);
+            this.pnl5.Controls.Add(this.sssno);
+            this.pnl5.Controls.Add(this.philhealthstatus);
+            this.pnl5.Controls.Add(this.label43);
+            this.pnl5.Controls.Add(this.label44);
+            this.pnl5.Controls.Add(this.label45);
+            this.pnl5.Controls.Add(this.label42);
+            this.pnl5.Controls.Add(this.btn_prev4);
+            this.pnl5.Controls.Add(this.label36);
+            this.pnl5.Controls.Add(this.pictureBox7);
+            this.pnl5.Controls.Add(this.label37);
+            this.pnl5.Controls.Add(this.label38);
+            this.pnl5.Controls.Add(this.label39);
+            this.pnl5.Controls.Add(this.label40);
+            this.pnl5.Controls.Add(this.pictureBox8);
+            this.pnl5.Controls.Add(this.btn_next5);
+            this.pnl5.Controls.Add(this.label41);
+            this.pnl5.Controls.Add(this.label69);
+            this.pnl5.Controls.Add(this.label68);
+            this.pnl5.Controls.Add(this.label67);
+            this.pnl5.Controls.Add(this.label66);
+            this.pnl5.Controls.Add(this.label72);
+            this.pnl5.Controls.Add(this.label71);
+            this.pnl5.Controls.Add(this.label70);
+            this.pnl5.Location = new System.Drawing.Point(0, 0);
+            this.pnl5.Name = "pnl5";
+            this.pnl5.Size = new System.Drawing.Size(757, 500);
+            this.pnl5.TabIndex = 54;
+            this.pnl5.Visible = false;
+            // 
+            // orgtelno
+            // 
+            this.orgtelno.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.orgtelno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orgtelno.Location = new System.Drawing.Point(313, 190);
+            this.orgtelno.MaxLength = 50;
+            this.orgtelno.Multiline = true;
+            this.orgtelno.Name = "orgtelno";
+            this.orgtelno.Size = new System.Drawing.Size(154, 26);
+            this.orgtelno.TabIndex = 70;
+            // 
+            // officeadd
+            // 
+            this.officeadd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.officeadd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officeadd.Location = new System.Drawing.Point(313, 154);
+            this.officeadd.MaxLength = 50;
+            this.officeadd.Multiline = true;
+            this.officeadd.Name = "officeadd";
+            this.officeadd.Size = new System.Drawing.Size(154, 26);
+            this.officeadd.TabIndex = 69;
+            // 
+            // contactper
+            // 
+            this.contactper.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.contactper.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactper.Location = new System.Drawing.Point(313, 120);
+            this.contactper.MaxLength = 50;
+            this.contactper.Multiline = true;
+            this.contactper.Name = "contactper";
+            this.contactper.Size = new System.Drawing.Size(154, 26);
+            this.contactper.TabIndex = 68;
+            // 
+            // orgaff
+            // 
+            this.orgaff.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.orgaff.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orgaff.Location = new System.Drawing.Point(313, 83);
+            this.orgaff.MaxLength = 50;
+            this.orgaff.Multiline = true;
+            this.orgaff.Name = "orgaff";
+            this.orgaff.Size = new System.Drawing.Size(154, 26);
+            this.orgaff.TabIndex = 67;
+            // 
+            // philhealthno
+            // 
+            this.philhealthno.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.philhealthno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.philhealthno.Location = new System.Drawing.Point(313, 359);
+            this.philhealthno.MaxLength = 50;
+            this.philhealthno.Multiline = true;
+            this.philhealthno.Name = "philhealthno";
+            this.philhealthno.Size = new System.Drawing.Size(154, 26);
+            this.philhealthno.TabIndex = 66;
+            // 
+            // gsisno
+            // 
+            this.gsisno.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gsisno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gsisno.Location = new System.Drawing.Point(313, 324);
+            this.gsisno.MaxLength = 50;
+            this.gsisno.Multiline = true;
+            this.gsisno.Name = "gsisno";
+            this.gsisno.Size = new System.Drawing.Size(154, 26);
+            this.gsisno.TabIndex = 65;
+            // 
+            // sssno
+            // 
+            this.sssno.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sssno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sssno.Location = new System.Drawing.Point(313, 287);
+            this.sssno.MaxLength = 50;
+            this.sssno.Multiline = true;
+            this.sssno.Name = "sssno";
+            this.sssno.Size = new System.Drawing.Size(154, 26);
+            this.sssno.TabIndex = 64;
+            // 
+            // philhealthstatus
+            // 
+            this.philhealthstatus.BackColor = System.Drawing.SystemColors.Window;
+            this.philhealthstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.philhealthstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.philhealthstatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.philhealthstatus.FormattingEnabled = true;
+            this.philhealthstatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.philhealthstatus.Items.AddRange(new object[] {
+            "",
+            "Member",
+            "Member Dependent"});
+            this.philhealthstatus.Location = new System.Drawing.Point(478, 361);
+            this.philhealthstatus.Name = "philhealthstatus";
+            this.philhealthstatus.Size = new System.Drawing.Size(150, 23);
+            this.philhealthstatus.TabIndex = 63;
+            this.philhealthstatus.SelectedIndexChanged += new System.EventHandler(this.philhealthstatus_SelectedIndexChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(138, 370);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(92, 15);
+            this.label43.TabIndex = 61;
+            this.label43.Text = "PhilHealth No. :";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(138, 335);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(63, 15);
+            this.label44.TabIndex = 59;
+            this.label44.Text = "GSIS No. :";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(138, 299);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(59, 15);
+            this.label45.TabIndex = 57;
+            this.label45.Text = "SSS No. :";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(138, 201);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(93, 15);
+            this.label42.TabIndex = 55;
+            this.label42.Text = "Telephone No. :";
+            // 
+            // btn_prev4
+            // 
+            this.btn_prev4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_prev4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prev4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prev4.Location = new System.Drawing.Point(552, 452);
+            this.btn_prev4.Name = "btn_prev4";
+            this.btn_prev4.Size = new System.Drawing.Size(81, 29);
+            this.btn_prev4.TabIndex = 53;
+            this.btn_prev4.Text = "PREVIOUS";
+            this.btn_prev4.UseVisualStyleBackColor = true;
+            this.btn_prev4.Click += new System.EventHandler(this.prev5_Click);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(108, 241);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(238, 30);
+            this.label36.TabIndex = 35;
+            this.label36.Text = "OTHER INFORMATION";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SAD_2_PTT.Properties.Resources.num8;
+            this.pictureBox7.Location = new System.Drawing.Point(32, 223);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox7.TabIndex = 34;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(138, 165);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(92, 15);
+            this.label37.TabIndex = 33;
+            this.label37.Text = "Office Address :";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(138, 131);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(98, 15);
+            this.label38.TabIndex = 31;
+            this.label38.Text = "Contact Person :";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(138, 94);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(127, 15);
+            this.label39.TabIndex = 5;
+            this.label39.Text = "Organization Affliated :";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(108, 40);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(359, 30);
+            this.label40.TabIndex = 4;
+            this.label40.Text = "ORGANIZATIONAL INFORMATION";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::SAD_2_PTT.Properties.Resources.num7;
+            this.pictureBox8.Location = new System.Drawing.Point(32, 22);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(69, 71);
+            this.pictureBox8.TabIndex = 3;
+            this.pictureBox8.TabStop = false;
+            // 
+            // btn_next5
+            // 
+            this.btn_next5.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_next5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_next5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_next5.Location = new System.Drawing.Point(657, 452);
+            this.btn_next5.Name = "btn_next5";
+            this.btn_next5.Size = new System.Drawing.Size(68, 29);
+            this.btn_next5.TabIndex = 2;
+            this.btn_next5.Text = "NEXT";
+            this.btn_next5.UseVisualStyleBackColor = false;
+            this.btn_next5.Click += new System.EventHandler(this.next5_Click);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.SystemColors.Window;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label41.Location = new System.Drawing.Point(28, 455);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(50, 21);
+            this.label41.TabIndex = 0;
+            this.label41.Text = "5 of 6";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Location = new System.Drawing.Point(310, 204);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(162, 15);
+            this.label69.TabIndex = 74;
+            this.label69.Text = "_______________________________";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(310, 168);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(162, 15);
+            this.label68.TabIndex = 73;
+            this.label68.Text = "_______________________________";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(310, 134);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(162, 15);
+            this.label67.TabIndex = 72;
+            this.label67.Text = "_______________________________";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(310, 97);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(162, 15);
+            this.label66.TabIndex = 71;
+            this.label66.Text = "_______________________________";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.Location = new System.Drawing.Point(310, 373);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(162, 15);
+            this.label72.TabIndex = 77;
+            this.label72.Text = "_______________________________";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.Location = new System.Drawing.Point(310, 338);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(162, 15);
+            this.label71.TabIndex = 76;
+            this.label71.Text = "_______________________________";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.Location = new System.Drawing.Point(310, 301);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(162, 15);
+            this.label70.TabIndex = 75;
+            this.label70.Text = "_______________________________";
             // 
             // pnl6
             // 
@@ -2056,357 +2400,6 @@
             this.label85.TabIndex = 54;
             this.label85.Text = "____________________________________________________";
             // 
-            // pnl5
-            // 
-            this.pnl5.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl5.Controls.Add(this.orgtelno);
-            this.pnl5.Controls.Add(this.officeadd);
-            this.pnl5.Controls.Add(this.contactper);
-            this.pnl5.Controls.Add(this.orgaff);
-            this.pnl5.Controls.Add(this.philhealthno);
-            this.pnl5.Controls.Add(this.gsisno);
-            this.pnl5.Controls.Add(this.sssno);
-            this.pnl5.Controls.Add(this.philhealthstatus);
-            this.pnl5.Controls.Add(this.label43);
-            this.pnl5.Controls.Add(this.label44);
-            this.pnl5.Controls.Add(this.label45);
-            this.pnl5.Controls.Add(this.label42);
-            this.pnl5.Controls.Add(this.btn_prev4);
-            this.pnl5.Controls.Add(this.label36);
-            this.pnl5.Controls.Add(this.pictureBox7);
-            this.pnl5.Controls.Add(this.label37);
-            this.pnl5.Controls.Add(this.label38);
-            this.pnl5.Controls.Add(this.label39);
-            this.pnl5.Controls.Add(this.label40);
-            this.pnl5.Controls.Add(this.pictureBox8);
-            this.pnl5.Controls.Add(this.btn_next5);
-            this.pnl5.Controls.Add(this.label41);
-            this.pnl5.Controls.Add(this.label69);
-            this.pnl5.Controls.Add(this.label68);
-            this.pnl5.Controls.Add(this.label67);
-            this.pnl5.Controls.Add(this.label66);
-            this.pnl5.Controls.Add(this.label72);
-            this.pnl5.Controls.Add(this.label71);
-            this.pnl5.Controls.Add(this.label70);
-            this.pnl5.Location = new System.Drawing.Point(0, 0);
-            this.pnl5.Name = "pnl5";
-            this.pnl5.Size = new System.Drawing.Size(757, 500);
-            this.pnl5.TabIndex = 54;
-            this.pnl5.Visible = false;
-            // 
-            // orgtelno
-            // 
-            this.orgtelno.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.orgtelno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orgtelno.Location = new System.Drawing.Point(313, 190);
-            this.orgtelno.MaxLength = 50;
-            this.orgtelno.Multiline = true;
-            this.orgtelno.Name = "orgtelno";
-            this.orgtelno.Size = new System.Drawing.Size(154, 26);
-            this.orgtelno.TabIndex = 70;
-            // 
-            // officeadd
-            // 
-            this.officeadd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.officeadd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officeadd.Location = new System.Drawing.Point(313, 154);
-            this.officeadd.MaxLength = 50;
-            this.officeadd.Multiline = true;
-            this.officeadd.Name = "officeadd";
-            this.officeadd.Size = new System.Drawing.Size(154, 26);
-            this.officeadd.TabIndex = 69;
-            // 
-            // contactper
-            // 
-            this.contactper.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contactper.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactper.Location = new System.Drawing.Point(313, 120);
-            this.contactper.MaxLength = 50;
-            this.contactper.Multiline = true;
-            this.contactper.Name = "contactper";
-            this.contactper.Size = new System.Drawing.Size(154, 26);
-            this.contactper.TabIndex = 68;
-            // 
-            // orgaff
-            // 
-            this.orgaff.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.orgaff.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orgaff.Location = new System.Drawing.Point(313, 83);
-            this.orgaff.MaxLength = 50;
-            this.orgaff.Multiline = true;
-            this.orgaff.Name = "orgaff";
-            this.orgaff.Size = new System.Drawing.Size(154, 26);
-            this.orgaff.TabIndex = 67;
-            // 
-            // philhealthno
-            // 
-            this.philhealthno.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.philhealthno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.philhealthno.Location = new System.Drawing.Point(313, 359);
-            this.philhealthno.MaxLength = 50;
-            this.philhealthno.Multiline = true;
-            this.philhealthno.Name = "philhealthno";
-            this.philhealthno.Size = new System.Drawing.Size(154, 26);
-            this.philhealthno.TabIndex = 66;
-            // 
-            // gsisno
-            // 
-            this.gsisno.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gsisno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gsisno.Location = new System.Drawing.Point(313, 324);
-            this.gsisno.MaxLength = 50;
-            this.gsisno.Multiline = true;
-            this.gsisno.Name = "gsisno";
-            this.gsisno.Size = new System.Drawing.Size(154, 26);
-            this.gsisno.TabIndex = 65;
-            // 
-            // sssno
-            // 
-            this.sssno.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.sssno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sssno.Location = new System.Drawing.Point(313, 287);
-            this.sssno.MaxLength = 50;
-            this.sssno.Multiline = true;
-            this.sssno.Name = "sssno";
-            this.sssno.Size = new System.Drawing.Size(154, 26);
-            this.sssno.TabIndex = 64;
-            // 
-            // philhealthstatus
-            // 
-            this.philhealthstatus.BackColor = System.Drawing.SystemColors.Window;
-            this.philhealthstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.philhealthstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.philhealthstatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.philhealthstatus.FormattingEnabled = true;
-            this.philhealthstatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.philhealthstatus.Items.AddRange(new object[] {
-            "",
-            "Member",
-            "Member Dependent"});
-            this.philhealthstatus.Location = new System.Drawing.Point(478, 361);
-            this.philhealthstatus.Name = "philhealthstatus";
-            this.philhealthstatus.Size = new System.Drawing.Size(150, 23);
-            this.philhealthstatus.TabIndex = 63;
-            this.philhealthstatus.SelectedIndexChanged += new System.EventHandler(this.philhealthstatus_SelectedIndexChanged);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(138, 370);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(92, 15);
-            this.label43.TabIndex = 61;
-            this.label43.Text = "PhilHealth No. :";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(138, 335);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(63, 15);
-            this.label44.TabIndex = 59;
-            this.label44.Text = "GSIS No. :";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(138, 299);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(59, 15);
-            this.label45.TabIndex = 57;
-            this.label45.Text = "SSS No. :";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(138, 201);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(93, 15);
-            this.label42.TabIndex = 55;
-            this.label42.Text = "Telephone No. :";
-            // 
-            // btn_prev4
-            // 
-            this.btn_prev4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btn_prev4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_prev4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_prev4.Location = new System.Drawing.Point(552, 452);
-            this.btn_prev4.Name = "btn_prev4";
-            this.btn_prev4.Size = new System.Drawing.Size(81, 29);
-            this.btn_prev4.TabIndex = 53;
-            this.btn_prev4.Text = "PREVIOUS";
-            this.btn_prev4.UseVisualStyleBackColor = true;
-            this.btn_prev4.Click += new System.EventHandler(this.prev5_Click);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(108, 241);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(238, 30);
-            this.label36.TabIndex = 35;
-            this.label36.Text = "OTHER INFORMATION";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::SAD_2_PTT.Properties.Resources.num8;
-            this.pictureBox7.Location = new System.Drawing.Point(32, 223);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox7.TabIndex = 34;
-            this.pictureBox7.TabStop = false;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(138, 165);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(92, 15);
-            this.label37.TabIndex = 33;
-            this.label37.Text = "Office Address :";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(138, 131);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(98, 15);
-            this.label38.TabIndex = 31;
-            this.label38.Text = "Contact Person :";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(138, 94);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(127, 15);
-            this.label39.TabIndex = 5;
-            this.label39.Text = "Organization Affliated :";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(108, 40);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(359, 30);
-            this.label40.TabIndex = 4;
-            this.label40.Text = "ORGANIZATIONAL INFORMATION";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::SAD_2_PTT.Properties.Resources.num7;
-            this.pictureBox8.Location = new System.Drawing.Point(32, 22);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(69, 71);
-            this.pictureBox8.TabIndex = 3;
-            this.pictureBox8.TabStop = false;
-            // 
-            // btn_next5
-            // 
-            this.btn_next5.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_next5.Enabled = false;
-            this.btn_next5.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btn_next5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_next5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_next5.Location = new System.Drawing.Point(657, 452);
-            this.btn_next5.Name = "btn_next5";
-            this.btn_next5.Size = new System.Drawing.Size(68, 29);
-            this.btn_next5.TabIndex = 2;
-            this.btn_next5.Text = "NEXT";
-            this.btn_next5.UseVisualStyleBackColor = false;
-            this.btn_next5.Click += new System.EventHandler(this.next5_Click);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.BackColor = System.Drawing.SystemColors.Window;
-            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label41.Location = new System.Drawing.Point(28, 455);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(50, 21);
-            this.label41.TabIndex = 0;
-            this.label41.Text = "5 of 6";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(310, 204);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(162, 15);
-            this.label69.TabIndex = 74;
-            this.label69.Text = "_______________________________";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.Location = new System.Drawing.Point(310, 168);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(162, 15);
-            this.label68.TabIndex = 73;
-            this.label68.Text = "_______________________________";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(310, 134);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(162, 15);
-            this.label67.TabIndex = 72;
-            this.label67.Text = "_______________________________";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(310, 97);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(162, 15);
-            this.label66.TabIndex = 71;
-            this.label66.Text = "_______________________________";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.Location = new System.Drawing.Point(310, 373);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(162, 15);
-            this.label72.TabIndex = 77;
-            this.label72.Text = "_______________________________";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.Location = new System.Drawing.Point(310, 338);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(162, 15);
-            this.label71.TabIndex = 76;
-            this.label71.Text = "_______________________________";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.Location = new System.Drawing.Point(310, 301);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(162, 15);
-            this.label70.TabIndex = 75;
-            this.label70.Text = "_______________________________";
-            // 
             // pwd_add_back
             // 
             this.pwd_add_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
@@ -2468,13 +2461,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnl_container.ResumeLayout(false);
-            this.pnl6.ResumeLayout(false);
-            this.pnl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.pnl5.ResumeLayout(false);
             this.pnl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.pnl6.ResumeLayout(false);
+            this.pnl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
