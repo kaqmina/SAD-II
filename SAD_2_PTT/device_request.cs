@@ -256,7 +256,7 @@ namespace SAD_2_PTT
         #region Buttons
 
         #region Add
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             Add();
         }
@@ -306,7 +306,10 @@ namespace SAD_2_PTT
         #endregion
 
         #region Edit
-       
+        public void button3_Click(object sender, EventArgs e)
+        {
+
+        }
         //UPDATE device_log SET dp_id = '" + + "', device_id = '" + + "',req_date = '" + + "', req_desc = '" + + "', date_in = '" + + "', date_out = '" + + "' WHERE pwd_id = '" + + "',con
         #endregion
 
