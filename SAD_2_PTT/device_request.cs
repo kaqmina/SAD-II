@@ -14,7 +14,6 @@ namespace SAD_2_PTT
     public partial class device_request : Form
     {
         #region Declaration
-
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
 
@@ -28,12 +27,17 @@ namespace SAD_2_PTT
         {
             this.Close();
         }
+        private void startup_opacity_Tick_1(object sender, EventArgs e)
+        {
+            this.Opacity += 0.1;
+        }
+
         private void device_request_FormClosing(object sender, FormClosingEventArgs e)
         {
             reference_to_main.side_tab.Enabled = true;
             reference_to_main.dboard_head.Enabled = true;
         }
-        // -- opacity
+
         private void txt_search_Enter(object sender, EventArgs e)
         {
             txt_search.Clear();
@@ -53,6 +57,9 @@ namespace SAD_2_PTT
             request_date.Value = DateTime.Now;
             date_in.Value = DateTime.Now;
             date_out.Value = DateTime.Now;
+
+            this.Opacity = 0;
+            startup_opacity.Start();
         }
 
         #region Methods
@@ -277,16 +284,18 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("INSERT INTO device_log(dp_id,pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
-                com.ExecuteNonQuery();
-                con.Close();
-
-                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
-                if(cmbox_dis.Text == "")
+                if (cmbox_dis.Text == "")
                 {
                     MessageBox.Show("No status selected.", "", MessageBoxButtons.OK);
                 }
+                else
+                {
+                    MySqlCommand com = new MySqlCommand("INSERT INTO device_log(dp_id,pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
+                    com.ExecuteNonQuery();
+                    con.Close();
 
+                    MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                }
             }
             catch (Exception ex)
             {

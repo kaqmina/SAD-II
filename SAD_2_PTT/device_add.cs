@@ -165,7 +165,6 @@ namespace SAD_2_PTT
                 button1.Enabled = false;
                 button2.BringToFront();
 
-
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 d_name = row.Cells["dev_name"].Value.ToString();
                 d_desc = row.Cells["dev_desc"].Value.ToString();
@@ -174,7 +173,7 @@ namespace SAD_2_PTT
 
                 //disability id
                 int d = 0;
-                d = Convert.ToInt32(row.Cells["disability_id"].Value.ToString());
+                d = Convert.ToInt32(row.Cells["disability_id"].Value);
                 int dd = d - 1;
                 d_dis = cmbox_dis.Items[dd].ToString();
 
