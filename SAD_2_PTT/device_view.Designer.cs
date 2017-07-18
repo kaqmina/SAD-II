@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_edit = new System.Windows.Forms.Panel();
             this.lbl_reqdate = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbl_reg = new System.Windows.Forms.Label();
@@ -45,8 +45,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_type = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnl_edit.SuspendLayout();
             this.SuspendLayout();
             // 
             // bar
@@ -89,23 +92,24 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(19, 117);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(547, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(821, 365);
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -114,7 +118,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(104, 338);
+            this.button1.Location = new System.Drawing.Point(285, 316);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 27);
             this.button1.TabIndex = 18;
@@ -122,24 +126,27 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
+            // pnl_edit
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.lbl_reqdate);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.lbl_reg);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.lbl_status);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.lbl_desc);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lbl_name);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(572, 117);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(271, 384);
-            this.panel1.TabIndex = 19;
+            this.pnl_edit.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_edit.Controls.Add(this.button2);
+            this.pnl_edit.Controls.Add(this.txt_type);
+            this.pnl_edit.Controls.Add(this.label16);
+            this.pnl_edit.Controls.Add(this.lbl_reqdate);
+            this.pnl_edit.Controls.Add(this.label10);
+            this.pnl_edit.Controls.Add(this.lbl_reg);
+            this.pnl_edit.Controls.Add(this.label8);
+            this.pnl_edit.Controls.Add(this.lbl_status);
+            this.pnl_edit.Controls.Add(this.button1);
+            this.pnl_edit.Controls.Add(this.label6);
+            this.pnl_edit.Controls.Add(this.lbl_desc);
+            this.pnl_edit.Controls.Add(this.label4);
+            this.pnl_edit.Controls.Add(this.lbl_name);
+            this.pnl_edit.Controls.Add(this.label2);
+            this.pnl_edit.Location = new System.Drawing.Point(19, 117);
+            this.pnl_edit.Name = "pnl_edit";
+            this.pnl_edit.Size = new System.Drawing.Size(824, 365);
+            this.pnl_edit.TabIndex = 19;
             // 
             // lbl_reqdate
             // 
@@ -171,7 +178,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 20);
+            this.label8.Location = new System.Drawing.Point(219, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 15);
             this.label8.TabIndex = 19;
@@ -231,16 +238,49 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Name :";
             // 
+            // txt_type
+            // 
+            this.txt_type.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_type.Location = new System.Drawing.Point(325, 29);
+            this.txt_type.Multiline = true;
+            this.txt_type.Name = "txt_type";
+            this.txt_type.Size = new System.Drawing.Size(240, 21);
+            this.txt_type.TabIndex = 29;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(323, 39);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(242, 15);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "_______________________________________________";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(406, 316);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 27);
+            this.button2.TabIndex = 31;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 517);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.pnl_edit);
+            this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_view";
@@ -248,8 +288,8 @@
             this.Text = "device_view";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_view_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnl_edit.ResumeLayout(false);
+            this.pnl_edit.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,16 +302,19 @@
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_edit;
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_reqdate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lbl_reg;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbl_status;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_desc;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_reg;
+        private System.Windows.Forms.TextBox txt_type;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button2;
     }
 }

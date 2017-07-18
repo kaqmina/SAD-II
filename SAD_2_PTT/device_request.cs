@@ -282,6 +282,10 @@ namespace SAD_2_PTT
                 con.Close();
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                if(cmbox_dis.Text == "")
+                {
+                    MessageBox.Show("No status selected.", "", MessageBoxButtons.OK);
+                }
 
             }
             catch (Exception ex)
@@ -303,14 +307,6 @@ namespace SAD_2_PTT
             date_in.Value = DateTime.Now;
             date_out.Value = DateTime.Now;
         }
-        #endregion
-
-        #region Edit
-        public void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-        //UPDATE device_log SET dp_id = '" + + "', device_id = '" + + "',req_date = '" + + "', req_desc = '" + + "', date_in = '" + + "', date_out = '" + + "' WHERE pwd_id = '" + + "',con
         #endregion
 
         #endregion

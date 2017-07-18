@@ -55,11 +55,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bar = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.pnl_search = new System.Windows.Forms.Panel();
             this.button45 = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.pnl_name.SuspendLayout();
             this.pnl_reqform.SuspendLayout();
             this.pnl_status.SuspendLayout();
@@ -384,19 +382,6 @@
             this.bar.Size = new System.Drawing.Size(938, 33);
             this.bar.TabIndex = 13;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(576, 473);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // pnl_search
             // 
             this.pnl_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -432,18 +417,6 @@
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(576, 473);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 43;
-            this.button4.Text = "Edit";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // device_request
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,8 +432,6 @@
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_close);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -510,10 +481,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel bar;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel pnl_search;
         private System.Windows.Forms.Button button45;
         private System.Windows.Forms.TextBox txt_search;
-        private System.Windows.Forms.Button button4;
     }
 }

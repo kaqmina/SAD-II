@@ -29,18 +29,13 @@ namespace SAD_2_PTT
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //edit button
-            this.Close(); 
-           // dev_req.Controls["button1"].SendToBack(); 
-        }
-
+     
         private void device_view_FormClosing(object sender, FormClosingEventArgs e)
         {      
                 reference_to_main.side_tab.Enabled = true;
                 reference_to_main.dboard_head.Enabled = true;
         }
+
         #endregion
 
         #region FormLoad
@@ -58,7 +53,7 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, deviceLOG_id, registration_no, date_in, date_out, req_date, dev_name, dp_name, req_desc, status, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name FROM device_log"
+                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, status FROM device_log"
                                                     + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id" 
                                                     + " JOIN device ON device_log.device_id = device.device_id"
                                                     + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id", con);
@@ -71,8 +66,8 @@ namespace SAD_2_PTT
                 dataGridView1.Columns["deviceLOG_id"].Visible = false;
                 dataGridView1.Columns["req_desc"].Visible = false;
                 dataGridView1.Columns["status"].Visible = false;
-                dataGridView1.Columns["pwd_name"].Visible = false;
                 dataGridView1.Columns["registration_no"].HeaderText = "Reg. No.";
+                dataGridView1.Columns["pwd_name"].HeaderText = "Name";
                 dataGridView1.Columns["date_in"].HeaderText = "Date IN";
                 dataGridView1.Columns["date_out"].HeaderText = "Date OUT";
                 dataGridView1.Columns["dev_name"].HeaderText = "Device";
@@ -98,6 +93,7 @@ namespace SAD_2_PTT
             else
             {
                 //btn edit true
+                //Edit();
                 button1.Enabled = true;
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
@@ -120,6 +116,21 @@ namespace SAD_2_PTT
                 lbl_reg.Text = reg_no;
             }
 
+        }
+        #endregion
+        #region Edit
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Edit();
+        }
+
+        //UPDATE device_log SET dp_id = '" + + "', device_id = '" + + "',req_date = '" + + "', req_desc = '" + + "', date_in = '" + + "', date_out = '" + + "' WHERE pwd_id = '" + + "',con
+        #endregion
+
+        #region Cancel
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.BringToFront();
         }
         #endregion
     }
