@@ -17,9 +17,9 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         public device_add to_edit;
 
-        String p_name, req_desc, status, reg_no, d_dis, d_dev, d_prov;
+        String p_name, req_desc, status, reg_no, d_dis, d_dev, d_prov,dev;
         DateTime req_date, date_IN, date_OUT;
-        int stat, log_id;
+        int stat, id;
 
         public main_form reference_to_main { get; set; }
         public device_request dev_req { get; set; }
@@ -67,7 +67,7 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, status FROM device_log"
+                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, status FROM device_log"
                                                     + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id" 
                                                     + " JOIN device ON device_log.device_id = device.device_id"
                                                     + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id", con);
@@ -79,6 +79,7 @@ namespace SAD_2_PTT
                 dataGridView1.Columns["pwd_id"].Visible = false;
                 dataGridView1.Columns["dp_id"].Visible = false;
                 dataGridView1.Columns["device_id"].Visible = false;
+                dataGridView1.Columns["disability_id"].Visible = false;
                 dataGridView1.Columns["deviceLOG_id"].Visible = false;
                 dataGridView1.Columns["req_desc"].Visible = false;
                 dataGridView1.Columns["status"].Visible = false;
@@ -126,6 +127,7 @@ namespace SAD_2_PTT
                 con.Close();
             }
         }
+
 
         private void getDevice()
         {
@@ -210,11 +212,17 @@ namespace SAD_2_PTT
                 #endregion
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+
+                //device_logID
+                int log_id = 0;
                 log_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
+                id = log_id;
+                
                 p_name = row.Cells["pwd_name"].Value.ToString();
                 req_desc = row.Cells["req_desc"].Value.ToString();
                 status = row.Cells["status"].Value.ToString();
                 reg_no = row.Cells["registration_no"].Value.ToString();
+                dev = row.Cells["dev_name"].Value.ToString();
 
                 //DateTime Values
                 req_date = Convert.ToDateTime(row.Cells["req_date"].Value.ToString());
@@ -231,22 +239,18 @@ namespace SAD_2_PTT
                 //pass to pnl_edit
 
                 //disability id [cmbox_dis]
-                //int d = 0;
-                //d = Convert.ToInt32(row.Cells["disability_id"].Value);
-                //int dd = d - 1;
-               // d_dis = cmbox_dis.Items[dd].ToString();
+                int d = 0;
+                d = Convert.ToInt32(row.Cells["disability_id"].Value);
+                d_dis = cmbox_dis.Items[d].ToString();
 
                 //device [cmbox_dev]
-               // int d1 = 0;
-               // d1 = Convert.ToInt32(row.Cells["device_id"].Value);
-               // int dd1 = d1 - 1;
-               // d_dev = cmbox_dev.Items[dd1].ToString();
+                cmbox_dev.SelectedValue = dev;
+               
 
                 //device provider [cmbox_prov]
                 int d2 = 0;
                 d2 = Convert.ToInt32(row.Cells["dp_id"].Value);
-                int dd2 = d2 - 1;
-                d_prov = cmbox_prov.Items[dd2].ToString();
+                d_prov = cmbox_prov.Items[d2].ToString();
 
                 //DateTime Values
                 request_date.Format.ToString("d");
@@ -258,8 +262,8 @@ namespace SAD_2_PTT
 
                 //other values
                 txt_desc.Text = req_desc;
-                //cmbox_dis.Text = d_dis;
-                //cmbox_dev.Text = d_dev;
+                cmbox_dis.Text = d_dis;
+                cmbox_dev.Text = dev;
                 cmbox_prov.Text = d_prov;
 
             }
@@ -268,11 +272,37 @@ namespace SAD_2_PTT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Edit();
+            Edit();
         }
 
-        //UPDATE device_log SET dp_id = '" + + "', device_id = '" + + "',req_date = '" + + "', req_desc = '" + + "', date_in = '" + + "', date_out = '" + + "' WHERE pwd_id = '" + + "',con
-        #endregion
+        private void Edit()
+        {
+            req_desc = txt_desc.Text;
+            d_dis = cmbox_dis.Text;
+            d_dev = cmbox_dev.Text;
+            d_prov = cmbox_prov.Text;
+            req_date = request_date.Value.Date;
+            date_IN = date_in.Value.Date;
+            date_OUT = date_out.Value.Date;
+            try
+            {
+                con.Open();
+
+                MySqlCommand com = new MySqlCommand("UPDATE device_log SET dp_id = '" + d_prov + "', device_id = '" + d_dev + "', req_date = '" + req_date.ToString("YYYY-MM-dd") + "', req_desc = '" + req_desc + "', date_in = '" + date_IN.ToString("YYYY-MM-dd") + "', date_out = '" + date_OUT.ToString("YYYY-MM-dd")+ "' WHERE deviceLOG_id = '" + id + "'", con);
+                com.ExecuteNonQuery();
+                con.Close();
+                DataLoad();
+
+                MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Update() : " + ex);
+                con.Close();
+            }
+            
+        }
+       #endregion
 
         #region Cancel
         private void button2_Click(object sender, EventArgs e)
