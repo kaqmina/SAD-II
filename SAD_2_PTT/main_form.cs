@@ -130,7 +130,6 @@ namespace SAD_2_PTT
             int y = 589;
 
             //size
-            //sidenav.Size = new Size(212, 608); <-- naga-error kasi 
             main_tab.Size = new Size(71, 608); //283, 608 <-- main_tab Size
             side_tab.Size = new Size(71, 608); //1069, 589 <-- panels
             pnl_dashboard.Size = new Size(x, y);
