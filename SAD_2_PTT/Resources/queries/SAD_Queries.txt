@@ -10,3 +10,7 @@ var picture = picturetoDB(addpicture.BackgroundImage);
 var parameter = new MySqlParameter("@Image", MySqlDbType.Blob, picture.length);
 parameter.Value = picture;
 comm.Parameters.Add(parameter);
+
+UPDATE
+
+VIEW

@@ -91,21 +91,21 @@ namespace SAD_2_PTT
         
         public DataTable pwd_view_profile (int current_id)
         {
+            DataTable set = new DataTable();
             try
             {
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM pwd where pwd_id = " + current_id);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
-                DataTable set = new DataTable();
-                get.Fill(set);
                 
+                get.Fill(set);
                 conn.Close();
                 return set;
             } catch (Exception e)
             {
                 conn.Close();
-                return set;
                 MessageBox.Show(e.Message);
+                return set;
             }
 
             

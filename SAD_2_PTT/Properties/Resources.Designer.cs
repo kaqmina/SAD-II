@@ -205,7 +205,7 @@ namespace SAD_2_PTT.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap footer_jyplogo {
             get {
-                object obj = ResourceManager.GetObject("footer-jyplogo", resourceCulture);
+                object obj = ResourceManager.GetObject("footer_jyplogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

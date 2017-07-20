@@ -122,6 +122,7 @@ namespace SAD_2_PTT
             lbl_current_text("dashboard");
             startup_opacity.Start();
             pwd_data();
+            pnl_notif_pp.BringToFront();
         }
 
         private void main_properties()
