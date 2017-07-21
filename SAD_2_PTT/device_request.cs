@@ -290,7 +290,7 @@ namespace SAD_2_PTT
                 }
                 else
                 {
-                    MySqlCommand com = new MySqlCommand("INSERT INTO device_log(dp_id,pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
+                    MySqlCommand com = new MySqlCommand("INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
                     com.ExecuteNonQuery();
                     con.Close();
 
