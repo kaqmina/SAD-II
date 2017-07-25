@@ -19,8 +19,10 @@ namespace SAD_2_PTT
             //initialize color tab button 
             btn_tab1.BackColor = Color.White;
         }
+
         public main_form reference_to_main { get; set; }
         main_functions main_f = new main_functions();
+        connections conn = new connections();
         public int current_pwd = 0;
 
         private void pwd_view_back_Click(object sender, EventArgs e)
@@ -83,6 +85,9 @@ namespace SAD_2_PTT
 
         public void pwd_load_data(int current_pwd)
         {
+            DataTable set = new DataTable();
+            set = conn.pwd_view_profile(current_pwd);
+
 
         }
     }
