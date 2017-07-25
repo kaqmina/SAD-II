@@ -19,7 +19,7 @@ namespace SAD_2_PTT
 
         String p_name, req_desc, status, reg_no, d_dis, d_dev, d_prov,dev;
         DateTime req_date, date_IN, date_OUT;
-        int stat, id;
+        int stat, id, dev_id;
 
         public main_form reference_to_main { get; set; }
         public device_request dev_req { get; set; }
@@ -41,6 +41,13 @@ namespace SAD_2_PTT
                 reference_to_main.side_tab.Enabled = true;
                 reference_to_main.dboard_head.Enabled = true;
         }
+
+        private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string device = cmbox_dev.SelectedText;
+            getDeviceID(device);
+        }
+
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
             getDevice();
@@ -191,6 +198,31 @@ namespace SAD_2_PTT
                 con.Close();
             }
         }
+
+        private void getDeviceID(string device)
+        {
+            MySqlCommand com = new MySqlCommand("SELECT device_log.device_id FROM device_log JOIN device ON p_dao.device_log.device_id = p_dao.device.device_id WHERE p_dao.device.dev_name = '" + device + "'", con);
+            MySqlDataReader dr;
+
+            try
+            {
+                con.Open();
+                dr = com.ExecuteReader();
+
+                while (dr.Read())
+                {
+                     dev_id = dr.GetInt32("device_id");
+                }  
+               
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getDeviceID() : " + ex);
+                con.Close();
+            }
+        }
+
         #endregion
 
         #endregion
@@ -279,8 +311,8 @@ namespace SAD_2_PTT
         {
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
-            d_dev = cmbox_dev.Text;
-            d_prov = cmbox_prov.Text;
+            d_dev = dev_id.ToString();
+            d_prov = cmbox_prov.SelectedIndex.ToString();
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
             date_OUT = date_out.Value.Date;
@@ -288,7 +320,7 @@ namespace SAD_2_PTT
             {
                 con.Open();
 
-                MySqlCommand com = new MySqlCommand("UPDATE device_log SET dp_id = '" + d_prov + "', device_id = '" + d_dev + "', req_date = '" + req_date.ToString("YYYY-MM-dd") + "', req_desc = '" + req_desc + "', date_in = '" + date_IN.ToString("YYYY-MM-dd") + "', date_out = '" + date_OUT.ToString("YYYY-MM-dd")+ "' WHERE deviceLOG_id = '" + id + "'", con);
+                MySqlCommand com = new MySqlCommand("UPDATE device_log SET dp_id = '" + d_prov + "', device_log.device_id = '" + d_dev + "', req_date = '" + req_date.ToString("yyyy-MM-dd") + "', req_desc = '" + req_desc + "', date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', date_out = '" + date_OUT.ToString("yyyy-MM-dd")+ "' WHERE deviceLOG_id = '" + id + "'", con);
                 com.ExecuteNonQuery();
                 con.Close();
                 DataLoad();
@@ -300,7 +332,7 @@ namespace SAD_2_PTT
                 MessageBox.Show("Error in Update() : " + ex);
                 con.Close();
             }
-            
+           
         }
        #endregion
 
