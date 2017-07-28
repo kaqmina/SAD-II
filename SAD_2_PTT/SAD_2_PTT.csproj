@@ -314,5 +314,8 @@
   <ItemGroup>
     <None Include="Resources\footer-jyplogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\queries\SAD_Queries.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

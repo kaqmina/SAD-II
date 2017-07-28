@@ -22,7 +22,7 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM pwd WHERE isArchived = 0", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, registration_no, CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, (CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, disability_id, blood_type, (CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, application_date, added_date FROM pwd WHERE isArchived = 0", conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -67,7 +67,7 @@ namespace SAD_2_PTT
             } catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message); //error
             }
         }
 
@@ -88,5 +88,25 @@ namespace SAD_2_PTT
             }
         }
         #endregion
+        
+        public DataTable pwd_view_profile (int current_id)
+        {
+            DataTable set = new DataTable();
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM pwd where pwd_id = " + current_id);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                
+                get.Fill(set);
+                conn.Close();
+                return set;
+            } catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.Message); //error
+                return set;
+            }
+        }
     }
 }

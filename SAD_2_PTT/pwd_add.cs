@@ -373,8 +373,6 @@ namespace SAD_2_PTT
             variables = " VALUES ('" + lastname + "', '" + firstname + "', '" + middlename + "', " + sex + ", " + disability + ", '" + (has + " " + mun + " " + bar + " " + prov + ", " + reg) + "', '" + blood_type + "', '" + dob + "', " + tel_no + ", " + mobile_no + ", '"
             + e_mail + "', " + civil_status + ", '" + natio + "', '" + end_date + "', '"+ (DateTime.Now.ToString("yyyy-MM-dd")) + "', '" + application_date + "', '" + accom + "', " + educ_att + ", " + emp_status + ", " + no_emp + ", " + type_oemp + ", " + to_skill + ")";
 
-            string per;
-            per = " ";
 
             conn.pwd_add_profile(query, variables);
         }

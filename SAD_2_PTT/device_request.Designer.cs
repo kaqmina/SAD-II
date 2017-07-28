@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.pnl_search = new System.Windows.Forms.Panel();
             this.button45 = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
+            this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.pnl_name.SuspendLayout();
             this.pnl_reqform.SuspendLayout();
             this.pnl_status.SuspendLayout();
@@ -417,6 +419,11 @@
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
             // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick_1);
+            // 
             // device_request
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,5 +491,6 @@
         private System.Windows.Forms.Panel pnl_search;
         private System.Windows.Forms.Button button45;
         private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Timer startup_opacity;
     }
 }

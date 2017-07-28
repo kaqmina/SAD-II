@@ -122,6 +122,7 @@ namespace SAD_2_PTT
             lbl_current_text("dashboard");
             startup_opacity.Start();
             pwd_data();
+            pnl_notif_pp.BringToFront();
         }
 
         private void main_properties()
@@ -130,7 +131,6 @@ namespace SAD_2_PTT
             int y = 589;
 
             //size
-            //sidenav.Size = new Size(212, 608); <-- naga-error kasi 
             main_tab.Size = new Size(71, 608); //283, 608 <-- main_tab Size
             side_tab.Size = new Size(71, 608); //1069, 589 <-- panels
             pnl_dashboard.Size = new Size(x, y);
@@ -478,6 +478,7 @@ namespace SAD_2_PTT
         public void pwd_format()
         {
             pwd_grid.Columns["pwd_id"].Visible = false;
+            /* OTHER INFO
             pwd_grid.Columns["employee_id"].Visible = false;
             pwd_grid.Columns["end_date"].Visible = false;
             pwd_grid.Columns["nationality"].Visible = false;
@@ -493,12 +494,10 @@ namespace SAD_2_PTT
             pwd_grid.Columns["type_of_skill"].Visible = false;
             pwd_grid.Columns["status_pwd"].Visible = false;
             pwd_grid.Columns["isArchived"].Visible = false;
-            pwd_grid.Columns["address"].Visible = false;
+            pwd_grid.Columns["address"].Visible = false;*/
 
             pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
-            pwd_grid.Columns["lastname"].HeaderText = "Last Name";
-            pwd_grid.Columns["firstname"].HeaderText = "First Name";
-            pwd_grid.Columns["middlename"].HeaderText = "Middle Name";
+            pwd_grid.Columns["fullname"].HeaderText = "Full Name";
             pwd_grid.Columns["sex"].HeaderText = "Sex";
             pwd_grid.Columns["disability_id"].HeaderText = "Disability";
             pwd_grid.Columns["blood_type"].HeaderText = "Blood Type";

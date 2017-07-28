@@ -1,0 +1,16 @@
+PWD
+
+ADD
+"INSERT INTO pdao.pwd(lastname, firstname, middlename, sex, disability_id, address, blood_type, birthdate, tel_no, mobile_no, email_add, civil_status, nationality, end_date, added_date, application_date, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_skill, status_pwd, type_of_employment)" +
+" VALUES ('" + lastname + "','" + firstname + "','" + middlename + "'," + sex + "," + disability_id + ",'" + address + "','" + blood_type + "','" + birthdate + "'," + tel_no + "," + mobile_no + ",'" + email_add + "'," + civil_status + ",'" + nationality + "','" + end_date + "',"" + added_date + "','" + application_date + "','" +
+ accomplished_by + "'," + educ_attainment + "," employment_status + "," + nature_of_employer + "," + type_of_skill + "," + status_pwd + "," + type_of_employment + ")";
+
+"INSERT INTO pdao.pwd(picture) VALUES ( @Image )";
+var picture = picturetoDB(addpicture.BackgroundImage);
+var parameter = new MySqlParameter("@Image", MySqlDbType.Blob, picture.length);
+parameter.Value = picture;
+comm.Parameters.Add(parameter);
+
+UPDATE
+
+VIEW
