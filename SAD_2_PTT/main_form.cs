@@ -261,6 +261,7 @@ namespace SAD_2_PTT
             else if (activate == "settings")
             {
                 lbl_current.Text = "SETTINGS";
+                pnl_settings.Visible = true;
             }
             else
             {
