@@ -89,23 +89,44 @@ namespace SAD_2_PTT
         }
         #endregion
         
-        public DataTable pwd_view_profile (int current_id)
+        public void pwd_view_profile (int current_id, DataTable set)
         {
-            DataTable set = new DataTable();
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM pwd where pwd_id = " + current_id);
+                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, registration_no, CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, (CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, disability_id, blood_type, (CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, application_date, added_date, end_date, nationality, birthdate, tel_no, mobile_no, email_add, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_skill, (CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) as status_pwd, address FROM pwd WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 
                 get.Fill(set);
                 conn.Close();
-                return set;
             } catch (Exception e)
             {
                 conn.Close();
                 MessageBox.Show(e.Message); //error
-                return set;
+            }
+        }
+
+        public void pwd_employee_list(DataGridView employee_grid)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT employee_id, CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, status_id, username, password FROM employee", conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+                employee_grid.DataSource = set;
+                if (set.Rows.Count == 0)
+                {
+                    MessageBox.Show("No Employee Profiles added.");
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                MessageBox.Show(ex.Message); //error
             }
         }
     }

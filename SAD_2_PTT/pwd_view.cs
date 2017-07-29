@@ -37,6 +37,7 @@ namespace SAD_2_PTT
         {
             this.Opacity = 0;
             startup_opacity.Start();
+            pwd_load_data(current_pwd);
         }
 
         private void startup_opacity_Tick(object sender, EventArgs e)
@@ -86,8 +87,9 @@ namespace SAD_2_PTT
         public void pwd_load_data(int current_pwd)
         {
             DataTable set = new DataTable();
-            set = conn.pwd_view_profile(current_pwd);
+            conn.pwd_view_profile(current_pwd, set);
 
+            pwd_view_fullname.Text = set.Rows[0]["fullname"].ToString();
 
         }
     }

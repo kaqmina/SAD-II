@@ -61,9 +61,9 @@ namespace SAD_2_PTT
             btn_current = btn_pwd;
             lbl_current_text("pwd");
             main_btn.btn_pwd = true;
-            
+
             //btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_SG_01;
-           // btn_profilepic.BackColor = Color.FromArgb(10, 32, 81);
+            // btn_profilepic.BackColor = Color.FromArgb(10, 32, 81);
             //slide_out.Start();
         }
 
@@ -74,8 +74,8 @@ namespace SAD_2_PTT
             btn_current = btn_device;
             lbl_current_text("devices");
             main_btn.btn_device = true;
-          //  btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.BLACKPINK_01;
-           // btn_profilepic.BackColor = Color.FromArgb(0, 0, 0);
+            //  btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.BLACKPINK_01;
+            // btn_profilepic.BackColor = Color.FromArgb(0, 0, 0);
             //slide_out.Start();
         }
 
@@ -309,13 +309,14 @@ namespace SAD_2_PTT
 
         private void btn_notification_Click(object sender, EventArgs e)
         {
-            if(pnl_n_pp == false)
+            if (pnl_n_pp == false)
             {
                 pnl_notif_pp.Visible = true;
                 btn_notification.Image = SAD_2_PTT.Properties.Resources.notification_bell_active;
                 main_btn.btn_notif_pp_active(btn_notification);
                 pnl_n_pp = true;
-            } else
+            }
+            else
             {
                 pnl_notif_pp.Visible = false;
                 btn_notification.Image = SAD_2_PTT.Properties.Resources.notification_deactivated;
@@ -364,7 +365,7 @@ namespace SAD_2_PTT
         {
             int loc_x = this.Location.X + 71;
             int loc_y = this.Location.Y + 50;
-            
+
             pwd_add pwd_fill_up_form = new pwd_add();
             side_tab.Enabled = false;
             dboard_head.Enabled = false;
@@ -375,6 +376,8 @@ namespace SAD_2_PTT
         #endregion
 
         #region OpenViewPWD
+        int current_pwd_id = 0;
+
         private void btn_pwd_viewmore_Click_1(object sender, EventArgs e)
         {
             int loc_x = this.Location.X + 71;
@@ -385,14 +388,35 @@ namespace SAD_2_PTT
             dboard_head.Enabled = false;
             pwd_view_form.reference_to_main = this;
             pwd_view_form.Location = new Point(loc_x, loc_y);
+            pwd_view_form.current_pwd = current_pwd_id;
             pwd_view_form.ShowDialog();
+        }
+
+        private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                //nothing
+            }
+            else
+            {
+                btn_pwd_viewmore.Enabled = true;
+                btn_pwd_edit.Enabled = true;
+                current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
+            }
+
+
+        }
+        private void pwd_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pwd_grid_CellClick(sender, e);
         }
         #endregion
 
         #region OpenDevice
         private void button33_Click(object sender, EventArgs e)
         {
-            
+
             int loc_x = this.Location.X + 71;
             int loc_y = this.Location.Y + 50;
 
@@ -479,7 +503,7 @@ namespace SAD_2_PTT
         {
             pwd_grid.Columns["pwd_id"].Visible = false;
             /* OTHER INFO
-            pwd_grid.Columns["employee_id"].Visible = false;
+            pwd_g;k23wrid.Columns["employee_id"].Visible = false;
             pwd_grid.Columns["end_date"].Visible = false;
             pwd_grid.Columns["nationality"].Visible = false;
             pwd_grid.Columns["birthdate"].Visible = false;
@@ -508,11 +532,12 @@ namespace SAD_2_PTT
         }
 
 
+        #endregion
 
-
+        #region SETTINGS DATA
 
         #endregion
 
-       
+        
     }
 }
