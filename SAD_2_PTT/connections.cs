@@ -202,5 +202,25 @@ namespace SAD_2_PTT
                 MessageBox.Show(ex.Message); //error
             }
         }
+
+        public void pwd_update_profile(string main_data, string other_data, string parental_data)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(other_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(parental_data, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
     }
 }

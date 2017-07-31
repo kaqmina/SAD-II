@@ -59,6 +59,7 @@ namespace SAD_2_PTT
         int to_skill;
         int civil_status;
         int pwd_status;
+        int pwd_update_id = 0;
         bool all_required = false;
         Image picture = null;
         connections conn = new connections();
@@ -334,44 +335,15 @@ namespace SAD_2_PTT
         //add
         private void btn_add_Click(object sender, EventArgs e)
         {
-            //<-----[MAIN DATA]----->
-            application_date = pwd_appdate.Text;
-            firstname = fn_txt.Text;
-            lastname = ln_txt.Text;
-            middlename = mn_txt.Text;
-            has = hs_txt.Text;
-            mun = mun_txt.Text;
-            bar = bar_txt.Text;
-            prov = prov_txt.Text;
-            reg = region.Text;
-            dob = dateofbirth.Text;
-            natio = nationality.Text;
-            blood_type = bloodtype.Text;
-            accom = aln_txt.Text + ", " + afn_txt.Text + " " + amn_txt.Text;
-            registration_no = int.Parse(pwd_regisno.Text);
-            tel_no = int.Parse(telno.Text);
-            mobile_no = int.Parse(mobileno.Text);
-            e_mail = email.Text;
-            //<-----[OTHER INFO]----->
-            org_telno = int.Parse(orgtelno.Text);
-            sss_no = int.Parse(sssno.Text);
-            gsis_no = int.Parse(gsisno.Text);
-            phil_health_no = int.Parse(philhealthno.Text);
-            organiaff = orgaff.Text;
-            contact_person = contactper.Text;
-            office_address = officeadd.Text;
-            no_unit = norunit.Text;
-            //<-----[PARENTAL INFO]----->
-            father_ln = fln_txt.Text;
-            father_fn = ffn_txt.Text;
-            father_mn = fmn_txt.Text;
-            mother_ln = mln_txt.Text;
-            mother_fn = mfn_txt.Text;
-            mother_mn = mmn_txt.Text;
-            guardian_ln = gln_txt.Text;
-            guardian_fn = gfn_txt.Text;
-            guardian_mn = gmn_txt.Text;
+            set_data();
+            if (btn_add_edit.Text.ToLower() == "add")
+                pwd_add_data();
+            else if (btn_add_edit.Text.ToLower() == "update")
+                pwd_update(pwd_update_id);
+        }
 
+        public void pwd_add_data()
+        {
             string main_data;
             string main_variables;
             string other_data;
@@ -384,7 +356,7 @@ namespace SAD_2_PTT
                                             + "middlename, "
                                             + "sex, "
                                             + "disability_id, "
-                                            + "address, " 
+                                            + "address, "
                                             + "blood_type, "
                                             + "birthdate, "
                                             + "tel_no, "
@@ -404,55 +376,55 @@ namespace SAD_2_PTT
                                             + "employment_status, "
                                             + "status_pwd, "
                                             + "type_of_skill) ";
-            main_variables = "VALUES ('" + lastname 
-                                         + "', '" 
-                                         + firstname 
-                                         + "', '" 
-                                         + middlename 
-                                         + "', " 
-                                         + sex 
-                                         + ", " 
-                                         + disability 
-                                         + ", '" 
-                                         + (has + " " + mun + " " + bar + " " + prov + ", " + reg) 
-                                         + "', '" 
-                                         + blood_type 
-                                         + "', '" 
-                                         + dob 
-                                         + "', " 
-                                         + tel_no 
-                                         + ", " 
-                                         + mobile_no 
-                                         + ", '"
-                                         + e_mail 
-                                         + "', " 
-                                         + civil_status 
-                                         + ", '" 
-                                         + natio 
-                                         + "', '" 
-                                         + end_date 
+            main_variables = "VALUES ('" + lastname
                                          + "', '"
-                                         + (DateTime.Now.ToString("yyyy-MM-dd")) 
-                                         + "', '" 
-                                         + application_date 
-                                         + "', '" 
-                                         + accom 
-                                         + "', " 
-                                         + educ_att 
-                                         + ", " 
-                                         + emp_status 
-                                         + ", " 
-                                         + no_emp 
-                                         + ", " 
-                                         + type_oemp 
-                                         + ", " 
+                                         + firstname
+                                         + "', '"
+                                         + middlename
+                                         + "', "
+                                         + sex
+                                         + ", "
+                                         + disability
+                                         + ", '"
+                                         + (has + " " + mun + " " + bar + " " + prov + ", " + reg)
+                                         + "', '"
+                                         + blood_type
+                                         + "', '"
+                                         + dob
+                                         + "', "
+                                         + tel_no
+                                         + ", "
+                                         + mobile_no
+                                         + ", '"
+                                         + e_mail
+                                         + "', "
+                                         + civil_status
+                                         + ", '"
+                                         + natio
+                                         + "', '"
+                                         + end_date
+                                         + "', '"
+                                         + (DateTime.Now.ToString("yyyy-MM-dd"))
+                                         + "', '"
+                                         + application_date
+                                         + "', '"
+                                         + accom
+                                         + "', "
+                                         + educ_att
+                                         + ", "
+                                         + emp_status
+                                         + ", "
+                                         + no_emp
+                                         + ", "
+                                         + type_oemp
+                                         + ", "
                                          + registration_no
                                          + ", "
                                          + emp_status
                                          + ", "
                                          + pwd_status
                                          + ", "
-                                         + to_skill 
+                                         + to_skill
                                          + ")";
             #endregion
             #region other_data
@@ -519,6 +491,187 @@ namespace SAD_2_PTT
             conn.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
         }
         #endregion
+
+        public void pwd_update(int current_id)
+        {
+            #region main_data
+            string main_data = "UPDATE p_dao.pwd SET registration_no = "
+                                                  + registration_no
+                                                  + ", "
+                                                  + "lastname = '"
+                                                  + lastname
+                                                  + "', "
+                                                  + "firstname = '"
+                                                  + firstname
+                                                  + "', "
+                                                  + "middlename = '"
+                                                  + middlename
+                                                  + "', "
+                                                  + "sex = "
+                                                  + sex
+                                                  + ", "
+                                                  + "disability_id = "
+                                                  + disability
+                                                  + ", "
+                                                  + "address = '"
+                                                  + (has + " " + mun + " " + bar + " " + prov + ", " + reg)
+                                                  + "', "
+                                                  + "blood_type = '"
+                                                  + blood_type
+                                                  + "', "
+                                                  + "birthdate = '"
+                                                  + dob
+                                                  + "', "
+                                                  + "tel_no = "
+                                                  + tel_no
+                                                  + ", "
+                                                  + "mobile_no = "
+                                                  + mobile_no
+                                                  + ", "
+                                                  + "email_add = '"
+                                                  + e_mail
+                                                  + "', "
+                                                  + "civil_status = "
+                                                  + civil_status
+                                                  + ", "
+                                                  + "nationality = '"
+                                                  + natio
+                                                  + "', "
+                                                  + "end_date = '"
+                                                  + end_date
+                                                  + "', "
+                                                  + "added_date = '"
+                                                  + added_date
+                                                  + "', "
+                                                  + "application_date = '"
+                                                  + application_date
+                                                  + "', "
+                                                  + "accomplished_by = '"
+                                                  + accom
+                                                  + "', "
+                                                  + "educ_attainment = "
+                                                  + educ_att
+                                                  + ", "
+                                                  + "employment_status = "
+                                                  + emp_status
+                                                  + ", "
+                                                  + "nature_of_employer = "
+                                                  + no_emp
+                                                  + ", "
+                                                  + "type_of_employer = "
+                                                  + type_oemp
+                                                  + ", "
+                                                  + "type_of_skill = "
+                                                  + to_skill
+                                                  + ", "
+                                                  + "status_pwd = "
+                                                  + pwd_status
+                                                  + ", "
+                                                  + "WHERE pwd_id = " + current_id;
+            #endregion
+            #region other_data
+            string other_data = "UPDATE pwd_otherinfo SET sss_no = "
+                                                        + sss_no
+                                                        + ", "
+                                                        + "gsis_no = "
+                                                        + gsis_no
+                                                        + ", "
+                                                        + "phealth_no = "
+                                                        + phil_health_no
+                                                        + ", "
+                                                        + "phealth_status = "
+                                                        + phil_health_status
+                                                        + ", "
+                                                        + "organization_aff = '"
+                                                        + organiaff
+                                                        + "', "
+                                                        + "contact_person = '"
+                                                        + contact_person
+                                                        + "', "
+                                                        + "office_address = '"
+                                                        + office_address
+                                                        + "', "
+                                                        + "tel_no = "
+                                                        + tel_no
+                                                        + ", "
+                                                        + "name_of_reporting_unit = '"
+                                                        + no_unit
+                                                        + "' "
+                                                        + "WHERE pwd_id = " + current_id;
+            #endregion
+            #region parental_data
+            string parental_data = "UPDATE p_dao.parental_info SET fatherfn = '"
+                                                                + father_fn
+                                                                + "', " 
+                                                                + "fathermn = '"
+                                                                + father_mn
+                                                                +"', "
+                                                                + "fatherln = '"
+                                                                + father_ln
+                                                                + "', "
+                                                                + "motherfn = '"
+                                                                + mother_fn
+                                                                + "', "
+                                                                + "mothermn = '"
+                                                                + mother_mn
+                                                                + "', "
+                                                                + "motherln = '"
+                                                                + mother_ln
+                                                                + "', "
+                                                                + "guardianfn = '"
+                                                                + guardian_fn
+                                                                + "', "
+                                                                + "guardianmn = '"
+                                                                + guardian_mn
+                                                                + "', "
+                                                                + "guardianln = '"
+                                                                + guardian_ln
+                                                                + "' "
+                                                                + "WHERE pwd_id = " + current_id;
+            #endregion
+            conn.pwd_update_profile(main_data, other_data, parental_data);
+        }
+
+        public void set_data()
+        {
+            //<-----[MAIN DATA]----->
+            application_date = pwd_appdate.Text;
+            firstname = fn_txt.Text;
+            lastname = ln_txt.Text;
+            middlename = mn_txt.Text;
+            has = hs_txt.Text;
+            mun = mun_txt.Text;
+            bar = bar_txt.Text;
+            prov = prov_txt.Text;
+            reg = region.Text;
+            dob = dateofbirth.Text;
+            natio = nationality.Text;
+            blood_type = bloodtype.Text;
+            accom = aln_txt.Text + ", " + afn_txt.Text + " " + amn_txt.Text;
+            registration_no = int.Parse(pwd_regisno.Text);
+            tel_no = int.Parse(telno.Text);
+            mobile_no = int.Parse(mobileno.Text);
+            e_mail = email.Text;
+            //<-----[OTHER INFO]----->
+            org_telno = int.Parse(orgtelno.Text);
+            sss_no = int.Parse(sssno.Text);
+            gsis_no = int.Parse(gsisno.Text);
+            phil_health_no = int.Parse(philhealthno.Text);
+            organiaff = orgaff.Text;
+            contact_person = contactper.Text;
+            office_address = officeadd.Text;
+            no_unit = norunit.Text;
+            //<-----[PARENTAL INFO]----->
+            father_ln = fln_txt.Text;
+            father_fn = ffn_txt.Text;
+            father_mn = fmn_txt.Text;
+            mother_ln = mln_txt.Text;
+            mother_fn = mfn_txt.Text;
+            mother_mn = mmn_txt.Text;
+            guardian_ln = gln_txt.Text;
+            guardian_fn = gfn_txt.Text;
+            guardian_mn = gmn_txt.Text;
+        }
 
         #region EDUC_ATT, TO_SKILL, DISABILITY, SEX, B_TYPE, CIVIL/EMP/PHEALTH, TO_EMP, NO_EMP, STATUS_PWD
         private void educ_attainment()
