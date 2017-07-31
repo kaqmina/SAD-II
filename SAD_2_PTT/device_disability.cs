@@ -16,6 +16,7 @@ namespace SAD_2_PTT
         #region Declaration
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
+        connections conn = new connections();
 
         String dis_type, dis_desc;
         int dis_id;
@@ -47,32 +48,9 @@ namespace SAD_2_PTT
         }
         private void device_disability_Load(object sender, EventArgs e)
         {
-            DataLoad();
+            conn.device_dis_grid(dev_disgrid);
             this.Opacity = 0;
             startup_opacity.Start();
-        }
-
-        private void DataLoad()
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT * FROM disability", con);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["disability_id"].Visible = false;
-                dataGridView1.Columns["disability_desc"].Visible = false;
-                dataGridView1.Columns["disability_type"].HeaderText = "Disability Type";
-
-                con.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error in DataLoad() : " + ex);
-            }
         }
         #endregion
 
@@ -96,7 +74,7 @@ namespace SAD_2_PTT
                 MySqlCommand com = new MySqlCommand("INSERT INTO disability(disability_type, disability_desc) VALUES('" + dis_type + "','" + dis_desc +"')", con);
                 com.ExecuteNonQuery();
                 con.Close();
-                DataLoad();
+                conn.device_dis_grid(dev_disgrid);
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
 
@@ -138,7 +116,7 @@ namespace SAD_2_PTT
                 button1.Enabled = false;
                 button2.BringToFront();
 
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = this.dev_disgrid.Rows[e.RowIndex];
                 dis_type = row.Cells["disability_type"].Value.ToString();
                 dis_desc = row.Cells["disability_desc"].Value.ToString();
 
@@ -160,7 +138,7 @@ namespace SAD_2_PTT
                 MySqlCommand com = new MySqlCommand("UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ",con);
                 com.ExecuteNonQuery();
                 con.Close();
-                DataLoad();
+                conn.device_dis_grid(dev_disgrid);
 
                 MessageBox.Show("Updated Successfully!","",MessageBoxButtons.OK);
             }

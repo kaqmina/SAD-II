@@ -16,6 +16,7 @@ namespace SAD_2_PTT
         #region Declaration
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
+        connections conn = new connections();
 
         String dp_name, dp_desc, tel_no, email, dp_type;
         int dp_id, mob_no, type, dpt;
@@ -49,37 +50,11 @@ namespace SAD_2_PTT
         }
         private void device_provider_Load(object sender, EventArgs e)
         {
-            DataLoad();
+            conn.device_prov_grid(dev_provgrid);
             this.Opacity = 0;
             startup_opacity.Start();
         }
-        private void DataLoad()
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT * FROM device_provider", con);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["dp_id"].Visible = false;
-                dataGridView1.Columns["dp_desc"].Visible = false;
-                dataGridView1.Columns["dp_type"].Visible = false;
-                dataGridView1.Columns["mobile_no"].Visible = false;
-                dataGridView1.Columns["tel_no"].Visible = false;
-                dataGridView1.Columns["email_add"].Visible = false;
-                dataGridView1.Columns["dp_name"].HeaderText = "Device Provider";
-
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in DataLoad() : " + ex);
-                con.Close();
-            }
-        }
+     
         #endregion
 
         #region Buttons
@@ -112,7 +87,7 @@ namespace SAD_2_PTT
                 MySqlCommand com = new MySqlCommand("INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add) VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')", con);
                 com.ExecuteNonQuery();
                 con.Close();
-                DataLoad();
+                conn.device_prov_grid(dev_provgrid);
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
 
@@ -158,7 +133,7 @@ namespace SAD_2_PTT
                 button1.Enabled = false;
                 button2.BringToFront();
 
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = this.dev_provgrid.Rows[e.RowIndex];
                 dp_name = row.Cells["dp_name"].Value.ToString();
                 dp_desc = row.Cells["dp_desc"].Value.ToString();
                 tel_no = row.Cells["tel_no"].Value.ToString();
@@ -197,7 +172,7 @@ namespace SAD_2_PTT
                 MySqlCommand com = new MySqlCommand("UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + dp_type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ", con);
                 com.ExecuteNonQuery();
                 con.Close();
-                DataLoad();
+                conn.device_prov_grid(dev_provgrid);
 
                 MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
             }
