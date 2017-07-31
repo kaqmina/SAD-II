@@ -41,6 +41,7 @@ namespace SAD_2_PTT
         string accom;
         string end_date = "07/07/17";
         string added_date;
+        string no_unit;
         int registration_no;
         int disability;
         int sex;
@@ -57,6 +58,7 @@ namespace SAD_2_PTT
         int educ_att;
         int to_skill;
         int civil_status;
+        int pwd_status;
         bool all_required = false;
         Image picture = null;
         connections conn = new connections();
@@ -332,6 +334,7 @@ namespace SAD_2_PTT
         //add
         private void btn_add_Click(object sender, EventArgs e)
         {
+            //<-----[MAIN DATA]----->
             application_date = pwd_appdate.Text;
             firstname = fn_txt.Text;
             lastname = ln_txt.Text;
@@ -342,11 +345,23 @@ namespace SAD_2_PTT
             prov = prov_txt.Text;
             reg = region.Text;
             dob = dateofbirth.Text;
+            natio = nationality.Text;
+            blood_type = bloodtype.Text;
+            accom = aln_txt.Text + ", " + afn_txt.Text + " " + amn_txt.Text;
+            registration_no = int.Parse(pwd_regisno.Text);
+            tel_no = int.Parse(telno.Text);
+            mobile_no = int.Parse(mobileno.Text);
+            e_mail = email.Text;
+            //<-----[OTHER INFO]----->
+            org_telno = int.Parse(orgtelno.Text);
+            sss_no = int.Parse(sssno.Text);
+            gsis_no = int.Parse(gsisno.Text);
+            phil_health_no = int.Parse(philhealthno.Text);
             organiaff = orgaff.Text;
             contact_person = contactper.Text;
             office_address = officeadd.Text;
-            natio = nationality.Text;
-            blood_type = bloodtype.Text;
+            no_unit = norunit.Text;
+            //<-----[PARENTAL INFO]----->
             father_ln = fln_txt.Text;
             father_fn = ffn_txt.Text;
             father_mn = fmn_txt.Text;
@@ -356,33 +371,157 @@ namespace SAD_2_PTT
             guardian_ln = gln_txt.Text;
             guardian_fn = gfn_txt.Text;
             guardian_mn = gmn_txt.Text;
-            accom = aln_txt.Text + ", " + afn_txt.Text + " " + amn_txt.Text;
-            registration_no = int.Parse(pwd_regisno.Text);
-            tel_no = int.Parse(telno.Text);
-            mobile_no = int.Parse(mobileno.Text);
-            e_mail = email.Text;
-            org_telno = int.Parse(orgtelno.Text);
-            sss_no = int.Parse(sssno.Text);
-            gsis_no = int.Parse(gsisno.Text);
-            phil_health_no = int.Parse(philhealthno.Text);
 
-            string query;
-            string variables;
-            query = "INSERT INTO p_dao.pwd(lastname, firstname, middlename, sex, disability_id, address, blood_type, birthdate, tel_no, mobile_no, email_add, civil_status,"
-                    + " nationality, end_date, added_date, application_date, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_employment, type_of_skill)";
-            variables = " VALUES ('" + lastname + "', '" + firstname + "', '" + middlename + "', " + sex + ", " + disability + ", '" + (has + " " + mun + " " + bar + " " + prov + ", " + reg) + "', '" + blood_type + "', '" + dob + "', " + tel_no + ", " + mobile_no + ", '"
-            + e_mail + "', " + civil_status + ", '" + natio + "', '" + end_date + "', '"+ (DateTime.Now.ToString("yyyy-MM-dd")) + "', '" + application_date + "', '" + accom + "', " + educ_att + ", " + emp_status + ", " + no_emp + ", " + type_oemp + ", " + to_skill + ")";
-
-
-            conn.pwd_add_profile(query, variables);
+            string main_data;
+            string main_variables;
+            string other_data;
+            string other_variables;
+            string parental_data;
+            string parental_variables;
+            #region main_data
+            main_data = "INSERT INTO p_dao.pwd(lastname, "
+                                            + "firstname, "
+                                            + "middlename, "
+                                            + "sex, "
+                                            + "disability_id, "
+                                            + "address, " 
+                                            + "blood_type, "
+                                            + "birthdate, "
+                                            + "tel_no, "
+                                            + "mobile_no, "
+                                            + "email_add, "
+                                            + "civil_status, "
+                                            + "nationality, "
+                                            + "end_date, "
+                                            + "added_date, "
+                                            + "application_date, "
+                                            + "accomplished_by, "
+                                            + "educ_attainment, "
+                                            + "employment_status, "
+                                            + "nature_of_employer, "
+                                            + "type_of_employment, "
+                                            + "registration_no, "
+                                            + "employment_status, "
+                                            + "status_pwd, "
+                                            + "type_of_skill) ";
+            main_variables = "VALUES ('" + lastname 
+                                         + "', '" 
+                                         + firstname 
+                                         + "', '" 
+                                         + middlename 
+                                         + "', " 
+                                         + sex 
+                                         + ", " 
+                                         + disability 
+                                         + ", '" 
+                                         + (has + " " + mun + " " + bar + " " + prov + ", " + reg) 
+                                         + "', '" 
+                                         + blood_type 
+                                         + "', '" 
+                                         + dob 
+                                         + "', " 
+                                         + tel_no 
+                                         + ", " 
+                                         + mobile_no 
+                                         + ", '"
+                                         + e_mail 
+                                         + "', " 
+                                         + civil_status 
+                                         + ", '" 
+                                         + natio 
+                                         + "', '" 
+                                         + end_date 
+                                         + "', '"
+                                         + (DateTime.Now.ToString("yyyy-MM-dd")) 
+                                         + "', '" 
+                                         + application_date 
+                                         + "', '" 
+                                         + accom 
+                                         + "', " 
+                                         + educ_att 
+                                         + ", " 
+                                         + emp_status 
+                                         + ", " 
+                                         + no_emp 
+                                         + ", " 
+                                         + type_oemp 
+                                         + ", " 
+                                         + registration_no
+                                         + ", "
+                                         + emp_status
+                                         + ", "
+                                         + pwd_status
+                                         + ", "
+                                         + to_skill 
+                                         + ")";
+            #endregion
+            #region other_data
+            other_data = "INSERT INTO pdao.pwd_otherinfo(sss_no,"
+                                                      + "gsis_no, "
+                                                      + "phealth_no, "
+                                                      + "phealth_status, "
+                                                      + "organization_aff, "
+                                                      + "contact_person, "
+                                                      + "office_address, "
+                                                      + "tel_no, "
+                                                      + "name_of_reporting_unit, "
+                                                      + "pwd_id) ";
+            other_variables = "VALUES (" + sss_no
+                                         + ", "
+                                         + gsis_no
+                                         + ", "
+                                         + phil_health_no
+                                         + ", "
+                                         + phil_health_status
+                                         + ", '"
+                                         + organiaff
+                                         + "', '"
+                                         + contact_person
+                                         + "', '"
+                                         + office_address
+                                         + "', "
+                                         + org_telno
+                                         + ", '"
+                                         + no_unit
+                                         + "', "
+                                         + "(SELECT LAST_INSERT_ID()) )";
+            #endregion
+            #region parental_data
+            parental_data = "INSERT INTO pdao.parental_info(fatherfn, "
+                                                         + "fathermn, "
+                                                         + "fatherln, "
+                                                         + "motherfn, "
+                                                         + "mothermn, "
+                                                         + "motherln, "
+                                                         + "guardianfn, "
+                                                         + "guardianmn, "
+                                                         + "guardianln, "
+                                                         + "pwd_id) ";
+            parental_variables = "VALUES ('" + father_fn
+                                             + "', '"
+                                             + father_mn
+                                             + "', '"
+                                             + father_ln
+                                             + "', '"
+                                             + mother_fn
+                                             + "', '"
+                                             + mother_mn
+                                             + "', '"
+                                             + mother_ln
+                                             + "', '"
+                                             + guardian_fn
+                                             + "', '"
+                                             + guardian_mn
+                                             + "', '"
+                                             + guardian_mn
+                                             + "', (SELECT LAST_INSERT_ID()) )";
+            #endregion
+            conn.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
         }
-
-
-
         #endregion
 
-        #region comboboxes/radiobuttons
-        public void educ_attainment()
+        #region EDUC_ATT, TO_SKILL, DISABILITY, SEX, B_TYPE, CIVIL/EMP/PHEALTH, TO_EMP, NO_EMP, STATUS_PWD
+        private void educ_attainment()
         {
             if (educ1.Checked)
                 educ_att = 1;
@@ -408,7 +547,7 @@ namespace SAD_2_PTT
                 all_required = false;
         }
 
-        public void type_of_skill()
+        private void type_of_skill()
         {
             if (skill1.Checked)
                 to_skill = 1;
@@ -431,6 +570,14 @@ namespace SAD_2_PTT
             else
                 all_required = false;
 
+        }
+
+        private void status_pwd()
+        {
+            if (status_active.Checked)
+                pwd_status = 1;
+            else if (status_ex_inactive.Checked)
+                pwd_status = 0;
         }
 
         private void disability_type_SelectedIndexChanged(object sender, EventArgs e)

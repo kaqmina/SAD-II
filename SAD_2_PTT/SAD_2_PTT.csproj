@@ -326,5 +326,8 @@
   <ItemGroup>
     <None Include="Resources\queries\SAD_Queries.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\queries\Notes.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

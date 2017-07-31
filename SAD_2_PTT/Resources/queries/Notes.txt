@@ -1,0 +1,5 @@
+﻿<-----[Helpful built-in functions in SQL]----->
+
+SUBSTRING( string, start_position, length ) 
+UCASE(string)
+CONCAT(string A, string B, string C)

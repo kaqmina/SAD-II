@@ -173,6 +173,9 @@
             this.label71 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
             this.pnl6 = new System.Windows.Forms.Panel();
+            this.status_ex_inactive = new System.Windows.Forms.RadioButton();
+            this.status_active = new System.Windows.Forms.RadioButton();
+            this.label86 = new System.Windows.Forms.Label();
             this.amn_txt = new System.Windows.Forms.TextBox();
             this.afn_txt = new System.Windows.Forms.TextBox();
             this.aln_txt = new System.Windows.Forms.TextBox();
@@ -193,7 +196,7 @@
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_add_edit = new System.Windows.Forms.Button();
             this.btn_prev6 = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
@@ -1614,11 +1617,11 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl4);
-            this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl6);
-            this.pnl_container.Controls.Add(this.pnl5);
+            this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl2);
+            this.pnl_container.Controls.Add(this.pnl3);
+            this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
@@ -1979,6 +1982,9 @@
             // pnl6
             // 
             this.pnl6.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl6.Controls.Add(this.status_ex_inactive);
+            this.pnl6.Controls.Add(this.status_active);
+            this.pnl6.Controls.Add(this.label86);
             this.pnl6.Controls.Add(this.amn_txt);
             this.pnl6.Controls.Add(this.afn_txt);
             this.pnl6.Controls.Add(this.aln_txt);
@@ -1999,7 +2005,7 @@
             this.pnl6.Controls.Add(this.label52);
             this.pnl6.Controls.Add(this.label53);
             this.pnl6.Controls.Add(this.pictureBox9);
-            this.pnl6.Controls.Add(this.btn_add);
+            this.pnl6.Controls.Add(this.btn_add_edit);
             this.pnl6.Controls.Add(this.btn_prev6);
             this.pnl6.Controls.Add(this.label54);
             this.pnl6.Controls.Add(this.label84);
@@ -2020,6 +2026,38 @@
             this.pnl6.Size = new System.Drawing.Size(757, 500);
             this.pnl6.TabIndex = 30;
             this.pnl6.Visible = false;
+            // 
+            // status_ex_inactive
+            // 
+            this.status_ex_inactive.AutoSize = true;
+            this.status_ex_inactive.Location = new System.Drawing.Point(343, 346);
+            this.status_ex_inactive.Name = "status_ex_inactive";
+            this.status_ex_inactive.Size = new System.Drawing.Size(106, 17);
+            this.status_ex_inactive.TabIndex = 57;
+            this.status_ex_inactive.Text = "Expired/Inactive";
+            this.status_ex_inactive.UseVisualStyleBackColor = true;
+            // 
+            // status_active
+            // 
+            this.status_active.AutoSize = true;
+            this.status_active.Checked = true;
+            this.status_active.Location = new System.Drawing.Point(243, 346);
+            this.status_active.Name = "status_active";
+            this.status_active.Size = new System.Drawing.Size(55, 17);
+            this.status_active.TabIndex = 56;
+            this.status_active.TabStop = true;
+            this.status_active.Text = "Active";
+            this.status_active.UseVisualStyleBackColor = true;
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.Location = new System.Drawing.Point(87, 346);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(151, 15);
+            this.label86.TabIndex = 55;
+            this.label86.Text = "PWD Membership Status :";
             // 
             // amn_txt
             // 
@@ -2143,7 +2181,7 @@
             // norunit
             // 
             this.norunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.norunit.Location = new System.Drawing.Point(235, 301);
+            this.norunit.Location = new System.Drawing.Point(243, 301);
             this.norunit.Multiline = true;
             this.norunit.Name = "norunit";
             this.norunit.Size = new System.Drawing.Size(260, 26);
@@ -2231,19 +2269,19 @@
             this.pictureBox9.TabIndex = 3;
             this.pictureBox9.TabStop = false;
             // 
-            // btn_add
+            // btn_add_edit
             // 
-            this.btn_add.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_add.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Location = new System.Drawing.Point(657, 452);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(68, 29);
-            this.btn_add.TabIndex = 2;
-            this.btn_add.Text = "ADD";
-            this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            this.btn_add_edit.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_add_edit.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_add_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_edit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_edit.Location = new System.Drawing.Point(657, 452);
+            this.btn_add_edit.Name = "btn_add_edit";
+            this.btn_add_edit.Size = new System.Drawing.Size(68, 29);
+            this.btn_add_edit.TabIndex = 2;
+            this.btn_add_edit.Text = "ADD";
+            this.btn_add_edit.UseVisualStyleBackColor = false;
+            this.btn_add_edit.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_prev6
             // 
@@ -2394,7 +2432,7 @@
             // 
             this.label85.AutoSize = true;
             this.label85.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label85.Location = new System.Drawing.Point(232, 315);
+            this.label85.Location = new System.Drawing.Point(240, 315);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(267, 15);
             this.label85.TabIndex = 54;
@@ -2478,7 +2516,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel checklist;
         private System.Windows.Forms.Panel pnl1;
-        private System.Windows.Forms.Button pwd_add_back;
+        public System.Windows.Forms.Button pwd_add_back;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -2600,7 +2638,7 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Button btn_add;
+        public System.Windows.Forms.Button btn_add_edit;
         private System.Windows.Forms.Button btn_prev6;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.ComboBox region;
@@ -2618,7 +2656,7 @@
         private System.Windows.Forms.TextBox gsisno;
         private System.Windows.Forms.TextBox sssno;
         private System.Windows.Forms.ComboBox philhealthstatus;
-        private System.Windows.Forms.Label pwd_add_lbl;
+        public System.Windows.Forms.Label pwd_add_lbl;
         private System.Windows.Forms.Timer startup_opacity;
         private System.Windows.Forms.ComboBox disability_type;
         private System.Windows.Forms.Label label48;
@@ -2655,5 +2693,8 @@
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.RadioButton status_ex_inactive;
+        private System.Windows.Forms.RadioButton status_active;
+        private System.Windows.Forms.Label label86;
     }
 }

@@ -502,24 +502,7 @@ namespace SAD_2_PTT
         public void pwd_format()
         {
             pwd_grid.Columns["pwd_id"].Visible = false;
-            /* OTHER INFO
-            pwd_g;k23wrid.Columns["employee_id"].Visible = false;
-            pwd_grid.Columns["end_date"].Visible = false;
-            pwd_grid.Columns["nationality"].Visible = false;
-            pwd_grid.Columns["birthdate"].Visible = false;
-            pwd_grid.Columns["picture"].Visible = false;
-            pwd_grid.Columns["tel_no"].Visible = false;
-            pwd_grid.Columns["mobile_no"].Visible = false;
-            pwd_grid.Columns["email_add"].Visible = false;
-            pwd_grid.Columns["accomplished_by"].Visible = false;
-            pwd_grid.Columns["educ_attainment"].Visible = false;
-            pwd_grid.Columns["employment_status"].Visible = false;
-            pwd_grid.Columns["nature_of_employer"].Visible = false;
-            pwd_grid.Columns["type_of_skill"].Visible = false;
             pwd_grid.Columns["status_pwd"].Visible = false;
-            pwd_grid.Columns["isArchived"].Visible = false;
-            pwd_grid.Columns["address"].Visible = false;*/
-
             pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
             pwd_grid.Columns["fullname"].HeaderText = "Full Name";
             pwd_grid.Columns["sex"].HeaderText = "Sex";
@@ -529,15 +512,24 @@ namespace SAD_2_PTT
             pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
             pwd_grid.Columns["added_date"].HeaderText = "Date Added";
 
+            int count = pwd_grid.Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                if (pwd_grid.Rows[i].Cells[9].Value.ToString() == "0") //inactive = 0
+                {
+                    pwd_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
+                }
+            }
         }
-
-
         #endregion
 
         #region SETTINGS DATA
 
         #endregion
 
-        
+        private void btn_pwd_edit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

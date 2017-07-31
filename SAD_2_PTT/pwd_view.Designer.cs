@@ -66,29 +66,31 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnl_stat = new System.Windows.Forms.Panel();
+            this.pwd_view_status = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnl_name = new System.Windows.Forms.Panel();
+            this.pwd_view_disability = new System.Windows.Forms.Label();
             this.pnl_member = new System.Windows.Forms.Panel();
             this.pnl_anon = new System.Windows.Forms.Panel();
             this.pwd_view_district = new System.Windows.Forms.Label();
             this.btn_tab1 = new System.Windows.Forms.Button();
             this.btn_tab2 = new System.Windows.Forms.Button();
             this.pnl2 = new System.Windows.Forms.Panel();
-            this.label45 = new System.Windows.Forms.Label();
+            this.pwd_view_toskill = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.pwd_view_org_tel_no = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.pwd_view_office_address = new System.Windows.Forms.Label();
+            this.pwd_view_contact_person = new System.Windows.Forms.Label();
+            this.pwd_view_org_aff = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
+            this.pwd_view_noemp = new System.Windows.Forms.Label();
+            this.pwd_view_emp_status = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
+            this.pwd_view_toemp = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -97,30 +99,29 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btn_tab3 = new System.Windows.Forms.Button();
             this.pnl3 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.pwd_view_accomplished_by = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
+            this.pwd_view_phealth_status = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
+            this.pwd_view_reporting_unit = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
+            this.pwd_view_gsis_no = new System.Windows.Forms.Label();
+            this.pwd_view_guardian = new System.Windows.Forms.Label();
+            this.pwd_view_sss_no = new System.Windows.Forms.Label();
+            this.pwd_view_father = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
+            this.pwd_view_mother = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
+            this.pwd_view_phealth_no = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label62 = new System.Windows.Forms.Label();
             this.pnl_container = new System.Windows.Forms.Panel();
-            this.pwd_view_status = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).BeginInit();
             this.pnl_reg.SuspendLayout();
@@ -198,7 +199,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.label2.Location = new System.Drawing.Point(55, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 20);
@@ -253,11 +254,11 @@
             // pwd_view_regis_no
             // 
             this.pwd_view_regis_no.AutoSize = true;
-            this.pwd_view_regis_no.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_regis_no.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_regis_no.ForeColor = System.Drawing.SystemColors.Window;
             this.pwd_view_regis_no.Location = new System.Drawing.Point(68, 37);
             this.pwd_view_regis_no.Name = "pwd_view_regis_no";
-            this.pwd_view_regis_no.Size = new System.Drawing.Size(81, 20);
+            this.pwd_view_regis_no.Size = new System.Drawing.Size(71, 17);
             this.pwd_view_regis_no.TabIndex = 16;
             this.pwd_view_regis_no.Text = "111111111";
             // 
@@ -265,7 +266,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.label4.Location = new System.Drawing.Point(55, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 20);
@@ -275,11 +276,11 @@
             // pwd_view_app_date
             // 
             this.pwd_view_app_date.AutoSize = true;
-            this.pwd_view_app_date.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_app_date.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_app_date.ForeColor = System.Drawing.SystemColors.Window;
             this.pwd_view_app_date.Location = new System.Drawing.Point(49, 35);
             this.pwd_view_app_date.Name = "pwd_view_app_date";
-            this.pwd_view_app_date.Size = new System.Drawing.Size(117, 20);
+            this.pwd_view_app_date.Size = new System.Drawing.Size(111, 17);
             this.pwd_view_app_date.TabIndex = 17;
             this.pwd_view_app_date.Text = "January 16, 2016";
             // 
@@ -312,10 +313,10 @@
             // pwd_view_civil_status
             // 
             this.pwd_view_civil_status.AutoSize = true;
-            this.pwd_view_civil_status.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_civil_status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_civil_status.Location = new System.Drawing.Point(512, 71);
             this.pwd_view_civil_status.Name = "pwd_view_civil_status";
-            this.pwd_view_civil_status.Size = new System.Drawing.Size(55, 17);
+            this.pwd_view_civil_status.Size = new System.Drawing.Size(51, 15);
             this.pwd_view_civil_status.TabIndex = 102;
             this.pwd_view_civil_status.Text = "Married";
             // 
@@ -353,10 +354,10 @@
             // pwd_view_educ_att
             // 
             this.pwd_view_educ_att.AutoSize = true;
-            this.pwd_view_educ_att.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_educ_att.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_educ_att.Location = new System.Drawing.Point(560, 233);
             this.pwd_view_educ_att.Name = "pwd_view_educ_att";
-            this.pwd_view_educ_att.Size = new System.Drawing.Size(91, 17);
+            this.pwd_view_educ_att.Size = new System.Drawing.Size(86, 15);
             this.pwd_view_educ_att.TabIndex = 91;
             this.pwd_view_educ_att.Text = "Post Graduate";
             // 
@@ -364,7 +365,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(387, 233);
+            this.label24.Location = new System.Drawing.Point(407, 233);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(148, 17);
             this.label24.TabIndex = 78;
@@ -383,30 +384,30 @@
             // pwd_view_email
             // 
             this.pwd_view_email.AutoSize = true;
-            this.pwd_view_email.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_email.Location = new System.Drawing.Point(214, 292);
+            this.pwd_view_email.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_email.Location = new System.Drawing.Point(208, 292);
             this.pwd_view_email.Name = "pwd_view_email";
-            this.pwd_view_email.Size = new System.Drawing.Size(127, 17);
+            this.pwd_view_email.Size = new System.Drawing.Size(119, 15);
             this.pwd_view_email.TabIndex = 76;
             this.pwd_view_email.Text = "yahyaah@gmail.com";
             // 
             // pwd_view_mobile_no
             // 
             this.pwd_view_mobile_no.AutoSize = true;
-            this.pwd_view_mobile_no.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_mobile_no.Location = new System.Drawing.Point(214, 262);
+            this.pwd_view_mobile_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_mobile_no.Location = new System.Drawing.Point(208, 262);
             this.pwd_view_mobile_no.Name = "pwd_view_mobile_no";
-            this.pwd_view_mobile_no.Size = new System.Drawing.Size(85, 17);
+            this.pwd_view_mobile_no.Size = new System.Drawing.Size(84, 15);
             this.pwd_view_mobile_no.TabIndex = 75;
             this.pwd_view_mobile_no.Text = "09123456789";
             // 
             // pwd_view_tel_no
             // 
             this.pwd_view_tel_no.AutoSize = true;
-            this.pwd_view_tel_no.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_tel_no.Location = new System.Drawing.Point(211, 233);
+            this.pwd_view_tel_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_tel_no.Location = new System.Drawing.Point(208, 233);
             this.pwd_view_tel_no.Name = "pwd_view_tel_no";
-            this.pwd_view_tel_no.Size = new System.Drawing.Size(70, 17);
+            this.pwd_view_tel_no.Size = new System.Drawing.Size(67, 15);
             this.pwd_view_tel_no.TabIndex = 74;
             this.pwd_view_tel_no.Text = "111 - 1111";
             // 
@@ -433,20 +434,20 @@
             // pwd_view_nationality
             // 
             this.pwd_view_nationality.AutoSize = true;
-            this.pwd_view_nationality.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_nationality.Location = new System.Drawing.Point(211, 104);
+            this.pwd_view_nationality.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_nationality.Location = new System.Drawing.Point(208, 104);
             this.pwd_view_nationality.Name = "pwd_view_nationality";
-            this.pwd_view_nationality.Size = new System.Drawing.Size(49, 17);
+            this.pwd_view_nationality.Size = new System.Drawing.Size(46, 15);
             this.pwd_view_nationality.TabIndex = 71;
             this.pwd_view_nationality.Text = "Filipino";
             // 
             // pwd_view_dob
             // 
             this.pwd_view_dob.AutoSize = true;
-            this.pwd_view_dob.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_dob.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_dob.Location = new System.Drawing.Point(208, 71);
             this.pwd_view_dob.Name = "pwd_view_dob";
-            this.pwd_view_dob.Size = new System.Drawing.Size(121, 17);
+            this.pwd_view_dob.Size = new System.Drawing.Size(117, 15);
             this.pwd_view_dob.TabIndex = 70;
             this.pwd_view_dob.Text = "December 25, 1986";
             // 
@@ -473,10 +474,10 @@
             // pwd_view_address
             // 
             this.pwd_view_address.AutoSize = true;
-            this.pwd_view_address.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_address.Location = new System.Drawing.Point(211, 136);
+            this.pwd_view_address.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_address.Location = new System.Drawing.Point(208, 136);
             this.pwd_view_address.Name = "pwd_view_address";
-            this.pwd_view_address.Size = new System.Drawing.Size(523, 17);
+            this.pwd_view_address.Size = new System.Drawing.Size(490, 15);
             this.pwd_view_address.TabIndex = 67;
             this.pwd_view_address.Text = "Blk. 5 Lot 31 and 32, Barangay Catalunan Pequeno, Davao City, Davao del Sur, Regi" +
     "on 11";
@@ -544,11 +545,22 @@
             this.pnl_stat.Size = new System.Drawing.Size(235, 63);
             this.pnl_stat.TabIndex = 30;
             // 
+            // pwd_view_status
+            // 
+            this.pwd_view_status.AutoSize = true;
+            this.pwd_view_status.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.pwd_view_status.Location = new System.Drawing.Point(104, 20);
+            this.pwd_view_status.Name = "pwd_view_status";
+            this.pwd_view_status.Size = new System.Drawing.Size(48, 20);
+            this.pwd_view_status.TabIndex = 19;
+            this.pwd_view_status.Text = "Active";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Window;
+            this.label7.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.label7.Location = new System.Drawing.Point(78, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 20);
@@ -558,12 +570,24 @@
             // pnl_name
             // 
             this.pnl_name.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_name.Controls.Add(this.pwd_view_disability);
             this.pnl_name.Controls.Add(this.pwd_view_fullname);
             this.pnl_name.Controls.Add(this.label1);
             this.pnl_name.Location = new System.Drawing.Point(255, 64);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(532, 63);
             this.pnl_name.TabIndex = 0;
+            // 
+            // pwd_view_disability
+            // 
+            this.pwd_view_disability.AutoSize = true;
+            this.pwd_view_disability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_disability.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.pwd_view_disability.Location = new System.Drawing.Point(94, 38);
+            this.pwd_view_disability.Name = "pwd_view_disability";
+            this.pwd_view_disability.Size = new System.Drawing.Size(86, 15);
+            this.pwd_view_disability.TabIndex = 14;
+            this.pwd_view_disability.Text = "Disability here";
             // 
             // pnl_member
             // 
@@ -590,11 +614,11 @@
             // pwd_view_district
             // 
             this.pwd_view_district.AutoSize = true;
-            this.pwd_view_district.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_district.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_district.ForeColor = System.Drawing.SystemColors.Window;
             this.pwd_view_district.Location = new System.Drawing.Point(63, 32);
             this.pwd_view_district.Name = "pwd_view_district";
-            this.pwd_view_district.Size = new System.Drawing.Size(89, 20);
+            this.pwd_view_district.Size = new System.Drawing.Size(85, 17);
             this.pwd_view_district.TabIndex = 20;
             this.pwd_view_district.Text = "Toril District";
             // 
@@ -631,21 +655,21 @@
             // pnl2
             // 
             this.pnl2.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl2.Controls.Add(this.label45);
+            this.pnl2.Controls.Add(this.pwd_view_toskill);
             this.pnl2.Controls.Add(this.label44);
-            this.pnl2.Controls.Add(this.label27);
+            this.pnl2.Controls.Add(this.pwd_view_org_tel_no);
             this.pnl2.Controls.Add(this.label28);
             this.pnl2.Controls.Add(this.label29);
-            this.pnl2.Controls.Add(this.label30);
-            this.pnl2.Controls.Add(this.label31);
-            this.pnl2.Controls.Add(this.label32);
+            this.pnl2.Controls.Add(this.pwd_view_office_address);
+            this.pnl2.Controls.Add(this.pwd_view_contact_person);
+            this.pnl2.Controls.Add(this.pwd_view_org_aff);
             this.pnl2.Controls.Add(this.label33);
             this.pnl2.Controls.Add(this.label34);
-            this.pnl2.Controls.Add(this.label35);
-            this.pnl2.Controls.Add(this.label37);
+            this.pnl2.Controls.Add(this.pwd_view_noemp);
+            this.pnl2.Controls.Add(this.pwd_view_emp_status);
             this.pnl2.Controls.Add(this.label38);
             this.pnl2.Controls.Add(this.label39);
-            this.pnl2.Controls.Add(this.label40);
+            this.pnl2.Controls.Add(this.pwd_view_toemp);
             this.pnl2.Controls.Add(this.label41);
             this.pnl2.Controls.Add(this.label42);
             this.pnl2.Controls.Add(this.panel10);
@@ -656,44 +680,44 @@
             this.pnl2.TabIndex = 101;
             this.pnl2.Visible = false;
             // 
-            // label45
+            // pwd_view_toskill
             // 
-            this.label45.AutoEllipsis = true;
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(478, 74);
-            this.label45.MaximumSize = new System.Drawing.Size(250, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(220, 68);
-            this.label45.TabIndex = 102;
-            this.label45.Text = "Officials of Government and Special Interest Organizations, Corporate Executives," +
+            this.pwd_view_toskill.AutoEllipsis = true;
+            this.pwd_view_toskill.AutoSize = true;
+            this.pwd_view_toskill.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_toskill.Location = new System.Drawing.Point(512, 71);
+            this.pwd_view_toskill.MaximumSize = new System.Drawing.Size(250, 0);
+            this.pwd_view_toskill.Name = "pwd_view_toskill";
+            this.pwd_view_toskill.Size = new System.Drawing.Size(248, 60);
+            this.pwd_view_toskill.TabIndex = 102;
+            this.pwd_view_toskill.Text = "Officials of Government and Special Interest Organizations, Corporate Executives," +
     " Managers, Managing Propietors and Supervisors";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(384, 74);
+            this.label44.Location = new System.Drawing.Point(407, 71);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(88, 17);
             this.label44.TabIndex = 101;
             this.label44.Text = "Type of Skill : ";
             // 
-            // label27
+            // pwd_view_org_tel_no
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(228, 314);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(70, 17);
-            this.label27.TabIndex = 91;
-            this.label27.Text = "123 - 4567";
+            this.pwd_view_org_tel_no.AutoSize = true;
+            this.pwd_view_org_tel_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_org_tel_no.Location = new System.Drawing.Point(560, 233);
+            this.pwd_view_org_tel_no.Name = "pwd_view_org_tel_no";
+            this.pwd_view_org_tel_no.Size = new System.Drawing.Size(67, 15);
+            this.pwd_view_org_tel_no.TabIndex = 91;
+            this.pwd_view_org_tel_no.Text = "123 - 4567";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(75, 314);
+            this.label28.Location = new System.Drawing.Point(407, 231);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(97, 17);
             this.label28.TabIndex = 78;
@@ -703,47 +727,47 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(75, 253);
+            this.label29.Location = new System.Drawing.Point(78, 262);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(107, 17);
             this.label29.TabIndex = 77;
             this.label29.Text = "Contact Person : ";
             // 
-            // label30
+            // pwd_view_office_address
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(228, 283);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(121, 17);
-            this.label30.TabIndex = 76;
-            this.label30.Text = "heyaaa@gmail.com";
+            this.pwd_view_office_address.AutoSize = true;
+            this.pwd_view_office_address.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_office_address.Location = new System.Drawing.Point(208, 292);
+            this.pwd_view_office_address.Name = "pwd_view_office_address";
+            this.pwd_view_office_address.Size = new System.Drawing.Size(113, 15);
+            this.pwd_view_office_address.TabIndex = 76;
+            this.pwd_view_office_address.Text = "heyaaa@gmail.com";
             // 
-            // label31
+            // pwd_view_contact_person
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(228, 253);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(67, 17);
-            this.label31.TabIndex = 75;
-            this.label31.Text = "Hello Kitty";
+            this.pwd_view_contact_person.AutoSize = true;
+            this.pwd_view_contact_person.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_contact_person.Location = new System.Drawing.Point(208, 262);
+            this.pwd_view_contact_person.Name = "pwd_view_contact_person";
+            this.pwd_view_contact_person.Size = new System.Drawing.Size(66, 15);
+            this.pwd_view_contact_person.TabIndex = 75;
+            this.pwd_view_contact_person.Text = "Hello Kitty";
             // 
-            // label32
+            // pwd_view_org_aff
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(229, 224);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(102, 17);
-            this.label32.TabIndex = 74;
-            this.label32.Text = "teamababangay";
+            this.pwd_view_org_aff.AutoSize = true;
+            this.pwd_view_org_aff.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_org_aff.Location = new System.Drawing.Point(229, 233);
+            this.pwd_view_org_aff.Name = "pwd_view_org_aff";
+            this.pwd_view_org_aff.Size = new System.Drawing.Size(94, 15);
+            this.pwd_view_org_aff.TabIndex = 74;
+            this.pwd_view_org_aff.Text = "teamababangay";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(75, 283);
+            this.label33.Location = new System.Drawing.Point(78, 292);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(105, 17);
             this.label33.TabIndex = 73;
@@ -753,31 +777,31 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(76, 224);
+            this.label34.Location = new System.Drawing.Point(78, 233);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(146, 17);
             this.label34.TabIndex = 72;
             this.label34.Text = "Organization Affliated : ";
             // 
-            // label35
+            // pwd_view_noemp
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(229, 104);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(79, 17);
-            this.label35.TabIndex = 71;
-            this.label35.Text = "Government";
+            this.pwd_view_noemp.AutoSize = true;
+            this.pwd_view_noemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_noemp.Location = new System.Drawing.Point(208, 104);
+            this.pwd_view_noemp.Name = "pwd_view_noemp";
+            this.pwd_view_noemp.Size = new System.Drawing.Size(79, 15);
+            this.pwd_view_noemp.TabIndex = 71;
+            this.pwd_view_noemp.Text = "Government";
             // 
-            // label37
+            // pwd_view_emp_status
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(229, 74);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(66, 17);
-            this.label37.TabIndex = 70;
-            this.label37.Text = "Employed";
+            this.pwd_view_emp_status.AutoSize = true;
+            this.pwd_view_emp_status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_emp_status.Location = new System.Drawing.Point(208, 71);
+            this.pwd_view_emp_status.Name = "pwd_view_emp_status";
+            this.pwd_view_emp_status.Size = new System.Drawing.Size(61, 15);
+            this.pwd_view_emp_status.TabIndex = 70;
+            this.pwd_view_emp_status.Text = "Employed";
             // 
             // label38
             // 
@@ -793,21 +817,21 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(75, 74);
+            this.label39.Location = new System.Drawing.Point(75, 71);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(130, 17);
             this.label39.TabIndex = 68;
             this.label39.Text = "Employment Status : ";
             // 
-            // label40
+            // pwd_view_toemp
             // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(229, 136);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(92, 17);
-            this.label40.TabIndex = 67;
-            this.label40.Text = "Self-Employed";
+            this.pwd_view_toemp.AutoSize = true;
+            this.pwd_view_toemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_toemp.Location = new System.Drawing.Point(208, 136);
+            this.pwd_view_toemp.Name = "pwd_view_toemp";
+            this.pwd_view_toemp.Size = new System.Drawing.Size(88, 15);
+            this.pwd_view_toemp.TabIndex = 67;
+            this.pwd_view_toemp.Text = "Self-Employed";
             // 
             // label41
             // 
@@ -822,7 +846,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(76, 135);
+            this.label42.Location = new System.Drawing.Point(75, 136);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(138, 17);
             this.label42.TabIndex = 66;
@@ -888,24 +912,24 @@
             // pnl3
             // 
             this.pnl3.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl3.Controls.Add(this.label19);
+            this.pnl3.Controls.Add(this.pwd_view_accomplished_by);
             this.pnl3.Controls.Add(this.label64);
             this.pnl3.Controls.Add(this.panel12);
             this.pnl3.Controls.Add(this.label60);
-            this.pnl3.Controls.Add(this.label46);
+            this.pnl3.Controls.Add(this.pwd_view_phealth_status);
             this.pnl3.Controls.Add(this.label54);
-            this.pnl3.Controls.Add(this.label47);
+            this.pnl3.Controls.Add(this.pwd_view_reporting_unit);
             this.pnl3.Controls.Add(this.label49);
             this.pnl3.Controls.Add(this.label48);
             this.pnl3.Controls.Add(this.label53);
-            this.pnl3.Controls.Add(this.label55);
-            this.pnl3.Controls.Add(this.label50);
-            this.pnl3.Controls.Add(this.label56);
-            this.pnl3.Controls.Add(this.label52);
+            this.pnl3.Controls.Add(this.pwd_view_gsis_no);
+            this.pnl3.Controls.Add(this.pwd_view_guardian);
+            this.pnl3.Controls.Add(this.pwd_view_sss_no);
+            this.pnl3.Controls.Add(this.pwd_view_father);
             this.pnl3.Controls.Add(this.label57);
-            this.pnl3.Controls.Add(this.label51);
+            this.pnl3.Controls.Add(this.pwd_view_mother);
             this.pnl3.Controls.Add(this.label58);
-            this.pnl3.Controls.Add(this.label59);
+            this.pnl3.Controls.Add(this.pwd_view_phealth_no);
             this.pnl3.Controls.Add(this.label61);
             this.pnl3.Controls.Add(this.panel11);
             this.pnl3.Location = new System.Drawing.Point(0, 0);
@@ -914,21 +938,21 @@
             this.pnl3.TabIndex = 103;
             this.pnl3.Visible = false;
             // 
-            // label19
+            // pwd_view_accomplished_by
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(635, 253);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(108, 17);
-            this.label19.TabIndex = 103;
-            this.label19.Text = "Sakura Kinomoto";
+            this.pwd_view_accomplished_by.AutoSize = true;
+            this.pwd_view_accomplished_by.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_accomplished_by.Location = new System.Drawing.Point(635, 262);
+            this.pwd_view_accomplished_by.Name = "pwd_view_accomplished_by";
+            this.pwd_view_accomplished_by.Size = new System.Drawing.Size(103, 15);
+            this.pwd_view_accomplished_by.TabIndex = 103;
+            this.pwd_view_accomplished_by.Text = "Sakura Kinomoto";
             // 
             // label64
             // 
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(635, 226);
+            this.label64.Location = new System.Drawing.Point(635, 233);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(114, 17);
             this.label64.TabIndex = 102;
@@ -964,41 +988,41 @@
             this.label60.Size = new System.Drawing.Size(0, 17);
             this.label60.TabIndex = 67;
             // 
-            // label46
+            // pwd_view_phealth_status
             // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(232, 315);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(119, 17);
-            this.label46.TabIndex = 101;
-            this.label46.Text = "PhilHealth Member";
+            this.pwd_view_phealth_status.AutoSize = true;
+            this.pwd_view_phealth_status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_phealth_status.Location = new System.Drawing.Point(208, 320);
+            this.pwd_view_phealth_status.Name = "pwd_view_phealth_status";
+            this.pwd_view_phealth_status.Size = new System.Drawing.Size(115, 15);
+            this.pwd_view_phealth_status.TabIndex = 101;
+            this.pwd_view_phealth_status.Text = "PhilHealth Member";
             // 
             // label54
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(72, 76);
+            this.label54.Location = new System.Drawing.Point(75, 71);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(103, 17);
             this.label54.TabIndex = 72;
             this.label54.Text = "Father\'s Name : ";
             // 
-            // label47
+            // pwd_view_reporting_unit
             // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(660, 312);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(53, 17);
-            this.label47.TabIndex = 91;
-            this.label47.Text = "#TWICE";
+            this.pwd_view_reporting_unit.AutoSize = true;
+            this.pwd_view_reporting_unit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_reporting_unit.Location = new System.Drawing.Point(660, 320);
+            this.pwd_view_reporting_unit.Name = "pwd_view_reporting_unit";
+            this.pwd_view_reporting_unit.Size = new System.Drawing.Size(50, 15);
+            this.pwd_view_reporting_unit.TabIndex = 91;
+            this.pwd_view_reporting_unit.Text = "#TWICE";
             // 
             // label49
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(71, 105);
+            this.label49.Location = new System.Drawing.Point(75, 104);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(110, 17);
             this.label49.TabIndex = 77;
@@ -1008,7 +1032,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(609, 289);
+            this.label48.Location = new System.Drawing.Point(609, 292);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(155, 17);
             this.label48.TabIndex = 78;
@@ -1018,97 +1042,97 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(71, 135);
+            this.label53.Location = new System.Drawing.Point(75, 136);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(111, 17);
             this.label53.TabIndex = 73;
             this.label53.Text = "Guardian Name : ";
             // 
-            // label55
+            // pwd_view_gsis_no
             // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(232, 250);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(57, 17);
-            this.label55.TabIndex = 71;
-            this.label55.Text = "1234567";
+            this.pwd_view_gsis_no.AutoSize = true;
+            this.pwd_view_gsis_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_gsis_no.Location = new System.Drawing.Point(208, 262);
+            this.pwd_view_gsis_no.Name = "pwd_view_gsis_no";
+            this.pwd_view_gsis_no.Size = new System.Drawing.Size(56, 15);
+            this.pwd_view_gsis_no.TabIndex = 71;
+            this.pwd_view_gsis_no.Text = "1234567";
             // 
-            // label50
+            // pwd_view_guardian
             // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(224, 135);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(121, 17);
-            this.label50.TabIndex = 76;
-            this.label50.Text = "heyaaa@gmail.com";
+            this.pwd_view_guardian.AutoSize = true;
+            this.pwd_view_guardian.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_guardian.Location = new System.Drawing.Point(208, 136);
+            this.pwd_view_guardian.Name = "pwd_view_guardian";
+            this.pwd_view_guardian.Size = new System.Drawing.Size(113, 15);
+            this.pwd_view_guardian.TabIndex = 76;
+            this.pwd_view_guardian.Text = "heyaaa@gmail.com";
             // 
-            // label56
+            // pwd_view_sss_no
             // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(232, 220);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(50, 17);
-            this.label56.TabIndex = 70;
-            this.label56.Text = "015842";
+            this.pwd_view_sss_no.AutoSize = true;
+            this.pwd_view_sss_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_sss_no.Location = new System.Drawing.Point(208, 233);
+            this.pwd_view_sss_no.Name = "pwd_view_sss_no";
+            this.pwd_view_sss_no.Size = new System.Drawing.Size(49, 15);
+            this.pwd_view_sss_no.TabIndex = 70;
+            this.pwd_view_sss_no.Text = "015842";
             // 
-            // label52
+            // pwd_view_father
             // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(225, 76);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(102, 17);
-            this.label52.TabIndex = 74;
-            this.label52.Text = "teamababangay";
+            this.pwd_view_father.AutoSize = true;
+            this.pwd_view_father.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_father.Location = new System.Drawing.Point(208, 71);
+            this.pwd_view_father.Name = "pwd_view_father";
+            this.pwd_view_father.Size = new System.Drawing.Size(94, 15);
+            this.pwd_view_father.TabIndex = 74;
+            this.pwd_view_father.Text = "teamababangay";
             // 
             // label57
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(78, 250);
+            this.label57.Location = new System.Drawing.Point(78, 262);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(67, 17);
             this.label57.TabIndex = 69;
             this.label57.Text = "GSIS No : ";
             // 
-            // label51
+            // pwd_view_mother
             // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(224, 105);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(67, 17);
-            this.label51.TabIndex = 75;
-            this.label51.Text = "Hello Kitty";
+            this.pwd_view_mother.AutoSize = true;
+            this.pwd_view_mother.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_mother.Location = new System.Drawing.Point(208, 104);
+            this.pwd_view_mother.Name = "pwd_view_mother";
+            this.pwd_view_mother.Size = new System.Drawing.Size(66, 15);
+            this.pwd_view_mother.TabIndex = 75;
+            this.pwd_view_mother.Text = "Hello Kitty";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(78, 220);
+            this.label58.Location = new System.Drawing.Point(78, 233);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(62, 17);
             this.label58.TabIndex = 68;
             this.label58.Text = "SSS No : ";
             // 
-            // label59
+            // pwd_view_phealth_no
             // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(232, 283);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(50, 17);
-            this.label59.TabIndex = 67;
-            this.label59.Text = "112456";
+            this.pwd_view_phealth_no.AutoSize = true;
+            this.pwd_view_phealth_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_phealth_no.Location = new System.Drawing.Point(208, 292);
+            this.pwd_view_phealth_no.Name = "pwd_view_phealth_no";
+            this.pwd_view_phealth_no.Size = new System.Drawing.Size(49, 15);
+            this.pwd_view_phealth_no.TabIndex = 67;
+            this.pwd_view_phealth_no.Text = "112456";
             // 
             // label61
             // 
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(80, 280);
+            this.label61.Location = new System.Drawing.Point(78, 292);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(98, 17);
             this.label61.TabIndex = 66;
@@ -1138,24 +1162,13 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl2);
-            this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Location = new System.Drawing.Point(255, 176);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(789, 348);
             this.pnl_container.TabIndex = 104;
-            // 
-            // pwd_view_status
-            // 
-            this.pwd_view_status.AutoSize = true;
-            this.pwd_view_status.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.pwd_view_status.Location = new System.Drawing.Point(84, 21);
-            this.pwd_view_status.Name = "pwd_view_status";
-            this.pwd_view_status.Size = new System.Drawing.Size(105, 20);
-            this.pwd_view_status.TabIndex = 19;
-            this.pwd_view_status.Text = "active/inactive";
             // 
             // pwd_view
             // 
@@ -1271,52 +1284,53 @@
         private System.Windows.Forms.Panel pnl2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label pwd_view_org_tel_no;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label pwd_view_office_address;
+        private System.Windows.Forms.Label pwd_view_contact_person;
+        private System.Windows.Forms.Label pwd_view_org_aff;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label pwd_view_noemp;
+        private System.Windows.Forms.Label pwd_view_emp_status;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label pwd_view_toemp;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label pwd_view_toskill;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button btn_tab3;
         private System.Windows.Forms.Panel pnl3;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label pwd_view_phealth_status;
+        private System.Windows.Forms.Label pwd_view_reporting_unit;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label pwd_view_guardian;
+        private System.Windows.Forms.Label pwd_view_mother;
+        private System.Windows.Forms.Label pwd_view_father;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label pwd_view_gsis_no;
+        private System.Windows.Forms.Label pwd_view_sss_no;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label pwd_view_phealth_no;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label pwd_view_accomplished_by;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Panel pnl_container;
         private System.Windows.Forms.Label pwd_view_civil_status;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label pwd_view_status;
+        private System.Windows.Forms.Label pwd_view_disability;
     }
 }

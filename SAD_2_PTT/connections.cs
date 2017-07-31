@@ -22,7 +22,17 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, registration_no, CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, (CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, disability_id, blood_type, (CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, application_date, added_date FROM pwd WHERE isArchived = 0", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
+                                                          + "registration_no, "
+                                                          + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
+                                                          + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
+                                                          + "disability_id, "
+                                                          + "blood_type, "
+                                                          + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                                          + "application_date, "
+                                                          + "added_date, "
+                                                          + "status_pwd "
+                                                          + "FROM pwd WHERE isArchived = 0", conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -72,12 +82,16 @@ namespace SAD_2_PTT
         }
 
         #region PWD ADD PA - 11
-        public void pwd_add_profile(string query, string variable)
+        public void pwd_add_profile(string main_data, string other_data, string parental_data)
         {
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand((query + variable), conn);
+                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(other_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(parental_data, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
             }
@@ -89,15 +103,65 @@ namespace SAD_2_PTT
         }
         #endregion
         
-        public void pwd_view_profile (int current_id, DataTable set)
+        public void pwd_view_profile (int current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, registration_no, CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, (CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, disability_id, blood_type, (CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, application_date, added_date, end_date, nationality, birthdate, tel_no, mobile_no, email_add, accomplished_by, educ_attainment, employment_status, nature_of_employer, type_of_skill, (CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) as status_pwd, address FROM pwd WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
-                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                string type_of_skill = "(CASE WHEN type_of_skill = 1 THEN 'Officials of Government and Special Interest Organizations, Corporate Executives, Managers, Managing Proprietors and Supervisors' "
+                                           + "WHEN type_of_skill = 2 THEN 'Professionals' "
+                                           + "WHEN type_of_skill = 3 THEN 'Technicians and Associate Professionals' "
+                                           + "WHEN type_of_skill = 4 THEN 'Farmers, Forestry Workers and Fishermen' "
+                                           + "WHEN type_of_skill = 5 THEN 'Trades and Related Workers' "
+                                           + "WHEN type_of_skill = 6 THEN 'Plant and Machine Operators and Assemblers' "
+                                           + "WHEN type_of_skill = 7 THEN 'Laborers' "
+                                           + "WHEN type_of_skill = 8 THEN 'Unskilled Workers' "
+                                           + "ELSE 'Special Occupation' END) AS type_of_skill, ";
+                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
+                                                          + "registration_no, "
+                                                          + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
+                                                          + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
+                                                          + "disability_type, "
+                                                          + "blood_type, "
+                                                          + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                                          + "application_date, "
+                                                          + "added_date, "
+                                                          + "end_date, "
+                                                          + "nationality, "
+                                                          + "birthdate, "
+                                                          + "tel_no, "
+                                                          + "mobile_no, "
+                                                          + "email_add, "
+                                                          + "accomplished_by, "
+                                                          + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' WHEN educ_attainment = 3 THEN 'High School' WHEN educ_attainment = 4 THEN 'High School Undergraduate' WHEN educ_attainment = 5 THEN 'College' WHEN educ_attainment = 6 THEN 'College Undergraduate' WHEN educ_attainment = 7 THEN 'Graduate' WHEN educ_attainment = 8 THEN 'Post Graduate' WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment, "
+                                                          + "(CASE WHEN employment_status = 1 THEN 'Employed' WHEN employment_status = 2 THEN 'Unemployed' WHEN employment_status = 3 THEN 'Displaced Worker' WHEN employment_status = 4 THEN 'Resigned' WHEN employment_status = 5 THEN 'Retired' ELSE 'Returning Overseas Filipino Worker' END) AS employment_status, "
+                                                          + "(CASE WHEN nature_of_employer = 2 THEN 'Government' ELSE 'Private' END) AS nature_of_employer, "
+                                                          + "(CASE WHEN type_of_employment = 1 THEN 'Contractual' WHEN type_of_employment = 2 THEN 'Permanent' WHEN type_of_employment = 3 THEN 'Self-Employed' ELSE 'Seasonal' END) AS type_of_employment, "
+                                                          + type_of_skill
+                                                          + "(CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) as status_pwd, "
+                                                          + "address "
+                                                          + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
+                MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
+                main_data.Fill(main);
+                comm = new MySqlCommand("SELECT sss_no, "
+                                             + "gsis_no, "
+                                             + "phealth_no, "
+                                             + "(CASE WHEN phealth_status = 1 THEN 'PhilHealth Member' ELSE 'PhilHealth Member Dependent' END) AS phealth_status, "
+                                             + "organization_aff, "
+                                             + "contact_person, "
+                                             + "office_address, "
+                                             + "tel_no, "
+                                             + "name_of_reporting_unit "
+                                             + "FROM pwd_otherinfo WHERE pwd_id = " + current_id, conn);
+                MySqlDataAdapter other_data = new MySqlDataAdapter(comm);
+                other_data.Fill(other_info);
+                comm = new MySqlCommand("SELECT CONCAT(UCASE(fatherln), ', ', UCASE(fatherfn), ' ', fathermn) AS father, "
+                                             + "CONCAT(UCASE(motherln), ', ', UCASE(motherfn), ' ', mothermn) AS mother, "
+                                             + "CONCAT(UCASE(guardianln), ', ', UCASE (guardianfn), ' ', guardianmn) AS guardian "
+                                             + "FROM parental_info WHERE pwd_id = " + current_id, conn);
+                MySqlDataAdapter parent_data = new MySqlDataAdapter(comm);
+                parent_data.Fill(parental_info);
                 
-                get.Fill(set);
                 conn.Close();
             } catch (Exception e)
             {
@@ -111,7 +175,16 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT employee_id, CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, status_id, username, password FROM employee", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT employee_id, "
+                                                          + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
+                                                          + "address,"
+                                                          +" position, "
+                                                          + "contact_no, "
+                                                          + "birthdate, "
+                                                          + "status_id, "
+                                                          + "username, "
+                                                          + "password "
+                                                          + "FROM employee", conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
