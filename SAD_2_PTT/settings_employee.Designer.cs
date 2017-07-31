@@ -38,8 +38,8 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.pwd_settings_list_full = new System.Windows.Forms.DataGridView();
-            this.pwd_settings_list = new System.Windows.Forms.DataGridView();
+            this.settings_list_full = new System.Windows.Forms.DataGridView();
+            this.settings_list = new System.Windows.Forms.DataGridView();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.pnl_settings = new System.Windows.Forms.Panel();
@@ -51,8 +51,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_settings_list_full)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_settings_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings_list_full)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings_list)).BeginInit();
             this.pnl_settings.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -152,17 +152,17 @@
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // pwd_settings_list_full
+            // settings_list_full
             // 
-            this.pwd_settings_list_full.AllowUserToAddRows = false;
-            this.pwd_settings_list_full.AllowUserToDeleteRows = false;
-            this.pwd_settings_list_full.AllowUserToResizeColumns = false;
-            this.pwd_settings_list_full.AllowUserToResizeRows = false;
-            this.pwd_settings_list_full.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.pwd_settings_list_full.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_settings_list_full.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_settings_list_full.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.pwd_settings_list_full.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.settings_list_full.AllowUserToAddRows = false;
+            this.settings_list_full.AllowUserToDeleteRows = false;
+            this.settings_list_full.AllowUserToResizeColumns = false;
+            this.settings_list_full.AllowUserToResizeRows = false;
+            this.settings_list_full.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.settings_list_full.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.settings_list_full.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.settings_list_full.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.settings_list_full.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,32 +170,32 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pwd_settings_list_full.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.pwd_settings_list_full.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.pwd_settings_list_full.ColumnHeadersVisible = false;
-            this.pwd_settings_list_full.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_settings_list_full.Location = new System.Drawing.Point(270, 91);
-            this.pwd_settings_list_full.MultiSelect = false;
-            this.pwd_settings_list_full.Name = "pwd_settings_list_full";
-            this.pwd_settings_list_full.ReadOnly = true;
-            this.pwd_settings_list_full.RowHeadersVisible = false;
+            this.settings_list_full.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.settings_list_full.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.settings_list_full.ColumnHeadersVisible = false;
+            this.settings_list_full.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.settings_list_full.Location = new System.Drawing.Point(270, 91);
+            this.settings_list_full.MultiSelect = false;
+            this.settings_list_full.Name = "settings_list_full";
+            this.settings_list_full.ReadOnly = true;
+            this.settings_list_full.RowHeadersVisible = false;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_settings_list_full.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.pwd_settings_list_full.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pwd_settings_list_full.Size = new System.Drawing.Size(785, 483);
-            this.pwd_settings_list_full.TabIndex = 31;
+            this.settings_list_full.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.settings_list_full.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.settings_list_full.Size = new System.Drawing.Size(785, 483);
+            this.settings_list_full.TabIndex = 31;
             // 
-            // pwd_settings_list
+            // settings_list
             // 
-            this.pwd_settings_list.AllowUserToAddRows = false;
-            this.pwd_settings_list.AllowUserToDeleteRows = false;
-            this.pwd_settings_list.AllowUserToResizeColumns = false;
-            this.pwd_settings_list.AllowUserToResizeRows = false;
-            this.pwd_settings_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.pwd_settings_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_settings_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_settings_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.pwd_settings_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.settings_list.AllowUserToAddRows = false;
+            this.settings_list.AllowUserToDeleteRows = false;
+            this.settings_list.AllowUserToResizeColumns = false;
+            this.settings_list.AllowUserToResizeRows = false;
+            this.settings_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.settings_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.settings_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.settings_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.settings_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,20 +203,20 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pwd_settings_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.pwd_settings_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.pwd_settings_list.ColumnHeadersVisible = false;
-            this.pwd_settings_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_settings_list.Location = new System.Drawing.Point(14, 91);
-            this.pwd_settings_list.MultiSelect = false;
-            this.pwd_settings_list.Name = "pwd_settings_list";
-            this.pwd_settings_list.ReadOnly = true;
-            this.pwd_settings_list.RowHeadersVisible = false;
+            this.settings_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.settings_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.settings_list.ColumnHeadersVisible = false;
+            this.settings_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.settings_list.Location = new System.Drawing.Point(14, 91);
+            this.settings_list.MultiSelect = false;
+            this.settings_list.Name = "settings_list";
+            this.settings_list.ReadOnly = true;
+            this.settings_list.RowHeadersVisible = false;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_settings_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.pwd_settings_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pwd_settings_list.Size = new System.Drawing.Size(242, 483);
-            this.pwd_settings_list.TabIndex = 30;
+            this.settings_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.settings_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.settings_list.Size = new System.Drawing.Size(242, 483);
+            this.settings_list.TabIndex = 30;
             // 
             // label15
             // 
@@ -243,8 +243,8 @@
             // 
             this.pnl_settings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pnl_settings.Controls.Add(this.textBox2);
-            this.pnl_settings.Controls.Add(this.pwd_settings_list_full);
-            this.pnl_settings.Controls.Add(this.pwd_settings_list);
+            this.pnl_settings.Controls.Add(this.settings_list_full);
+            this.pnl_settings.Controls.Add(this.settings_list);
             this.pnl_settings.Controls.Add(this.label15);
             this.pnl_settings.Controls.Add(this.label16);
             this.pnl_settings.Controls.Add(this.panel1);
@@ -369,8 +369,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "settings_employee";
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_settings_list_full)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_settings_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings_list_full)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings_list)).EndInit();
             this.pnl_settings.ResumeLayout(false);
             this.pnl_settings.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -386,8 +386,8 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button14;
-        public System.Windows.Forms.DataGridView pwd_settings_list_full;
-        public System.Windows.Forms.DataGridView pwd_settings_list;
+        public System.Windows.Forms.DataGridView settings_list_full;
+        public System.Windows.Forms.DataGridView settings_list;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel pnl_settings;
