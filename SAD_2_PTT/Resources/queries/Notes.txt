@@ -3,3 +3,5 @@
 SUBSTRING( string, start_position, length ) 
 UCASE(string)
 CONCAT(string A, string B, string C)
+string.Trim( new Char[] { ' ', '*', '.' } )
+STRING_SPLIT ( string , separator )

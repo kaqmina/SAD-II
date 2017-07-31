@@ -531,5 +531,16 @@ namespace SAD_2_PTT
         {
 
         }
+
+        private void pwd_searchbox_TextChanged(object sender, EventArgs e)
+        {
+            if (pwd_searchbox.Text.Trim() != "")
+            {
+                conn.pwd_search(pwd_grid, pwd_searchbox);
+            }
+            else
+            {
+            }
+        }
     }
 }

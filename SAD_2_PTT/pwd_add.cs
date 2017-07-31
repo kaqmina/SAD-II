@@ -492,6 +492,8 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region PWD Update Event PU - 12
+
         public void pwd_update(int current_id)
         {
             #region main_data
@@ -632,6 +634,8 @@ namespace SAD_2_PTT
             conn.pwd_update_profile(main_data, other_data, parental_data);
         }
 
+        #endregion
+
         public void set_data()
         {
             //<-----[MAIN DATA]----->
@@ -673,7 +677,32 @@ namespace SAD_2_PTT
             guardian_mn = gmn_txt.Text;
         }
 
-        #region EDUC_ATT, TO_SKILL, DISABILITY, SEX, B_TYPE, CIVIL/EMP/PHEALTH, TO_EMP, NO_EMP, STATUS_PWD
+        public void paste_data()
+        {
+            DataTable main_data = new DataTable();
+            DataTable other_data = new DataTable();
+            DataTable parental_data = new DataTable();
+            conn.pwd_view_profile(pwd_update_id, main_data, other_data, parental_data);
+
+            pwd_regisno.Text = main_data.Rows[0]["registration_no"].ToString();
+            ln_txt.Text = main_data.Rows[0]["registration_no"].ToString();
+            fn_txt.Text = main_data.Rows[0]["registration_no"].ToString();
+            mn_txt.Text = main_data.Rows[0]["registration_no"].ToString();
+            gender.SelectedValue = main_data.Rows[0]["registration_no"].ToString();
+            disability_type.SelectedValue = main_data.Rows[0]["registration_no"].ToString();
+            bloodtype.SelectedValue = main_data.Rows[0]["registration_no"].ToString();
+            civilstatus.SelectedValue = main_data.Rows[0]["registration_no"].ToString();
+            pwd_appdate.Text = main_data.Rows[0]["registration_no"].ToString();
+            nationality.Text = main_data.Rows[0]["registration_no"].ToString();
+            dateofbirth.Text = main_data.Rows[0]["registration_no"].ToString();
+            telno.Text = main_data.Rows[0]["registration_no"].ToString();
+            mobileno.Text = main_data.Rows[0]["registration_no"].ToString();
+            email.Text = main_data.Rows[0]["registration_no"].ToString();
+            //acc
+            //empstatus
+        }
+
+        #region EDUC_ATT, TO_SKILL, STATUS_PWD, DISABILITY, SEX, B_TYPE, CIVIL/EMP/PHEALTH, TO_EMP, NO_EMP
         private void educ_attainment()
         {
             if (educ1.Checked)
