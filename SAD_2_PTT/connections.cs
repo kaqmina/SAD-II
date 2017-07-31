@@ -66,7 +66,8 @@ namespace SAD_2_PTT
                 if (count == 0)
                 {
                     MessageBox.Show("No disabilities added.");
-                } else
+                }
+                else
                 {
                     foreach (DataRow data in set.Rows)
                     {
@@ -74,7 +75,8 @@ namespace SAD_2_PTT
                     }
                 }
                 conn.Close();
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 conn.Close();
                 MessageBox.Show(e.Message); //error
@@ -102,8 +104,8 @@ namespace SAD_2_PTT
             }
         }
         #endregion
-        
-        public void pwd_view_profile (int current_id, DataTable main, DataTable other_info, DataTable parental_info)
+
+        public void pwd_view_profile(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             try
             {
@@ -161,9 +163,10 @@ namespace SAD_2_PTT
                                              + "FROM parental_info WHERE pwd_id = " + current_id, conn);
                 MySqlDataAdapter parent_data = new MySqlDataAdapter(comm);
                 parent_data.Fill(parental_info);
-                
+
                 conn.Close();
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 conn.Close();
                 MessageBox.Show(e.Message); //error
@@ -178,7 +181,7 @@ namespace SAD_2_PTT
                 MySqlCommand comm = new MySqlCommand("SELECT employee_id, "
                                                           + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
                                                           + "address,"
-                                                          +" position, "
+                                                          + " position, "
                                                           + "contact_no, "
                                                           + "birthdate, "
                                                           + "status_id, "
@@ -222,5 +225,164 @@ namespace SAD_2_PTT
                 MessageBox.Show(e.ToString());
             }
         }
+
+        #region [ Device Module ]
+
+        #region Methods
+        public void getDisability(ComboBox cmbox_dis)
+        {
+            MySqlCommand com = new MySqlCommand("SELECT disability_type FROM disability", conn);
+            MySqlDataReader dr;
+
+            try
+            {
+                conn.Open();
+                dr = com.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string dis = dr.GetString("disability_type");
+                    if (dis == "") MessageBox.Show("No disabilities added.");
+                    else cmbox_dis.Items.Add(dis);
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getDisability() : " + ex);
+                conn.Close();
+            }
+        }
+
+        public void getProvider(ComboBox cmbox_prov)
+        {
+            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM device_provider", conn);
+            MySqlDataReader dr;
+
+            try
+            {
+                conn.Open();
+                dr = com.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string provider = dr.GetString("dp_name");
+                    cmbox_prov.Items.Add(provider);
+                }
+                if (cmbox_prov.Items.Count == 0)
+                {
+                    MessageBox.Show("No device provider added.");
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getProvider() : " + ex);
+                conn.Close();
+            }
+        }
+
+        #endregion
+
+        #region DataLoad
+        public void device_add_grid(DataGridView dev_addgrid)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT * FROM device", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                dev_addgrid.DataSource = dt;
+                dev_addgrid.Columns["device_id"].Visible = false;
+                dev_addgrid.Columns["disability_id"].Visible = false;
+                dev_addgrid.Columns["dev_desc"].Visible = false;
+                dev_addgrid.Columns["dev_name"].HeaderText = "Device Name";
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in device_add_grid() : " + ex);
+            }
+        }
+
+        public void device_prov_grid(DataGridView dev_provgrid)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT * FROM device_provider", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                dev_provgrid.DataSource = dt;
+                dev_provgrid.Columns["dp_id"].Visible = false;
+                dev_provgrid.Columns["dp_desc"].Visible = false;
+                dev_provgrid.Columns["dp_type"].Visible = false;
+                dev_provgrid.Columns["mobile_no"].Visible = false;
+                dev_provgrid.Columns["tel_no"].Visible = false;
+                dev_provgrid.Columns["email_add"].Visible = false;
+                dev_provgrid.Columns["dp_name"].HeaderText = "Device Provider";
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in device_prov_grid() : " + ex);
+                conn.Close();
+            }
+        }
+
+        public void device_dis_grid(DataGridView dev_disgrid)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT * FROM disability", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                dev_disgrid.DataSource = dt;
+                dev_disgrid.Columns["disability_id"].Visible = false;
+                dev_disgrid.Columns["disability_desc"].Visible = false;
+                dev_disgrid.Columns["disability_type"].HeaderText = "Disability Type";
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in device_dis_grid() : " + ex);
+            }
+        }
+
+        public void device_addreq_grid(DataGridView dev_addreq)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                dev_addreq.DataSource = dt;
+                dev_addreq.Columns["pwd_id"].Visible = false;
+                dev_addreq.Columns["registration_no"].HeaderText = "Reg. No.";
+                dev_addreq.Columns["fullname"].HeaderText = "Full Name";
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in device_addreq_grid() : " + ex);
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }
