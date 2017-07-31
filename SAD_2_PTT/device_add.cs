@@ -16,6 +16,7 @@ namespace SAD_2_PTT
         #region Declaration
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
+        connections conn = new connections();
 
         String d_name, d_dis, d_desc;
         int d_id;
@@ -43,63 +44,16 @@ namespace SAD_2_PTT
         public device_add()
         {
             InitializeComponent();
-            con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
-            getDisability();
+            con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;"); 
+            conn.getDisability(cmbox_dis);
         }
         private void device_add_Load(object sender, EventArgs e)
         {
-            DataLoad();
+            conn.device_add_grid(dev_addgrid);
             this.Opacity = 0;
             startup_opacity.Start();
         }
-        private void getDisability()
-        {
-            MySqlCommand com = new MySqlCommand("SELECT disability_type FROM disability", con);
-            MySqlDataReader dr;
-
-            try
-            {
-                con.Open();
-                dr = com.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    string dis = dr.GetString("disability_type");
-                    cmbox_dis.Items.Add(dis);
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getDisability() : " + ex);
-                con.Close();
-            }
-        }
-
-        private void DataLoad()
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT * FROM device", con);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["device_id"].Visible = false;
-                dataGridView1.Columns["disability_id"].Visible = false;
-                dataGridView1.Columns["dev_desc"].Visible = false;
-                dataGridView1.Columns["dev_name"].HeaderText = "Device Name";
-
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in DataLoad() : " + ex);
-            }
-        }
-
+        
         #endregion
 
         #region Buttons
@@ -111,7 +65,7 @@ namespace SAD_2_PTT
         }
         private void Add()
         {
-            int d = cmbox_dis.SelectedIndex + 1; 
+            int d = cmbox_dis.SelectedIndex; 
 
             d_name = txt_dname.Text;
             d_desc = txt_ddesc.Text;
@@ -120,10 +74,10 @@ namespace SAD_2_PTT
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("INSERT INTO device(disability_id,dev_name,dev_desc) VALUES('" + d_dis + "','" + d_name + "','" + d_desc + "')", con);
+                MySqlCommand com = new MySqlCommand("INSERT INTO p_dao.device(disability_id,dev_name,dev_desc) VALUES('" + d_dis + "','" + d_name + "','" + d_desc + "')", con);
                 com.ExecuteNonQuery();
                 con.Close();
-                DataLoad();
+                conn.device_add_grid(dev_addgrid);
 
                 MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
 
@@ -165,7 +119,7 @@ namespace SAD_2_PTT
                 button1.Enabled = false;
                 button2.BringToFront();
 
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = this.dev_addgrid.Rows[e.RowIndex];
                 d_name = row.Cells["dev_name"].Value.ToString();
                 d_desc = row.Cells["dev_desc"].Value.ToString();
 
@@ -202,7 +156,7 @@ namespace SAD_2_PTT
                 MySqlCommand com = new MySqlCommand("UPDATE device SET disability_id = '" + d_dis + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ", con);
                 com.ExecuteNonQuery();
                 con.Close();
-                DataLoad();
+                conn.device_add_grid(dev_addgrid);
 
                 MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
             }

@@ -17,7 +17,7 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         public device_add to_edit;
 
-        String p_name, req_desc, status, reg_no, d_dis, d_dev, d_prov,dev;
+        String p_name, req_desc, status, reg_no, d_dis, d_dev, d_prov, dev, device;
         DateTime req_date, date_IN, date_OUT;
         int stat, id, dev_id;
 
@@ -44,8 +44,10 @@ namespace SAD_2_PTT
 
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string device = cmbox_dev.SelectedText;
+            device = cmbox_dev.SelectedItem.ToString();
+            MessageBox.Show(device);
             getDeviceID(device);
+            
         }
 
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,20 +203,18 @@ namespace SAD_2_PTT
 
         private void getDeviceID(string device)
         {
-            MySqlCommand com = new MySqlCommand("SELECT device_log.device_id FROM device_log JOIN device ON p_dao.device_log.device_id = p_dao.device.device_id WHERE p_dao.device.dev_name = '" + device + "'", con);
-            MySqlDataReader dr;
-
             try
             {
                 con.Open();
-                dr = com.ExecuteReader();
-
-                while (dr.Read())
+                MySqlCommand com = new MySqlCommand("SELECT p_dao.device.device_id FROM p_dao.device WHERE p_dao.device.dev_name = '" + device + "'", con);
+                using (MySqlDataReader dr = com.ExecuteReader())
                 {
-                     dev_id = dr.GetInt32("device_id");
-                }  
-               
-                con.Close();
+                    while (dr.Read())
+                    {
+                        dev_id = dr.GetInt32("device_id");
+                    }
+                    con.Close();
+                }                
             }
             catch (Exception ex)
             {
@@ -263,7 +263,7 @@ namespace SAD_2_PTT
 
                 //status
                 stat = Int32.Parse(status);
-                if (stat == 0) cmbox_stat.Text = "yah"; // what stat
+                if (stat == 0) cmbox_stat.Text = "Requested"; // what stat
                 else if (stat == 1) cmbox_stat.Text = "Received";
                 else if (stat == 2) cmbox_stat.Text = "Handed Out";
                 else MessageBox.Show("No status selected.","",MessageBoxButtons.OK);
@@ -320,7 +320,7 @@ namespace SAD_2_PTT
             {
                 con.Open();
 
-                MySqlCommand com = new MySqlCommand("UPDATE device_log SET dp_id = '" + d_prov + "', device_log.device_id = '" + d_dev + "', req_date = '" + req_date.ToString("yyyy-MM-dd") + "', req_desc = '" + req_desc + "', date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', date_out = '" + date_OUT.ToString("yyyy-MM-dd")+ "' WHERE deviceLOG_id = '" + id + "'", con);
+                MySqlCommand com = new MySqlCommand("UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd")+ "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'", con);
                 com.ExecuteNonQuery();
                 con.Close();
                 DataLoad();
