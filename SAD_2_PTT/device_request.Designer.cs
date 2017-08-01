@@ -225,6 +225,7 @@
             this.cmbox_dev.Name = "cmbox_dev";
             this.cmbox_dev.Size = new System.Drawing.Size(200, 23);
             this.cmbox_dev.TabIndex = 40;
+            this.cmbox_dev.SelectedIndexChanged += new System.EventHandler(this.cmbox_dev_SelectedIndexChanged);
             // 
             // date_out
             // 

@@ -311,7 +311,7 @@ namespace SAD_2_PTT
         {
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
-            d_dev = dev_id.ToString();
+          //  d_dev = dev_id.ToString();
             d_prov = cmbox_prov.SelectedIndex.ToString();
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;

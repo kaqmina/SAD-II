@@ -17,9 +17,9 @@ namespace SAD_2_PTT
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
 
-        String dr_dev, dr_prov, req_desc, d_dis,search, reg_no;
+        String dr_prov, req_desc, search, reg_no, device;
         DateTime req_dev, req_in, req_out;
-        int pwd_id;
+        int pwd_id, dev_id;
         #endregion
 
         #region Transition
@@ -100,7 +100,7 @@ namespace SAD_2_PTT
                 cmbox_dev.Items.Add("");
                 int d = cmbox_dis.SelectedIndex;
 
-                MySqlCommand com = new MySqlCommand("SELECT dev_name FROM device WHERE disability_id = " + d, con);
+                MySqlCommand com = new MySqlCommand("SELECT dev_name FROM p_dao.device WHERE disability_id = " + d, con);
                 MySqlDataAdapter get = new MySqlDataAdapter(com);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -127,7 +127,7 @@ namespace SAD_2_PTT
         }
         private void getProvider()
         {
-            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM device_provider", con); 
+            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM p_dao.device_provider", con); 
             MySqlDataReader dr;
 
             try
@@ -152,6 +152,13 @@ namespace SAD_2_PTT
                 con.Close();
             }
         }
+
+        private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device = cmbox_dev.SelectedItem.ToString();
+            getDeviceID(device);
+        }
+
         private void Search()
         {
             search = txt_search.Text;
@@ -170,6 +177,28 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Search(): " + ex);
+                con.Close();
+            }
+        }
+
+        private void getDeviceID(string device)
+        {
+            try
+            {
+                con.Open();
+                MySqlCommand com = new MySqlCommand("SELECT p_dao.device.device_id FROM p_dao.device WHERE p_dao.device.dev_name = '" + device + "'", con);
+                using (MySqlDataReader dr = com.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        dev_id = dr.GetInt32("device_id");
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getDeviceID() : " + ex);
                 con.Close();
             }
         }
@@ -268,14 +297,9 @@ namespace SAD_2_PTT
             Add();
         }
         private void Add() {
-            int d = cmbox_dis.SelectedIndex + 1;
-            int dreq = cmbox_dev.SelectedIndex + 1;
-            int dprov = cmbox_prov.SelectedIndex + 1;
+            int dprov = cmbox_prov.SelectedIndex;
 
-
-            dr_dev = dreq.ToString();
             dr_prov = dprov.ToString();
-            d_dis = d.ToString();
             req_desc = txt_desc.Text;
             req_dev = request_date.Value.Date;
             req_in = date_in.Value.Date;
@@ -290,7 +314,7 @@ namespace SAD_2_PTT
                 }
                 else
                 {
-                    MySqlCommand com = new MySqlCommand("INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dr_dev + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
+                    MySqlCommand com = new MySqlCommand("INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dev_id + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
                     com.ExecuteNonQuery();
                     con.Close();
 
