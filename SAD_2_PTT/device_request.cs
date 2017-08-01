@@ -133,14 +133,14 @@ namespace SAD_2_PTT
             }
         }
 
-        private void Search()
+        private void Search(string query)
         {
             search = txt_search.Text;
 
             try
             {
                 con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR lastname  LIKE '%" + search + "%' OR firstname  LIKE '%" + search + "%' OR middlename  LIKE '%" + search + "%' OR registration_no LIKE '%" + search + "%'", con);
+                MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
 
@@ -207,7 +207,8 @@ namespace SAD_2_PTT
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            Search();
+            string query = "SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR lastname  LIKE '%" + search + "%' OR firstname  LIKE '%" + search + "%' OR middlename  LIKE '%" + search + "%' OR registration_no LIKE '%" + search + "%'";
+            Search(query);
         }
 
         #endregion
