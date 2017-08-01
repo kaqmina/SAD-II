@@ -203,15 +203,6 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                string type_of_skill = "(CASE WHEN type_of_skill = 1 THEN 'Officials of Government and Special Interest Organizations, Corporate Executives, Managers, Managing Proprietors and Supervisors' "
-                                           + "WHEN type_of_skill = 2 THEN 'Professionals' "
-                                           + "WHEN type_of_skill = 3 THEN 'Technicians and Associate Professionals' "
-                                           + "WHEN type_of_skill = 4 THEN 'Farmers, Forestry Workers and Fishermen' "
-                                           + "WHEN type_of_skill = 5 THEN 'Trades and Related Workers' "
-                                           + "WHEN type_of_skill = 6 THEN 'Plant and Machine Operators and Assemblers' "
-                                           + "WHEN type_of_skill = 7 THEN 'Laborers' "
-                                           + "WHEN type_of_skill = 8 THEN 'Unskilled Workers' "
-                                           + "ELSE 'Special Occupation' END) AS type_of_skill, ";
                 MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
                                                           + "registration_no, "
                                                           + "lastname, "
@@ -230,12 +221,12 @@ namespace SAD_2_PTT
                                                           + "mobile_no, "
                                                           + "email_add, "
                                                           + "accomplished_by, "
-                                                          + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' WHEN educ_attainment = 3 THEN 'High School' WHEN educ_attainment = 4 THEN 'High School Undergraduate' WHEN educ_attainment = 5 THEN 'College' WHEN educ_attainment = 6 THEN 'College Undergraduate' WHEN educ_attainment = 7 THEN 'Graduate' WHEN educ_attainment = 8 THEN 'Post Graduate' WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment, "
+                                                          + "educ_attainment, "
                                                           + "(CASE WHEN employment_status = 1 THEN 'Employed' WHEN employment_status = 2 THEN 'Unemployed' WHEN employment_status = 3 THEN 'Displaced Worker' WHEN employment_status = 4 THEN 'Resigned' WHEN employment_status = 5 THEN 'Retired' ELSE 'Returning Overseas Filipino Worker' END) AS employment_status, "
                                                           + "(CASE WHEN nature_of_employer = 2 THEN 'Government' ELSE 'Private' END) AS nature_of_employer, "
                                                           + "(CASE WHEN type_of_employment = 1 THEN 'Contractual' WHEN type_of_employment = 2 THEN 'Permanent' WHEN type_of_employment = 3 THEN 'Self-Employed' ELSE 'Seasonal' END) AS type_of_employment, "
-                                                          + type_of_skill
-                                                          + "(CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) as status_pwd, "
+                                                          + "type_of_skill, "
+                                                          + "status_pwd, "
                                                           + "address "
                                                           + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
                 MySqlDataAdapter main_data = new MySqlDataAdapter(comm);

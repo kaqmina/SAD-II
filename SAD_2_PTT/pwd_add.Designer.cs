@@ -1617,12 +1617,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl3);
+            this.pnl_container.Controls.Add(this.pnl4);
+            this.pnl_container.Controls.Add(this.pnl5);
+            this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl4);
-            this.pnl_container.Controls.Add(this.pnl2);
-            this.pnl_container.Controls.Add(this.pnl3);
-            this.pnl_container.Controls.Add(this.pnl5);
             this.pnl_container.Location = new System.Drawing.Point(287, 67);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(757, 500);
