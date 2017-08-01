@@ -506,7 +506,7 @@ namespace SAD_2_PTT
             pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
             pwd_grid.Columns["fullname"].HeaderText = "Full Name";
             pwd_grid.Columns["sex"].HeaderText = "Sex";
-            pwd_grid.Columns["disability_id"].HeaderText = "Disability";
+            pwd_grid.Columns["disability_type"].HeaderText = "Disability";
             pwd_grid.Columns["blood_type"].HeaderText = "Blood Type";
             pwd_grid.Columns["civil_status"].HeaderText = "Civil Status";
             pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
@@ -529,7 +529,16 @@ namespace SAD_2_PTT
 
         private void btn_pwd_edit_Click(object sender, EventArgs e)
         {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
 
+            pwd_add edit = new pwd_add();
+            edit.reference_to_main = this;
+            edit.Location = new Point(loc_x, loc_y);
+            edit.pwd_update_id = current_pwd_id;
+            edit.paste_data();
+            edit.btn_add_edit.Text = "UPDATE";
+            edit.ShowDialog();
         }
 
         private void pwd_searchbox_TextChanged(object sender, EventArgs e)
