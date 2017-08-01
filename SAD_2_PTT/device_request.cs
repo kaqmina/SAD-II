@@ -16,6 +16,7 @@ namespace SAD_2_PTT
         #region Declaration
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
+        connections conn = new connections();
 
         String dr_prov, req_desc, search, reg_no, device;
         DateTime req_dev, req_in, req_out;
@@ -43,6 +44,12 @@ namespace SAD_2_PTT
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
         }
+
+        private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device = cmbox_dev.SelectedItem.ToString();
+            getDeviceID(device);
+        }
         #endregion
 
         #region FormLoad
@@ -51,8 +58,8 @@ namespace SAD_2_PTT
             InitializeComponent();
             con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
             getDisability();
-            getProvider();
-            DataLoad();
+            conn.getProvider(cmbox_prov);
+            conn.device_addreq_grid(dev_addreq);
 
             request_date.Value = DateTime.Now;
             date_in.Value = DateTime.Now;
@@ -125,39 +132,6 @@ namespace SAD_2_PTT
                 con.Close();
             }
         }
-        private void getProvider()
-        {
-            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM p_dao.device_provider", con); 
-            MySqlDataReader dr;
-
-            try
-            {
-                con.Open();
-                dr = com.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    string provider = dr.GetString("dp_name");
-                    cmbox_prov.Items.Add(provider);
-                }
-                if(cmbox_prov.Items.Count == 0)
-                {
-                    MessageBox.Show("No device provider added.");
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getProvider() : " + ex);
-                con.Close();
-            }
-        }
-
-        private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            device = cmbox_dev.SelectedItem.ToString();
-            getDeviceID(device);
-        }
 
         private void Search()
         {
@@ -171,7 +145,7 @@ namespace SAD_2_PTT
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
-                dataGridView1.DataSource = dt;
+                dev_addreq.DataSource = dt;
                 con.Close();
             }
             catch (Exception ex)
@@ -212,9 +186,7 @@ namespace SAD_2_PTT
             }
             else
             {
-                //button2.BringToFront();
-
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = this.dev_addreq.Rows[e.RowIndex];
                 reg_no = row.Cells["registration_no"].Value.ToString();
 
                 //pwd id
@@ -224,35 +196,7 @@ namespace SAD_2_PTT
 
                 lbl_reg.Text = reg_no;
 
-                #region nothing 
-                /* DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                // req_desc = row.Cells["req_desc"].Value.ToString();
-
-                 int  dl_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
-
-                 //disability id
-                 int d = 0;
-                 d = Convert.ToInt32(row.Cells["disability_id"].Value.ToString());
-                 int dd = d - 1;
-                 d_dis = cmbox_dis.Items[dd].ToString();
-
-                 //device requested
-                 int dr = 0;
-                 dr = Convert.ToInt32(row.Cells["dev_name"].Value.ToString());
-                 int dd1 = dr - 1;
-                 dr_dev = cmbox_dis.Items[dd1].ToString();
-
-                 //device provider
-                 int dp = 0;
-                 dp = Convert.ToInt32(row.Cells["dp_name"].Value.ToString());
-                 int dd2 = dp - 1;
-                 dr_prov = cmbox_dis.Items[dd2].ToString();
-
-                 txt_desc.Text = req_desc;
-                 cmbox_dis.Text = d_dis;
-                 cmbox_dev.Text = dr_dev;
-                 cmbox_prov.Text = dr_prov;*/
-                #endregion
+               
             }
         }
 
@@ -266,27 +210,6 @@ namespace SAD_2_PTT
             Search();
         }
 
-        private void DataLoad()
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd", con);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["pwd_id"].Visible = false;              
-                dataGridView1.Columns["registration_no"].HeaderText = "Reg. No.";
-                dataGridView1.Columns["fullname"].HeaderText = "Full Name";
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in DataLoad() : " + ex);
-            }
-        }
         #endregion
 
         #region Buttons

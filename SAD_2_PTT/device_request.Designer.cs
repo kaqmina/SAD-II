@@ -54,7 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dev_addreq = new System.Windows.Forms.DataGridView();
             this.bar = new System.Windows.Forms.Panel();
             this.pnl_search = new System.Windows.Forms.Panel();
             this.button45 = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             this.pnl_name.SuspendLayout();
             this.pnl_reqform.SuspendLayout();
             this.pnl_status.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dev_addreq)).BeginInit();
             this.pnl_search.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -362,20 +362,20 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataGridView1
+            // dev_addreq
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(311, 309);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dev_addreq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dev_addreq.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dev_addreq.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dev_addreq.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dev_addreq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dev_addreq.Location = new System.Drawing.Point(33, 155);
+            this.dev_addreq.Name = "dev_addreq";
+            this.dev_addreq.RowHeadersVisible = false;
+            this.dev_addreq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dev_addreq.Size = new System.Drawing.Size(311, 309);
+            this.dev_addreq.TabIndex = 12;
+            this.dev_addreq.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // bar
             // 
@@ -433,7 +433,7 @@
             this.ClientSize = new System.Drawing.Size(938, 506);
             this.Controls.Add(this.pnl_search);
             this.Controls.Add(this.bar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dev_addreq);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pnl_status);
             this.Controls.Add(this.pnl_reqform);
@@ -453,7 +453,7 @@
             this.pnl_reqform.PerformLayout();
             this.pnl_status.ResumeLayout(false);
             this.pnl_status.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dev_addreq)).EndInit();
             this.pnl_search.ResumeLayout(false);
             this.pnl_search.PerformLayout();
             this.ResumeLayout(false);
@@ -487,7 +487,7 @@
         private System.Windows.Forms.ComboBox cmbox_dis;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dev_addreq;
         private System.Windows.Forms.Panel bar;
         private System.Windows.Forms.Panel pnl_search;
         private System.Windows.Forms.Button button45;
