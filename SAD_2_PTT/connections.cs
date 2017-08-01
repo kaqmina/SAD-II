@@ -288,7 +288,7 @@ namespace SAD_2_PTT
         #region Methods
         public void getDisability(ComboBox cmbox_dis)
         {
-            MySqlCommand com = new MySqlCommand("SELECT disability_type FROM disability", conn);
+            MySqlCommand com = new MySqlCommand("SELECT disability_type FROM p_dao.disability", conn);
             MySqlDataReader dr;
 
             try
@@ -311,9 +311,46 @@ namespace SAD_2_PTT
             }
         }
 
+        public void getDevice(int d, ComboBox cmbox_dev)
+        {
+            try
+            {
+                conn.Open();
+
+                cmbox_dev.Items.Clear();
+                cmbox_dev.Items.Add("");
+
+
+                MySqlCommand com = new MySqlCommand("SELECT dev_name FROM p_dao.device WHERE disability_id = " + d, conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(com);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    MessageBox.Show("No devices added for this disability.");
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        cmbox_dev.Items.Add(data["dev_name"].ToString());
+                    }
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getting data from cmbox_dis : " + ex);
+                conn.Close();
+            }
+        }
+
+
         public void getProvider(ComboBox cmbox_prov)
         {
-            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM device_provider", conn);
+            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM p_dao.device_provider", conn);
             MySqlDataReader dr;
 
             try
@@ -324,17 +361,36 @@ namespace SAD_2_PTT
                 while (dr.Read())
                 {
                     string provider = dr.GetString("dp_name");
-                    cmbox_prov.Items.Add(provider);
+                    if (cmbox_prov.Items.Count == 0) MessageBox.Show("No device provider added.");
+                    else cmbox_prov.Items.Add(provider);
                 }
-                if (cmbox_prov.Items.Count == 0)
-                {
-                    MessageBox.Show("No device provider added.");
-                }
+               
                 conn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in getProvider() : " + ex);
+                conn.Close();
+            }
+        }
+
+        public void Search(string query, DataGridView form)
+        {
+            
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+                form.DataSource = dt;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Search(): " + ex);
                 conn.Close();
             }
         }
@@ -436,6 +492,82 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in device_addreq_grid() : " + ex);
+            }
+        }
+
+        public void device_editreq_grid(DataGridView dev_editreq)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, status FROM device_log"
+                                                    + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
+                                                    + " JOIN device ON device_log.device_id = device.device_id"
+                                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                dev_editreq.DataSource = dt;
+                dev_editreq.Columns["pwd_id"].Visible = false;
+                dev_editreq.Columns["dp_id"].Visible = false;
+                dev_editreq.Columns["device_id"].Visible = false;
+                dev_editreq.Columns["disability_id"].Visible = false;
+                dev_editreq.Columns["deviceLOG_id"].Visible = false;
+                dev_editreq.Columns["req_desc"].Visible = false;
+                dev_editreq.Columns["status"].Visible = false;
+                dev_editreq.Columns["registration_no"].HeaderText = "Reg. No.";
+                dev_editreq.Columns["pwd_name"].HeaderText = "Name";
+                dev_editreq.Columns["date_in"].HeaderText = "Date IN";
+                dev_editreq.Columns["date_out"].HeaderText = "Date OUT";
+                dev_editreq.Columns["dev_name"].HeaderText = "Device";
+                dev_editreq.Columns["dp_name"].HeaderText = "Device Provider";
+                dev_editreq.Columns["req_date"].HeaderText = "Requested Date";
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in DataLoad() : " + ex);
+                conn.Close();
+            }
+        }
+        #endregion
+
+        #region Add & Edit
+        public void Add(string query, string values)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand(query + values, conn);
+                com.ExecuteNonQuery();
+                conn.Close();
+
+                    MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Add() : " + ex);
+                conn.Close();
+            }
+        }
+
+        public void Edit(string query)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                com.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Update() : " + ex);
+                conn.Close();
             }
         }
         #endregion

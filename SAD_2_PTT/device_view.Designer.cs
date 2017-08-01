@@ -33,7 +33,7 @@
             this.bar = new System.Windows.Forms.Panel();
             this.lbl_title = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dev_editreq = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.pnl_edit = new System.Windows.Forms.Panel();
             this.edit_info = new System.Windows.Forms.Panel();
@@ -60,7 +60,7 @@
             this.pnl_name = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
             this.edit_stat.SuspendLayout();
@@ -99,15 +99,15 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // dataGridView1
+            // dev_editreq
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dev_editreq.AllowUserToAddRows = false;
+            this.dev_editreq.AllowUserToDeleteRows = false;
+            this.dev_editreq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dev_editreq.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dev_editreq.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dev_editreq.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dev_editreq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,17 +117,17 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 117);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(821, 365);
-            this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dev_editreq.Location = new System.Drawing.Point(22, 117);
+            this.dev_editreq.MultiSelect = false;
+            this.dev_editreq.Name = "dev_editreq";
+            this.dev_editreq.ReadOnly = true;
+            this.dev_editreq.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dev_editreq.RowHeadersVisible = false;
+            this.dev_editreq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dev_editreq.Size = new System.Drawing.Size(821, 365);
+            this.dev_editreq.TabIndex = 17;
+            this.dev_editreq.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // button1
             // 
@@ -439,14 +439,14 @@
             this.Controls.Add(this.bar);
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.btn_close);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dev_editreq);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_view";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "device_view";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_view_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).EndInit();
             this.pnl_edit.ResumeLayout(false);
             this.edit_info.ResumeLayout(false);
             this.edit_info.PerformLayout();
@@ -466,7 +466,7 @@
         private System.Windows.Forms.Panel bar;
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dev_editreq;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnl_edit;
         private System.Windows.Forms.Button button2;

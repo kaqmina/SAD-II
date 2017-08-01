@@ -50,7 +50,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pnl_status = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbox_stat = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -301,29 +301,29 @@
             // pnl_status
             // 
             this.pnl_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(45)))));
-            this.pnl_status.Controls.Add(this.comboBox1);
+            this.pnl_status.Controls.Add(this.cmbox_stat);
             this.pnl_status.Controls.Add(this.label6);
             this.pnl_status.Location = new System.Drawing.Point(712, 91);
             this.pnl_status.Name = "pnl_status";
             this.pnl_status.Size = new System.Drawing.Size(199, 45);
             this.pnl_status.TabIndex = 9;
             // 
-            // comboBox1
+            // cmbox_stat
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbox_stat.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbox_stat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_stat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbox_stat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbox_stat.FormattingEnabled = true;
+            this.cmbox_stat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cmbox_stat.Items.AddRange(new object[] {
             "Requested",
             "Received",
             "Handed Out"});
-            this.comboBox1.Location = new System.Drawing.Point(79, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 23);
-            this.comboBox1.TabIndex = 40;
+            this.cmbox_stat.Location = new System.Drawing.Point(79, 10);
+            this.cmbox_stat.Name = "cmbox_stat";
+            this.cmbox_stat.Size = new System.Drawing.Size(111, 23);
+            this.cmbox_stat.TabIndex = 40;
             // 
             // label6
             // 
@@ -486,7 +486,7 @@
         private System.Windows.Forms.RichTextBox txt_desc;
         private System.Windows.Forms.ComboBox cmbox_dis;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbox_stat;
         private System.Windows.Forms.DataGridView dev_addreq;
         private System.Windows.Forms.Panel bar;
         private System.Windows.Forms.Panel pnl_search;

@@ -43,6 +43,7 @@ namespace SAD_2_PTT
         {
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
+            txt_search.Font = DefaultFont;
         }
 
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,103 +58,25 @@ namespace SAD_2_PTT
         {
             InitializeComponent();
             con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
-            getDisability();
+
+            //Methods
+            conn.getDisability(cmbox_dis);
             conn.getProvider(cmbox_prov);
             conn.device_addreq_grid(dev_addreq);
 
+            //Initialization
             request_date.Value = DateTime.Now;
             date_in.Value = DateTime.Now;
             date_out.Value = DateTime.Now;
+            cmbox_stat.Text = "Requested";
+            //cmbox_stat.R = false;
 
+            //Form Transition
             this.Opacity = 0;
             startup_opacity.Start();
         }
 
-        #region Methods
-        private void getDisability()
-        {
-            MySqlCommand com = new MySqlCommand("SELECT disability_type FROM disability", con);
-            MySqlDataReader dr;
-
-            try
-            {
-                con.Open();
-                dr = com.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    string dis = dr.GetString("disability_type");
-                    cmbox_dis.Items.Add(dis);
-                }
-                if(cmbox_dis.Items.Count == 0)
-                {
-                    MessageBox.Show("No disabilities added.");
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getDisability() : " + ex);
-                con.Close();
-            }
-        }
-        private void getDevice()
-        {
-            try
-            {
-                con.Open();
-
-                cmbox_dev.Items.Clear();
-                cmbox_dev.Items.Add("");
-                int d = cmbox_dis.SelectedIndex;
-
-                MySqlCommand com = new MySqlCommand("SELECT dev_name FROM p_dao.device WHERE disability_id = " + d, con);
-                MySqlDataAdapter get = new MySqlDataAdapter(com);
-                DataTable set = new DataTable();
-                get.Fill(set);
-
-                int count = set.Rows.Count;
-                if (count == 0)
-                {
-                    MessageBox.Show("No devices added for this disability.");
-                }
-                else
-                {
-                    foreach (DataRow data in set.Rows)
-                    {
-                        cmbox_dev.Items.Add(data["dev_name"].ToString());
-                    }
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getting data from cmbox_dis : " + ex);
-                con.Close();
-            }
-        }
-
-        private void Search(string query)
-        {
-            search = txt_search.Text;
-
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand(query, con);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-
-                adp.Fill(dt);
-                dev_addreq.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Search(): " + ex);
-                con.Close();
-            }
-        }
+        #region Methods       
 
         private void getDeviceID(string device)
         {
@@ -202,13 +125,17 @@ namespace SAD_2_PTT
 
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getDevice();
+            int d = cmbox_dis.SelectedIndex;
+            conn.getDevice(d,cmbox_dev);
         }
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
+            DataGridView form = dev_addreq;
+            search = txt_search.Text;
+
             string query = "SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR lastname  LIKE '%" + search + "%' OR firstname  LIKE '%" + search + "%' OR middlename  LIKE '%" + search + "%' OR registration_no LIKE '%" + search + "%'";
-            Search(query);
+            conn.Search(query,form);
         }
 
         #endregion
@@ -218,9 +145,6 @@ namespace SAD_2_PTT
         #region Add
         public void button1_Click(object sender, EventArgs e)
         {
-            Add();
-        }
-        private void Add() {
             int dprov = cmbox_prov.SelectedIndex;
 
             dr_prov = dprov.ToString();
@@ -229,27 +153,9 @@ namespace SAD_2_PTT
             req_in = date_in.Value.Date;
             req_out = date_out.Value.Date;
 
-            try
-            {
-                con.Open();
-                if (cmbox_dis.Text == "")
-                {
-                    MessageBox.Show("No status selected.", "", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MySqlCommand com = new MySqlCommand("INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,date_in,date_out) VALUES('" + dr_prov + "','" + pwd_id + "','" + dev_id + "','" + req_dev.ToString("yyyy-MM-dd") + "','" + req_desc + "','" + req_in.ToString("yyyy-MM-dd") + "','" + req_out.ToString("yyyy-MM-dd") + "')", con);
-                    com.ExecuteNonQuery();
-                    con.Close();
-
-                    MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Add() : " + ex);
-                con.Close();
-            }
+            string query = "INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,date_in,date_out,status)";
+            string values = " VALUES('" + dr_prov + "', '" + pwd_id + "', '" + dev_id + "', '" + req_dev.ToString("yyyy-MM-dd") + "', '" + req_desc + "', '" + req_in.ToString("yyyy-MM-dd") + "', '" + req_out.ToString("yyyy-MM-dd") + "','0')";
+            conn.Add(query,values);
         }
         #endregion
 

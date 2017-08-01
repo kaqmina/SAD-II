@@ -15,9 +15,9 @@ namespace SAD_2_PTT
     {
         #region Declaration
         public MySqlConnection con;
-        public device_add to_edit;
+        connections conn = new connections();
 
-        String p_name, req_desc, status, reg_no, d_dis, d_dev, d_prov, dev, device;
+        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device;
         DateTime req_date, date_IN, date_OUT;
         int stat, id, dev_id;
 
@@ -38,8 +38,8 @@ namespace SAD_2_PTT
 
         private void device_view_FormClosing(object sender, FormClosingEventArgs e)
         {      
-                reference_to_main.side_tab.Enabled = true;
-                reference_to_main.dboard_head.Enabled = true;
+            reference_to_main.side_tab.Enabled = true;
+            reference_to_main.dboard_head.Enabled = true;
         }
 
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,7 +52,8 @@ namespace SAD_2_PTT
 
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getDevice();
+            int d = cmbox_dis.SelectedIndex;
+            conn.getDevice(d,cmbox_dev);
         }
         #endregion
 
@@ -61,146 +62,19 @@ namespace SAD_2_PTT
         {
             con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
             InitializeComponent();
-            DataLoad();
-            getDisability();
-            getProvider();
+            conn.device_editreq_grid(dev_editreq);
+            conn.getDisability(cmbox_dis);
+            conn.getProvider(cmbox_prov);
 
-            dataGridView1.BringToFront();
+            dev_editreq.BringToFront();
 
             this.Opacity = 0;
             startup_opacity.Start();
         }
 
-        public void DataLoad()
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, status FROM device_log"
-                                                    + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id" 
-                                                    + " JOIN device ON device_log.device_id = device.device_id"
-                                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id", con);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["pwd_id"].Visible = false;
-                dataGridView1.Columns["dp_id"].Visible = false;
-                dataGridView1.Columns["device_id"].Visible = false;
-                dataGridView1.Columns["disability_id"].Visible = false;
-                dataGridView1.Columns["deviceLOG_id"].Visible = false;
-                dataGridView1.Columns["req_desc"].Visible = false;
-                dataGridView1.Columns["status"].Visible = false;
-                dataGridView1.Columns["registration_no"].HeaderText = "Reg. No.";
-                dataGridView1.Columns["pwd_name"].HeaderText = "Name";
-                dataGridView1.Columns["date_in"].HeaderText = "Date IN";
-                dataGridView1.Columns["date_out"].HeaderText = "Date OUT";
-                dataGridView1.Columns["dev_name"].HeaderText = "Device";
-                dataGridView1.Columns["dp_name"].HeaderText = "Device Provider";
-                dataGridView1.Columns["req_date"].HeaderText = "Requested Date";
-          
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in DataLoad() : " + ex);
-            }
-        }
+      
 
         #region Methods
-        private void getDisability()
-        {
-            MySqlCommand com = new MySqlCommand("SELECT disability_type FROM disability", con);
-            MySqlDataReader dr;
-
-            try
-            {
-                con.Open();
-                dr = com.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    string dis = dr.GetString("disability_type");
-                    cmbox_dis.Items.Add(dis);
-                }
-                if (cmbox_dis.Items.Count == 0)
-                {
-                    MessageBox.Show("No disabilities added.");
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getDisability() : " + ex);
-                con.Close();
-            }
-        }
-
-
-        private void getDevice()
-        {
-            try
-            {
-                con.Open();
-
-                cmbox_dev.Items.Clear();
-                cmbox_dev.Items.Add("");
-                int d = cmbox_dis.SelectedIndex;
-
-                MySqlCommand com = new MySqlCommand("SELECT dev_name FROM device WHERE disability_id = " + d, con);
-                MySqlDataAdapter get = new MySqlDataAdapter(com);
-                DataTable set = new DataTable();
-                get.Fill(set);
-
-                int count = set.Rows.Count;
-                if (count == 0)
-                {
-                    MessageBox.Show("No devices added for this disability.");
-                }
-                else
-                {
-                    foreach (DataRow data in set.Rows)
-                    {
-                        cmbox_dev.Items.Add(data["dev_name"].ToString());
-                    }
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getting data from cmbox_dis : " + ex);
-                con.Close();
-            }
-        }
-        private void getProvider()
-        {
-            MySqlCommand com = new MySqlCommand("SELECT dp_name FROM device_provider", con);
-            MySqlDataReader dr;
-
-            try
-            {
-                con.Open();
-                dr = com.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    string provider = dr.GetString("dp_name");
-                    cmbox_prov.Items.Add(provider);
-                }
-                if (cmbox_prov.Items.Count == 0)
-                {
-                    MessageBox.Show("No device provider added.");
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in getProvider() : " + ex);
-                con.Close();
-            }
-        }
-
         private void getDeviceID(string device)
         {
             try
@@ -239,11 +113,11 @@ namespace SAD_2_PTT
 
                 #region Transition
                 button1.Enabled = true;
-                dataGridView1.SendToBack();
+                dev_editreq.SendToBack();
                 lbl_title.Text = "EDIT REQUEST";
                 #endregion
 
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = this.dev_editreq.Rows[e.RowIndex];
 
                 //device_logID
                 int log_id = 0;
@@ -268,7 +142,7 @@ namespace SAD_2_PTT
                 else if (stat == 2) cmbox_stat.Text = "Handed Out";
                 else MessageBox.Show("No status selected.","",MessageBoxButtons.OK);
 
-                //pass to pnl_edit
+                //pass to edit panel [pnl_edit]
 
                 //disability id [cmbox_dis]
                 int d = 0;
@@ -292,7 +166,7 @@ namespace SAD_2_PTT
                 date_out.Format.ToString("d");
                 date_out.Value = date_OUT;
 
-                //other values
+                //other string values
                 txt_desc.Text = req_desc;
                 cmbox_dis.Text = d_dis;
                 cmbox_dev.Text = dev;
@@ -304,42 +178,24 @@ namespace SAD_2_PTT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Edit();
-        }
-
-        private void Edit()
-        {
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
-          //  d_dev = dev_id.ToString();
             d_prov = cmbox_prov.SelectedIndex.ToString();
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
             date_OUT = date_out.Value.Date;
-            try
-            {
-                con.Open();
-
-                MySqlCommand com = new MySqlCommand("UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd")+ "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'", con);
-                com.ExecuteNonQuery();
-                con.Close();
-                DataLoad();
-
-                MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Update() : " + ex);
-                con.Close();
-            }
-           
+            
+            //without status pa okay?
+            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+            conn.Edit(query);
+            conn.device_editreq_grid(dev_editreq);
         }
        #endregion
 
         #region Cancel
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView1.BringToFront();
+            dev_editreq.BringToFront();
             lbl_title.Text = "VIEW REQUESTS";
         }
         #endregion
