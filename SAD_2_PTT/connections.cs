@@ -19,6 +19,8 @@ namespace SAD_2_PTT
 
         #region [ PWD Profiling Module ]
 
+        #region PWD Searchbox | Grid | CBox
+
         public void pwd_grid_list(DataGridView pwd_grid)
         {
             try
@@ -88,24 +90,64 @@ namespace SAD_2_PTT
         public void pwd_search(DataGridView pwd_grid, TextBox pwd_searchbox)
         {
             conn.Open();
+            string regis;
+            string lastname;
+            string firstname;
+            string middlename;
+            string app_date;
+            lastname = firstname = middlename = app_date = regis = " ";
+            string[] separators = { " " };
+            string value = pwd_searchbox.Text;
+            string[] search = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            string last = search.Last();
+            foreach (string word in search)
+            {
+                if (word == last)
+                {
+                    regis += ("registration_no LIKE '%" + word + "%' ");
+                    lastname += ("lastname LIKE '%" + word + "%' ");
+                    firstname += ("firstname LIKE '%" + word + "%' ");
+                    middlename += ("middlename LIKE '%" + word + "%' ");
+                    app_date += ("application_date LIKE '%" + word + "%' ");
+                } else
+                {
+                    regis += ("registration_no LIKE '%" + word + "%' OR ");
+                    lastname += ("lastname LIKE '%" + word + "%' OR ");
+                    firstname += ("firstname LIKE '%" + word + "%' OR ");
+                    middlename += ("middlename LIKE '%" + word + "%' OR ");
+                    app_date += ("application_date LIKE '%" + word + "%' OR ");
+                }
+            }
             MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
-                                                          + "registration_no, "
-                                                          + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
-                                                          + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
-                                                          + "disability_type, "
-                                                          + "blood_type, "
-                                                          + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
-                                                          + "application_date, "
-                                                          + "added_date, "
-                                                          + "status_pwd "
-                                                          + "FROM pwd LEFT JOIN disability ON pwd.disability_id = disability.disability_id WHERE CONCAT_WS('|', registration_no, fullname, sex, disability_type, blood_type, civil_status, application_date, added_date) LIKE '%" + pwd_searchbox.Text + "%'", conn);
+                                                      + "registration_no, "
+                                                      + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
+                                                      + "lastname, "
+                                                      + "firstname, "
+                                                      + "middlename, "
+                                                      + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
+                                                      + "disability_type, "
+                                                      + "blood_type, "
+                                                      + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                                      + "application_date, "
+                                                      + "added_date, "
+                                                      + "status_pwd "
+                                                      + "FROM pwd LEFT JOIN disability ON pwd.disability_id = disability.disability_id WHERE "
+                                                      + regis + " OR "
+                                                      + lastname + " OR "
+                                                      + firstname + " OR "
+                                                      + middlename + " OR "
+                                                      + app_date, conn);
+
             MySqlDataAdapter getresult = new MySqlDataAdapter(comm);
             DataTable resulttable = new DataTable();
             getresult.Fill(resulttable);
-
             pwd_grid.DataSource = resulttable;
+
+
             conn.Close();
         }
+
+        #endregion
 
         #region PWD ADD PA - 11
         public void pwd_add_profile(string main_data, string other_data, string parental_data)
@@ -128,7 +170,7 @@ namespace SAD_2_PTT
             }
         }
         #endregion
-        //has mun bar prov reg
+
         #region PWD VIEW PV - 12
         public void pwd_view_profile(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
@@ -280,6 +322,23 @@ namespace SAD_2_PTT
 
 
         #endregion
+
+        #region PWD ARCHIVE PA - 14
+        public void archive_profile(int current_id)
+        {
+            conn.Open();
+
+            MySqlCommand comm = new MySqlCommand("UPDATE p_dao.pwd SET isArchived = 1 WHERE pwd_id = " + current_id, conn);
+            comm.ExecuteNonQuery();
+
+            conn.Close();
+        }
+        #endregion
+
+        public void pwd_grid_filter(string category)
+        {
+            //Name, Age, Gender, Disability, District, Membership Expired, Archived
+        }
 
         #endregion
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_form));
             this.main_tab = new System.Windows.Forms.Panel();
             this.side_tab = new System.Windows.Forms.Panel();
@@ -47,9 +47,12 @@
             this.slide_out = new System.Windows.Forms.Timer(this.components);
             this.main_content = new System.Windows.Forms.Panel();
             this.pnl_pwd = new System.Windows.Forms.Panel();
-            this.btn_pwd_edit = new System.Windows.Forms.Button();
-            this.btn_pwd_viewmore = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_archive = new System.Windows.Forms.Button();
+            this.pwd_view_pp = new System.Windows.Forms.PictureBox();
+            this.btn_pwd_viewmore = new System.Windows.Forms.Button();
+            this.btn_pwd_edit = new System.Windows.Forms.Button();
+            this.btn_renew = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btn_pwd_search = new System.Windows.Forms.Button();
             this.pwd_searchbox = new System.Windows.Forms.TextBox();
@@ -158,13 +161,12 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.pnl_reports = new System.Windows.Forms.Panel();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
-            this.button15 = new System.Windows.Forms.Button();
-            this.pwd_view_pp = new System.Windows.Forms.PictureBox();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
             this.pnl_pwd.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).BeginInit();
             this.panel7.SuspendLayout();
@@ -184,7 +186,6 @@
             this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
             this.dboard_head.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).BeginInit();
             this.SuspendLayout();
             // 
             // main_tab
@@ -427,21 +428,53 @@
             this.pnl_pwd.Size = new System.Drawing.Size(1069, 589);
             this.pnl_pwd.TabIndex = 11;
             // 
-            // btn_pwd_edit
+            // panel2
             // 
-            this.btn_pwd_edit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_pwd_edit.Enabled = false;
-            this.btn_pwd_edit.FlatAppearance.BorderSize = 0;
-            this.btn_pwd_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pwd_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_pwd_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_pwd_edit.Location = new System.Drawing.Point(800, 508);
-            this.btn_pwd_edit.Name = "btn_pwd_edit";
-            this.btn_pwd_edit.Size = new System.Drawing.Size(133, 43);
-            this.btn_pwd_edit.TabIndex = 25;
-            this.btn_pwd_edit.Text = "EDIT";
-            this.btn_pwd_edit.UseVisualStyleBackColor = false;
-            this.btn_pwd_edit.Click += new System.EventHandler(this.btn_pwd_edit_Click);
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.btn_archive);
+            this.panel2.Controls.Add(this.pwd_view_pp);
+            this.panel2.Controls.Add(this.btn_pwd_viewmore);
+            this.panel2.Controls.Add(this.btn_pwd_edit);
+            this.panel2.Controls.Add(this.btn_renew);
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.pwd_grid);
+            this.panel2.Location = new System.Drawing.Point(0, 33);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1069, 556);
+            this.panel2.TabIndex = 16;
+            // 
+            // btn_archive
+            // 
+            this.btn_archive.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_archive.Enabled = false;
+            this.btn_archive.FlatAppearance.BorderSize = 0;
+            this.btn_archive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_archive.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_archive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_archive.Location = new System.Drawing.Point(334, 508);
+            this.btn_archive.Name = "btn_archive";
+            this.btn_archive.Size = new System.Drawing.Size(133, 43);
+            this.btn_archive.TabIndex = 28;
+            this.btn_archive.Text = "ARCHIVE";
+            this.btn_archive.UseVisualStyleBackColor = false;
+            this.btn_archive.Click += new System.EventHandler(this.btn_archive_Click);
+            // 
+            // pwd_view_pp
+            // 
+            this.pwd_view_pp.BackColor = System.Drawing.Color.Transparent;
+            this.pwd_view_pp.BackgroundImage = global::SAD_2_PTT.Properties.Resources.pwd;
+            this.pwd_view_pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pwd_view_pp.Location = new System.Drawing.Point(9, 9);
+            this.pwd_view_pp.Name = "pwd_view_pp";
+            this.pwd_view_pp.Size = new System.Drawing.Size(169, 161);
+            this.pwd_view_pp.TabIndex = 27;
+            this.pwd_view_pp.TabStop = false;
             // 
             // btn_pwd_viewmore
             // 
@@ -459,25 +492,36 @@
             this.btn_pwd_viewmore.UseVisualStyleBackColor = false;
             this.btn_pwd_viewmore.Click += new System.EventHandler(this.btn_pwd_viewmore_Click_1);
             // 
-            // panel2
+            // btn_pwd_edit
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Controls.Add(this.pwd_view_pp);
-            this.panel2.Controls.Add(this.btn_pwd_viewmore);
-            this.panel2.Controls.Add(this.btn_pwd_edit);
-            this.panel2.Controls.Add(this.button15);
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.pwd_grid);
-            this.panel2.Location = new System.Drawing.Point(0, 33);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1069, 556);
-            this.panel2.TabIndex = 16;
+            this.btn_pwd_edit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_pwd_edit.Enabled = false;
+            this.btn_pwd_edit.FlatAppearance.BorderSize = 0;
+            this.btn_pwd_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pwd_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pwd_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_pwd_edit.Location = new System.Drawing.Point(800, 508);
+            this.btn_pwd_edit.Name = "btn_pwd_edit";
+            this.btn_pwd_edit.Size = new System.Drawing.Size(133, 43);
+            this.btn_pwd_edit.TabIndex = 25;
+            this.btn_pwd_edit.Text = "EDIT";
+            this.btn_pwd_edit.UseVisualStyleBackColor = false;
+            this.btn_pwd_edit.Click += new System.EventHandler(this.btn_pwd_edit_Click);
+            // 
+            // btn_renew
+            // 
+            this.btn_renew.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_renew.Enabled = false;
+            this.btn_renew.FlatAppearance.BorderSize = 0;
+            this.btn_renew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_renew.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_renew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_renew.Location = new System.Drawing.Point(197, 508);
+            this.btn_renew.Name = "btn_renew";
+            this.btn_renew.Size = new System.Drawing.Size(133, 43);
+            this.btn_renew.TabIndex = 26;
+            this.btn_renew.Text = "RENEW";
+            this.btn_renew.UseVisualStyleBackColor = false;
             // 
             // panel9
             // 
@@ -586,14 +630,14 @@
             this.pwd_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pwd_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.pwd_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pwd_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pwd_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.pwd_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pwd_grid.Location = new System.Drawing.Point(197, 78);
@@ -601,8 +645,8 @@
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(857, 424);
@@ -1897,32 +1941,6 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button15.Enabled = false;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button15.Location = new System.Drawing.Point(210, 508);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(133, 43);
-            this.button15.TabIndex = 26;
-            this.button15.Text = "RENEW";
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // pwd_view_pp
-            // 
-            this.pwd_view_pp.BackColor = System.Drawing.Color.Transparent;
-            this.pwd_view_pp.BackgroundImage = global::SAD_2_PTT.Properties.Resources.pwd;
-            this.pwd_view_pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pwd_view_pp.Location = new System.Drawing.Point(9, 9);
-            this.pwd_view_pp.Name = "pwd_view_pp";
-            this.pwd_view_pp.Size = new System.Drawing.Size(169, 161);
-            this.pwd_view_pp.TabIndex = 27;
-            this.pwd_view_pp.TabStop = false;
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1940,6 +1958,7 @@
             this.pnl_pwd.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).EndInit();
@@ -1969,7 +1988,6 @@
             this.panel3.PerformLayout();
             this.dboard_head.ResumeLayout(false);
             this.dboard_head.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2101,8 +2119,9 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
         private System.Windows.Forms.PictureBox pwd_view_pp;
+        private System.Windows.Forms.Button btn_archive;
+        private System.Windows.Forms.Button btn_renew;
     }
 }
 

@@ -377,6 +377,7 @@ namespace SAD_2_PTT
 
         #region OpenViewPWD
         int current_pwd_id = 0;
+        int current_grid_index = 1;
 
         private void btn_pwd_viewmore_Click_1(object sender, EventArgs e)
         {
@@ -402,7 +403,19 @@ namespace SAD_2_PTT
             {
                 btn_pwd_viewmore.Enabled = true;
                 btn_pwd_edit.Enabled = true;
+                btn_archive.Enabled = true;
+                if (pwd_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Salmon)
+                {
+                    btn_renew.Enabled = true;
+                    btn_archive.Enabled = true;
+                }
+                else
+                {
+                    btn_renew.Enabled = false;
+                    btn_archive.Enabled = false;
+                }
                 current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
+                current_grid_index = e.RowIndex;
             }
 
 
@@ -546,11 +559,31 @@ namespace SAD_2_PTT
             if (pwd_searchbox.Text.Trim() != "")
             {
                 conn.pwd_search(pwd_grid, pwd_searchbox);
+                pwd_grid.Columns["lastname"].Visible = false;
+                pwd_grid.Columns["firstname"].Visible = false;
+                pwd_grid.Columns["middlename"].Visible = false;
+                pwd_format();
             }
             else
             {
-
+                pwd_data();
             }
+        }
+
+        private void btn_archive_Click(object sender, EventArgs e)
+        {
+            int loc_x = 434;
+            int loc_y = 148;
+            prompt show_prompt = new prompt();
+            show_prompt.Location = new Point(loc_x, loc_y);
+            show_prompt.current_id = current_pwd_id;
+            show_prompt.reference_to_main = this;
+            show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            show_prompt.name.Text = "Name: " + pwd_grid.Rows[current_grid_index].Cells["fullname"].Value.ToString();
+            show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_grid_index].Cells["application_date"].Value.ToString();
+            show_prompt.prompt_title.Text = "Archive";
+            show_prompt.action.Text = "The following profile will be archived:";
+            show_prompt.ShowDialog();
         }
     }
 }
