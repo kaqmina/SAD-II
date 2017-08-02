@@ -111,6 +111,12 @@
     <Compile Include="pwd_add.Designer.cs">
       <DependentUpon>pwd_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="pwd_notifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwd_notifications.Designer.cs">
+      <DependentUpon>pwd_notifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="pwd_renew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,7 @@
     <None Include="Resources\queries\SAD_Queries.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reload.png" />
     <None Include="Resources\control_close1.png" />
     <Content Include="Resources\queries\Notes.txt" />
   </ItemGroup>

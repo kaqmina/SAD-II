@@ -584,6 +584,13 @@ namespace SAD_2_PTT
             show_prompt.prompt_title.Text = "Archive";
             show_prompt.action.Text = "The following profile will be archived:";
             show_prompt.ShowDialog();
+            btn_renew.Enabled = false;
+            btn_archive.Enabled = false;
+        }
+
+        private void btn_pwd_refresh_Click(object sender, EventArgs e)
+        {
+            pwd_data();
         }
     }
 }
