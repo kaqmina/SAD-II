@@ -59,31 +59,13 @@ namespace SAD_2_PTT
         #region Add
 
         private void button1_Click(object sender, EventArgs e)
-        { 
-            Add();
-        }
-
-        private void Add()
         {
             dis_type = txt_type.Text;
             dis_desc = txt_desc.Text;
 
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("INSERT INTO disability(disability_type, disability_desc) VALUES('" + dis_type + "','" + dis_desc +"')", con);
-                com.ExecuteNonQuery();
-                con.Close();
-                conn.device_dis_grid(dev_disgrid);
-
-                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error in Add() : " + ex);
-                con.Close();
-            }
+            string query = "INSERT INTO disability(disability_type, disability_desc)";
+            string values = " VALUES('" + dis_type + "','" + dis_desc + "')";
+            conn.Add(query, values);
         }
         #endregion
 
@@ -101,7 +83,12 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
-            Edit();
+            dis_type = txt_type.Text;
+            dis_desc = txt_desc.Text;
+
+            string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
+            conn.Edit(query);
+            conn.device_dis_grid(dev_disgrid);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -124,28 +111,6 @@ namespace SAD_2_PTT
                 txt_type.Text = dis_type;
                 txt_desc.Text = dis_desc;
                 lbl_desc.Text = dis_desc;
-            }
-        }
-
-        private void Edit()
-        {
-            dis_type = txt_type.Text;
-            dis_desc = txt_desc.Text;
-            try
-            {
-                con.Open();
-
-                MySqlCommand com = new MySqlCommand("UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ",con);
-                com.ExecuteNonQuery();
-                con.Close();
-                conn.device_dis_grid(dev_disgrid);
-
-                MessageBox.Show("Updated Successfully!","",MessageBoxButtons.OK);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error in Update() : " + ex);
-                con.Close();
             }
         }
         #endregion

@@ -62,17 +62,6 @@ namespace SAD_2_PTT
         #region Add
         private void button1_Click(object sender, EventArgs e)
         {
-            Add();
-        }
-
-        private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbox_type.SelectedIndex == 0) type = 0;
-            else if (cmbox_type.SelectedIndex == 1) type = 1;
-        }
-
-        private void Add()
-        {
             dp_name = txt_name.Text;
             dp_desc = txt_desc.Text;
             tel_no = txt_telno.Text;
@@ -80,23 +69,16 @@ namespace SAD_2_PTT
 
             mob_no = Convert.ToInt32(txt_mobno.Text);
             dp_type = type.ToString();
-            
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add) VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')", con);
-                com.ExecuteNonQuery();
-                con.Close();
-                conn.device_prov_grid(dev_provgrid);
 
-                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+            string query = "INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add)";
+            string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
+            conn.Add(query, values);
+    }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Add() : " + ex);
-                con.Close();
-            }
+        private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbox_type.SelectedIndex == 0) type = 0;
+            else if (cmbox_type.SelectedIndex == 1) type = 1;
         }
         #endregion
 
@@ -119,7 +101,16 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
-            Edit();
+            dp_name = txt_name.Text;
+            dp_desc = txt_desc.Text;
+            tel_no = txt_telno.Text;
+            email = txt_email.Text;
+            mob_no = Convert.ToInt32(txt_mobno.Text);
+            dp_type = type.ToString();
+
+            string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + dp_type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
+            conn.Edit(query);
+            conn.device_prov_grid(dev_provgrid);
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -154,32 +145,6 @@ namespace SAD_2_PTT
                 txt_email.Text = email;
                 txt_mobno.Text = mob_no.ToString();
                 lbl_desc.Text = dp_desc;
-            }
-        }
-        private void Edit()
-        {
-            dp_name = txt_name.Text;
-            dp_desc = txt_desc.Text;
-            tel_no = txt_telno.Text;
-            email = txt_email.Text;
-            mob_no = Convert.ToInt32(txt_mobno.Text);
-            dp_type = type.ToString();
-
-            try
-            {
-                con.Open();
-
-                MySqlCommand com = new MySqlCommand("UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + dp_type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ", con);
-                com.ExecuteNonQuery();
-                con.Close();
-                conn.device_prov_grid(dev_provgrid);
-
-                MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Update() : " + ex);
-                con.Close();
             }
         }
         #endregion

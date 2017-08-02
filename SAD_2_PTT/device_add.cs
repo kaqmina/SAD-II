@@ -61,32 +61,15 @@ namespace SAD_2_PTT
         #region Add
         private void button1_Click(object sender, EventArgs e)
         {
-            Add();
-        }
-        private void Add()
-        {
-            int d = cmbox_dis.SelectedIndex; 
+            int d = cmbox_dis.SelectedIndex;
 
             d_name = txt_dname.Text;
             d_desc = txt_ddesc.Text;
             d_dis = d.ToString();
 
-            try
-            {
-                con.Open();
-                MySqlCommand com = new MySqlCommand("INSERT INTO p_dao.device(disability_id,dev_name,dev_desc) VALUES('" + d_dis + "','" + d_name + "','" + d_desc + "')", con);
-                com.ExecuteNonQuery();
-                con.Close();
-                conn.device_add_grid(dev_addgrid);
-
-                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Add() : " + ex);
-                con.Close();
-            }
+            string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
+            string values = " VALUES('" + d_dis + "','" + d_name + "','" + d_desc + "')";
+            conn.Add(query, values);
         }
         #endregion
 
@@ -105,7 +88,17 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
-            Edit();
+            d_name = txt_dname.Text;
+            d_desc = txt_ddesc.Text;
+
+            //disability id
+            int d = 0;
+            d = cmbox_dis.SelectedIndex + 1;
+            d_dis = d.ToString();
+
+            string query = "UPDATE device SET disability_id = '" + d_dis + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
+            conn.Edit(query);
+            conn.device_add_grid(dev_addgrid);
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,33 +130,6 @@ namespace SAD_2_PTT
                 cmbox_dis.Text = d_dis;
                 lbl_ddesc.Text = d_desc;
                 lbl_dis.Text = d_dis;
-            }
-        }
-        private void Edit()
-        {
-            d_name = txt_dname.Text;
-            d_desc = txt_ddesc.Text;
-
-            //disability id
-            int d = 0;
-            d = cmbox_dis.SelectedIndex + 1;
-            d_dis = d.ToString();
-
-            try
-            {
-                con.Open();
-
-                MySqlCommand com = new MySqlCommand("UPDATE device SET disability_id = '" + d_dis + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ", con);
-                com.ExecuteNonQuery();
-                con.Close();
-                conn.device_add_grid(dev_addgrid);
-
-                MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Update() : " + ex);
-                con.Close();
             }
         }
         #endregion
