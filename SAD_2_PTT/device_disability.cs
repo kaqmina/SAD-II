@@ -66,6 +66,7 @@ namespace SAD_2_PTT
             string query = "INSERT INTO disability(disability_type, disability_desc)";
             string values = " VALUES('" + dis_type + "','" + dis_desc + "')";
             conn.Add(query, values);
+            conn.device_dis_grid(dev_disgrid);
         }
         #endregion
 

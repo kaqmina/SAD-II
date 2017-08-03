@@ -73,12 +73,13 @@ namespace SAD_2_PTT
             string query = "INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add)";
             string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
             conn.Add(query, values);
+            conn.device_prov_grid(dev_provgrid);
     }
 
         private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbox_type.SelectedIndex == 0) type = 0;
-            else if (cmbox_type.SelectedIndex == 1) type = 1;
+            if (cmbox_type.SelectedIndex == 0) type = 0; //Goverment
+            else if (cmbox_type.SelectedIndex == 1) type = 1; //Private
         }
         #endregion
 
