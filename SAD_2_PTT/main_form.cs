@@ -528,7 +528,7 @@ namespace SAD_2_PTT
             int count = pwd_grid.Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                if (pwd_grid.Rows[i].Cells[9].Value.ToString() == "0") //inactive = 0
+                if (pwd_grid.Rows[i].Cells["status_pwd"].Value.ToString() == "0") //inactive = 0
                 {
                     pwd_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
                 }
@@ -591,6 +591,7 @@ namespace SAD_2_PTT
         private void btn_pwd_refresh_Click(object sender, EventArgs e)
         {
             pwd_data();
+            pwd_searchbox.Clear();
         }
     }
 }

@@ -53,5 +53,32 @@ namespace SAD_2_PTT
             conn.archive_profile(current_id);
             this.Close();
         }
+
+        public Point mouseLocation;
+
+        public void dragdown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        public void dragmove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePos;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragdown(sender, e);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            dragmove(sender, e);
+        }
     }
 }

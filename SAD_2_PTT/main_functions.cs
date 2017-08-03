@@ -29,5 +29,36 @@ namespace SAD_2_PTT
                 current_form.WindowState = FormWindowState.Normal;
         }
         #endregion
+
+        #region TextStyle
+
+        public void text_enter(TextBox current_textbox, string text_fill)
+        {
+            string first = "First Name";
+            string middle = "Middle Name";
+            string last = "Last Name";
+            if (text_fill.Trim() != "" || text_fill != first || text_fill != middle || text_fill != last)
+            {
+                //nothing
+            } else
+            {
+                current_textbox.Clear();
+                current_textbox.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        public void text_change(TextBox current_textbox, string text_to_fill)
+        {
+            if (current_textbox.Text.Trim() == "")
+            {
+                current_textbox.Text = text_to_fill;
+                current_textbox.ForeColor = System.Drawing.Color.Silver;
+            }
+            else
+            {
+                current_textbox.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+        #endregion
     }
 }

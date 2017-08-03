@@ -605,36 +605,42 @@
             // 
             this.mn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mn_txt.ForeColor = System.Drawing.Color.Silver;
             this.mn_txt.Location = new System.Drawing.Point(512, 88);
             this.mn_txt.MaxLength = 50;
             this.mn_txt.Multiline = true;
             this.mn_txt.Name = "mn_txt";
             this.mn_txt.Size = new System.Drawing.Size(154, 26);
             this.mn_txt.TabIndex = 3;
+            this.mn_txt.Text = "Middle Name";
             this.mn_txt.Enter += new System.EventHandler(this.mntxt_Enter);
             // 
             // fn_txt
             // 
             this.fn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fn_txt.ForeColor = System.Drawing.Color.Silver;
             this.fn_txt.Location = new System.Drawing.Point(352, 88);
             this.fn_txt.MaxLength = 50;
             this.fn_txt.Multiline = true;
             this.fn_txt.Name = "fn_txt";
             this.fn_txt.Size = new System.Drawing.Size(154, 26);
             this.fn_txt.TabIndex = 2;
+            this.fn_txt.Text = "First Name";
             this.fn_txt.Enter += new System.EventHandler(this.fntxt_Enter);
             // 
             // ln_txt
             // 
             this.ln_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ln_txt.ForeColor = System.Drawing.Color.Silver;
             this.ln_txt.Location = new System.Drawing.Point(192, 88);
             this.ln_txt.MaxLength = 50;
             this.ln_txt.Multiline = true;
             this.ln_txt.Name = "ln_txt";
             this.ln_txt.Size = new System.Drawing.Size(154, 26);
             this.ln_txt.TabIndex = 1;
+            this.ln_txt.Text = "Last Name";
             this.ln_txt.Enter += new System.EventHandler(this.lntxt_Enter);
             // 
             // label15

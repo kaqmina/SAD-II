@@ -37,11 +37,11 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_continue = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.app_date = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
             this.regis_no = new System.Windows.Forms.Label();
             this.action = new System.Windows.Forms.Label();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
-            this.name = new System.Windows.Forms.Label();
-            this.app_date = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,6 +58,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(420, 23);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // prompt_title
             // 
@@ -156,6 +158,28 @@
             this.panel3.Size = new System.Drawing.Size(413, 96);
             this.panel3.TabIndex = 29;
             // 
+            // app_date
+            // 
+            this.app_date.AutoSize = true;
+            this.app_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.app_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.app_date.Location = new System.Drawing.Point(41, 64);
+            this.app_date.Name = "app_date";
+            this.app_date.Size = new System.Drawing.Size(87, 13);
+            this.app_date.TabIndex = 27;
+            this.app_date.Text = "[PROFILE_HERE]";
+            // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.name.Location = new System.Drawing.Point(41, 51);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(87, 13);
+            this.name.TabIndex = 26;
+            this.name.Text = "[PROFILE_HERE]";
+            // 
             // regis_no
             // 
             this.regis_no.AutoSize = true;
@@ -183,28 +207,6 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
-            // name
-            // 
-            this.name.AutoSize = true;
-            this.name.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.name.Location = new System.Drawing.Point(41, 51);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(87, 13);
-            this.name.TabIndex = 26;
-            this.name.Text = "[PROFILE_HERE]";
-            // 
-            // app_date
-            // 
-            this.app_date.AutoSize = true;
-            this.app_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.app_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.app_date.Location = new System.Drawing.Point(41, 64);
-            this.app_date.Name = "app_date";
-            this.app_date.Size = new System.Drawing.Size(87, 13);
-            this.app_date.TabIndex = 27;
-            this.app_date.Text = "[PROFILE_HERE]";
-            // 
             // prompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,7 +222,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "prompt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "prompt";
+            this.Text = "Confirmation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.prompt_FormClosing);
             this.Load += new System.EventHandler(this.prompt_Load);
             this.panel1.ResumeLayout(false);

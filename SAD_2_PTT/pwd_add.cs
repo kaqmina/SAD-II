@@ -63,6 +63,7 @@ namespace SAD_2_PTT
         bool all_required = false;
         Image picture = null;
         connections conn = new connections();
+        main_functions main_func = new main_functions();
         #endregion
 
         #region Formload
@@ -82,7 +83,7 @@ namespace SAD_2_PTT
 
             populate_cboxes();
             //Style Text
-            //defaulttxt1();
+            default_text();
             //defaulttxt9();
         }
 
@@ -106,27 +107,15 @@ namespace SAD_2_PTT
         }
 
         #region Text Style
-        private void defaulttxt1(){
-            //Guide text
-            ln_txt.Text = "Last Name";
-            fn_txt.Text = "First Name";
-            mn_txt.Text = "Middle Name";
-            hs_txt.Text = "House No. and Street";
-            bar_txt.Text = "Barangay";
-            mun_txt.Text = "Municipality";
-            prov_txt.Text = "Province";
-            region.Text = "Religion";
 
-            //Style
-            ln_txt.ForeColor = fn_txt.ForeColor = mn_txt.ForeColor = Color.Silver;
-            hs_txt.ForeColor = bar_txt.ForeColor = bar_txt.ForeColor = Color.Silver;
-            prov_txt.ForeColor = mun_txt.ForeColor = region.ForeColor = Color.Silver;
+        private void default_text(){
+
+            
         }
 
         private void lntxt_Enter(object sender, EventArgs e)
         {
-            //ln_txt.Clear();
-            //ln_txt.ForeColor = Color.Black;
+            main_func.text_enter(ln_txt, "Last Name");
         }
         private void fntxt_Enter(object sender, EventArgs e)
         {
@@ -135,13 +124,13 @@ namespace SAD_2_PTT
         }
         private void mntxt_Enter(object sender, EventArgs e)
         {
-            mn_txt.Clear();
-            mn_txt.ForeColor = Color.Black;
+            //mn_txt.Clear();
+            //mn_txt.ForeColor = Color.Black;
         }
         private void hstxt_Enter(object sender, EventArgs e)
         {
-            hs_txt.Clear();
-            hs_txt.ForeColor = Color.Black;
+            //hs_txt.Clear();
+            //hs_txt.ForeColor = Color.Black;
         }
         private void bartxt_Enter(object sender, EventArgs e)
         {
