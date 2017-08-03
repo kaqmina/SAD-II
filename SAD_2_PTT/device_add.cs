@@ -70,6 +70,7 @@ namespace SAD_2_PTT
             string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
             string values = " VALUES('" + d_dis + "','" + d_name + "','" + d_desc + "')";
             conn.Add(query, values);
+            conn.device_add_grid(dev_addgrid);
         }
         #endregion
 
