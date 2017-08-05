@@ -433,27 +433,23 @@ namespace SAD_2_PTT
             }
         }
 
-        public void Search(string query, DataGridView form)
+        public void editRequest_Format(DataGridView dev_editreq)
         {
-            
-            try
-            {
-                conn.Open();
-                MySqlCommand com = new MySqlCommand(query, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-
-                adp.Fill(dt);
-                form.DataSource = dt;
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Search(): " + ex);
-                conn.Close();
-            }
+            dev_editreq.Columns["pwd_id"].Visible = false;
+            dev_editreq.Columns["dp_id"].Visible = false;
+            dev_editreq.Columns["device_id"].Visible = false;
+            dev_editreq.Columns["disability_id"].Visible = false;
+            dev_editreq.Columns["deviceLOG_id"].Visible = false;
+            dev_editreq.Columns["req_desc"].Visible = false;
+            dev_editreq.Columns["registration_no"].HeaderText = "Reg. No.";
+            dev_editreq.Columns["pwd_name"].HeaderText = "Name";
+            dev_editreq.Columns["date_in"].HeaderText = "Date IN";
+            dev_editreq.Columns["date_out"].HeaderText = "Date OUT";
+            dev_editreq.Columns["dev_name"].HeaderText = "Device";
+            dev_editreq.Columns["dp_name"].HeaderText = "Device Provider";
+            dev_editreq.Columns["req_date"].HeaderText = "Requested Date";
+            dev_editreq.Columns["Status"].HeaderText = "Status";
         }
-
         #endregion
 
         #region DataLoad
@@ -554,46 +550,90 @@ namespace SAD_2_PTT
             }
         }
 
-        public void device_editreq_grid(DataGridView dev_editreq)
+        public void device_editreq_grid(DataGridView dev_editreq, string status)
         {
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, status FROM device_log"
-                                                    + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
-                                                    + " JOIN device ON device_log.device_id = device.device_id"
-                                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id", conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
+                string query, current; // current status selected
+                if (status == "Requested")
+                {
+                    current = "(CASE WHEN status = 0 THEN 'Requested' END)";
+                    query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
+                                   + current + " AS Status FROM device_log"
+                                   + " JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id"
+                                   + " JOIN p_dao.device ON device_log.device_id = device.device_id"
+                                   + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
+                                   + " WHERE status = 0";
+                    MySqlCommand com = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
 
-                dev_editreq.DataSource = dt;
-                dev_editreq.Columns["pwd_id"].Visible = false;
-                dev_editreq.Columns["dp_id"].Visible = false;
-                dev_editreq.Columns["device_id"].Visible = false;
-                dev_editreq.Columns["disability_id"].Visible = false;
-                dev_editreq.Columns["deviceLOG_id"].Visible = false;
-                dev_editreq.Columns["req_desc"].Visible = false;
-                dev_editreq.Columns["status"].Visible = false;
-                dev_editreq.Columns["registration_no"].HeaderText = "Reg. No.";
-                dev_editreq.Columns["pwd_name"].HeaderText = "Name";
-                dev_editreq.Columns["date_in"].HeaderText = "Date IN";
-                dev_editreq.Columns["date_out"].HeaderText = "Date OUT";
-                dev_editreq.Columns["dev_name"].HeaderText = "Device";
-                dev_editreq.Columns["dp_name"].HeaderText = "Device Provider";
-                dev_editreq.Columns["req_date"].HeaderText = "Requested Date";
+                    dev_editreq.DataSource = dt;
+                    editRequest_Format(dev_editreq);
+                }
+                else if (status == "Received")
+                {
+                    current = "(CASE WHEN status = 1 THEN 'Received' END)";
+                    query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
+                                   + current + " AS Status FROM device_log"
+                                   + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
+                                   + " JOIN device ON device_log.device_id = device.device_id"
+                                   + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
+                                   + " WHERE status = 1";
+                    MySqlCommand com = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
 
+                    dev_editreq.DataSource = dt;
+                    editRequest_Format(dev_editreq);
+                }
+                else if (status == "Handed Out")
+                {
+                    current = "(CASE WHEN status = 2 THEN 'Handed Out' END)";
+                    query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ', firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
+                                    + current + " AS Status FROM p_dao.device_log"
+                                    + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
+                                    + " JOIN device ON device_log.device_id = device.device_id"
+                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
+                                    + " WHERE status = 2";
+                    MySqlCommand com = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    dev_editreq.DataSource = dt;
+                    editRequest_Format(dev_editreq);
+                }
+                else if(status == "default")
+                {
+                    current = "(CASE WHEN status = 0 THEN 'Requested' WHEN status = 1 THEN 'Received' ELSE 'Handed Out' END)";
+                    query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc,"
+                                    + current + "AS Status FROM p_dao.device_log"
+                                    + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
+                                    + " JOIN device ON device_log.device_id = device.device_id"
+                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id";
+                    MySqlCommand com = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    dev_editreq.DataSource = dt;
+                    editRequest_Format(dev_editreq);
+                }
                 conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in DataLoad() : " + ex);
+                MessageBox.Show("Error in device_editreq_grid() : " + ex);
                 conn.Close();
             }
         }
         #endregion
 
-        #region Add & Edit
+        #region Add | Edit | Search
         public void Add(string query, string values)
         {
             try
@@ -626,6 +666,26 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Update() : " + ex);
+                conn.Close();
+            }
+        }
+
+        public void Search(string query, DataGridView form)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+                form.DataSource = dt;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Search(): " + ex);
                 conn.Close();
             }
         }

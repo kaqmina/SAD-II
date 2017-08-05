@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -53,12 +53,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dev_disgrid = new System.Windows.Forms.DataGridView();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.pnl_search = new System.Windows.Forms.Panel();
+            this.button45 = new System.Windows.Forms.Button();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dev_disgrid)).BeginInit();
+            this.pnl_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -243,9 +247,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.panel2.Controls.Add(this.lbl_desc);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(0, 414);
+            this.panel2.Location = new System.Drawing.Point(0, 437);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(299, 155);
+            this.panel2.Size = new System.Drawing.Size(299, 132);
             this.panel2.TabIndex = 10;
             // 
             // lbl_desc
@@ -294,25 +298,25 @@
             this.dev_disgrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dev_disgrid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dev_disgrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dev_disgrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dev_disgrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dev_disgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dev_disgrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dev_disgrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.dev_disgrid.GridColor = System.Drawing.SystemColors.Control;
-            this.dev_disgrid.Location = new System.Drawing.Point(0, 109);
+            this.dev_disgrid.Location = new System.Drawing.Point(0, 143);
             this.dev_disgrid.Name = "dev_disgrid";
             this.dev_disgrid.ReadOnly = true;
             this.dev_disgrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -320,7 +324,7 @@
             this.dev_disgrid.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dev_disgrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dev_disgrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dev_disgrid.Size = new System.Drawing.Size(299, 296);
+            this.dev_disgrid.Size = new System.Drawing.Size(299, 284);
             this.dev_disgrid.TabIndex = 16;
             this.dev_disgrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -329,11 +333,47 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
+            // pnl_search
+            // 
+            this.pnl_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_search.Controls.Add(this.button45);
+            this.pnl_search.Controls.Add(this.txt_search);
+            this.pnl_search.Location = new System.Drawing.Point(0, 107);
+            this.pnl_search.Name = "pnl_search";
+            this.pnl_search.Size = new System.Drawing.Size(299, 25);
+            this.pnl_search.TabIndex = 43;
+            // 
+            // button45
+            // 
+            this.button45.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button45.FlatAppearance.BorderSize = 0;
+            this.button45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button45.Image = global::SAD_2_PTT.Properties.Resources.search;
+            this.button45.Location = new System.Drawing.Point(265, 0);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(32, 23);
+            this.button45.TabIndex = 2;
+            this.button45.UseVisualStyleBackColor = true;
+            // 
+            // txt_search
+            // 
+            this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txt_search.Location = new System.Drawing.Point(-1, -1);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(268, 25);
+            this.txt_search.TabIndex = 0;
+            this.txt_search.Text = "  Search here..";
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
+            this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
+            // 
             // device_disability
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 589);
+            this.Controls.Add(this.pnl_search);
             this.Controls.Add(this.dev_disgrid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel7);
@@ -359,6 +399,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dev_disgrid)).EndInit();
+            this.pnl_search.ResumeLayout(false);
+            this.pnl_search.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -387,5 +429,8 @@
         private System.Windows.Forms.DataGridView dev_disgrid;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Panel pnl_search;
+        private System.Windows.Forms.Button button45;
+        private System.Windows.Forms.TextBox txt_search;
     }
 }

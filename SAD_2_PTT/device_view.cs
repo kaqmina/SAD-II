@@ -17,12 +17,14 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         connections conn = new connections();
 
-        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device;
+        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search;
+        String clicked = "default";
         DateTime req_date, date_IN, date_OUT;
-        int stat, id, dev_id, fstatus;
+        int id, dev_id, fstatus;
 
         public main_form reference_to_main { get; set; }
-        public device_request dev_req { get; set; }
+
+      
         #endregion
 
         #region Transition
@@ -42,12 +44,11 @@ namespace SAD_2_PTT
             reference_to_main.dboard_head.Enabled = true;
         }
 
+
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {
             device = cmbox_dev.SelectedItem.ToString();
-            MessageBox.Show(device);
             getDeviceID(device);
-            
         }
 
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,17 +63,17 @@ namespace SAD_2_PTT
         {
             con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
             InitializeComponent();
-            conn.device_editreq_grid(dev_editreq);
+            
+            //Methods
+            conn.device_editreq_grid(dev_editreq, clicked);
             conn.getDisability(cmbox_dis);
             conn.getProvider(cmbox_prov);
 
-            dev_editreq.BringToFront();
+            dev_editreq.BringToFront(); //grid
 
             this.Opacity = 0;
             startup_opacity.Start();
         }
-
-      
 
         #region Methods
         private void getDeviceID(string device)
@@ -112,9 +113,13 @@ namespace SAD_2_PTT
             {
 
                 #region Transition
-                button1.Enabled = true;
-                dev_editreq.SendToBack();
-                lbl_title.Text = "EDIT REQUEST";
+                button1.Enabled = true; 
+                dev_editreq.SendToBack(); //grid to back
+                lbl_title.Text = "EDIT REQUEST"; //header
+
+                pnl_search.Visible = false;
+                btn_req.Visible = btn_rec.Visible = btn_ho.Visible = btn_default.Visible =  false;
+                label12.Visible = label13.Visible = label8.Visible = false;
                 #endregion
 
                 DataGridViewRow row = this.dev_editreq.Rows[e.RowIndex];
@@ -136,11 +141,7 @@ namespace SAD_2_PTT
                 date_OUT = Convert.ToDateTime(row.Cells["date_out"].Value.ToString());
 
                 //status
-                stat = Int32.Parse(status);
-                if (stat == 0) cmbox_stat.Text = "Requested"; // what stat
-                else if (stat == 1) cmbox_stat.Text = "Received";
-                else if (stat == 2) cmbox_stat.Text = "Handed Out";
-                else MessageBox.Show("No status selected.","",MessageBoxButtons.OK);
+                cmbox_stat.Text = status;
 
                 //pass to edit panel [pnl_edit]
 
@@ -186,19 +187,71 @@ namespace SAD_2_PTT
             date_OUT = date_out.Value.Date;
             fstatus = cmbox_stat.SelectedIndex;
 
-            //without status pa okay?
             string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
             conn.Edit(query);
-            conn.device_editreq_grid(dev_editreq);
+            conn.device_editreq_grid(dev_editreq, clicked);
         }
        #endregion
 
         #region Cancel
         private void button2_Click(object sender, EventArgs e)
         {
-            dev_editreq.BringToFront();
-            lbl_title.Text = "VIEW REQUESTS";
+            dev_editreq.BringToFront(); //grid to front
+            lbl_title.Text = "VIEW REQUESTS"; //header
+
+            pnl_search.Visible = true;
+            btn_req.Visible = btn_rec.Visible = btn_ho.Visible = btn_default.Visible = true;
+            label12.Visible = label13.Visible = label8.Visible = true;
         }
         #endregion
+
+        #region Filter [Status]
+        private void btn_req_Click(object sender, EventArgs e)
+        {
+            clicked = "Requested";
+            conn.device_editreq_grid(dev_editreq,clicked);
+        }
+        private void btn_rec_Click(object sender, EventArgs e)
+        {
+            clicked = "Received";
+            conn.device_editreq_grid(dev_editreq, clicked);
+        }
+        private void btn_ho_Click(object sender, EventArgs e)
+        {
+            clicked = "Handed Out";
+            conn.device_editreq_grid(dev_editreq, clicked);
+        }
+        private void btn_default_Click(object sender, EventArgs e)
+        {
+            clicked = "default";
+            conn.device_editreq_grid(dev_editreq, clicked);
+        }
+        #endregion
+
+        #region Search
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            search = txt_search.Text;
+
+            string current = "(CASE WHEN status = 0 THEN 'Requested' WHEN status = 1 THEN 'Received' ELSE 'Handed Out' END)";
+            string query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
+                           + current + " AS Status FROM device_log"
+                           + " JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id"
+                           + " JOIN p_dao.device ON device_log.device_id = device.device_id"
+                           + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
+                           + " WHERE registration_no LIKE '%" + search + "%' OR dev_name LIKE '%" + search + "%' OR dp_name LIKE '%" + search + "%'"
+                           + " OR CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR firstname LIKE '%" + search + "%' OR middlename LIKE '%" + search + "%'";
+            conn.Search(query, dev_editreq);
+        }
+
+        private void txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            txt_search.ForeColor = Color.Black;
+
+        }
+
+        #endregion
+
     }
 }

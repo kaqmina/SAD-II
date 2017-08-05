@@ -39,13 +39,6 @@ namespace SAD_2_PTT
             reference_to_main.dboard_head.Enabled = true;
         }
 
-        private void txt_search_Enter(object sender, EventArgs e)
-        {
-            txt_search.Clear();
-            txt_search.ForeColor = Color.Black;
-            txt_search.Font = DefaultFont;
-        }
-
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {
             device = cmbox_dev.SelectedItem.ToString();
@@ -117,9 +110,7 @@ namespace SAD_2_PTT
                 id = Convert.ToInt32(row.Cells["pwd_id"].Value.ToString());
                 pwd_id = id;
 
-                lbl_reg.Text = reg_no;
-
-               
+                lbl_reg.Text = reg_no;  
             }
         }
 
@@ -129,18 +120,9 @@ namespace SAD_2_PTT
             conn.getDevice(d,cmbox_dev);
         }
 
-        private void txt_search_TextChanged(object sender, EventArgs e)
-        {
-            DataGridView form = dev_addreq;
-            search = txt_search.Text;
-
-            string query = "SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR lastname  LIKE '%" + search + "%' OR firstname  LIKE '%" + search + "%' OR middlename  LIKE '%" + search + "%' OR registration_no LIKE '%" + search + "%'";
-            conn.Search(query,form);
-        }
+        
 
         #endregion
-
-        #region Buttons
 
         #region Add
         public void button1_Click(object sender, EventArgs e)
@@ -172,6 +154,23 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region Search
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            search = txt_search.Text;
+
+            string query = "SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' OR lastname  LIKE '%" + search + "%' OR firstname  LIKE '%" + search + "%' OR middlename  LIKE '%" + search + "%' OR registration_no LIKE '%" + search + "%'";
+            conn.Search(query, dev_addreq);
+        }
+
+        private void txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            txt_search.ForeColor = Color.Black;
+            // txt_search.Font = DefaultFont;
+        }
         #endregion
+
     }
 }

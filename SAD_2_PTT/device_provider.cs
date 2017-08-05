@@ -18,7 +18,7 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         connections conn = new connections();
 
-        String dp_name, dp_desc, tel_no, email, dp_type;
+        String dp_name, dp_desc, tel_no, email, dp_type, search;
         int dp_id, mob_no, type, dpt;
 
         #endregion
@@ -57,11 +57,10 @@ namespace SAD_2_PTT
      
         #endregion
 
-        #region Buttons
-
         #region Add
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txt_desc.Text == "") txt_desc.Text = "None";
             dp_name = txt_name.Text;
             dp_desc = txt_desc.Text;
             tel_no = txt_telno.Text;
@@ -74,7 +73,7 @@ namespace SAD_2_PTT
             string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
             conn.Add(query, values);
             conn.device_prov_grid(dev_provgrid);
-    }
+         }
 
         private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -150,6 +149,22 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region Search
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            search = txt_search.Text;
+
+            string query = "SELECT * FROM device_provider WHERE dp_name LIKE '%" + search + "%'";
+            conn.Search(query, dev_provgrid);
+        }
+        private void txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            txt_search.ForeColor = Color.Black;
+
+            conn.device_prov_grid(dev_provgrid);
+        }
         #endregion
+
     }
 }

@@ -18,7 +18,7 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         connections conn = new connections();
 
-        String d_name, d_dis, d_desc;
+        String d_name, d_dis, d_desc, search;
         int d_id;
 
         #endregion
@@ -56,13 +56,13 @@ namespace SAD_2_PTT
         
         #endregion
 
-        #region Buttons
-
         #region Add
         private void button1_Click(object sender, EventArgs e)
         {
-            int d = cmbox_dis.SelectedIndex;
+            if (txt_ddesc.Text == "") txt_ddesc.Text = "None";
 
+            int d = cmbox_dis.SelectedIndex;
+           
             d_name = txt_dname.Text;
             d_desc = txt_ddesc.Text;
             d_dis = d.ToString();
@@ -84,6 +84,7 @@ namespace SAD_2_PTT
             button1.Enabled = true;
             button1.BringToFront();
         }
+
         #endregion
 
         #region Edit
@@ -101,6 +102,7 @@ namespace SAD_2_PTT
             conn.Edit(query);
             conn.device_add_grid(dev_addgrid);
         }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -133,8 +135,24 @@ namespace SAD_2_PTT
                 lbl_dis.Text = d_dis;
             }
         }
+
         #endregion
 
+        #region Search
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            search = txt_search.Text;
+
+            string query = "SELECT * FROM p_dao.device WHERE dev_name LIKE '%" + search + "%'";
+            conn.Search(query, dev_addgrid);
+        }
+        private void txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            txt_search.ForeColor = Color.Black;
+
+            conn.device_add_grid(dev_addgrid);
+        }
         #endregion
 
     }

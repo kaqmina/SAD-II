@@ -18,7 +18,7 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         connections conn = new connections();
 
-        String dis_type, dis_desc;
+        String dis_type, dis_desc, search;
         int dis_id;
         #endregion
 
@@ -54,12 +54,12 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region Buttons
-
         #region Add
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txt_desc.Text == "") txt_desc.Text = "None";
+
             dis_type = txt_type.Text;
             dis_desc = txt_desc.Text;
 
@@ -116,6 +116,24 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region Search
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            search = txt_search.Text;
+
+            string query = "SELECT * FROM p_dao.disability WHERE disability_type LIKE '%" + search + "%'";
+            conn.Search(query, dev_disgrid);
+        }
+
+        private void txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            txt_search.ForeColor = Color.Black;
+            // txt_search.Font = DefaultFont;
+
+            conn.device_dis_grid(dev_disgrid);
+        }
         #endregion
+
     }
 }
