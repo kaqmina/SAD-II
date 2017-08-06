@@ -39,11 +39,6 @@ namespace SAD_2_PTT
             reference_to_main.dboard_head.Enabled = true;
         }
 
-        private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            device = cmbox_dev.SelectedItem.ToString();
-            getDeviceID(device);
-        }
         #endregion
 
         #region FormLoad
@@ -62,7 +57,7 @@ namespace SAD_2_PTT
             date_in.Value = DateTime.Now;
             date_out.Value = DateTime.Now;
             cmbox_stat.Text = "Requested";
-            //cmbox_stat.R = false;
+            cmbox_stat.Enabled = false;
 
             //Form Transition
             this.Opacity = 0;
@@ -114,13 +109,18 @@ namespace SAD_2_PTT
             }
         }
 
+        #region ComboBox
         private void cmbox_dis_SelectedIndexChanged(object sender, EventArgs e)
         {
             int d = cmbox_dis.SelectedIndex;
             conn.getDevice(d,cmbox_dev);
         }
-
-        
+        private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device = cmbox_dev.SelectedItem.ToString();
+            getDeviceID(device);
+        }
+        #endregion
 
         #endregion
 
@@ -168,7 +168,9 @@ namespace SAD_2_PTT
         {
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
-            // txt_search.Font = DefaultFont;
+            txt_search.Font = new Font(txt_search.Font, FontStyle.Regular);
+
+            conn.device_addreq_grid(dev_addreq);
         }
         #endregion
 

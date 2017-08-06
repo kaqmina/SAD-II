@@ -633,7 +633,7 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region Add | Edit | Search
+        #region Add | Edit | Search | Delete
         public void Add(string query, string values)
         {
             try
@@ -665,7 +665,7 @@ namespace SAD_2_PTT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in Update() : " + ex);
+                MessageBox.Show("Error in Edit() : " + ex);
                 conn.Close();
             }
         }
@@ -686,6 +686,24 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Search(): " + ex);
+                conn.Close();
+            }
+        }
+
+        public void Delete(string query)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                com.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Removed Successfully!", "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Delete() : " + ex);
                 conn.Close();
             }
         }

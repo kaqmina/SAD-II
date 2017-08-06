@@ -104,7 +104,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 11);
+            this.label3.Location = new System.Drawing.Point(20, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 4;
@@ -144,11 +144,10 @@
             // 
             this.lbl_reg.AutoSize = true;
             this.lbl_reg.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_reg.Location = new System.Drawing.Point(80, 12);
+            this.lbl_reg.Location = new System.Drawing.Point(95, 13);
             this.lbl_reg.Name = "lbl_reg";
-            this.lbl_reg.Size = new System.Drawing.Size(81, 20);
+            this.lbl_reg.Size = new System.Drawing.Size(0, 20);
             this.lbl_reg.TabIndex = 5;
-            this.lbl_reg.Text = "111111111";
             // 
             // pnl_reqform
             // 

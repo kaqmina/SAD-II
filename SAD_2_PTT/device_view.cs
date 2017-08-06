@@ -172,6 +172,7 @@ namespace SAD_2_PTT
                 cmbox_dis.Text = d_dis;
                 cmbox_dev.Text = dev;
                 cmbox_prov.Text = d_prov;
+                lbl_desc.Text = reg_no;
 
             }
 
@@ -248,7 +249,7 @@ namespace SAD_2_PTT
         {
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
-
+            txt_search.Font = new Font(txt_search.Font,FontStyle.Regular); // italic -> regular
         }
 
         #endregion

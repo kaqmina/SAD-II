@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar = new System.Windows.Forms.Panel();
             this.lbl_title = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
@@ -70,6 +70,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btn_default = new System.Windows.Forms.Button();
+            this.lbl_desc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
@@ -119,16 +120,16 @@
             this.dev_editreq.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dev_editreq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dev_editreq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle2;
             this.dev_editreq.Location = new System.Drawing.Point(22, 150);
             this.dev_editreq.MultiSelect = false;
             this.dev_editreq.Name = "dev_editreq";
@@ -399,6 +400,7 @@
             // pnl_regno
             // 
             this.pnl_regno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.pnl_regno.Controls.Add(this.lbl_desc);
             this.pnl_regno.Controls.Add(this.label3);
             this.pnl_regno.Location = new System.Drawing.Point(0, 0);
             this.pnl_regno.Name = "pnl_regno";
@@ -430,7 +432,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(13, 12);
+            this.label7.Location = new System.Drawing.Point(13, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 20);
             this.label7.TabIndex = 1;
@@ -552,6 +554,16 @@
             this.btn_default.UseVisualStyleBackColor = false;
             this.btn_default.Click += new System.EventHandler(this.btn_default_Click);
             // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desc.ForeColor = System.Drawing.Color.White;
+            this.lbl_desc.Location = new System.Drawing.Point(99, 15);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(0, 20);
+            this.lbl_desc.TabIndex = 1;
+            // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -635,5 +647,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_ho;
         private System.Windows.Forms.Button btn_default;
+        private System.Windows.Forms.Label lbl_desc;
     }
 }

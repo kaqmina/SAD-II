@@ -46,11 +46,10 @@ namespace SAD_2_PTT
         public device_provider()
         {
             InitializeComponent();
-            con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
+            conn.device_prov_grid(dev_provgrid);
         }
         private void device_provider_Load(object sender, EventArgs e)
         {
-            conn.device_prov_grid(dev_provgrid);
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -67,30 +66,28 @@ namespace SAD_2_PTT
             email = txt_email.Text;
 
             mob_no = Convert.ToInt32(txt_mobno.Text);
-            dp_type = type.ToString();
 
             string query = "INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add)";
-            string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
+            string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
             conn.Add(query, values);
             conn.device_prov_grid(dev_provgrid);
          }
 
         private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbox_type.SelectedIndex == 0) type = 0; //Goverment
-            else if (cmbox_type.SelectedIndex == 1) type = 1; //Private
+            type = cmbox_type.SelectedIndex;
         }
         #endregion
 
         #region Clear
         private void button5_Click(object sender, EventArgs e)
         {
+            cmbox_type.Text = "";
             txt_name.Clear();
             txt_desc.Clear();
             txt_mobno.Clear();
             txt_telno.Clear();
             txt_email.Clear();
-            cmbox_type.Text = "";
 
             button1.Enabled = true;
             button1.BringToFront();
@@ -101,14 +98,15 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
+            lbl_desc.Text = "";
+            //to pass
             dp_name = txt_name.Text;
             dp_desc = txt_desc.Text;
             tel_no = txt_telno.Text;
             email = txt_email.Text;
             mob_no = Convert.ToInt32(txt_mobno.Text);
-            dp_type = type.ToString();
 
-            string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + dp_type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
+            string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
             conn.Edit(query);
             conn.device_prov_grid(dev_provgrid);
         }
@@ -161,6 +159,7 @@ namespace SAD_2_PTT
         {
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
+            txt_search.Font = new Font(txt_search.Font, FontStyle.Regular);
 
             conn.device_prov_grid(dev_provgrid);
         }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,13 +42,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmbox_dis = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.txt_dname = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_ddesc = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -62,6 +60,8 @@
             this.pnl_search = new System.Windows.Forms.Panel();
             this.button45 = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
+            this.btn_del = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -109,7 +109,7 @@
             this.lbl_ddesc.AutoSize = true;
             this.lbl_ddesc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ddesc.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_ddesc.Location = new System.Drawing.Point(40, 64);
+            this.lbl_ddesc.Location = new System.Drawing.Point(46, 64);
             this.lbl_ddesc.Name = "lbl_ddesc";
             this.lbl_ddesc.Size = new System.Drawing.Size(0, 15);
             this.lbl_ddesc.TabIndex = 3;
@@ -129,7 +129,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Window;
-            this.label5.Location = new System.Drawing.Point(11, 53);
+            this.label5.Location = new System.Drawing.Point(11, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 15);
             this.label5.TabIndex = 1;
@@ -149,17 +149,17 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.Controls.Add(this.btn_del);
             this.panel4.Controls.Add(this.cmbox_dis);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.txt_dname);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.txt_ddesc);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.button5);
             this.panel4.Location = new System.Drawing.Point(322, 106);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(715, 207);
@@ -187,20 +187,6 @@
             this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 9;
             this.label6.Text = "Disability :";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(370, 162);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(68, 29);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Clear";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // txt_dname
             // 
@@ -252,26 +238,13 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Device Name :";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(370, 162);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(68, 29);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(251, 162);
+            this.button1.Location = new System.Drawing.Point(219, 162);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 29);
             this.button1.TabIndex = 7;
@@ -285,7 +258,7 @@
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(251, 162);
+            this.button2.Location = new System.Drawing.Point(219, 162);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 29);
             this.button2.TabIndex = 8;
@@ -366,29 +339,29 @@
             this.dev_addgrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dev_addgrid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dev_addgrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dev_addgrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dev_addgrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dev_addgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dev_addgrid.Location = new System.Drawing.Point(0, 143);
             this.dev_addgrid.Name = "dev_addgrid";
             this.dev_addgrid.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dev_addgrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dev_addgrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dev_addgrid.RowHeadersVisible = false;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dev_addgrid.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dev_addgrid.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dev_addgrid.Size = new System.Drawing.Size(299, 284);
             this.dev_addgrid.TabIndex = 17;
             this.dev_addgrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -432,6 +405,34 @@
             this.txt_search.Text = "  Search here..";
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
+            // 
+            // btn_del
+            // 
+            this.btn_del.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_del.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btn_del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_del.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_del.Location = new System.Drawing.Point(454, 162);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(68, 29);
+            this.btn_del.TabIndex = 30;
+            this.btn_del.Text = "Remove";
+            this.btn_del.UseVisualStyleBackColor = false;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Window;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(338, 162);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(68, 29);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "Clear";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // device_add
             // 
@@ -488,7 +489,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox cmbox_dis;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label lbl_ddesc;
         private System.Windows.Forms.Label lbl_dis;
         private System.Windows.Forms.Label label4;
@@ -498,10 +498,11 @@
         private System.Windows.Forms.TextBox txt_dname;
         private System.Windows.Forms.Label label16;
         public System.Windows.Forms.DataGridView dev_addgrid;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Timer startup_opacity;
         private System.Windows.Forms.Panel pnl_search;
         private System.Windows.Forms.Button button45;
         private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Button btn_del;
+        private System.Windows.Forms.Button button5;
     }
 }

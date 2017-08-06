@@ -44,12 +44,13 @@ namespace SAD_2_PTT
         public device_add()
         {
             InitializeComponent();
-            con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;"); 
             conn.getDisability(cmbox_dis);
+            conn.device_add_grid(dev_addgrid);
         }
         private void device_add_Load(object sender, EventArgs e)
         {
-            conn.device_add_grid(dev_addgrid);
+            button5.Visible = false;
+            btn_del.Visible = false;
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -61,14 +62,14 @@ namespace SAD_2_PTT
         {
             if (txt_ddesc.Text == "") txt_ddesc.Text = "None";
 
-            int d = cmbox_dis.SelectedIndex;
+            int d = cmbox_dis.SelectedIndex + 1;
            
             d_name = txt_dname.Text;
             d_desc = txt_ddesc.Text;
-            d_dis = d.ToString();
+            
 
             string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
-            string values = " VALUES('" + d_dis + "','" + d_name + "','" + d_desc + "')";
+            string values = " VALUES('" + d + "','" + d_name + "','" + d_desc + "')";
             conn.Add(query, values);
             conn.device_add_grid(dev_addgrid);
         }
@@ -81,8 +82,9 @@ namespace SAD_2_PTT
             txt_dname.Clear();
             txt_ddesc.Clear();
 
-            button1.Enabled = true;
+            button1.Enabled = true; // add button
             button1.BringToFront();
+            btn_del.Visible = false;
         }
 
         #endregion
@@ -90,15 +92,17 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
+            lbl_ddesc.Text = "";
+            lbl_dis.Text = "";
+
             d_name = txt_dname.Text;
             d_desc = txt_ddesc.Text;
 
             //disability id
             int d = 0;
             d = cmbox_dis.SelectedIndex + 1;
-            d_dis = d.ToString();
 
-            string query = "UPDATE device SET disability_id = '" + d_dis + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
+            string query = "UPDATE device SET disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
             conn.Edit(query);
             conn.device_add_grid(dev_addgrid);
         }
@@ -111,9 +115,10 @@ namespace SAD_2_PTT
             }
             else
             {
-                //btn add false
-                button1.Enabled = false;
+                //btn add to back
                 button2.BringToFront();
+                btn_del.Visible = true;
+                button5.Visible = true; // clear button
 
                 DataGridViewRow row = this.dev_addgrid.Rows[e.RowIndex];
                 d_name = row.Cells["dev_name"].Value.ToString();
@@ -150,10 +155,32 @@ namespace SAD_2_PTT
         {
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
+            txt_search.Font = new Font(txt_search.Font, FontStyle.Regular);
 
             conn.device_add_grid(dev_addgrid);
         }
         #endregion
 
+        #region Remove
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            //open another window or delete agad? cascade.
+            string query = "DELETE FROM p_dao.device WHERE dev_name = '" + d_name + "'";
+            conn.Delete(query);
+
+            conn.device_add_grid(dev_addgrid);
+
+            //return to add
+            button1.BringToFront();
+            button1.Enabled = true;
+            button5.Visible = false;
+            btn_del.Visible = false;
+
+            //clear
+            cmbox_dis.Text = "";
+            txt_dname.Clear();
+            txt_ddesc.Clear();
+        }
+        #endregion
     }
 }

@@ -43,12 +43,10 @@ namespace SAD_2_PTT
         public device_disability()
         {
             InitializeComponent();
-            con = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
-
+            conn.device_dis_grid(dev_disgrid);
         }
         private void device_disability_Load(object sender, EventArgs e)
-        {
-            conn.device_dis_grid(dev_disgrid);
+        { 
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -84,6 +82,7 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
+            lbl_desc.Text = "";
             dis_type = txt_type.Text;
             dis_desc = txt_desc.Text;
 
@@ -109,6 +108,7 @@ namespace SAD_2_PTT
                 dis_desc = row.Cells["disability_desc"].Value.ToString();
 
                 dis_id = Convert.ToInt32(row.Cells["disability_id"].Value);
+
                 txt_type.Text = dis_type;
                 txt_desc.Text = dis_desc;
                 lbl_desc.Text = dis_desc;
@@ -129,7 +129,7 @@ namespace SAD_2_PTT
         {
             txt_search.Clear();
             txt_search.ForeColor = Color.Black;
-            // txt_search.Font = DefaultFont;
+            txt_search.Font = new Font(txt_search.Font, FontStyle.Regular);
 
             conn.device_dis_grid(dev_disgrid);
         }
