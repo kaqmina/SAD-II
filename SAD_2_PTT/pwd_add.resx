@@ -150,17 +150,6 @@
         YII=
 </value>
   </data>
-  <data name="pwd_add_back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4QcCEA80s+89FgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAC8SURBVFhH
-        3ZcxDgIxDAQDT7gPUdDAAR/iKRS8E6owQbYUXUfhtcVIbrLFrHTRJWl/Se99xxyZxZZ0IN0zT2bwsGUN
-        CGf5izlYFA+yrfxkUTzISsnPFsWDrJR8tSgeZLP8zaTKLxbFg6yU/GpRPMhKyW8WaUB4/6oz5AOk6QVy
-        P8EAad4mdJCWLKH7ETlIS5bQHUYO0rmE9jh2kG5L6C4kDtKSJXSXUgdpyRK6h4mDdC6hfZo5iPMep7/R
-        2gfmcfgWtSLPUwAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="startup_opacity.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

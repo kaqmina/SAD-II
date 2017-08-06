@@ -960,5 +960,14 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            if (pnl1.Visible == true)
+                btn_next1_Click(sender, e);
+            else if (pnl2.Visible == true)
+                btn_next2_Click(sender, e);
+            //else if (pnl3.Visible == true)
+                //btn_next
+        }
     }
 }

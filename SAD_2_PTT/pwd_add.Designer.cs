@@ -32,17 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pwd_add));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pwd_add_lbl = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.checklist = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnl2 = new System.Windows.Forms.Panel();
             this.civilstatus = new System.Windows.Forms.ComboBox();
             this.bloodtype = new System.Windows.Forms.ComboBox();
@@ -212,8 +202,24 @@
             this.label72 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
-            this.pwd_add_back = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.pwd_add_back = new System.Windows.Forms.Button();
+            this.quick_panel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.btn_next = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -232,6 +238,7 @@
             this.pnl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.quick_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -255,120 +262,14 @@
             this.pwd_add_lbl.TabIndex = 55;
             this.pwd_add_lbl.Text = "New PWD Profile";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel3.Location = new System.Drawing.Point(0, 510);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(259, 54);
-            this.panel3.TabIndex = 2;
-            // 
             // checklist
             // 
             this.checklist.BackColor = System.Drawing.SystemColors.Window;
-            this.checklist.Controls.Add(this.label10);
-            this.checklist.Controls.Add(this.label9);
-            this.checklist.Controls.Add(this.label8);
-            this.checklist.Controls.Add(this.label7);
-            this.checklist.Controls.Add(this.label6);
-            this.checklist.Controls.Add(this.label5);
-            this.checklist.Controls.Add(this.label4);
-            this.checklist.Controls.Add(this.label3);
             this.checklist.Controls.Add(this.label2);
-            this.checklist.Location = new System.Drawing.Point(0, 139);
+            this.checklist.Location = new System.Drawing.Point(5, 39);
             this.checklist.Name = "checklist";
-            this.checklist.Size = new System.Drawing.Size(259, 353);
+            this.checklist.Size = new System.Drawing.Size(273, 47);
             this.checklist.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(67, 309);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 17);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Parental Information";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(67, 275);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Other Information";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(67, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(164, 17);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Organizational Information";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(69, 204);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 17);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Type of Skill";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(68, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 17);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Employment Information";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(68, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Educational Attainment";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(67, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Contact Information";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(67, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Personal Information";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(67, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "General Information";
             // 
             // pnl2
             // 
@@ -409,7 +310,7 @@
             this.pnl2.Controls.Add(this.label51);
             this.pnl2.Location = new System.Drawing.Point(0, 0);
             this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(757, 500);
+            this.pnl2.Size = new System.Drawing.Size(777, 509);
             this.pnl2.TabIndex = 11;
             this.pnl2.Visible = false;
             // 
@@ -1170,7 +1071,7 @@
             this.pnl1.Controls.Add(this.label1);
             this.pnl1.Location = new System.Drawing.Point(0, 0);
             this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(757, 500);
+            this.pnl1.Size = new System.Drawing.Size(777, 509);
             this.pnl1.TabIndex = 4;
             this.pnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -1274,7 +1175,7 @@
             this.btn_next1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.btn_next1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_next1.Location = new System.Drawing.Point(657, 452);
+            this.btn_next1.Location = new System.Drawing.Point(675, 469);
             this.btn_next1.Name = "btn_next1";
             this.btn_next1.Size = new System.Drawing.Size(68, 29);
             this.btn_next1.TabIndex = 2;
@@ -1288,7 +1189,7 @@
             this.page_num.BackColor = System.Drawing.SystemColors.Window;
             this.page_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_num.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.page_num.Location = new System.Drawing.Point(28, 455);
+            this.page_num.Location = new System.Drawing.Point(17, 471);
             this.page_num.Name = "page_num";
             this.page_num.Size = new System.Drawing.Size(50, 21);
             this.page_num.TabIndex = 0;
@@ -1624,15 +1525,15 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_container.Controls.Add(this.pnl1);
             this.pnl_container.Controls.Add(this.pnl2);
             this.pnl_container.Controls.Add(this.pnl6);
             this.pnl_container.Controls.Add(this.pnl3);
             this.pnl_container.Controls.Add(this.pnl4);
             this.pnl_container.Controls.Add(this.pnl5);
-            this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Location = new System.Drawing.Point(287, 67);
+            this.pnl_container.Location = new System.Drawing.Point(284, 39);
             this.pnl_container.Name = "pnl_container";
-            this.pnl_container.Size = new System.Drawing.Size(757, 500);
+            this.pnl_container.Size = new System.Drawing.Size(777, 509);
             this.pnl_container.TabIndex = 54;
             this.pnl_container.Visible = false;
             // 
@@ -2445,27 +2346,245 @@
             this.label70.TabIndex = 75;
             this.label70.Text = "_______________________________";
             // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            // 
             // pwd_add_back
             // 
             this.pwd_add_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.pwd_add_back.FlatAppearance.BorderSize = 0;
             this.pwd_add_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_add_back.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_add_back.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_add_back.ForeColor = System.Drawing.SystemColors.Window;
-            this.pwd_add_back.Image = ((System.Drawing.Image)(resources.GetObject("pwd_add_back.Image")));
             this.pwd_add_back.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pwd_add_back.Location = new System.Drawing.Point(0, 67);
+            this.pwd_add_back.Location = new System.Drawing.Point(677, 554);
             this.pwd_add_back.Name = "pwd_add_back";
-            this.pwd_add_back.Size = new System.Drawing.Size(259, 54);
+            this.pwd_add_back.Size = new System.Drawing.Size(189, 30);
             this.pwd_add_back.TabIndex = 0;
-            this.pwd_add_back.Text = "        RETURN TO MEMBERSHIP";
+            this.pwd_add_back.Text = "Back";
             this.pwd_add_back.UseVisualStyleBackColor = false;
             this.pwd_add_back.Click += new System.EventHandler(this.pwd_add_back_Click);
             // 
-            // startup_opacity
+            // quick_panel
             // 
-            this.startup_opacity.Interval = 1;
-            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            this.quick_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.quick_panel.Controls.Add(this.button10);
+            this.quick_panel.Controls.Add(this.panel3);
+            this.quick_panel.Controls.Add(this.button9);
+            this.quick_panel.Controls.Add(this.button8);
+            this.quick_panel.Controls.Add(this.button7);
+            this.quick_panel.Controls.Add(this.button6);
+            this.quick_panel.Controls.Add(this.button5);
+            this.quick_panel.Controls.Add(this.button4);
+            this.quick_panel.Controls.Add(this.button3);
+            this.quick_panel.Controls.Add(this.button2);
+            this.quick_panel.Controls.Add(this.button1);
+            this.quick_panel.Controls.Add(this.button11);
+            this.quick_panel.Controls.Add(this.panel2);
+            this.quick_panel.Location = new System.Drawing.Point(5, 92);
+            this.quick_panel.Name = "quick_panel";
+            this.quick_panel.Size = new System.Drawing.Size(273, 456);
+            this.quick_panel.TabIndex = 50;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(273, 43);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "                     General Information";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 77);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(273, 43);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "                     Personal Information";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(0, 120);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(273, 43);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "                     Contact Information";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(0, 163);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(273, 43);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "                     Educational Information";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(0, 206);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(273, 43);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "                     Employment Information";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(0, 249);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(273, 43);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "                     Type of Skill";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(0, 292);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(273, 43);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "                     Organizational Information";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(0, 335);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(273, 43);
+            this.button8.TabIndex = 9;
+            this.button8.Text = "                     Other Information";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(0, 378);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(273, 43);
+            this.button9.TabIndex = 10;
+            this.button9.Text = "                     Parental Information";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(87, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Quick Links";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(273, 17);
+            this.panel2.TabIndex = 50;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 439);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(273, 17);
+            this.panel3.TabIndex = 51;
+            // 
+            // button10
+            // 
+            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button10.Enabled = false;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(0, 421);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(273, 17);
+            this.button10.TabIndex = 52;
+            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button11.Enabled = false;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(0, 17);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(273, 17);
+            this.button11.TabIndex = 53;
+            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // btn_next
+            // 
+            this.btn_next.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_next.FlatAppearance.BorderSize = 0;
+            this.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_next.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_next.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_next.Location = new System.Drawing.Point(872, 554);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(189, 30);
+            this.btn_next.TabIndex = 55;
+            this.btn_next.Text = "NEXT";
+            this.btn_next.UseVisualStyleBackColor = false;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
             // pwd_add
             // 
@@ -2473,9 +2592,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1066, 589);
+            this.Controls.Add(this.btn_next);
+            this.Controls.Add(this.quick_panel);
             this.Controls.Add(this.pwd_add_back);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.checklist);
             this.Controls.Add(this.pnl_container);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2513,6 +2633,7 @@
             this.pnl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.quick_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2520,19 +2641,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel checklist;
         private System.Windows.Forms.Panel pnl1;
-        public System.Windows.Forms.Button pwd_add_back;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label page_num;
         private System.Windows.Forms.Button btn_next1;
         private System.Windows.Forms.Label label12;
@@ -2703,5 +2813,22 @@
         private System.Windows.Forms.RadioButton status_ex_inactive;
         private System.Windows.Forms.RadioButton status_active;
         private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Panel quick_panel;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button pwd_add_back;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Button btn_next;
     }
 }

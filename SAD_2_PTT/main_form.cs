@@ -593,5 +593,10 @@ namespace SAD_2_PTT
             pwd_data();
             pwd_searchbox.Clear();
         }
+
+        private void btn_renew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
