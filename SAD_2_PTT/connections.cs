@@ -750,16 +750,29 @@ namespace SAD_2_PTT
 
         #endregion
 
-        public void login_user(string uname, string pword, bool valid)
+        public bool login_user(string uname, string pword)
         {
+            bool valid = false;
             try
             {
+                conn.Open();
 
+                MySqlCommand comm = new MySqlCommand( "SELECT * FROM p_dao.employee WHERE username = '" + uname + "' AND password = '" + pword + "'" ,conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+                if (set.Rows.Count == 1)
+                    valid = true;
+                else
+                    valid = false;
+
+                conn.Close();
             } catch (Exception e)
             {
-                valid = false;
+                MessageBox.Show(e.Message);
             }
-
+            return valid;
             
         }
     }

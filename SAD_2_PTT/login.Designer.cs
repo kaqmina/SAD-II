@@ -66,6 +66,7 @@
             // 
             // btn_login
             // 
+            this.btn_login.Enabled = false;
             this.btn_login.FlatAppearance.BorderSize = 0;
             this.btn_login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -163,23 +164,25 @@
             this.pword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pword.Location = new System.Drawing.Point(52, 254);
-            this.pword.MaxLength = 45;
+            this.pword.MaxLength = 16;
             this.pword.Name = "pword";
             this.pword.PasswordChar = '●';
             this.pword.Size = new System.Drawing.Size(183, 16);
             this.pword.TabIndex = 27;
             this.pword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pword.TextChanged += new System.EventHandler(this.pword_TextChanged);
             // 
             // uname
             // 
             this.uname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.uname.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uname.Location = new System.Drawing.Point(53, 194);
-            this.uname.MaxLength = 45;
+            this.uname.MaxLength = 16;
             this.uname.Name = "uname";
             this.uname.Size = new System.Drawing.Size(183, 16);
             this.uname.TabIndex = 26;
             this.uname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.uname.TextChanged += new System.EventHandler(this.uname_TextChanged);
             // 
             // label9
             // 

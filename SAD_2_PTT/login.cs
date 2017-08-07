@@ -16,6 +16,7 @@ namespace SAD_2_PTT
         {
             InitializeComponent();
         }
+        connections conn = new connections();
 
         private void login_Load(object sender, EventArgs e)
         {
@@ -38,12 +39,40 @@ namespace SAD_2_PTT
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            main_form main_f = new main_form();
-            main_f.Closed += (s, args) => this.Show();
-            main_f.Show();
+            if (conn.login_user(uname.Text, pword.Text))
+            {
+                this.Hide();
+                main_form main_f = new main_form();
+                main_f.Closed += (s, args) => this.Show();
+                uname.Clear();
+                pword.Clear();
+                main_f.current_user = uname.Text;
+                main_f.Show();
+            } else
+            {
+                message.Visible = true;
+            }
+            
         }
 
+        #region Text_Changed
+        public void check_()
+        {
+            if (uname.Text.Trim() != "" && pword.Text.Trim() != "")
+                btn_login.Enabled = true;
+            else
+                btn_login.Enabled = false;
+        }
 
+        private void uname_TextChanged(object sender, EventArgs e)
+        {
+            check_();
+        }
+
+        private void pword_TextChanged(object sender, EventArgs e)
+        {
+            check_();
+        }
+        #endregion
     }
 }

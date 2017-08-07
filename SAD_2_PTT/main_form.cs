@@ -21,6 +21,7 @@ namespace SAD_2_PTT
         main_functions main_func = new main_functions();
         main_btn_active main_btn = new main_btn_active();
         connections conn = new connections();
+        public string current_user;
 
         #region FormControlBox CB - 00
 
