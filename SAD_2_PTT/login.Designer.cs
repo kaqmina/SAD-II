@@ -236,9 +236,11 @@
             // 
             // login
             // 
+            this.AcceptButton = this.btn_login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelButton = this.btn_exit;
             this.ClientSize = new System.Drawing.Size(312, 475);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.uname);

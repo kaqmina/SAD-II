@@ -34,7 +34,7 @@
             this.pwd_add_lbl = new System.Windows.Forms.Label();
             this.checklist = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnl2 = new System.Windows.Forms.Panel();
+            this.panel_2_personal = new System.Windows.Forms.Panel();
             this.civilstatus = new System.Windows.Forms.ComboBox();
             this.bloodtype = new System.Windows.Forms.ComboBox();
             this.gender = new System.Windows.Forms.ComboBox();
@@ -69,7 +69,7 @@
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.pnl3 = new System.Windows.Forms.Panel();
+            this.panel_3_contact_educational = new System.Windows.Forms.Panel();
             this.educ0 = new System.Windows.Forms.RadioButton();
             this.educ9 = new System.Windows.Forms.RadioButton();
             this.educ8 = new System.Windows.Forms.RadioButton();
@@ -96,7 +96,7 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
-            this.pnl1 = new System.Windows.Forms.Panel();
+            this.panel_1_general = new System.Windows.Forms.Panel();
             this.disability_type = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pwd_appdate = new System.Windows.Forms.TextBox();
@@ -109,7 +109,7 @@
             this.page_num = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnl4 = new System.Windows.Forms.Panel();
+            this.panel_4_employment_type_of_skill = new System.Windows.Forms.Panel();
             this.noemp = new System.Windows.Forms.ComboBox();
             this.empstatus = new System.Windows.Forms.ComboBox();
             this.typeoemp = new System.Windows.Forms.ComboBox();
@@ -133,7 +133,7 @@
             this.btn_next4 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.pnl_container = new System.Windows.Forms.Panel();
-            this.pnl6 = new System.Windows.Forms.Panel();
+            this.panel_6_parental = new System.Windows.Forms.Panel();
             this.status_ex_inactive = new System.Windows.Forms.RadioButton();
             this.status_active = new System.Windows.Forms.RadioButton();
             this.label86 = new System.Windows.Forms.Label();
@@ -173,7 +173,7 @@
             this.label74 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
-            this.pnl5 = new System.Windows.Forms.Panel();
+            this.panel_5_organizational_other = new System.Windows.Forms.Panel();
             this.orgtelno = new System.Windows.Forms.TextBox();
             this.officeadd = new System.Windows.Forms.TextBox();
             this.contactper = new System.Windows.Forms.TextBox();
@@ -221,20 +221,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.checklist.SuspendLayout();
-            this.pnl2.SuspendLayout();
+            this.panel_2_personal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pnl3.SuspendLayout();
+            this.panel_3_contact_educational.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.pnl1.SuspendLayout();
+            this.panel_1_general.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnl4.SuspendLayout();
+            this.panel_4_employment_type_of_skill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnl_container.SuspendLayout();
-            this.pnl6.SuspendLayout();
+            this.panel_6_parental.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.pnl5.SuspendLayout();
+            this.panel_5_organizational_other.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.quick_panel.SuspendLayout();
@@ -280,48 +280,48 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Quick Links";
             // 
-            // pnl2
+            // panel_2_personal
             // 
-            this.pnl2.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl2.Controls.Add(this.civilstatus);
-            this.pnl2.Controls.Add(this.bloodtype);
-            this.pnl2.Controls.Add(this.gender);
-            this.pnl2.Controls.Add(this.region);
-            this.pnl2.Controls.Add(this.label21);
-            this.pnl2.Controls.Add(this.label23);
-            this.pnl2.Controls.Add(this.nationality);
-            this.pnl2.Controls.Add(this.dateofbirth);
-            this.pnl2.Controls.Add(this.label22);
-            this.pnl2.Controls.Add(this.label20);
-            this.pnl2.Controls.Add(this.prov_txt);
-            this.pnl2.Controls.Add(this.mun_txt);
-            this.pnl2.Controls.Add(this.bar_txt);
-            this.pnl2.Controls.Add(this.hs_txt);
-            this.pnl2.Controls.Add(this.mn_txt);
-            this.pnl2.Controls.Add(this.fn_txt);
-            this.pnl2.Controls.Add(this.ln_txt);
-            this.pnl2.Controls.Add(this.label15);
-            this.pnl2.Controls.Add(this.label16);
-            this.pnl2.Controls.Add(this.label17);
-            this.pnl2.Controls.Add(this.label18);
-            this.pnl2.Controls.Add(this.pictureBox2);
-            this.pnl2.Controls.Add(this.btn_next2);
-            this.pnl2.Controls.Add(this.btn_prev1);
-            this.pnl2.Controls.Add(this.label19);
-            this.pnl2.Controls.Add(this.label62);
-            this.pnl2.Controls.Add(this.label61);
-            this.pnl2.Controls.Add(this.label60);
-            this.pnl2.Controls.Add(this.label59);
-            this.pnl2.Controls.Add(this.label58);
-            this.pnl2.Controls.Add(this.label57);
-            this.pnl2.Controls.Add(this.label56);
-            this.pnl2.Controls.Add(this.label55);
-            this.pnl2.Controls.Add(this.label51);
-            this.pnl2.Location = new System.Drawing.Point(0, 0);
-            this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(777, 509);
-            this.pnl2.TabIndex = 11;
-            this.pnl2.Visible = false;
+            this.panel_2_personal.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_2_personal.Controls.Add(this.civilstatus);
+            this.panel_2_personal.Controls.Add(this.bloodtype);
+            this.panel_2_personal.Controls.Add(this.gender);
+            this.panel_2_personal.Controls.Add(this.region);
+            this.panel_2_personal.Controls.Add(this.label21);
+            this.panel_2_personal.Controls.Add(this.label23);
+            this.panel_2_personal.Controls.Add(this.nationality);
+            this.panel_2_personal.Controls.Add(this.dateofbirth);
+            this.panel_2_personal.Controls.Add(this.label22);
+            this.panel_2_personal.Controls.Add(this.label20);
+            this.panel_2_personal.Controls.Add(this.prov_txt);
+            this.panel_2_personal.Controls.Add(this.mun_txt);
+            this.panel_2_personal.Controls.Add(this.bar_txt);
+            this.panel_2_personal.Controls.Add(this.hs_txt);
+            this.panel_2_personal.Controls.Add(this.mn_txt);
+            this.panel_2_personal.Controls.Add(this.fn_txt);
+            this.panel_2_personal.Controls.Add(this.ln_txt);
+            this.panel_2_personal.Controls.Add(this.label15);
+            this.panel_2_personal.Controls.Add(this.label16);
+            this.panel_2_personal.Controls.Add(this.label17);
+            this.panel_2_personal.Controls.Add(this.label18);
+            this.panel_2_personal.Controls.Add(this.pictureBox2);
+            this.panel_2_personal.Controls.Add(this.btn_next2);
+            this.panel_2_personal.Controls.Add(this.btn_prev1);
+            this.panel_2_personal.Controls.Add(this.label19);
+            this.panel_2_personal.Controls.Add(this.label62);
+            this.panel_2_personal.Controls.Add(this.label61);
+            this.panel_2_personal.Controls.Add(this.label60);
+            this.panel_2_personal.Controls.Add(this.label59);
+            this.panel_2_personal.Controls.Add(this.label58);
+            this.panel_2_personal.Controls.Add(this.label57);
+            this.panel_2_personal.Controls.Add(this.label56);
+            this.panel_2_personal.Controls.Add(this.label55);
+            this.panel_2_personal.Controls.Add(this.label51);
+            this.panel_2_personal.Location = new System.Drawing.Point(0, 0);
+            this.panel_2_personal.Name = "panel_2_personal";
+            this.panel_2_personal.Size = new System.Drawing.Size(777, 509);
+            this.panel_2_personal.TabIndex = 11;
+            this.panel_2_personal.Visible = false;
             // 
             // civilstatus
             // 
@@ -524,6 +524,7 @@
             this.mn_txt.TabIndex = 3;
             this.mn_txt.Text = "Middle Name";
             this.mn_txt.Enter += new System.EventHandler(this.mntxt_Enter);
+            this.mn_txt.Leave += new System.EventHandler(this.mn_txt_Leave);
             // 
             // fn_txt
             // 
@@ -538,6 +539,7 @@
             this.fn_txt.TabIndex = 2;
             this.fn_txt.Text = "First Name";
             this.fn_txt.Enter += new System.EventHandler(this.fntxt_Enter);
+            this.fn_txt.Leave += new System.EventHandler(this.fn_txt_Leave);
             // 
             // ln_txt
             // 
@@ -552,6 +554,7 @@
             this.ln_txt.TabIndex = 1;
             this.ln_txt.Text = "Last Name";
             this.ln_txt.Enter += new System.EventHandler(this.lntxt_Enter);
+            this.ln_txt.Leave += new System.EventHandler(this.ln_txt_Leave);
             // 
             // label15
             // 
@@ -731,40 +734,40 @@
             this.label51.TabIndex = 41;
             this.label51.Text = "_______________________________";
             // 
-            // pnl3
+            // panel_3_contact_educational
             // 
-            this.pnl3.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl3.Controls.Add(this.educ0);
-            this.pnl3.Controls.Add(this.educ9);
-            this.pnl3.Controls.Add(this.educ8);
-            this.pnl3.Controls.Add(this.educ7);
-            this.pnl3.Controls.Add(this.educ6);
-            this.pnl3.Controls.Add(this.educ5);
-            this.pnl3.Controls.Add(this.educ4);
-            this.pnl3.Controls.Add(this.educ3);
-            this.pnl3.Controls.Add(this.educ2);
-            this.pnl3.Controls.Add(this.educ1);
-            this.pnl3.Controls.Add(this.label33);
-            this.pnl3.Controls.Add(this.pictureBox4);
-            this.pnl3.Controls.Add(this.email);
-            this.pnl3.Controls.Add(this.label29);
-            this.pnl3.Controls.Add(this.mobileno);
-            this.pnl3.Controls.Add(this.label28);
-            this.pnl3.Controls.Add(this.telno);
-            this.pnl3.Controls.Add(this.label30);
-            this.pnl3.Controls.Add(this.label31);
-            this.pnl3.Controls.Add(this.pictureBox3);
-            this.pnl3.Controls.Add(this.btn_next3);
-            this.pnl3.Controls.Add(this.btn_prev2);
-            this.pnl3.Controls.Add(this.label32);
-            this.pnl3.Controls.Add(this.label65);
-            this.pnl3.Controls.Add(this.label64);
-            this.pnl3.Controls.Add(this.label63);
-            this.pnl3.Location = new System.Drawing.Point(0, 0);
-            this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(777, 509);
-            this.pnl3.TabIndex = 30;
-            this.pnl3.Visible = false;
+            this.panel_3_contact_educational.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_3_contact_educational.Controls.Add(this.educ0);
+            this.panel_3_contact_educational.Controls.Add(this.educ9);
+            this.panel_3_contact_educational.Controls.Add(this.educ8);
+            this.panel_3_contact_educational.Controls.Add(this.educ7);
+            this.panel_3_contact_educational.Controls.Add(this.educ6);
+            this.panel_3_contact_educational.Controls.Add(this.educ5);
+            this.panel_3_contact_educational.Controls.Add(this.educ4);
+            this.panel_3_contact_educational.Controls.Add(this.educ3);
+            this.panel_3_contact_educational.Controls.Add(this.educ2);
+            this.panel_3_contact_educational.Controls.Add(this.educ1);
+            this.panel_3_contact_educational.Controls.Add(this.label33);
+            this.panel_3_contact_educational.Controls.Add(this.pictureBox4);
+            this.panel_3_contact_educational.Controls.Add(this.email);
+            this.panel_3_contact_educational.Controls.Add(this.label29);
+            this.panel_3_contact_educational.Controls.Add(this.mobileno);
+            this.panel_3_contact_educational.Controls.Add(this.label28);
+            this.panel_3_contact_educational.Controls.Add(this.telno);
+            this.panel_3_contact_educational.Controls.Add(this.label30);
+            this.panel_3_contact_educational.Controls.Add(this.label31);
+            this.panel_3_contact_educational.Controls.Add(this.pictureBox3);
+            this.panel_3_contact_educational.Controls.Add(this.btn_next3);
+            this.panel_3_contact_educational.Controls.Add(this.btn_prev2);
+            this.panel_3_contact_educational.Controls.Add(this.label32);
+            this.panel_3_contact_educational.Controls.Add(this.label65);
+            this.panel_3_contact_educational.Controls.Add(this.label64);
+            this.panel_3_contact_educational.Controls.Add(this.label63);
+            this.panel_3_contact_educational.Location = new System.Drawing.Point(0, 0);
+            this.panel_3_contact_educational.Name = "panel_3_contact_educational";
+            this.panel_3_contact_educational.Size = new System.Drawing.Size(777, 509);
+            this.panel_3_contact_educational.TabIndex = 30;
+            this.panel_3_contact_educational.Visible = false;
             // 
             // educ0
             // 
@@ -1063,26 +1066,26 @@
             this.label63.TabIndex = 53;
             this.label63.Text = "_______________________________";
             // 
-            // pnl1
+            // panel_1_general
             // 
-            this.pnl1.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl1.Controls.Add(this.disability_type);
-            this.pnl1.Controls.Add(this.label11);
-            this.pnl1.Controls.Add(this.pwd_appdate);
-            this.pnl1.Controls.Add(this.pwd_regisno);
-            this.pnl1.Controls.Add(this.label14);
-            this.pnl1.Controls.Add(this.label13);
-            this.pnl1.Controls.Add(this.label12);
-            this.pnl1.Controls.Add(this.pictureBox1);
-            this.pnl1.Controls.Add(this.btn_next1);
-            this.pnl1.Controls.Add(this.page_num);
-            this.pnl1.Controls.Add(this.label48);
-            this.pnl1.Controls.Add(this.label1);
-            this.pnl1.Location = new System.Drawing.Point(0, 0);
-            this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(777, 509);
-            this.pnl1.TabIndex = 4;
-            this.pnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            this.panel_1_general.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_1_general.Controls.Add(this.disability_type);
+            this.panel_1_general.Controls.Add(this.label11);
+            this.panel_1_general.Controls.Add(this.pwd_appdate);
+            this.panel_1_general.Controls.Add(this.pwd_regisno);
+            this.panel_1_general.Controls.Add(this.label14);
+            this.panel_1_general.Controls.Add(this.label13);
+            this.panel_1_general.Controls.Add(this.label12);
+            this.panel_1_general.Controls.Add(this.pictureBox1);
+            this.panel_1_general.Controls.Add(this.btn_next1);
+            this.panel_1_general.Controls.Add(this.page_num);
+            this.panel_1_general.Controls.Add(this.label48);
+            this.panel_1_general.Controls.Add(this.label1);
+            this.panel_1_general.Location = new System.Drawing.Point(0, 0);
+            this.panel_1_general.Name = "panel_1_general";
+            this.panel_1_general.Size = new System.Drawing.Size(777, 509);
+            this.panel_1_general.TabIndex = 4;
+            this.panel_1_general.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // disability_type
             // 
@@ -1224,36 +1227,36 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "___________________________________";
             // 
-            // pnl4
+            // panel_4_employment_type_of_skill
             // 
-            this.pnl4.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl4.Controls.Add(this.noemp);
-            this.pnl4.Controls.Add(this.empstatus);
-            this.pnl4.Controls.Add(this.typeoemp);
-            this.pnl4.Controls.Add(this.btn_prev3);
-            this.pnl4.Controls.Add(this.label24);
-            this.pnl4.Controls.Add(this.skill9);
-            this.pnl4.Controls.Add(this.skill8);
-            this.pnl4.Controls.Add(this.skill7);
-            this.pnl4.Controls.Add(this.skill6);
-            this.pnl4.Controls.Add(this.skill4);
-            this.pnl4.Controls.Add(this.skill3);
-            this.pnl4.Controls.Add(this.skill2);
-            this.pnl4.Controls.Add(this.skill5);
-            this.pnl4.Controls.Add(this.skill1);
-            this.pnl4.Controls.Add(this.pictureBox5);
-            this.pnl4.Controls.Add(this.label25);
-            this.pnl4.Controls.Add(this.label26);
-            this.pnl4.Controls.Add(this.label27);
-            this.pnl4.Controls.Add(this.label34);
-            this.pnl4.Controls.Add(this.pictureBox6);
-            this.pnl4.Controls.Add(this.btn_next4);
-            this.pnl4.Controls.Add(this.label35);
-            this.pnl4.Location = new System.Drawing.Point(0, 0);
-            this.pnl4.Name = "pnl4";
-            this.pnl4.Size = new System.Drawing.Size(777, 509);
-            this.pnl4.TabIndex = 53;
-            this.pnl4.Visible = false;
+            this.panel_4_employment_type_of_skill.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_4_employment_type_of_skill.Controls.Add(this.noemp);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.empstatus);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.typeoemp);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.btn_prev3);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.label24);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill9);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill8);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill7);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill6);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill4);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill3);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill2);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill5);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.skill1);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.pictureBox5);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.label25);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.label26);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.label27);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.label34);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.pictureBox6);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.btn_next4);
+            this.panel_4_employment_type_of_skill.Controls.Add(this.label35);
+            this.panel_4_employment_type_of_skill.Location = new System.Drawing.Point(0, 0);
+            this.panel_4_employment_type_of_skill.Name = "panel_4_employment_type_of_skill";
+            this.panel_4_employment_type_of_skill.Size = new System.Drawing.Size(777, 509);
+            this.panel_4_employment_type_of_skill.TabIndex = 53;
+            this.panel_4_employment_type_of_skill.Visible = false;
             // 
             // noemp
             // 
@@ -1534,65 +1537,65 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.pnl1);
-            this.pnl_container.Controls.Add(this.pnl6);
-            this.pnl_container.Controls.Add(this.pnl5);
-            this.pnl_container.Controls.Add(this.pnl4);
-            this.pnl_container.Controls.Add(this.pnl3);
-            this.pnl_container.Controls.Add(this.pnl2);
+            this.pnl_container.Controls.Add(this.panel_2_personal);
+            this.pnl_container.Controls.Add(this.panel_6_parental);
+            this.pnl_container.Controls.Add(this.panel_5_organizational_other);
+            this.pnl_container.Controls.Add(this.panel_4_employment_type_of_skill);
+            this.pnl_container.Controls.Add(this.panel_3_contact_educational);
+            this.pnl_container.Controls.Add(this.panel_1_general);
             this.pnl_container.Location = new System.Drawing.Point(284, 39);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(777, 509);
             this.pnl_container.TabIndex = 54;
             this.pnl_container.Visible = false;
             // 
-            // pnl6
+            // panel_6_parental
             // 
-            this.pnl6.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl6.Controls.Add(this.status_ex_inactive);
-            this.pnl6.Controls.Add(this.status_active);
-            this.pnl6.Controls.Add(this.label86);
-            this.pnl6.Controls.Add(this.amn_txt);
-            this.pnl6.Controls.Add(this.afn_txt);
-            this.pnl6.Controls.Add(this.aln_txt);
-            this.pnl6.Controls.Add(this.gmn_txt);
-            this.pnl6.Controls.Add(this.gfn_txt);
-            this.pnl6.Controls.Add(this.gln_txt);
-            this.pnl6.Controls.Add(this.mmn_txt);
-            this.pnl6.Controls.Add(this.mfn_txt);
-            this.pnl6.Controls.Add(this.mln_txt);
-            this.pnl6.Controls.Add(this.label46);
-            this.pnl6.Controls.Add(this.label47);
-            this.pnl6.Controls.Add(this.norunit);
-            this.pnl6.Controls.Add(this.label49);
-            this.pnl6.Controls.Add(this.fmn_txt);
-            this.pnl6.Controls.Add(this.ffn_txt);
-            this.pnl6.Controls.Add(this.fln_txt);
-            this.pnl6.Controls.Add(this.label50);
-            this.pnl6.Controls.Add(this.label52);
-            this.pnl6.Controls.Add(this.label53);
-            this.pnl6.Controls.Add(this.pictureBox9);
-            this.pnl6.Controls.Add(this.btn_add_edit);
-            this.pnl6.Controls.Add(this.btn_prev6);
-            this.pnl6.Controls.Add(this.label54);
-            this.pnl6.Controls.Add(this.label84);
-            this.pnl6.Controls.Add(this.label83);
-            this.pnl6.Controls.Add(this.label82);
-            this.pnl6.Controls.Add(this.label81);
-            this.pnl6.Controls.Add(this.label80);
-            this.pnl6.Controls.Add(this.label79);
-            this.pnl6.Controls.Add(this.label78);
-            this.pnl6.Controls.Add(this.label77);
-            this.pnl6.Controls.Add(this.label76);
-            this.pnl6.Controls.Add(this.label75);
-            this.pnl6.Controls.Add(this.label74);
-            this.pnl6.Controls.Add(this.label73);
-            this.pnl6.Controls.Add(this.label85);
-            this.pnl6.Location = new System.Drawing.Point(0, 0);
-            this.pnl6.Name = "pnl6";
-            this.pnl6.Size = new System.Drawing.Size(777, 509);
-            this.pnl6.TabIndex = 30;
-            this.pnl6.Visible = false;
+            this.panel_6_parental.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_6_parental.Controls.Add(this.status_ex_inactive);
+            this.panel_6_parental.Controls.Add(this.status_active);
+            this.panel_6_parental.Controls.Add(this.label86);
+            this.panel_6_parental.Controls.Add(this.amn_txt);
+            this.panel_6_parental.Controls.Add(this.afn_txt);
+            this.panel_6_parental.Controls.Add(this.aln_txt);
+            this.panel_6_parental.Controls.Add(this.gmn_txt);
+            this.panel_6_parental.Controls.Add(this.gfn_txt);
+            this.panel_6_parental.Controls.Add(this.gln_txt);
+            this.panel_6_parental.Controls.Add(this.mmn_txt);
+            this.panel_6_parental.Controls.Add(this.mfn_txt);
+            this.panel_6_parental.Controls.Add(this.mln_txt);
+            this.panel_6_parental.Controls.Add(this.label46);
+            this.panel_6_parental.Controls.Add(this.label47);
+            this.panel_6_parental.Controls.Add(this.norunit);
+            this.panel_6_parental.Controls.Add(this.label49);
+            this.panel_6_parental.Controls.Add(this.fmn_txt);
+            this.panel_6_parental.Controls.Add(this.ffn_txt);
+            this.panel_6_parental.Controls.Add(this.fln_txt);
+            this.panel_6_parental.Controls.Add(this.label50);
+            this.panel_6_parental.Controls.Add(this.label52);
+            this.panel_6_parental.Controls.Add(this.label53);
+            this.panel_6_parental.Controls.Add(this.pictureBox9);
+            this.panel_6_parental.Controls.Add(this.btn_add_edit);
+            this.panel_6_parental.Controls.Add(this.btn_prev6);
+            this.panel_6_parental.Controls.Add(this.label54);
+            this.panel_6_parental.Controls.Add(this.label84);
+            this.panel_6_parental.Controls.Add(this.label83);
+            this.panel_6_parental.Controls.Add(this.label82);
+            this.panel_6_parental.Controls.Add(this.label81);
+            this.panel_6_parental.Controls.Add(this.label80);
+            this.panel_6_parental.Controls.Add(this.label79);
+            this.panel_6_parental.Controls.Add(this.label78);
+            this.panel_6_parental.Controls.Add(this.label77);
+            this.panel_6_parental.Controls.Add(this.label76);
+            this.panel_6_parental.Controls.Add(this.label75);
+            this.panel_6_parental.Controls.Add(this.label74);
+            this.panel_6_parental.Controls.Add(this.label73);
+            this.panel_6_parental.Controls.Add(this.label85);
+            this.panel_6_parental.Location = new System.Drawing.Point(0, 0);
+            this.panel_6_parental.Name = "panel_6_parental";
+            this.panel_6_parental.Size = new System.Drawing.Size(777, 509);
+            this.panel_6_parental.TabIndex = 30;
+            this.panel_6_parental.Visible = false;
             // 
             // status_ex_inactive
             // 
@@ -2005,43 +2008,43 @@
             this.label85.TabIndex = 54;
             this.label85.Text = "____________________________________________________";
             // 
-            // pnl5
+            // panel_5_organizational_other
             // 
-            this.pnl5.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl5.Controls.Add(this.orgtelno);
-            this.pnl5.Controls.Add(this.officeadd);
-            this.pnl5.Controls.Add(this.contactper);
-            this.pnl5.Controls.Add(this.orgaff);
-            this.pnl5.Controls.Add(this.philhealthno);
-            this.pnl5.Controls.Add(this.gsisno);
-            this.pnl5.Controls.Add(this.sssno);
-            this.pnl5.Controls.Add(this.philhealthstatus);
-            this.pnl5.Controls.Add(this.label43);
-            this.pnl5.Controls.Add(this.label44);
-            this.pnl5.Controls.Add(this.label45);
-            this.pnl5.Controls.Add(this.label42);
-            this.pnl5.Controls.Add(this.btn_prev4);
-            this.pnl5.Controls.Add(this.label36);
-            this.pnl5.Controls.Add(this.pictureBox7);
-            this.pnl5.Controls.Add(this.label37);
-            this.pnl5.Controls.Add(this.label38);
-            this.pnl5.Controls.Add(this.label39);
-            this.pnl5.Controls.Add(this.label40);
-            this.pnl5.Controls.Add(this.pictureBox8);
-            this.pnl5.Controls.Add(this.btn_next5);
-            this.pnl5.Controls.Add(this.label41);
-            this.pnl5.Controls.Add(this.label69);
-            this.pnl5.Controls.Add(this.label68);
-            this.pnl5.Controls.Add(this.label67);
-            this.pnl5.Controls.Add(this.label66);
-            this.pnl5.Controls.Add(this.label72);
-            this.pnl5.Controls.Add(this.label71);
-            this.pnl5.Controls.Add(this.label70);
-            this.pnl5.Location = new System.Drawing.Point(0, 0);
-            this.pnl5.Name = "pnl5";
-            this.pnl5.Size = new System.Drawing.Size(777, 509);
-            this.pnl5.TabIndex = 54;
-            this.pnl5.Visible = false;
+            this.panel_5_organizational_other.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_5_organizational_other.Controls.Add(this.orgtelno);
+            this.panel_5_organizational_other.Controls.Add(this.officeadd);
+            this.panel_5_organizational_other.Controls.Add(this.contactper);
+            this.panel_5_organizational_other.Controls.Add(this.orgaff);
+            this.panel_5_organizational_other.Controls.Add(this.philhealthno);
+            this.panel_5_organizational_other.Controls.Add(this.gsisno);
+            this.panel_5_organizational_other.Controls.Add(this.sssno);
+            this.panel_5_organizational_other.Controls.Add(this.philhealthstatus);
+            this.panel_5_organizational_other.Controls.Add(this.label43);
+            this.panel_5_organizational_other.Controls.Add(this.label44);
+            this.panel_5_organizational_other.Controls.Add(this.label45);
+            this.panel_5_organizational_other.Controls.Add(this.label42);
+            this.panel_5_organizational_other.Controls.Add(this.btn_prev4);
+            this.panel_5_organizational_other.Controls.Add(this.label36);
+            this.panel_5_organizational_other.Controls.Add(this.pictureBox7);
+            this.panel_5_organizational_other.Controls.Add(this.label37);
+            this.panel_5_organizational_other.Controls.Add(this.label38);
+            this.panel_5_organizational_other.Controls.Add(this.label39);
+            this.panel_5_organizational_other.Controls.Add(this.label40);
+            this.panel_5_organizational_other.Controls.Add(this.pictureBox8);
+            this.panel_5_organizational_other.Controls.Add(this.btn_next5);
+            this.panel_5_organizational_other.Controls.Add(this.label41);
+            this.panel_5_organizational_other.Controls.Add(this.label69);
+            this.panel_5_organizational_other.Controls.Add(this.label68);
+            this.panel_5_organizational_other.Controls.Add(this.label67);
+            this.panel_5_organizational_other.Controls.Add(this.label66);
+            this.panel_5_organizational_other.Controls.Add(this.label72);
+            this.panel_5_organizational_other.Controls.Add(this.label71);
+            this.panel_5_organizational_other.Controls.Add(this.label70);
+            this.panel_5_organizational_other.Location = new System.Drawing.Point(0, 0);
+            this.panel_5_organizational_other.Name = "panel_5_organizational_other";
+            this.panel_5_organizational_other.Size = new System.Drawing.Size(777, 509);
+            this.panel_5_organizational_other.TabIndex = 54;
+            this.panel_5_organizational_other.Visible = false;
             // 
             // orgtelno
             // 
@@ -2372,7 +2375,7 @@
             this.pwd_add_back.Name = "pwd_add_back";
             this.pwd_add_back.Size = new System.Drawing.Size(189, 30);
             this.pwd_add_back.TabIndex = 0;
-            this.pwd_add_back.Text = "Back";
+            this.pwd_add_back.Text = "Cancel";
             this.pwd_add_back.UseVisualStyleBackColor = false;
             this.pwd_add_back.Click += new System.EventHandler(this.pwd_add_back_Click);
             // 
@@ -2596,26 +2599,26 @@
             this.panel1.PerformLayout();
             this.checklist.ResumeLayout(false);
             this.checklist.PerformLayout();
-            this.pnl2.ResumeLayout(false);
-            this.pnl2.PerformLayout();
+            this.panel_2_personal.ResumeLayout(false);
+            this.panel_2_personal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.pnl3.ResumeLayout(false);
-            this.pnl3.PerformLayout();
+            this.panel_3_contact_educational.ResumeLayout(false);
+            this.panel_3_contact_educational.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.pnl1.ResumeLayout(false);
-            this.pnl1.PerformLayout();
+            this.panel_1_general.ResumeLayout(false);
+            this.panel_1_general.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnl4.ResumeLayout(false);
-            this.pnl4.PerformLayout();
+            this.panel_4_employment_type_of_skill.ResumeLayout(false);
+            this.panel_4_employment_type_of_skill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnl_container.ResumeLayout(false);
-            this.pnl6.ResumeLayout(false);
-            this.pnl6.PerformLayout();
+            this.panel_6_parental.ResumeLayout(false);
+            this.panel_6_parental.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            this.pnl5.ResumeLayout(false);
-            this.pnl5.PerformLayout();
+            this.panel_5_organizational_other.ResumeLayout(false);
+            this.panel_5_organizational_other.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.quick_panel.ResumeLayout(false);
@@ -2627,7 +2630,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel checklist;
-        private System.Windows.Forms.Panel pnl1;
+        private System.Windows.Forms.Panel panel_1_general;
         private System.Windows.Forms.Label page_num;
         private System.Windows.Forms.Button btn_next1;
         private System.Windows.Forms.Label label12;
@@ -2636,7 +2639,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox pwd_appdate;
         private System.Windows.Forms.TextBox pwd_regisno;
-        private System.Windows.Forms.Panel pnl2;
+        private System.Windows.Forms.Panel panel_2_personal;
         private System.Windows.Forms.TextBox nationality;
         private System.Windows.Forms.TextBox dateofbirth;
         private System.Windows.Forms.Label label22;
@@ -2658,7 +2661,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Panel pnl3;
+        private System.Windows.Forms.Panel panel_3_contact_educational;
         private System.Windows.Forms.TextBox telno;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
@@ -2683,7 +2686,7 @@
         private System.Windows.Forms.RadioButton educ2;
         private System.Windows.Forms.RadioButton educ1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel pnl4;
+        private System.Windows.Forms.Panel panel_4_employment_type_of_skill;
         private System.Windows.Forms.RadioButton skill9;
         private System.Windows.Forms.RadioButton skill8;
         private System.Windows.Forms.RadioButton skill7;
@@ -2704,7 +2707,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Panel pnl_container;
         private System.Windows.Forms.Button btn_prev3;
-        private System.Windows.Forms.Panel pnl5;
+        private System.Windows.Forms.Panel panel_5_organizational_other;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
@@ -2719,7 +2722,7 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Button btn_next5;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Panel pnl6;
+        private System.Windows.Forms.Panel panel_6_parental;
         private System.Windows.Forms.TextBox amn_txt;
         private System.Windows.Forms.TextBox afn_txt;
         private System.Windows.Forms.TextBox aln_txt;

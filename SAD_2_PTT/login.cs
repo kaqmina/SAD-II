@@ -44,9 +44,9 @@ namespace SAD_2_PTT
                 this.Hide();
                 main_form main_f = new main_form();
                 main_f.Closed += (s, args) => this.Show();
+                main_f.current_user = uname.Text;
                 uname.Clear();
                 pword.Clear();
-                main_f.current_user = uname.Text;
                 main_f.Show();
             } else
             {

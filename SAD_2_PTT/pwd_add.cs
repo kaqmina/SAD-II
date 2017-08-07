@@ -75,15 +75,14 @@ namespace SAD_2_PTT
             startup_opacity.Start();
             //Visibility Load
             pnl_container.Visible = true;
-            pnl1.Visible = true;
-            pnl2.Visible = false;
-            pnl3.Visible = false;
-            pnl4.Visible = false;
-            pnl5.Visible = false;
+            panel_1_general.Visible = true;
+            panel_2_personal.Visible = false;
+            panel_3_contact_educational.Visible = false;
+            panel_4_employment_type_of_skill.Visible = false;
+            panel_5_organizational_other.Visible = false;
 
             populate_cboxes();
             //Style Text
-            default_text();
             //defaulttxt9();
         }
 
@@ -229,35 +228,19 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region 1 General Information Panel
-        private void btn_next1_Click(object sender, EventArgs e)
-        {
-            //Visibility
-            pnl1.Visible = false;
-            pnl2.Visible = true;
-            current_panel = pnl2;
-        }
-
-        #region Text Style
-
-        private void default_text(){
-
-            
-        }
+        #region Text Style -> Enter-Leave
 
         private void lntxt_Enter(object sender, EventArgs e)
         {
-            main_func.text_enter(ln_txt, "Last Name");
+            main_func.text_enter(ln_txt, ln_txt.Text);
         }
         private void fntxt_Enter(object sender, EventArgs e)
         {
-            //fn_txt.Clear();
-            //fn_txt.ForeColor = Color.Black;
+            main_func.text_enter(fn_txt, fn_txt.Text);
         }
         private void mntxt_Enter(object sender, EventArgs e)
         {
-            //mn_txt.Clear();
-            //mn_txt.ForeColor = Color.Black;
+            main_func.text_enter(mn_txt, mn_txt.Text);
         }
         private void hstxt_Enter(object sender, EventArgs e)
         {
@@ -279,7 +262,31 @@ namespace SAD_2_PTT
             prov_txt.Clear();
             prov_txt.ForeColor = Color.Black;
         }
+
+        private void ln_txt_Leave(object sender, EventArgs e)
+        {
+            main_func.text_leave(ln_txt, "Last Name");
+        }
+
+        private void fn_txt_Leave(object sender, EventArgs e)
+        {
+            main_func.text_leave(fn_txt, "First Name");
+        }
+
+        private void mn_txt_Leave(object sender, EventArgs e)
+        {
+            main_func.text_leave(mn_txt, "Middle Name");
+        }
         #endregion
+
+        #region 1 General Information Panel
+        private void btn_next1_Click(object sender, EventArgs e)
+        {
+            //Visibility
+            panel_1_general.Visible = false;
+            panel_2_personal.Visible = true;
+            current_panel = panel_2_personal;
+        }
 
         #endregion
 
@@ -287,17 +294,17 @@ namespace SAD_2_PTT
         private void btn_prev2_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl2.Visible = false;
-            pnl1.Visible = true;
-            current_panel = pnl1;
+            panel_2_personal.Visible = false;
+            panel_1_general.Visible = true;
+            current_panel = panel_1_general;
         }
 
         private void btn_next2_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl2.Visible = false;
-            pnl3.Visible = true;
-            current_panel = pnl3;
+            panel_2_personal.Visible = false;
+            panel_3_contact_educational.Visible = true;
+            current_panel = panel_3_contact_educational;
         }
 
 
@@ -307,16 +314,16 @@ namespace SAD_2_PTT
         private void button3_Click(object sender, EventArgs e)
         {
             //Visibility - PREV
-            pnl3.Visible = false;
-            pnl2.Visible = true;
-            current_panel = pnl2;
+            panel_3_contact_educational.Visible = false;
+            panel_2_personal.Visible = true;
+            current_panel = panel_2_personal;
         }
         private void next3_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl3.Visible = false;
-            pnl4.Visible = true;
-            current_panel = pnl4;
+            panel_3_contact_educational.Visible = false;
+            panel_4_employment_type_of_skill.Visible = true;
+            current_panel = panel_4_employment_type_of_skill;
         }
         #endregion
 
@@ -324,16 +331,16 @@ namespace SAD_2_PTT
         private void prev4_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl4.Visible = false;
-            pnl3.Visible = true;
-            current_panel = pnl3;
+            panel_4_employment_type_of_skill.Visible = false;
+            panel_3_contact_educational.Visible = true;
+            current_panel = panel_3_contact_educational;
         }
         private void next4_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl4.Visible = false;
-            pnl5.Visible = true;
-            current_panel = pnl5;
+            panel_4_employment_type_of_skill.Visible = false;
+            panel_5_organizational_other.Visible = true;
+            current_panel = panel_5_organizational_other;
         }
         #endregion
 
@@ -341,16 +348,16 @@ namespace SAD_2_PTT
         private void prev5_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl5.Visible = false;
-            pnl4.Visible = true;
-            current_panel = pnl4;
+            panel_5_organizational_other.Visible = false;
+            panel_4_employment_type_of_skill.Visible = true;
+            current_panel = panel_4_employment_type_of_skill;
         }
         private void next5_Click(object sender, EventArgs e)
         {
             //Visibility
-            pnl5.Visible = false;
-            pnl6.Visible = true;
-            current_panel = pnl6;
+            panel_5_organizational_other.Visible = false;
+            panel_6_parental.Visible = true;
+            current_panel = panel_6_parental;
         }
         #endregion
 
@@ -358,9 +365,9 @@ namespace SAD_2_PTT
         private void button4_Click(object sender, EventArgs e)
         {
             //Visibility - PREV
-            pnl6.Visible = false;
-            pnl5.Visible = true;
-            current_panel = pnl5;
+            panel_6_parental.Visible = false;
+            panel_5_organizational_other.Visible = true;
+            current_panel = panel_5_organizational_other;
         }
 
         #region Text Style
@@ -506,7 +513,8 @@ namespace SAD_2_PTT
                                             + "registration_no, "
                                             + "employment_status, "
                                             + "status_pwd, "
-                                            + "type_of_skill) ";
+                                            + "type_of_skill, "
+                                            + "employee_id) ";
             main_variables = "VALUES ('" + lastname
                                          + "', '"
                                          + firstname
@@ -556,6 +564,8 @@ namespace SAD_2_PTT
                                          + pwd_status
                                          + ", "
                                          + to_skill
+                                         + ", "
+                                         + "(SELECT employee_id FROM p_dao.employee WHERE username = '" + reference_to_main.current_user + "')"
                                          + ")";
             #endregion
             #region other_data
@@ -977,7 +987,7 @@ namespace SAD_2_PTT
 
         public void check_if_first(Panel to_activate)
         {
-            current_panel = pnl1;
+            current_panel = panel_1_general;
             first = false;
             main_func.panel_activate(to_activate, current_panel);
             
@@ -986,27 +996,30 @@ namespace SAD_2_PTT
         private void btn_general_Click(object sender, EventArgs e)
         {
             if (first)
-                check_if_first(pnl1);
+                check_if_first(panel_1_general);
             else
-                main_func.panel_activate(pnl1, current_panel);
+                main_func.panel_activate(panel_1_general, current_panel);
         }
 
         private void btn_personal_Click(object sender, EventArgs e)
         {
             if (first)
-                check_if_first(pnl2);
+                check_if_first(panel_2_personal);
             else
-                main_func.panel_activate( pnl2, current_panel);
+                main_func.panel_activate( panel_2_personal, current_panel);
         }
 
         private void btn_contact_Click(object sender, EventArgs e)
         {
             if (first)
-                check_if_first(pnl3);
+                check_if_first(panel_3_contact_educational);
             else
-                main_func.panel_activate( pnl3, current_panel);
+                main_func.panel_activate( panel_3_contact_educational, current_panel);
         }
 
+
         #endregion
+
+        
     }
 }

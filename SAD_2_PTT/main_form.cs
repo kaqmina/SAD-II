@@ -82,9 +82,9 @@ namespace SAD_2_PTT
 
         private void btn_projects_Click(object sender, EventArgs e)
         {
-            main_btn.btn_method(btn_current, btn_projects);
+            main_btn.btn_method(btn_current, btn_project);
             pnl_deactivate(btn_current.Name);
-            btn_current = btn_projects;
+            btn_current = btn_project;
             lbl_current_text("projects");
             main_btn.btn_project = true;
             //slide_out.Start();
@@ -124,6 +124,7 @@ namespace SAD_2_PTT
             startup_opacity.Start();
             pwd_data();
             pnl_notif_pp.BringToFront();
+            lbl_name.Text = "Hi, " + current_user.ToUpper() + ".";
         }
 
         private void main_properties()
@@ -286,15 +287,15 @@ namespace SAD_2_PTT
             }
             else if (deactivate == "btn_project")
             {
-
+                pnl_projects.Visible = false;
             }
             else if (deactivate == "btn_report")
             {
-
+                pnl_reports.Visible = false;
             }
             else if (deactivate == "btn_settings")
             {
-
+                pnl_settings.Visible = false;
             }
             else
             {
