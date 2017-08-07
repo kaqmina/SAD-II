@@ -335,10 +335,13 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        #region PWD FILTER - PF 15
         public void pwd_grid_filter(string category)
         {
             //Name, Age, Gender, Disability, District, Membership Expired, Archived
         }
+
+        #endregion
 
         #endregion
 

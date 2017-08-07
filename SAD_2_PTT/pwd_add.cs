@@ -96,6 +96,137 @@ namespace SAD_2_PTT
         {
             this.Opacity += 0.1;
         }
+
+        public void set_data()
+        {
+            #region <-----[MAIN DATA]----->
+
+            application_date = pwd_appdate.Text;
+            firstname = fn_txt.Text;
+            lastname = ln_txt.Text;
+            middlename = mn_txt.Text;
+            has = hs_txt.Text;
+            mun = mun_txt.Text;
+            bar = bar_txt.Text;
+            prov = prov_txt.Text;
+            reg = region.Text;
+            dob = dateofbirth.Text;
+            natio = nationality.Text;
+            accom = aln_txt.Text + " |" + afn_txt.Text + " |" + amn_txt.Text + " ";
+            registration_no = int.Parse(pwd_regisno.Text);
+            tel_no = int.Parse(telno.Text);
+            mobile_no = int.Parse(mobileno.Text);
+            e_mail = email.Text;
+            status_pwd("add", "-");
+            educ_attainment("add", "-");
+            type_of_skill("add", "-");
+
+            #endregion
+
+            #region <-----[OTHER INFO]----->
+
+            org_telno = int.Parse(orgtelno.Text);
+            sss_no = int.Parse(sssno.Text);
+            gsis_no = int.Parse(gsisno.Text);
+            phil_health_no = int.Parse(philhealthno.Text);
+            organiaff = orgaff.Text;
+            contact_person = contactper.Text;
+            office_address = officeadd.Text;
+            no_unit = norunit.Text;
+
+            #endregion
+
+            #region <-----[PARENTAL INFO]----->
+
+            father_ln = fln_txt.Text;
+            father_fn = ffn_txt.Text;
+            father_mn = fmn_txt.Text;
+            mother_ln = mln_txt.Text;
+            mother_fn = mfn_txt.Text;
+            mother_mn = mmn_txt.Text;
+            guardian_ln = gln_txt.Text;
+            guardian_fn = gfn_txt.Text;
+            guardian_mn = gmn_txt.Text;
+
+            #endregion
+        }
+
+        public void paste_data()
+        {
+            DataTable main_data = new DataTable();
+            DataTable other_data = new DataTable();
+            DataTable parental_data = new DataTable();
+            conn.pwd_update_profile_data(pwd_update_id, main_data, other_data, parental_data);
+
+            #region <-----[MAIN DATA]----->
+
+            pwd_regisno.Text = main_data.Rows[0]["registration_no"].ToString();
+            ln_txt.Text = main_data.Rows[0]["lastname"].ToString();
+            fn_txt.Text = main_data.Rows[0]["firstname"].ToString();
+            mn_txt.Text = main_data.Rows[0]["middlename"].ToString();
+            gender.SelectedIndex = int.Parse(main_data.Rows[0]["sex"].ToString()) + 1;
+            disability_type.SelectedIndex = int.Parse(main_data.Rows[0]["disability_id"].ToString());
+            bloodtype.SelectedIndex = int.Parse(main_data.Rows[0]["blood_type"].ToString());
+            civilstatus.SelectedIndex = int.Parse(main_data.Rows[0]["civil_status"].ToString());
+            pwd_appdate.Text = main_data.Rows[0]["application_date"].ToString();
+            nationality.Text = main_data.Rows[0]["nationality"].ToString();
+            dateofbirth.Text = main_data.Rows[0]["birthdate"].ToString();
+            telno.Text = main_data.Rows[0]["tel_no"].ToString();
+            mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
+            email.Text = main_data.Rows[0]["email_add"].ToString();
+
+            string[] separators = { " |" };
+            string value = main_data.Rows[0]["accomplished_by"].ToString();
+            string[] accom = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            aln_txt.Text = accom[0].ToString();
+            afn_txt.Text = accom[1].ToString();
+            amn_txt.Text = accom[2].ToString();
+
+            educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
+            empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());
+            noemp.SelectedIndex = int.Parse(main_data.Rows[0]["nature_of_employer"].ToString());
+            typeoemp.SelectedIndex = int.Parse(main_data.Rows[0]["type_of_employment"].ToString());
+            type_of_skill("update", main_data.Rows[0]["type_of_skill"].ToString());
+            status_pwd("update", main_data.Rows[0]["status_pwd"].ToString());
+
+            value = main_data.Rows[0]["address"].ToString();
+            string[] address = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            hs_txt.Text = address[0].ToString();
+            mun_txt.Text = address[1].ToString();
+            bar_txt.Text = address[2].ToString();
+            prov_txt.Text = address[3].ToString();
+            region.SelectedItem = address[4].ToString();
+
+            #endregion
+
+            #region <-----[OTHER DATA]----->
+
+            sssno.Text = other_data.Rows[0]["sss_no"].ToString();
+            gsisno.Text = other_data.Rows[0]["gsis_no"].ToString();
+            philhealthno.Text = other_data.Rows[0]["phealth_no"].ToString();
+            philhealthstatus.SelectedIndex = int.Parse(other_data.Rows[0]["phealth_status"].ToString());
+            orgaff.Text = other_data.Rows[0]["organization_aff"].ToString();
+            contactper.Text = other_data.Rows[0]["contact_person"].ToString();
+            officeadd.Text = other_data.Rows[0]["office_address"].ToString();
+            orgtelno.Text = other_data.Rows[0]["tel_no"].ToString();
+            norunit.Text = other_data.Rows[0]["name_of_reporting_unit"].ToString();
+
+            #endregion
+
+            #region <-----[PARENTAL INFO]----->
+
+            ffn_txt.Text = parental_data.Rows[0]["fatherfn"].ToString();
+            fmn_txt.Text = parental_data.Rows[0]["fathermn"].ToString();
+            fln_txt.Text = parental_data.Rows[0]["fatherln"].ToString();
+            mfn_txt.Text = parental_data.Rows[0]["motherfn"].ToString();
+            mmn_txt.Text = parental_data.Rows[0]["mothermn"].ToString();
+            mln_txt.Text = parental_data.Rows[0]["motherln"].ToString();
+            gfn_txt.Text = parental_data.Rows[0]["guardianfn"].ToString();
+            gmn_txt.Text = parental_data.Rows[0]["guardianmn"].ToString();
+            gln_txt.Text = parental_data.Rows[0]["guardianln"].ToString();
+
+            #endregion
+        }
         #endregion
 
         #region 1 General Information Panel
@@ -104,6 +235,7 @@ namespace SAD_2_PTT
             //Visibility
             pnl1.Visible = false;
             pnl2.Visible = true;
+            current_panel = pnl2;
         }
 
         #region Text Style
@@ -157,6 +289,7 @@ namespace SAD_2_PTT
             //Visibility
             pnl2.Visible = false;
             pnl1.Visible = true;
+            current_panel = pnl1;
         }
 
         private void btn_next2_Click(object sender, EventArgs e)
@@ -164,6 +297,7 @@ namespace SAD_2_PTT
             //Visibility
             pnl2.Visible = false;
             pnl3.Visible = true;
+            current_panel = pnl3;
         }
 
 
@@ -175,12 +309,14 @@ namespace SAD_2_PTT
             //Visibility - PREV
             pnl3.Visible = false;
             pnl2.Visible = true;
+            current_panel = pnl2;
         }
         private void next3_Click(object sender, EventArgs e)
         {
             //Visibility
             pnl3.Visible = false;
             pnl4.Visible = true;
+            current_panel = pnl4;
         }
         #endregion
 
@@ -190,12 +326,14 @@ namespace SAD_2_PTT
             //Visibility
             pnl4.Visible = false;
             pnl3.Visible = true;
+            current_panel = pnl3;
         }
         private void next4_Click(object sender, EventArgs e)
         {
             //Visibility
             pnl4.Visible = false;
             pnl5.Visible = true;
+            current_panel = pnl5;
         }
         #endregion
 
@@ -205,12 +343,14 @@ namespace SAD_2_PTT
             //Visibility
             pnl5.Visible = false;
             pnl4.Visible = true;
+            current_panel = pnl4;
         }
         private void next5_Click(object sender, EventArgs e)
         {
             //Visibility
             pnl5.Visible = false;
             pnl6.Visible = true;
+            current_panel = pnl6;
         }
         #endregion
 
@@ -220,6 +360,7 @@ namespace SAD_2_PTT
             //Visibility - PREV
             pnl6.Visible = false;
             pnl5.Visible = true;
+            current_panel = pnl5;
         }
 
         #region Text Style
@@ -626,137 +767,6 @@ namespace SAD_2_PTT
 
         #endregion
 
-        public void set_data()
-        {
-            #region <-----[MAIN DATA]----->
-
-            application_date = pwd_appdate.Text;
-            firstname = fn_txt.Text;
-            lastname = ln_txt.Text;
-            middlename = mn_txt.Text;
-            has = hs_txt.Text;
-            mun = mun_txt.Text;
-            bar = bar_txt.Text;
-            prov = prov_txt.Text;
-            reg = region.Text;
-            dob = dateofbirth.Text;
-            natio = nationality.Text;
-            accom = aln_txt.Text + " |" + afn_txt.Text + " |" + amn_txt.Text + " ";
-            registration_no = int.Parse(pwd_regisno.Text);
-            tel_no = int.Parse(telno.Text);
-            mobile_no = int.Parse(mobileno.Text);
-            e_mail = email.Text;
-            status_pwd("add", "-");
-            educ_attainment("add", "-");
-            type_of_skill("add", "-");
-
-            #endregion
-
-            #region <-----[OTHER INFO]----->
-
-            org_telno = int.Parse(orgtelno.Text);
-            sss_no = int.Parse(sssno.Text);
-            gsis_no = int.Parse(gsisno.Text);
-            phil_health_no = int.Parse(philhealthno.Text);
-            organiaff = orgaff.Text;
-            contact_person = contactper.Text;
-            office_address = officeadd.Text;
-            no_unit = norunit.Text;
-
-            #endregion
-
-            #region <-----[PARENTAL INFO]----->
-
-            father_ln = fln_txt.Text;
-            father_fn = ffn_txt.Text;
-            father_mn = fmn_txt.Text;
-            mother_ln = mln_txt.Text;
-            mother_fn = mfn_txt.Text;
-            mother_mn = mmn_txt.Text;
-            guardian_ln = gln_txt.Text;
-            guardian_fn = gfn_txt.Text;
-            guardian_mn = gmn_txt.Text;
-
-            #endregion
-        }
-
-        public void paste_data()
-        {
-            DataTable main_data = new DataTable();
-            DataTable other_data = new DataTable();
-            DataTable parental_data = new DataTable();
-            conn.pwd_update_profile_data(pwd_update_id, main_data, other_data, parental_data);
-
-            #region <-----[MAIN DATA]----->
-
-            pwd_regisno.Text = main_data.Rows[0]["registration_no"].ToString();
-            ln_txt.Text = main_data.Rows[0]["lastname"].ToString();
-            fn_txt.Text = main_data.Rows[0]["firstname"].ToString();
-            mn_txt.Text = main_data.Rows[0]["middlename"].ToString();
-            gender.SelectedIndex = int.Parse(main_data.Rows[0]["sex"].ToString()) + 1;
-            disability_type.SelectedIndex = int.Parse(main_data.Rows[0]["disability_id"].ToString());
-            bloodtype.SelectedIndex = int.Parse(main_data.Rows[0]["blood_type"].ToString());
-            civilstatus.SelectedIndex = int.Parse(main_data.Rows[0]["civil_status"].ToString());
-            pwd_appdate.Text = main_data.Rows[0]["application_date"].ToString();
-            nationality.Text = main_data.Rows[0]["nationality"].ToString();
-            dateofbirth.Text = main_data.Rows[0]["birthdate"].ToString();
-            telno.Text = main_data.Rows[0]["tel_no"].ToString();
-            mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
-            email.Text = main_data.Rows[0]["email_add"].ToString();
-
-            string[] separators = {" |"};
-            string value = main_data.Rows[0]["accomplished_by"].ToString();
-            string[] accom = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            aln_txt.Text = accom[0].ToString();
-            afn_txt.Text = accom[1].ToString();
-            amn_txt.Text = accom[2].ToString();
-
-            educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
-            empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());
-            noemp.SelectedIndex = int.Parse(main_data.Rows[0]["nature_of_employer"].ToString());
-            typeoemp.SelectedIndex = int.Parse(main_data.Rows[0]["type_of_employment"].ToString());
-            type_of_skill("update", main_data.Rows[0]["type_of_skill"].ToString());
-            status_pwd("update", main_data.Rows[0]["status_pwd"].ToString());
-
-            value = main_data.Rows[0]["address"].ToString();
-            string[] address = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            hs_txt.Text = address[0].ToString();
-            mun_txt.Text = address[1].ToString();
-            bar_txt.Text = address[2].ToString();
-            prov_txt.Text = address[3].ToString();
-            region.SelectedItem = address[4].ToString();
-
-            #endregion
-
-            #region <-----[OTHER DATA]----->
-
-            sssno.Text = other_data.Rows[0]["sss_no"].ToString();
-            gsisno.Text = other_data.Rows[0]["gsis_no"].ToString();
-            philhealthno.Text = other_data.Rows[0]["phealth_no"].ToString();
-            philhealthstatus.SelectedIndex = int.Parse(other_data.Rows[0]["phealth_status"].ToString());
-            orgaff.Text = other_data.Rows[0]["organization_aff"].ToString();
-            contactper.Text = other_data.Rows[0]["contact_person"].ToString();
-            officeadd.Text = other_data.Rows[0]["office_address"].ToString();
-            orgtelno.Text = other_data.Rows[0]["tel_no"].ToString();
-            norunit.Text = other_data.Rows[0]["name_of_reporting_unit"].ToString();
-
-            #endregion
-
-            #region <-----[PARENTAL INFO]----->
-
-            ffn_txt.Text = parental_data.Rows[0]["fatherfn"].ToString();
-            fmn_txt.Text = parental_data.Rows[0]["fathermn"].ToString();
-            fln_txt.Text = parental_data.Rows[0]["fatherln"].ToString();
-            mfn_txt.Text = parental_data.Rows[0]["motherfn"].ToString();
-            mmn_txt.Text = parental_data.Rows[0]["mothermn"].ToString();
-            mln_txt.Text = parental_data.Rows[0]["motherln"].ToString();
-            gfn_txt.Text = parental_data.Rows[0]["guardianfn"].ToString();
-            gmn_txt.Text = parental_data.Rows[0]["guardianmn"].ToString();
-            gln_txt.Text = parental_data.Rows[0]["guardianln"].ToString();
-
-            #endregion
-        }
-
         #region EDUC_ATT, TO_SKILL, STATUS_PWD, DISABILITY, SEX, B_TYPE, CIVIL/EMP/PHEALTH, TO_EMP, NO_EMP
         private void educ_attainment(string status, string num)
         {
@@ -960,14 +970,43 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        private void btn_next_Click(object sender, EventArgs e)
+        #region Quick_Links #NEED TO FIX
+
+        Panel current_panel;
+        bool first = true;
+
+        public void check_if_first(Panel to_activate)
         {
-            if (pnl1.Visible == true)
-                btn_next1_Click(sender, e);
-            else if (pnl2.Visible == true)
-                btn_next2_Click(sender, e);
-            //else if (pnl3.Visible == true)
-                //btn_next
+            current_panel = pnl1;
+            first = false;
+            main_func.panel_activate(to_activate, current_panel);
+            
         }
+
+        private void btn_general_Click(object sender, EventArgs e)
+        {
+            if (first)
+                check_if_first(pnl1);
+            else
+                main_func.panel_activate(pnl1, current_panel);
+        }
+
+        private void btn_personal_Click(object sender, EventArgs e)
+        {
+            if (first)
+                check_if_first(pnl2);
+            else
+                main_func.panel_activate( pnl2, current_panel);
+        }
+
+        private void btn_contact_Click(object sender, EventArgs e)
+        {
+            if (first)
+                check_if_first(pnl3);
+            else
+                main_func.panel_activate( pnl3, current_panel);
+        }
+
+        #endregion
     }
 }

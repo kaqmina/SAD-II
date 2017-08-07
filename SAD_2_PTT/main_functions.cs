@@ -60,5 +60,15 @@ namespace SAD_2_PTT
             }
         }
         #endregion
+
+        #region Panel_Activation
+
+        public void panel_activate(Panel to_activate, Panel to_deactivate) {
+            to_deactivate.Visible = false;
+            to_activate.Visible = true;
+            to_deactivate = to_activate;
+        }
+
+        #endregion
     }
 }

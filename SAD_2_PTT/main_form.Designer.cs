@@ -60,10 +60,10 @@
             this.btn_pwd_search = new System.Windows.Forms.Button();
             this.pwd_searchbox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_filter_female = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_filter_male = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.pwd_grid = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -170,6 +170,7 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.pnl_reports = new System.Windows.Forms.Panel();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.combobox_disability = new System.Windows.Forms.ComboBox();
             this.main_tab.SuspendLayout();
             this.side_tab.SuspendLayout();
             this.main_content.SuspendLayout();
@@ -443,6 +444,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.combobox_disability);
             this.panel2.Controls.Add(this.btn_pwd_refresh);
             this.panel2.Controls.Add(this.btn_archive);
             this.panel2.Controls.Add(this.pwd_view_pp);
@@ -451,10 +453,10 @@
             this.panel2.Controls.Add(this.btn_renew);
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btn_filter_female);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btn_filter_male);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.pwd_grid);
             this.panel2.Location = new System.Drawing.Point(0, 33);
@@ -596,15 +598,15 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Female";
             // 
-            // button2
+            // btn_filter_female
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(324, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(20, 20);
-            this.button2.TabIndex = 25;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_filter_female.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_filter_female.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_filter_female.Location = new System.Drawing.Point(324, 47);
+            this.btn_filter_female.Name = "btn_filter_female";
+            this.btn_filter_female.Size = new System.Drawing.Size(20, 20);
+            this.btn_filter_female.TabIndex = 25;
+            this.btn_filter_female.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -628,15 +630,15 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "Male";
             // 
-            // button1
+            // btn_filter_male
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(259, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 20);
-            this.button1.TabIndex = 23;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_filter_male.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_filter_male.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_filter_male.Location = new System.Drawing.Point(259, 47);
+            this.btn_filter_male.Name = "btn_filter_male";
+            this.btn_filter_male.Size = new System.Drawing.Size(20, 20);
+            this.btn_filter_male.TabIndex = 23;
+            this.btn_filter_male.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -2082,6 +2084,14 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
+            // combobox_disability
+            // 
+            this.combobox_disability.FormattingEnabled = true;
+            this.combobox_disability.Location = new System.Drawing.Point(400, 45);
+            this.combobox_disability.Name = "combobox_disability";
+            this.combobox_disability.Size = new System.Drawing.Size(146, 21);
+            this.combobox_disability.TabIndex = 30;
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2193,9 +2203,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_filter_female;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_filter_male;
         private System.Windows.Forms.Panel pnl_notif_pp;
         public System.Windows.Forms.Button btn_profile;
         public System.Windows.Forms.Button btn_notification;
@@ -2274,6 +2284,7 @@
         private System.Windows.Forms.Button btn_project_list;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox combobox_disability;
     }
 }
 
