@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pwd_add));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pwd_add_lbl = new System.Windows.Forms.Label();
-            this.checklist = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel_2_personal = new System.Windows.Forms.Panel();
             this.civilstatus = new System.Windows.Forms.ComboBox();
             this.bloodtype = new System.Windows.Forms.ComboBox();
@@ -219,8 +217,8 @@
             this.btn_general = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.checklist.SuspendLayout();
             this.panel_2_personal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_3_contact_educational.SuspendLayout();
@@ -260,25 +258,6 @@
             this.pwd_add_lbl.Size = new System.Drawing.Size(107, 17);
             this.pwd_add_lbl.TabIndex = 55;
             this.pwd_add_lbl.Text = "New PWD Profile";
-            // 
-            // checklist
-            // 
-            this.checklist.BackColor = System.Drawing.SystemColors.Window;
-            this.checklist.Controls.Add(this.label2);
-            this.checklist.Location = new System.Drawing.Point(5, 39);
-            this.checklist.Name = "checklist";
-            this.checklist.Size = new System.Drawing.Size(273, 47);
-            this.checklist.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(87, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Quick Links";
             // 
             // panel_2_personal
             // 
@@ -2575,16 +2554,26 @@
             this.panel2.Size = new System.Drawing.Size(273, 17);
             this.panel2.TabIndex = 50;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(94, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.TabIndex = 54;
+            this.label2.Text = "Quick Links";
+            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1066, 589);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.quick_panel);
             this.Controls.Add(this.pwd_add_back);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.checklist);
             this.Controls.Add(this.pnl_container);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2597,8 +2586,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.pwd_add_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.checklist.ResumeLayout(false);
-            this.checklist.PerformLayout();
             this.panel_2_personal.ResumeLayout(false);
             this.panel_2_personal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -2623,13 +2610,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.quick_panel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel checklist;
         private System.Windows.Forms.Panel panel_1_general;
         private System.Windows.Forms.Label page_num;
         private System.Windows.Forms.Button btn_next1;
@@ -2812,10 +2799,10 @@
         private System.Windows.Forms.Button btn_personal;
         private System.Windows.Forms.Button btn_general;
         public System.Windows.Forms.Button pwd_add_back;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
     }
 }
