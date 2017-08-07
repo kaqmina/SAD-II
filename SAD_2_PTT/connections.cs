@@ -746,5 +746,18 @@ namespace SAD_2_PTT
         }
 
         #endregion
+
+        public void login_user(string uname, string pword, bool valid)
+        {
+            try
+            {
+
+            } catch (Exception e)
+            {
+                valid = false;
+            }
+
+            
+        }
     }
 }

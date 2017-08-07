@@ -43,5 +43,7 @@ namespace SAD_2_PTT
             main_f.Closed += (s, args) => this.Show();
             main_f.Show();
         }
+
+
     }
 }
