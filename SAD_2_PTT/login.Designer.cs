@@ -32,15 +32,15 @@
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.message = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
-            this.uname = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.uname_line = new System.Windows.Forms.Label();
+            this.pword_line = new System.Windows.Forms.Label();
+            this.pword_label = new System.Windows.Forms.Label();
+            this.uname_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pword = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.uname = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
@@ -79,51 +79,51 @@
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // uname
+            // uname_line
             // 
-            this.uname.AutoSize = true;
-            this.uname.BackColor = System.Drawing.Color.Transparent;
-            this.uname.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uname.ForeColor = System.Drawing.Color.Black;
-            this.uname.Location = new System.Drawing.Point(50, 205);
-            this.uname.Name = "uname";
-            this.uname.Size = new System.Drawing.Size(212, 15);
-            this.uname.TabIndex = 23;
-            this.uname.Text = "_________________________________________";
+            this.uname_line.AutoSize = true;
+            this.uname_line.BackColor = System.Drawing.Color.Transparent;
+            this.uname_line.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uname_line.ForeColor = System.Drawing.Color.Black;
+            this.uname_line.Location = new System.Drawing.Point(50, 205);
+            this.uname_line.Name = "uname_line";
+            this.uname_line.Size = new System.Drawing.Size(212, 15);
+            this.uname_line.TabIndex = 23;
+            this.uname_line.Text = "_________________________________________";
             // 
-            // label11
+            // pword_line
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(49, 264);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(212, 15);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "_________________________________________";
+            this.pword_line.AutoSize = true;
+            this.pword_line.BackColor = System.Drawing.Color.Transparent;
+            this.pword_line.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pword_line.ForeColor = System.Drawing.Color.Black;
+            this.pword_line.Location = new System.Drawing.Point(49, 264);
+            this.pword_line.Name = "pword_line";
+            this.pword_line.Size = new System.Drawing.Size(212, 15);
+            this.pword_line.TabIndex = 22;
+            this.pword_line.Text = "_________________________________________";
             // 
-            // label8
+            // pword_label
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(49, 237);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "PASSWORD";
+            this.pword_label.AutoSize = true;
+            this.pword_label.BackColor = System.Drawing.Color.Transparent;
+            this.pword_label.ForeColor = System.Drawing.Color.Black;
+            this.pword_label.Location = new System.Drawing.Point(49, 237);
+            this.pword_label.Name = "pword_label";
+            this.pword_label.Size = new System.Drawing.Size(66, 13);
+            this.pword_label.TabIndex = 19;
+            this.pword_label.Text = "PASSWORD";
             // 
-            // label7
+            // uname_label
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(50, 178);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "USERNAME";
+            this.uname_label.AutoSize = true;
+            this.uname_label.BackColor = System.Drawing.Color.Transparent;
+            this.uname_label.ForeColor = System.Drawing.Color.Black;
+            this.uname_label.Location = new System.Drawing.Point(50, 178);
+            this.uname_label.Name = "uname_label";
+            this.uname_label.Size = new System.Drawing.Size(65, 13);
+            this.uname_label.TabIndex = 18;
+            this.uname_label.Text = "USERNAME";
             // 
             // label4
             // 
@@ -170,16 +170,16 @@
             this.pword.TabIndex = 27;
             this.pword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // uname
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(53, 194);
-            this.textBox2.MaxLength = 45;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 16);
-            this.textBox2.TabIndex = 26;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.uname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.uname.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uname.Location = new System.Drawing.Point(53, 194);
+            this.uname.MaxLength = 45;
+            this.uname.Name = "uname";
+            this.uname.Size = new System.Drawing.Size(183, 16);
+            this.uname.TabIndex = 26;
+            this.uname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -238,16 +238,16 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(312, 475);
             this.Controls.Add(this.btn_exit);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.uname);
             this.Controls.Add(this.pword);
             this.Controls.Add(this.message);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.uname);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.uname_line);
+            this.Controls.Add(this.pword_line);
+            this.Controls.Add(this.pword_label);
+            this.Controls.Add(this.uname_label);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
@@ -271,15 +271,15 @@
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label uname;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label uname_line;
+        private System.Windows.Forms.Label pword_line;
+        private System.Windows.Forms.Label pword_label;
+        private System.Windows.Forms.Label uname_label;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox pword;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox uname;
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Panel back;
     }
