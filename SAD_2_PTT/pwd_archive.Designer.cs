@@ -1,6 +1,6 @@
 ﻿namespace SAD_2_PTT
 {
-    partial class prompt
+    partial class pwd_archive
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SAD_2_PTT
 {
-    public partial class prompt : Form
+    public partial class pwd_archive : Form
     {
-        public prompt()
+        public pwd_archive()
         {
             InitializeComponent();
         }
