@@ -17,9 +17,12 @@ namespace SAD_2_PTT
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
         connections conn = new connections();
+        device_prompt p = new device_prompt();
 
         String dis_type, dis_desc, search;
         int dis_id;
+        public bool cont = false;
+
         #endregion
 
         #region Transition
@@ -86,9 +89,25 @@ namespace SAD_2_PTT
             dis_type = txt_type.Text;
             dis_desc = txt_desc.Text;
 
-            string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
-            conn.Edit(query);
-            conn.device_dis_grid(dev_disgrid);
+            //Prompt
+            string func = "Edit Disability";
+            p.prompt_title.Text = func;
+            p.lbl_quest.Text = "Are you sure to edit this data?";
+
+            p.dev_dis = this;
+            p.ShowDialog();
+
+            if (cont == true)
+            {
+                string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
+                conn.Edit(query);
+                conn.device_dis_grid(dev_disgrid);
+            }
+            else
+            {
+                //conn.device_dis_grid(dev_disgrid);
+                //nothing
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

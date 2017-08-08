@@ -14,17 +14,17 @@ namespace SAD_2_PTT
     public partial class device_view : Form
     {
         #region Declaration
+        public main_form reference_to_main { get; set; }
         public MySqlConnection con;
         connections conn = new connections();
+        device_prompt p = new device_prompt();
 
         String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search;
         String clicked = "default";
         DateTime req_date, date_IN, date_OUT;
         int id, dev_id, fstatus;
+        public bool cont = false;
 
-        public main_form reference_to_main { get; set; }
-
-      
         #endregion
 
         #region Transition
@@ -188,9 +188,24 @@ namespace SAD_2_PTT
             date_OUT = date_out.Value.Date;
             fstatus = cmbox_stat.SelectedIndex;
 
-            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
-            conn.Edit(query);
-            conn.device_editreq_grid(dev_editreq, clicked);
+            //Prompt
+            string func = "Edit Device Provider";
+            p.prompt_title.Text = func;
+            p.lbl_quest.Text = "Are you sure to edit this data?";
+
+            p.dev_view = this;
+            p.ShowDialog();
+
+            if (cont == true)
+            {
+                string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+                conn.Edit(query);
+                conn.device_editreq_grid(dev_editreq, clicked);
+            }
+            else
+            {
+                //nothing
+            }
         }
        #endregion
 
