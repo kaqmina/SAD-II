@@ -576,7 +576,7 @@ namespace SAD_2_PTT
         {
             int loc_x = 434;
             int loc_y = 148;
-            prompt show_prompt = new prompt();
+            pwd_archive show_prompt = new pwd_archive();
             show_prompt.Location = new Point(loc_x, loc_y);
             show_prompt.current_id = current_pwd_id;
             show_prompt.reference_to_main = this;
