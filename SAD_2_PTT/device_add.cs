@@ -17,9 +17,11 @@ namespace SAD_2_PTT
         public main_form reference_to_main { get; set; }
         public MySqlConnection con;
         connections conn = new connections();
+        device_prompt p = new device_prompt();
 
         String d_name, d_dis, d_desc, search;
         int d_id;
+        public bool cont = false;
 
         #endregion
 
@@ -60,13 +62,14 @@ namespace SAD_2_PTT
         #region Add
         private void button1_Click(object sender, EventArgs e)
         {
+            //if no description to add
             if (txt_ddesc.Text == "") txt_ddesc.Text = "None";
 
             int d = cmbox_dis.SelectedIndex + 1;
            
             d_name = txt_dname.Text;
             d_desc = txt_ddesc.Text;
-            
+
 
             string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
             string values = " VALUES('" + d + "','" + d_name + "','" + d_desc + "')";
@@ -92,6 +95,7 @@ namespace SAD_2_PTT
         #region Edit
         private void button2_Click(object sender, EventArgs e)
         {
+            //remove permanent info
             lbl_ddesc.Text = "";
             lbl_dis.Text = "";
 
@@ -101,10 +105,26 @@ namespace SAD_2_PTT
             //disability id
             int d = 0;
             d = cmbox_dis.SelectedIndex + 1;
+            
+            //Prompt
+            string func = "Edit Device";
+            p.prompt_title.Text = func;
+            p.lbl_quest.Text = "Are you sure to edit this data?";
 
-            string query = "UPDATE device SET disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
-            conn.Edit(query);
-            conn.device_add_grid(dev_addgrid);
+            p.dev_add = this;
+            p.ShowDialog();
+
+            if (cont == true)
+            {
+                string query = "UPDATE device SET disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
+                conn.Edit(query);
+                conn.device_add_grid(dev_addgrid);
+            }
+            else
+            {
+                conn.device_add_grid(dev_addgrid);
+            }
+           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -164,11 +184,25 @@ namespace SAD_2_PTT
         #region Remove
         private void btn_del_Click(object sender, EventArgs e)
         {
-            //open another window or delete agad? cascade.
-            string query = "DELETE FROM p_dao.device WHERE dev_name = '" + d_name + "'";
-            conn.Delete(query);
+            //Prompt
+            string func = "Delete Device";
+            p.prompt_title.Text = func;
+            p.lbl_quest.Text = "Are you sure to delete this device?";
 
-            conn.device_add_grid(dev_addgrid);
+            p.dev_add = this;
+            p.ShowDialog();
+
+            if (cont == true)
+            {
+                //cascade.
+                string query = "DELETE FROM p_dao.device WHERE dev_name = '" + d_name + "'";
+                conn.Delete(query);
+                conn.device_add_grid(dev_addgrid);
+            }
+            else
+            {
+                //nothing
+            }
 
             //return to add
             button1.BringToFront();

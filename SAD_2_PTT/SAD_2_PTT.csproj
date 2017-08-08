@@ -59,6 +59,12 @@
     <Compile Include="device_disability.Designer.cs">
       <DependentUpon>device_disability.cs</DependentUpon>
     </Compile>
+    <Compile Include="device_prompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="device_prompt.Designer.cs">
+      <DependentUpon>device_prompt.cs</DependentUpon>
+    </Compile>
     <Compile Include="device_provider.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="device_disability.resx">
       <DependentUpon>device_disability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="device_prompt.resx">
+      <DependentUpon>device_prompt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="device_provider.resx">
       <DependentUpon>device_provider.cs</DependentUpon>

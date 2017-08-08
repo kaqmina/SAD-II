@@ -657,6 +657,7 @@ namespace SAD_2_PTT
 
         public void Edit(string query)
         {
+
             try
             {
                 conn.Open();
