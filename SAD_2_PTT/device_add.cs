@@ -110,21 +110,13 @@ namespace SAD_2_PTT
             string func = "Edit Device";
             p.prompt_title.Text = func;
             p.lbl_quest.Text = "Are you sure to edit this data?";
-
+            
             p.dev_add = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                string query = "UPDATE device SET disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
-                conn.Edit(query);
-                conn.device_add_grid(dev_addgrid);
-            }
-            else
-            {
-                conn.device_add_grid(dev_addgrid);
-            }
-           
+            string query = "UPDATE device SET disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
+            conn.Edit(query, cont);
+            conn.device_add_grid(dev_addgrid);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -192,17 +184,10 @@ namespace SAD_2_PTT
             p.dev_add = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                //cascade.
-                string query = "DELETE FROM p_dao.device WHERE dev_name = '" + d_name + "'";
-                conn.Delete(query);
-                conn.device_add_grid(dev_addgrid);
-            }
-            else
-            {
-                //nothing
-            }
+            //cascade.
+            string query = "DELETE FROM p_dao.device WHERE dev_name = '" + d_name + "'";
+            conn.Delete(query, cont);
+            conn.device_add_grid(dev_addgrid);
 
             //return to add
             button1.BringToFront();

@@ -182,30 +182,24 @@ namespace SAD_2_PTT
         {
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
-            d_prov = cmbox_prov.SelectedIndex.ToString();
+            int dp = cmbox_prov.SelectedIndex;
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
             date_OUT = date_out.Value.Date;
             fstatus = cmbox_stat.SelectedIndex;
 
             //Prompt
-            string func = "Edit Device Provider";
+            string func = "Edit Request";
             p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to edit this data?";
+            p.lbl_quest.Text = "Are you sure to edit this request?";
 
             p.dev_view = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + d_prov + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
-                conn.Edit(query);
-                conn.device_editreq_grid(dev_editreq, clicked);
-            }
-            else
-            {
-                //nothing
-            }
+            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+            conn.Edit(query, cont);
+            conn.device_editreq_grid(dev_editreq, clicked);
+         
         }
        #endregion
 

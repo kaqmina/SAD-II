@@ -65,7 +65,7 @@
             this.prompt_title.AutoSize = true;
             this.prompt_title.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prompt_title.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.prompt_title.Location = new System.Drawing.Point(183, 3);
+            this.prompt_title.Location = new System.Drawing.Point(150, 3);
             this.prompt_title.Name = "prompt_title";
             this.prompt_title.Size = new System.Drawing.Size(33, 17);
             this.prompt_title.TabIndex = 23;
@@ -107,7 +107,7 @@
             this.lbl_quest.AutoSize = true;
             this.lbl_quest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_quest.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_quest.Location = new System.Drawing.Point(166, 4);
+            this.lbl_quest.Location = new System.Drawing.Point(116, 4);
             this.lbl_quest.Name = "lbl_quest";
             this.lbl_quest.Size = new System.Drawing.Size(78, 15);
             this.lbl_quest.TabIndex = 24;

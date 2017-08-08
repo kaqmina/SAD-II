@@ -107,6 +107,7 @@ namespace SAD_2_PTT
             tel_no = txt_telno.Text;
             email = txt_email.Text;
             mob_no = Convert.ToInt32(txt_mobno.Text);
+            type = cmbox_type.SelectedIndex - 1;
 
             //Prompt
             string func = "Edit Device Provider";
@@ -116,16 +117,9 @@ namespace SAD_2_PTT
             p.dev_prov = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
-                conn.Edit(query);
-                conn.device_prov_grid(dev_provgrid);
-            }
-            else
-            {
-                //nothing
-            }
+            string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
+            conn.Edit(query, cont);
+            conn.device_prov_grid(dev_provgrid);
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

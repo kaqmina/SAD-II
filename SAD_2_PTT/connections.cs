@@ -453,6 +453,7 @@ namespace SAD_2_PTT
             dev_editreq.Columns["req_date"].HeaderText = "Requested Date";
             dev_editreq.Columns["Status"].HeaderText = "Status";
         }
+
         #endregion
 
         #region DataLoad
@@ -655,22 +656,28 @@ namespace SAD_2_PTT
             }
         }
 
-        public void Edit(string query)
+        public void Edit(string query, bool cont)
         {
-
-            try
+            if (cont == true)
             {
-                conn.Open();
-                MySqlCommand com = new MySqlCommand(query, conn);
-                com.ExecuteNonQuery();
-                conn.Close();
+                try
+                {
+                    conn.Open();
+                    MySqlCommand com = new MySqlCommand(query, conn);
+                    com.ExecuteNonQuery();
+                    conn.Close();
 
-                MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error in Edit() : " + ex);
+                    conn.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error in Edit() : " + ex);
-                conn.Close();
+                //do nothing
             }
         }
 
@@ -694,21 +701,28 @@ namespace SAD_2_PTT
             }
         }
 
-        public void Delete(string query)
+        public void Delete(string query, bool cont)
         {
-            try
+            if (cont == true)
             {
-                conn.Open();
-                MySqlCommand com = new MySqlCommand(query, conn);
-                com.ExecuteNonQuery();
-                conn.Close();
+                try
+                {
+                    conn.Open();
+                    MySqlCommand com = new MySqlCommand(query, conn);
+                    com.ExecuteNonQuery();
+                    conn.Close();
 
-                MessageBox.Show("Removed Successfully!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Removed Successfully!", "", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error in Delete() : " + ex);
+                    conn.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error in Delete() : " + ex);
-                conn.Close();
+                // do nothing 
             }
         }
         #endregion

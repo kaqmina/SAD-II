@@ -97,17 +97,10 @@ namespace SAD_2_PTT
             p.dev_dis = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
-                conn.Edit(query);
-                conn.device_dis_grid(dev_disgrid);
-            }
-            else
-            {
-                //conn.device_dis_grid(dev_disgrid);
-                //nothing
-            }
+            string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
+            conn.Edit(query, cont);
+            conn.device_dis_grid(dev_disgrid);
+  
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
