@@ -109,7 +109,10 @@ namespace SAD_2_PTT
             //Prompt
             string func = "Edit Device";
             p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to edit this data?";
+            p.lbl_quest.Text = "Are you sure to save this changes?";
+
+            p.prompt_title.Location = new System.Drawing.Point(171,4);
+            p.lbl_quest.Location = new System.Drawing.Point(97,8);
             
             p.dev_add = this;
             p.ShowDialog();
@@ -177,9 +180,11 @@ namespace SAD_2_PTT
         private void btn_del_Click(object sender, EventArgs e)
         {
             //Prompt
-            string func = "Delete Device";
+            string func = "Remove Device";
             p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to delete this device?";
+            p.lbl_quest.Text = "Are you sure to remove this device?";
+            p.prompt_title.Location = new System.Drawing.Point(161, 4);
+            p.lbl_quest.Location = new System.Drawing.Point(92, 8);
 
             p.dev_add = this;
             p.ShowDialog();

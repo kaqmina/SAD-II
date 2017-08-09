@@ -18,13 +18,13 @@ namespace SAD_2_PTT
         public device_provider  dev_prov { get; set; }
         public device_view dev_view { get; set; }
 
-        //connections conn = new connections();
         String function;
         #endregion
 
         public device_prompt()
         {
             InitializeComponent();
+            startup_opacity.Start();
         }
 
         private void btn_continue_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace SAD_2_PTT
         #region checkContinue()
         public void checkContinue(string function)
         {
-            if (function == "Edit Device" || function == "Delete Device")
+            if (function == "Edit Device" || function == "Remove Device")
             {
                 dev_add.cont = true;
             }
@@ -60,9 +60,17 @@ namespace SAD_2_PTT
                 dev_view.cont = true;
             }
         }
+
         #endregion
 
-        // information for all prompts
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1)
+                this.Opacity += 0.1;
+            else
+                startup_opacity.Stop();
+        }
+        
 
     }
 }

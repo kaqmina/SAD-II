@@ -191,7 +191,9 @@ namespace SAD_2_PTT
             //Prompt
             string func = "Edit Request";
             p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to edit this request?";
+            p.lbl_quest.Text = "Are you sure to save this changes?";
+            p.prompt_title.Location = new System.Drawing.Point(168, 4);
+            p.lbl_quest.Location = new System.Drawing.Point(97, 8);
 
             p.dev_view = this;
             p.ShowDialog();
