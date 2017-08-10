@@ -21,6 +21,7 @@ namespace SAD_2_PTT
         main_functions main_func = new main_functions();
         main_btn_active main_btn = new main_btn_active();
         connections conn = new connections();
+        project proj = new project();
         public string current_user;
 
         #region FormControlBox CB - 00
@@ -125,6 +126,9 @@ namespace SAD_2_PTT
             pwd_data();
             pnl_notif_pp.BringToFront();
             lbl_name.Text = "Hi, " + current_user.ToUpper() + ".";
+
+            //<-----[ PROJECT ] ----->
+            proj.project_grid(projects_grid_list);
         }
 
         private void main_properties()
@@ -542,6 +546,8 @@ namespace SAD_2_PTT
 
         #endregion
 
+        #region PWD - Needs Relocation
+
         private void btn_pwd_edit_Click(object sender, EventArgs e)
         {
             int loc_x = this.Location.X + 71;
@@ -600,5 +606,6 @@ namespace SAD_2_PTT
         {
 
         }
+        #endregion
     }
 }
