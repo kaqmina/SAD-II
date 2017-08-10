@@ -730,38 +730,7 @@ namespace SAD_2_PTT
         #endregion
 
         #region [ SETTINGS ]
-        public void employee_list(DataGridView employee_grid)
-        {
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT employee_id, "
-                                                          + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
-                                                          + "address,"
-                                                          + " position, "
-                                                          + "contact_no, "
-                                                          + "birthdate, "
-                                                          + "status_id, "
-                                                          + "username, "
-                                                          + "password "
-                                                          + "FROM employee", conn);
-                MySqlDataAdapter get = new MySqlDataAdapter(comm);
-                DataTable set = new DataTable();
-                get.Fill(set);
-
-                employee_grid.DataSource = set;
-                if (set.Rows.Count == 0)
-                {
-                    MessageBox.Show("No Employee Profiles added.");
-                }
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                MessageBox.Show(ex.Message); //error
-            }
-        }
+      
 
         #endregion
 

@@ -37,20 +37,21 @@
             this.btn_continue = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel1.Controls.Add(this.prompt_title);
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 26);
+            this.panel1.Size = new System.Drawing.Size(420, 23);
             this.panel1.TabIndex = 30;
             // 
             // prompt_title
@@ -59,7 +60,7 @@
             this.prompt_title.AutoSize = true;
             this.prompt_title.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prompt_title.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.prompt_title.Location = new System.Drawing.Point(164, 4);
+            this.prompt_title.Location = new System.Drawing.Point(159, 3);
             this.prompt_title.Name = "prompt_title";
             this.prompt_title.Size = new System.Drawing.Size(33, 17);
             this.prompt_title.TabIndex = 23;
@@ -80,18 +81,18 @@
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.btn_close.Location = new System.Drawing.Point(396, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(24, 26);
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
             this.btn_close.TabIndex = 27;
             this.btn_close.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel2.Controls.Add(this.lbl_quest);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(3, 32);
+            this.panel2.Location = new System.Drawing.Point(3, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(413, 35);
+            this.panel2.Size = new System.Drawing.Size(413, 96);
             this.panel2.TabIndex = 31;
             // 
             // lbl_quest
@@ -100,7 +101,7 @@
             this.lbl_quest.AutoSize = true;
             this.lbl_quest.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_quest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.lbl_quest.Location = new System.Drawing.Point(97, 8);
+            this.lbl_quest.Location = new System.Drawing.Point(21, 16);
             this.lbl_quest.Name = "lbl_quest";
             this.lbl_quest.Size = new System.Drawing.Size(220, 17);
             this.lbl_quest.TabIndex = 24;
@@ -108,12 +109,12 @@
             // 
             // btn_continue
             // 
-            this.btn_continue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_continue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_continue.FlatAppearance.BorderSize = 0;
             this.btn_continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_continue.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_continue.ForeColor = System.Drawing.Color.White;
-            this.btn_continue.Location = new System.Drawing.Point(210, 76);
+            this.btn_continue.ForeColor = System.Drawing.Color.Black;
+            this.btn_continue.Location = new System.Drawing.Point(209, 146);
             this.btn_continue.Name = "btn_continue";
             this.btn_continue.Size = new System.Drawing.Size(206, 33);
             this.btn_continue.TabIndex = 33;
@@ -123,12 +124,12 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.ForeColor = System.Drawing.Color.White;
-            this.btn_cancel.Location = new System.Drawing.Point(3, 76);
+            this.btn_cancel.ForeColor = System.Drawing.Color.Black;
+            this.btn_cancel.Location = new System.Drawing.Point(2, 146);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(206, 33);
             this.btn_cancel.TabIndex = 32;
@@ -141,11 +142,23 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.panel3.Controls.Add(this.prompt_title);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(0, 23);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(420, 23);
+            this.panel3.TabIndex = 34;
+            // 
             // device_prompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 112);
+            this.ClientSize = new System.Drawing.Size(420, 183);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_continue);
@@ -155,9 +168,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "device_prompt";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -172,5 +186,6 @@
         private System.Windows.Forms.Button btn_continue;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Panel panel3;
     }
 }

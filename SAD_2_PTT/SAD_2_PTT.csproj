@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="connections.cs" />
-    <Compile Include="connections_project.cs" />
+    <Compile Include="connections_settings.cs" />
     <Compile Include="device_add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,7 +105,6 @@
     </Compile>
     <Compile Include="main_functions.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="project.cs" />
     <Compile Include="pwd_archive.cs">
       <SubType>Form</SubType>
     </Compile>
