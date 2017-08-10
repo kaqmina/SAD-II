@@ -107,25 +107,21 @@ namespace SAD_2_PTT
             tel_no = txt_telno.Text;
             email = txt_email.Text;
             mob_no = Convert.ToInt32(txt_mobno.Text);
+            type = cmbox_type.SelectedIndex - 1;
 
             //Prompt
             string func = "Edit Device Provider";
             p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to edit this data?";
+            p.lbl_quest.Text = "Are you sure you want save this changes?";
+            p.prompt_title.Location = new System.Drawing.Point(146, 4);
+            p.lbl_quest.Location = new System.Drawing.Point(97, 8);
 
             p.dev_prov = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
-                conn.Edit(query);
-                conn.device_prov_grid(dev_provgrid);
-            }
-            else
-            {
-                //nothing
-            }
+            string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
+            conn.Edit(query, cont);
+            conn.device_prov_grid(dev_provgrid);
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

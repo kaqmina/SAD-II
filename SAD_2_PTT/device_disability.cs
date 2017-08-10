@@ -92,22 +92,17 @@ namespace SAD_2_PTT
             //Prompt
             string func = "Edit Disability";
             p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to edit this data?";
+            p.lbl_quest.Text = "Are you sure to save this changes?";
+            p.prompt_title.Location = new System.Drawing.Point(164, 4);
+            p.lbl_quest.Location = new System.Drawing.Point(97, 8);
 
             p.dev_dis = this;
             p.ShowDialog();
 
-            if (cont == true)
-            {
-                string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
-                conn.Edit(query);
-                conn.device_dis_grid(dev_disgrid);
-            }
-            else
-            {
-                //conn.device_dis_grid(dev_disgrid);
-                //nothing
-            }
+            string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
+            conn.Edit(query, cont);
+            conn.device_dis_grid(dev_disgrid);
+  
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
