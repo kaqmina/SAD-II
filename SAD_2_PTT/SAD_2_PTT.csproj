@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="connections.cs" />
+    <Compile Include="connections_settings.cs" />
     <Compile Include="device_add.cs">
       <SubType>Form</SubType>
     </Compile>
