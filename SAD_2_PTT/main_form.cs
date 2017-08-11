@@ -21,7 +21,7 @@ namespace SAD_2_PTT
         main_functions main_func = new main_functions();
         main_btn_active main_btn = new main_btn_active();
         connections conn = new connections();
-        project proj = new project();
+        //project proj = new project();
         public string current_user;
 
         #region FormControlBox CB - 00
@@ -128,7 +128,7 @@ namespace SAD_2_PTT
             lbl_name.Text = "Hi, " + current_user.ToUpper() + ".";
 
             //<-----[ PROJECT ] ----->
-            proj.project_grid(projects_grid_list);
+            //proj.project_grid(projects_grid_list);
         }
 
         private void main_properties()
