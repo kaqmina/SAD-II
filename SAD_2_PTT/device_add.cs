@@ -111,8 +111,8 @@ namespace SAD_2_PTT
             p.prompt_title.Text = func;
             p.lbl_quest.Text = "Are you sure to save this changes?";
 
-            p.prompt_title.Location = new System.Drawing.Point(171,4);
-            p.lbl_quest.Location = new System.Drawing.Point(97,8);
+            p.prompt_title.Location = new Point(171,4);
+            p.lbl_quest.Location = new Point(97,8);
             
             p.dev_add = this;
             p.ShowDialog();

@@ -21,6 +21,7 @@ namespace SAD_2_PTT
         main_functions main_func = new main_functions();
         main_btn_active main_btn = new main_btn_active();
         connections conn = new connections();
+        connections_settings setting = new connections_settings();
         //project proj = new project();
         public string current_user;
 
@@ -129,6 +130,13 @@ namespace SAD_2_PTT
 
             //<-----[ PROJECT ] ----->
             //proj.project_grid(projects_grid_list);
+
+            //<-----[ SETTINGS ] ----->
+            setting.employee_list(settings_list_full);
+            settings_list_full.BringToFront();
+            pnl_main.BringToFront();
+            btn_update.Visible = btn_arch.Visible = btn_back.Visible = false;
+
         }
 
         private void main_properties()
@@ -542,8 +550,41 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region SETTINGS DATA
+        #region SETTINGS 
+        private void btn_acct_Click(object sender, EventArgs e)
+        {
 
+            pnl_main.SendToBack();
+            info_grid.BringToFront();
+            lbl_title.Text = btn_acct.Text;
+            btn_arch.Visible = btn_update.Visible = btn_back.Visible = true;
+
+            setting.settings_user_grid(user_grid);
+            setting.settings_info_grid(info_grid);
+
+            foreach (DataGridViewRow row in info_grid.Rows)
+            {
+                if (row.Cells[1].Value.ToString().Contains("Inactive"))
+                {
+                    row.Cells[1].Style.BackColor = Color.Salmon;
+                }
+            }
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            pnl_main.BringToFront();
+            settings_list_full.BringToFront();
+            btn_arch.Visible = btn_update.Visible = btn_back.Visible = false;
+
+            setting.employee_list(settings_list_full);
+        }
+        public string user;
+        private void user_grid_CellClick(object sender, DataGridViewCellEventArgs e) //user grid
+        {
+            DataGridViewRow row = this.settings_list_full.Rows[e.RowIndex];
+            user = row.Cells["username"].Value.ToString();
+        }
         #endregion
 
         #region PWD - Needs Relocation
@@ -606,6 +647,10 @@ namespace SAD_2_PTT
         {
 
         }
+
+
         #endregion
+
+       
     }
 }

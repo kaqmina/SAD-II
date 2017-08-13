@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Drawing;
 
 namespace SAD_2_PTT
 {
@@ -18,6 +19,7 @@ namespace SAD_2_PTT
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
         }
 
+        #region DataLoad
         public void employee_list(DataGridView employee_grid)
         {
             try
@@ -32,7 +34,7 @@ namespace SAD_2_PTT
                                                           + "status_id, "
                                                           + "username, "
                                                           + "password "
-                                                          + "FROM employee", conn);
+                                                          + "FROM p_dao.employee", conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -42,7 +44,9 @@ namespace SAD_2_PTT
                 {
                     MessageBox.Show("No Employee Profiles added.");
                 }
+
                 conn.Close();
+
             }
             catch (Exception ex)
             {
@@ -51,6 +55,51 @@ namespace SAD_2_PTT
             }
         }
 
+        public void settings_user_grid(DataGridView user_grid)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT username FROM p_dao.employee", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                user_grid.DataSource = dt;
+
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in settings_user_grid() : " + ex);
+            }
+        }
+
+        public void settings_info_grid(DataGridView info_grid)
+        {
+            info_grid.Size = new System.Drawing.Size(764, 447);
+
+            try
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' WHEN status_id = 1 THEN 'Inactive' ELSE 'Break' END) AS status FROM p_dao.employee", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                info_grid.DataSource = dt;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in settings_user_grid() : " + ex);
+            }
+        }
+        #endregion
+
+        #region Add | Edit 
         public void Add(string query, string values)
         {
             try
@@ -93,6 +142,7 @@ namespace SAD_2_PTT
                 //do nothing
             }
         }
+        #endregion
 
         //don't mind muna [archive]
         // if status is red then inactive [grid]
