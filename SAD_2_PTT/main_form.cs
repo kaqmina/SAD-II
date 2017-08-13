@@ -564,10 +564,8 @@ namespace SAD_2_PTT
 
             foreach (DataGridViewRow row in info_grid.Rows)
             {
-                if (row.Cells[1].Value.ToString().Contains("Inactive"))
-                {
-                    row.Cells[1].Style.BackColor = Color.Salmon;
-                }
+               if (row.Cells[5].Value.ToString().Contains("Inactive"))
+                   row.DefaultCellStyle.BackColor = Color.Salmon;
             }
         }
 
