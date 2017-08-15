@@ -56,6 +56,7 @@
             this.cmbox_stat = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_regno = new System.Windows.Forms.Panel();
+            this.lbl_desc = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnl_name = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,11 +67,9 @@
             this.btn_req = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_rec = new System.Windows.Forms.Button();
-            this.btn_ho = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.btn_default = new System.Windows.Forms.Button();
-            this.lbl_desc = new System.Windows.Forms.Label();
+            this.btn_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
@@ -407,6 +406,16 @@
             this.pnl_regno.Size = new System.Drawing.Size(300, 52);
             this.pnl_regno.TabIndex = 0;
             // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desc.ForeColor = System.Drawing.Color.White;
+            this.lbl_desc.Location = new System.Drawing.Point(99, 15);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(0, 20);
+            this.lbl_desc.TabIndex = 1;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -511,18 +520,6 @@
             this.btn_rec.UseVisualStyleBackColor = false;
             this.btn_rec.Click += new System.EventHandler(this.btn_rec_Click);
             // 
-            // btn_ho
-            // 
-            this.btn_ho.BackColor = System.Drawing.Color.White;
-            this.btn_ho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ho.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_ho.Location = new System.Drawing.Point(739, 115);
-            this.btn_ho.Name = "btn_ho";
-            this.btn_ho.Size = new System.Drawing.Size(26, 24);
-            this.btn_ho.TabIndex = 48;
-            this.btn_ho.UseVisualStyleBackColor = false;
-            this.btn_ho.Click += new System.EventHandler(this.btn_ho_Click);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -531,15 +528,6 @@
             this.label12.Size = new System.Drawing.Size(54, 15);
             this.label12.TabIndex = 49;
             this.label12.Text = "Received";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(771, 120);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 15);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "Handed Out";
             // 
             // btn_default
             // 
@@ -554,26 +542,30 @@
             this.btn_default.UseVisualStyleBackColor = false;
             this.btn_default.Click += new System.EventHandler(this.btn_default_Click);
             // 
-            // lbl_desc
+            // btn_update
             // 
-            this.lbl_desc.AutoSize = true;
-            this.lbl_desc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_desc.ForeColor = System.Drawing.Color.White;
-            this.lbl_desc.Location = new System.Drawing.Point(99, 15);
-            this.lbl_desc.Name = "lbl_desc";
-            this.lbl_desc.Size = new System.Drawing.Size(0, 20);
-            this.lbl_desc.TabIndex = 1;
+            this.btn_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_update.FlatAppearance.BorderSize = 0;
+            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_update.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_update.Location = new System.Drawing.Point(731, 112);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(112, 25);
+            this.btn_update.TabIndex = 52;
+            this.btn_update.Text = "RECEIVE";
+            this.btn_update.UseVisualStyleBackColor = false;
             // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 506);
+            this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_default);
             this.Controls.Add(this.pnl_edit);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btn_ho);
             this.Controls.Add(this.btn_rec);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_req);
@@ -641,12 +633,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_rec;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel edit_stat;
         private System.Windows.Forms.ComboBox cmbox_stat;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_ho;
         private System.Windows.Forms.Button btn_default;
         private System.Windows.Forms.Label lbl_desc;
+        public System.Windows.Forms.Button btn_update;
     }
 }

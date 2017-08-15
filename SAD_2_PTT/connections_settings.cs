@@ -60,12 +60,14 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT username FROM p_dao.employee", conn);
+                MySqlCommand com = new MySqlCommand("SELECT username, (CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status FROM p_dao.employee", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
                 user_grid.DataSource = dt;
+                user_grid.Columns[0].Width = 300;
+                user_grid.Columns["status"].Visible = false;
 
                 conn.Close();
 
@@ -76,14 +78,14 @@ namespace SAD_2_PTT
             }
         }
 
-        public void settings_info_grid(DataGridView info_grid)
+        public void settings_info_grid(DataGridView info_grid, DataGridView user_grid)
         {
             info_grid.Size = new System.Drawing.Size(764, 447);
 
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' WHEN status_id = 1 THEN 'Inactive' ELSE 'Break' END) AS status FROM p_dao.employee", conn);
+                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status FROM p_dao.employee ", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);

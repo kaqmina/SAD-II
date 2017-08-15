@@ -133,9 +133,14 @@ namespace SAD_2_PTT
 
             //<-----[ SETTINGS ] ----->
             setting.employee_list(settings_list_full);
+
             settings_list_full.BringToFront();
             pnl_main.BringToFront();
             btn_update.Visible = btn_arch.Visible = btn_back.Visible = false;
+            settings_list_full.ClearSelection();
+
+            //<-----[ DEVICE ] ----->
+            conn.device_out_grid(device_grid);
 
         }
 
@@ -560,12 +565,13 @@ namespace SAD_2_PTT
             btn_arch.Visible = btn_update.Visible = btn_back.Visible = true;
 
             setting.settings_user_grid(user_grid);
-            setting.settings_info_grid(info_grid);
+            setting.settings_info_grid(info_grid, user_grid);
+            info_grid.ClearSelection();
 
-            foreach (DataGridViewRow row in info_grid.Rows)
+            foreach (DataGridViewRow row in user_grid.Rows)
             {
-               if (row.Cells[5].Value.ToString().Contains("Inactive"))
-                   row.DefaultCellStyle.BackColor = Color.Salmon;
+                if (row.Cells[1].Value.ToString().Contains("Inactive"))
+                    row.DefaultCellStyle.BackColor = Color.Salmon;
             }
         }
 
@@ -580,7 +586,7 @@ namespace SAD_2_PTT
         public string user;
         private void user_grid_CellClick(object sender, DataGridViewCellEventArgs e) //user grid
         {
-            DataGridViewRow row = this.settings_list_full.Rows[e.RowIndex];
+            DataGridViewRow row = this.user_grid.Rows[e.RowIndex];
             user = row.Cells["username"].Value.ToString();
         }
         #endregion

@@ -118,8 +118,8 @@ namespace SAD_2_PTT
                 lbl_title.Text = "EDIT REQUEST"; //header
 
                 pnl_search.Visible = false;
-                btn_req.Visible = btn_rec.Visible = btn_ho.Visible = btn_default.Visible =  false;
-                label12.Visible = label13.Visible = label8.Visible = false;
+                btn_req.Visible = btn_rec.Visible = btn_default.Visible =  false;
+                label12.Visible = label8.Visible = false;
                 #endregion
 
                 DataGridViewRow row = this.dev_editreq.Rows[e.RowIndex];
@@ -192,8 +192,8 @@ namespace SAD_2_PTT
             string func = "Edit Request";
             p.prompt_title.Text = func;
             p.lbl_quest.Text = "Are you sure to save this changes?";
-            p.prompt_title.Location = new System.Drawing.Point(168, 4);
-            p.lbl_quest.Location = new System.Drawing.Point(97, 8);
+            p.prompt_title.Location = new Point(168, 4);
+            p.lbl_quest.Location = new Point(97, 8);
 
             p.dev_view = this;
             p.ShowDialog();
@@ -212,8 +212,8 @@ namespace SAD_2_PTT
             lbl_title.Text = "VIEW REQUESTS"; //header
 
             pnl_search.Visible = true;
-            btn_req.Visible = btn_rec.Visible = btn_ho.Visible = btn_default.Visible = true;
-            label12.Visible = label13.Visible = label8.Visible = true;
+            btn_req.Visible = btn_rec.Visible = btn_default.Visible = true;
+            label12.Visible = label8.Visible = true;
         }
         #endregion
 
@@ -226,11 +226,6 @@ namespace SAD_2_PTT
         private void btn_rec_Click(object sender, EventArgs e)
         {
             clicked = "Received";
-            conn.device_editreq_grid(dev_editreq, clicked);
-        }
-        private void btn_ho_Click(object sender, EventArgs e)
-        {
-            clicked = "Handed Out";
             conn.device_editreq_grid(dev_editreq, clicked);
         }
         private void btn_default_Click(object sender, EventArgs e)

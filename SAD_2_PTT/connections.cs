@@ -404,7 +404,7 @@ namespace SAD_2_PTT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in getting data from cmbox_dis : " + ex);
+                MessageBox.Show("Error in getDevice(): " + ex);
                 conn.Close();
             }
         }
@@ -594,23 +594,6 @@ namespace SAD_2_PTT
                     dev_editreq.DataSource = dt;
                     editRequest_Format(dev_editreq);
                 }
-                else if (status == "Handed Out")
-                {
-                    current = "(CASE WHEN status = 2 THEN 'Handed Out' END)";
-                    query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ', firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
-                                    + current + " AS Status FROM p_dao.device_log"
-                                    + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
-                                    + " JOIN device ON device_log.device_id = device.device_id"
-                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
-                                    + " WHERE status = 2";
-                    MySqlCommand com = new MySqlCommand(query, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(com);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-
-                    dev_editreq.DataSource = dt;
-                    editRequest_Format(dev_editreq);
-                }
                 else if(status == "default")
                 {
                     current = "(CASE WHEN status = 0 THEN 'Requested' WHEN status = 1 THEN 'Received' ELSE 'Handed Out' END)";
@@ -618,7 +601,8 @@ namespace SAD_2_PTT
                                     + current + "AS Status FROM p_dao.device_log"
                                     + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
                                     + " JOIN device ON device_log.device_id = device.device_id"
-                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id";
+                                    + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
+                                    + " WHERE Status NOT IN(SELECT status FROM device_log WHERE Status = 2)";
                     MySqlCommand com = new MySqlCommand(query, conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(com);
                     DataTable dt = new DataTable();
@@ -634,6 +618,24 @@ namespace SAD_2_PTT
                 MessageBox.Show("Error in device_editreq_grid() : " + ex);
                 conn.Close();
             }
+        }
+
+        public void device_out_grid(DataGridView device_grid)
+        {
+            string current = "(CASE WHEN status = 2 THEN 'Handed Out' END)";
+            string query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ', firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
+                            + current + " AS Status FROM p_dao.device_log"
+                            + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
+                            + " JOIN device ON device_log.device_id = device.device_id"
+                            + " JOIN pwd ON device_log.pwd_id = pwd.pwd_id"
+                            + " WHERE status = 2";
+            MySqlCommand com = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            device_grid.DataSource = dt;
+            editRequest_Format(device_grid);
         }
         #endregion
 
