@@ -567,6 +567,7 @@ namespace SAD_2_PTT
             setting.settings_user_grid(user_grid);
             setting.settings_info_grid(info_grid, user_grid);
             info_grid.ClearSelection();
+            user_grid.ClearSelection();
 
             foreach (DataGridViewRow row in user_grid.Rows)
             {

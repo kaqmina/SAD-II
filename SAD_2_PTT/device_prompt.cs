@@ -55,7 +55,7 @@ namespace SAD_2_PTT
             {
                 dev_prov.cont = true;
             }
-            else if (function == "Edit Request")
+            else if (function == "Edit Request" || function == "Requested Device: Received")
             {
                 dev_view.cont = true;
             }

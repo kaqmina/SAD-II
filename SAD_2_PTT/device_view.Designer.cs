@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar = new System.Windows.Forms.Panel();
             this.lbl_title = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
@@ -53,7 +53,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.edit_stat = new System.Windows.Forms.Panel();
-            this.cmbox_stat = new System.Windows.Forms.ComboBox();
+            this.stat_req = new System.Windows.Forms.Button();
+            this.stat_rec = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_regno = new System.Windows.Forms.Panel();
             this.lbl_desc = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@
             this.btn_rec = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.btn_default = new System.Windows.Forms.Button();
-            this.btn_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
@@ -103,7 +103,7 @@
             this.btn_close.FlatAppearance.BorderSize = 0;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Image = global::SAD_2_PTT.Properties.Resources.close;
-            this.btn_close.Location = new System.Drawing.Point(791, 1);
+            this.btn_close.Location = new System.Drawing.Point(793, 1);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(70, 57);
             this.btn_close.TabIndex = 14;
@@ -119,16 +119,16 @@
             this.dev_editreq.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dev_editreq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dev_editreq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle1;
             this.dev_editreq.Location = new System.Drawing.Point(22, 150);
             this.dev_editreq.MultiSelect = false;
             this.dev_editreq.Name = "dev_editreq";
@@ -283,6 +283,7 @@
             this.date_out.Size = new System.Drawing.Size(188, 23);
             this.date_out.TabIndex = 67;
             this.date_out.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
+            this.date_out.Visible = false;
             // 
             // button2
             // 
@@ -347,6 +348,7 @@
             this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 62;
             this.label9.Text = "Date OUT :";
+            this.label9.Visible = false;
             // 
             // label10
             // 
@@ -361,29 +363,46 @@
             // edit_stat
             // 
             this.edit_stat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.edit_stat.Controls.Add(this.cmbox_stat);
+            this.edit_stat.Controls.Add(this.stat_req);
+            this.edit_stat.Controls.Add(this.stat_rec);
             this.edit_stat.Controls.Add(this.label6);
             this.edit_stat.Location = new System.Drawing.Point(0, 280);
             this.edit_stat.Name = "edit_stat";
             this.edit_stat.Size = new System.Drawing.Size(300, 52);
             this.edit_stat.TabIndex = 73;
             // 
-            // cmbox_stat
+            // stat_req
             // 
-            this.cmbox_stat.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbox_stat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbox_stat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbox_stat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbox_stat.FormattingEnabled = true;
-            this.cmbox_stat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmbox_stat.Items.AddRange(new object[] {
-            "Requested",
-            "Received",
-            "Handed Out"});
-            this.cmbox_stat.Location = new System.Drawing.Point(90, 16);
-            this.cmbox_stat.Name = "cmbox_stat";
-            this.cmbox_stat.Size = new System.Drawing.Size(172, 23);
-            this.cmbox_stat.TabIndex = 41;
+            this.stat_req.BackColor = System.Drawing.Color.White;
+            this.stat_req.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.stat_req.FlatAppearance.BorderSize = 0;
+            this.stat_req.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stat_req.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_req.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.stat_req.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stat_req.Location = new System.Drawing.Point(104, 15);
+            this.stat_req.Name = "stat_req";
+            this.stat_req.Size = new System.Drawing.Size(83, 25);
+            this.stat_req.TabIndex = 53;
+            this.stat_req.Text = "REQUESTED";
+            this.stat_req.UseVisualStyleBackColor = false;
+            this.stat_req.Click += new System.EventHandler(this.stat_req_Click);
+            // 
+            // stat_rec
+            // 
+            this.stat_rec.BackColor = System.Drawing.Color.DimGray;
+            this.stat_rec.FlatAppearance.BorderSize = 0;
+            this.stat_rec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stat_rec.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_rec.ForeColor = System.Drawing.Color.White;
+            this.stat_rec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stat_rec.Location = new System.Drawing.Point(187, 15);
+            this.stat_rec.Name = "stat_rec";
+            this.stat_rec.Size = new System.Drawing.Size(83, 25);
+            this.stat_rec.TabIndex = 52;
+            this.stat_rec.Text = "RECEIVED";
+            this.stat_rec.UseVisualStyleBackColor = false;
+            this.stat_rec.Click += new System.EventHandler(this.btn_toRec_Click);
             // 
             // label6
             // 
@@ -492,7 +511,7 @@
             this.btn_req.BackColor = System.Drawing.Color.White;
             this.btn_req.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_req.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_req.Location = new System.Drawing.Point(517, 114);
+            this.btn_req.Location = new System.Drawing.Point(642, 114);
             this.btn_req.Name = "btn_req";
             this.btn_req.Size = new System.Drawing.Size(26, 24);
             this.btn_req.TabIndex = 45;
@@ -502,7 +521,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(549, 120);
+            this.label8.Location = new System.Drawing.Point(674, 120);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 15);
             this.label8.TabIndex = 46;
@@ -513,7 +532,7 @@
             this.btn_rec.BackColor = System.Drawing.Color.White;
             this.btn_rec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rec.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_rec.Location = new System.Drawing.Point(629, 114);
+            this.btn_rec.Location = new System.Drawing.Point(754, 114);
             this.btn_rec.Name = "btn_rec";
             this.btn_rec.Size = new System.Drawing.Size(26, 24);
             this.btn_rec.TabIndex = 47;
@@ -523,7 +542,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(661, 119);
+            this.label12.Location = new System.Drawing.Point(786, 119);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 15);
             this.label12.TabIndex = 49;
@@ -542,29 +561,12 @@
             this.btn_default.UseVisualStyleBackColor = false;
             this.btn_default.Click += new System.EventHandler(this.btn_default_Click);
             // 
-            // btn_update
-            // 
-            this.btn_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.btn_update.FlatAppearance.BorderSize = 0;
-            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_update.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_update.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_update.Location = new System.Drawing.Point(731, 112);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(112, 25);
-            this.btn_update.TabIndex = 52;
-            this.btn_update.Text = "RECEIVE";
-            this.btn_update.UseVisualStyleBackColor = false;
-            // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 506);
-            this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_default);
-            this.Controls.Add(this.pnl_edit);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btn_rec);
             this.Controls.Add(this.label8);
@@ -574,6 +576,7 @@
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.dev_editreq);
+            this.Controls.Add(this.pnl_edit);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_view";
@@ -634,10 +637,10 @@
         private System.Windows.Forms.Button btn_rec;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel edit_stat;
-        private System.Windows.Forms.ComboBox cmbox_stat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_default;
         private System.Windows.Forms.Label lbl_desc;
-        public System.Windows.Forms.Button btn_update;
+        public System.Windows.Forms.Button stat_rec;
+        public System.Windows.Forms.Button stat_req;
     }
 }

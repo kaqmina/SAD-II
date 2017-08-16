@@ -21,7 +21,7 @@ namespace SAD_2_PTT
 
         String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search;
         String clicked = "default";
-        DateTime req_date, date_IN, date_OUT;
+        DateTime req_date, date_IN;
         int id, dev_id, fstatus;
         public bool cont = false;
 
@@ -44,7 +44,6 @@ namespace SAD_2_PTT
             reference_to_main.dboard_head.Enabled = true;
         }
 
-
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {
             device = cmbox_dev.SelectedItem.ToString();
@@ -56,6 +55,7 @@ namespace SAD_2_PTT
             int d = cmbox_dis.SelectedIndex;
             conn.getDevice(d,cmbox_dev);
         }
+
         #endregion
 
         #region FormLoad
@@ -70,7 +70,6 @@ namespace SAD_2_PTT
             conn.getProvider(cmbox_prov);
 
             dev_editreq.BringToFront(); //grid
-
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -116,7 +115,9 @@ namespace SAD_2_PTT
                 button1.Enabled = true; 
                 dev_editreq.SendToBack(); //grid to back
                 lbl_title.Text = "EDIT REQUEST"; //header
+                date_in.Visible = label10.Visible = false; // date_in
 
+                //search & filter grid status
                 pnl_search.Visible = false;
                 btn_req.Visible = btn_rec.Visible = btn_default.Visible =  false;
                 label12.Visible = label8.Visible = false;
@@ -138,10 +139,10 @@ namespace SAD_2_PTT
                 //DateTime Values
                 req_date = Convert.ToDateTime(row.Cells["req_date"].Value.ToString());
                 date_IN = Convert.ToDateTime(row.Cells["date_in"].Value.ToString());
-                date_OUT = Convert.ToDateTime(row.Cells["date_out"].Value.ToString());
 
                 //status
-                cmbox_stat.Text = status;
+                if (status == "Requested") stat_req.PerformClick();
+                else if (status == "Received") stat_rec.PerformClick();
 
                 //pass to edit panel [pnl_edit]
 
@@ -164,8 +165,6 @@ namespace SAD_2_PTT
                 request_date.Value = req_date;
                 date_in.Format.ToString("d");
                 date_in.Value = date_IN;
-                date_out.Format.ToString("d");
-                date_out.Value = date_OUT;
 
                 //other string values
                 txt_desc.Text = req_desc;
@@ -185,8 +184,6 @@ namespace SAD_2_PTT
             int dp = cmbox_prov.SelectedIndex;
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
-            date_OUT = date_out.Value.Date;
-            fstatus = cmbox_stat.SelectedIndex;
 
             //Prompt
             string func = "Edit Request";
@@ -198,7 +195,7 @@ namespace SAD_2_PTT
             p.dev_view = this;
             p.ShowDialog();
 
-            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
             conn.Edit(query, cont);
             conn.device_editreq_grid(dev_editreq, clicked);
          
@@ -260,5 +257,31 @@ namespace SAD_2_PTT
 
         #endregion
 
+        #region Select Status
+        private void btn_toRec_Click(object sender, EventArgs e) //stat_rec button [status: received]
+        {
+            fstatus = 1;
+            stat_req.BackColor = Color.DimGray;
+            stat_req.ForeColor = Color.White;
+
+            stat_rec.BackColor = Color.White;
+            stat_rec.ForeColor = bar.BackColor;
+
+            date_in.Visible = label10.Visible = true;
+        }
+
+        private void stat_req_Click(object sender, EventArgs e) // [status: requested]
+        {
+            fstatus = 0;
+
+            stat_rec.BackColor = Color.DimGray;
+            stat_rec.ForeColor = Color.White;
+
+            stat_req.BackColor = Color.White;
+            stat_req.ForeColor = bar.BackColor;
+
+            date_in.Visible = label10.Visible = false;
+        }
+        #endregion
     }
 }

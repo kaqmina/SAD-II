@@ -24,6 +24,7 @@ namespace SAD_2_PTT
         {
             try
             {
+                string status = "(CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status_id";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("SELECT employee_id, "
                                                           + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
@@ -31,7 +32,7 @@ namespace SAD_2_PTT
                                                           + " position, "
                                                           + "contact_no, "
                                                           + "birthdate, "
-                                                          + "status_id, "
+                                                          + status
                                                           + "username, "
                                                           + "password "
                                                           + "FROM p_dao.employee", conn);
@@ -85,12 +86,14 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status FROM p_dao.employee ", conn);
+                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status, password, username FROM p_dao.employee ", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
                 info_grid.DataSource = dt;
+                info_grid.Columns["password"].Visible = false;
+                info_grid.Columns["username"].Visible = false;
 
                 conn.Close();
             }
