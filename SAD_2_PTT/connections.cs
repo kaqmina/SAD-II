@@ -444,9 +444,9 @@ namespace SAD_2_PTT
             dev_editreq.Columns["disability_id"].Visible = false;
             dev_editreq.Columns["deviceLOG_id"].Visible = false;
             dev_editreq.Columns["req_desc"].Visible = false;
-            dev_editreq.Columns["date_in"].Visible = false;
             dev_editreq.Columns["registration_no"].HeaderText = "Reg. No.";
             dev_editreq.Columns["pwd_name"].HeaderText = "Name";
+            dev_editreq.Columns["date_in"].HeaderText = "Date IN";
             dev_editreq.Columns["date_out"].HeaderText = "Date OUT";
             dev_editreq.Columns["dev_name"].HeaderText = "Device";
             dev_editreq.Columns["dp_name"].HeaderText = "Device Provider";
@@ -642,7 +642,7 @@ namespace SAD_2_PTT
         public void device_out_grid(DataGridView device_grid)
         {
             string current = "(CASE WHEN status = 2 THEN 'Handed Out' END)";
-            string query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ', firstname, ' ', middlename) AS pwd_name, date_in, date_out, req_date, dev_name, dp_name, req_desc, "
+            string query = "SELECT device_log.pwd_id, device_log.dp_id, device_log.device_id, device.disability_id, deviceLOG_id, registration_no, CONCAT(lastname, ', ', firstname, ' ', middlename) AS pwd_name, req_date, date_in, date_out, dev_name, dp_name, req_desc, "
                             + current + " AS Status FROM p_dao.device_log"
                             + " JOIN device_provider ON device_log.dp_id = device_provider.dp_id"
                             + " JOIN device ON device_log.device_id = device.device_id"

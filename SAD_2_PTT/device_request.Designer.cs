@@ -235,6 +235,7 @@
             this.date_out.Size = new System.Drawing.Size(200, 22);
             this.date_out.TabIndex = 20;
             this.date_out.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
+            this.date_out.Visible = false;
             // 
             // date_in
             // 
@@ -245,6 +246,7 @@
             this.date_in.Size = new System.Drawing.Size(200, 22);
             this.date_in.TabIndex = 19;
             this.date_in.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
+            this.date_in.Visible = false;
             // 
             // request_date
             // 
@@ -276,6 +278,7 @@
             this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 9;
             this.label10.Text = "Date IN :";
+            this.label10.Visible = false;
             // 
             // label9
             // 
@@ -286,6 +289,7 @@
             this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 8;
             this.label9.Text = "Date OUT :";
+            this.label9.Visible = false;
             // 
             // label8
             // 

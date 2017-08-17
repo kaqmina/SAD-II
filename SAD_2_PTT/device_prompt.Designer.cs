@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.prompt_title = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
+            this.prompt_title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.date_out = new System.Windows.Forms.DateTimePicker();
+            this.lbl_out = new System.Windows.Forms.Label();
             this.lbl_quest = new System.Windows.Forms.Label();
             this.btn_continue = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
@@ -54,18 +56,6 @@
             this.panel1.Size = new System.Drawing.Size(420, 23);
             this.panel1.TabIndex = 30;
             // 
-            // prompt_title
-            // 
-            this.prompt_title.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.prompt_title.AutoSize = true;
-            this.prompt_title.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prompt_title.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.prompt_title.Location = new System.Drawing.Point(159, 3);
-            this.prompt_title.Name = "prompt_title";
-            this.prompt_title.Size = new System.Drawing.Size(33, 17);
-            this.prompt_title.TabIndex = 23;
-            this.prompt_title.Text = "title";
-            // 
             // btn_close
             // 
             this.btn_close.BackColor = System.Drawing.Color.Transparent;
@@ -85,15 +75,49 @@
             this.btn_close.TabIndex = 27;
             this.btn_close.UseVisualStyleBackColor = false;
             // 
+            // prompt_title
+            // 
+            this.prompt_title.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.prompt_title.AutoSize = true;
+            this.prompt_title.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prompt_title.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.prompt_title.Location = new System.Drawing.Point(142, 3);
+            this.prompt_title.Name = "prompt_title";
+            this.prompt_title.Size = new System.Drawing.Size(33, 17);
+            this.prompt_title.TabIndex = 23;
+            this.prompt_title.Text = "title";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.date_out);
+            this.panel2.Controls.Add(this.lbl_out);
             this.panel2.Controls.Add(this.lbl_quest);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 49);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(413, 96);
             this.panel2.TabIndex = 31;
+            // 
+            // date_out
+            // 
+            this.date_out.CustomFormat = "";
+            this.date_out.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_out.Location = new System.Drawing.Point(171, 36);
+            this.date_out.Name = "date_out";
+            this.date_out.Size = new System.Drawing.Size(188, 25);
+            this.date_out.TabIndex = 69;
+            this.date_out.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
+            // 
+            // lbl_out
+            // 
+            this.lbl_out.AutoSize = true;
+            this.lbl_out.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_out.Location = new System.Drawing.Point(55, 40);
+            this.lbl_out.Name = "lbl_out";
+            this.lbl_out.Size = new System.Drawing.Size(64, 15);
+            this.lbl_out.TabIndex = 68;
+            this.lbl_out.Text = "Date OUT :";
             // 
             // lbl_quest
             // 
@@ -187,5 +211,7 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Timer startup_opacity;
         private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.DateTimePicker date_out;
+        public System.Windows.Forms.Label lbl_out;
     }
 }

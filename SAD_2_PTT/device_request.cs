@@ -54,10 +54,9 @@ namespace SAD_2_PTT
 
             //Initialization
             request_date.Value = DateTime.Now;
-            date_in.Value = DateTime.Now;
-            date_out.Value = DateTime.Now;
             cmbox_stat.Text = "Requested";
             cmbox_stat.Enabled = false;
+        
 
             //Form Transition
             this.Opacity = 0;
@@ -132,8 +131,6 @@ namespace SAD_2_PTT
             dr_prov = dprov.ToString();
             req_desc = txt_desc.Text;
             req_dev = request_date.Value.Date;
-            req_in = date_in.Value.Date;
-           // req_out = date_out.Value.Date;
 
             string query = "INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,status)";
             string values = " VALUES('" + dr_prov + "', '" + pwd_id + "', '" + dev_id + "', '" + req_dev.ToString("yyyy-MM-dd") + "', '" + req_desc + "','0')";

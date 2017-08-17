@@ -18,6 +18,8 @@ namespace SAD_2_PTT
         public device_provider  dev_prov { get; set; }
         public device_view dev_view { get; set; }
 
+        connections conn = new connections();
+
         String function;
         #endregion
 
@@ -55,12 +57,20 @@ namespace SAD_2_PTT
             {
                 dev_prov.cont = true;
             }
-            else if (function == "Edit Request" || function == "Requested Device: Received")
+            else if (function == "Edit Request")
             {
                 dev_view.cont = true;
             }
-        }
+            else if(function == "Status : Handed Out")
+            {
+                dev_view.cont = true;
+                DateTime date_OUT = date_out.Value.Date;
+                int id = dev_view.id;
 
+                string query = "UPDATE p_dao.device_log SET p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '2' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+                conn.Edit(query, dev_view.cont);
+            }
+        }
         #endregion
 
         private void startup_opacity_Tick(object sender, EventArgs e)

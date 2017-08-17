@@ -44,13 +44,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbox_dev = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.date_out = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.date_in = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.request_date = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.edit_stat = new System.Windows.Forms.Panel();
             this.stat_req = new System.Windows.Forms.Button();
@@ -70,6 +68,7 @@
             this.btn_rec = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.btn_default = new System.Windows.Forms.Button();
+            this.btn_out = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
@@ -139,6 +138,7 @@
             this.dev_editreq.Size = new System.Drawing.Size(821, 332);
             this.dev_editreq.TabIndex = 17;
             this.dev_editreq.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dev_editreq.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dev_editreq_CellDoubleClick);
             // 
             // button1
             // 
@@ -176,13 +176,11 @@
             this.edit_info.Controls.Add(this.button1);
             this.edit_info.Controls.Add(this.cmbox_dev);
             this.edit_info.Controls.Add(this.label4);
-            this.edit_info.Controls.Add(this.date_out);
             this.edit_info.Controls.Add(this.button2);
             this.edit_info.Controls.Add(this.label2);
             this.edit_info.Controls.Add(this.date_in);
             this.edit_info.Controls.Add(this.label1);
             this.edit_info.Controls.Add(this.request_date);
-            this.edit_info.Controls.Add(this.label9);
             this.edit_info.Controls.Add(this.label10);
             this.edit_info.Location = new System.Drawing.Point(319, 0);
             this.edit_info.Name = "edit_info";
@@ -274,17 +272,6 @@
             this.label4.TabIndex = 59;
             this.label4.Text = "Device  Provider :";
             // 
-            // date_out
-            // 
-            this.date_out.CustomFormat = "";
-            this.date_out.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_out.Location = new System.Drawing.Point(156, 267);
-            this.date_out.Name = "date_out";
-            this.date_out.Size = new System.Drawing.Size(188, 23);
-            this.date_out.TabIndex = 67;
-            this.date_out.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
-            this.date_out.Visible = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Window;
@@ -338,17 +325,6 @@
             this.request_date.Size = new System.Drawing.Size(188, 23);
             this.request_date.TabIndex = 65;
             this.request_date.Value = new System.DateTime(2017, 7, 9, 0, 0, 0, 0);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 273);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 15);
-            this.label9.TabIndex = 62;
-            this.label9.Text = "Date OUT :";
-            this.label9.Visible = false;
             // 
             // label10
             // 
@@ -511,7 +487,7 @@
             this.btn_req.BackColor = System.Drawing.Color.White;
             this.btn_req.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_req.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_req.Location = new System.Drawing.Point(642, 114);
+            this.btn_req.Location = new System.Drawing.Point(519, 115);
             this.btn_req.Name = "btn_req";
             this.btn_req.Size = new System.Drawing.Size(26, 24);
             this.btn_req.TabIndex = 45;
@@ -521,7 +497,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(674, 120);
+            this.label8.Location = new System.Drawing.Point(551, 121);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 15);
             this.label8.TabIndex = 46;
@@ -532,7 +508,7 @@
             this.btn_rec.BackColor = System.Drawing.Color.White;
             this.btn_rec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rec.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_rec.Location = new System.Drawing.Point(754, 114);
+            this.btn_rec.Location = new System.Drawing.Point(631, 115);
             this.btn_rec.Name = "btn_rec";
             this.btn_rec.Size = new System.Drawing.Size(26, 24);
             this.btn_rec.TabIndex = 47;
@@ -542,7 +518,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(786, 119);
+            this.label12.Location = new System.Drawing.Point(663, 120);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 15);
             this.label12.TabIndex = 49;
@@ -561,11 +537,28 @@
             this.btn_default.UseVisualStyleBackColor = false;
             this.btn_default.Click += new System.EventHandler(this.btn_default_Click);
             // 
+            // btn_out
+            // 
+            this.btn_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_out.FlatAppearance.BorderSize = 0;
+            this.btn_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_out.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_out.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_out.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_out.Location = new System.Drawing.Point(741, 112);
+            this.btn_out.Name = "btn_out";
+            this.btn_out.Size = new System.Drawing.Size(102, 25);
+            this.btn_out.TabIndex = 52;
+            this.btn_out.Text = "HAND OUT";
+            this.btn_out.UseVisualStyleBackColor = false;
+            this.btn_out.Click += new System.EventHandler(this.btn_out_Click);
+            // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 506);
+            this.Controls.Add(this.btn_out);
             this.Controls.Add(this.btn_default);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btn_rec);
@@ -617,12 +610,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbox_dev;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker date_out;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker date_in;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker request_date;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnl_regno;
         private System.Windows.Forms.Label label3;
@@ -642,5 +633,6 @@
         private System.Windows.Forms.Label lbl_desc;
         public System.Windows.Forms.Button stat_rec;
         public System.Windows.Forms.Button stat_req;
+        public System.Windows.Forms.Button btn_out;
     }
 }

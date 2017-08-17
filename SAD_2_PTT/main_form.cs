@@ -141,6 +141,7 @@ namespace SAD_2_PTT
 
             //<-----[ DEVICE ] ----->
             conn.device_out_grid(device_grid);
+            device_grid.ClearSelection();
 
         }
 

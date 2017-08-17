@@ -21,10 +21,10 @@ namespace SAD_2_PTT
 
         String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search;
         String clicked = "default";
-        DateTime req_date, date_IN;
-        int id, dev_id, fstatus;
+        DateTime req_date, date_IN, date_OUT;
+        int dev_id, fstatus;
         public bool cont = false;
-
+        public int id;
         #endregion
 
         #region Transition
@@ -70,6 +70,7 @@ namespace SAD_2_PTT
             conn.getProvider(cmbox_prov);
 
             dev_editreq.BringToFront(); //grid
+          //  btn_out.Enabled = false;
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -97,12 +98,15 @@ namespace SAD_2_PTT
             }
         }
 
+
+
         #endregion
 
         #endregion
 
         #region Edit
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dev_editreq_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -112,14 +116,14 @@ namespace SAD_2_PTT
             {
 
                 #region Transition
-                button1.Enabled = true; 
+                button1.Enabled = true;
                 dev_editreq.SendToBack(); //grid to back
                 lbl_title.Text = "EDIT REQUEST"; //header
                 date_in.Visible = label10.Visible = false; // date_in
 
                 //search & filter grid status
                 pnl_search.Visible = false;
-                btn_req.Visible = btn_rec.Visible = btn_default.Visible =  false;
+                btn_req.Visible = btn_rec.Visible = btn_default.Visible = false;
                 label12.Visible = label8.Visible = false;
                 #endregion
 
@@ -129,7 +133,7 @@ namespace SAD_2_PTT
                 int log_id = 0;
                 log_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
                 id = log_id;
-                
+
                 p_name = row.Cells["pwd_name"].Value.ToString();
                 req_desc = row.Cells["req_desc"].Value.ToString();
                 status = row.Cells["status"].Value.ToString();
@@ -153,7 +157,7 @@ namespace SAD_2_PTT
 
                 //device [cmbox_dev]
                 cmbox_dev.SelectedValue = dev;
-               
+
 
                 //device provider [cmbox_prov]
                 int d2 = 0;
@@ -184,13 +188,14 @@ namespace SAD_2_PTT
             int dp = cmbox_prov.SelectedIndex;
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
-
+            
             //Prompt
             string func = "Edit Request";
             p.prompt_title.Text = func;
             p.lbl_quest.Text = "Are you sure to save this changes?";
             p.prompt_title.Location = new Point(168, 4);
             p.lbl_quest.Location = new Point(97, 8);
+            p.lbl_out.Visible = p.date_out.Visible = false;
 
             p.dev_view = this;
             p.ShowDialog();
@@ -198,11 +203,11 @@ namespace SAD_2_PTT
             string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
             conn.Edit(query, cont);
             conn.device_editreq_grid(dev_editreq, clicked);
-         
+            button2.Text = "Close";
         }
        #endregion
 
-        #region Cancel
+        #region Cancel / Close
         private void button2_Click(object sender, EventArgs e)
         {
             dev_editreq.BringToFront(); //grid to front
@@ -268,6 +273,7 @@ namespace SAD_2_PTT
             stat_rec.ForeColor = bar.BackColor;
 
             date_in.Visible = label10.Visible = true;
+           // btn_out.Enabled = true;
         }
 
         private void stat_req_Click(object sender, EventArgs e) // [status: requested]
@@ -281,6 +287,42 @@ namespace SAD_2_PTT
             stat_req.ForeColor = bar.BackColor;
 
             date_in.Visible = label10.Visible = false;
+        }
+        #endregion
+
+        #region Status : Handed Out
+        private void btn_out_Click(object sender, EventArgs e)
+        {  
+            device_prompt prompt = new device_prompt();
+            string func = "Status : Handed Out";
+            p.prompt_title.Text = func;
+            p.lbl_quest.Visible = false;
+            p.prompt_title.Location = new Point(142, 3);
+
+            p.dev_view = this;
+            p.ShowDialog();
+             
+            conn.device_editreq_grid(dev_editreq, clicked);
+            conn.device_out_grid(reference_to_main.device_grid);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                //pass
+            }
+            else
+            {
+
+                DataGridViewRow row = this.dev_editreq.Rows[e.RowIndex];
+
+                //device_logID
+                int log_id = 0;
+                log_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
+                id = log_id;
+            }
+
         }
         #endregion
     }
