@@ -18,6 +18,7 @@ namespace SAD_2_PTT_01
         }
         system_sidenav_active system_sidenav = new system_sidenav_active();
         connections_pwd conn_pwd = new connections_pwd();
+        shadow shadow_;
 
         #region OnLoad
         private void main_form_Load(object sender, EventArgs e)
@@ -71,6 +72,8 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region PWD Module
+
+        #region ON-LOAD
         public void load_pwd()
         {
             conn_pwd.pwd_grid_list(pwd_grid);
@@ -101,6 +104,47 @@ namespace SAD_2_PTT_01
                 }
             }
         }
+
+        #endregion
+
+        #region PWD-GRID
+        int current_pwd_id = 0;
+        int current_grid_index = 1;
+
+        private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                //nothing
+            }
+            else
+            {
+                btn_pwd_viewmore.Enabled = true;
+                btn_pwd_edit.Enabled = true;
+                btn_archive.Enabled = true;
+                if (pwd_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Salmon)
+                {
+                    btn_renew.Enabled = true;
+                    btn_archive.Enabled = true;
+                }
+                else
+                {
+                    btn_renew.Enabled = false;
+                    btn_archive.Enabled = false;
+                }
+                current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
+                current_grid_index = e.RowIndex;
+            }
+        }
+
+        private void btn_pwd_refresh_Click(object sender, EventArgs e)
+        {
+            load_pwd();
+            pwd_searchbox.Clear();
+        }
+
+        #endregion
+
         #endregion
 
         #region Form_Head
@@ -195,8 +239,24 @@ namespace SAD_2_PTT_01
             this.Close();
         }
 
+
+
         #endregion
 
-        
+        private void btn_pwd_viewmore_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 28;
+
+            pwd_view pwd_view_form = new pwd_view();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            pwd_view_form.reference_to_main = this;
+            pwd_view_form.Location = new Point(loc_x, loc_y);
+            pwd_view_form.current_pwd = current_pwd_id;
+            pwd_view_form.ShowDialog();
+            side_tab.Enabled = true;
+            dboard_head.Enabled = true;
+        }
     }
 }
