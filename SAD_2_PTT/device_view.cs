@@ -19,7 +19,7 @@ namespace SAD_2_PTT
         connections conn = new connections();
         device_prompt p = new device_prompt();
 
-        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search;
+        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search, d_check;
         String clicked = "default";
         DateTime req_date, date_IN, date_OUT;
         int dev_id, fstatus;
@@ -70,7 +70,7 @@ namespace SAD_2_PTT
             conn.getProvider(cmbox_prov);
 
             dev_editreq.BringToFront(); //grid
-          //  btn_out.Enabled = false;
+            dateOut.Visible = label9.Visible = false;
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -142,7 +142,10 @@ namespace SAD_2_PTT
 
                 //DateTime Values
                 req_date = Convert.ToDateTime(row.Cells["req_date"].Value.ToString());
-                date_IN = Convert.ToDateTime(row.Cells["date_in"].Value.ToString());
+                foreach (DataGridViewRow din in dev_editreq.Rows)
+                {
+                    if (din.Cells["date_in"].Value == null) continue;
+                }           
 
                 //status
                 if (status == "Requested") stat_req.PerformClick();
@@ -168,7 +171,6 @@ namespace SAD_2_PTT
                 request_date.Format.ToString("d");
                 request_date.Value = req_date;
                 date_in.Format.ToString("d");
-                date_in.Value = date_IN;
 
                 //other string values
                 txt_desc.Text = req_desc;
@@ -181,7 +183,7 @@ namespace SAD_2_PTT
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // edit request
         {
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
@@ -293,7 +295,6 @@ namespace SAD_2_PTT
         #region Status : Handed Out
         private void btn_out_Click(object sender, EventArgs e)
         {  
-            device_prompt prompt = new device_prompt();
             string func = "Status : Handed Out";
             p.prompt_title.Text = func;
             p.lbl_quest.Visible = false;
@@ -306,7 +307,7 @@ namespace SAD_2_PTT
             conn.device_out_grid(reference_to_main.device_grid);
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) //for handed out
         {
             if (e.RowIndex < 0)
             {

@@ -132,7 +132,7 @@ namespace SAD_2_PTT
             req_desc = txt_desc.Text;
             req_dev = request_date.Value.Date;
 
-            string query = "INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_id,req_date,req_desc,status)";
+            string query = "INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_log.device_id,req_date,req_desc,status)";
             string values = " VALUES('" + dr_prov + "', '" + pwd_id + "', '" + dev_id + "', '" + req_dev.ToString("yyyy-MM-dd") + "', '" + req_desc + "','0')";
             conn.Add(query,values);
         }
