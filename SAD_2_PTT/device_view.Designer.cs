@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar = new System.Windows.Forms.Panel();
             this.lbl_title = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
@@ -44,18 +44,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbox_dev = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.date_out = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.date_in = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.request_date = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.edit_stat = new System.Windows.Forms.Panel();
-            this.cmbox_stat = new System.Windows.Forms.ComboBox();
+            this.stat_req = new System.Windows.Forms.Button();
+            this.stat_rec = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_regno = new System.Windows.Forms.Panel();
+            this.lbl_desc = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnl_name = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,11 +66,11 @@
             this.btn_req = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_rec = new System.Windows.Forms.Button();
-            this.btn_ho = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.btn_default = new System.Windows.Forms.Button();
-            this.lbl_desc = new System.Windows.Forms.Label();
+            this.btn_out = new System.Windows.Forms.Button();
+            this.dateOut = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
@@ -104,7 +104,7 @@
             this.btn_close.FlatAppearance.BorderSize = 0;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Image = global::SAD_2_PTT.Properties.Resources.close;
-            this.btn_close.Location = new System.Drawing.Point(791, 1);
+            this.btn_close.Location = new System.Drawing.Point(793, 1);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(70, 57);
             this.btn_close.TabIndex = 14;
@@ -120,16 +120,16 @@
             this.dev_editreq.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dev_editreq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dev_editreq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dev_editreq.DefaultCellStyle = dataGridViewCellStyle1;
             this.dev_editreq.Location = new System.Drawing.Point(22, 150);
             this.dev_editreq.MultiSelect = false;
             this.dev_editreq.Name = "dev_editreq";
@@ -140,6 +140,7 @@
             this.dev_editreq.Size = new System.Drawing.Size(821, 332);
             this.dev_editreq.TabIndex = 17;
             this.dev_editreq.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dev_editreq.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dev_editreq_CellDoubleClick);
             // 
             // button1
             // 
@@ -169,6 +170,8 @@
             // edit_info
             // 
             this.edit_info.BackColor = System.Drawing.SystemColors.Window;
+            this.edit_info.Controls.Add(this.dateOut);
+            this.edit_info.Controls.Add(this.label9);
             this.edit_info.Controls.Add(this.txt_desc);
             this.edit_info.Controls.Add(this.cmbox_dis);
             this.edit_info.Controls.Add(this.label11);
@@ -177,13 +180,11 @@
             this.edit_info.Controls.Add(this.button1);
             this.edit_info.Controls.Add(this.cmbox_dev);
             this.edit_info.Controls.Add(this.label4);
-            this.edit_info.Controls.Add(this.date_out);
             this.edit_info.Controls.Add(this.button2);
             this.edit_info.Controls.Add(this.label2);
             this.edit_info.Controls.Add(this.date_in);
             this.edit_info.Controls.Add(this.label1);
             this.edit_info.Controls.Add(this.request_date);
-            this.edit_info.Controls.Add(this.label9);
             this.edit_info.Controls.Add(this.label10);
             this.edit_info.Location = new System.Drawing.Point(319, 0);
             this.edit_info.Name = "edit_info";
@@ -275,16 +276,6 @@
             this.label4.TabIndex = 59;
             this.label4.Text = "Device  Provider :";
             // 
-            // date_out
-            // 
-            this.date_out.CustomFormat = "";
-            this.date_out.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_out.Location = new System.Drawing.Point(156, 267);
-            this.date_out.Name = "date_out";
-            this.date_out.Size = new System.Drawing.Size(188, 23);
-            this.date_out.TabIndex = 67;
-            this.date_out.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Window;
@@ -339,16 +330,6 @@
             this.request_date.TabIndex = 65;
             this.request_date.Value = new System.DateTime(2017, 7, 9, 0, 0, 0, 0);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 273);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 15);
-            this.label9.TabIndex = 62;
-            this.label9.Text = "Date OUT :";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -362,29 +343,46 @@
             // edit_stat
             // 
             this.edit_stat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.edit_stat.Controls.Add(this.cmbox_stat);
+            this.edit_stat.Controls.Add(this.stat_req);
+            this.edit_stat.Controls.Add(this.stat_rec);
             this.edit_stat.Controls.Add(this.label6);
             this.edit_stat.Location = new System.Drawing.Point(0, 280);
             this.edit_stat.Name = "edit_stat";
             this.edit_stat.Size = new System.Drawing.Size(300, 52);
             this.edit_stat.TabIndex = 73;
             // 
-            // cmbox_stat
+            // stat_req
             // 
-            this.cmbox_stat.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbox_stat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbox_stat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbox_stat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbox_stat.FormattingEnabled = true;
-            this.cmbox_stat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmbox_stat.Items.AddRange(new object[] {
-            "Requested",
-            "Received",
-            "Handed Out"});
-            this.cmbox_stat.Location = new System.Drawing.Point(90, 16);
-            this.cmbox_stat.Name = "cmbox_stat";
-            this.cmbox_stat.Size = new System.Drawing.Size(172, 23);
-            this.cmbox_stat.TabIndex = 41;
+            this.stat_req.BackColor = System.Drawing.Color.White;
+            this.stat_req.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.stat_req.FlatAppearance.BorderSize = 0;
+            this.stat_req.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stat_req.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_req.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.stat_req.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stat_req.Location = new System.Drawing.Point(104, 15);
+            this.stat_req.Name = "stat_req";
+            this.stat_req.Size = new System.Drawing.Size(83, 25);
+            this.stat_req.TabIndex = 53;
+            this.stat_req.Text = "REQUESTED";
+            this.stat_req.UseVisualStyleBackColor = false;
+            this.stat_req.Click += new System.EventHandler(this.stat_req_Click);
+            // 
+            // stat_rec
+            // 
+            this.stat_rec.BackColor = System.Drawing.Color.DimGray;
+            this.stat_rec.FlatAppearance.BorderSize = 0;
+            this.stat_rec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stat_rec.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_rec.ForeColor = System.Drawing.Color.White;
+            this.stat_rec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stat_rec.Location = new System.Drawing.Point(187, 15);
+            this.stat_rec.Name = "stat_rec";
+            this.stat_rec.Size = new System.Drawing.Size(83, 25);
+            this.stat_rec.TabIndex = 52;
+            this.stat_rec.Text = "RECEIVED";
+            this.stat_rec.UseVisualStyleBackColor = false;
+            this.stat_rec.Click += new System.EventHandler(this.btn_toRec_Click);
             // 
             // label6
             // 
@@ -406,6 +404,16 @@
             this.pnl_regno.Name = "pnl_regno";
             this.pnl_regno.Size = new System.Drawing.Size(300, 52);
             this.pnl_regno.TabIndex = 0;
+            // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desc.ForeColor = System.Drawing.Color.White;
+            this.lbl_desc.Location = new System.Drawing.Point(99, 15);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(0, 20);
+            this.lbl_desc.TabIndex = 1;
             // 
             // label3
             // 
@@ -483,7 +491,7 @@
             this.btn_req.BackColor = System.Drawing.Color.White;
             this.btn_req.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_req.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_req.Location = new System.Drawing.Point(517, 114);
+            this.btn_req.Location = new System.Drawing.Point(519, 115);
             this.btn_req.Name = "btn_req";
             this.btn_req.Size = new System.Drawing.Size(26, 24);
             this.btn_req.TabIndex = 45;
@@ -493,7 +501,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(549, 120);
+            this.label8.Location = new System.Drawing.Point(551, 121);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 15);
             this.label8.TabIndex = 46;
@@ -504,42 +512,21 @@
             this.btn_rec.BackColor = System.Drawing.Color.White;
             this.btn_rec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rec.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_rec.Location = new System.Drawing.Point(629, 114);
+            this.btn_rec.Location = new System.Drawing.Point(631, 115);
             this.btn_rec.Name = "btn_rec";
             this.btn_rec.Size = new System.Drawing.Size(26, 24);
             this.btn_rec.TabIndex = 47;
             this.btn_rec.UseVisualStyleBackColor = false;
             this.btn_rec.Click += new System.EventHandler(this.btn_rec_Click);
             // 
-            // btn_ho
-            // 
-            this.btn_ho.BackColor = System.Drawing.Color.White;
-            this.btn_ho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ho.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_ho.Location = new System.Drawing.Point(739, 115);
-            this.btn_ho.Name = "btn_ho";
-            this.btn_ho.Size = new System.Drawing.Size(26, 24);
-            this.btn_ho.TabIndex = 48;
-            this.btn_ho.UseVisualStyleBackColor = false;
-            this.btn_ho.Click += new System.EventHandler(this.btn_ho_Click);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(661, 119);
+            this.label12.Location = new System.Drawing.Point(663, 120);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 15);
             this.label12.TabIndex = 49;
             this.label12.Text = "Received";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(771, 120);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 15);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "Handed Out";
             // 
             // btn_default
             // 
@@ -554,26 +541,50 @@
             this.btn_default.UseVisualStyleBackColor = false;
             this.btn_default.Click += new System.EventHandler(this.btn_default_Click);
             // 
-            // lbl_desc
+            // btn_out
             // 
-            this.lbl_desc.AutoSize = true;
-            this.lbl_desc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_desc.ForeColor = System.Drawing.Color.White;
-            this.lbl_desc.Location = new System.Drawing.Point(99, 15);
-            this.lbl_desc.Name = "lbl_desc";
-            this.lbl_desc.Size = new System.Drawing.Size(0, 20);
-            this.lbl_desc.TabIndex = 1;
+            this.btn_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_out.FlatAppearance.BorderSize = 0;
+            this.btn_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_out.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_out.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_out.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_out.Location = new System.Drawing.Point(741, 112);
+            this.btn_out.Name = "btn_out";
+            this.btn_out.Size = new System.Drawing.Size(102, 25);
+            this.btn_out.TabIndex = 52;
+            this.btn_out.Text = "HAND OUT";
+            this.btn_out.UseVisualStyleBackColor = false;
+            this.btn_out.Click += new System.EventHandler(this.btn_out_Click);
+            // 
+            // dateOut
+            // 
+            this.dateOut.CustomFormat = "";
+            this.dateOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateOut.Location = new System.Drawing.Point(156, 264);
+            this.dateOut.Name = "dateOut";
+            this.dateOut.Size = new System.Drawing.Size(188, 23);
+            this.dateOut.TabIndex = 73;
+            this.dateOut.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(28, 265);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 15);
+            this.label9.TabIndex = 72;
+            this.label9.Text = "Date OUT :";
             // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 506);
+            this.Controls.Add(this.btn_out);
             this.Controls.Add(this.btn_default);
-            this.Controls.Add(this.pnl_edit);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btn_ho);
             this.Controls.Add(this.btn_rec);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_req);
@@ -581,6 +592,7 @@
             this.Controls.Add(this.bar);
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.pnl_edit);
             this.Controls.Add(this.dev_editreq);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -612,22 +624,20 @@
         private System.Windows.Forms.Button btn_close;
         public System.Windows.Forms.DataGridView dev_editreq;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel pnl_edit;
+        public System.Windows.Forms.Panel pnl_edit;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel edit_info;
-        private System.Windows.Forms.RichTextBox txt_desc;
-        private System.Windows.Forms.ComboBox cmbox_dis;
+        public System.Windows.Forms.RichTextBox txt_desc;
+        public System.Windows.Forms.ComboBox cmbox_dis;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cmbox_prov;
+        public System.Windows.Forms.ComboBox cmbox_prov;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbox_dev;
+        public System.Windows.Forms.ComboBox cmbox_dev;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker date_out;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker date_in;
+        public System.Windows.Forms.DateTimePicker date_in;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker request_date;
-        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.DateTimePicker request_date;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnl_regno;
         private System.Windows.Forms.Label label3;
@@ -641,12 +651,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_rec;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel edit_stat;
-        private System.Windows.Forms.ComboBox cmbox_stat;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_ho;
         private System.Windows.Forms.Button btn_default;
-        private System.Windows.Forms.Label lbl_desc;
+        public System.Windows.Forms.Label lbl_desc;
+        public System.Windows.Forms.Button stat_rec;
+        public System.Windows.Forms.Button stat_req;
+        public System.Windows.Forms.Button btn_out;
+        public System.Windows.Forms.DateTimePicker dateOut;
+        private System.Windows.Forms.Label label9;
     }
 }
