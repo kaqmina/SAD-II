@@ -95,14 +95,7 @@ namespace SAD_2_PTT_01
 
             pwd_grid.Columns["registration_no"].Width = 90;
             pwd_grid.Columns["sex"].Width = 40;
-            int count = pwd_grid.Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                if (pwd_grid.Rows[i].Cells["status_pwd"].Value.ToString() == "0") //inactive = 0
-                {
-                    pwd_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
-                }
-            }
+            cell_color();
         }
 
         #endregion
@@ -137,10 +130,46 @@ namespace SAD_2_PTT_01
             }
         }
 
+        public void cell_color()
+        {
+            int count = pwd_grid.Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                if (pwd_grid.Rows[i].Cells["status_pwd"].Value.ToString() == "0") //inactive = 0
+                {
+                    pwd_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
+                }
+            }
+        }
+
         private void btn_pwd_refresh_Click(object sender, EventArgs e)
         {
             load_pwd();
             pwd_searchbox.Clear();
+        }
+
+        private void pwd_grid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            cell_color();
+        }
+
+        #endregion
+
+        #region PWD-VIEW-MODE
+        private void btn_pwd_viewmore_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 28;
+
+            pwd_view pwd_view_form = new pwd_view();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            pwd_view_form.reference_to_main = this;
+            pwd_view_form.Location = new Point(loc_x, loc_y);
+            pwd_view_form.current_pwd = current_pwd_id;
+            pwd_view_form.ShowDialog();
+            side_tab.Enabled = true;
+            dboard_head.Enabled = true;
         }
 
         #endregion
@@ -243,20 +272,6 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        private void btn_pwd_viewmore_Click(object sender, EventArgs e)
-        {
-            int loc_x = this.Location.X + 71;
-            int loc_y = this.Location.Y + 28;
-
-            pwd_view pwd_view_form = new pwd_view();
-            side_tab.Enabled = false;
-            dboard_head.Enabled = false;
-            pwd_view_form.reference_to_main = this;
-            pwd_view_form.Location = new Point(loc_x, loc_y);
-            pwd_view_form.current_pwd = current_pwd_id;
-            pwd_view_form.ShowDialog();
-            side_tab.Enabled = true;
-            dboard_head.Enabled = true;
-        }
+        
     }
 }
