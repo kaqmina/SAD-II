@@ -2605,7 +2605,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button45;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView device_grid;
+        public System.Windows.Forms.DataGridView device_grid;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Button btn_disability;
         private System.Windows.Forms.Button btn_providers;
