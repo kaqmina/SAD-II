@@ -27,13 +27,23 @@ namespace SAD_2_PTT
         {
             InitializeComponent();
             startup_opacity.Start();
+
+            if (function == "Status : Handed Out")
+            {
+                date_out.Visible = lbl_out.Visible = true;
+                lbl_quest.Visible = false;
+            }
+            else
+            {
+                date_out.Visible = lbl_out.Visible = false;
+                lbl_quest.Visible = true;
+            }
         }
 
         private void btn_continue_Click(object sender, EventArgs e)
         {
             function = prompt_title.Text;
             checkContinue(function);
-
             this.Close();
         }
 

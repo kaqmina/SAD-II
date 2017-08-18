@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace SAD_2_PTT
 {
-    public partial class device_view : Form
+    public partial class device_view : Form 
     {
         #region Declaration
         public main_form reference_to_main { get; set; }
@@ -19,12 +19,13 @@ namespace SAD_2_PTT
         connections conn = new connections();
         device_prompt p = new device_prompt();
 
-        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search, d_check;
+        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search, form;
         String clicked = "default";
         DateTime req_date, date_IN, date_OUT;
-        int dev_id, fstatus;
-        public bool cont = false;
-        public int id;
+        int dev_id;
+        public bool cont = false; // continue for edit [device_prompt]
+        public int id; //to be used in [device_prompt]
+        public int fstatus; //final status
         #endregion
 
         #region Transition
@@ -70,7 +71,11 @@ namespace SAD_2_PTT
             conn.getProvider(cmbox_prov);
 
             dev_editreq.BringToFront(); //grid
-            dateOut.Visible = label9.Visible = false;
+            dateOut.Visible = label9.Visible = stat_out.Visible = false; //dateOut & handed out status details
+            btn_out.Enabled = false;
+            btn_out.Text = "";
+
+            //timer
             this.Opacity = 0;
             startup_opacity.Start();
         }
@@ -98,8 +103,6 @@ namespace SAD_2_PTT
             }
         }
 
-
-
         #endregion
 
         #endregion
@@ -124,7 +127,7 @@ namespace SAD_2_PTT
                 //search & filter grid status
                 pnl_search.Visible = false;
                 btn_req.Visible = btn_rec.Visible = btn_default.Visible = false;
-                label12.Visible = label8.Visible = false;
+                label12.Visible = label8.Visible = btn_out.Visible = false;
                 #endregion
 
                 DataGridViewRow row = this.dev_editreq.Rows[e.RowIndex];
@@ -143,8 +146,9 @@ namespace SAD_2_PTT
                 //DateTime Values
                 req_date = Convert.ToDateTime(row.Cells["req_date"].Value.ToString());
                 foreach (DataGridViewRow din in dev_editreq.Rows)
-                {
+                {  
                     if (din.Cells["date_in"].Value == null) continue;
+                    if (din.Cells["date_out"].Value == null) continue;
                 }           
 
                 //status
@@ -171,6 +175,7 @@ namespace SAD_2_PTT
                 request_date.Format.ToString("d");
                 request_date.Value = req_date;
                 date_in.Format.ToString("d");
+                dateOut.Format.ToString("d");
 
                 //other string values
                 txt_desc.Text = req_desc;
@@ -182,14 +187,15 @@ namespace SAD_2_PTT
             }
 
         }
-
-        private void button1_Click(object sender, EventArgs e) // edit request
+        private void button1_Click(object sender, EventArgs e) // edit request FROM dev_editreq grid
         {
+    
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
             int dp = cmbox_prov.SelectedIndex;
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
+            date_OUT = dateOut.Value.Date;          
             
             //Prompt
             string func = "Edit Request";
@@ -197,14 +203,16 @@ namespace SAD_2_PTT
             p.lbl_quest.Text = "Are you sure to save this changes?";
             p.prompt_title.Location = new Point(168, 4);
             p.lbl_quest.Location = new Point(97, 8);
+            p.lbl_quest.Visible = true;
             p.lbl_out.Visible = p.date_out.Visible = false;
 
             p.dev_view = this;
             p.ShowDialog();
 
-            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
             conn.Edit(query, cont);
             conn.device_editreq_grid(dev_editreq, clicked);
+            conn.device_out_grid(reference_to_main.device_grid);
             button2.Text = "Close";
         }
        #endregion
@@ -217,7 +225,9 @@ namespace SAD_2_PTT
 
             pnl_search.Visible = true;
             btn_req.Visible = btn_rec.Visible = btn_default.Visible = true;
-            label12.Visible = label8.Visible = true;
+            label12.Visible = label8.Visible =  btn_out.Visible = true;
+            btn_out.Enabled = false;
+            btn_out.Text = "";
         }
         #endregion
 
@@ -275,7 +285,6 @@ namespace SAD_2_PTT
             stat_rec.ForeColor = bar.BackColor;
 
             date_in.Visible = label10.Visible = true;
-           // btn_out.Enabled = true;
         }
 
         private void stat_req_Click(object sender, EventArgs e) // [status: requested]
@@ -290,6 +299,20 @@ namespace SAD_2_PTT
 
             date_in.Visible = label10.Visible = false;
         }
+
+        private void stat_out_Click(object sender, EventArgs e)
+        {
+            fstatus = 2;
+
+            stat_out.BackColor = Color.White;
+            stat_out.ForeColor = bar.BackColor;
+
+            stat_rec.BackColor = Color.DimGray;
+            stat_rec.ForeColor = Color.White;
+
+            stat_req.BackColor = Color.DimGray;
+            stat_req.ForeColor = Color.White;
+        }
         #endregion
 
         #region Status : Handed Out
@@ -302,7 +325,7 @@ namespace SAD_2_PTT
 
             p.dev_view = this;
             p.ShowDialog();
-             
+
             conn.device_editreq_grid(dev_editreq, clicked);
             conn.device_out_grid(reference_to_main.device_grid);
         }
@@ -322,8 +345,20 @@ namespace SAD_2_PTT
                 int log_id = 0;
                 log_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
                 id = log_id;
-            }
 
+                status = row.Cells["status"].Value.ToString();
+                if (status == "Requested")
+                {
+                    btn_out.Enabled = false;
+                    btn_out.Text = "";
+                }
+                else if (status == "Received")
+                {
+                    btn_out.Enabled = true;
+                    btn_out.ForeColor = Color.White;
+                    btn_out.Text = "HAND OUT";
+                }
+            }
         }
         #endregion
     }
