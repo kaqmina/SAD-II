@@ -19,6 +19,7 @@ namespace SAD_2_PTT_01
         system_sidenav_active system_sidenav = new system_sidenav_active();
         connections_pwd conn_pwd = new connections_pwd();
         shadow shadow_;
+        public string current_user;
 
         #region OnLoad
         private void main_form_Load(object sender, EventArgs e)
@@ -32,10 +33,13 @@ namespace SAD_2_PTT_01
             system_sidenav.lbl_current_text("dashboard");
             btn_dashboard_Click(sender, e);
 
+            lbl_name.Text = "Hi, " + current_user.ToUpper() + ".";
+
             this.Opacity = 0;
             startup_opacity.Start();
             //<---[ Modules ]--->
             load_pwd();
+
         }
 
         private void main_properties()
