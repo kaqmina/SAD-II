@@ -292,6 +292,7 @@
             this.pwd_view_toskill.AutoEllipsis = true;
             this.pwd_view_toskill.AutoSize = true;
             this.pwd_view_toskill.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_toskill.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_toskill.Location = new System.Drawing.Point(492, 336);
             this.pwd_view_toskill.MaximumSize = new System.Drawing.Size(250, 0);
             this.pwd_view_toskill.Name = "pwd_view_toskill";
@@ -314,6 +315,7 @@
             // 
             this.pwd_view_noemp.AutoSize = true;
             this.pwd_view_noemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_noemp.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_noemp.Location = new System.Drawing.Point(210, 369);
             this.pwd_view_noemp.Name = "pwd_view_noemp";
             this.pwd_view_noemp.Size = new System.Drawing.Size(79, 15);
@@ -324,6 +326,7 @@
             // 
             this.pwd_view_emp_status.AutoSize = true;
             this.pwd_view_emp_status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_emp_status.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_emp_status.Location = new System.Drawing.Point(210, 336);
             this.pwd_view_emp_status.Name = "pwd_view_emp_status";
             this.pwd_view_emp_status.Size = new System.Drawing.Size(61, 15);
@@ -354,6 +357,7 @@
             // 
             this.pwd_view_toemp.AutoSize = true;
             this.pwd_view_toemp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_toemp.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_toemp.Location = new System.Drawing.Point(210, 401);
             this.pwd_view_toemp.Name = "pwd_view_toemp";
             this.pwd_view_toemp.Size = new System.Drawing.Size(88, 15);
@@ -405,6 +409,7 @@
             // 
             this.pwd_view_mobile_no.AutoSize = true;
             this.pwd_view_mobile_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_mobile_no.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_mobile_no.Location = new System.Drawing.Point(183, 203);
             this.pwd_view_mobile_no.Name = "pwd_view_mobile_no";
             this.pwd_view_mobile_no.Size = new System.Drawing.Size(84, 15);
@@ -435,6 +440,7 @@
             // 
             this.pwd_view_educ_att.AutoSize = true;
             this.pwd_view_educ_att.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_educ_att.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_educ_att.Location = new System.Drawing.Point(556, 175);
             this.pwd_view_educ_att.Name = "pwd_view_educ_att";
             this.pwd_view_educ_att.Size = new System.Drawing.Size(86, 15);
@@ -455,6 +461,7 @@
             // 
             this.pwd_view_tel_no.AutoSize = true;
             this.pwd_view_tel_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_tel_no.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_tel_no.Location = new System.Drawing.Point(183, 174);
             this.pwd_view_tel_no.Name = "pwd_view_tel_no";
             this.pwd_view_tel_no.Size = new System.Drawing.Size(67, 15);
@@ -465,6 +472,7 @@
             // 
             this.pwd_view_civil_status.AutoSize = true;
             this.pwd_view_civil_status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_civil_status.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_civil_status.Location = new System.Drawing.Point(483, 77);
             this.pwd_view_civil_status.Name = "pwd_view_civil_status";
             this.pwd_view_civil_status.Size = new System.Drawing.Size(51, 15);
@@ -485,6 +493,7 @@
             // 
             this.pwd_view_email.AutoSize = true;
             this.pwd_view_email.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_email.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_email.Location = new System.Drawing.Point(183, 233);
             this.pwd_view_email.Name = "pwd_view_email";
             this.pwd_view_email.Size = new System.Drawing.Size(119, 15);
@@ -495,6 +504,7 @@
             // 
             this.pwd_view_nationality.AutoSize = true;
             this.pwd_view_nationality.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_nationality.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_nationality.Location = new System.Drawing.Point(183, 108);
             this.pwd_view_nationality.Name = "pwd_view_nationality";
             this.pwd_view_nationality.Size = new System.Drawing.Size(46, 15);
@@ -505,6 +515,7 @@
             // 
             this.pwd_view_dob.AutoSize = true;
             this.pwd_view_dob.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_dob.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_dob.Location = new System.Drawing.Point(183, 75);
             this.pwd_view_dob.Name = "pwd_view_dob";
             this.pwd_view_dob.Size = new System.Drawing.Size(117, 15);
@@ -535,6 +546,7 @@
             // 
             this.pwd_view_address.AutoSize = true;
             this.pwd_view_address.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_address.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_address.Location = new System.Drawing.Point(183, 140);
             this.pwd_view_address.Name = "pwd_view_address";
             this.pwd_view_address.Size = new System.Drawing.Size(490, 15);
@@ -616,6 +628,7 @@
             // 
             this.pwd_view_accomplished_by.AutoSize = true;
             this.pwd_view_accomplished_by.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_accomplished_by.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_accomplished_by.Location = new System.Drawing.Point(634, 282);
             this.pwd_view_accomplished_by.Name = "pwd_view_accomplished_by";
             this.pwd_view_accomplished_by.Size = new System.Drawing.Size(103, 15);
@@ -677,6 +690,7 @@
             // 
             this.pwd_view_reporting_unit.AutoSize = true;
             this.pwd_view_reporting_unit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_reporting_unit.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_reporting_unit.Location = new System.Drawing.Point(634, 363);
             this.pwd_view_reporting_unit.Name = "pwd_view_reporting_unit";
             this.pwd_view_reporting_unit.Size = new System.Drawing.Size(50, 15);
@@ -717,6 +731,7 @@
             // 
             this.pwd_view_gsis_no.AutoSize = true;
             this.pwd_view_gsis_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_gsis_no.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_gsis_no.Location = new System.Drawing.Point(208, 417);
             this.pwd_view_gsis_no.Name = "pwd_view_gsis_no";
             this.pwd_view_gsis_no.Size = new System.Drawing.Size(56, 15);
@@ -727,6 +742,7 @@
             // 
             this.pwd_view_guardian.AutoSize = true;
             this.pwd_view_guardian.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_guardian.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_guardian.Location = new System.Drawing.Point(208, 291);
             this.pwd_view_guardian.Name = "pwd_view_guardian";
             this.pwd_view_guardian.Size = new System.Drawing.Size(113, 15);
@@ -737,6 +753,7 @@
             // 
             this.pwd_view_sss_no.AutoSize = true;
             this.pwd_view_sss_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_sss_no.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_sss_no.Location = new System.Drawing.Point(208, 388);
             this.pwd_view_sss_no.Name = "pwd_view_sss_no";
             this.pwd_view_sss_no.Size = new System.Drawing.Size(49, 15);
@@ -747,6 +764,7 @@
             // 
             this.pwd_view_father.AutoSize = true;
             this.pwd_view_father.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_father.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_father.Location = new System.Drawing.Point(208, 226);
             this.pwd_view_father.Name = "pwd_view_father";
             this.pwd_view_father.Size = new System.Drawing.Size(94, 15);
@@ -767,6 +785,7 @@
             // 
             this.pwd_view_mother.AutoSize = true;
             this.pwd_view_mother.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_mother.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_mother.Location = new System.Drawing.Point(208, 259);
             this.pwd_view_mother.Name = "pwd_view_mother";
             this.pwd_view_mother.Size = new System.Drawing.Size(66, 15);
@@ -787,6 +806,7 @@
             // 
             this.pwd_view_phealth_no.AutoSize = true;
             this.pwd_view_phealth_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_phealth_no.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_phealth_no.Location = new System.Drawing.Point(508, 389);
             this.pwd_view_phealth_no.Name = "pwd_view_phealth_no";
             this.pwd_view_phealth_no.Size = new System.Drawing.Size(49, 15);
@@ -828,6 +848,7 @@
             // 
             this.pwd_view_org_tel_no.AutoSize = true;
             this.pwd_view_org_tel_no.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_org_tel_no.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_org_tel_no.Location = new System.Drawing.Point(508, 77);
             this.pwd_view_org_tel_no.Name = "pwd_view_org_tel_no";
             this.pwd_view_org_tel_no.Size = new System.Drawing.Size(67, 15);
@@ -858,6 +879,7 @@
             // 
             this.pwd_view_office_address.AutoSize = true;
             this.pwd_view_office_address.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_office_address.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_office_address.Location = new System.Drawing.Point(226, 140);
             this.pwd_view_office_address.Name = "pwd_view_office_address";
             this.pwd_view_office_address.Size = new System.Drawing.Size(113, 15);
@@ -868,6 +890,7 @@
             // 
             this.pwd_view_contact_person.AutoSize = true;
             this.pwd_view_contact_person.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_contact_person.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_contact_person.Location = new System.Drawing.Point(226, 108);
             this.pwd_view_contact_person.Name = "pwd_view_contact_person";
             this.pwd_view_contact_person.Size = new System.Drawing.Size(66, 15);
@@ -878,6 +901,7 @@
             // 
             this.pwd_view_org_aff.AutoSize = true;
             this.pwd_view_org_aff.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_org_aff.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_org_aff.Location = new System.Drawing.Point(226, 75);
             this.pwd_view_org_aff.Name = "pwd_view_org_aff";
             this.pwd_view_org_aff.Size = new System.Drawing.Size(94, 15);
@@ -974,7 +998,7 @@
             this.pwd_view_fullname.AutoSize = true;
             this.pwd_view_fullname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_fullname.ForeColor = System.Drawing.Color.White;
-            this.pwd_view_fullname.Location = new System.Drawing.Point(92, 3);
+            this.pwd_view_fullname.Location = new System.Drawing.Point(92, 2);
             this.pwd_view_fullname.Name = "pwd_view_fullname";
             this.pwd_view_fullname.Size = new System.Drawing.Size(273, 30);
             this.pwd_view_fullname.TabIndex = 11;

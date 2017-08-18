@@ -87,7 +87,7 @@ namespace SAD_2_PTT_01
                                                           + "(CASE WHEN nature_of_employer = 2 THEN 'Government' ELSE 'Private' END) AS nature_of_employer, "
                                                           + "(CASE WHEN type_of_employment = 1 THEN 'Contractual' WHEN type_of_employment = 2 THEN 'Permanent' WHEN type_of_employment = 3 THEN 'Self-Employed' ELSE 'Seasonal' END) AS type_of_employment, "
                                                           + type_of_skill
-                                                          + "(CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) as status_pwd, "
+                                                          + "(CASE WHEN status_pwd = 0 THEN 'Expired' ELSE 'Active' END) as status_pwd, "
                                                           + "REPLACE(address, '|', '') AS address "
                                                           + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
                 MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
@@ -110,6 +110,80 @@ namespace SAD_2_PTT_01
                                              + "FROM parental_info WHERE pwd_id = " + current_id, conn);
                 MySqlDataAdapter parent_data = new MySqlDataAdapter(comm);
                 parent_data.Fill(parental_info);
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.Message); //error
+            }
+        }
+
+        public bool pwd_check_registration_no_duplicate(int registration_no) 
+        {
+            bool has_duplicate = false;
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE pwd_id = " + registration_no, conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+                int count = int.Parse(set.Rows[0]["COUNT(*)"].ToString());
+                if (count == 0)
+                    has_duplicate = false;
+                else
+                    has_duplicate = true;
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.Message);
+            }
+            return has_duplicate;
+        }
+
+        public void populate_cbox(ComboBox disability_type, ComboBox district_type)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM disability", conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    MessageBox.Show("No disabilities added.");
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        disability_type.Items.Add(data["disability_type"].ToString());
+                    }
+                }
+
+                comm = new MySqlCommand("SELECT * FROM p_dao.pwd_district", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                count = set.Rows.Count;
+                if(count == 0)
+                {
+                    MessageBox.Show("No regions added.");
+                } else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        district_type.Items.Add(data["district_name"].ToString());
+                    }
+                }
 
                 conn.Close();
             }

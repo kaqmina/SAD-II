@@ -62,6 +62,12 @@
     <Compile Include="pwd_add.Designer.cs">
       <DependentUpon>pwd_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="pwd_ask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwd_ask.Designer.cs">
+      <DependentUpon>pwd_ask.cs</DependentUpon>
+    </Compile>
     <Compile Include="pwd_view.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,7 @@
     <Compile Include="shadow.Designer.cs">
       <DependentUpon>shadow.cs</DependentUpon>
     </Compile>
+    <Compile Include="system_keypress.cs" />
     <Compile Include="system_sidenav_active.cs" />
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
@@ -88,6 +95,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="pwd_add.resx">
+      <DependentUpon>pwd_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pwd_ask.resx">
+      <DependentUpon>pwd_ask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pwd_view.resx">
       <DependentUpon>pwd_view.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +209,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\footer-jyplogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pending-dot.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

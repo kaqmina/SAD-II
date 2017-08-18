@@ -174,6 +174,24 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region PWD-ADD-MODE
+        private void btn_pwd_add_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 28;
+
+            pwd_add pwd_fill_up_form = new pwd_add();
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
+            pwd_fill_up_form.reference_to_main = this;
+            pwd_fill_up_form.Location = new Point(loc_x, loc_y);
+            pwd_fill_up_form.ShowDialog();
+            side_tab.Enabled = true;
+            dboard_head.Enabled = true;
+        }
+
+        #endregion
+
         #endregion
 
         #region Form_Head
@@ -267,6 +285,7 @@ namespace SAD_2_PTT_01
         {
             this.Close();
         }
+
 
 
 

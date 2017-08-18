@@ -20,6 +20,7 @@ namespace SAD_2_PTT_01
         connections_pwd conn_pwd = new connections_pwd();
         public int current_pwd = 0;
 
+        #region ON-LOAD
         private void startup_opacity_Tick(object sender, EventArgs e)
         {
             if (this.Opacity < 1)
@@ -38,6 +39,8 @@ namespace SAD_2_PTT_01
         {
             this.Close();
         }
+
+        #endregion
 
         #region PWD DATA Paste
         public void pwd_load_data(int current_pwd)
