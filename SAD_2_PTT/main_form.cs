@@ -52,9 +52,6 @@ namespace SAD_2_PTT
             btn_current = btn_dashboard;
             lbl_current_text("dashboard");
             main_btn.btn_dashboard = true;
-            //btn_profilepic.BackgroundImage = SAD_2_PTT.Properties.Resources.TWICE_KK_01;
-            //btn_profilepic.BackColor = Color.FromArgb(235, 85, 34);
-            //slide_in.Start();
         }
 
         private void btn_pwd_Click(object sender, EventArgs e)
