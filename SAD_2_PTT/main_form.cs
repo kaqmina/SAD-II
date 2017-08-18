@@ -657,6 +657,109 @@ namespace SAD_2_PTT
 
         #endregion
 
-       
+        #region DEVICE
+        int log_id;
+        string p_name, req_desc, status, reg_no, dev, d_dis, d_prov;
+        DateTime req_date, date_IN, date_OUT;
+        private void device_grid_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            device_view v = new device_view();
+            if (e.RowIndex < 0)
+            {
+                //pass
+            }
+            else
+            {
+
+                DataGridViewRow row = this.device_grid.Rows[e.RowIndex];
+
+                //device_logID
+                log_id = 0;
+                log_id = Convert.ToInt32(row.Cells["deviceLOG_id"].Value);
+
+                p_name = row.Cells["pwd_name"].Value.ToString();
+                req_desc = row.Cells["req_desc"].Value.ToString();
+                status = row.Cells["status"].Value.ToString();
+                reg_no = row.Cells["registration_no"].Value.ToString();
+                dev = row.Cells["dev_name"].Value.ToString();
+
+                //DateTime Values
+                req_date = Convert.ToDateTime(row.Cells["req_date"].Value.ToString());
+                date_IN = Convert.ToDateTime(row.Cells["date_in"].Value.ToString());
+                date_OUT = Convert.ToDateTime(row.Cells["date_out"].Value.ToString());
+
+                //status
+                if (status == "Requested") v.stat_req.PerformClick();
+                else if (status == "Received") v.stat_rec.PerformClick();
+                else if (status == "Handed Out") v.btn_out.PerformClick();
+
+                //pass to edit panel [pnl_edit]
+
+                //disability id [cmbox_dis]
+                int d = 0;
+                d = Convert.ToInt32(row.Cells["disability_id"].Value);
+                ComboBox cb = v.cmbox_dis;
+                conn.getDisability(cb);
+                d_dis = cb.Items[d].ToString();
+
+                //device [cmbox_dev]
+                ComboBox cmb = v.cmbox_dev;
+                conn.getDevice(d, cmb);
+                v.cmbox_dev.SelectedValue = dev;
+
+                //device provider [cmbox_prov]
+                int d2 = 0;
+                conn.getProvider(v.cmbox_prov);
+                d2 = Convert.ToInt32(row.Cells["dp_id"].Value);
+                d_prov = v.cmbox_prov.Items[d2].ToString();
+
+                v.lbl_desc.Text = reg_no;
+            }
+        }
+        private void button15_Click(object sender, EventArgs e) // edit button FOR device_grid [handed out grid]
+        {
+            device_view v = new device_view();
+  
+            #region form setting
+            v.reference_to_main = this;
+            v.pnl_edit.BringToFront();
+            v.lbl_title.Text = "EDIT REQUEST";   
+            #endregion
+
+            #region to pass values
+            v.txt_desc.Text = req_desc;
+            v.lbl_desc.Text = reg_no;
+            v.request_date.Format.ToString("d");
+            v.request_date.Value = req_date;
+            v.date_in.Format.ToString("d");
+            v.date_in.Value = date_IN;
+            v.dateOut.Format.ToString("d");
+            v.dateOut.Value = date_OUT;
+            v.cmbox_dis.Text = d_dis;
+            v.cmbox_dev.Text = dev;
+            v.cmbox_prov.Text = d_prov;
+            v.id = log_id;
+            v.fstatus = 2;
+            #endregion
+
+            #region controls setting
+            v.pnl_search.Visible = false;
+            v.btn_req.Visible = v.btn_rec.Visible = v.btn_default.Visible = false; // filter: status button
+            v.label12.Visible = v.label8.Visible = false; // status name
+            v.btn_out.Visible = false; //handed out 
+            v.stat_out.Visible = true;
+            v.stat_out.PerformClick();
+            v.stat_req.BackColor = Color.DimGray;
+            v.stat_out.ForeColor = v.btn_out.BackColor; // usual dark color UI
+            v.stat_req.ForeColor = v.stat_out.BackColor = Color.White;
+            v.label9.Visible = v.dateOut.Visible = true;
+            v.button2.Visible = false; //cancel button
+            #endregion
+
+            v.ShowDialog();
+            conn.device_out_grid(device_grid);
+        }
+        #endregion
+
     }
 }

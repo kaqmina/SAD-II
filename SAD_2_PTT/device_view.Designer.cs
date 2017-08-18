@@ -3,7 +3,7 @@
     partial class device_view
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required desifner variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pnl_edit = new System.Windows.Forms.Panel();
             this.edit_info = new System.Windows.Forms.Panel();
+            this.dateOut = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             this.txt_desc = new System.Windows.Forms.RichTextBox();
             this.cmbox_dis = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -51,6 +53,7 @@
             this.request_date = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.edit_stat = new System.Windows.Forms.Panel();
+            this.stat_out = new System.Windows.Forms.Button();
             this.stat_req = new System.Windows.Forms.Button();
             this.stat_rec = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -69,8 +72,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btn_default = new System.Windows.Forms.Button();
             this.btn_out = new System.Windows.Forms.Button();
-            this.dateOut = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dev_editreq)).BeginInit();
             this.pnl_edit.SuspendLayout();
             this.edit_info.SuspendLayout();
@@ -190,6 +191,26 @@
             this.edit_info.Name = "edit_info";
             this.edit_info.Size = new System.Drawing.Size(502, 332);
             this.edit_info.TabIndex = 72;
+            // 
+            // dateOut
+            // 
+            this.dateOut.CustomFormat = "";
+            this.dateOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateOut.Location = new System.Drawing.Point(156, 264);
+            this.dateOut.Name = "dateOut";
+            this.dateOut.Size = new System.Drawing.Size(188, 23);
+            this.dateOut.TabIndex = 73;
+            this.dateOut.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(28, 265);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 15);
+            this.label9.TabIndex = 72;
+            this.label9.Text = "Date OUT :";
             // 
             // txt_desc
             // 
@@ -343,6 +364,7 @@
             // edit_stat
             // 
             this.edit_stat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.edit_stat.Controls.Add(this.stat_out);
             this.edit_stat.Controls.Add(this.stat_req);
             this.edit_stat.Controls.Add(this.stat_rec);
             this.edit_stat.Controls.Add(this.label6);
@@ -350,6 +372,23 @@
             this.edit_stat.Name = "edit_stat";
             this.edit_stat.Size = new System.Drawing.Size(300, 52);
             this.edit_stat.TabIndex = 73;
+            // 
+            // stat_out
+            // 
+            this.stat_out.BackColor = System.Drawing.Color.White;
+            this.stat_out.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.stat_out.FlatAppearance.BorderSize = 0;
+            this.stat_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stat_out.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.stat_out.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stat_out.Location = new System.Drawing.Point(17, 15);
+            this.stat_out.Name = "stat_out";
+            this.stat_out.Size = new System.Drawing.Size(87, 25);
+            this.stat_out.TabIndex = 54;
+            this.stat_out.Text = "HANDED OUT";
+            this.stat_out.UseVisualStyleBackColor = false;
+            this.stat_out.Click += new System.EventHandler(this.stat_out_Click);
             // 
             // stat_req
             // 
@@ -557,26 +596,6 @@
             this.btn_out.UseVisualStyleBackColor = false;
             this.btn_out.Click += new System.EventHandler(this.btn_out_Click);
             // 
-            // dateOut
-            // 
-            this.dateOut.CustomFormat = "";
-            this.dateOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOut.Location = new System.Drawing.Point(156, 264);
-            this.dateOut.Name = "dateOut";
-            this.dateOut.Size = new System.Drawing.Size(188, 23);
-            this.dateOut.TabIndex = 73;
-            this.dateOut.Value = new System.DateTime(2017, 7, 11, 0, 0, 0, 0);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 265);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 15);
-            this.label9.TabIndex = 72;
-            this.label9.Text = "Date OUT :";
-            // 
             // device_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -620,12 +639,12 @@
         #endregion
 
         private System.Windows.Forms.Panel bar;
-        private System.Windows.Forms.Label lbl_title;
+        public System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Button btn_close;
         public System.Windows.Forms.DataGridView dev_editreq;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Panel pnl_edit;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel edit_info;
         public System.Windows.Forms.RichTextBox txt_desc;
         public System.Windows.Forms.ComboBox cmbox_dis;
@@ -644,21 +663,22 @@
         private System.Windows.Forms.Panel pnl_name;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer startup_opacity;
-        private System.Windows.Forms.Panel pnl_search;
+        public System.Windows.Forms.Panel pnl_search;
         private System.Windows.Forms.Button button45;
         private System.Windows.Forms.TextBox txt_search;
-        private System.Windows.Forms.Button btn_req;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btn_rec;
-        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Button btn_req;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Button btn_rec;
+        public System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel edit_stat;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_default;
+        public System.Windows.Forms.Button btn_default;
         public System.Windows.Forms.Label lbl_desc;
         public System.Windows.Forms.Button stat_rec;
         public System.Windows.Forms.Button stat_req;
         public System.Windows.Forms.Button btn_out;
         public System.Windows.Forms.DateTimePicker dateOut;
-        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Button stat_out;
     }
 }

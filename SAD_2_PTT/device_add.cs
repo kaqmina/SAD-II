@@ -112,12 +112,11 @@ namespace SAD_2_PTT
             p.lbl_quest.Text = "Are you sure to save this changes?";
             p.prompt_title.Location = new Point(171,4);
             p.lbl_quest.Location = new Point(97,8);
-            p.lbl_out.Visible = p.date_out.Visible = false;
 
             p.dev_add = this;
             p.ShowDialog();
 
-            string query = "UPDATE device SET disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device_id = '" + d_id + "'; ";
+            string query = "UPDATE p_dao.device SET device.disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device.device_id = '" + d_id + "'; ";
             conn.Edit(query, cont);
             conn.device_add_grid(dev_addgrid);
         }
@@ -132,7 +131,7 @@ namespace SAD_2_PTT
             {
                 //btn add to back
                 button2.BringToFront();
-                btn_del.Visible = true;
+                btn_del.Visible = true; // remove button
                 button5.Visible = true; // clear button
 
                 DataGridViewRow row = this.dev_addgrid.Rows[e.RowIndex];
@@ -144,7 +143,7 @@ namespace SAD_2_PTT
                 //disability id
                 int d = 0;
                 d = Convert.ToInt32(row.Cells["disability_id"].Value);
-                int dd = d - 1;
+                int dd = d - 1; // comboBox index starts at 0
                 d_dis = cmbox_dis.Items[dd].ToString();
 
 
