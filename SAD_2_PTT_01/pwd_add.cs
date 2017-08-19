@@ -217,7 +217,7 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
-        #region ON_LOAD
+        #region ON_LOAD - ON_CLOSE
 
         public void load_date_time_picker_max_date()
         {
@@ -278,6 +278,10 @@ namespace SAD_2_PTT_01
             current_panel_active = panel_1_;
         }
 
+        private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //MessageBox.Show("Success!");
+        }
         #endregion
 
         #region BTN-NEXT
@@ -926,8 +930,6 @@ namespace SAD_2_PTT_01
 
         }
 
-        #endregion
-
         public void pwd_add_profile()
         {
             string main_data;
@@ -976,15 +978,15 @@ namespace SAD_2_PTT_01
                                          + ", "
                                          + disability
                                          + ", '"
-                                         + has 
-                                         + "', '" 
-                                         + bar 
-                                         + "', '" 
-                                         + mun 
-                                         + "', '" 
-                                         + prov 
-                                         + "', " 
-                                         + district_id 
+                                         + has
+                                         + "', '"
+                                         + bar
+                                         + "', '"
+                                         + mun
+                                         + "', '"
+                                         + prov
+                                         + "', "
+                                         + district_id
                                          + ", '"
                                          + blood_type
                                          + "', '"
@@ -1101,17 +1103,14 @@ namespace SAD_2_PTT_01
                 reference_to_main.success = true;
                 reference_to_main.load_pwd();
                 this.Close();
-            } else
+            }
+            else
             {
                 reference_to_main.success = false;
                 MessageBox.Show("Invalid Information.");
             }
         }
-
-        public void pwd_update_profile(int pwd_update_id)
-        {
-
-        }
+        #endregion
 
         #region QUICK-PANEL
         public void panel_activate()
@@ -1223,9 +1222,10 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
+        public void pwd_update_profile(int pwd_update_id)
         {
-            //MessageBox.Show("Success!");
+
         }
+        
     }
 }

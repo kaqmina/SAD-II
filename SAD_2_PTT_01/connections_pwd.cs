@@ -229,5 +229,17 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        #region ARCHIVE-MODE
+        public void archive_profile(int current_id)
+        {
+            conn.Open();
+
+            MySqlCommand comm = new MySqlCommand("UPDATE p_dao.pwd SET isArchived = 1 WHERE pwd_id = " + current_id, conn);
+            comm.ExecuteNonQuery();
+
+            conn.Close();
+        }
+        #endregion
     }
 }

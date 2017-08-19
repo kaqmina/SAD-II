@@ -69,6 +69,12 @@
     <Compile Include="pwd_add.Designer.cs">
       <DependentUpon>pwd_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="pwd_archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwd_archive.Designer.cs">
+      <DependentUpon>pwd_archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="pwd_ask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
     <EmbeddedResource Include="pwd_add.resx">
       <DependentUpon>pwd_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pwd_archive.resx">
+      <DependentUpon>pwd_archive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pwd_ask.resx">
       <DependentUpon>pwd_ask.cs</DependentUpon>

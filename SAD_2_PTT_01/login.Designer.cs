@@ -129,6 +129,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Image = global::SAD_2_PTT_01.Properties.Resources.uname;
             this.label9.Location = new System.Drawing.Point(243, 195);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 20);
@@ -141,6 +142,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Image = global::SAD_2_PTT_01.Properties.Resources.pword;
             this.label10.Location = new System.Drawing.Point(242, 253);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(17, 20);

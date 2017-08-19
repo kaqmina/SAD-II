@@ -345,5 +345,38 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        private void btn_pwd_edit_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+
+            /*pwd_add edit = new pwd_add();
+            edit.reference_to_main = this;
+            edit.Location = new Point(loc_x, loc_y);
+            edit.pwd_update_id = current_pwd_id;
+            edit.paste_data();
+            edit.btn_add_edit.Text = "UPDATE";
+            edit.ShowDialog();*/
+        }
+
+        private void btn_archive_Click(object sender, EventArgs e)
+        {
+            pwd_archive show_prompt = new pwd_archive();
+            shadow_ = new shadow();
+            shadow_.Location = new Point(this.Location.X, this.Location.Y);
+            show_prompt.current_id = current_pwd_id;
+            show_prompt.reference_to_main = this;
+            show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            show_prompt.name.Text = "Name: " + pwd_grid.Rows[current_grid_index].Cells["fullname"].Value.ToString();
+            show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_grid_index].Cells["application_date"].Value.ToString();
+            show_prompt.prompt_title.Text = "Archive";
+            show_prompt.action.Text = "The following profile will be archived:";
+            shadow_.Show();
+            show_prompt.ShowDialog();
+            shadow_.Close();
+            btn_renew.Enabled = false;
+            btn_archive.Enabled = false;
+        }
     }
 }
