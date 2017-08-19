@@ -55,10 +55,10 @@ namespace SAD_2_PTT_01
             pwd_view_disability.Text = main_data.Rows[0]["disability_type"].ToString();
             pwd_view_regis_no.Text = main_data.Rows[0]["registration_no"].ToString();
             pwd_view_app_date.Text = main_data.Rows[0]["application_date"].ToString();
-            //pwd_view_district.Text = main_data.Rows[0][""] FIX
+            pwd_view_district.Text = main_data.Rows[0]["district_name"].ToString();
             pwd_view_dob.Text = main_data.Rows[0]["birthdate"].ToString();
             pwd_view_nationality.Text = main_data.Rows[0]["nationality"].ToString();
-            pwd_view_address.Text = main_data.Rows[0]["address"].ToString();
+            pwd_view_address1.Text = main_data.Rows[0]["address"].ToString();
             pwd_view_civil_status.Text = main_data.Rows[0]["civil_status"].ToString();
             pwd_view_tel_no.Text = main_data.Rows[0]["tel_no"].ToString();
             pwd_view_mobile_no.Text = main_data.Rows[0]["mobile_no"].ToString();
@@ -75,7 +75,6 @@ namespace SAD_2_PTT_01
             pwd_view_noemp.Text = main_data.Rows[0]["nature_of_employer"].ToString();
             pwd_view_toemp.Text = main_data.Rows[0]["type_of_employment"].ToString();
             pwd_view_toskill.Text = main_data.Rows[0]["type_of_skill"].ToString();
-            pwd_view_accomplished_by.Text = main_data.Rows[0]["accomplished_by"].ToString();
             //<-----[OTHER INFO]----->
             pwd_view_org_aff.Text = other_data.Rows[0]["organization_aff"].ToString();
             pwd_view_contact_person.Text = other_data.Rows[0]["contact_person"].ToString();
@@ -86,6 +85,7 @@ namespace SAD_2_PTT_01
             pwd_view_phealth_no.Text = other_data.Rows[0]["phealth_no"].ToString();
             pwd_view_phealth_status.Text = other_data.Rows[0]["phealth_status"].ToString();
             pwd_view_reporting_unit.Text = other_data.Rows[0]["name_of_reporting_unit"].ToString();
+            pwd_view_accomplished_by1.Text = other_data.Rows[0]["accomplished_by"].ToString();
             //<-----[PARENTAL INFO]----->
             pwd_view_father.Text = parental_data.Rows[0]["father"].ToString();
             pwd_view_mother.Text = parental_data.Rows[0]["mother"].ToString();

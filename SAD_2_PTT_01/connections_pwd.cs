@@ -17,6 +17,7 @@ namespace SAD_2_PTT_01
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
         }
 
+        #region GRID-MAIN_FORM
         public void pwd_grid_list(DataGridView pwd_grid)
         {
             try
@@ -52,6 +53,9 @@ namespace SAD_2_PTT_01
             }
         }
 
+        #endregion
+
+        #region VIEW-MODE
         public void pwd_view_profile(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             try
@@ -81,15 +85,15 @@ namespace SAD_2_PTT_01
                                                           + "tel_no, "
                                                           + "mobile_no, "
                                                           + "email_add, "
-                                                          + "REPLACE(accomplished_by, '|', '') AS accomplished_by,"
                                                           + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' WHEN educ_attainment = 3 THEN 'High School' WHEN educ_attainment = 4 THEN 'High School Undergraduate' WHEN educ_attainment = 5 THEN 'College' WHEN educ_attainment = 6 THEN 'College Undergraduate' WHEN educ_attainment = 7 THEN 'Graduate' WHEN educ_attainment = 8 THEN 'Post Graduate' WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment, "
                                                           + "(CASE WHEN employment_status = 1 THEN 'Employed' WHEN employment_status = 2 THEN 'Unemployed' WHEN employment_status = 3 THEN 'Displaced Worker' WHEN employment_status = 4 THEN 'Resigned' WHEN employment_status = 5 THEN 'Retired' ELSE 'Returning Overseas Filipino Worker' END) AS employment_status, "
                                                           + "(CASE WHEN nature_of_employer = 2 THEN 'Government' ELSE 'Private' END) AS nature_of_employer, "
                                                           + "(CASE WHEN type_of_employment = 1 THEN 'Contractual' WHEN type_of_employment = 2 THEN 'Permanent' WHEN type_of_employment = 3 THEN 'Self-Employed' ELSE 'Seasonal' END) AS type_of_employment, "
                                                           + type_of_skill
                                                           + "(CASE WHEN status_pwd = 0 THEN 'Expired' ELSE 'Active' END) as status_pwd, "
-                                                          + "REPLACE(address, '|', '') AS address "
-                                                          + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
+                                                          + "CONCAT(address_house_no_street, ', ', address_barangay, ', ', address_municipality, ', ', address_province) as address,"
+                                                          + "district_name "
+                                                          + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) LEFT JOIN p_dao.pwd_district ON (pwd.district_id = pwd_district.district_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
                 MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
                 main_data.Fill(main);
                 comm = new MySqlCommand("SELECT sss_no, "
@@ -100,7 +104,8 @@ namespace SAD_2_PTT_01
                                              + "contact_person, "
                                              + "office_address, "
                                              + "tel_no, "
-                                             + "name_of_reporting_unit "
+                                             + "name_of_reporting_unit, "
+                                             + "CONCAT(UCASE(accomplished_by_ln), ', ', UCASE(accomplished_by_fn), ' ', accomplished_by_mn) AS accomplished_by "
                                              + "FROM pwd_otherinfo WHERE pwd_id = " + current_id, conn);
                 MySqlDataAdapter other_data = new MySqlDataAdapter(comm);
                 other_data.Fill(other_info);
@@ -120,6 +125,9 @@ namespace SAD_2_PTT_01
             }
         }
 
+        #endregion
+
+        #region ADD-MODE
         public bool pwd_check_registration_has_duplicate(string registration_no) 
         {
             bool has_duplicate = false;
@@ -219,5 +227,7 @@ namespace SAD_2_PTT_01
             }
             return success;
         }
+
+        #endregion
     }
 }

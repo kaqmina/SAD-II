@@ -62,18 +62,15 @@
             this.pwd_view_dob = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.pwd_view_address = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.pnl_title1 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pwd_view_accomplished_by = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.pwd_view_phealth_status = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.pwd_view_reporting_unit = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
@@ -93,7 +90,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.pwd_view_office_address = new System.Windows.Forms.Label();
             this.pwd_view_contact_person = new System.Windows.Forms.Label();
-            this.pwd_view_org_aff = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -123,6 +119,10 @@
             this.pnl_reg = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pwd_view_pp = new System.Windows.Forms.PictureBox();
+            this.pwd_view_reporting_unit = new System.Windows.Forms.TextBox();
+            this.pwd_view_accomplished_by1 = new System.Windows.Forms.TextBox();
+            this.pwd_view_address1 = new System.Windows.Forms.TextBox();
+            this.pwd_view_org_aff = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -253,6 +253,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pwd_view_address1);
             this.tabPage1.Controls.Add(this.pwd_view_toskill);
             this.tabPage1.Controls.Add(this.label44);
             this.tabPage1.Controls.Add(this.pwd_view_noemp);
@@ -276,7 +277,6 @@
             this.tabPage1.Controls.Add(this.pwd_view_dob);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.pwd_view_address);
             this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.pnl_title1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -542,18 +542,6 @@
             this.label14.TabIndex = 105;
             this.label14.Text = "Date of Birth : ";
             // 
-            // pwd_view_address
-            // 
-            this.pwd_view_address.AutoSize = true;
-            this.pwd_view_address.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_address.ForeColor = System.Drawing.Color.Black;
-            this.pwd_view_address.Location = new System.Drawing.Point(183, 140);
-            this.pwd_view_address.Name = "pwd_view_address";
-            this.pwd_view_address.Size = new System.Drawing.Size(490, 15);
-            this.pwd_view_address.TabIndex = 104;
-            this.pwd_view_address.Text = "Blk. 5 Lot 31 and 32, Barangay Catalunan Pequeno, Davao City, Davao del Sur, Regi" +
-    "on 11";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -587,12 +575,13 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.pwd_view_accomplished_by);
+            this.tabPage2.Controls.Add(this.pwd_view_org_aff);
+            this.tabPage2.Controls.Add(this.pwd_view_accomplished_by1);
+            this.tabPage2.Controls.Add(this.pwd_view_reporting_unit);
             this.tabPage2.Controls.Add(this.label64);
             this.tabPage2.Controls.Add(this.panel13);
             this.tabPage2.Controls.Add(this.pwd_view_phealth_status);
             this.tabPage2.Controls.Add(this.label54);
-            this.tabPage2.Controls.Add(this.pwd_view_reporting_unit);
             this.tabPage2.Controls.Add(this.label49);
             this.tabPage2.Controls.Add(this.label48);
             this.tabPage2.Controls.Add(this.label53);
@@ -611,7 +600,6 @@
             this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Controls.Add(this.pwd_view_office_address);
             this.tabPage2.Controls.Add(this.pwd_view_contact_person);
-            this.tabPage2.Controls.Add(this.pwd_view_org_aff);
             this.tabPage2.Controls.Add(this.label33);
             this.tabPage2.Controls.Add(this.label34);
             this.tabPage2.Controls.Add(this.label41);
@@ -623,17 +611,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Organizational, Parental, and Other Information";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // pwd_view_accomplished_by
-            // 
-            this.pwd_view_accomplished_by.AutoSize = true;
-            this.pwd_view_accomplished_by.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_accomplished_by.ForeColor = System.Drawing.Color.Black;
-            this.pwd_view_accomplished_by.Location = new System.Drawing.Point(634, 282);
-            this.pwd_view_accomplished_by.Name = "pwd_view_accomplished_by";
-            this.pwd_view_accomplished_by.Size = new System.Drawing.Size(103, 15);
-            this.pwd_view_accomplished_by.TabIndex = 129;
-            this.pwd_view_accomplished_by.Text = "Sakura Kinomoto";
             // 
             // label64
             // 
@@ -685,17 +662,6 @@
             this.label54.Size = new System.Drawing.Size(103, 17);
             this.label54.TabIndex = 117;
             this.label54.Text = "Father\'s Name : ";
-            // 
-            // pwd_view_reporting_unit
-            // 
-            this.pwd_view_reporting_unit.AutoSize = true;
-            this.pwd_view_reporting_unit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_reporting_unit.ForeColor = System.Drawing.Color.Black;
-            this.pwd_view_reporting_unit.Location = new System.Drawing.Point(634, 363);
-            this.pwd_view_reporting_unit.Name = "pwd_view_reporting_unit";
-            this.pwd_view_reporting_unit.Size = new System.Drawing.Size(50, 15);
-            this.pwd_view_reporting_unit.TabIndex = 124;
-            this.pwd_view_reporting_unit.Text = "#TWICE";
             // 
             // label49
             // 
@@ -896,17 +862,6 @@
             this.pwd_view_contact_person.Size = new System.Drawing.Size(66, 15);
             this.pwd_view_contact_person.TabIndex = 105;
             this.pwd_view_contact_person.Text = "Hello Kitty";
-            // 
-            // pwd_view_org_aff
-            // 
-            this.pwd_view_org_aff.AutoSize = true;
-            this.pwd_view_org_aff.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_org_aff.ForeColor = System.Drawing.Color.Black;
-            this.pwd_view_org_aff.Location = new System.Drawing.Point(226, 75);
-            this.pwd_view_org_aff.Name = "pwd_view_org_aff";
-            this.pwd_view_org_aff.Size = new System.Drawing.Size(94, 15);
-            this.pwd_view_org_aff.TabIndex = 104;
-            this.pwd_view_org_aff.Text = "teamababangay";
             // 
             // label33
             // 
@@ -1212,6 +1167,46 @@
             this.pwd_view_pp.TabIndex = 42;
             this.pwd_view_pp.TabStop = false;
             // 
+            // pwd_view_reporting_unit
+            // 
+            this.pwd_view_reporting_unit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_reporting_unit.Location = new System.Drawing.Point(634, 363);
+            this.pwd_view_reporting_unit.Multiline = true;
+            this.pwd_view_reporting_unit.Name = "pwd_view_reporting_unit";
+            this.pwd_view_reporting_unit.ReadOnly = true;
+            this.pwd_view_reporting_unit.Size = new System.Drawing.Size(195, 69);
+            this.pwd_view_reporting_unit.TabIndex = 130;
+            // 
+            // pwd_view_accomplished_by1
+            // 
+            this.pwd_view_accomplished_by1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_accomplished_by1.Location = new System.Drawing.Point(634, 282);
+            this.pwd_view_accomplished_by1.Multiline = true;
+            this.pwd_view_accomplished_by1.Name = "pwd_view_accomplished_by1";
+            this.pwd_view_accomplished_by1.ReadOnly = true;
+            this.pwd_view_accomplished_by1.Size = new System.Drawing.Size(195, 50);
+            this.pwd_view_accomplished_by1.TabIndex = 131;
+            // 
+            // pwd_view_address1
+            // 
+            this.pwd_view_address1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_address1.Location = new System.Drawing.Point(183, 130);
+            this.pwd_view_address1.Multiline = true;
+            this.pwd_view_address1.Name = "pwd_view_address1";
+            this.pwd_view_address1.ReadOnly = true;
+            this.pwd_view_address1.Size = new System.Drawing.Size(351, 36);
+            this.pwd_view_address1.TabIndex = 132;
+            // 
+            // pwd_view_org_aff
+            // 
+            this.pwd_view_org_aff.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_org_aff.Location = new System.Drawing.Point(226, 63);
+            this.pwd_view_org_aff.Multiline = true;
+            this.pwd_view_org_aff.Name = "pwd_view_org_aff";
+            this.pwd_view_org_aff.ReadOnly = true;
+            this.pwd_view_org_aff.Size = new System.Drawing.Size(171, 40);
+            this.pwd_view_org_aff.TabIndex = 132;
+            // 
             // pwd_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1320,7 +1315,6 @@
         private System.Windows.Forms.Label pwd_view_dob;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label pwd_view_address;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel pnl_title1;
         private System.Windows.Forms.Label label23;
@@ -1335,13 +1329,11 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label pwd_view_accomplished_by;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label pwd_view_phealth_status;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label pwd_view_reporting_unit;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label53;
@@ -1361,11 +1353,14 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label pwd_view_office_address;
         private System.Windows.Forms.Label pwd_view_contact_person;
-        private System.Windows.Forms.Label pwd_view_org_aff;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox pwd_view_reporting_unit;
+        private System.Windows.Forms.TextBox pwd_view_accomplished_by1;
+        private System.Windows.Forms.TextBox pwd_view_address1;
+        private System.Windows.Forms.TextBox pwd_view_org_aff;
     }
 }
