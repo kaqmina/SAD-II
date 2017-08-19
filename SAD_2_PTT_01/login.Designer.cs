@@ -79,6 +79,7 @@
             this.uname.TabIndex = 41;
             this.uname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.uname.TextChanged += new System.EventHandler(this.uname_TextChanged);
+            this.uname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.uname_KeyPress);
             // 
             // pword
             // 
@@ -92,6 +93,7 @@
             this.pword.TabIndex = 42;
             this.pword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pword.TextChanged += new System.EventHandler(this.pword_TextChanged);
+            this.pword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pword_KeyPress);
             // 
             // message
             // 

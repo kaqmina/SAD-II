@@ -88,6 +88,12 @@
       <DependentUpon>shadow.cs</DependentUpon>
     </Compile>
     <Compile Include="system_keypress.cs" />
+    <Compile Include="system_notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="system_notification.Designer.cs">
+      <DependentUpon>system_notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="system_sidenav_active.cs" />
     <Compile Include="system_functions.cs" />
     <EmbeddedResource Include="login.resx">
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="shadow.resx">
       <DependentUpon>shadow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="system_notification.resx">
+      <DependentUpon>system_notification.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

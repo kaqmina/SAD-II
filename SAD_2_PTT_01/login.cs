@@ -17,6 +17,7 @@ namespace SAD_2_PTT_01
             InitializeComponent();
         }
         connections_login conn_login = new connections_login();
+        system_keypress key_ = new system_keypress();
 
         private void login_Load(object sender, EventArgs e)
         {
@@ -74,5 +75,15 @@ namespace SAD_2_PTT_01
             check_();
         }
         #endregion
+
+        private void uname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            key_.key_letter(sender, e);
+        }
+
+        private void pword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            key_.key_number_letter(sender, e);
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace SAD_2_PTT_01
             }
             catch (Exception e)
             {
+                conn.Close();
                 MessageBox.Show(e.Message);
             }
             return valid;

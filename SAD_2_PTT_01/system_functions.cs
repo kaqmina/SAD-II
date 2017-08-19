@@ -38,7 +38,5 @@ namespace SAD_2_PTT_01
             }
         }
         #endregion
-
-
     }
 }

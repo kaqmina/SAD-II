@@ -120,14 +120,16 @@ namespace SAD_2_PTT_01
             }
         }
 
-        public bool pwd_check_registration_no_duplicate(int registration_no) 
+        public bool pwd_check_registration_has_duplicate(string registration_no) 
         {
             bool has_duplicate = false;
+            if (registration_no == "")
+                registration_no = "0";
             try
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE pwd_id = " + registration_no, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE registration_no = " + registration_no, conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -192,6 +194,30 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 MessageBox.Show(e.Message); //error
             }
+        }
+
+        public bool pwd_add_profile(string main_data, string other_data, string parental_data)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(other_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(parental_data, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                success = false;
+                conn.Close();
+                MessageBox.Show(e.Message);
+            }
+            return success;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace SAD_2_PTT_01
         system_sidenav_active system_sidenav = new system_sidenav_active();
         connections_pwd conn_pwd = new connections_pwd();
         shadow shadow_;
+        system_notification system_notify;
         public string current_user;
 
         #region OnLoad
@@ -179,6 +180,8 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region PWD-ADD-MODE
+        public bool success = false;
+
         private void btn_pwd_add_Click(object sender, EventArgs e)
         {
             int loc_x = this.Location.X + 71;
@@ -192,6 +195,10 @@ namespace SAD_2_PTT_01
             pwd_fill_up_form.ShowDialog();
             side_tab.Enabled = true;
             dboard_head.Enabled = true;
+            if (success == true)
+            {
+                added_successfully();
+            }
         }
 
         #endregion
@@ -295,6 +302,48 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        
+        #region NOTIFICATIONS-[MODIFICATIONS ONLY]
+        public void added_successfully()
+        {
+            //827, 531
+            system_notify = new system_notification();
+            system_notify.Location = new Point(this.Location.X + 827, this.Location.Y + 531);
+            system_notify.message.Text = "Successfully added new PWD Profile!";
+            system_notify.Show();
+            notification.Start();
+        }
+
+        bool close = false;
+        int stay = 100;
+
+        private void notification_Tick(object sender, EventArgs e)
+        {
+            if (system_notify.Opacity < 1 && close == false)
+            {
+                system_notify.Opacity += 0.1;
+            } else
+            {
+                close = true;
+            }
+            if (close == true)
+            {
+                if(stay != 0)
+                {
+                    stay--;
+                } else
+                {
+                    if(system_notify.Opacity > 0)
+                    {
+                        system_notify.Opacity -= 0.1;
+                    } else
+                    {
+                        system_notify.Close();
+                        notification.Stop();
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }
