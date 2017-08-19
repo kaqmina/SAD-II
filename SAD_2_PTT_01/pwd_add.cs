@@ -75,6 +75,8 @@ namespace SAD_2_PTT_01
         int pwd_status;
         public int pwd_update_id = 0;
         bool all_required = false;
+        public bool update_mode = false;
+        public string update_regis_no = "";
         Image picture = null;
 
         #endregion
@@ -276,6 +278,8 @@ namespace SAD_2_PTT_01
             load_combobox_initial_selected_index();
 
             current_panel_active = panel_1_;
+            if (update_mode)
+                paste_data();
         }
 
         private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
@@ -1226,6 +1230,77 @@ namespace SAD_2_PTT_01
         {
 
         }
-        
+
+        public void paste_data()
+        {
+            DataTable main_data = new DataTable();
+            DataTable other_data = new DataTable();
+            DataTable parental_data = new DataTable();
+            conn_pwd.pwd_update_profile_data(pwd_update_id, main_data, other_data, parental_data);
+
+            #region <-----[MAIN DATA]----->
+
+            pwd_regisno.Text = main_data.Rows[0]["registration_no"].ToString();
+            ln_txt.Text = main_data.Rows[0]["lastname"].ToString();
+            fn_txt.Text = main_data.Rows[0]["firstname"].ToString();
+            mn_txt.Text = main_data.Rows[0]["middlename"].ToString();
+            gender.SelectedIndex = int.Parse(main_data.Rows[0]["sex"].ToString()) + 1;
+            disability_type.SelectedIndex = int.Parse(main_data.Rows[0]["disability_id"].ToString());
+            bloodtype.SelectedIndex = int.Parse(main_data.Rows[0]["blood_type"].ToString());
+            civilstatus.SelectedIndex = int.Parse(main_data.Rows[0]["civil_status"].ToString());
+            pwd_appdate.Value = Convert.ToDateTime(main_data.Rows[0]["application_date"].ToString());
+            nationality.Text = main_data.Rows[0]["nationality"].ToString();
+            dateofbirth.Value = Convert.ToDateTime(main_data.Rows[0]["birthdate"].ToString());
+            telno.Text = main_data.Rows[0]["tel_no"].ToString();
+            mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
+            email.Text = main_data.Rows[0]["email_add"].ToString();
+
+            educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
+            empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());
+            noemp.SelectedIndex = int.Parse(main_data.Rows[0]["nature_of_employer"].ToString());
+            typeoemp.SelectedIndex = int.Parse(main_data.Rows[0]["type_of_employment"].ToString());
+            type_of_skill("update", main_data.Rows[0]["type_of_skill"].ToString());
+            status_pwd("update", main_data.Rows[0]["status_pwd"].ToString());
+            
+            hs_txt.Text = main_data.Rows[0]["address_house_no_street"].ToString();
+            mun_txt.Text = main_data.Rows[0]["address_municipality"].ToString();
+            bar_txt.Text = main_data.Rows[0]["address_barangay"].ToString();
+            prov_txt.Text = main_data.Rows[0]["address_province"].ToString();
+            district_type.SelectedIndex = int.Parse(main_data.Rows[0]["district_id"].ToString());
+
+            #endregion
+
+            #region <-----[OTHER DATA]----->
+
+            sssno.Text = other_data.Rows[0]["sss_no"].ToString();
+            gsisno.Text = other_data.Rows[0]["gsis_no"].ToString();
+            philhealthno.Text = other_data.Rows[0]["phealth_no"].ToString();
+            philhealthstatus.SelectedIndex = int.Parse(other_data.Rows[0]["phealth_status"].ToString());
+            orgaff.Text = other_data.Rows[0]["organization_aff"].ToString();
+            contactper.Text = other_data.Rows[0]["contact_person"].ToString();
+            officeadd.Text = other_data.Rows[0]["office_address"].ToString();
+            orgtelno.Text = other_data.Rows[0]["tel_no"].ToString();
+            norunit.Text = other_data.Rows[0]["name_of_reporting_unit"].ToString();
+            aln_txt.Text = other_data.Rows[0]["accomplished_by_ln"].ToString();
+            afn_txt.Text = other_data.Rows[0]["accomplished_by_fn"].ToString();
+            amn_txt.Text = other_data.Rows[0]["accomplished_by_mn"].ToString();
+
+            #endregion
+
+            #region <-----[PARENTAL INFO]----->
+
+            ffn_txt.Text = parental_data.Rows[0]["fatherfn"].ToString();
+            fmn_txt.Text = parental_data.Rows[0]["fathermn"].ToString();
+            fln_txt.Text = parental_data.Rows[0]["fatherln"].ToString();
+            mfn_txt.Text = parental_data.Rows[0]["motherfn"].ToString();
+            mmn_txt.Text = parental_data.Rows[0]["mothermn"].ToString();
+            mln_txt.Text = parental_data.Rows[0]["motherln"].ToString();
+            gfn_txt.Text = parental_data.Rows[0]["guardianfn"].ToString();
+            gmn_txt.Text = parental_data.Rows[0]["guardianmn"].ToString();
+            gln_txt.Text = parental_data.Rows[0]["guardianln"].ToString();
+
+            #endregion
+        }
+
     }
 }

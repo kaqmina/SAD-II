@@ -53,7 +53,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pwd_add_back = new System.Windows.Forms.Button();
@@ -86,7 +85,6 @@
             this.fn_txt = new System.Windows.Forms.TextBox();
             this.ln_txt = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label62 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
@@ -111,12 +109,10 @@
             this.educ2 = new System.Windows.Forms.RadioButton();
             this.educ1 = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.TextBox();
             this.mobileno = new System.Windows.Forms.TextBox();
             this.telno = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
@@ -137,9 +133,7 @@
             this.empstatus = new System.Windows.Forms.ComboBox();
             this.typeoemp = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel_5_ = new System.Windows.Forms.Panel();
             this.philhealthstatus = new System.Windows.Forms.ComboBox();
             this.philhealthno = new System.Windows.Forms.TextBox();
@@ -165,9 +159,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel_6_ = new System.Windows.Forms.Panel();
             this.label50 = new System.Windows.Forms.Label();
             this.status_ex_inactive = new System.Windows.Forms.RadioButton();
@@ -208,23 +200,31 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.quick_panel.SuspendLayout();
             this.panel_1_.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_2_.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_3_.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel_4_.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel_5_.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel_6_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -575,16 +575,6 @@
             this.label12.Size = new System.Drawing.Size(101, 13);
             this.label12.TabIndex = 63;
             this.label12.Text = "REGISTRATION No.";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num1;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(350, 114);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
             // 
             // label48
             // 
@@ -1024,16 +1014,6 @@
             this.label18.TabIndex = 55;
             this.label18.Text = "PERSONAL INFORMATION";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num2;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox2.TabIndex = 52;
-            this.pictureBox2.TabStop = false;
-            // 
             // label62
             // 
             this.label62.AutoSize = true;
@@ -1330,16 +1310,6 @@
             this.label33.TabIndex = 65;
             this.label33.Text = "EDUCATIONAL ATTAINMENT";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num4;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(104, 262);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox4.TabIndex = 64;
-            this.pictureBox4.TabStop = false;
-            // 
             // email
             // 
             this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1384,16 +1354,6 @@
             this.label31.Size = new System.Drawing.Size(267, 30);
             this.label31.TabIndex = 57;
             this.label31.Text = "CONTACT INFORMATION";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num3;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox3.TabIndex = 56;
-            this.pictureBox3.TabStop = false;
             // 
             // label65
             // 
@@ -1668,16 +1628,6 @@
             this.label25.TabIndex = 84;
             this.label25.Text = "EMPLOYMENT STATUS";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num6;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(104, 262);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox5.TabIndex = 64;
-            this.pictureBox5.TabStop = false;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -1688,16 +1638,6 @@
             this.label27.Size = new System.Drawing.Size(313, 30);
             this.label27.TabIndex = 57;
             this.label27.Text = "EMPLOYMENT INFORMATION";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num5;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox6.TabIndex = 56;
-            this.pictureBox6.TabStop = false;
             // 
             // panel_5_
             // 
@@ -2008,16 +1948,6 @@
             this.label32.TabIndex = 84;
             this.label32.Text = "ORGANIZATIONAL AFFLIATED";
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num8;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.Location = new System.Drawing.Point(104, 262);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox7.TabIndex = 64;
-            this.pictureBox7.TabStop = false;
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -2028,16 +1958,6 @@
             this.label34.Size = new System.Drawing.Size(359, 30);
             this.label34.TabIndex = 57;
             this.label34.Text = "ORGANIZATIONAL INFORMATION";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num7;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox8.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox8.TabIndex = 56;
-            this.pictureBox8.TabStop = false;
             // 
             // panel_6_
             // 
@@ -2513,6 +2433,86 @@
             this.pictureBox10.TabIndex = 56;
             this.pictureBox10.TabStop = false;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num6;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Location = new System.Drawing.Point(104, 262);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox5.TabIndex = 64;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num5;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox6.TabIndex = 56;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num4;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(104, 262);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox4.TabIndex = 64;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num3;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox3.TabIndex = 56;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num8;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox7.Location = new System.Drawing.Point(104, 262);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox7.TabIndex = 64;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num7;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox8.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox8.TabIndex = 56;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num2;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox2.TabIndex = 52;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(350, 114);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2542,25 +2542,25 @@
             this.quick_panel.ResumeLayout(false);
             this.panel_1_.ResumeLayout(false);
             this.panel_1_.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_2_.ResumeLayout(false);
             this.panel_2_.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel_3_.ResumeLayout(false);
             this.panel_3_.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel_4_.ResumeLayout(false);
             this.panel_4_.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel_5_.ResumeLayout(false);
             this.panel_5_.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel_6_.ResumeLayout(false);
             this.panel_6_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2595,7 +2595,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button pwd_add_back;
         private System.Windows.Forms.DateTimePicker pwd_appdate;
-        private System.Windows.Forms.Button pwd_next;
         private System.Windows.Forms.Panel panel_2_;
         private System.Windows.Forms.ComboBox civilstatus;
         private System.Windows.Forms.ComboBox bloodtype;
@@ -2747,5 +2746,6 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label lbl_regis_no_error;
+        public System.Windows.Forms.Button pwd_next;
     }
 }

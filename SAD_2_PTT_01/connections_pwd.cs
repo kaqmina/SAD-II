@@ -160,7 +160,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM disability", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM p_dao.disability", conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -241,5 +241,29 @@ namespace SAD_2_PTT_01
             conn.Close();
         }
         #endregion
+
+        public void pwd_update_profile_data(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM p_dao.pwd WHERE isArchived = 0 AND pwd.pwd_id = " + current_id, conn);
+                MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
+                main_data.Fill(main);
+                comm = new MySqlCommand("SELECT * FROM pwd_otherinfo WHERE pwd_id = " + current_id, conn);
+                MySqlDataAdapter other_data = new MySqlDataAdapter(comm);
+                other_data.Fill(other_info);
+                comm = new MySqlCommand("SELECT * FROM parental_info WHERE pwd_id = " + current_id, conn);
+                MySqlDataAdapter parent_data = new MySqlDataAdapter(comm);
+                parent_data.Fill(parental_info);
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.Message); //error
+            }
+        }
     }
 }

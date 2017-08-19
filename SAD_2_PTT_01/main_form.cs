@@ -351,13 +351,13 @@ namespace SAD_2_PTT_01
             int loc_x = this.Location.X + 71;
             int loc_y = this.Location.Y + 50;
 
-            /*pwd_add edit = new pwd_add();
+            pwd_add edit = new pwd_add();
             edit.reference_to_main = this;
             edit.Location = new Point(loc_x, loc_y);
             edit.pwd_update_id = current_pwd_id;
-            edit.paste_data();
-            edit.btn_add_edit.Text = "UPDATE";
-            edit.ShowDialog();*/
+            edit.update_mode = true;
+            edit.update_regis_no = pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            edit.ShowDialog();
         }
 
         private void btn_archive_Click(object sender, EventArgs e)
