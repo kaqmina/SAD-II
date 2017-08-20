@@ -18,10 +18,11 @@ namespace SAD_2_PTT_01
         }
         public main_form reference_to_main { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
+        system_notification system_notify;
         public int current_pwd = 0;
         public bool success;
 
-        #region ON-LOAD
+        #region ON-LOAD | ON-CLOSE
         private void startup_opacity_Tick(object sender, EventArgs e)
         {
             if (this.Opacity < 1)
@@ -41,6 +42,18 @@ namespace SAD_2_PTT_01
             exit_opacity.Start();
         }
 
+        private void exit_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+            else
+            {
+                exit_opacity.Stop();
+                this.Close();
+            }
+        }
         #endregion
 
         #region PWD DATA Paste
@@ -94,18 +107,7 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
-        private void exit_opacity_Tick(object sender, EventArgs e)
-        {
-            if (this.Opacity > 0)
-            {
-                this.Opacity -= 0.1;
-            }
-            else
-            {
-                exit_opacity.Stop();
-                this.Close();
-            }
-        }
+        
 
         private void pwd_view_edit_Click(object sender, EventArgs e)
         {
@@ -114,6 +116,7 @@ namespace SAD_2_PTT_01
 
             pwd_add edit = new pwd_add();
             edit.reference_to_view = this;
+            edit.reference_to_main = this.reference_to_main;
             edit.Location = new Point(loc_x, loc_y);
             edit.pwd_update_id = current_pwd;
             edit.from_view = true;
@@ -121,6 +124,24 @@ namespace SAD_2_PTT_01
             edit.update_regis_no = pwd_view_regis_no.Text;
             Console.WriteLine("[PWD] ->> [EDIT-MODE]");
             edit.ShowDialog();
+            if (success == true)
+            {
+                show_success_message();
+            }
         }
+
+        public string notification_;
+
+        public void show_success_message()
+        {
+            //827, 531
+            success = false;
+            system_notify = new system_notification();
+            system_notify.Location = new Point(reference_to_main.Location.X + 827, reference_to_main.Location.Y + 531);
+            system_notify.notification_message = notification_;
+            system_notify.Show();
+            notification_ = "";
+        }
+
     }
 }

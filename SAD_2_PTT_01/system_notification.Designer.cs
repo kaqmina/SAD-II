@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.message = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.notification = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // message
             // 
             this.message.AutoSize = true;
-            this.message.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.message.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.message.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.message.Location = new System.Drawing.Point(11, 17);
+            this.message.Location = new System.Drawing.Point(9, 9);
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(195, 17);
+            this.message.Size = new System.Drawing.Size(176, 15);
             this.message.TabIndex = 0;
             this.message.Text = "Successfully added PWD Profile!";
             // 
@@ -51,6 +53,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 55);
             this.panel1.TabIndex = 2;
+            // 
+            // notification
+            // 
+            this.notification.Interval = 1;
+            this.notification.Tick += new System.EventHandler(this.notification_Tick);
             // 
             // system_notification
             // 
@@ -65,6 +72,7 @@
             this.Opacity = 0D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Load += new System.EventHandler(this.system_notification_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -74,5 +82,6 @@
 
         public System.Windows.Forms.Label message;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer notification;
     }
 }

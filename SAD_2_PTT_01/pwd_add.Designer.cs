@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_mode_status = new System.Windows.Forms.Button();
             this.quick_panel = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -234,29 +234,29 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btn_mode_status);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1066, 28);
             this.panel2.TabIndex = 7;
             // 
-            // button1
+            // btn_mode_status
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 28);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "NEW PWD PROFILE";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_mode_status.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_mode_status.FlatAppearance.BorderSize = 0;
+            this.btn_mode_status.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_mode_status.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_mode_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_mode_status.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_mode_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btn_mode_status.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_mode_status.Location = new System.Drawing.Point(0, 0);
+            this.btn_mode_status.Name = "btn_mode_status";
+            this.btn_mode_status.Size = new System.Drawing.Size(134, 28);
+            this.btn_mode_status.TabIndex = 3;
+            this.btn_mode_status.Text = "NEW PWD PROFILE";
+            this.btn_mode_status.UseVisualStyleBackColor = true;
             // 
             // quick_panel
             // 
@@ -2600,7 +2600,7 @@
         #endregion
 
         public System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_mode_status;
         private System.Windows.Forms.Panel quick_panel;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel3;

@@ -240,6 +240,20 @@ namespace SAD_2_PTT_01
             else
             {
                 exit_opacity.Stop();
+                if (update_mode)
+                {
+                    if(from_view)
+                    {
+                        reference_to_view.notification_ = "Updated PWD Profile! Registration #:" + "\n" + registration_no;
+                    } else
+                    {
+                        reference_to_main.notification_ = "Updated PWD Profile! Registration #:" + "\n" + registration_no;
+                    }
+                }
+                else
+                {
+                    reference_to_main.notification_ = "Added PWD Profile! Registration #:" + "\n" + registration_no;
+                }
                 this.Close();
             }
         }
@@ -309,6 +323,7 @@ namespace SAD_2_PTT_01
             {
                 paste_data();
                 btn_revert.Visible = true;
+                btn_mode_status.Text = "UPDATE PWD PROFILE";
             }
                 
         }
@@ -1334,8 +1349,12 @@ namespace SAD_2_PTT_01
                 } else
                 {
                     reference_to_main.success = true;
-                    MessageBox.Show("Invalid Information."); //messagebox
+                    reference_to_main.load_pwd();
+                    exit_opacity.Start();
                 }
+            } else
+            {
+                MessageBox.Show("Invalid Information."); //messagebox
             }
         }
         #endregion

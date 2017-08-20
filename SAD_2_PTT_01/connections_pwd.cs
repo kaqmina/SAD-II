@@ -83,7 +83,7 @@ namespace SAD_2_PTT_01
                                                           + "added_date, "
                                                           + "end_date, "
                                                           + "nationality, "
-                                                          + "FORMAT(birthdate,'YYYY-MM-DD') AS birthdate, "
+                                                          + "birthdate, "
                                                           + "tel_no, "
                                                           + "mobile_no, "
                                                           + "email_add, "

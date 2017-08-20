@@ -16,5 +16,45 @@ namespace SAD_2_PTT_01
         {
             InitializeComponent();
         }
+        bool close = false;
+        int stay = 100;
+        public string notification_message = "";
+
+        private void notification_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1 && close == false)
+            {
+                this.Opacity += 0.1;
+            }
+            else
+            {
+                close = true;
+            }
+            if (close == true)
+            {
+                if (stay != 0)
+                {
+                    stay--;
+                }
+                else
+                {
+                    if (this.Opacity > 0)
+                    {
+                        this.Opacity -= 0.1;
+                    }
+                    else
+                    {
+                        this.Close();
+                        notification.Stop();
+                    }
+                }
+            }
+        }
+
+        private void system_notification_Load(object sender, EventArgs e)
+        {
+            message.Text = notification_message;
+            notification.Start();
+        }
     }
 }

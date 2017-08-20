@@ -198,8 +198,53 @@ namespace SAD_2_PTT_01
             dboard_head.Enabled = true;
             if (success == true)
             {
-                added_successfully();
+                show_success_message();
             }
+        }
+
+        #endregion
+
+        #region PWD-EDIT-MODE
+        private void btn_pwd_edit_Click(object sender, EventArgs e)
+        {
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 28;
+
+            pwd_add edit = new pwd_add();
+            edit.reference_to_main = this;
+            edit.Location = new Point(loc_x, loc_y);
+            edit.pwd_update_id = current_pwd_id;
+            edit.update_mode = true;
+            edit.update_regis_no = pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            Console.WriteLine("[PWD] ->> [EDIT-MODE]");
+            edit.ShowDialog();
+            if (success == true)
+            {
+                show_success_message();
+            }
+        }
+
+        #endregion
+
+        #region PWD-ARCHIVE-MODE
+        private void btn_archive_Click(object sender, EventArgs e)
+        {
+            pwd_archive show_prompt = new pwd_archive();
+            shadow_ = new shadow();
+            shadow_.Location = new Point(this.Location.X, this.Location.Y);
+            show_prompt.current_id = current_pwd_id;
+            show_prompt.reference_to_main = this;
+            show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            show_prompt.name.Text = "Name: " + pwd_grid.Rows[current_grid_index].Cells["fullname"].Value.ToString();
+            show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_grid_index].Cells["application_date"].Value.ToString();
+            show_prompt.prompt_title.Text = "Archive";
+            show_prompt.action.Text = "The following profile will be archived:";
+            shadow_.Show();
+            Console.WriteLine("[PWD] ->> [ARCHIVE-MODE]");
+            show_prompt.ShowDialog();
+            shadow_.Close();
+            btn_renew.Enabled = false;
+            btn_archive.Enabled = false;
         }
 
         #endregion
@@ -304,82 +349,24 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region NOTIFICATIONS-[MODIFICATIONS ONLY]
-        public void added_successfully()
+
+        public string notification_;
+
+        public void show_success_message()
         {
             //827, 531
+            success = false;
             system_notify = new system_notification();
             system_notify.Location = new Point(this.Location.X + 827, this.Location.Y + 531);
-            system_notify.message.Text = "Successfully added new PWD Profile!";
+            system_notify.notification_message = notification_;
             system_notify.Show();
-            notification.Start();
-        }
-
-        bool close = false;
-        int stay = 100;
-
-        private void notification_Tick(object sender, EventArgs e)
-        {
-            if (system_notify.Opacity < 1 && close == false)
-            {
-                system_notify.Opacity += 0.1;
-            } else
-            {
-                close = true;
-            }
-            if (close == true)
-            {
-                if(stay != 0)
-                {
-                    stay--;
-                } else
-                {
-                    if(system_notify.Opacity > 0)
-                    {
-                        system_notify.Opacity -= 0.1;
-                    } else
-                    {
-                        system_notify.Close();
-                        notification.Stop();
-                    }
-                }
-            }
+            notification_ = "";
         }
 
         #endregion
 
-        private void btn_pwd_edit_Click(object sender, EventArgs e)
-        {
-            int loc_x = this.Location.X + 71;
-            int loc_y = this.Location.Y + 28;
+        
 
-            pwd_add edit = new pwd_add();
-            edit.reference_to_main = this;
-            edit.Location = new Point(loc_x, loc_y);
-            edit.pwd_update_id = current_pwd_id;
-            edit.update_mode = true;
-            edit.update_regis_no = pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
-            Console.WriteLine("[PWD] ->> [EDIT-MODE]");
-            edit.ShowDialog();
-        }
-
-        private void btn_archive_Click(object sender, EventArgs e)
-        {
-            pwd_archive show_prompt = new pwd_archive();
-            shadow_ = new shadow();
-            shadow_.Location = new Point(this.Location.X, this.Location.Y);
-            show_prompt.current_id = current_pwd_id;
-            show_prompt.reference_to_main = this;
-            show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
-            show_prompt.name.Text = "Name: " + pwd_grid.Rows[current_grid_index].Cells["fullname"].Value.ToString();
-            show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_grid_index].Cells["application_date"].Value.ToString();
-            show_prompt.prompt_title.Text = "Archive";
-            show_prompt.action.Text = "The following profile will be archived:";
-            shadow_.Show();
-            Console.WriteLine("[PWD] ->> [ARCHIVE-MODE]");
-            show_prompt.ShowDialog();
-            shadow_.Close();
-            btn_renew.Enabled = false;
-            btn_archive.Enabled = false;
-        }
+        
     }
 }
