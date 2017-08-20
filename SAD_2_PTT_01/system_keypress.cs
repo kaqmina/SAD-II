@@ -32,5 +32,13 @@ namespace SAD_2_PTT_01
                 e.KeyChar = Convert.ToChar("\0");
             }
         }
+
+        public void key_number_letter_space(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || Char.IsLetter(e.KeyChar) || e.KeyChar == (char)(Keys.Space)))
+            {
+                e.KeyChar = Convert.ToChar("\0");
+            }
+        }
     }
 }

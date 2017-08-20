@@ -12,6 +12,9 @@ namespace SAD_2_PTT_01
     class connections_pwd
     {
         public MySqlConnection conn;
+        MySqlCommand comm;
+        MySqlDataAdapter get;
+        DataTable set;
         public connections_pwd()
         {
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
@@ -23,19 +26,20 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
-                                                          + "registration_no, "
-                                                          + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
-                                                          + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) as sex, "
-                                                          + "disability_type, "
-                                                          + "(CASE WHEN blood_type = 1 THEN 'O' WHEN blood_type = 2 THEN 'A' WHEN blood_type = 3 THEN 'B' ELSE 'AB' END) AS blood_type, "
-                                                          + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
-                                                          + "application_date, "
-                                                          + "added_date, "
-                                                          + "status_pwd "
-                                                          + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0", conn);
-                MySqlDataAdapter get = new MySqlDataAdapter(comm);
-                DataTable set = new DataTable();
+                comm = new MySqlCommand("SELECT pwd_id, "
+                                             + "registration_no, "
+                                             + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), SUBSTRING(middlename, 2)) AS fullname, "
+                                             + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) as sex, "
+                                             + "DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age, "
+                                             + "disability_type, "
+                                             + "(CASE WHEN blood_type = 1 THEN 'O' WHEN blood_type = 2 THEN 'A' WHEN blood_type = 3 THEN 'B' ELSE 'AB' END) AS blood_type, "
+                                             + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                             + "application_date, "
+                                             + "added_date, "
+                                             + "status_pwd "
+                                             + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
                 get.Fill(set);
 
 
@@ -72,7 +76,7 @@ namespace SAD_2_PTT_01
                                            + "WHEN type_of_skill = 7 THEN 'Laborers' "
                                            + "WHEN type_of_skill = 8 THEN 'Unskilled Workers' "
                                            + "ELSE 'Special Occupation' END) AS type_of_skill, ";
-                MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
+                comm = new MySqlCommand("SELECT pwd_id, "
                                                           + "registration_no, "
                                                           + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
                                                           + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
@@ -254,12 +258,14 @@ namespace SAD_2_PTT_01
             Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { ARCHIVE_PROFILE }");
             conn.Open();
 
-            MySqlCommand comm = new MySqlCommand("UPDATE p_dao.pwd SET isArchived = 1 WHERE pwd_id = " + current_id, conn);
+            comm = new MySqlCommand("UPDATE p_dao.pwd SET isArchived = 1 WHERE pwd_id = " + current_id, conn);
             comm.ExecuteNonQuery();
 
             conn.Close();
         }
         #endregion
+
+        #region EDIT-MODE
 
         public void pwd_update_profile_data(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
@@ -267,7 +273,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM p_dao.pwd WHERE isArchived = 0 AND pwd.pwd_id = " + current_id, conn);
+                comm = new MySqlCommand("SELECT * FROM p_dao.pwd WHERE isArchived = 0 AND pwd.pwd_id = " + current_id, conn);
                 MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
                 main_data.Fill(main);
                 comm = new MySqlCommand("SELECT * FROM pwd_otherinfo WHERE pwd_id = " + current_id, conn);
@@ -294,7 +300,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                comm = new MySqlCommand(main_data, conn);
                 comm.ExecuteNonQuery();
                 comm = new MySqlCommand(other_data, conn);
                 comm.ExecuteNonQuery();
@@ -313,5 +319,90 @@ namespace SAD_2_PTT_01
 
             return success;
         }
+
+        #endregion
+
+        public void pwd_search(DataGridView pwd_grid, TextBox pwd_searchbox)
+        {
+            conn.Open();
+            string regis;
+            string lastname;
+            string firstname;
+            string middlename;
+            string app_date;
+            //string 
+            lastname = firstname = middlename = app_date = regis = " ";
+            string[] separators = { " " };
+            string value = pwd_searchbox.Text;
+            string[] search = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            string last = search.Last();
+            foreach (string word in search)
+            {
+                if (word == last)
+                {
+                    regis += ("registration_no LIKE '%" + word + "%' ");
+                    lastname += ("lastname LIKE '%" + word + "%' ");
+                    firstname += ("firstname LIKE '%" + word + "%' ");
+                    middlename += ("middlename LIKE '%" + word + "%' ");
+                    app_date += ("application_date LIKE '%" + word + "%' ");
+                }
+                else
+                {
+                    regis += ("registration_no LIKE '%" + word + "%' OR ");
+                    lastname += ("lastname LIKE '%" + word + "%' OR ");
+                    firstname += ("firstname LIKE '%" + word + "%' OR ");
+                    middlename += ("middlename LIKE '%" + word + "%' OR ");
+                    app_date += ("application_date LIKE '%" + word + "%' OR ");
+                }
+            }
+            /*
+            string word = pwd_searchbox.Text;
+            regis += ("registration_no LIKE '%" + word + "%' ");
+            lastname += ("lastname LIKE '%" + word + "%' ");
+            firstname += ("firstname LIKE '%" + word + "%' ");
+            middlename += ("middlename LIKE '%" + word + "%' ");
+            app_date += ("application_date LIKE '%" + word + "%' ");*/
+
+            MySqlCommand comm = new MySqlCommand("SELECT pwd_id, "
+                                                      + "registration_no, "
+                                                      + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, "
+                                                      + "lastname, "
+                                                      + "firstname, "
+                                                      + "middlename, "
+                                                      + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
+                                                      + "DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age, "
+                                                      + "disability_type, "
+                                                      + "blood_type, "
+                                                      + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                                      + "application_date, "
+                                                      + "added_date, "
+                                                      + "status_pwd "
+                                                      + "FROM pwd LEFT JOIN disability ON pwd.disability_id = disability.disability_id WHERE "
+                                                      + regis + " OR "
+                                                      + lastname + " OR "
+                                                      + firstname + " OR "
+                                                      + middlename + " OR "
+                                                      + app_date, conn);
+
+            MySqlDataAdapter getresult = new MySqlDataAdapter(comm);
+            DataTable resulttable = new DataTable();
+            getresult.Fill(resulttable);
+            pwd_grid.DataSource = resulttable;
+
+
+            conn.Close();
+        }
+
+        public void filter_gender (string gender, DataGridView pwd_grid)
+        {
+            (pwd_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("sex LIKE '{0}%' ", gender);
+        }
+
+        public void filter_status (string status, DataGridView pwd_grid)
+        {
+            (pwd_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("CONVERT(status_pwd, System.String) Like '%{0}%' ", status);
+
+        }
+        
     }
 }

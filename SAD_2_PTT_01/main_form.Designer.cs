@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.side_tab = new System.Windows.Forms.Panel();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -56,10 +56,6 @@
             this.pnl_pwd = new System.Windows.Forms.Panel();
             this.pwd_combobox_disability = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pwd_filter_expired = new System.Windows.Forms.CheckBox();
-            this.pwd_filter_active = new System.Windows.Forms.CheckBox();
-            this.pwd_filter_female = new System.Windows.Forms.CheckBox();
-            this.pwd_filter_male = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_pwd_refresh = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -89,6 +85,18 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.pwd_combobox_district = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pwd_filter_male = new System.Windows.Forms.RadioButton();
+            this.pwd_filter_female = new System.Windows.Forms.RadioButton();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pwd_filter_active = new System.Windows.Forms.RadioButton();
+            this.pwd_filter_inactive = new System.Windows.Forms.RadioButton();
+            this.pwd_grid_row_count = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -108,6 +116,7 @@
             this.panel5.SuspendLayout();
             this.pnl_settings.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // side_tab
@@ -470,6 +479,14 @@
             // pnl_pwd
             // 
             this.pnl_pwd.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_pwd.Controls.Add(this.pwd_grid_row_count);
+            this.pnl_pwd.Controls.Add(this.label7);
+            this.pnl_pwd.Controls.Add(this.panel8);
+            this.pnl_pwd.Controls.Add(this.label6);
+            this.pnl_pwd.Controls.Add(this.label5);
+            this.pnl_pwd.Controls.Add(this.label4);
+            this.pnl_pwd.Controls.Add(this.label3);
+            this.pnl_pwd.Controls.Add(this.pwd_combobox_district);
             this.pnl_pwd.Controls.Add(this.pwd_combobox_disability);
             this.pnl_pwd.Controls.Add(this.panel7);
             this.pnl_pwd.Controls.Add(this.label10);
@@ -490,78 +507,33 @@
             // 
             // pwd_combobox_disability
             // 
+            this.pwd_combobox_disability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pwd_combobox_disability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pwd_combobox_disability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_combobox_disability.FormattingEnabled = true;
+            this.pwd_combobox_disability.Items.AddRange(new object[] {
+            ""});
             this.pwd_combobox_disability.Location = new System.Drawing.Point(458, 107);
             this.pwd_combobox_disability.Name = "pwd_combobox_disability";
-            this.pwd_combobox_disability.Size = new System.Drawing.Size(181, 23);
+            this.pwd_combobox_disability.Size = new System.Drawing.Size(158, 23);
             this.pwd_combobox_disability.TabIndex = 37;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.pwd_filter_expired);
-            this.panel7.Controls.Add(this.pwd_filter_active);
-            this.panel7.Controls.Add(this.pwd_filter_female);
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.pwd_filter_male);
-            this.panel7.Location = new System.Drawing.Point(194, 105);
+            this.panel7.Controls.Add(this.pwd_filter_female);
+            this.panel7.Location = new System.Drawing.Point(191, 105);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(258, 27);
+            this.panel7.Size = new System.Drawing.Size(124, 27);
             this.panel7.TabIndex = 36;
-            // 
-            // pwd_filter_expired
-            // 
-            this.pwd_filter_expired.AutoSize = true;
-            this.pwd_filter_expired.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_filter_expired.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.pwd_filter_expired.Location = new System.Drawing.Point(191, 5);
-            this.pwd_filter_expired.Name = "pwd_filter_expired";
-            this.pwd_filter_expired.Size = new System.Drawing.Size(61, 17);
-            this.pwd_filter_expired.TabIndex = 37;
-            this.pwd_filter_expired.Text = "Expired";
-            this.pwd_filter_expired.UseVisualStyleBackColor = true;
-            // 
-            // pwd_filter_active
-            // 
-            this.pwd_filter_active.AutoSize = true;
-            this.pwd_filter_active.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_filter_active.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.pwd_filter_active.Location = new System.Drawing.Point(129, 5);
-            this.pwd_filter_active.Name = "pwd_filter_active";
-            this.pwd_filter_active.Size = new System.Drawing.Size(53, 17);
-            this.pwd_filter_active.TabIndex = 37;
-            this.pwd_filter_active.Text = "Active";
-            this.pwd_filter_active.UseVisualStyleBackColor = true;
-            // 
-            // pwd_filter_female
-            // 
-            this.pwd_filter_female.AutoSize = true;
-            this.pwd_filter_female.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_filter_female.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.pwd_filter_female.Location = new System.Drawing.Point(61, 5);
-            this.pwd_filter_female.Name = "pwd_filter_female";
-            this.pwd_filter_female.Size = new System.Drawing.Size(59, 17);
-            this.pwd_filter_female.TabIndex = 37;
-            this.pwd_filter_female.Text = "Female";
-            this.pwd_filter_female.UseVisualStyleBackColor = true;
-            // 
-            // pwd_filter_male
-            // 
-            this.pwd_filter_male.AutoSize = true;
-            this.pwd_filter_male.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_filter_male.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.pwd_filter_male.Location = new System.Drawing.Point(4, 5);
-            this.pwd_filter_male.Name = "pwd_filter_male";
-            this.pwd_filter_male.Size = new System.Drawing.Size(48, 17);
-            this.pwd_filter_male.TabIndex = 0;
-            this.pwd_filter_male.Text = "Male";
-            this.pwd_filter_male.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label10.Location = new System.Drawing.Point(201, 42);
+            this.label10.Location = new System.Drawing.Point(189, 42);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 30);
             this.label10.TabIndex = 35;
@@ -614,6 +586,8 @@
             this.pwd_searchbox.Name = "pwd_searchbox";
             this.pwd_searchbox.Size = new System.Drawing.Size(188, 25);
             this.pwd_searchbox.TabIndex = 0;
+            this.pwd_searchbox.TextChanged += new System.EventHandler(this.pwd_searchbox_TextChanged);
+            this.pwd_searchbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_searchbox_KeyPress);
             // 
             // btn_archive
             // 
@@ -712,22 +686,22 @@
             this.pwd_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.pwd_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.pwd_grid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pwd_grid.DefaultCellStyle = dataGridViewCellStyle13;
             this.pwd_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pwd_grid.Location = new System.Drawing.Point(194, 139);
             this.pwd_grid.MultiSelect = false;
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(858, 424);
@@ -954,6 +928,142 @@
             this.startup_opacity.Interval = 1;
             this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
+            // pwd_combobox_district
+            // 
+            this.pwd_combobox_district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pwd_combobox_district.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwd_combobox_district.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_combobox_district.FormattingEnabled = true;
+            this.pwd_combobox_district.Items.AddRange(new object[] {
+            ""});
+            this.pwd_combobox_district.Location = new System.Drawing.Point(622, 107);
+            this.pwd_combobox_district.Name = "pwd_combobox_district";
+            this.pwd_combobox_district.Size = new System.Drawing.Size(158, 23);
+            this.pwd_combobox_district.TabIndex = 38;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(191, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "FILTER";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(455, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "DISABILITY";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(619, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "REGION";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(794, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "SEARCH";
+            // 
+            // pwd_filter_male
+            // 
+            this.pwd_filter_male.AutoSize = true;
+            this.pwd_filter_male.Location = new System.Drawing.Point(3, 4);
+            this.pwd_filter_male.Name = "pwd_filter_male";
+            this.pwd_filter_male.Size = new System.Drawing.Size(53, 17);
+            this.pwd_filter_male.TabIndex = 43;
+            this.pwd_filter_male.TabStop = true;
+            this.pwd_filter_male.Text = "MALE";
+            this.pwd_filter_male.UseVisualStyleBackColor = true;
+            this.pwd_filter_male.CheckedChanged += new System.EventHandler(this.pwd_filter_male_CheckedChanged);
+            this.pwd_filter_male.Click += new System.EventHandler(this.pwd_filter_male_Click);
+            // 
+            // pwd_filter_female
+            // 
+            this.pwd_filter_female.AutoSize = true;
+            this.pwd_filter_female.Location = new System.Drawing.Point(56, 4);
+            this.pwd_filter_female.Name = "pwd_filter_female";
+            this.pwd_filter_female.Size = new System.Drawing.Size(65, 17);
+            this.pwd_filter_female.TabIndex = 44;
+            this.pwd_filter_female.TabStop = true;
+            this.pwd_filter_female.Text = "FEMALE";
+            this.pwd_filter_female.UseVisualStyleBackColor = true;
+            this.pwd_filter_female.CheckedChanged += new System.EventHandler(this.pwd_filter_female_CheckedChanged);
+            this.pwd_filter_female.Click += new System.EventHandler(this.pwd_filter_female_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.pwd_filter_active);
+            this.panel8.Controls.Add(this.pwd_filter_inactive);
+            this.panel8.Location = new System.Drawing.Point(314, 105);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(142, 27);
+            this.panel8.TabIndex = 45;
+            // 
+            // pwd_filter_active
+            // 
+            this.pwd_filter_active.AutoSize = true;
+            this.pwd_filter_active.Location = new System.Drawing.Point(5, 4);
+            this.pwd_filter_active.Name = "pwd_filter_active";
+            this.pwd_filter_active.Size = new System.Drawing.Size(60, 17);
+            this.pwd_filter_active.TabIndex = 46;
+            this.pwd_filter_active.TabStop = true;
+            this.pwd_filter_active.Text = "ACTIVE";
+            this.pwd_filter_active.UseVisualStyleBackColor = true;
+            this.pwd_filter_active.CheckedChanged += new System.EventHandler(this.pwd_filter_active_CheckedChanged);
+            this.pwd_filter_active.Click += new System.EventHandler(this.pwd_filter_active_Click);
+            // 
+            // pwd_filter_inactive
+            // 
+            this.pwd_filter_inactive.AutoSize = true;
+            this.pwd_filter_inactive.Location = new System.Drawing.Point(66, 4);
+            this.pwd_filter_inactive.Name = "pwd_filter_inactive";
+            this.pwd_filter_inactive.Size = new System.Drawing.Size(71, 17);
+            this.pwd_filter_inactive.TabIndex = 47;
+            this.pwd_filter_inactive.TabStop = true;
+            this.pwd_filter_inactive.Text = "INACTIVE";
+            this.pwd_filter_inactive.UseVisualStyleBackColor = true;
+            this.pwd_filter_inactive.CheckedChanged += new System.EventHandler(this.pwd_filter_inactive_CheckedChanged);
+            this.pwd_filter_inactive.Click += new System.EventHandler(this.pwd_filter_inactive_Click);
+            // 
+            // pwd_grid_row_count
+            // 
+            this.pwd_grid_row_count.AutoSize = true;
+            this.pwd_grid_row_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid_row_count.ForeColor = System.Drawing.Color.Black;
+            this.pwd_grid_row_count.Location = new System.Drawing.Point(950, 91);
+            this.pwd_grid_row_count.Name = "pwd_grid_row_count";
+            this.pwd_grid_row_count.Size = new System.Drawing.Size(49, 13);
+            this.pwd_grid_row_count.TabIndex = 49;
+            this.pwd_grid_row_count.Text = "1000000";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(901, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "RESULTS:";
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1001,6 +1111,8 @@
             this.panel5.ResumeLayout(false);
             this.pnl_settings.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1060,11 +1172,19 @@
         private System.Windows.Forms.TextBox pwd_searchbox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.CheckBox pwd_filter_male;
-        private System.Windows.Forms.CheckBox pwd_filter_female;
-        private System.Windows.Forms.CheckBox pwd_filter_expired;
-        private System.Windows.Forms.CheckBox pwd_filter_active;
         private System.Windows.Forms.ComboBox pwd_combobox_disability;
+        private System.Windows.Forms.ComboBox pwd_combobox_district;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton pwd_filter_female;
+        private System.Windows.Forms.RadioButton pwd_filter_male;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.RadioButton pwd_filter_active;
+        private System.Windows.Forms.RadioButton pwd_filter_inactive;
+        private System.Windows.Forms.Label pwd_grid_row_count;
+        private System.Windows.Forms.Label label7;
     }
 }
 

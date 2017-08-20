@@ -17,12 +17,14 @@ namespace SAD_2_PTT_01
             InitializeComponent();
         }
         system_sidenav_active system_sidenav = new system_sidenav_active();
+        system_keypress key_ = new system_keypress();
         connections_pwd conn_pwd = new connections_pwd();
         shadow shadow_;
         system_notification system_notify;
         public string current_user;
 
-        #region OnLoad
+        #region FORM-LOAD
+
         private void main_form_Load(object sender, EventArgs e)
         {
             //<---[ System ]--->
@@ -40,6 +42,7 @@ namespace SAD_2_PTT_01
             startup_opacity.Start();
             //<---[ Modules ]--->
             load_pwd();
+            
         }
 
         private void main_properties()
@@ -81,7 +84,15 @@ namespace SAD_2_PTT_01
         public void load_pwd()
         {
             conn_pwd.pwd_grid_list(pwd_grid);
+            conn_pwd.populate_cbox(pwd_combobox_disability, pwd_combobox_district);
             pwd_format();
+
+            pwd_load_row_count();
+        }
+
+        public void pwd_load_row_count()
+        {
+            pwd_grid_row_count.Text = pwd_grid.Rows.Count.ToString();
         }
 
         public void pwd_format()
@@ -96,9 +107,11 @@ namespace SAD_2_PTT_01
             pwd_grid.Columns["civil_status"].HeaderText = "Civil Status";
             pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
             pwd_grid.Columns["added_date"].HeaderText = "Date Added";
+            pwd_grid.Columns["age"].HeaderText = "Age";
 
             pwd_grid.Columns["registration_no"].Width = 90;
             pwd_grid.Columns["sex"].Width = 40;
+            pwd_grid.Columns["age"].Width = 40;
             cell_color();
         }
 
@@ -249,6 +262,108 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region PWD-FILTER-COMBOBOX
+
+        bool gender_male = false;
+        bool gender_female = false;
+        bool status_active = false;
+        bool status_inactive = false;
+
+        private void pwd_filter_male_Click(object sender, EventArgs e)
+        {
+            if (pwd_filter_male.Checked && !gender_male)
+                pwd_filter_male.Checked = false;
+            else
+            {
+                pwd_filter_male.Checked = true;
+                gender_male = false;
+            }
+        }
+
+        private void pwd_filter_female_Click(object sender, EventArgs e)
+        {
+            if (pwd_filter_female.Checked && !gender_female)
+                pwd_filter_female.Checked = false;
+            else
+            {
+                pwd_filter_female.Checked = true;
+                gender_female = false;
+            }
+        }
+
+        private void pwd_filter_active_Click(object sender, EventArgs e)
+        {
+            if (pwd_filter_active.Checked && !status_active)
+                pwd_filter_active.Checked = false;
+            else
+            {
+                pwd_filter_active.Checked = true;
+                status_active = false;
+            }
+        }
+
+        private void pwd_filter_inactive_Click(object sender, EventArgs e)
+        {
+            if (pwd_filter_inactive.Checked && !status_inactive)
+                pwd_filter_inactive.Checked = false;
+            else
+            {
+                pwd_filter_inactive.Checked = true;
+                status_inactive = false;
+            }
+        }
+
+        private void pwd_filter_male_CheckedChanged(object sender, EventArgs e)
+        {
+            gender_male = pwd_filter_male.Checked;
+            pwd_grid_filter();
+        }
+
+        private void pwd_filter_female_CheckedChanged(object sender, EventArgs e)
+        {
+            gender_female = pwd_filter_female.Checked;
+            pwd_grid_filter();
+        }
+
+        private void pwd_filter_active_CheckedChanged(object sender, EventArgs e)
+        {
+            status_active = pwd_filter_active.Checked;
+            pwd_grid_filter();
+        }
+
+        private void pwd_filter_inactive_CheckedChanged(object sender, EventArgs e)
+        {
+            status_inactive = pwd_filter_inactive.Checked;
+            pwd_grid_filter();
+        }
+
+        public void pwd_grid_filter()
+        {
+            load_pwd();
+
+            //string query = "";
+            //sex LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' "
+
+            if (pwd_filter_male.Checked)
+            {
+                conn_pwd.filter_gender("M", pwd_grid);
+            }
+            if (pwd_filter_female.Checked)
+            {
+                conn_pwd.filter_gender("F", pwd_grid);
+            }
+            if (pwd_filter_active.Checked)
+            {
+                conn_pwd.filter_status("1", pwd_grid);
+            }
+            if (pwd_filter_inactive.Checked)
+            {
+                conn_pwd.filter_status("0", pwd_grid);
+            }
+            cell_color();
+        }
+        #endregion
+
         #endregion
 
         #region Form_Head
@@ -363,10 +478,29 @@ namespace SAD_2_PTT_01
             notification_ = "";
         }
 
+
         #endregion
 
-        
+        private void pwd_searchbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            key_.key_number_letter_space(sender, e);
+        }
 
-        
+        private void pwd_searchbox_TextChanged(object sender, EventArgs e)
+        {
+            if (pwd_searchbox.Text.Trim() != "")
+            {
+                conn_pwd.pwd_search(pwd_grid, pwd_searchbox);
+                pwd_grid.Columns["lastname"].Visible = false;
+                pwd_grid.Columns["firstname"].Visible = false;
+                pwd_grid.Columns["middlename"].Visible = false;
+                pwd_format();
+            }
+            else
+            {
+                load_pwd();
+            }
+            pwd_load_row_count();
+        }
     }
 }
