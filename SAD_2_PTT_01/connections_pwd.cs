@@ -403,6 +403,27 @@ namespace SAD_2_PTT_01
             (pwd_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("CONVERT(status_pwd, System.String) Like '%{0}%' ", status);
 
         }
+
+        public void emp_log_add(string uname, int pwd_id, string action)
+        {
+            try
+            {
+                conn.Open();
+                if (action == "add")
+                {
+                    comm = new MySqlCommand("INSERT INTO p_dao.pwd_emp_log(pwd_id, recent_emp_id, date_updated) VALUES (LAST_INSERT_ID(), (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), CURDATE())", conn);
+                } else
+                {
+                    comm = new MySqlCommand("UPDATE p_dao.pwd_emp_log SET pwd_id = " + pwd_id + ", recent_emp_id = (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), date_updated = CURDATE())", conn);
+                    comm.ExecuteNonQuery();
+                }
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.Message);
+            }
+        }
         
     }
 }

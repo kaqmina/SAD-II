@@ -1171,6 +1171,7 @@ namespace SAD_2_PTT_01
             success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
             if (success == true)
             {
+                conn_pwd.emp_log_add(reference_to_main.current_user, 0, "add");
                 reference_to_main.success = true;
                 reference_to_main.load_pwd();
                 exit_opacity.Start();
@@ -1343,6 +1344,7 @@ namespace SAD_2_PTT_01
             {
                 if(from_view)
                 {
+                    conn_pwd.emp_log_add(reference_to_main.current_user, pwd_update_id, "update");
                     reference_to_view.success = true;
                     reference_to_view.pwd_load_data(pwd_update_id);
                     exit_opacity.Start();
