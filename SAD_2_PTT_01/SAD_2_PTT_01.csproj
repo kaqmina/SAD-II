@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="connections_login.cs" />
+    <Compile Include="connections_notifications.cs" />
     <Compile Include="connections_pwd.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>

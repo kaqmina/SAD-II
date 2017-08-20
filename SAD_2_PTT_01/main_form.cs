@@ -31,6 +31,7 @@ namespace SAD_2_PTT_01
             load_references();
             main_properties();
             grid_borderstyles();
+            load_notifications();
             
             btn_current = btn_dashboard;
             system_sidenav.lbl_current_text("dashboard");
@@ -262,6 +263,32 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region PWD-SEARCH-MODE
+
+        private void pwd_searchbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            key_.key_number_letter_space(sender, e);
+        }
+
+        private void pwd_searchbox_TextChanged(object sender, EventArgs e)
+        {
+            if (pwd_searchbox.Text.Trim() != "")
+            {
+                conn_pwd.pwd_search(pwd_grid, pwd_searchbox);
+                pwd_grid.Columns["lastname"].Visible = false;
+                pwd_grid.Columns["firstname"].Visible = false;
+                pwd_grid.Columns["middlename"].Visible = false;
+                pwd_format();
+            }
+            else
+            {
+                load_pwd();
+            }
+            pwd_load_row_count();
+        }
+
+        #endregion
+
         #region PWD-FILTER-COMBOBOX
 
         bool gender_male = false;
@@ -463,7 +490,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #region NOTIFICATIONS-[MODIFICATIONS ONLY]
+        #region NOTIFICATIONS
 
         public string notification_;
 
@@ -478,29 +505,15 @@ namespace SAD_2_PTT_01
             notification_ = "";
         }
 
+        public void load_notifications()
+        {
+            pnl_notif_pp.BringToFront();
+            pnl_notif_pp.Size = new Size(299, 233);
+            pnl_notif_pp.Location = new Point(838, 28);
+        }
 
         #endregion
 
-        private void pwd_searchbox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            key_.key_number_letter_space(sender, e);
-        }
-
-        private void pwd_searchbox_TextChanged(object sender, EventArgs e)
-        {
-            if (pwd_searchbox.Text.Trim() != "")
-            {
-                conn_pwd.pwd_search(pwd_grid, pwd_searchbox);
-                pwd_grid.Columns["lastname"].Visible = false;
-                pwd_grid.Columns["firstname"].Visible = false;
-                pwd_grid.Columns["middlename"].Visible = false;
-                pwd_format();
-            }
-            else
-            {
-                load_pwd();
-            }
-            pwd_load_row_count();
-        }
+        
     }
 }
