@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pwd_view_address1 = new System.Windows.Forms.TextBox();
             this.pwd_view_toskill = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.pwd_view_noemp = new System.Windows.Forms.Label();
@@ -66,6 +67,9 @@
             this.pnl_title1 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pwd_view_org_aff = new System.Windows.Forms.TextBox();
+            this.pwd_view_accomplished_by1 = new System.Windows.Forms.TextBox();
+            this.pwd_view_reporting_unit = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
@@ -119,10 +123,7 @@
             this.pnl_reg = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pwd_view_pp = new System.Windows.Forms.PictureBox();
-            this.pwd_view_reporting_unit = new System.Windows.Forms.TextBox();
-            this.pwd_view_accomplished_by1 = new System.Windows.Forms.TextBox();
-            this.pwd_view_address1 = new System.Windows.Forms.TextBox();
-            this.pwd_view_org_aff = new System.Windows.Forms.TextBox();
+            this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -191,6 +192,7 @@
             this.pwd_view_edit.TabIndex = 29;
             this.pwd_view_edit.Text = "EDIT";
             this.pwd_view_edit.UseVisualStyleBackColor = false;
+            this.pwd_view_edit.Click += new System.EventHandler(this.pwd_view_edit_Click);
             // 
             // pwd_view_back
             // 
@@ -286,6 +288,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Personal and Employment Information";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // pwd_view_address1
+            // 
+            this.pwd_view_address1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_address1.Location = new System.Drawing.Point(183, 130);
+            this.pwd_view_address1.Multiline = true;
+            this.pwd_view_address1.Name = "pwd_view_address1";
+            this.pwd_view_address1.ReadOnly = true;
+            this.pwd_view_address1.Size = new System.Drawing.Size(351, 36);
+            this.pwd_view_address1.TabIndex = 132;
             // 
             // pwd_view_toskill
             // 
@@ -611,6 +623,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Organizational, Parental, and Other Information";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pwd_view_org_aff
+            // 
+            this.pwd_view_org_aff.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_org_aff.Location = new System.Drawing.Point(226, 63);
+            this.pwd_view_org_aff.Multiline = true;
+            this.pwd_view_org_aff.Name = "pwd_view_org_aff";
+            this.pwd_view_org_aff.ReadOnly = true;
+            this.pwd_view_org_aff.Size = new System.Drawing.Size(171, 40);
+            this.pwd_view_org_aff.TabIndex = 132;
+            // 
+            // pwd_view_accomplished_by1
+            // 
+            this.pwd_view_accomplished_by1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_accomplished_by1.Location = new System.Drawing.Point(634, 282);
+            this.pwd_view_accomplished_by1.Multiline = true;
+            this.pwd_view_accomplished_by1.Name = "pwd_view_accomplished_by1";
+            this.pwd_view_accomplished_by1.ReadOnly = true;
+            this.pwd_view_accomplished_by1.Size = new System.Drawing.Size(195, 50);
+            this.pwd_view_accomplished_by1.TabIndex = 131;
+            // 
+            // pwd_view_reporting_unit
+            // 
+            this.pwd_view_reporting_unit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_view_reporting_unit.Location = new System.Drawing.Point(634, 363);
+            this.pwd_view_reporting_unit.Multiline = true;
+            this.pwd_view_reporting_unit.Name = "pwd_view_reporting_unit";
+            this.pwd_view_reporting_unit.ReadOnly = true;
+            this.pwd_view_reporting_unit.Size = new System.Drawing.Size(195, 69);
+            this.pwd_view_reporting_unit.TabIndex = 130;
             // 
             // label64
             // 
@@ -1167,45 +1209,10 @@
             this.pwd_view_pp.TabIndex = 42;
             this.pwd_view_pp.TabStop = false;
             // 
-            // pwd_view_reporting_unit
+            // exit_opacity
             // 
-            this.pwd_view_reporting_unit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_view_reporting_unit.Location = new System.Drawing.Point(634, 363);
-            this.pwd_view_reporting_unit.Multiline = true;
-            this.pwd_view_reporting_unit.Name = "pwd_view_reporting_unit";
-            this.pwd_view_reporting_unit.ReadOnly = true;
-            this.pwd_view_reporting_unit.Size = new System.Drawing.Size(195, 69);
-            this.pwd_view_reporting_unit.TabIndex = 130;
-            // 
-            // pwd_view_accomplished_by1
-            // 
-            this.pwd_view_accomplished_by1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_view_accomplished_by1.Location = new System.Drawing.Point(634, 282);
-            this.pwd_view_accomplished_by1.Multiline = true;
-            this.pwd_view_accomplished_by1.Name = "pwd_view_accomplished_by1";
-            this.pwd_view_accomplished_by1.ReadOnly = true;
-            this.pwd_view_accomplished_by1.Size = new System.Drawing.Size(195, 50);
-            this.pwd_view_accomplished_by1.TabIndex = 131;
-            // 
-            // pwd_view_address1
-            // 
-            this.pwd_view_address1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_view_address1.Location = new System.Drawing.Point(183, 130);
-            this.pwd_view_address1.Multiline = true;
-            this.pwd_view_address1.Name = "pwd_view_address1";
-            this.pwd_view_address1.ReadOnly = true;
-            this.pwd_view_address1.Size = new System.Drawing.Size(351, 36);
-            this.pwd_view_address1.TabIndex = 132;
-            // 
-            // pwd_view_org_aff
-            // 
-            this.pwd_view_org_aff.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_view_org_aff.Location = new System.Drawing.Point(226, 63);
-            this.pwd_view_org_aff.Multiline = true;
-            this.pwd_view_org_aff.Name = "pwd_view_org_aff";
-            this.pwd_view_org_aff.ReadOnly = true;
-            this.pwd_view_org_aff.Size = new System.Drawing.Size(171, 40);
-            this.pwd_view_org_aff.TabIndex = 132;
+            this.exit_opacity.Interval = 1;
+            this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
             // pwd_view
             // 
@@ -1362,5 +1369,6 @@
         private System.Windows.Forms.TextBox pwd_view_accomplished_by1;
         private System.Windows.Forms.TextBox pwd_view_address1;
         private System.Windows.Forms.TextBox pwd_view_org_aff;
+        private System.Windows.Forms.Timer exit_opacity;
     }
 }

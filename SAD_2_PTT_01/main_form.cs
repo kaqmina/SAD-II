@@ -40,7 +40,6 @@ namespace SAD_2_PTT_01
             startup_opacity.Start();
             //<---[ Modules ]--->
             load_pwd();
-
         }
 
         private void main_properties()
@@ -172,6 +171,7 @@ namespace SAD_2_PTT_01
             pwd_view_form.reference_to_main = this;
             pwd_view_form.Location = new Point(loc_x, loc_y);
             pwd_view_form.current_pwd = current_pwd_id;
+            Console.WriteLine("[PWD] ->> [VIEW-MODE]");
             pwd_view_form.ShowDialog();
             side_tab.Enabled = true;
             dboard_head.Enabled = true;
@@ -192,6 +192,7 @@ namespace SAD_2_PTT_01
             dboard_head.Enabled = false;
             pwd_fill_up_form.reference_to_main = this;
             pwd_fill_up_form.Location = new Point(loc_x, loc_y);
+            Console.WriteLine("[PWD] ->> [ADD-MODE]");
             pwd_fill_up_form.ShowDialog();
             side_tab.Enabled = true;
             dboard_head.Enabled = true;
@@ -349,7 +350,7 @@ namespace SAD_2_PTT_01
         private void btn_pwd_edit_Click(object sender, EventArgs e)
         {
             int loc_x = this.Location.X + 71;
-            int loc_y = this.Location.Y + 50;
+            int loc_y = this.Location.Y + 28;
 
             pwd_add edit = new pwd_add();
             edit.reference_to_main = this;
@@ -357,6 +358,7 @@ namespace SAD_2_PTT_01
             edit.pwd_update_id = current_pwd_id;
             edit.update_mode = true;
             edit.update_regis_no = pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            Console.WriteLine("[PWD] ->> [EDIT-MODE]");
             edit.ShowDialog();
         }
 
@@ -373,6 +375,7 @@ namespace SAD_2_PTT_01
             show_prompt.prompt_title.Text = "Archive";
             show_prompt.action.Text = "The following profile will be archived:";
             shadow_.Show();
+            Console.WriteLine("[PWD] ->> [ARCHIVE-MODE]");
             show_prompt.ShowDialog();
             shadow_.Close();
             btn_renew.Enabled = false;

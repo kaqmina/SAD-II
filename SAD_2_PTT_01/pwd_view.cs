@@ -19,6 +19,7 @@ namespace SAD_2_PTT_01
         public main_form reference_to_main { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
         public int current_pwd = 0;
+        public bool success;
 
         #region ON-LOAD
         private void startup_opacity_Tick(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace SAD_2_PTT_01
 
         private void pwd_view_back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            exit_opacity.Start();
         }
 
         #endregion
@@ -92,5 +93,34 @@ namespace SAD_2_PTT_01
             pwd_view_guardian.Text = parental_data.Rows[0]["guardian"].ToString();
         }
         #endregion
+
+        private void exit_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+            else
+            {
+                exit_opacity.Stop();
+                this.Close();
+            }
+        }
+
+        private void pwd_view_edit_Click(object sender, EventArgs e)
+        {
+            int loc_x = reference_to_main.Location.X + 71;
+            int loc_y = reference_to_main.Location.Y + 28;
+
+            pwd_add edit = new pwd_add();
+            edit.reference_to_view = this;
+            edit.Location = new Point(loc_x, loc_y);
+            edit.pwd_update_id = current_pwd;
+            edit.from_view = true;
+            edit.update_mode = true;
+            edit.update_regis_no = pwd_view_regis_no.Text;
+            Console.WriteLine("[PWD] ->> [EDIT-MODE]");
+            edit.ShowDialog();
+        }
     }
 }

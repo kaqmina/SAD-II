@@ -45,11 +45,13 @@ namespace SAD_2_PTT_01
                     MessageBox.Show("No PWD Profiles added.");
                 }
                 conn.Close();
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_GRID_LIST_LOADED }");
             }
             catch (Exception ex)
             {
                 conn.Close();
-                MessageBox.Show(ex.Message); //error
+                Console.WriteLine("--->>" + ex.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_GRID_LOAD]"); //error
             }
         }
 
@@ -96,6 +98,7 @@ namespace SAD_2_PTT_01
                                                           + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) LEFT JOIN p_dao.pwd_district ON (pwd.district_id = pwd_district.district_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
                 MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
                 main_data.Fill(main);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_VIEW_PROFILE_MAIN_DATA_LOADED }");
                 comm = new MySqlCommand("SELECT sss_no, "
                                              + "gsis_no, "
                                              + "phealth_no, "
@@ -109,54 +112,66 @@ namespace SAD_2_PTT_01
                                              + "FROM pwd_otherinfo WHERE pwd_id = " + current_id, conn);
                 MySqlDataAdapter other_data = new MySqlDataAdapter(comm);
                 other_data.Fill(other_info);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_VIEW_PROFILE_OTHER_DATA_LOADED }");
                 comm = new MySqlCommand("SELECT CONCAT(UCASE(fatherln), ', ', UCASE(fatherfn), ' ', fathermn) AS father, "
                                              + "CONCAT(UCASE(motherln), ', ', UCASE(motherfn), ' ', mothermn) AS mother, "
                                              + "CONCAT(UCASE(guardianln), ', ', UCASE (guardianfn), ' ', guardianmn) AS guardian "
                                              + "FROM parental_info WHERE pwd_id = " + current_id, conn);
                 MySqlDataAdapter parent_data = new MySqlDataAdapter(comm);
                 parent_data.Fill(parental_info);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_VIEW_PROFILE_PARENTAL_DATA_LOADED }");
 
                 conn.Close();
             }
             catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message); //error
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_MAIN_OTHER_PARENTAL_DATA_LOAD]"); //error
             }
         }
 
         #endregion
 
         #region ADD-MODE
-        public bool pwd_check_registration_has_duplicate(string registration_no) 
+        public bool pwd_check_registration_has_duplicate(string registration_no, string original_registration_no) 
         {
             bool has_duplicate = false;
-            if (registration_no == "")
-                registration_no = "0";
-            try
+            if (registration_no != "" )
             {
-                conn.Open();
-
-                MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE registration_no = " + registration_no, conn);
-                MySqlDataAdapter get = new MySqlDataAdapter(comm);
-                DataTable set = new DataTable();
-                get.Fill(set);
-                int count = int.Parse(set.Rows[0]["COUNT(*)"].ToString());
-                if (count == 0)
-                    has_duplicate = false;
-                else
-                    has_duplicate = true;
-                conn.Close();
-            } catch (Exception e)
-            {
-                conn.Close();
-                MessageBox.Show(e.Message);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { CHECK_REGISTRATION_HAS_DUPLICATE }");
+                
+                if (registration_no != original_registration_no)
+                {
+                    try
+                    {
+                        conn.Open();
+                        MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE registration_no = " + registration_no, conn);
+                        MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                        DataTable set = new DataTable();
+                        get.Fill(set);
+                        int count = int.Parse(set.Rows[0]["COUNT(*)"].ToString());
+                        if (count == 0)
+                            has_duplicate = false;
+                        else
+                            has_duplicate = true;
+                        conn.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        conn.Close();
+                        Console.WriteLine("--->>" + e.Message + "<<---");
+                        MessageBox.Show("[ERROR_REGISTRATION_NO_HAS_DUPLICATE]");
+                    }
+                }
             }
+            
             return has_duplicate;
         }
 
         public void populate_cbox(ComboBox disability_type, ComboBox district_type)
         {
+            Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { DISABILITY_DISTRICT_COMBOBOX_LOAD }");
             try
             {
                 conn.Open();
@@ -200,7 +215,8 @@ namespace SAD_2_PTT_01
             catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message); //error
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_DISABILITY_DISTRICT_COMBOBOX]"); //error
             }
         }
 
@@ -218,12 +234,14 @@ namespace SAD_2_PTT_01
                 comm.ExecuteNonQuery();
                 conn.Close();
                 success = true;
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_ADD_PROFILE_DATA }");
             }
             catch (Exception e)
             {
                 success = false;
                 conn.Close();
-                MessageBox.Show(e.Message);
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_ADD]");
             }
             return success;
         }
@@ -233,6 +251,7 @@ namespace SAD_2_PTT_01
         #region ARCHIVE-MODE
         public void archive_profile(int current_id)
         {
+            Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { ARCHIVE_PROFILE }");
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand("UPDATE p_dao.pwd SET isArchived = 1 WHERE pwd_id = " + current_id, conn);
@@ -244,6 +263,7 @@ namespace SAD_2_PTT_01
 
         public void pwd_update_profile_data(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
+            Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_DATA }");
             try
             {
                 conn.Open();
@@ -262,8 +282,36 @@ namespace SAD_2_PTT_01
             catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message); //error
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_UPDATE_PROFILE_DATA]"); //error
             }
+        }
+
+        public bool pwd_update_profile(string main_data, string other_data, string parental_data)
+        {
+            Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_ }");
+            bool success = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(other_data, conn);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand(parental_data, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                success = false;
+                conn.Close();
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_UPDATE_PROFILE]");
+            }
+
+            return success;
         }
     }
 }

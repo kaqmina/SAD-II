@@ -17,16 +17,18 @@ namespace SAD_2_PTT_01
             InitializeComponent();
         }
         public main_form reference_to_main { get; set; }
+        public pwd_view reference_to_view { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
         shadow shadow_;
         system_keypress key_ = new system_keypress();
         system_functions system_func = new system_functions();
+        public bool from_view = false;
 
         #region VARIABLES
 
         string application_date = null;// date
         string end_date;
-        string added_date = DateTime.Now.ToString();
+        string added_date = DateTime.Now.ToString("yyyy-MM-dd");
         string firstname;
         string lastname;
         string middlename;
@@ -99,7 +101,7 @@ namespace SAD_2_PTT_01
                 //nothing
             } else
             {
-                this.Close();
+                exit_opacity.Start();
             }
         }
 
@@ -221,6 +223,27 @@ namespace SAD_2_PTT_01
 
         #region ON_LOAD - ON_CLOSE
 
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1)
+                this.Opacity += 0.1;
+            else
+                startup_opacity.Stop();
+        }
+
+        private void exit_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+            else
+            {
+                exit_opacity.Stop();
+                this.Close();
+            }
+        }
+
         public void load_date_time_picker_max_date()
         {
             pwd_appdate.MaxDate = DateTime.Now;
@@ -277,14 +300,22 @@ namespace SAD_2_PTT_01
             load_panel_quick_button_enabled();
             load_combobox_initial_selected_index();
 
+            btn_revert.Visible = false;
+
+            startup_opacity.Start();
+
             current_panel_active = panel_1_;
             if (update_mode)
+            {
                 paste_data();
+                btn_revert.Visible = true;
+            }
+                
         }
 
         private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //MessageBox.Show("Success!");
+            
         }
         #endregion
 
@@ -345,7 +376,13 @@ namespace SAD_2_PTT_01
                 current_panel = 6;
                 btn_parental.Enabled = true;
                 current_panel_active = panel_6_;
-                pwd_next.Text = "ADD";
+                if(update_mode)
+                {
+                    pwd_next.Text = "UPDATE";
+                } else
+                {
+                    pwd_next.Text = "ADD";
+                }
             } else if (current_panel == 6)
             {
                 pwd_add_update_profile();
@@ -437,13 +474,25 @@ namespace SAD_2_PTT_01
                 philhealthstatus.SelectedIndex != 0)
             {
                 pwd_next.Enabled = true;
-                btn_organizational.ForeColor = Color.FromArgb(41, 45, 56);
-                btn_other.ForeColor = Color.FromArgb(41, 45, 56);
+                if (orgaff.Text != "" && contactper.Text != "" && officeadd.Text != "" && orgtelno.Text != "")
+                {
+                    btn_organizational.ForeColor = Color.FromArgb(41, 45, 56);
+                }
+                if (sssno.Text != "" && gsisno.Text != "" && philhealthno.Text != "" && philhealthstatus.SelectedIndex != 0)
+                {
+                    btn_other.ForeColor = Color.FromArgb(41, 45, 56);
+                }
             } else
             {
                 pwd_next.Enabled = false;
-                btn_organizational.ForeColor = Color.Red;
-                btn_other.ForeColor = Color.Red;
+                if (orgaff.Text == "" || contactper.Text == "" || officeadd.Text == "" || orgtelno.Text == "")
+                {
+                    btn_organizational.ForeColor = Color.Red;
+                }
+                if (sssno.Text == "" || gsisno.Text == "" || philhealthno.Text == "" || philhealthstatus.SelectedIndex == 0)
+                {
+                    btn_other.ForeColor = Color.Red;
+                }
             }
         }
 
@@ -490,14 +539,17 @@ namespace SAD_2_PTT_01
         }
         private void pwd_regisno_TextChanged(object sender, EventArgs e)
         {
-            if (conn_pwd.pwd_check_registration_has_duplicate(pwd_regisno.Text) == true) {
+            if (conn_pwd.pwd_check_registration_has_duplicate(pwd_regisno.Text, update_regis_no) == true)
+            {
                 lbl_regis_no_error.Visible = true;
                 panel_1_next();
-            } else
+            }
+            else
             {
                 lbl_regis_no_error.Visible = false;
                 panel_1_next();
             }
+            
         }
         //<---[ Panel 1 ]---> END
 
@@ -1106,12 +1158,184 @@ namespace SAD_2_PTT_01
             {
                 reference_to_main.success = true;
                 reference_to_main.load_pwd();
-                this.Close();
+                exit_opacity.Start();
             }
             else
             {
                 reference_to_main.success = false;
-                MessageBox.Show("Invalid Information.");
+                MessageBox.Show("Invalid Information."); //messagebox
+            }
+        }
+
+        public void pwd_update_profile(int pwd_update_id)
+        {
+            bool success;
+            #region main_data
+            string main_data = "UPDATE p_dao.pwd SET registration_no = '"
+                                                  + registration_no
+                                                  + "', "
+                                                  + "lastname = '"
+                                                  + lastname
+                                                  + "', "
+                                                  + "firstname = '"
+                                                  + firstname
+                                                  + "', "
+                                                  + "middlename = '"
+                                                  + middlename
+                                                  + "', "
+                                                  + "sex = "
+                                                  + sex
+                                                  + ", "
+                                                  + "disability_id = "
+                                                  + disability
+                                                  + ", "
+                                                  + "address_house_no_street = '"
+                                                  + has
+                                                  + "', "
+                                                  + "address_municipality = '"
+                                                  + mun
+                                                  + "', "
+                                                  + "address_barangay = '"
+                                                  + bar
+                                                  + "', "
+                                                  + "address_province = '"
+                                                  + prov
+                                                  + "', "
+                                                  + "district_id = "
+                                                  + district_id
+                                                  + ", "
+                                                  + "blood_type = '"
+                                                  + blood_type
+                                                  + "', "
+                                                  + "birthdate = '"
+                                                  + dob
+                                                  + "', "
+                                                  + "tel_no = "
+                                                  + tel_no
+                                                  + ", "
+                                                  + "mobile_no = "
+                                                  + mobile_no
+                                                  + ", "
+                                                  + "email_add = '"
+                                                  + e_mail
+                                                  + "', "
+                                                  + "civil_status = "
+                                                  + civil_status
+                                                  + ", "
+                                                  + "nationality = '"
+                                                  + natio
+                                                  + "', "
+                                                  + "end_date = '"
+                                                  + end_date
+                                                  + "', "
+                                                  + "added_date = '"
+                                                  + added_date
+                                                  + "', "
+                                                  + "application_date = '"
+                                                  + application_date
+                                                  + "', "
+                                                  + "educ_attainment = "
+                                                  + educ_att
+                                                  + ", "
+                                                  + "employment_status = "
+                                                  + emp_status
+                                                  + ", "
+                                                  + "nature_of_employer = "
+                                                  + no_emp
+                                                  + ", "
+                                                  + "type_of_employment = "
+                                                  + type_oemp
+                                                  + ", "
+                                                  + "type_of_skill = "
+                                                  + to_skill
+                                                  + ", "
+                                                  + "status_pwd = "
+                                                  + pwd_status
+                                                  + " "
+                                                  + "WHERE pwd_id = " + pwd_update_id;
+            #endregion
+            #region other_data
+            string other_data = "UPDATE pwd_otherinfo SET sss_no = '"
+                                                        + sss_no
+                                                        + "', "
+                                                        + "gsis_no = "
+                                                        + gsis_no
+                                                        + ", "
+                                                        + "phealth_no = '"
+                                                        + phil_health_no
+                                                        + "', "
+                                                        + "phealth_status = "
+                                                        + phil_health_status
+                                                        + ", "
+                                                        + "organization_aff = '"
+                                                        + organiaff
+                                                        + "', "
+                                                        + "contact_person = '"
+                                                        + contact_person
+                                                        + "', "
+                                                        + "office_address = '"
+                                                        + office_address
+                                                        + "', "
+                                                        + "tel_no = '"
+                                                        + tel_no
+                                                        + "', "
+                                                        + "name_of_reporting_unit = '"
+                                                        + no_unit
+                                                        + "', "
+                                                        + "accomplished_by_ln = '"
+                                                        + accom_ln
+                                                        + "', "
+                                                        + "accomplished_by_fn = '"
+                                                        + accom_fn
+                                                        + "', "
+                                                        + "accomplished_by_mn = '"
+                                                        + accom_mn
+                                                        + "' "
+                                                        + "WHERE pwd_id = " + pwd_update_id;
+            #endregion
+            #region parental_data
+            string parental_data = "UPDATE p_dao.parental_info SET fatherfn = '"
+                                                                + father_fn
+                                                                + "', "
+                                                                + "fathermn = '"
+                                                                + father_mn
+                                                                + "', "
+                                                                + "fatherln = '"
+                                                                + father_ln
+                                                                + "', "
+                                                                + "motherfn = '"
+                                                                + mother_fn
+                                                                + "', "
+                                                                + "mothermn = '"
+                                                                + mother_mn
+                                                                + "', "
+                                                                + "motherln = '"
+                                                                + mother_ln
+                                                                + "', "
+                                                                + "guardianfn = '"
+                                                                + guardian_fn
+                                                                + "', "
+                                                                + "guardianmn = '"
+                                                                + guardian_mn
+                                                                + "', "
+                                                                + "guardianln = '"
+                                                                + guardian_ln
+                                                                + "' "
+                                                                + "WHERE pwd_id = " + pwd_update_id;
+            #endregion
+            success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
+            if(success == true)
+            {
+                if(from_view)
+                {
+                    reference_to_view.success = true;
+                    reference_to_view.pwd_load_data(pwd_update_id);
+                    exit_opacity.Start();
+                } else
+                {
+                    reference_to_main.success = true;
+                    MessageBox.Show("Invalid Information."); //messagebox
+                }
             }
         }
         #endregion
@@ -1145,7 +1369,14 @@ namespace SAD_2_PTT_01
             {
                 panel_6_.Visible = true;
                 current_panel_active = panel_6_;
-                pwd_next.Text = "ADD";
+                if(update_mode)
+                {
+                    pwd_next.Text = "UPDATE";
+                } else
+                {
+                    pwd_next.Text = "ADD";
+                }
+                
             }
         }
 
@@ -1225,11 +1456,8 @@ namespace SAD_2_PTT_01
         //<---[ --- ]--->
 
         #endregion
-
-        public void pwd_update_profile(int pwd_update_id)
-        {
-
-        }
+            
+        #region UPDATE-MODE
 
         public void paste_data()
         {
@@ -1302,5 +1530,13 @@ namespace SAD_2_PTT_01
             #endregion
         }
 
+        private void btn_revert_Click(object sender, EventArgs e)
+        {
+            paste_data();
+        }
+
+        #endregion
+
+        
     }
 }
