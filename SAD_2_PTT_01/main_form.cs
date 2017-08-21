@@ -19,6 +19,7 @@ namespace SAD_2_PTT_01
         system_sidenav_active system_sidenav = new system_sidenav_active();
         system_keypress key_ = new system_keypress();
         connections_pwd conn_pwd = new connections_pwd();
+        connections_project conn_proj = new connections_project();
         shadow shadow_;
         system_notification system_notify;
         public string current_user;
@@ -43,7 +44,10 @@ namespace SAD_2_PTT_01
             startup_opacity.Start();
             //<---[ Modules ]--->
             load_pwd();
-            
+            conn_pwd.populate_cbox(pwd_combobox_disability, pwd_combobox_district);
+
+            load_projects();
+
         }
 
         private void main_properties()
@@ -85,7 +89,6 @@ namespace SAD_2_PTT_01
         public void load_pwd()
         {
             conn_pwd.pwd_grid_list(pwd_grid);
-            conn_pwd.populate_cbox(pwd_combobox_disability, pwd_combobox_district);
             pwd_format();
 
             pwd_load_row_count();
@@ -393,6 +396,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region SYSTEM-DEFAULTS
         #region Form_Head
 
         public Point mouseLocation;
@@ -489,6 +493,7 @@ namespace SAD_2_PTT_01
 
 
         #endregion
+        #endregion
 
         #region NOTIFICATIONS
 
@@ -507,13 +512,46 @@ namespace SAD_2_PTT_01
 
         public void load_notifications()
         {
+            pnl_notif_pp.Visible = false;
             pnl_notif_pp.BringToFront();
             pnl_notif_pp.Size = new Size(299, 233);
             pnl_notif_pp.Location = new Point(838, 28);
         }
 
+        bool show_notif = false;
+
+        private void btn_notification_Click(object sender, EventArgs e)
+        {
+            if (show_notif == false)
+            {
+                show_notif = true;
+                pnl_notif_pp.Visible = true;
+                btn_notification.BackColor = btn_notification.FlatAppearance.MouseDownBackColor;
+            }
+            else
+            {
+                show_notif = false;
+                pnl_notif_pp.Visible = false;
+                btn_notification.BackColor = Color.Transparent;
+            }
+        }
+
         #endregion
 
-        
+        public void load_projects()
+        {
+            conn_proj.project_grid_list(projects_grid);
+            projects_format();
+        }
+
+        public void projects_format()
+        {
+            projects_grid.Columns["project_title"].HeaderText = "Title";
+            projects_grid.Columns["start_time"].HeaderText = "Start Time";
+            projects_grid.Columns["end_time"].HeaderText = "End Time";
+            projects_grid.Columns["date_proposed"].HeaderText = "Date Proposed";
+
+            projects_grid.Columns["project_id"].Visible = false;
+        }
     }
 }
