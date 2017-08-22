@@ -139,6 +139,7 @@ namespace SAD_2_PTT
             //<-----[ DEVICE ] ----->
             conn.device_out_grid(device_grid);
             device_grid.ClearSelection();
+            device_edit.Enabled = false;
 
         }
 
@@ -667,7 +668,7 @@ namespace SAD_2_PTT
             }
             else
             {
-
+                device_edit.Enabled = true;
                 DataGridViewRow row = this.device_grid.Rows[e.RowIndex];
 
                 //device_logID

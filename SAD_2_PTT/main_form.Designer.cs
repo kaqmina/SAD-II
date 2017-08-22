@@ -78,7 +78,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
+            this.device_edit = new System.Windows.Forms.Button();
             this.device_grid = new System.Windows.Forms.DataGridView();
             this.btn_request = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -744,7 +744,7 @@
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel17.Controls.Add(this.button15);
+            this.panel17.Controls.Add(this.device_edit);
             this.panel17.Controls.Add(this.device_grid);
             this.panel17.Controls.Add(this.btn_request);
             this.panel17.Controls.Add(this.panel16);
@@ -753,20 +753,21 @@
             this.panel17.Size = new System.Drawing.Size(796, 485);
             this.panel17.TabIndex = 18;
             // 
-            // button15
+            // device_edit
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(677, 445);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(109, 35);
-            this.button15.TabIndex = 43;
-            this.button15.Text = "Edit ";
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.device_edit.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.device_edit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.device_edit.FlatAppearance.BorderSize = 0;
+            this.device_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.device_edit.Location = new System.Drawing.Point(622, 445);
+            this.device_edit.Name = "device_edit";
+            this.device_edit.Size = new System.Drawing.Size(170, 35);
+            this.device_edit.TabIndex = 43;
+            this.device_edit.Text = "Edit ";
+            this.device_edit.UseVisualStyleBackColor = false;
+            this.device_edit.Click += new System.EventHandler(this.button15_Click);
             // 
             // device_grid
             // 
@@ -2806,7 +2807,7 @@
         public System.Windows.Forms.DataGridView info_grid;
         public System.Windows.Forms.Button btn_addemp;
         public System.Windows.Forms.DataGridView device_grid;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button device_edit;
     }
 }
 

@@ -69,14 +69,14 @@ namespace SAD_2_PTT
             mob_no = Convert.ToInt32(txt_mobno.Text);
 
             string query = "INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add)";
-            string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
+            string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
             conn.Add(query, values);
             conn.device_prov_grid(dev_provgrid);
          }
 
         private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            type = cmbox_type.SelectedIndex;
+            dp_type = cmbox_type.SelectedIndex - 1;
         }
         #endregion
 
