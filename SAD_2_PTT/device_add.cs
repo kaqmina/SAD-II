@@ -19,7 +19,7 @@ namespace SAD_2_PTT
         connections conn = new connections();
         device_prompt p = new device_prompt();
 
-        String d_name, d_dis, d_desc, search;
+        String device, disability, desc, search;
         int d_id;
         public bool cont = false;
 
@@ -67,12 +67,12 @@ namespace SAD_2_PTT
 
             int d = cmbox_dis.SelectedIndex + 1;
            
-            d_name = txt_dname.Text;
-            d_desc = txt_ddesc.Text;
+            device = txt_dname.Text;
+            desc = txt_ddesc.Text;
 
 
             string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
-            string values = " VALUES('" + d + "','" + d_name + "','" + d_desc + "')";
+            string values = " VALUES('" + d + "','" + device + "','" + desc + "')";
             conn.Add(query, values);
             conn.device_add_grid(dev_addgrid);
         }
@@ -99,8 +99,8 @@ namespace SAD_2_PTT
             lbl_ddesc.Text = "";
             lbl_dis.Text = "";
 
-            d_name = txt_dname.Text;
-            d_desc = txt_ddesc.Text;
+            device = txt_dname.Text;
+            desc = txt_ddesc.Text;
 
             //disability id
             int d = 0;
@@ -116,7 +116,7 @@ namespace SAD_2_PTT
             p.dev_add = this;
             p.ShowDialog();
 
-            string query = "UPDATE p_dao.device SET device.disability_id = '" + d + "', dev_name = '" + d_name + "', dev_desc = '" + d_desc + "' WHERE device.device_id = '" + d_id + "'; ";
+            string query = "UPDATE p_dao.device SET device.disability_id = '" + d + "', dev_name = '" + device + "', dev_desc = '" + desc + "' WHERE device.device_id = '" + d_id + "'; ";
             conn.Edit(query, cont);
             conn.device_add_grid(dev_addgrid);
         }
@@ -135,8 +135,8 @@ namespace SAD_2_PTT
                 button5.Visible = true; // clear button
 
                 DataGridViewRow row = this.dev_addgrid.Rows[e.RowIndex];
-                d_name = row.Cells["dev_name"].Value.ToString();
-                d_desc = row.Cells["dev_desc"].Value.ToString();
+                device = row.Cells["dev_name"].Value.ToString();
+                desc = row.Cells["dev_desc"].Value.ToString();
 
                 d_id = Convert.ToInt32(row.Cells["device_id"].Value);
 
@@ -144,14 +144,14 @@ namespace SAD_2_PTT
                 int d = 0;
                 d = Convert.ToInt32(row.Cells["disability_id"].Value);
                 int dd = d - 1; // comboBox index starts at 0
-                d_dis = cmbox_dis.Items[dd].ToString();
+                disability = cmbox_dis.Items[dd].ToString();
 
 
-                txt_dname.Text = d_name;
-                txt_ddesc.Text = d_desc;
-                cmbox_dis.Text = d_dis;
-                lbl_ddesc.Text = d_desc;
-                lbl_dis.Text = d_dis;
+                txt_dname.Text = device;
+                txt_ddesc.Text = desc;
+                cmbox_dis.Text = disability;
+                lbl_ddesc.Text = desc;
+                lbl_dis.Text = disability;
             }
         }
 
@@ -182,14 +182,14 @@ namespace SAD_2_PTT
             string func = "Remove Device";
             p.prompt_title.Text = func;
             p.lbl_quest.Text = "Are you sure to remove this device?";
-            p.prompt_title.Location = new System.Drawing.Point(161, 4);
-            p.lbl_quest.Location = new System.Drawing.Point(92, 8);
+            p.prompt_title.Location = new Point(161, 4);
+            p.lbl_quest.Location = new Point(92, 8);
 
             p.dev_add = this;
             p.ShowDialog();
 
             //cascade.
-            string query = "DELETE FROM p_dao.device WHERE dev_name = '" + d_name + "'";
+            string query = "DELETE FROM p_dao.device WHERE dev_name = '" + device + "'";
             conn.Delete(query, cont);
             conn.device_add_grid(dev_addgrid);
 
