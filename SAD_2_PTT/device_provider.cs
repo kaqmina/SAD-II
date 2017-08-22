@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+
 
 namespace SAD_2_PTT
 {
@@ -15,7 +15,7 @@ namespace SAD_2_PTT
     {
         #region Declaration
         public main_form reference_to_main { get; set; }
-        public MySqlConnection con;
+       // public MySqlConnection con;
         connections conn = new connections();
         device_prompt p = new device_prompt();
 

@@ -435,7 +435,19 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
-
+        public void device_log_emp(string user)
+        {
+            try
+            {
+                    conn.Open();
+                    MySqlCommand comm = new MySqlCommand("SELECT employee_id FROM p_dao.employee WHERE username = '" + user + "')", conn);
+                    comm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in device_log_emp(): " + ex);
+            }
+        }
         public void device_out_Format(DataGridView dev_editreq)
         {
             dev_editreq.Columns["pwd_id"].Visible = false;
@@ -668,7 +680,7 @@ namespace SAD_2_PTT
                 com.ExecuteNonQuery();
                 conn.Close();
 
-                    MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Added Successfully!", "", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {

@@ -685,11 +685,6 @@ namespace SAD_2_PTT
                 date_IN = Convert.ToDateTime(row.Cells["date_in"].Value.ToString());
                 date_OUT = Convert.ToDateTime(row.Cells["date_out"].Value.ToString());
 
-                //status
-                if (status == "Requested") v.stat_req.PerformClick();
-                else if (status == "Received") v.stat_rec.PerformClick();
-                else if (status == "Handed Out") v.btn_out.PerformClick();
-
                 //pass to edit panel [pnl_edit]
 
                 //disability id [cmbox_dis]
@@ -736,21 +731,25 @@ namespace SAD_2_PTT
             v.cmbox_dev.Text = dev;
             v.cmbox_prov.Text = d_prov;
             v.id = log_id;
-            v.fstatus = 2;
+            v.fstatus = 2; // handed out
             #endregion
 
             #region controls setting
             v.pnl_search.Visible = false;
             v.btn_req.Visible = v.btn_rec.Visible = v.btn_default.Visible = false; // filter: status button
             v.label12.Visible = v.label8.Visible = false; // status name
-            v.btn_out.Visible = false; //handed out 
-            v.stat_out.Visible = true;
-            v.stat_out.PerformClick();
+            v.btn_out.Visible = false; //handed out [devreq_grid]
+            v.button2.Visible = false; //cancel button
+            v.label9.Visible = v.dateOut.Visible = true;
+ 
+            //button status color
             v.stat_req.BackColor = Color.DimGray;
             v.stat_out.ForeColor = v.btn_out.BackColor; // usual dark color UI
             v.stat_req.ForeColor = v.stat_out.BackColor = Color.White;
-            v.label9.Visible = v.dateOut.Visible = true;
-            v.button2.Visible = false; //cancel button
+
+            //status >> handed out
+            v.stat_out.Visible = true;
+            v.stat_out.PerformClick();
             #endregion
 
             v.ShowDialog();
