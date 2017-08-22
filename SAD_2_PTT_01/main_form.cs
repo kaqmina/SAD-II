@@ -89,6 +89,7 @@ namespace SAD_2_PTT_01
         public void load_pwd()
         {
             conn_pwd.pwd_grid_list(pwd_grid);
+            pwd_grid.ClearSelection();
             pwd_format();
 
             pwd_load_row_count();
@@ -346,51 +347,78 @@ namespace SAD_2_PTT_01
         private void pwd_filter_male_CheckedChanged(object sender, EventArgs e)
         {
             gender_male = pwd_filter_male.Checked;
+            pwd_gender_ = "M";
             pwd_grid_filter();
         }
 
         private void pwd_filter_female_CheckedChanged(object sender, EventArgs e)
         {
             gender_female = pwd_filter_female.Checked;
+            pwd_gender_ = "F";
             pwd_grid_filter();
         }
 
         private void pwd_filter_active_CheckedChanged(object sender, EventArgs e)
         {
             status_active = pwd_filter_active.Checked;
+            pwd_status_ = "1";
             pwd_grid_filter();
         }
 
         private void pwd_filter_inactive_CheckedChanged(object sender, EventArgs e)
         {
             status_inactive = pwd_filter_inactive.Checked;
+            pwd_status_ = "0";
             pwd_grid_filter();
         }
 
         public void pwd_grid_filter()
         {
             load_pwd();
+            pwd_grid_filter_multiple();
+            if(pwd_filter_ == true)
+            {
+                Console.WriteLine("PWD_FILTER_MULTIPLE " + pwd_gender_ + " " + pwd_status_);
+                conn_pwd.filter_status_gender(pwd_status_, pwd_gender_, pwd_grid);
+            } else
+            {
+                Console.WriteLine("PWD_FILTER_ONCE");
+                if (pwd_filter_male.Checked)
+                {
+                    conn_pwd.filter_gender("M", pwd_grid);
+                }
+                if (pwd_filter_female.Checked)
+                {
+                    conn_pwd.filter_gender("F", pwd_grid);
+                }
+                if (pwd_filter_active.Checked)
+                {
+                    conn_pwd.filter_status("1", pwd_grid);
+                }
+                if (pwd_filter_inactive.Checked)
+                {
+                    conn_pwd.filter_status("0", pwd_grid);
+                }
+            }
 
-            //string query = "";
-            //sex LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' "
 
-            if (pwd_filter_male.Checked)
-            {
-                conn_pwd.filter_gender("M", pwd_grid);
-            }
-            if (pwd_filter_female.Checked)
-            {
-                conn_pwd.filter_gender("F", pwd_grid);
-            }
-            if (pwd_filter_active.Checked)
-            {
-                conn_pwd.filter_status("1", pwd_grid);
-            }
-            if (pwd_filter_inactive.Checked)
-            {
-                conn_pwd.filter_status("0", pwd_grid);
-            }
+            pwd_grid.ClearSelection();
             cell_color();
+        }
+
+        bool pwd_filter_ = false;
+        string pwd_gender_;
+        string pwd_status_;
+
+        public void pwd_grid_filter_multiple()
+        {
+            if ((pwd_filter_female.Checked || pwd_filter_male.Checked) && (pwd_filter_active.Checked || pwd_filter_inactive.Checked))
+            {
+                pwd_filter_ = true;
+            } else
+            {
+                pwd_filter_ = false;
+            }
         }
         #endregion
 

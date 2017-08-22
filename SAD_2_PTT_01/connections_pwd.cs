@@ -36,6 +36,7 @@ namespace SAD_2_PTT_01
                                              + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
                                              + "application_date, "
                                              + "added_date, "
+                                             + "district_id, "
                                              + "status_pwd "
                                              + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0", conn);
                 get = new MySqlDataAdapter(comm);
@@ -301,10 +302,13 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
                 comm = new MySqlCommand(main_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_MAIN_DATA }");
                 comm.ExecuteNonQuery();
                 comm = new MySqlCommand(other_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_OTHER_DATA }");
                 comm.ExecuteNonQuery();
                 comm = new MySqlCommand(parental_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_PARENTAL_DATA }");
                 comm.ExecuteNonQuery();
                 conn.Close();
                 success = true;
@@ -321,6 +325,8 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        #region FILTER-MODE
 
         public void pwd_search(DataGridView pwd_grid, TextBox pwd_searchbox)
         {
@@ -393,6 +399,8 @@ namespace SAD_2_PTT_01
             conn.Close();
         }
 
+        public bool two = false;
+
         public void filter_gender (string gender, DataGridView pwd_grid)
         {
             (pwd_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("sex LIKE '{0}%' ", gender);
@@ -404,6 +412,14 @@ namespace SAD_2_PTT_01
 
         }
 
+        public void filter_status_gender (string status, string gender, DataGridView pwd_grid)
+        {
+            (pwd_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("sex LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
+        }
+        #endregion
+
+        #region EMP_LOG
+
         public void emp_log_add(string uname, int pwd_id, string action)
         {
             try
@@ -412,18 +428,21 @@ namespace SAD_2_PTT_01
                 if (action == "add")
                 {
                     comm = new MySqlCommand("INSERT INTO p_dao.pwd_emp_log(pwd_id, recent_emp_id, date_updated) VALUES (LAST_INSERT_ID(), (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), CURDATE())", conn);
-                } else
+                }
+                else
                 {
                     comm = new MySqlCommand("UPDATE p_dao.pwd_emp_log SET pwd_id = " + pwd_id + ", recent_emp_id = (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), date_updated = CURDATE())", conn);
                     comm.ExecuteNonQuery();
                 }
                 conn.Close();
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 conn.Close();
                 MessageBox.Show(e.Message);
             }
         }
-        
+
+        #endregion
     }
 }

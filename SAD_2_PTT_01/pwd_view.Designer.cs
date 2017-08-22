@@ -973,7 +973,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label8.Location = new System.Drawing.Point(668, 9);
+            this.label8.Location = new System.Drawing.Point(658, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 17);
             this.label8.TabIndex = 14;
@@ -984,7 +984,7 @@
             this.pwd_view_disability.AutoSize = true;
             this.pwd_view_disability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_view_disability.ForeColor = System.Drawing.Color.White;
-            this.pwd_view_disability.Location = new System.Drawing.Point(747, 11);
+            this.pwd_view_disability.Location = new System.Drawing.Point(737, 11);
             this.pwd_view_disability.Name = "pwd_view_disability";
             this.pwd_view_disability.Size = new System.Drawing.Size(86, 15);
             this.pwd_view_disability.TabIndex = 14;
