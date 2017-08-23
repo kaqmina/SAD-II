@@ -48,6 +48,7 @@ namespace SAD_2_PTT
                     MessageBox.Show("No PWD Profiles added.");
                 }
                 conn.Close();
+                Console.WriteLine("Grid Loaded");
             }
             catch (Exception ex)
             {
@@ -79,6 +80,7 @@ namespace SAD_2_PTT
                     }
                 }
                 conn.Close();
+                Console.WriteLine("Populated Disability Combobox");
             }
             catch (Exception e)
             {

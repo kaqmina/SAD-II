@@ -128,5 +128,10 @@ namespace SAD_2_PTT
             pwd_view_guardian.Text = parental_data.Rows[0]["guardian"].ToString();
         }
         #endregion
+
+        private void pwd_view_edit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

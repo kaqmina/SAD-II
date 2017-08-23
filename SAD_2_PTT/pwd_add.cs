@@ -876,8 +876,6 @@ namespace SAD_2_PTT
                 else if (num == "9")
                     skill9.Checked = true;
             }
-            
-
         }
 
         private void status_pwd(string status, string num)
@@ -895,7 +893,6 @@ namespace SAD_2_PTT
                 else if (num == "0")
                     status_ex_inactive.Checked = true;
             }
-            
         }
 
         private void disability_type_SelectedIndexChanged(object sender, EventArgs e)

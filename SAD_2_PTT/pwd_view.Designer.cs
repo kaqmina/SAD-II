@@ -219,6 +219,7 @@
             this.pwd_view_edit.TabIndex = 27;
             this.pwd_view_edit.Text = "EDIT";
             this.pwd_view_edit.UseVisualStyleBackColor = false;
+            this.pwd_view_edit.Click += new System.EventHandler(this.pwd_view_edit_Click);
             // 
             // pwd_view_back
             // 

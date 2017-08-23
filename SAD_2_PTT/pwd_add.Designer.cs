@@ -1516,12 +1516,12 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.SystemColors.Window;
-            this.pnl_container.Controls.Add(this.panel_1_general);
-            this.pnl_container.Controls.Add(this.panel_2_personal);
             this.pnl_container.Controls.Add(this.panel_6_parental);
             this.pnl_container.Controls.Add(this.panel_5_organizational_other);
             this.pnl_container.Controls.Add(this.panel_4_employment_type_of_skill);
             this.pnl_container.Controls.Add(this.panel_3_contact_educational);
+            this.pnl_container.Controls.Add(this.panel_2_personal);
+            this.pnl_container.Controls.Add(this.panel_1_general);
             this.pnl_container.Location = new System.Drawing.Point(284, 39);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(777, 509);
