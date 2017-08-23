@@ -93,8 +93,8 @@ namespace SAD_2_PTT
             string func = "Edit Disability";
             p.prompt_title.Text = func;
             p.lbl_quest.Text = "Are you sure to save this changes?";
-            p.prompt_title.Location = new System.Drawing.Point(164, 4);
-            p.lbl_quest.Location = new System.Drawing.Point(97, 8);
+            p.prompt_title.Location = new Point(164, 4);
+            p.lbl_quest.Location = new Point(97, 8);
             p.lbl_out.Visible = p.date_out.Visible = false;
 
             p.dev_dis = this;

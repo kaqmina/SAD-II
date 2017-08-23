@@ -13,6 +13,7 @@ namespace SAD_2_PTT
     public partial class device_prompt : Form
     {
         #region Declaration
+        public main_form reference_to_main { get; set; }
         public device_add dev_add { get; set; }
         public device_disability dev_dis { get; set; }
         public device_provider  dev_prov { get; set; }
@@ -30,7 +31,6 @@ namespace SAD_2_PTT
 
             if (function == "Status : Handed Out")
             {
-                date_out.Visible = lbl_out.Visible = true;
                 lbl_quest.Visible = false;
             }
             else
@@ -76,7 +76,7 @@ namespace SAD_2_PTT
                 dev_view.cont = true;
                 DateTime date_OUT = date_out.Value.Date;
                 int id = dev_view.id;
-
+            
                 string query = "UPDATE p_dao.device_log SET p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '2' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
                 conn.Edit(query, dev_view.cont);
             }

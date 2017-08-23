@@ -145,10 +145,10 @@ namespace SAD_2_PTT
 
                 //DateTime Values
                 req_date = Convert.ToDateTime(row.Cells["req_date"].Value.ToString());
-                foreach (DataGridViewRow din in dev_editreq.Rows)
+                foreach (DataGridViewRow rows in dev_editreq.Rows)
                 {  
-                    if (din.Cells["date_in"].Value == null) continue;
-                    if (din.Cells["date_out"].Value == null) continue;
+                    if (rows.Cells["date_in"].Value == null) continue;
+                    if (rows.Cells["date_out"].Value == null) continue;
                 }           
 
                 //status
@@ -209,7 +209,8 @@ namespace SAD_2_PTT
             p.dev_view = this;
             p.ShowDialog();
 
-            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
+            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "'," 
+                            + " out_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
             conn.Edit(query, cont);
             conn.device_editreq_grid(dev_editreq, clicked);
             conn.device_out_grid(reference_to_main.device_grid);
@@ -223,7 +224,7 @@ namespace SAD_2_PTT
             dev_editreq.BringToFront(); //grid to front
             lbl_title.Text = "VIEW REQUESTS"; //header
 
-            pnl_search.Visible = true;
+            pnl_search.Visible = true;   
             btn_req.Visible = btn_rec.Visible = btn_default.Visible = true;
             label12.Visible = label8.Visible =  btn_out.Visible = true;
             btn_out.Enabled = false;
@@ -322,10 +323,14 @@ namespace SAD_2_PTT
             p.prompt_title.Text = func;
             p.lbl_quest.Visible = false;
             p.prompt_title.Location = new Point(142, 3);
+            p.date_out.Visible = p.lbl_out.Visible = true;
 
             p.dev_view = this;
             p.ShowDialog();
 
+            // string query_emp = "INSERT INTO device_log(out_emp_id) ";
+            //string value_emp = "VALUES((SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "'))";
+            // conn.Add(query_emp, value_emp);
             conn.device_editreq_grid(dev_editreq, clicked);
             conn.device_out_grid(reference_to_main.device_grid);
         }
