@@ -1165,9 +1165,9 @@
             this.label22.ForeColor = System.Drawing.Color.Black;
             this.label22.Location = new System.Drawing.Point(345, 152);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(81, 13);
+            this.label22.Size = new System.Drawing.Size(89, 13);
             this.label22.TabIndex = 86;
-            this.label22.Text = "EMAIL ADRESS";
+            this.label22.Text = "EMAIL ADDRESS";
             // 
             // label21
             // 
@@ -2548,13 +2548,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1066, 612);
+            this.ClientSize = new System.Drawing.Size(1066, 611);
+            this.Controls.Add(this.panel_3_);
+            this.Controls.Add(this.panel_4_);
+            this.Controls.Add(this.panel_6_);
+            this.Controls.Add(this.panel_5_);
             this.Controls.Add(this.btn_revert);
             this.Controls.Add(this.panel_1_);
-            this.Controls.Add(this.panel_6_);
-            this.Controls.Add(this.panel_4_);
-            this.Controls.Add(this.panel_3_);
-            this.Controls.Add(this.panel_5_);
             this.Controls.Add(this.panel_2_);
             this.Controls.Add(this.pwd_next);
             this.Controls.Add(this.pwd_add_back);
@@ -2568,6 +2568,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "pwd_add";
+            this.Activated += new System.EventHandler(this.pwd_add_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.pwd_add_FormClosing);
             this.Load += new System.EventHandler(this.pwd_add_Load);
             this.panel2.ResumeLayout(false);

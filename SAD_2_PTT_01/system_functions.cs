@@ -38,5 +38,11 @@ namespace SAD_2_PTT_01
             }
         }
         #endregion
+
+        public void activate_form(Form main, Form prompt)
+        {
+            main.BringToFront();
+            prompt.BringToFront();
+        }
     }
 }

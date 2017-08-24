@@ -890,9 +890,9 @@
             this.pwd_view_office_address.ForeColor = System.Drawing.Color.Black;
             this.pwd_view_office_address.Location = new System.Drawing.Point(226, 140);
             this.pwd_view_office_address.Name = "pwd_view_office_address";
-            this.pwd_view_office_address.Size = new System.Drawing.Size(113, 15);
+            this.pwd_view_office_address.Size = new System.Drawing.Size(41, 15);
             this.pwd_view_office_address.TabIndex = 106;
-            this.pwd_view_office_address.Text = "heyaaa@gmail.com";
+            this.pwd_view_office_address.Text = "street";
             // 
             // pwd_view_contact_person
             // 

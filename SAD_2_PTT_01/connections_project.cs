@@ -27,7 +27,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT project_id, project_title, start_time, end_time, date_proposed FROM p_dao.project WHERE isArchived = 0", conn);
+                comm = new MySqlCommand("SELECT * FROM p_dao.project WHERE isArchived = 0", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -41,6 +41,11 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 MessageBox.Show("[ERROR_PROJECT_GRID]");
             }
+        }
+
+        public void project_data_load (int project_id)
+        {
+            Console.WriteLine("[PJT] - [CONNECTIONS_PROJECT] > { [PROJECTS_DATA_LOAD] }");
         }
     }
 }

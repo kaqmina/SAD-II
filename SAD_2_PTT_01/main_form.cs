@@ -21,6 +21,7 @@ namespace SAD_2_PTT_01
         connections_pwd conn_pwd = new connections_pwd();
         connections_project conn_proj = new connections_project();
         shadow shadow_;
+        pwd_archive show_prompt;
         system_notification system_notify;
         public string current_user;
 
@@ -122,6 +123,20 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region FORM-ACTIVATED
+        bool pwd_archive = false;
+
+        private void main_form_Activated(object sender, EventArgs e)
+        {
+            if (pwd_archive == true)
+            {
+                this.BringToFront();
+                show_prompt.BringToFront();
+            }
+        }
+
+        #endregion
+
         #region PWD-GRID
         int current_pwd_id = 0;
         int current_grid_index = 1;
@@ -168,6 +183,10 @@ namespace SAD_2_PTT_01
         {
             load_pwd();
             pwd_searchbox.Clear();
+            pwd_filter_active.Checked = false;
+            pwd_filter_inactive.Checked = false;
+            pwd_filter_female.Checked = false;
+            pwd_filter_male.Checked = false;
         }
 
         private void pwd_grid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -247,7 +266,8 @@ namespace SAD_2_PTT_01
         #region PWD-ARCHIVE-MODE
         private void btn_archive_Click(object sender, EventArgs e)
         {
-            pwd_archive show_prompt = new pwd_archive();
+            pwd_archive = true;
+            show_prompt = new pwd_archive();
             shadow_ = new shadow();
             shadow_.Location = new Point(this.Location.X, this.Location.Y);
             show_prompt.current_id = current_pwd_id;
@@ -263,6 +283,7 @@ namespace SAD_2_PTT_01
             shadow_.Close();
             btn_renew.Enabled = false;
             btn_archive.Enabled = false;
+            pwd_archive = false;
         }
 
         #endregion
@@ -579,7 +600,31 @@ namespace SAD_2_PTT_01
             projects_grid.Columns["end_time"].HeaderText = "End Time";
             projects_grid.Columns["date_proposed"].HeaderText = "Date Proposed";
 
+            projects_grid.Columns["project_desc"].Visible = false;
+            projects_grid.Columns["items_id"].Visible = false;
+            projects_grid.Columns["progress_id"].Visible = false;
+            projects_grid.Columns["approved_by"].Visible = false;
+            projects_grid.Columns["event_held"].Visible = false;
+            projects_grid.Columns["budget"].Visible = false;
+            projects_grid.Columns["budget_desc"].Visible = false;
+            projects_grid.Columns["isArchived"].Visible = false;
             projects_grid.Columns["project_id"].Visible = false;
         }
+
+        public void projects_paste_data()
+        {
+            project_title.Text = "";
+            project_description.Text = "";
+            project_start_time.Text = "";
+            project_end_time.Text = "";
+            project_date_proposed.Text = "";
+            project_approved_by.Text = "";
+            project_event_held.Text = "";
+            project_budget.Text = "";
+            project_budget_description.Text = "";
+        }
+
+        
+        
     }
 }

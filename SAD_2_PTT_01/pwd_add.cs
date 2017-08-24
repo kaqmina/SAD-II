@@ -20,6 +20,7 @@ namespace SAD_2_PTT_01
         public pwd_view reference_to_view { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
         shadow shadow_;
+        pwd_ask prompt;
         system_keypress key_ = new system_keypress();
         system_functions system_func = new system_functions();
         public bool from_view = false;
@@ -85,16 +86,19 @@ namespace SAD_2_PTT_01
 
         #region BTN-BACK|KEY-PRESS
         public bool continue_;
+        bool confirmation = false;
 
         private void pwd_add_back_Click(object sender, EventArgs e)
         {
+            confirmation = true;
             shadow_ = new shadow();
-            shadow_.Location = new Point(this.Location.X, this.Location.Y);
+            shadow_.Location = new Point(reference_to_main.Location.X, reference_to_main.Location.Y);
             shadow_.Show();
-            pwd_ask prompt = new pwd_ask();
+            prompt = new pwd_ask();
             prompt.reference_to_main = this;
             prompt.ShowDialog();
             shadow_.Close();
+            //confirmation = false;
 
             if (continue_)
             {
@@ -1556,8 +1560,18 @@ namespace SAD_2_PTT_01
             paste_data();
         }
 
+
         #endregion
 
-        
+        private void pwd_add_Activated(object sender, EventArgs e)
+        {
+            if(confirmation == true)
+            {
+                reference_to_main.BringToFront();
+                this.BringToFront();
+                prompt.BringToFront();
+            }
+            
+        }
     }
 }
