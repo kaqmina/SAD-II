@@ -657,6 +657,7 @@ namespace SAD_2_PTT_01
             project_budget_description.Text = main_data.Rows[0]["budget_desc"].ToString();
 
             project_items_grid.DataSource = item_data;
+            project_load_item_row_count();
 
             project_items_grid.Columns["item_name"].HeaderText = "Name";
             project_items_grid.Columns["item_desc"].HeaderText = "Description";
@@ -725,6 +726,11 @@ namespace SAD_2_PTT_01
         public void project_load_row_count()
         {
             project_grid_row_count.Text = projects_grid.Rows.Count.ToString();
+        }
+
+        public void project_load_item_row_count()
+        { 
+            project_item_grid_row_count.Text = "Results : " + project_items_grid.Rows.Count.ToString();
         }
     }
 }
