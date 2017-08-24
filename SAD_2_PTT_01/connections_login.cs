@@ -16,6 +16,9 @@ namespace SAD_2_PTT_01
         {
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
         }
+        MySqlCommand comm;
+        MySqlDataAdapter get;
+        DataTable set;
 
         public bool login_user(string uname, string pword)
         {
@@ -24,9 +27,9 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM p_dao.employee WHERE username = '" + uname + "' AND password = '" + pword + "'", conn);
-                MySqlDataAdapter get = new MySqlDataAdapter(comm);
-                DataTable set = new DataTable();
+                comm = new MySqlCommand("SELECT * FROM p_dao.employee WHERE username = '" + uname + "' AND password = '" + pword + "'", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
                 get.Fill(set);
 
                 if (set.Rows.Count == 1)
@@ -43,6 +46,28 @@ namespace SAD_2_PTT_01
             }
             return valid;
 
+        }
+
+        public void login_get_user_name (int emp_id, string uname)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT * FROM p_dao.employee WHERE employee_id = " + emp_id, conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                uname = set.Rows[0]["username"].ToString();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                conn.Close();
+                MessageBox.Show("[ERROR_LOGIN_GET_USER_NAME]");
+            }
         }
     }
 }

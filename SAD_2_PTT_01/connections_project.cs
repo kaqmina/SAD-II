@@ -43,9 +43,29 @@ namespace SAD_2_PTT_01
             }
         }
 
-        public void project_data_load (int project_id)
+        public void project_data_load (int project_id, DataTable main, DataTable item)
         {
             Console.WriteLine("[PJT] - [CONNECTIONS_PROJECT] > { [PROJECTS_DATA_LOAD] }");
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT * FROM p_dao.project WHERE project_id = " + project_id, conn);
+                MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
+                main_data = new MySqlDataAdapter(comm);
+                main_data.Fill(main);
+
+                comm = new MySqlCommand("SELECT * FROM p_dao.project_items WHERE project_id = " + project_id, conn);
+                MySqlDataAdapter item_data = new MySqlDataAdapter(comm);
+                item_data.Fill(item);
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                conn.Close();
+                MessageBox.Show("[ERROR_PROJECT_DATA_LOAD]");
+            }
         }
     }
 }

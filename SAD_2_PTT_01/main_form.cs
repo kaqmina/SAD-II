@@ -48,6 +48,7 @@ namespace SAD_2_PTT_01
             conn_pwd.populate_cbox(pwd_combobox_disability, pwd_combobox_district);
 
             load_projects();
+            projects_default_data();
 
         }
 
@@ -118,7 +119,7 @@ namespace SAD_2_PTT_01
             pwd_grid.Columns["registration_no"].Width = 90;
             pwd_grid.Columns["sex"].Width = 40;
             pwd_grid.Columns["age"].Width = 40;
-            cell_color();
+            pwd_cell_color();
         }
 
         #endregion
@@ -139,7 +140,7 @@ namespace SAD_2_PTT_01
 
         #region PWD-GRID
         int current_pwd_id = 0;
-        int current_grid_index = 1;
+        int current_pwd_grid_index = 0;
 
         private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -163,11 +164,11 @@ namespace SAD_2_PTT_01
                     btn_archive.Enabled = false;
                 }
                 current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
-                current_grid_index = e.RowIndex;
+                current_pwd_grid_index = e.RowIndex;
             }
         }
 
-        public void cell_color()
+        public void pwd_cell_color()
         {
             int count = pwd_grid.Rows.Count;
             for (int i = 0; i < count; i++)
@@ -191,7 +192,7 @@ namespace SAD_2_PTT_01
 
         private void pwd_grid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            cell_color();
+            pwd_cell_color();
         }
 
         #endregion
@@ -252,7 +253,7 @@ namespace SAD_2_PTT_01
             edit.Location = new Point(loc_x, loc_y);
             edit.pwd_update_id = current_pwd_id;
             edit.update_mode = true;
-            edit.update_regis_no = pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
+            edit.update_regis_no = pwd_grid.Rows[current_pwd_grid_index].Cells["registration_no"].Value.ToString();
             Console.WriteLine("[PWD] ->> [EDIT-MODE]");
             edit.ShowDialog();
             if (success == true)
@@ -272,9 +273,9 @@ namespace SAD_2_PTT_01
             shadow_.Location = new Point(this.Location.X, this.Location.Y);
             show_prompt.current_id = current_pwd_id;
             show_prompt.reference_to_main = this;
-            show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_grid_index].Cells["registration_no"].Value.ToString();
-            show_prompt.name.Text = "Name: " + pwd_grid.Rows[current_grid_index].Cells["fullname"].Value.ToString();
-            show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_grid_index].Cells["application_date"].Value.ToString();
+            show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_pwd_grid_index].Cells["registration_no"].Value.ToString();
+            show_prompt.name.Text = "Name: " + pwd_grid.Rows[current_pwd_grid_index].Cells["fullname"].Value.ToString();
+            show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_pwd_grid_index].Cells["application_date"].Value.ToString();
             show_prompt.prompt_title.Text = "Archive";
             show_prompt.action.Text = "The following profile will be archived:";
             shadow_.Show();
@@ -424,7 +425,7 @@ namespace SAD_2_PTT_01
 
 
             pwd_grid.ClearSelection();
-            cell_color();
+            pwd_cell_color();
         }
 
         bool pwd_filter_ = false;
@@ -591,6 +592,8 @@ namespace SAD_2_PTT_01
         {
             conn_proj.project_grid_list(projects_grid);
             projects_format();
+
+            project_load_row_count();
         }
 
         public void projects_format()
@@ -609,22 +612,119 @@ namespace SAD_2_PTT_01
             projects_grid.Columns["budget_desc"].Visible = false;
             projects_grid.Columns["isArchived"].Visible = false;
             projects_grid.Columns["project_id"].Visible = false;
+            projects_grid.Columns["employee_id"].Visible = false;
         }
+
+        public int current_project_id = 0;
+        int current_project_grid_index = 0;
 
         public void projects_paste_data()
         {
-            project_title.Text = "";
-            project_description.Text = "";
-            project_start_time.Text = "";
-            project_end_time.Text = "";
-            project_date_proposed.Text = "";
-            project_approved_by.Text = "";
-            project_event_held.Text = "";
-            project_budget.Text = "";
-            project_budget_description.Text = "";
+            DataTable main_data = new DataTable();
+            DataTable item_data = new DataTable();
+            conn_proj.project_data_load(current_project_id, main_data, item_data);
+
+            project_title.ForeColor = Color.Black;
+            project_description.ForeColor = Color.Black;
+            project_start_time.ForeColor = Color.Black;
+            project_end_time.ForeColor = Color.Black;
+            project_date_proposed.ForeColor = Color.Black;
+            project_approved_by.ForeColor = Color.Black;
+            project_event_held.ForeColor = Color.Black;
+            project_budget.ForeColor = Color.Black;
+            project_budget_description.ForeColor = Color.Black;
+
+            Font def = new Font("Segoe UI", 9);
+
+            project_title.Font = new Font(def, FontStyle.Bold);
+            project_description.Font = new Font(def, FontStyle.Bold);
+            project_start_time.Font = new Font(def, FontStyle.Bold);
+            project_end_time.Font = new Font(def, FontStyle.Bold);
+            project_date_proposed.Font = new Font(def, FontStyle.Bold);
+            project_approved_by.Font = new Font(def, FontStyle.Bold);
+            project_event_held.Font = new Font(def, FontStyle.Bold);
+            project_budget.Font = new Font(def, FontStyle.Bold); ;
+            project_budget_description.Font = new Font(def, FontStyle.Bold);
+
+            project_title.Text = main_data.Rows[0]["project_title"].ToString();
+            project_description.Text = main_data.Rows[0]["project_desc"].ToString();
+            project_start_time.Text = main_data.Rows[0]["start_time"].ToString();
+            project_end_time.Text = main_data.Rows[0]["end_time"].ToString();
+            project_date_proposed.Text = main_data.Rows[0]["date_proposed"].ToString();
+            project_approved_by.Text = main_data.Rows[0]["approved_by"].ToString();
+            project_event_held.Text = main_data.Rows[0]["event_held"].ToString();
+            project_budget.Text = main_data.Rows[0]["budget"].ToString();
+            project_budget_description.Text = main_data.Rows[0]["budget_desc"].ToString();
+
+            project_items_grid.DataSource = item_data;
+
+            project_items_grid.Columns["item_name"].HeaderText = "Name";
+            project_items_grid.Columns["item_desc"].HeaderText = "Description";
+            project_items_grid.Columns["cost"].HeaderText = "Price";
+            project_items_grid.Columns["quantity"].HeaderText = "Quantity";
+
+            project_items_grid.Columns["items_id"].Visible = false;
+            project_items_grid.Columns["project_id"].Visible = false;
+
+            
         }
 
-        
-        
+
+        public void projects_default_data()
+        {
+            string default_text = "No item selected.";
+
+            project_title.ForeColor = Color.Silver;
+            project_description.ForeColor = Color.Silver;
+            project_start_time.ForeColor = Color.Silver;
+            project_end_time.ForeColor = Color.Silver;
+            project_date_proposed.ForeColor = Color.Silver;
+            project_approved_by.ForeColor = Color.Silver;
+            project_event_held.ForeColor = Color.Silver;
+            project_budget.ForeColor = Color.Silver;
+            project_budget_description.ForeColor = Color.Silver;
+
+            Font def = new Font("Segoe UI", 9);
+
+            project_title.Font = new Font(def, FontStyle.Italic);
+            project_description.Font = new Font(def, FontStyle.Italic);
+            project_start_time.Font = new Font(def, FontStyle.Italic);
+            project_end_time.Font = new Font(def, FontStyle.Italic);
+            project_date_proposed.Font = new Font(def, FontStyle.Italic);
+            project_approved_by.Font = new Font(def, FontStyle.Italic);
+            project_event_held.Font = new Font(def, FontStyle.Italic);
+            project_budget.Font = new Font(def, FontStyle.Italic); ;
+            project_budget_description.Font = new Font(def, FontStyle.Italic);
+
+            project_title.Text = default_text;
+            project_description.Text = default_text;
+            project_start_time.Text = default_text;
+            project_end_time.Text = default_text;
+            project_date_proposed.Text = default_text;
+            project_approved_by.Text = default_text;
+            project_event_held.Text = default_text;
+            project_budget.Text = default_text;
+            project_budget_description.Text = default_text;
+        }
+
+        private void projects_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            current_project_id = int.Parse(projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString());
+            current_project_grid_index = e.RowIndex;
+
+            if (e.RowIndex < 0)
+            {
+                //nothing
+            }
+            else
+            {
+                projects_paste_data();
+            }
+        }
+
+        public void project_load_row_count()
+        {
+            project_grid_row_count.Text = projects_grid.Rows.Count.ToString();
+        }
     }
 }
