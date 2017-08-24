@@ -105,12 +105,13 @@ namespace SAD_2_PTT
         #endregion
 
         #region Add | Edit 
-        public void Add(string query, string values)
+        public void Add(string values)
         {
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand(query + values, conn);
+                MySqlCommand com = new MySqlCommand("INSERT INTO employee(lastname, firstname, middlename, address, position, contact_no, birthdate, status_id, username, password) "
+                                                     + values, conn);
                 com.ExecuteNonQuery();
                 conn.Close();
 

@@ -589,6 +589,11 @@ namespace SAD_2_PTT
             DataGridViewRow row = this.user_grid.Rows[e.RowIndex];
             user = row.Cells["username"].Value.ToString();
         }
+        private void btn_addemp_Click(object sender, EventArgs e)
+        {
+            pnl_form.BringToFront();
+            pnl_manage.Enabled = false;
+        }
         #endregion
 
         #region PWD - Needs Relocation

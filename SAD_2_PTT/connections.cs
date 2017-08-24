@@ -428,7 +428,7 @@ namespace SAD_2_PTT
                     if (cmbox_prov.Items.Count == 0) MessageBox.Show("No device provider added.");
                     else cmbox_prov.Items.Add(provider);
                 }
-               
+
                 conn.Close();
             }
             catch (Exception ex)
@@ -437,19 +437,21 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
+
         public void device_log_emp(string user)
         {
             try
             {
-                    conn.Open();
-                    MySqlCommand comm = new MySqlCommand("SELECT employee_id FROM p_dao.employee WHERE username = '" + user + "')", conn);
-                    comm.ExecuteNonQuery();
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT employee_id FROM p_dao.employee WHERE username = '" + user + "')", conn);
+                comm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in device_log_emp(): " + ex);
             }
         }
+
         public void device_out_Format(DataGridView dev_editreq)
         {
             dev_editreq.Columns["pwd_id"].Visible = false;
@@ -486,6 +488,43 @@ namespace SAD_2_PTT
             dev_editreq.Columns["Status"].HeaderText = "Status";
         }
 
+
+        public bool checkStatus(string stat)
+        {
+            bool check = false;
+            device_view v = new device_view();
+            try
+            {
+                conn.Open();
+                if (stat == "in")
+                {
+                    MySqlCommand comm = new MySqlCommand("SELECT in_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'");
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    if (!dt.Rows.Contains("")) check = true;
+                    else check = false;
+                }
+                else if(stat == "out")
+                {
+                    MySqlCommand comm = new MySqlCommand("SELECT out_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'");
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    if (!dt.Rows.Contains("")) check = true;
+                    else check = false;
+                }
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error in checkStatus(): " + ex);
+                conn.Close();
+            }
+            return check;
+        }
         #endregion
 
         #region DataLoad

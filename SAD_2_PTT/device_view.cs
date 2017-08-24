@@ -19,10 +19,11 @@ namespace SAD_2_PTT
         connections conn = new connections();
         device_prompt p = new device_prompt();
 
-        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search, form;
+        String p_name, req_desc, status, reg_no, d_dis, d_prov, dev, device, search;
         String clicked = "default";
         DateTime req_date, date_IN, date_OUT;
-        int dev_id;
+        int dev_id, dp;
+        public bool valid = false;
         public bool cont = false; // continue for edit [device_prompt]
         public int id; //to be used in [device_prompt]
         public int fstatus; //final status
@@ -192,7 +193,7 @@ namespace SAD_2_PTT
     
             req_desc = txt_desc.Text;
             d_dis = cmbox_dis.Text;
-            int dp = cmbox_prov.SelectedIndex;
+            dp = cmbox_prov.SelectedIndex;
             req_date = request_date.Value.Date;
             date_IN = date_in.Value.Date;
             date_OUT = dateOut.Value.Date;          
@@ -209,9 +210,8 @@ namespace SAD_2_PTT
             p.dev_view = this;
             p.ShowDialog();
 
-            string query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "'," 
-                            + " out_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
-            conn.Edit(query, cont);
+            checkStatus_emp(fstatus);
+            
             conn.device_editreq_grid(dev_editreq, clicked);
             conn.device_out_grid(reference_to_main.device_grid);
             button2.Text = "Close";
@@ -282,6 +282,9 @@ namespace SAD_2_PTT
             stat_req.BackColor = Color.DimGray;
             stat_req.ForeColor = Color.White;
 
+            stat_out.BackColor = Color.DimGray;
+            stat_out.ForeColor = Color.White;
+
             stat_rec.BackColor = Color.White;
             stat_rec.ForeColor = bar.BackColor;
 
@@ -294,6 +297,9 @@ namespace SAD_2_PTT
 
             stat_rec.BackColor = Color.DimGray;
             stat_rec.ForeColor = Color.White;
+
+            stat_out.BackColor = Color.DimGray;
+            stat_out.ForeColor = Color.White;
 
             stat_req.BackColor = Color.White;
             stat_req.ForeColor = bar.BackColor;
@@ -362,6 +368,54 @@ namespace SAD_2_PTT
                     btn_out.Enabled = true;
                     btn_out.ForeColor = Color.White;
                     btn_out.Text = "HAND OUT";
+                }
+            }
+        }
+        #endregion
+
+        #region checkStatus()
+        public void checkStatus_emp(int status)
+        {
+            string query, values;
+
+            if (status == 0)
+            {
+                query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "',"
+                          + " req_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
+
+                conn.Edit(query, cont);
+            }
+            else if(status == 1)
+            {
+                if (conn.checkStatus("in") == true)
+                {
+                    query = "INSERT INTO device_log(in_emp_id) ";
+                    values = "VALUES((SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "'))WHERE deviceLOG_id = '" + id + "'";
+                    conn.Add(query, values);
+                }
+                else
+                {
+                    query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "',"
+                         + " in_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
+
+                    conn.Edit(query, cont);
+                }
+                
+            }
+            else if(status == 2)
+            {
+                if (conn.checkStatus("out") == true)
+                {
+                    query = "INSERT INTO device_log(out_emp_id) ";
+                    values = "VALUES((SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "'))WHERE deviceLOG_id = '" + id + "'";
+                    conn.Add(query, values);
+                }
+                else
+                {
+                    query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "',"
+                        + " out_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
+
+                    conn.Edit(query, cont);
                 }
             }
         }
