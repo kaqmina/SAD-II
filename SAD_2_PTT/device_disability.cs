@@ -55,37 +55,13 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region Add
+        #region Add & Edit
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txt_desc.Text == "") txt_desc.Text = "None";
-
-            dis_type = txt_type.Text;
-            dis_desc = txt_desc.Text;
-
-            string query = "INSERT INTO disability(disability_type, disability_desc)";
-            string values = " VALUES('" + dis_type + "','" + dis_desc + "')";
-            conn.Add(query, values);
-            conn.device_dis_grid(dev_disgrid);
-        }
-        #endregion
-
-        #region Clear
-        private void button4_Click(object sender, EventArgs e)
-        {
-            txt_type.Clear();
-            txt_desc.Clear();
-
-            button1.Enabled = true;
-            button1.BringToFront();
-        }
-        #endregion
-
-        #region Edit
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lbl_desc.Text = "";
+            if (button1.Text == "Edit")
+            {
+                lbl_desc.Text = "";
             dis_type = txt_type.Text;
             dis_desc = txt_desc.Text;
 
@@ -95,7 +71,6 @@ namespace SAD_2_PTT
             p.lbl_quest.Text = "Are you sure to save this changes?";
             p.prompt_title.Location = new Point(164, 4);
             p.lbl_quest.Location = new Point(97, 8);
-            p.lbl_out.Visible = p.date_out.Visible = false;
 
             p.dev_dis = this;
             p.ShowDialog();
@@ -103,7 +78,19 @@ namespace SAD_2_PTT
             string query = "UPDATE disability SET disability_type = '" + dis_type + "', disability_desc = '" + dis_desc + "' WHERE disability_id = '" + dis_id + "'; ";
             conn.Edit(query, cont);
             conn.device_dis_grid(dev_disgrid);
-  
+            }
+            else
+            {
+                if (txt_desc.Text == "") txt_desc.Text = "None";
+
+                dis_type = txt_type.Text;
+                dis_desc = txt_desc.Text;
+
+                string query = "INSERT INTO disability(disability_type, disability_desc)";
+                string values = " VALUES('" + dis_type + "','" + dis_desc + "')";
+                conn.Add(query, values);
+                conn.device_dis_grid(dev_disgrid);
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,9 +101,6 @@ namespace SAD_2_PTT
             }
             else
             {
-                //btn add false
-                button1.Enabled = false;
-                button2.BringToFront();
 
                 DataGridViewRow row = this.dev_disgrid.Rows[e.RowIndex];
                 dis_type = row.Cells["disability_type"].Value.ToString();
@@ -127,7 +111,19 @@ namespace SAD_2_PTT
                 txt_type.Text = dis_type;
                 txt_desc.Text = dis_desc;
                 lbl_desc.Text = dis_desc;
+
+                button1.Text = "Edit";
             }
+        }
+        #endregion
+
+        #region Clear
+        private void button4_Click(object sender, EventArgs e)
+        {
+            txt_type.Clear();
+            txt_desc.Clear();
+
+            button1.Text = "Add";
         }
         #endregion
 

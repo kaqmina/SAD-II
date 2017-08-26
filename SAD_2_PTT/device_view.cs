@@ -205,7 +205,6 @@ namespace SAD_2_PTT
             p.prompt_title.Location = new Point(168, 4);
             p.lbl_quest.Location = new Point(97, 8);
             p.lbl_quest.Visible = true;
-            p.lbl_out.Visible = p.date_out.Visible = false;
 
             p.dev_view = this;
             p.ShowDialog();

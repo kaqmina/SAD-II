@@ -59,68 +59,53 @@ namespace SAD_2_PTT
         
         #endregion
 
-        #region Add
+        #region Add & Edit
         private void button1_Click(object sender, EventArgs e)
         {
-            //if no description to add
-            if (txt_ddesc.Text == "") txt_ddesc.Text = "None";
+            if (button1.Text == "Edit")
+            {
+                //remove permanent info
+                lbl_ddesc.Text = "";
+                lbl_dis.Text = "";
 
-            int d = cmbox_dis.SelectedIndex + 1;
-           
-            device = txt_dname.Text;
-            desc = txt_ddesc.Text;
+                device = txt_dname.Text;
+                desc = txt_ddesc.Text;
+
+                //disability id
+                int d = 0;
+                d = cmbox_dis.SelectedIndex + 1;
+
+                //Prompt
+                string func = "Edit Device";
+                p.prompt_title.Text = func;
+                p.lbl_quest.Text = "Are you sure to save this changes?";
+                p.prompt_title.Location = new Point(171, 4);
+                p.lbl_quest.Location = new Point(97, 8);
+
+                p.dev_add = this;
+                p.ShowDialog();
+
+                string query = "UPDATE p_dao.device SET device.disability_id = '" + d + "', dev_name = '" + device + "', dev_desc = '" + desc + "' WHERE device.device_id = '" + d_id + "'; ";
+                conn.Edit(query, cont);
+                conn.device_add_grid(dev_addgrid);
+            }
+            else
+            {
+                //if no description to add
+                if (txt_ddesc.Text == "") txt_ddesc.Text = "None";
+
+                int d = cmbox_dis.SelectedIndex + 1;
+
+                device = txt_dname.Text;
+                desc = txt_ddesc.Text;
 
 
-            string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
-            string values = " VALUES('" + d + "','" + device + "','" + desc + "')";
-            conn.Add(query, values);
-            conn.device_add_grid(dev_addgrid);
+                string query = "INSERT INTO p_dao.device(disability_id,dev_name,dev_desc)";
+                string values = " VALUES('" + d + "','" + device + "','" + desc + "')";
+                conn.Add(query, values);
+                conn.device_add_grid(dev_addgrid);
+            }
         }
-        #endregion
-
-        #region Clear
-        private void button5_Click(object sender, EventArgs e)
-        {
-            cmbox_dis.Text = "";
-            txt_dname.Clear();
-            txt_ddesc.Clear();
-
-            button1.Enabled = true; // add button
-            button1.BringToFront();
-            btn_del.Visible = false;
-        }
-
-        #endregion
-
-        #region Edit
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //remove permanent info
-            lbl_ddesc.Text = "";
-            lbl_dis.Text = "";
-
-            device = txt_dname.Text;
-            desc = txt_ddesc.Text;
-
-            //disability id
-            int d = 0;
-            d = cmbox_dis.SelectedIndex + 1;
-            
-            //Prompt
-            string func = "Edit Device";
-            p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure to save this changes?";
-            p.prompt_title.Location = new Point(171,4);
-            p.lbl_quest.Location = new Point(97,8);
-
-            p.dev_add = this;
-            p.ShowDialog();
-
-            string query = "UPDATE p_dao.device SET device.disability_id = '" + d + "', dev_name = '" + device + "', dev_desc = '" + desc + "' WHERE device.device_id = '" + d_id + "'; ";
-            conn.Edit(query, cont);
-            conn.device_add_grid(dev_addgrid);
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -129,8 +114,6 @@ namespace SAD_2_PTT
             }
             else
             {
-                //btn add to back
-                button2.BringToFront();
                 btn_del.Visible = true; // remove button
                 button5.Visible = true; // clear button
 
@@ -152,7 +135,22 @@ namespace SAD_2_PTT
                 cmbox_dis.Text = disability;
                 lbl_ddesc.Text = desc;
                 lbl_dis.Text = disability;
+
+                button1.Text = "Edit";
             }
+        }
+
+        #endregion
+
+        #region Clear
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cmbox_dis.Text = "";
+            txt_dname.Clear();
+            txt_ddesc.Clear();
+
+            button1.Text = "Add";
+            btn_del.Visible = false;
         }
 
         #endregion

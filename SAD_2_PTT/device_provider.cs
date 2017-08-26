@@ -57,72 +57,49 @@ namespace SAD_2_PTT
      
         #endregion
 
-        #region Add
+        #region Add & Edit
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txt_desc.Text == "") txt_desc.Text = "None";
-            dp_name = txt_name.Text;
-            dp_desc = txt_desc.Text;
-            tel_no = txt_telno.Text;
-            email = txt_email.Text;
+            if (button1.Text == "Edit")
+            {
+                lbl_desc.Text = "";
+                //to pass
+                dp_name = txt_name.Text;
+                dp_desc = txt_desc.Text;
+                tel_no = txt_telno.Text;
+                email = txt_email.Text;
+                mob_no = Convert.ToInt32(txt_mobno.Text);
+                dp_type = cmbox_type.SelectedIndex - 1;
 
-            mob_no = Convert.ToInt32(txt_mobno.Text);
+                //Prompt
+                string func = "Edit Device Provider";
+                p.prompt_title.Text = func;
+                p.lbl_quest.Text = "Are you sure you want save this changes?";
+                p.prompt_title.Location = new Point(146, 4);
+                p.lbl_quest.Location = new Point(97, 8);
 
-            string query = "INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add)";
-            string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
-            conn.Add(query, values);
-            conn.device_prov_grid(dev_provgrid);
+                p.dev_prov = this;
+                p.ShowDialog();
+
+                string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + dp_type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
+                conn.Edit(query, cont);
+                conn.device_prov_grid(dev_provgrid);
+            }
+            else
+            {
+                if (txt_desc.Text == "") txt_desc.Text = "None";
+                dp_name = txt_name.Text;
+                dp_desc = txt_desc.Text;
+                tel_no = txt_telno.Text;
+                email = txt_email.Text;
+                mob_no = Convert.ToInt32(txt_mobno.Text);
+
+                string query = "INSERT INTO device_provider(dp_name,dp_desc,dp_type,mobile_no,tel_no,email_add)";
+                string values = " VALUES('" + dp_name + "','" + dp_desc + "','" + dp_type + "','" + mob_no + "','" + tel_no + "','" + email + "')";
+                conn.Add(query, values);
+                conn.device_prov_grid(dev_provgrid);
+            }
          }
-
-        private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dp_type = cmbox_type.SelectedIndex - 1;
-        }
-        #endregion
-
-        #region Clear
-        private void button5_Click(object sender, EventArgs e)
-        {
-            cmbox_type.Text = "";
-            txt_name.Clear();
-            txt_desc.Clear();
-            txt_mobno.Clear();
-            txt_telno.Clear();
-            txt_email.Clear();
-
-            button1.Enabled = true;
-            button1.BringToFront();
-        }
-
-        #endregion
-
-        #region Edit
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lbl_desc.Text = "";
-            //to pass
-            dp_name = txt_name.Text;
-            dp_desc = txt_desc.Text;
-            tel_no = txt_telno.Text;
-            email = txt_email.Text;
-            mob_no = Convert.ToInt32(txt_mobno.Text);
-            dp_type = cmbox_type.SelectedIndex - 1;
-
-            //Prompt
-            string func = "Edit Device Provider";
-            p.prompt_title.Text = func;
-            p.lbl_quest.Text = "Are you sure you want save this changes?";
-            p.prompt_title.Location = new Point(146, 4);
-            p.lbl_quest.Location = new Point(97, 8);
-            p.lbl_out.Visible = p.date_out.Visible = false;
-
-            p.dev_prov = this;
-            p.ShowDialog();
-
-            string query = "UPDATE device_provider SET dp_name = '" + dp_name + "', dp_desc = '" + dp_desc + "', dp_type = '" + dp_type + "', mobile_no = '" + mob_no + "', tel_no = '" + tel_no + "', email_add = '" + email + "' WHERE dp_id = '" + dp_id + "'; ";
-            conn.Edit(query, cont);
-            conn.device_prov_grid(dev_provgrid);
-        }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -131,10 +108,6 @@ namespace SAD_2_PTT
             }
             else
             {
-                //btn add false
-                button1.Enabled = false;
-                button2.BringToFront();
-
                 DataGridViewRow row = this.dev_provgrid.Rows[e.RowIndex];
                 dp_name = row.Cells["dp_name"].Value.ToString();
                 dp_desc = row.Cells["dp_desc"].Value.ToString();
@@ -155,8 +128,29 @@ namespace SAD_2_PTT
                 txt_email.Text = email;
                 txt_mobno.Text = mob_no.ToString();
                 lbl_desc.Text = dp_desc;
+
+                button1.Text = "Edit";
             }
         }
+        private void cmbox_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dp_type = cmbox_type.SelectedIndex - 1;
+        }
+        #endregion
+
+        #region Clear
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cmbox_type.Text = "";
+            txt_name.Clear();
+            txt_desc.Clear();
+            txt_mobno.Clear();
+            txt_telno.Clear();
+            txt_email.Clear();
+
+            button1.Text = "Add";
+        }
+
         #endregion
 
         #region Search

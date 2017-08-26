@@ -574,8 +574,6 @@ namespace SAD_2_PTT
             setting.settings_info_grid(info_grid);
             info_grid.ClearSelection();
             user_grid.ClearSelection();
-
-          
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -638,10 +636,9 @@ namespace SAD_2_PTT
                 string func = "Edit Employee Details";
                 p.prompt_title.Text = func;
                 p.lbl_quest.Text = "Are you sure to save this changes?";
-                p.prompt_title.Location = new Point(168, 4);
+                p.prompt_title.Location = new Point(142, 3);
                 p.lbl_quest.Location = new Point(97, 8);
                 p.lbl_quest.Visible = true;
-           //     p.lbl_out.Visible = p.date_out.Visible = false;
 
                 p.reference_to_main = this;
                 p.ShowDialog();
