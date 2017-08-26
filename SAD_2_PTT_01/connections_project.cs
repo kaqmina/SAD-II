@@ -20,6 +20,8 @@ namespace SAD_2_PTT_01
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
         }
 
+        #region GRID-MAINFORM
+
         public void project_grid_list(DataGridView projects_grid)
         {
             Console.WriteLine("[PJT] - [CONNECTIONS_PROJECT] > { [PROJECTS_GRID_LOADED] }");
@@ -27,7 +29,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT * FROM p_dao.project WHERE isArchived = 0", conn);
+                comm = new MySqlCommand("SELECT * FROM p_dao.project LEFT JOIN p_dao.project_progress ON project.project_id = project_progress.project_id WHERE project.isArchived = 0", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -65,6 +67,58 @@ namespace SAD_2_PTT_01
                 Console.WriteLine(e.Message);
                 conn.Close();
                 MessageBox.Show("[ERROR_PROJECT_DATA_LOAD]");
+            }
+        }
+
+        #endregion
+
+        #region FILTER-MODE
+
+        public void filter_status(string status, DataGridView projects_grid)
+        {
+            (projects_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("CONVERT(progress_type, System.String) Like '%{0}%' ", status);
+
+        }
+
+        #endregion
+
+        public void persons_involved(int project_id, DataTable persons_grid)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT registration_no, "
+                                             + "personsIN_id, "
+                                             + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
+                                             + "disability_type, "
+                                             + "(CASE WHEN attendance = 0 THEN 'Absent' WHEN attendance = 1 THEN 'Present' END) as attendance "
+                                             + "FROM p_dao.project_persons LEFT JOIN p_dao.pwd ON (project_persons.pwd_id = pwd.pwd_id) "
+                                             + "LEFT JOIN p_dao.disability ON (pwd.disability_id = disability.disability_id) WHERE project_id = " + project_id, conn);
+                get = new MySqlDataAdapter(comm);
+                get.Fill(persons_grid);
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public void persons_involved_attendance (string attendance, string persons_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE p_dao.project_persons SET attendance = " + attendance + " WHERE personsIN_id = " + persons_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
             }
         }
     }

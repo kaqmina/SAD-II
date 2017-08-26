@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.side_tab = new System.Windows.Forms.Panel();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -90,22 +91,26 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.pnl_projects = new System.Windows.Forms.Panel();
+            this.projects_panel_persons = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btn_projects_persons_attendance = new System.Windows.Forms.Button();
+            this.projects_persons_involved_row_count = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.projects_grid_persons_involved = new System.Windows.Forms.DataGridView();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_projects_refresh = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.project_approved_by = new System.Windows.Forms.Label();
             this.project_event_held = new System.Windows.Forms.Label();
             this.project_end_time = new System.Windows.Forms.Label();
             this.project_start_time = new System.Windows.Forms.Label();
             this.project_date_proposed = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.btn_projects_persons_involved = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.project_items_grid = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.project_budget_description = new System.Windows.Forms.TextBox();
-            this.project_budget = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.project_title = new System.Windows.Forms.Label();
             this.project_description = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -115,14 +120,25 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.projects_panel_budget_items = new System.Windows.Forms.Panel();
+            this.project_item_grid_row_count = new System.Windows.Forms.Label();
+            this.btn_projects_persons_involved = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.project_items_grid = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.project_budget_description = new System.Windows.Forms.TextBox();
+            this.project_budget = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.project_grid_row_count = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.project_filter_cancelled = new System.Windows.Forms.RadioButton();
+            this.project_filter_pending = new System.Windows.Forms.RadioButton();
+            this.project_filter_ongoing = new System.Windows.Forms.RadioButton();
             this.projects_grid = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -142,7 +158,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btn_notifications_pwd = new System.Windows.Forms.Button();
-            this.project_item_grid_row_count = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -158,8 +173,12 @@
             this.pnl_devices.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnl_projects.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.projects_panel_persons.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).BeginInit();
+            this.panel13.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.projects_panel_budget_items.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.project_items_grid)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projects_grid)).BeginInit();
@@ -1003,6 +1022,10 @@
             // pnl_projects
             // 
             this.pnl_projects.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_projects.Controls.Add(this.projects_panel_persons);
+            this.pnl_projects.Controls.Add(this.label24);
+            this.pnl_projects.Controls.Add(this.panel13);
+            this.pnl_projects.Controls.Add(this.btn_projects_refresh);
             this.pnl_projects.Controls.Add(this.panel11);
             this.pnl_projects.Controls.Add(this.label12);
             this.pnl_projects.Controls.Add(this.project_grid_row_count);
@@ -1019,6 +1042,190 @@
             this.pnl_projects.Size = new System.Drawing.Size(1066, 611);
             this.pnl_projects.TabIndex = 7;
             // 
+            // projects_panel_persons
+            // 
+            this.projects_panel_persons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.projects_panel_persons.Controls.Add(this.panel12);
+            this.projects_panel_persons.Controls.Add(this.btn_projects_persons_attendance);
+            this.projects_panel_persons.Controls.Add(this.projects_persons_involved_row_count);
+            this.projects_panel_persons.Controls.Add(this.button10);
+            this.projects_panel_persons.Controls.Add(this.projects_grid_persons_involved);
+            this.projects_panel_persons.Controls.Add(this.label31);
+            this.projects_panel_persons.Location = new System.Drawing.Point(511, 105);
+            this.projects_panel_persons.Name = "projects_panel_persons";
+            this.projects_panel_persons.Size = new System.Drawing.Size(541, 491);
+            this.projects_panel_persons.TabIndex = 144;
+            // 
+            // panel12
+            // 
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Controls.Add(this.button13);
+            this.panel12.Controls.Add(this.textBox2);
+            this.panel12.Location = new System.Drawing.Point(338, 24);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(195, 22);
+            this.panel12.TabIndex = 148;
+            // 
+            // button13
+            // 
+            this.button13.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.search;
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Location = new System.Drawing.Point(161, 0);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(32, 20);
+            this.button13.TabIndex = 2;
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(-1, -1);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 22);
+            this.textBox2.TabIndex = 0;
+            // 
+            // btn_projects_persons_attendance
+            // 
+            this.btn_projects_persons_attendance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_projects_persons_attendance.FlatAppearance.BorderSize = 0;
+            this.btn_projects_persons_attendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_projects_persons_attendance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_projects_persons_attendance.ForeColor = System.Drawing.Color.Black;
+            this.btn_projects_persons_attendance.Location = new System.Drawing.Point(331, 467);
+            this.btn_projects_persons_attendance.Name = "btn_projects_persons_attendance";
+            this.btn_projects_persons_attendance.Size = new System.Drawing.Size(116, 21);
+            this.btn_projects_persons_attendance.TabIndex = 147;
+            this.btn_projects_persons_attendance.Text = "MARK AS PRESENT";
+            this.btn_projects_persons_attendance.UseVisualStyleBackColor = false;
+            this.btn_projects_persons_attendance.Click += new System.EventHandler(this.btn_projects_persons_attendance_Click);
+            // 
+            // projects_persons_involved_row_count
+            // 
+            this.projects_persons_involved_row_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.projects_persons_involved_row_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_persons_involved_row_count.ForeColor = System.Drawing.Color.Black;
+            this.projects_persons_involved_row_count.Location = new System.Drawing.Point(331, 6);
+            this.projects_persons_involved_row_count.Name = "projects_persons_involved_row_count";
+            this.projects_persons_involved_row_count.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.projects_persons_involved_row_count.Size = new System.Drawing.Size(205, 15);
+            this.projects_persons_involved_row_count.TabIndex = 129;
+            this.projects_persons_involved_row_count.Text = "Results : 30";
+            this.projects_persons_involved_row_count.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.Black;
+            this.button10.Location = new System.Drawing.Point(452, 467);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(86, 21);
+            this.button10.TabIndex = 146;
+            this.button10.Text = "BACK";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // projects_grid_persons_involved
+            // 
+            this.projects_grid_persons_involved.AllowUserToAddRows = false;
+            this.projects_grid_persons_involved.AllowUserToDeleteRows = false;
+            this.projects_grid_persons_involved.AllowUserToResizeColumns = false;
+            this.projects_grid_persons_involved.AllowUserToResizeRows = false;
+            this.projects_grid_persons_involved.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.projects_grid_persons_involved.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.projects_grid_persons_involved.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.projects_grid_persons_involved.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.projects_grid_persons_involved.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.projects_grid_persons_involved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.projects_grid_persons_involved.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.projects_grid_persons_involved.Location = new System.Drawing.Point(8, 51);
+            this.projects_grid_persons_involved.MultiSelect = false;
+            this.projects_grid_persons_involved.Name = "projects_grid_persons_involved";
+            this.projects_grid_persons_involved.ReadOnly = true;
+            this.projects_grid_persons_involved.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.projects_grid_persons_involved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.projects_grid_persons_involved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.projects_grid_persons_involved.Size = new System.Drawing.Size(522, 345);
+            this.projects_grid_persons_involved.TabIndex = 144;
+            this.projects_grid_persons_involved.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projects_grid_persons_involved_CellClick);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(7, 8);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(110, 13);
+            this.label31.TabIndex = 134;
+            this.label31.Text = "PERSONS INVOLVED";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(262, 65);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(48, 13);
+            this.label24.TabIndex = 131;
+            this.label24.Text = "SEARCH";
+            // 
+            // panel13
+            // 
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.button9);
+            this.panel13.Controls.Add(this.textBox1);
+            this.panel13.Location = new System.Drawing.Point(267, 80);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(202, 25);
+            this.panel13.TabIndex = 130;
+            // 
+            // button9
+            // 
+            this.button9.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.search;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(168, 0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(32, 23);
+            this.button9.TabIndex = 2;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(-1, -1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(167, 25);
+            this.textBox1.TabIndex = 0;
+            // 
+            // btn_projects_refresh
+            // 
+            this.btn_projects_refresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_projects_refresh.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.reload;
+            this.btn_projects_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_projects_refresh.FlatAppearance.BorderSize = 0;
+            this.btn_projects_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_projects_refresh.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_projects_refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_projects_refresh.Location = new System.Drawing.Point(475, 78);
+            this.btn_projects_refresh.Name = "btn_projects_refresh";
+            this.btn_projects_refresh.Size = new System.Drawing.Size(22, 25);
+            this.btn_projects_refresh.TabIndex = 129;
+            this.btn_projects_refresh.UseVisualStyleBackColor = false;
+            this.btn_projects_refresh.Click += new System.EventHandler(this.btn_projects_refresh_Click);
+            // 
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1027,7 +1234,6 @@
             this.panel11.Controls.Add(this.project_end_time);
             this.panel11.Controls.Add(this.project_start_time);
             this.panel11.Controls.Add(this.project_date_proposed);
-            this.panel11.Controls.Add(this.panel12);
             this.panel11.Controls.Add(this.project_title);
             this.panel11.Controls.Add(this.project_description);
             this.panel11.Controls.Add(this.label20);
@@ -1037,6 +1243,7 @@
             this.panel11.Controls.Add(this.label15);
             this.panel11.Controls.Add(this.label13);
             this.panel11.Controls.Add(this.label46);
+            this.panel11.Controls.Add(this.projects_panel_budget_items);
             this.panel11.Location = new System.Drawing.Point(511, 105);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(541, 491);
@@ -1101,142 +1308,6 @@
             this.project_date_proposed.Size = new System.Drawing.Size(84, 15);
             this.project_date_proposed.TabIndex = 139;
             this.project_date_proposed.Text = "April 08, 2017";
-            // 
-            // panel12
-            // 
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.project_item_grid_row_count);
-            this.panel12.Controls.Add(this.btn_projects_persons_involved);
-            this.panel12.Controls.Add(this.label14);
-            this.panel12.Controls.Add(this.project_items_grid);
-            this.panel12.Controls.Add(this.label11);
-            this.panel12.Controls.Add(this.project_budget_description);
-            this.panel12.Controls.Add(this.project_budget);
-            this.panel12.Controls.Add(this.label23);
-            this.panel12.Controls.Add(this.label22);
-            this.panel12.Controls.Add(this.label21);
-            this.panel12.Location = new System.Drawing.Point(14, 205);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(513, 266);
-            this.panel12.TabIndex = 138;
-            // 
-            // btn_projects_persons_involved
-            // 
-            this.btn_projects_persons_involved.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_projects_persons_involved.Enabled = false;
-            this.btn_projects_persons_involved.FlatAppearance.BorderSize = 0;
-            this.btn_projects_persons_involved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_projects_persons_involved.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_projects_persons_involved.ForeColor = System.Drawing.Color.Black;
-            this.btn_projects_persons_involved.Location = new System.Drawing.Point(11, 216);
-            this.btn_projects_persons_involved.Name = "btn_projects_persons_involved";
-            this.btn_projects_persons_involved.Size = new System.Drawing.Size(210, 35);
-            this.btn_projects_persons_involved.TabIndex = 146;
-            this.btn_projects_persons_involved.Text = "SEE LIST OF PARTICIPANTS";
-            this.btn_projects_persons_involved.UseVisualStyleBackColor = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(8, 193);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 13);
-            this.label14.TabIndex = 145;
-            this.label14.Text = "PARTICIPANTS";
-            // 
-            // project_items_grid
-            // 
-            this.project_items_grid.AllowUserToAddRows = false;
-            this.project_items_grid.AllowUserToDeleteRows = false;
-            this.project_items_grid.AllowUserToResizeColumns = false;
-            this.project_items_grid.AllowUserToResizeRows = false;
-            this.project_items_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.project_items_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.project_items_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.project_items_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.project_items_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.project_items_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.project_items_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.project_items_grid.Location = new System.Drawing.Point(239, 26);
-            this.project_items_grid.MultiSelect = false;
-            this.project_items_grid.Name = "project_items_grid";
-            this.project_items_grid.ReadOnly = true;
-            this.project_items_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.project_items_grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.project_items_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.project_items_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.project_items_grid.Size = new System.Drawing.Size(271, 235);
-            this.project_items_grid.TabIndex = 144;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(237, 8);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
-            this.label11.TabIndex = 141;
-            this.label11.Text = "ITEMS";
-            // 
-            // project_budget_description
-            // 
-            this.project_budget_description.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.project_budget_description.Location = new System.Drawing.Point(11, 73);
-            this.project_budget_description.Multiline = true;
-            this.project_budget_description.Name = "project_budget_description";
-            this.project_budget_description.ReadOnly = true;
-            this.project_budget_description.Size = new System.Drawing.Size(210, 107);
-            this.project_budget_description.TabIndex = 140;
-            // 
-            // project_budget
-            // 
-            this.project_budget.AutoSize = true;
-            this.project_budget.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.project_budget.ForeColor = System.Drawing.Color.Black;
-            this.project_budget.Location = new System.Drawing.Point(28, 26);
-            this.project_budget.MaximumSize = new System.Drawing.Size(213, 36);
-            this.project_budget.Name = "project_budget";
-            this.project_budget.Size = new System.Drawing.Size(62, 15);
-            this.project_budget.TabIndex = 139;
-            this.project_budget.Text = "10,000.00";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(7, 26);
-            this.label23.MaximumSize = new System.Drawing.Size(351, 36);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(15, 15);
-            this.label23.TabIndex = 138;
-            this.label23.Text = "₱";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(7, 50);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(75, 13);
-            this.label22.TabIndex = 135;
-            this.label22.Text = "DESCRIPTION";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(7, 8);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(49, 13);
-            this.label21.TabIndex = 134;
-            this.label21.Text = "BUDGET";
             // 
             // project_title
             // 
@@ -1337,6 +1408,156 @@
             this.label46.TabIndex = 126;
             this.label46.Text = "PROJECT TITLE";
             // 
+            // projects_panel_budget_items
+            // 
+            this.projects_panel_budget_items.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.projects_panel_budget_items.Controls.Add(this.project_item_grid_row_count);
+            this.projects_panel_budget_items.Controls.Add(this.btn_projects_persons_involved);
+            this.projects_panel_budget_items.Controls.Add(this.label14);
+            this.projects_panel_budget_items.Controls.Add(this.project_items_grid);
+            this.projects_panel_budget_items.Controls.Add(this.label11);
+            this.projects_panel_budget_items.Controls.Add(this.project_budget_description);
+            this.projects_panel_budget_items.Controls.Add(this.project_budget);
+            this.projects_panel_budget_items.Controls.Add(this.label23);
+            this.projects_panel_budget_items.Controls.Add(this.label22);
+            this.projects_panel_budget_items.Controls.Add(this.label21);
+            this.projects_panel_budget_items.Location = new System.Drawing.Point(14, 205);
+            this.projects_panel_budget_items.Name = "projects_panel_budget_items";
+            this.projects_panel_budget_items.Size = new System.Drawing.Size(513, 266);
+            this.projects_panel_budget_items.TabIndex = 138;
+            // 
+            // project_item_grid_row_count
+            // 
+            this.project_item_grid_row_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.project_item_grid_row_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_item_grid_row_count.ForeColor = System.Drawing.Color.Black;
+            this.project_item_grid_row_count.Location = new System.Drawing.Point(303, 7);
+            this.project_item_grid_row_count.Name = "project_item_grid_row_count";
+            this.project_item_grid_row_count.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.project_item_grid_row_count.Size = new System.Drawing.Size(205, 15);
+            this.project_item_grid_row_count.TabIndex = 129;
+            this.project_item_grid_row_count.Text = "Results : 30";
+            this.project_item_grid_row_count.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_projects_persons_involved
+            // 
+            this.btn_projects_persons_involved.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_projects_persons_involved.Enabled = false;
+            this.btn_projects_persons_involved.FlatAppearance.BorderSize = 0;
+            this.btn_projects_persons_involved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_projects_persons_involved.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_projects_persons_involved.ForeColor = System.Drawing.Color.Black;
+            this.btn_projects_persons_involved.Location = new System.Drawing.Point(11, 216);
+            this.btn_projects_persons_involved.Name = "btn_projects_persons_involved";
+            this.btn_projects_persons_involved.Size = new System.Drawing.Size(210, 35);
+            this.btn_projects_persons_involved.TabIndex = 146;
+            this.btn_projects_persons_involved.Text = "SEE LIST OF PARTICIPANTS";
+            this.btn_projects_persons_involved.UseVisualStyleBackColor = false;
+            this.btn_projects_persons_involved.Click += new System.EventHandler(this.btn_projects_persons_involved_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(8, 193);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 13);
+            this.label14.TabIndex = 145;
+            this.label14.Text = "PARTICIPANTS";
+            // 
+            // project_items_grid
+            // 
+            this.project_items_grid.AllowUserToAddRows = false;
+            this.project_items_grid.AllowUserToDeleteRows = false;
+            this.project_items_grid.AllowUserToResizeColumns = false;
+            this.project_items_grid.AllowUserToResizeRows = false;
+            this.project_items_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.project_items_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.project_items_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.project_items_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.project_items_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.project_items_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.project_items_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.project_items_grid.Location = new System.Drawing.Point(239, 26);
+            this.project_items_grid.MultiSelect = false;
+            this.project_items_grid.Name = "project_items_grid";
+            this.project_items_grid.ReadOnly = true;
+            this.project_items_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_items_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.project_items_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.project_items_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.project_items_grid.Size = new System.Drawing.Size(271, 235);
+            this.project_items_grid.TabIndex = 144;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(237, 8);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 13);
+            this.label11.TabIndex = 141;
+            this.label11.Text = "ITEMS";
+            // 
+            // project_budget_description
+            // 
+            this.project_budget_description.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.project_budget_description.Location = new System.Drawing.Point(11, 73);
+            this.project_budget_description.Multiline = true;
+            this.project_budget_description.Name = "project_budget_description";
+            this.project_budget_description.ReadOnly = true;
+            this.project_budget_description.Size = new System.Drawing.Size(210, 107);
+            this.project_budget_description.TabIndex = 140;
+            // 
+            // project_budget
+            // 
+            this.project_budget.AutoSize = true;
+            this.project_budget.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_budget.ForeColor = System.Drawing.Color.Black;
+            this.project_budget.Location = new System.Drawing.Point(28, 26);
+            this.project_budget.MaximumSize = new System.Drawing.Size(213, 36);
+            this.project_budget.Name = "project_budget";
+            this.project_budget.Size = new System.Drawing.Size(62, 15);
+            this.project_budget.TabIndex = 139;
+            this.project_budget.Text = "10,000.00";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(7, 26);
+            this.label23.MaximumSize = new System.Drawing.Size(351, 36);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(15, 15);
+            this.label23.TabIndex = 138;
+            this.label23.Text = "₱";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(7, 50);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(75, 13);
+            this.label22.TabIndex = 135;
+            this.label22.Text = "DESCRIPTION";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(7, 8);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(49, 13);
+            this.label21.TabIndex = 134;
+            this.label21.Text = "BUDGET";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -1353,7 +1574,7 @@
             this.project_grid_row_count.AutoSize = true;
             this.project_grid_row_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.project_grid_row_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.project_grid_row_count.Location = new System.Drawing.Point(328, 86);
+            this.project_grid_row_count.Location = new System.Drawing.Point(427, 65);
             this.project_grid_row_count.Name = "project_grid_row_count";
             this.project_grid_row_count.Size = new System.Drawing.Size(31, 13);
             this.project_grid_row_count.TabIndex = 49;
@@ -1362,11 +1583,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label9.Location = new System.Drawing.Point(264, 83);
+            this.label9.Location = new System.Drawing.Point(377, 65);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 17);
+            this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 48;
             this.label9.Text = "RESULTS:";
             // 
@@ -1384,46 +1605,52 @@
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.radioButton3);
-            this.panel10.Controls.Add(this.radioButton1);
-            this.panel10.Controls.Add(this.radioButton2);
-            this.panel10.Location = new System.Drawing.Point(16, 79);
+            this.panel10.Controls.Add(this.project_filter_cancelled);
+            this.panel10.Controls.Add(this.project_filter_pending);
+            this.panel10.Controls.Add(this.project_filter_ongoing);
+            this.panel10.Location = new System.Drawing.Point(16, 80);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(243, 27);
+            this.panel10.Size = new System.Drawing.Size(243, 25);
             this.panel10.TabIndex = 46;
             // 
-            // radioButton3
+            // project_filter_cancelled
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(156, 4);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(84, 17);
-            this.radioButton3.TabIndex = 48;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "CANCELLED";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.project_filter_cancelled.AutoSize = true;
+            this.project_filter_cancelled.Location = new System.Drawing.Point(156, 3);
+            this.project_filter_cancelled.Name = "project_filter_cancelled";
+            this.project_filter_cancelled.Size = new System.Drawing.Size(84, 17);
+            this.project_filter_cancelled.TabIndex = 48;
+            this.project_filter_cancelled.TabStop = true;
+            this.project_filter_cancelled.Text = "CANCELLED";
+            this.project_filter_cancelled.UseVisualStyleBackColor = true;
+            this.project_filter_cancelled.CheckedChanged += new System.EventHandler(this.project_filter_cancelled_CheckedChanged);
+            this.project_filter_cancelled.Click += new System.EventHandler(this.project_filter_cancelled_Click);
             // 
-            // radioButton1
+            // project_filter_pending
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(5, 4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(78, 17);
-            this.radioButton1.TabIndex = 46;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ONGOING";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.project_filter_pending.AutoSize = true;
+            this.project_filter_pending.Location = new System.Drawing.Point(5, 3);
+            this.project_filter_pending.Name = "project_filter_pending";
+            this.project_filter_pending.Size = new System.Drawing.Size(72, 17);
+            this.project_filter_pending.TabIndex = 46;
+            this.project_filter_pending.TabStop = true;
+            this.project_filter_pending.Text = "PENDING";
+            this.project_filter_pending.UseVisualStyleBackColor = true;
+            this.project_filter_pending.CheckedChanged += new System.EventHandler(this.project_filter_pending_CheckedChanged);
+            this.project_filter_pending.Click += new System.EventHandler(this.project_filter_pending_Click);
             // 
-            // radioButton2
+            // project_filter_ongoing
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(83, 4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(72, 17);
-            this.radioButton2.TabIndex = 47;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "PENDING";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.project_filter_ongoing.AutoSize = true;
+            this.project_filter_ongoing.Location = new System.Drawing.Point(77, 3);
+            this.project_filter_ongoing.Name = "project_filter_ongoing";
+            this.project_filter_ongoing.Size = new System.Drawing.Size(78, 17);
+            this.project_filter_ongoing.TabIndex = 47;
+            this.project_filter_ongoing.TabStop = true;
+            this.project_filter_ongoing.Text = "ONGOING";
+            this.project_filter_ongoing.UseVisualStyleBackColor = true;
+            this.project_filter_ongoing.CheckedChanged += new System.EventHandler(this.project_filter_ongoing_CheckedChanged);
+            this.project_filter_ongoing.Click += new System.EventHandler(this.project_filter_ongoing_Click);
             // 
             // projects_grid
             // 
@@ -1443,8 +1670,8 @@
             this.projects_grid.Name = "projects_grid";
             this.projects_grid.ReadOnly = true;
             this.projects_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.projects_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.projects_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.projects_grid.Size = new System.Drawing.Size(481, 491);
@@ -1687,19 +1914,6 @@
             this.btn_notifications_pwd.Text = "There are no new notifications..";
             this.btn_notifications_pwd.UseVisualStyleBackColor = false;
             // 
-            // project_item_grid_row_count
-            // 
-            this.project_item_grid_row_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.project_item_grid_row_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.project_item_grid_row_count.ForeColor = System.Drawing.Color.Black;
-            this.project_item_grid_row_count.Location = new System.Drawing.Point(303, 7);
-            this.project_item_grid_row_count.Name = "project_item_grid_row_count";
-            this.project_item_grid_row_count.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.project_item_grid_row_count.Size = new System.Drawing.Size(205, 15);
-            this.project_item_grid_row_count.TabIndex = 129;
-            this.project_item_grid_row_count.Text = "Results : 30";
-            this.project_item_grid_row_count.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1747,10 +1961,17 @@
             this.panel3.ResumeLayout(false);
             this.pnl_projects.ResumeLayout(false);
             this.pnl_projects.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
+            this.projects_panel_persons.ResumeLayout(false);
+            this.projects_panel_persons.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.projects_panel_budget_items.ResumeLayout(false);
+            this.projects_panel_budget_items.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.project_items_grid)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -1841,9 +2062,9 @@
         private System.Windows.Forms.Button btn_project_add;
         private System.Windows.Forms.Button btn_project_list;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton project_filter_cancelled;
+        private System.Windows.Forms.RadioButton project_filter_pending;
+        private System.Windows.Forms.RadioButton project_filter_ongoing;
         public System.Windows.Forms.DataGridView projects_grid;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label project_grid_row_count;
@@ -1863,7 +2084,7 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox project_description;
         private System.Windows.Forms.Label project_title;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel projects_panel_budget_items;
         private System.Windows.Forms.Label project_budget;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label project_date_proposed;
@@ -1877,6 +2098,20 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btn_projects_persons_involved;
         private System.Windows.Forms.Label project_item_grid_row_count;
+        private System.Windows.Forms.Button btn_projects_refresh;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel projects_panel_persons;
+        private System.Windows.Forms.Label projects_persons_involved_row_count;
+        private System.Windows.Forms.Button button10;
+        public System.Windows.Forms.DataGridView projects_grid_persons_involved;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button btn_projects_persons_attendance;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
