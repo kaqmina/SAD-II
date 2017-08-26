@@ -498,22 +498,22 @@ namespace SAD_2_PTT
                 conn.Open();
                 if (stat == "in")
                 {
-                    MySqlCommand comm = new MySqlCommand("SELECT in_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'");
+                    MySqlCommand comm = new MySqlCommand("SELECT in_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'", conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (!dt.Rows.Contains("")) check = true;
+                    if (!DBNull.Value.Equals("")) check = true;
                     else check = false;
                 }
                 else if(stat == "out")
                 {
-                    MySqlCommand comm = new MySqlCommand("SELECT out_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'");
+                    MySqlCommand comm = new MySqlCommand("SELECT out_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'", conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (!dt.Rows.Contains("")) check = true;
+                    if (!DBNull.Value.Equals("")) check = true;
                     else check = false;
                 }
                 conn.Close();
