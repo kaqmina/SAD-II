@@ -376,14 +376,12 @@ namespace SAD_2_PTT
         #region checkStatus()
         public void checkStatus_emp(int status)
         {
-            string query, values, emp_query;
+            string query = "", values, emp_query;
 
             if (status == 0)
             {
                 query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "',"
                           + " req_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
-
-                conn.Edit(query, cont);
             }
             else if(status == 1)
             {
@@ -391,8 +389,6 @@ namespace SAD_2_PTT
                 {
                     query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "',"
                           + " in_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
-
-                    conn.Edit(query, cont);
                 }
                 else
                 {
@@ -401,10 +397,7 @@ namespace SAD_2_PTT
                     conn.Add(emp_query, values);
 
                     query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE device_log.deviceLOG_id = '" + id + "'";
-                    conn.Edit(query, cont);
-
                 }
-                
             }
             else if(status == 2)
             {
@@ -412,8 +405,6 @@ namespace SAD_2_PTT
                 {
                     query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "',"
                         + " out_emp_id = (SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "') WHERE device_log.deviceLOG_id = '" + id + "'";
-
-                    conn.Edit(query, cont);
                 }
                 else
                 {
@@ -422,9 +413,9 @@ namespace SAD_2_PTT
                     conn.Add(emp_query, values);
 
                     query = "UPDATE p_dao.device_log SET p_dao.device_log.dp_id = '" + dp + "', p_dao.device_log.device_id = '" + dev_id + "', p_dao.device_log.req_date = '" + req_date.ToString("yyyy-MM-dd") + "', p_dao.device_log.req_desc = '" + req_desc + "', p_dao.device_log.date_in = '" + date_IN.ToString("yyyy-MM-dd") + "', p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '" + fstatus + "' WHERE device_log.deviceLOG_id = '" + id + "'";
-                    conn.Edit(query, cont);
                 }
             }
+            conn.Edit(query, cont);
         }
         #endregion
     }

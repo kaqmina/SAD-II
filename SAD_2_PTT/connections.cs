@@ -411,7 +411,6 @@ namespace SAD_2_PTT
             }
         }
 
-
         public void getProvider(ComboBox cmbox_prov)
         {
             MySqlCommand com = new MySqlCommand("SELECT dp_name FROM p_dao.device_provider", conn);
@@ -435,20 +434,6 @@ namespace SAD_2_PTT
             {
                 MessageBox.Show("Error in getProvider() : " + ex);
                 conn.Close();
-            }
-        }
-
-        public void device_log_emp(string user)
-        {
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT employee_id FROM p_dao.employee WHERE username = '" + user + "')", conn);
-                comm.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in device_log_emp(): " + ex);
             }
         }
 
@@ -488,34 +473,25 @@ namespace SAD_2_PTT
             dev_editreq.Columns["Status"].HeaderText = "Status";
         }
 
-
         public bool checkStatus(string stat)
         {
             bool check = false;
             device_view v = new device_view();
+            string field = "";
             try
             {
                 conn.Open();
-                if (stat == "in")
-                {
-                    MySqlCommand comm = new MySqlCommand("SELECT in_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'", conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
+                if (stat == "in") field = "in_emp_id";
+                else if (stat == "out") field = "out_emp_id";
 
-                    if (!DBNull.Value.Equals("")) check = true;
-                    else check = false;
-                }
-                else if(stat == "out")
-                {
-                    MySqlCommand comm = new MySqlCommand("SELECT out_emp_id FROM device_log WHERE deviceLOG_id = '" + v.id + "'", conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
+                MySqlCommand comm = new MySqlCommand("SELECT " + field + " FROM device_log WHERE deviceLOG_id = '" + v.id + "'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
 
-                    if (!DBNull.Value.Equals("")) check = true;
-                    else check = false;
-                }
+                if (!DBNull.Value.Equals("")) check = true;
+                else check = false;
+
                 conn.Close();
             }
             catch(Exception ex)

@@ -364,9 +364,9 @@
             // edit_stat
             // 
             this.edit_stat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.edit_stat.Controls.Add(this.stat_out);
             this.edit_stat.Controls.Add(this.stat_req);
             this.edit_stat.Controls.Add(this.stat_rec);
+            this.edit_stat.Controls.Add(this.stat_out);
             this.edit_stat.Controls.Add(this.label6);
             this.edit_stat.Location = new System.Drawing.Point(0, 280);
             this.edit_stat.Name = "edit_stat";
@@ -382,7 +382,7 @@
             this.stat_out.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stat_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.stat_out.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stat_out.Location = new System.Drawing.Point(17, 15);
+            this.stat_out.Location = new System.Drawing.Point(100, 15);
             this.stat_out.Name = "stat_out";
             this.stat_out.Size = new System.Drawing.Size(87, 25);
             this.stat_out.TabIndex = 54;

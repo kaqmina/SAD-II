@@ -13,6 +13,7 @@ namespace SAD_2_PTT
     class connections_settings
     {
         public MySqlConnection conn;
+        public main_form reference_to_main { get; set; }
 
         public connections_settings()
         {
@@ -72,6 +73,12 @@ namespace SAD_2_PTT
 
                 conn.Close();
 
+                foreach (DataGridViewRow row in user_grid.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Contains("Inactive"))
+                        row.DefaultCellStyle.BackColor = Color.Salmon;
+                }
+
             }
             catch (Exception ex)
             {
@@ -79,14 +86,14 @@ namespace SAD_2_PTT
             }
         }
 
-        public void settings_info_grid(DataGridView info_grid, DataGridView user_grid)
+        public void settings_info_grid(DataGridView info_grid)
         {
             info_grid.Size = new System.Drawing.Size(764, 447);
 
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status, password, username FROM p_dao.employee ", conn);
+                MySqlCommand com = new MySqlCommand("SELECT CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname, address, position, contact_no, birthdate, (CASE WHEN status_id = 0 THEN 'Active' ELSE 'Inactive' END) AS status, password, username, employee_id, lastname, firstname, middlename FROM p_dao.employee ", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -94,12 +101,16 @@ namespace SAD_2_PTT
                 info_grid.DataSource = dt;
                 info_grid.Columns["password"].Visible = false;
                 info_grid.Columns["username"].Visible = false;
+                info_grid.Columns["employee_id"].Visible = false;
+                info_grid.Columns["lastname"].Visible = false;
+                info_grid.Columns["middlename"].Visible = false;
+                info_grid.Columns["firstname"].Visible = false;
 
                 conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in settings_user_grid() : " + ex);
+                MessageBox.Show("Error in settings_info_grid() : " + ex);
             }
         }
         #endregion
@@ -131,8 +142,8 @@ namespace SAD_2_PTT
                 try
                 {
                     conn.Open();
-                    MySqlCommand com = new MySqlCommand(query, conn);
-                    com.ExecuteNonQuery();
+                    MySqlCommand comm = new MySqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
                     conn.Close();
 
                     MessageBox.Show("Updated Successfully!", "", MessageBoxButtons.OK);

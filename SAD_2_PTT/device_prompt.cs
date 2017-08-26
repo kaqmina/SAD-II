@@ -29,6 +29,8 @@ namespace SAD_2_PTT
             InitializeComponent();
             startup_opacity.Start();
 
+            date_out.Value = DateTime.Now;
+
             if (function == "Status : Handed Out")
             {
                 lbl_quest.Visible = false;
@@ -79,6 +81,10 @@ namespace SAD_2_PTT
             
                 string query = "UPDATE p_dao.device_log SET p_dao.device_log.date_out = '" + date_OUT.ToString("yyyy-MM-dd") + "', status = '2' WHERE p_dao.device_log.deviceLOG_id = '" + id + "'";
                 conn.Edit(query, dev_view.cont);
+            }
+            else if(function == "Edit Employee Details")
+            {
+                reference_to_main.cont = true;
             }
         }
         #endregion

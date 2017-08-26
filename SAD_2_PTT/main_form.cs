@@ -130,10 +130,12 @@ namespace SAD_2_PTT
 
             //<-----[ SETTINGS ] ----->
             setting.employee_list(settings_list_full);
+            user_prompt.Visible = pass_prompt.Visible = false;
+           // add_emp.Enabled = false; 
 
             settings_list_full.BringToFront();
             pnl_main.BringToFront();
-            btn_update.Visible = btn_arch.Visible = btn_back.Visible = false;
+            btn_to_update.Visible = btn_arch.Visible = btn_back.Visible = false;
             settings_list_full.ClearSelection();
 
             //<-----[ DEVICE ] ----->
@@ -554,34 +556,51 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region SETTINGS 
-        private void btn_acct_Click(object sender, EventArgs e)
+        #region SETTINGS
+        string uname, pass, ln, fn, mn, address, contact, post, stat;
+        int stat_emp, emp_id;
+        DateTime birthdate;
+        public bool cont = false;
+
+        private void btn_acct_Click(object sender, EventArgs e) // manage accounts
         {
 
             pnl_main.SendToBack();
             info_grid.BringToFront();
             lbl_title.Text = btn_acct.Text;
-            btn_arch.Visible = btn_update.Visible = btn_back.Visible = true;
+            btn_arch.Visible = btn_to_update.Visible = btn_back.Visible = true;
 
             setting.settings_user_grid(user_grid);
-            setting.settings_info_grid(info_grid, user_grid);
+            setting.settings_info_grid(info_grid);
             info_grid.ClearSelection();
             user_grid.ClearSelection();
 
-            foreach (DataGridViewRow row in user_grid.Rows)
-            {
-                if (row.Cells[1].Value.ToString().Contains("Inactive"))
-                    row.DefaultCellStyle.BackColor = Color.Salmon;
-            }
+          
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            pnl_main.BringToFront();
-            settings_list_full.BringToFront();
-            btn_arch.Visible = btn_update.Visible = btn_back.Visible = false;
+            if (info_grid.Visible == true && settings_list_full.Visible == true)
+            {
+                pnl_main.BringToFront();
+                settings_list_full.BringToFront();
+                btn_arch.Visible = btn_to_update.Visible = btn_back.Visible = false;
 
+                setting.employee_list(settings_list_full);
+            }
+            else 
+            {
+                pnl_form.Visible = pnl_form2.Visible = false;
+                pnl_manage.Visible = pnl_main.Visible = true;
+                btn_to_update.Visible = btn_arch.Visible = true;
+                info_grid.Visible = true;
+            }
+
+            setting.settings_user_grid(user_grid);
+            setting.settings_info_grid(info_grid);
             setting.employee_list(settings_list_full);
+            user_grid.ClearSelection();
+            info_grid.ClearSelection();
         }
         public string user;
         private void user_grid_CellClick(object sender, DataGridViewCellEventArgs e) //user grid
@@ -589,10 +608,109 @@ namespace SAD_2_PTT
             DataGridViewRow row = this.user_grid.Rows[e.RowIndex];
             user = row.Cells["username"].Value.ToString();
         }
-        private void btn_addemp_Click(object sender, EventArgs e)
+        private void btn_addemp_Click(object sender, EventArgs e) // to open employee form details
         {
             pnl_form.BringToFront();
-            pnl_manage.Enabled = false;
+            pnl_form2.BringToFront();
+            info_grid.Visible = settings_list_full.Visible = false;
+            pnl_manage.Visible = pnl_main.Visible =  false; //menu bar
+            btn_to_update.Visible = btn_arch.Visible = false;
+            txt_user.MaxLength = 12;
+            txt_pass.MaxLength = 16;
+        }
+        private void add_emp_Click(object sender, EventArgs e)
+        {
+            device_prompt p = new device_prompt();
+
+            if (add_edit_emp.Text == "EDIT")
+            {
+                uname = txt_user.Text;
+                pass = txt_pass.Text;
+                ln = txt_lname.Text;
+                fn = txt_fname.Text;
+                mn = txt_mname.Text;
+                address = txt_add.Text;
+                contact = txt_cont.Text;
+                post = txt_position.Text;
+                birthdate = bdate.Value.Date;
+                stat_emp = emp_status.SelectedIndex - 1;
+
+                string func = "Edit Employee Details";
+                p.prompt_title.Text = func;
+                p.lbl_quest.Text = "Are you sure to save this changes?";
+                p.prompt_title.Location = new Point(168, 4);
+                p.lbl_quest.Location = new Point(97, 8);
+                p.lbl_quest.Visible = true;
+           //     p.lbl_out.Visible = p.date_out.Visible = false;
+
+                p.reference_to_main = this;
+                p.ShowDialog();
+
+                string query = "UPDATE p_dao.employee SET lastname = '"+ ln + "', firstname = '" + fn + "', middlename = '" + mn + "', address = '" + address + "', contact_no = '" + contact + "', position = '" + post + "', birthdate = '" + birthdate.ToString("yyyy-MM-dd") + "', status_id = '" + stat_emp + "' WHERE employee_id = '"+ emp_id + "'";
+                setting.Edit(query, cont);
+                setting.settings_info_grid(info_grid);
+                setting.settings_user_grid(user_grid);
+                setting.employee_list(settings_list_full);
+            }
+            else
+            {
+                uname = txt_user.Text;
+                pass = txt_pass.Text;
+                ln = txt_lname.Text;
+                fn = txt_fname.Text;
+                mn = txt_mname.Text;
+                address = txt_add.Text;
+                contact = txt_cont.Text;
+                post = txt_position.Text;
+                birthdate = bdate.Value.Date;
+                stat_emp = emp_status.SelectedIndex - 1;
+
+                string values = "VALUES('" + ln + "','" + fn + "','" + mn + "','" + address + "','" + post + "','" + contact + "','" + birthdate.ToString("yyyy-MM-dd") + "','" + stat_emp + "','" + uname + "','" + pass + "')";
+                setting.Add(values);
+            }
+        }
+
+        private void btn_to_update_Click(object sender, EventArgs e)
+        {
+            pnl_form.Visible = pnl_form2.Visible = true;
+            info_grid.Visible = settings_list_full.Visible = false;
+            pnl_manage.Visible = pnl_main.Visible = false; //menu bar
+            btn_to_update.Visible = btn_arch.Visible = false;
+
+            //values
+            if (stat_emp == 0) emp_status.SelectedIndex = 1;
+            else if (stat_emp == 1) emp_status.SelectedIndex = 2;
+            else if (stat_emp == 2) emp_status.SelectedIndex = 3;
+            txt_user.Text = uname;
+            txt_pass.Text = pass;
+            txt_lname.Text = ln;
+            txt_mname.Text = mn;
+            txt_fname.Text = fn;
+            txt_add.Text = address;
+            txt_cont.Text = contact;
+            txt_position.Text = post;
+            bdate.Format.ToString("d");
+            bdate.Value = birthdate;
+
+            add_edit_emp.Text = "EDIT";
+        }
+
+        private void info_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.info_grid.Rows[e.RowIndex];
+
+            ln = row.Cells["lastname"].Value.ToString();
+            fn = row.Cells["firstname"].Value.ToString();
+            mn = row.Cells["middlename"].Value.ToString();
+            address = row.Cells["address"].Value.ToString();
+            birthdate = Convert.ToDateTime(row.Cells["birthdate"].Value);
+            contact = row.Cells["contact_no"].Value.ToString();
+            post = row.Cells["position"].Value.ToString();
+            uname = row.Cells["username"].Value.ToString();
+            pass = row.Cells["password"].Value.ToString();
+            stat = row.Cells["status"].Value.ToString();
+            int emp = Convert.ToInt32(row.Cells["employee_id"].Value.ToString());
+            emp_id = emp;
         }
         #endregion
 
@@ -748,7 +866,8 @@ namespace SAD_2_PTT
             v.btn_out.Visible = false; //handed out [devreq_grid]
             v.button2.Visible = false; //cancel button
             v.label9.Visible = v.dateOut.Visible = true;
- 
+            v.stat_req.Visible = false; // requested status
+
             //button status color
             v.stat_req.BackColor = Color.DimGray;
             v.stat_out.ForeColor = v.btn_out.BackColor; // usual dark color UI
@@ -757,6 +876,7 @@ namespace SAD_2_PTT
             //status >> handed out
             v.stat_out.Visible = true;
             v.stat_out.PerformClick();
+            
             #endregion
 
             v.ShowDialog();
