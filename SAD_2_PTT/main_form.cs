@@ -131,11 +131,11 @@ namespace SAD_2_PTT
             //<-----[ SETTINGS ] ----->
             setting.employee_list(settings_list_full);
             user_prompt.Visible = pass_prompt.Visible = false;
-           // add_emp.Enabled = false; 
-
-            settings_list_full.BringToFront();
-            pnl_main.BringToFront();
+            pnl_manage.Visible = info_grid.Visible = false;
+            pnl_form.Visible = pnl_form2.Visible = false;
+            pnl_main.Visible = settings_list_full.Visible = true;
             btn_to_update.Visible = btn_arch.Visible = btn_back.Visible = false;
+
             settings_list_full.ClearSelection();
 
             //<-----[ DEVICE ] ----->
@@ -564,11 +564,14 @@ namespace SAD_2_PTT
 
         private void btn_acct_Click(object sender, EventArgs e) // manage accounts
         {
-
-            pnl_main.SendToBack();
-            info_grid.BringToFront();
+            pnl_main.Visible = settings_list_full.Visible = false; // main
+            pnl_form.Visible = pnl_form2.Visible = false; // employee form
+            pnl_manage.Visible = info_grid.Visible = true; // manage accounts
             lbl_title.Text = btn_acct.Text;
+          
             btn_arch.Visible = btn_to_update.Visible = btn_back.Visible = true;
+            btn_to_update.Enabled = btn_arch.Enabled = false;
+            btn_to_update.Text = btn_arch.Text = "";
 
             setting.settings_user_grid(user_grid);
             setting.settings_info_grid(info_grid);
@@ -578,20 +581,17 @@ namespace SAD_2_PTT
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            if (info_grid.Visible == true && settings_list_full.Visible == true)
+            if (info_grid.Visible == true && pnl_manage.Visible == true)
             {
-                pnl_main.BringToFront();
-                settings_list_full.BringToFront();
+                pnl_main.Visible = settings_list_full.Visible = true;
+                pnl_manage.Visible = info_grid.Visible = false;
                 btn_arch.Visible = btn_to_update.Visible = btn_back.Visible = false;
-
-                setting.employee_list(settings_list_full);
             }
-            else 
+            else if(pnl_form.Visible == true && pnl_form2.Visible == true)
             {
                 pnl_form.Visible = pnl_form2.Visible = false;
-                pnl_manage.Visible = pnl_main.Visible = true;
+                pnl_manage.Visible = info_grid.Visible = true;
                 btn_to_update.Visible = btn_arch.Visible = true;
-                info_grid.Visible = true;
             }
 
             setting.settings_user_grid(user_grid);
@@ -608,8 +608,7 @@ namespace SAD_2_PTT
         }
         private void btn_addemp_Click(object sender, EventArgs e) // to open employee form details
         {
-            pnl_form.BringToFront();
-            pnl_form2.BringToFront();
+            pnl_form.Visible = pnl_form2.Visible = true;
             info_grid.Visible = settings_list_full.Visible = false;
             pnl_manage.Visible = pnl_main.Visible =  false; //menu bar
             btn_to_update.Visible = btn_arch.Visible = false;
@@ -708,7 +707,39 @@ namespace SAD_2_PTT
             stat = row.Cells["status"].Value.ToString();
             int emp = Convert.ToInt32(row.Cells["employee_id"].Value.ToString());
             emp_id = emp;
+
+            btn_to_update.Enabled = btn_arch.Enabled = true;
+            btn_to_update.Text = "EDIT";
+            btn_arch.Text = "ARCHIVE";
         }
+
+        #region Username & Password Event
+        private void txt_user_Leave(object sender, EventArgs e)
+        {
+            int u = txt_user.TextLength;
+            if(setting.checkUserLength(u) == false) user_prompt.Visible = true;
+            else user_prompt.Visible = false;
+        }
+        private void txt_pass_Leave(object sender, EventArgs e)
+        {
+            int p = txt_pass.TextLength;
+            if (setting.checkUserLength(p) == false) pass_prompt.Visible = true;
+            else pass_prompt.Visible = false;
+        }
+        private void txt_user_TextChanged(object sender, EventArgs e)
+        {
+            int u = txt_user.TextLength;
+            if (u >= 6) user_prompt.Visible = false;
+        }
+
+        private void txt_pass_TextChanged(object sender, EventArgs e)
+        {
+            int p = txt_pass.TextLength;
+            if (p >= 8) pass_prompt.Visible = false;
+        }
+
+        #endregion
+
         #endregion
 
         #region PWD - Needs Relocation

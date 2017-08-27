@@ -19,7 +19,7 @@ namespace SAD_2_PTT
         connections conn = new connections();
 
         String dr_prov, req_desc, search, reg_no, device;
-        DateTime req_dev, req_in, req_out;
+        DateTime req_dev;
         int pwd_id, dev_id;
         #endregion
 

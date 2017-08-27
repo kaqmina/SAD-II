@@ -161,10 +161,24 @@ namespace SAD_2_PTT
         }
         #endregion
 
+        public bool checkPassLength(int pass)
+        {
+            bool check;
+            if (pass < 8) check = false;
+            else check = true;
+            return check;
+        }
+
+        public bool checkUserLength(int user)
+        {
+            bool check;
+            if (user < 6) check = false;
+            else check = true;
+            return check;
+        }
+
+
         //don't mind muna [archive]
-        // if status is red then inactive [grid]
-        //Manage Accounts | panel_users
-        // no header for username [grid_uname]
-        //info users right side [grid]
+  
     }
 }
