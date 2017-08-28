@@ -374,7 +374,6 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
-
         public void getDevice(int d, ComboBox cmbox_dev)
         {
             try
@@ -501,6 +500,32 @@ namespace SAD_2_PTT
             }
             return check;
         }
+
+        public bool checkDuplicate(int pwd)
+        {
+            device_request req = new device_request();
+            bool check = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT pwd_id FROM p_dao.device_log WHERE pwd_id = '" + req.pwd_id + "'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (!DBNull.Value.Equals("")) check = true;
+                else check = false;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in checkDuplicate(): " + ex);
+                conn.Close();
+            }
+            return check;
+        }
+
         #endregion
 
         #region DataLoad

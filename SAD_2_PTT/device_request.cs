@@ -20,7 +20,8 @@ namespace SAD_2_PTT
 
         String dr_prov, req_desc, search, reg_no, device;
         DateTime req_dev;
-        int pwd_id, dev_id;
+        public int pwd_id;
+        int dev_id;
         #endregion
 
         #region Transition

@@ -143,6 +143,7 @@ namespace SAD_2_PTT
             device_grid.ClearSelection();
             device_edit.Enabled = false;
 
+            this.reportViewer1.RefreshReport();
         }
 
         private void main_properties()
