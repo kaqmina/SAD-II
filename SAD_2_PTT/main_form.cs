@@ -135,6 +135,7 @@ namespace SAD_2_PTT
             pnl_form.Visible = pnl_form2.Visible = false;
             pnl_main.Visible = settings_list_full.Visible = true;
             btn_to_update.Visible = btn_arch.Visible = btn_back.Visible = false;
+            bdate.Value = DateTime.Now;
 
             settings_list_full.ClearSelection();
 
@@ -142,8 +143,6 @@ namespace SAD_2_PTT
             conn.device_out_grid(device_grid);
             device_grid.ClearSelection();
             device_edit.Enabled = false;
-
-            this.reportViewer1.RefreshReport();
         }
 
         private void main_properties()
@@ -593,6 +592,17 @@ namespace SAD_2_PTT
                 pnl_form.Visible = pnl_form2.Visible = false;
                 pnl_manage.Visible = info_grid.Visible = true;
                 btn_to_update.Visible = btn_arch.Visible = true;
+                txt_user.Clear();
+                txt_pass.Clear();
+                txt_lname.Clear();
+                txt_mname.Clear();
+                txt_fname.Clear();
+                txt_add.Clear();
+                txt_cont.Clear();
+                txt_position.Clear();
+                emp_status.Text = "";
+                bdate.Value = DateTime.Now;
+
             }
 
             setting.settings_user_grid(user_grid);
