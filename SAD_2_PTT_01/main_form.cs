@@ -938,5 +938,16 @@ namespace SAD_2_PTT_01
             project_persons_involved_load();
             projects_grid_persons_involved.Rows[current_project_persons_index].Selected = true;
         }
+
+        private void btn_add_persons_involved_Click(object sender, EventArgs e)
+        {
+            project_persons_involved proj_per = new project_persons_involved();
+            shadow_ = new shadow();
+        }
+
+        private void btn_renew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
