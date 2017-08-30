@@ -609,13 +609,15 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname FROM pwd", conn);
+                MySqlCommand com = new MySqlCommand("SELECT pwd_id,registration_no, CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname, disability.disability_type FROM p_dao.pwd" +
+                                                    " JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
                 dev_addreq.DataSource = dt;
                 dev_addreq.Columns["pwd_id"].Visible = false;
+                dev_addreq.Columns["disability_type"].Visible = false;
                 dev_addreq.Columns["registration_no"].HeaderText = "Reg. No.";
                 dev_addreq.Columns["fullname"].HeaderText = "Full Name";
                 conn.Close();

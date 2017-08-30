@@ -6,8 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
+using System.IO;
 namespace SAD_2_PTT
 {
     public partial class main_form : Form
@@ -22,6 +26,7 @@ namespace SAD_2_PTT
         main_btn_active main_btn = new main_btn_active();
         connections conn = new connections();
         connections_settings setting = new connections_settings();
+        connection_reports rep = new connection_reports();
         //project proj = new project();
         public string current_user;
 
@@ -143,6 +148,7 @@ namespace SAD_2_PTT
             conn.device_out_grid(device_grid);
             device_grid.ClearSelection();
             device_edit.Enabled = false;
+          
         }
 
         private void main_properties()
@@ -921,6 +927,27 @@ namespace SAD_2_PTT
             v.ShowDialog();
             conn.device_out_grid(device_grid);
         }
+        #endregion
+
+        #region REPORTS
+        public string path;
+
+        private void save_Click(object sender, EventArgs e) // create PDF
+        {   
+            s.Filter = " Pdf files |*.pdf |Word Document | *.docx | All files |*.*";
+            s.DefaultExt = "*.pdf";
+            s.FilterIndex = 2;
+            s.ShowDialog();
+            s.Title = "Save as PDF";
+           
+            string file = s.FileName;
+            if (file == "") ; //pass
+            else rep.pwd_PDFReport(file);
+
+            System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
+        }
+
+
         #endregion
 
     }

@@ -18,7 +18,8 @@ namespace SAD_2_PTT
         public MySqlConnection con;
         connections conn = new connections();
 
-        String dr_prov, req_desc, search, reg_no, device;
+        String provider, req_desc, search, reg_no, device;
+        public String disability;
         DateTime req_dev;
         public int pwd_id;
         int dev_id;
@@ -57,6 +58,8 @@ namespace SAD_2_PTT
             request_date.Value = DateTime.Now;
             cmbox_stat.Text = "Requested";
             cmbox_stat.Enabled = false;
+            //cmbox_dis.Text = disability;
+            //cmbox_dis.Enabled = false;
         
 
             //Form Transition
@@ -101,9 +104,11 @@ namespace SAD_2_PTT
                 reg_no = row.Cells["registration_no"].Value.ToString();
 
                 //pwd id
-                int id = 0;
-                id = Convert.ToInt32(row.Cells["pwd_id"].Value.ToString());
+                int id = Convert.ToInt32(row.Cells["pwd_id"].Value.ToString());
                 pwd_id = id;
+
+                string dis_type = row.Cells["disability_type"].Value.ToString();
+                disability = dis_type;
 
                 lbl_reg.Text = reg_no;  
             }
@@ -129,13 +134,13 @@ namespace SAD_2_PTT
         {
             int dprov = cmbox_prov.SelectedIndex;
 
-            dr_prov = dprov.ToString();
+            provider = dprov.ToString();
             req_desc = txt_desc.Text;
             req_dev = request_date.Value.Date;
 
             
             string query = "INSERT INTO p_dao.device_log(dp_id,device_log.pwd_id,device_log.device_id,req_date,req_desc,status,req_emp_id, out_emp_id)";
-            string values = " VALUES('" + dr_prov + "', '" + pwd_id + "', '" + dev_id + "', '" + req_dev.ToString("yyyy-MM-dd") + "', '" + req_desc + "' ,'0', "  
+            string values = " VALUES('" + provider + "', '" + pwd_id + "', '" + dev_id + "', '" + req_dev.ToString("yyyy-MM-dd") + "', '" + req_desc + "' ,'0', "  
                             + "(SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "'), " 
                             + "(SELECT employee_id FROM employee WHERE username = '" + reference_to_main.current_user + "'))";
             conn.Add(query,values);
