@@ -1109,6 +1109,7 @@
             // btn_projects_persons_attendance
             // 
             this.btn_projects_persons_attendance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_projects_persons_attendance.Enabled = false;
             this.btn_projects_persons_attendance.FlatAppearance.BorderSize = 0;
             this.btn_projects_persons_attendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_projects_persons_attendance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1173,6 +1174,7 @@
             this.projects_grid_persons_involved.Size = new System.Drawing.Size(522, 403);
             this.projects_grid_persons_involved.TabIndex = 144;
             this.projects_grid_persons_involved.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projects_grid_persons_involved_CellClick);
+            this.projects_grid_persons_involved.SelectionChanged += new System.EventHandler(this.projects_grid_persons_involved_SelectionChanged);
             // 
             // label31
             // 

@@ -737,7 +737,6 @@ namespace SAD_2_PTT_01
             project_items_grid.Columns["items_id"].Visible = false;
             project_items_grid.Columns["project_id"].Visible = false;
 
-            projects_grid_persons_involved.ClearSelection();
             project_persons_involved_load();
         }
 
@@ -764,6 +763,8 @@ namespace SAD_2_PTT_01
             projects_grid_persons_involved.Columns["attendance"].HeaderText = "Attendance";
 
             projects_grid_persons_involved.Columns["personsIN_id"].Visible = false;
+
+            projects_grid_persons_involved.ClearSelection();
         }
 
         #endregion
@@ -775,7 +776,7 @@ namespace SAD_2_PTT_01
 
             if (e.RowIndex < 0)
             {
-                //nothing
+                btn_projects_persons_involved.Enabled = false;
             }
             else
             {
@@ -902,7 +903,7 @@ namespace SAD_2_PTT_01
         }
 
         int current_project_persons_id = 0;
-        int current_project_persons_index = 0;
+        int current_project_persons_index;
         string attendance;
 
         private void projects_grid_persons_involved_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -931,12 +932,27 @@ namespace SAD_2_PTT_01
             if (attendance == "Present")
             {
                 conn_proj.persons_involved_attendance("0", current_project_persons_id.ToString());
+                attendance = "Absent";
             } else if (attendance == "Absent")
             {
                 conn_proj.persons_involved_attendance("1", current_project_persons_id.ToString());
+                attendance = "Present";
             }
             project_persons_involved_load();
             projects_grid_persons_involved.Rows[current_project_persons_index].Selected = true;
+
+        }
+
+        private void projects_grid_persons_involved_SelectionChanged(object sender, EventArgs e)
+        {
+            if (attendance == "Present")
+            {
+                btn_projects_persons_attendance.Text = "MARK AS ABSENT";
+            }
+            else if (attendance == "Absent")
+            {
+                btn_projects_persons_attendance.Text = "MARK AS PRESENT";
+            }
         }
 
         private void btn_add_persons_involved_Click(object sender, EventArgs e)
