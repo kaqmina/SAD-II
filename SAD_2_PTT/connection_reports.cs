@@ -27,7 +27,7 @@ namespace SAD_2_PTT
             conn = new MySqlConnection("Server=localhost;Database=academic;Uid=root;Pwd=root;");
         }
 
-        #region [PWD Module]
+        #region [SAMPLE Module]
         public void pwd_PDFReport(string file)
         {
             
