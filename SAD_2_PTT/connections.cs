@@ -806,11 +806,6 @@ namespace SAD_2_PTT
 
         #endregion
 
-        #region [ SETTINGS ]
-      
-
-        #endregion
-
         public bool login_user(string uname, string pword)
         {
             bool valid = false;
@@ -834,7 +829,6 @@ namespace SAD_2_PTT
                 MessageBox.Show(e.Message);
             }
             return valid;
-            
         }
     }
 }

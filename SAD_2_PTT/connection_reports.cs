@@ -24,8 +24,9 @@ namespace SAD_2_PTT
 
         public connection_reports()
         {
-            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;");
+            conn = new MySqlConnection("Server=localhost;Database=academic;Uid=root;Pwd=root;");
         }
+
         #region [PWD Module]
         public void pwd_PDFReport(string file)
         {
@@ -35,13 +36,15 @@ namespace SAD_2_PTT
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
 
-         
+            Chunk p = new Chunk("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+            doc.Add(p);
+            
             PdfPTable table = new PdfPTable(7);
             table.SpacingBefore = 20;
             table.SpacingAfter = 30;
             table.WidthPercentage = 100;
             table.SetWidths(new int[] { 5, 5, 2, 5, 6, 7, 5 });
-
+            /*
            // table.AddCell("NO.");
             table.AddCell("LAST NAME");
             table.AddCell("FIRST NAME");
@@ -51,15 +54,26 @@ namespace SAD_2_PTT
             table.AddCell("EDUCATIONAL ATTAINMENT");
             table.AddCell("ADDRESS");
             table.AddCell("TYPE OF DISABILITY");
+            */
 
-           
+            // table.AddCell("NO.");
+            table.AddCell("STUDENT CODE");
+            table.AddCell("LAST NAME");
+            table.AddCell("FIRST NAME");
+            table.AddCell("MIDDLE NAME");
+            table.AddCell("GENDER");
+            table.AddCell("BIRTHDATE");
+            table.AddCell("ADDRESS");
+           // table.AddCell("TYPE OF DISABILITY");
             try
             {
                 conn.Open();
-                string gender = "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female') as sex";
-                string educ_attain = "(CASE WHEN educ_attainment = 0 THEN '')";
-                string query = "SELECT lastname, firstname," + gender + " birthdate, educ_attainment, address, disability_type"
-                           + " FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id";
+                /* string gender = "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) as sex";
+                // string educ_attain = "(CASE WHEN educ_attainment = 0 THEN '')";
+                 string query = "SELECT lastname, firstname," + gender + ", birthdate, educ_attainment, address, disability_type"
+                            + " FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id";*/
+
+                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, BIRTHDATE, ADDRESS FROM academic.students ";
                 comm = new MySqlCommand(query, conn);
                 dr = comm.ExecuteReader();
 

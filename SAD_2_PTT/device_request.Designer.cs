@@ -481,13 +481,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox cmbox_prov;
-        private System.Windows.Forms.ComboBox cmbox_dev;
+        public System.Windows.Forms.ComboBox cmbox_prov;
+        public System.Windows.Forms.ComboBox cmbox_dev;
         private System.Windows.Forms.DateTimePicker date_out;
         private System.Windows.Forms.DateTimePicker date_in;
         private System.Windows.Forms.DateTimePicker request_date;
         private System.Windows.Forms.RichTextBox txt_desc;
-        private System.Windows.Forms.ComboBox cmbox_dis;
+        public System.Windows.Forms.ComboBox cmbox_dis;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbox_stat;
         private System.Windows.Forms.DataGridView dev_addreq;

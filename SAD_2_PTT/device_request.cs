@@ -58,6 +58,7 @@ namespace SAD_2_PTT
             request_date.Value = DateTime.Now;
             cmbox_stat.Text = "Requested";
             cmbox_stat.Enabled = false;
+            cmbox_dev.Enabled = false;
             //cmbox_dis.Text = disability;
             //cmbox_dis.Enabled = false;
         
@@ -119,6 +120,8 @@ namespace SAD_2_PTT
         {
             int d = cmbox_dis.SelectedIndex;
             conn.getDevice(d,cmbox_dev);
+
+            if (cmbox_dis.Text != "") cmbox_dev.Enabled = true;
         }
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {

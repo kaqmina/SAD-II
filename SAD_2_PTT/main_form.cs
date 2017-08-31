@@ -930,17 +930,19 @@ namespace SAD_2_PTT
         #endregion
 
         #region REPORTS
-        public string path;
+       // public string path;
 
         private void save_Click(object sender, EventArgs e) // create PDF
-        {   
-            s.Filter = " Pdf files |*.pdf |Word Document | *.docx | All files |*.*";
+        {
+            string file = "";
+            s.Filter = " PDF files |*.pdf |Word Document | *.docx | All files |*.*";
             s.DefaultExt = "*.pdf";
             s.FilterIndex = 2;
             s.ShowDialog();
             s.Title = "Save as PDF";
-           
-            string file = s.FileName;
+
+            
+            file = s.FileName;
             if (file == "") ; //pass
             else rep.pwd_PDFReport(file);
 
