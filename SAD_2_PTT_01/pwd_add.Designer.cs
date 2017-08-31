@@ -261,6 +261,7 @@
             // quick_panel
             // 
             this.quick_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.quick_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.quick_panel.Controls.Add(this.button10);
             this.quick_panel.Controls.Add(this.panel3);
             this.quick_panel.Controls.Add(this.btn_parental);
@@ -276,7 +277,7 @@
             this.quick_panel.Controls.Add(this.panel1);
             this.quick_panel.Location = new System.Drawing.Point(0, 27);
             this.quick_panel.Name = "quick_panel";
-            this.quick_panel.Size = new System.Drawing.Size(273, 585);
+            this.quick_panel.Size = new System.Drawing.Size(272, 585);
             this.quick_panel.TabIndex = 51;
             // 
             // button10
@@ -288,7 +289,7 @@
             this.button10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(0, 34);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(273, 17);
+            this.button10.Size = new System.Drawing.Size(270, 17);
             this.button10.TabIndex = 52;
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = true;
@@ -297,9 +298,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 568);
+            this.panel3.Location = new System.Drawing.Point(0, 566);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(273, 17);
+            this.panel3.Size = new System.Drawing.Size(270, 17);
             this.panel3.TabIndex = 51;
             // 
             // btn_parental
@@ -445,7 +446,7 @@
             this.button11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(0, 17);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(273, 17);
+            this.button11.Size = new System.Drawing.Size(270, 17);
             this.button11.TabIndex = 53;
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.UseVisualStyleBackColor = true;
@@ -456,7 +457,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 17);
+            this.panel1.Size = new System.Drawing.Size(270, 17);
             this.panel1.TabIndex = 50;
             // 
             // panel_1_
@@ -2524,7 +2525,7 @@
             this.btn_revert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_revert.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_revert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_revert.Location = new System.Drawing.Point(272, 568);
+            this.btn_revert.Location = new System.Drawing.Point(273, 568);
             this.btn_revert.Name = "btn_revert";
             this.btn_revert.Size = new System.Drawing.Size(133, 43);
             this.btn_revert.TabIndex = 123;

@@ -20,13 +20,13 @@ namespace SAD_2_PTT_01
 
         private void btn_continue_Click(object sender, EventArgs e)
         {
-            reference_to_main.continue_ = true;
+            reference_to_main.continue_ = false;
             this.Close();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            reference_to_main.continue_ = false;
+            reference_to_main.continue_ = true;
             this.Close();
         }
 

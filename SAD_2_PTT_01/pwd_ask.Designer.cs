@@ -88,7 +88,7 @@
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(206, 33);
             this.btn_cancel.TabIndex = 32;
-            this.btn_cancel.Text = "EXIT";
+            this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
@@ -170,7 +170,6 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "pwd_ask";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Continue?";
             this.panel3.ResumeLayout(false);

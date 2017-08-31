@@ -220,6 +220,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "pwd_archive";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Confirmation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.prompt_FormClosing);
