@@ -118,6 +118,32 @@ namespace SAD_2_PTT_01
                 conn.Close();
             } catch (Exception e)
             {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("[ERROR_PERSONS_INVOLVED_ATTENDANCE]");
+                conn.Close();
+            }
+        }
+
+        public void persons_involved_add_search(string regis_no, ComboBox add_persons_involved_search)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT registration_no, "
+                                             + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), SUBSTRING(middlename, 2)) AS fullname "
+                                             + "FROM p_dao.pwd WHERE registration_no LIKE '%" + regis_no + "%' ", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                add_persons_involved_search.DataSource = set.DefaultView;
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("[ERROR_PERSONS_INVOLVED_ADD]");
                 conn.Close();
             }
         }
