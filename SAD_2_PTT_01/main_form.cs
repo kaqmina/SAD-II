@@ -954,16 +954,5 @@ namespace SAD_2_PTT_01
                 btn_projects_persons_attendance.Text = "MARK AS PRESENT";
             }
         }
-
-        private void btn_add_persons_involved_Click(object sender, EventArgs e)
-        {
-            project_persons_involved proj_per = new project_persons_involved();
-            shadow_ = new shadow();
-        }
-
-        private void btn_renew_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

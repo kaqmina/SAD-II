@@ -92,7 +92,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.pnl_projects = new System.Windows.Forms.Panel();
             this.projects_panel_persons = new System.Windows.Forms.Panel();
-            this.btn_add_persons_involved = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -860,7 +859,6 @@
             this.btn_renew.TabIndex = 31;
             this.btn_renew.Text = "RENEW";
             this.btn_renew.UseVisualStyleBackColor = false;
-            this.btn_renew.Click += new System.EventHandler(this.btn_renew_Click);
             // 
             // pwd_side_info
             // 
@@ -1047,7 +1045,6 @@
             // projects_panel_persons
             // 
             this.projects_panel_persons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.projects_panel_persons.Controls.Add(this.btn_add_persons_involved);
             this.projects_panel_persons.Controls.Add(this.panel12);
             this.projects_panel_persons.Controls.Add(this.btn_projects_persons_attendance);
             this.projects_panel_persons.Controls.Add(this.projects_persons_involved_row_count);
@@ -1058,21 +1055,6 @@
             this.projects_panel_persons.Name = "projects_panel_persons";
             this.projects_panel_persons.Size = new System.Drawing.Size(541, 491);
             this.projects_panel_persons.TabIndex = 144;
-            // 
-            // btn_add_persons_involved
-            // 
-            this.btn_add_persons_involved.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_add_persons_involved.FlatAppearance.BorderSize = 0;
-            this.btn_add_persons_involved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_persons_involved.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add_persons_involved.ForeColor = System.Drawing.Color.Black;
-            this.btn_add_persons_involved.Location = new System.Drawing.Point(10, 461);
-            this.btn_add_persons_involved.Name = "btn_add_persons_involved";
-            this.btn_add_persons_involved.Size = new System.Drawing.Size(116, 21);
-            this.btn_add_persons_involved.TabIndex = 149;
-            this.btn_add_persons_involved.Text = "ADD";
-            this.btn_add_persons_involved.UseVisualStyleBackColor = false;
-            this.btn_add_persons_involved.Click += new System.EventHandler(this.btn_add_persons_involved_Click);
             // 
             // panel12
             // 
@@ -1114,7 +1096,7 @@
             this.btn_projects_persons_attendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_projects_persons_attendance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_projects_persons_attendance.ForeColor = System.Drawing.Color.Black;
-            this.btn_projects_persons_attendance.Location = new System.Drawing.Point(321, 461);
+            this.btn_projects_persons_attendance.Location = new System.Drawing.Point(331, 467);
             this.btn_projects_persons_attendance.Name = "btn_projects_persons_attendance";
             this.btn_projects_persons_attendance.Size = new System.Drawing.Size(116, 21);
             this.btn_projects_persons_attendance.TabIndex = 147;
@@ -1142,7 +1124,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.Black;
-            this.button10.Location = new System.Drawing.Point(442, 461);
+            this.button10.Location = new System.Drawing.Point(452, 467);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(86, 21);
             this.button10.TabIndex = 146;
@@ -1158,6 +1140,7 @@
             this.projects_grid_persons_involved.AllowUserToResizeRows = false;
             this.projects_grid_persons_involved.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.projects_grid_persons_involved.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.projects_grid_persons_involved.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.projects_grid_persons_involved.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.projects_grid_persons_involved.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.projects_grid_persons_involved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -1171,7 +1154,7 @@
             this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.projects_grid_persons_involved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.projects_grid_persons_involved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.projects_grid_persons_involved.Size = new System.Drawing.Size(522, 403);
+            this.projects_grid_persons_involved.Size = new System.Drawing.Size(522, 345);
             this.projects_grid_persons_involved.TabIndex = 144;
             this.projects_grid_persons_involved.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projects_grid_persons_involved_CellClick);
             this.projects_grid_persons_involved.SelectionChanged += new System.EventHandler(this.projects_grid_persons_involved_SelectionChanged);
@@ -1183,9 +1166,9 @@
             this.label31.ForeColor = System.Drawing.Color.Black;
             this.label31.Location = new System.Drawing.Point(7, 8);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(75, 13);
+            this.label31.Size = new System.Drawing.Size(110, 13);
             this.label31.TabIndex = 134;
-            this.label31.Text = "PARTICIPANTS";
+            this.label31.Text = "PERSONS INVOLVED";
             // 
             // label24
             // 
@@ -1939,8 +1922,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
-            this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_projects);
+            this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_settings);
             this.Controls.Add(this.pnl_reports);
@@ -2131,7 +2114,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btn_add_persons_involved;
     }
 }
 
