@@ -10,6 +10,7 @@ using System.Drawing;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
+using System.Reflection;
 
 
 namespace SAD_2_PTT
@@ -27,79 +28,73 @@ namespace SAD_2_PTT
             conn = new MySqlConnection("Server=localhost;Database=academic;Uid=root;Pwd=root;");
         }
 
-        #region [SAMPLE Module]
-        public void pwd_PDFReport(string file)
+        public void report_gridView(DataGridView report)
         {
-            
-            FileStream fs = new FileStream(file, FileMode.Create,FileAccess.ReadWrite);
-            Document doc = new Document(PageSize.LETTER, 36, 72, 108, 180);
+            try
+            {
+                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students ";
+                conn.Open();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                report.DataSource = dt;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in sample_report_grid() : " + ex);
+            }
+        }
+
+        #region [SAMPLE Module]
+        public void pwd_PDFReport(string file, DataGridView report)
+        {
+
+            FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite);
+            Document doc = new Document(PageSize.LETTER, 1, 1, 1, 1);
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
 
-            Chunk p = new Chunk("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-            doc.Add(p);
-            
-            PdfPTable table = new PdfPTable(7);
-            table.SpacingBefore = 20;
-            table.SpacingAfter = 30;
-            table.WidthPercentage = 100;
-            table.SetWidths(new int[] { 5, 5, 2, 5, 6, 7, 5 });
-            /*
-           // table.AddCell("NO.");
-            table.AddCell("LAST NAME");
-            table.AddCell("FIRST NAME");
-           // table.AddCell("AGE");
-            table.AddCell("SEX");
-            table.AddCell("BIRTHDATE");
-            table.AddCell("EDUCATIONAL ATTAINMENT");
-            table.AddCell("ADDRESS");
-            table.AddCell("TYPE OF DISABILITY");
-            */
+            PdfPTable table = new PdfPTable(report.ColumnCount);
+            table.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.SetWidths(new int[] { 3, 5, 5, 5, 3, 4, 6 });
 
-            // table.AddCell("NO.");
-            table.AddCell("STUDENT CODE");
-            table.AddCell("LAST NAME");
-            table.AddCell("FIRST NAME");
-            table.AddCell("MIDDLE NAME");
-            table.AddCell("GENDER");
-            table.AddCell("BIRTHDATE");
-            table.AddCell("ADDRESS");
-           // table.AddCell("TYPE OF DISABILITY");
-            try
+            #region PDAO header
+            //   table.SpacingBefore = 20;
+            //   table.SpacingAfter = 30;
+            //   table.WidthPercentage = 100;
+
+            // table.TableEvent.TableLayout() ;
+
+            #endregion
+
+            var headerFont = FontFactory.GetFont("Segoe UI", 13, BaseColor.WHITE);
+            var cellFont = FontFactory.GetFont("Segoe UI", 13);
+
+            foreach (DataGridViewColumn col in report.Columns)
             {
-                conn.Open();
-                /* string gender = "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) as sex";
-                // string educ_attain = "(CASE WHEN educ_attainment = 0 THEN '')";
-                 string query = "SELECT lastname, firstname," + gender + ", birthdate, educ_attainment, address, disability_type"
-                            + " FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id";*/
+                PdfPCell header = new PdfPCell(new Phrase(col.HeaderText, headerFont));
+                header.BackgroundColor = new iTextSharp.text.BaseColor(40, 44, 55);
+                header.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(header);
+            }
 
-                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, BIRTHDATE, ADDRESS FROM academic.students ";
-                comm = new MySqlCommand(query, conn);
-                dr = comm.ExecuteReader();
-
-              
-                while (dr.Read())
+            foreach (DataGridViewRow row in report.Rows)
+            {
+                foreach (DataGridViewCell values in row.Cells)
                 {
-                   // table.AddCell();
-                    table.AddCell(dr.GetString(0));
-                    table.AddCell(dr.GetString(1));
-                    table.AddCell(dr.GetString(2));
-                    table.AddCell(dr.GetString(3));
-                    table.AddCell(dr.GetString(4));
-                    table.AddCell(dr.GetString(5));
-                    table.AddCell(dr.GetString(6));
-
+                    PdfPCell cell = new PdfPCell(new Phrase(values.Value.ToString(), cellFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
                 }
-                conn.Close();
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error in pwd_Report(): " + ex);
-                conn.Close();
-            }
+
             doc.Add(table);
             doc.Close();
-          
+
         }
         #endregion
     }

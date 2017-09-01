@@ -121,7 +121,7 @@ namespace SAD_2_PTT
             int d = cmbox_dis.SelectedIndex;
             conn.getDevice(d,cmbox_dev);
 
-            if (cmbox_dis.Text != "") cmbox_dev.Enabled = true;
+            if (cmbox_dis.Text != "" || button1.Text == "Edit") cmbox_dev.Enabled = true;
         }
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {

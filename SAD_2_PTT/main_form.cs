@@ -26,7 +26,7 @@ namespace SAD_2_PTT
         main_btn_active main_btn = new main_btn_active();
         connections conn = new connections();
         connections_settings setting = new connections_settings();
-        connection_reports rep = new connection_reports();
+       
         //project proj = new project();
         public string current_user;
 
@@ -775,6 +775,19 @@ namespace SAD_2_PTT
             edit.ShowDialog();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            int loc_x = this.Location.X + 71;
+            int loc_y = this.Location.Y + 50;
+
+            sample_report sample = new sample_report();
+            sample.reference_to_main = this;
+            sample.Location = new Point(loc_x,loc_y);
+            sample.ShowDialog();
+           
+        }
+
         private void pwd_searchbox_TextChanged(object sender, EventArgs e)
         {
             if (pwd_searchbox.Text.Trim() != "")
@@ -929,28 +942,6 @@ namespace SAD_2_PTT
         }
         #endregion
 
-        #region REPORTS
-       // public string path;
-
-        private void save_Click(object sender, EventArgs e) // create PDF
-        {
-            string file = "";
-            s.Filter = " PDF files |*.pdf |Word Document | *.docx | All files |*.*";
-            s.DefaultExt = "*.pdf";
-            s.FilterIndex = 2;
-            s.ShowDialog();
-            s.Title = "Save as PDF";
-
-            
-            file = s.FileName;
-            if (file == "") ; //pass
-            else rep.pwd_PDFReport(file);
-
-            System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
-        }
-
-
-        #endregion
 
     }
 }
