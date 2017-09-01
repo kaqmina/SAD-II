@@ -775,7 +775,7 @@ namespace SAD_2_PTT
             edit.ShowDialog();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e) // secretbutton >> sample report
         {
 
             int loc_x = this.Location.X + 71;
