@@ -137,6 +137,7 @@ namespace SAD_2_PTT
 
             doc.Add(table);
 
+            
             var otherInfo = FontFactory.GetFont("Segoe UI", 14);
             int tstudents = table.Rows.Count - 1;
             Paragraph stud = new Paragraph("Total Students: " + tstudents.ToString());
