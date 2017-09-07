@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -37,8 +37,16 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.pnl_settings = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.date_to = new System.Windows.Forms.DateTimePicker();
+            this.date_from = new System.Windows.Forms.DateTimePicker();
+            this.lbl_to = new System.Windows.Forms.Label();
+            this.lbl_from = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.report_grid = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.print_prev = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -49,18 +57,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.s = new System.Windows.Forms.SaveFileDialog();
-            this.report_grid = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.request_date = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btn_custom = new System.Windows.Forms.Button();
             this.panel11.SuspendLayout();
             this.pnl_settings.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel11
@@ -161,16 +162,17 @@
             // pnl_settings
             // 
             this.pnl_settings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_settings.Controls.Add(this.btn_custom);
             this.pnl_settings.Controls.Add(this.button8);
-            this.pnl_settings.Controls.Add(this.dateTimePicker1);
-            this.pnl_settings.Controls.Add(this.request_date);
-            this.pnl_settings.Controls.Add(this.label3);
-            this.pnl_settings.Controls.Add(this.label2);
+            this.pnl_settings.Controls.Add(this.date_to);
+            this.pnl_settings.Controls.Add(this.date_from);
+            this.pnl_settings.Controls.Add(this.lbl_to);
+            this.pnl_settings.Controls.Add(this.lbl_from);
             this.pnl_settings.Controls.Add(this.label1);
             this.pnl_settings.Controls.Add(this.comboBox1);
             this.pnl_settings.Controls.Add(this.report_grid);
             this.pnl_settings.Controls.Add(this.button7);
-            this.pnl_settings.Controls.Add(this.button6);
+            this.pnl_settings.Controls.Add(this.print_prev);
             this.pnl_settings.Controls.Add(this.save);
             this.pnl_settings.Controls.Add(this.label15);
             this.pnl_settings.Controls.Add(this.label16);
@@ -179,6 +181,117 @@
             this.pnl_settings.Name = "pnl_settings";
             this.pnl_settings.Size = new System.Drawing.Size(1069, 589);
             this.pnl_settings.TabIndex = 28;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(103, 544);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(87, 23);
+            this.button8.TabIndex = 50;
+            this.button8.Text = "CLOSE";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // date_to
+            // 
+            this.date_to.CalendarTrailingForeColor = System.Drawing.SystemColors.Window;
+            this.date_to.CustomFormat = "mm/dd/yyyy";
+            this.date_to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_to.Location = new System.Drawing.Point(850, 88);
+            this.date_to.Name = "date_to";
+            this.date_to.Size = new System.Drawing.Size(140, 20);
+            this.date_to.TabIndex = 49;
+            this.date_to.Value = new System.DateTime(2017, 7, 9, 0, 0, 0, 0);
+            // 
+            // date_from
+            // 
+            this.date_from.CalendarTrailingForeColor = System.Drawing.SystemColors.Window;
+            this.date_from.CustomFormat = "mm/dd/yyyy";
+            this.date_from.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_from.Location = new System.Drawing.Point(666, 88);
+            this.date_from.Name = "date_from";
+            this.date_from.Size = new System.Drawing.Size(140, 20);
+            this.date_from.TabIndex = 48;
+            this.date_from.Value = new System.DateTime(2017, 7, 9, 0, 0, 0, 0);
+            // 
+            // lbl_to
+            // 
+            this.lbl_to.AutoSize = true;
+            this.lbl_to.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_to.Location = new System.Drawing.Point(826, 91);
+            this.lbl_to.Name = "lbl_to";
+            this.lbl_to.Size = new System.Drawing.Size(18, 13);
+            this.lbl_to.TabIndex = 47;
+            this.lbl_to.Text = "To";
+            // 
+            // lbl_from
+            // 
+            this.lbl_from.AutoSize = true;
+            this.lbl_from.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_from.Location = new System.Drawing.Point(627, 91);
+            this.lbl_from.Name = "lbl_from";
+            this.lbl_from.Size = new System.Drawing.Size(33, 13);
+            this.lbl_from.TabIndex = 46;
+            this.lbl_from.Text = "From";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(423, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "FORMAT";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "",
+            "Weekly ",
+            "Monthly",
+            "Yearly",
+            "Custom"});
+            this.comboBox1.Location = new System.Drawing.Point(480, 87);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 44;
+            // 
+            // report_grid
+            // 
+            this.report_grid.AllowUserToAddRows = false;
+            this.report_grid.AllowUserToDeleteRows = false;
+            this.report_grid.AllowUserToResizeColumns = false;
+            this.report_grid.AllowUserToResizeRows = false;
+            this.report_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.report_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.report_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.report_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.report_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.report_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.report_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.report_grid.Location = new System.Drawing.Point(211, 117);
+            this.report_grid.MultiSelect = false;
+            this.report_grid.Name = "report_grid";
+            this.report_grid.ReadOnly = true;
+            this.report_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.report_grid.Size = new System.Drawing.Size(833, 422);
+            this.report_grid.TabIndex = 43;
             // 
             // button7
             // 
@@ -189,14 +302,14 @@
             this.button7.Text = "Export WORD";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // print_prev
             // 
-            this.button6.Location = new System.Drawing.Point(103, 206);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(87, 23);
-            this.button6.TabIndex = 31;
-            this.button6.Text = "PRINT";
-            this.button6.UseVisualStyleBackColor = true;
+            this.print_prev.Location = new System.Drawing.Point(103, 206);
+            this.print_prev.Name = "print_prev";
+            this.print_prev.Size = new System.Drawing.Size(87, 23);
+            this.print_prev.TabIndex = 31;
+            this.print_prev.Text = "PRINT";
+            this.print_prev.UseVisualStyleBackColor = true;
             // 
             // save
             // 
@@ -324,115 +437,15 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // report_grid
+            // btn_custom
             // 
-            this.report_grid.AllowUserToAddRows = false;
-            this.report_grid.AllowUserToDeleteRows = false;
-            this.report_grid.AllowUserToResizeColumns = false;
-            this.report_grid.AllowUserToResizeRows = false;
-            this.report_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.report_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.report_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.report_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.report_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.report_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.report_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.report_grid.Location = new System.Drawing.Point(211, 117);
-            this.report_grid.MultiSelect = false;
-            this.report_grid.Name = "report_grid";
-            this.report_grid.ReadOnly = true;
-            this.report_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.report_grid.Size = new System.Drawing.Size(833, 422);
-            this.report_grid.TabIndex = 43;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "",
-            "Weekly ",
-            "Monthly",
-            "Yearly",
-            "Custom"});
-            this.comboBox1.Location = new System.Drawing.Point(476, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(419, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "DATE";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(665, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "From";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(864, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 13);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "To";
-            // 
-            // request_date
-            // 
-            this.request_date.CalendarTrailingForeColor = System.Drawing.SystemColors.Window;
-            this.request_date.CustomFormat = "mm/dd/yyyy";
-            this.request_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.request_date.Location = new System.Drawing.Point(704, 85);
-            this.request_date.Name = "request_date";
-            this.request_date.Size = new System.Drawing.Size(140, 20);
-            this.request_date.TabIndex = 48;
-            this.request_date.Value = new System.DateTime(2017, 7, 9, 0, 0, 0, 0);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.SystemColors.Window;
-            this.dateTimePicker1.CustomFormat = "mm/dd/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(889, 85);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
-            this.dateTimePicker1.TabIndex = 49;
-            this.dateTimePicker1.Value = new System.DateTime(2017, 7, 9, 0, 0, 0, 0);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(270, 48);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(87, 23);
-            this.button8.TabIndex = 50;
-            this.button8.Text = "CLOSE";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btn_custom.Location = new System.Drawing.Point(996, 85);
+            this.btn_custom.Name = "btn_custom";
+            this.btn_custom.Size = new System.Drawing.Size(32, 23);
+            this.btn_custom.TabIndex = 51;
+            this.btn_custom.Text = "OK";
+            this.btn_custom.UseVisualStyleBackColor = true;
+            this.btn_custom.Click += new System.EventHandler(this.btn_custom_Click);
             // 
             // sample_report
             // 
@@ -448,8 +461,8 @@
             this.panel11.ResumeLayout(false);
             this.pnl_settings.ResumeLayout(false);
             this.pnl_settings.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -474,14 +487,15 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.SaveFileDialog s;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button print_prev;
+        private System.Windows.Forms.Label lbl_to;
+        private System.Windows.Forms.Label lbl_from;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.DataGridView report_grid;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker request_date;
+        private System.Windows.Forms.DateTimePicker date_to;
+        private System.Windows.Forms.DateTimePicker date_from;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btn_custom;
     }
 }

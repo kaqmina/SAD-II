@@ -32,10 +32,11 @@ namespace SAD_2_PTT
         {
             try
             {
+                
                 string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students ";
                 conn.Open();
-                MySqlCommand com = new MySqlCommand(query, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(com);
+                comm = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
@@ -45,10 +46,51 @@ namespace SAD_2_PTT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in sample_report_grid() : " + ex);
+                MessageBox.Show("Error in report_gridView() : " + ex);
             }
         }
 
+        public void report_customFormat(DataGridView report, DateTime from, DateTime to)
+        {
+            try
+            {
+                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE BETWEEN '"+ from.ToString("yyyy-MM-dd") +"' AND '"+ to.ToString("yyyy-MM-dd") +"'";
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                report.DataSource = dt;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in report_customFormat() : " + ex);
+            }
+        }
+
+        public void report_MonthlyFormat(DataGridView report, DateTime from, DateTime to)
+        {
+            try
+            {
+                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE ";
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                report.DataSource = dt;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in report_MonthlyFormat() : " + ex);
+            }
+        }
         #region [SAMPLE Module]
         public void pwd_PDFReport(string file, DataGridView report)
         {
@@ -102,19 +144,10 @@ namespace SAD_2_PTT
             table.HorizontalAlignment = Element.ALIGN_CENTER;
             table.SetWidths(new int[] { 3, 5, 5, 5, 3, 4, 6 });
             table.WidthPercentage = 98;
-           
-            #region Old code
-            //   table.SpacingBefore = 20;
-            //   table.SpacingAfter = 30;
-            //   table.WidthPercentage = 100;
-
-            // table.TableEvent.TableLayout() ;
-
-            #endregion
 
             //table header
-            var headerFont = FontFactory.GetFont("Segoe UI", 12, BaseColor.WHITE);
-            var cellFont = FontFactory.GetFont("Segoe UI", 12);
+            var headerFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.WHITE);
+            var cellFont = FontFactory.GetFont("Segoe UI", 10);
 
             foreach (DataGridViewColumn col in report.Columns)
             {
@@ -145,6 +178,7 @@ namespace SAD_2_PTT
             doc.Add(stud);
 
             doc.Close();
+            doc.Dispose();
 
         }
         #endregion

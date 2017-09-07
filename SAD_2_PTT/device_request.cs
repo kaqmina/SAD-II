@@ -62,7 +62,6 @@ namespace SAD_2_PTT
             //cmbox_dis.Text = disability;
             //cmbox_dis.Enabled = false;
         
-
             //Form Transition
             this.Opacity = 0;
             startup_opacity.Start();
@@ -121,7 +120,8 @@ namespace SAD_2_PTT
             int d = cmbox_dis.SelectedIndex;
             conn.getDevice(d,cmbox_dev);
 
-            if (cmbox_dis.Text != "" || button1.Text == "Edit") cmbox_dev.Enabled = true;
+            if (cmbox_dev.Items.Count == 1) cmbox_dev.Enabled = false;
+            else cmbox_dev.Enabled = true;
         }
         private void cmbox_dev_SelectedIndexChanged(object sender, EventArgs e)
         {
