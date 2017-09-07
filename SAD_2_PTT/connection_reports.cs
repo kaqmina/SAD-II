@@ -71,11 +71,11 @@ namespace SAD_2_PTT
             }
         }
 
-        public void report_MonthlyFormat(DataGridView report, DateTime from, DateTime to)
+        public void report_MonthlyFormat(DataGridView report, DateTime month, DateTime year)
         {
             try
             {
-                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE ";
+                string query = "SELECT * FROM academic.students WHERE month(BIRTHDATE) = '"+ month.ToString("MM") +"' AND year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -89,6 +89,48 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in report_MonthlyFormat() : " + ex);
+            }
+        }
+
+        public void report_YearlyFormat(DataGridView report, DateTime year)
+        {
+            try
+            {
+                string query = "SELECT * FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                report.DataSource = dt;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in report_YearlyFormat() : " + ex);
+            }
+        }
+
+        public void report_WeeklyFormat(DataGridView report, DateTime year)
+        {
+            try
+            {
+                string query = "SELECT * FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                report.DataSource = dt;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in report_WeeklyFormat() : " + ex);
             }
         }
         #region [SAMPLE Module]
