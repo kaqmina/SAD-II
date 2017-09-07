@@ -44,7 +44,6 @@
             this.btn_personal = new System.Windows.Forms.Button();
             this.btn_general = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_1_ = new System.Windows.Forms.Panel();
             this.lbl_regis_no_error = new System.Windows.Forms.Label();
             this.pwd_appdate = new System.Windows.Forms.DateTimePicker();
@@ -261,7 +260,6 @@
             // quick_panel
             // 
             this.quick_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.quick_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.quick_panel.Controls.Add(this.button10);
             this.quick_panel.Controls.Add(this.panel3);
             this.quick_panel.Controls.Add(this.btn_parental);
@@ -274,7 +272,6 @@
             this.quick_panel.Controls.Add(this.btn_personal);
             this.quick_panel.Controls.Add(this.btn_general);
             this.quick_panel.Controls.Add(this.button11);
-            this.quick_panel.Controls.Add(this.panel1);
             this.quick_panel.Location = new System.Drawing.Point(0, 27);
             this.quick_panel.Name = "quick_panel";
             this.quick_panel.Size = new System.Drawing.Size(272, 585);
@@ -287,9 +284,9 @@
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(0, 34);
+            this.button10.Location = new System.Drawing.Point(0, 17);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(270, 17);
+            this.button10.Size = new System.Drawing.Size(272, 17);
             this.button10.TabIndex = 52;
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = true;
@@ -298,9 +295,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 566);
+            this.panel3.Location = new System.Drawing.Point(0, 568);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(270, 17);
+            this.panel3.Size = new System.Drawing.Size(272, 17);
             this.panel3.TabIndex = 51;
             // 
             // btn_parental
@@ -444,21 +441,12 @@
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(0, 17);
+            this.button11.Location = new System.Drawing.Point(0, 0);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(270, 17);
+            this.button11.Size = new System.Drawing.Size(272, 17);
             this.button11.TabIndex = 53;
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(270, 17);
-            this.panel1.TabIndex = 50;
             // 
             // panel_1_
             // 
@@ -2616,7 +2604,6 @@
         private System.Windows.Forms.Button btn_personal;
         private System.Windows.Forms.Button btn_general;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_1_;
         private System.Windows.Forms.ComboBox disability_type;
         private System.Windows.Forms.Label label11;

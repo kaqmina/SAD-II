@@ -147,5 +147,23 @@ namespace SAD_2_PTT_01
                 conn.Close();
             }
         }
+
+        public void project_add_data(string query)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("[ERROR_ADD_PROJECTS]");
+                conn.Close();
+            }
+        }
     }
 }

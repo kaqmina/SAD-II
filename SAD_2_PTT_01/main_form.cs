@@ -954,5 +954,15 @@ namespace SAD_2_PTT_01
                 btn_projects_persons_attendance.Text = "MARK AS PRESENT";
             }
         }
+
+        private void btn_project_add_Click(object sender, EventArgs e)
+        {
+            shadow_ = new shadow();
+            shadow_.Location = new Point(this.Location.X, this.Location.Y);
+            shadow_.Show();
+            project_add proj_add = new project_add();
+            proj_add.ShowDialog();
+            shadow_.Close();
+        }
     }
 }
