@@ -22,11 +22,16 @@ namespace SAD_2_PTT
         private PrintDocument doc = new PrintDocument();
 
         DateTime from, to;
+        public string func = "";
 
         public sample_report()
         {
             InitializeComponent();
             rep.report_gridView(report_grid);
+
+            date_from.Visible = date_to.Visible = false;
+            lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = false;
+           
            // this.print_.Name = "Print Preview";
 
           //  this.doc.PrintPage += new PrintPageEventHandler(doc_PrintPage);
@@ -59,7 +64,73 @@ namespace SAD_2_PTT
             from = date_from.Value.Date;
             to = date_to.Value.Date;
 
-            rep.report_customFormat(report_grid, from, to);
+            if (func == "custom")
+            {
+                rep.report_customFormat(report_grid, from, to);
+            }
+            else if(func == "yearly")
+            {
+                rep.report_YearlyFormat(report_grid, to);
+            }
+            else if(func == "monthly")
+            {
+                rep.report_MonthlyFormat(report_grid, from, to);
+            }
+        }
+
+        private void date_format_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            date_from.Value = date_to.Value = DateTime.Now;
+            if (date_format.SelectedIndex == 0)
+            {
+                date_from.Visible = false;
+                date_to.Visible = false;
+                lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = false;
+            }
+            else if(date_format.SelectedIndex == 1)
+            {
+                //Weekly
+            }
+            else if(date_format.SelectedIndex == 2)
+            {
+                //Monthly
+                func = "monthly";
+                date_from.Visible = true;
+                date_from.Format = DateTimePickerFormat.Custom;
+                date_from.CustomFormat = "MMMM";
+                date_from.ShowUpDown = true;
+                lbl_from.Text = "Month";
+
+                date_to.Visible = true;
+                date_to.Format = DateTimePickerFormat.Custom;
+                date_to.CustomFormat = "yyyy";
+                date_to.ShowUpDown = true;
+                lbl_to.Text = "Year";
+
+                lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = true;
+            }
+            else if(date_format.SelectedIndex == 3)
+            {
+                //Yearly
+                func = "yearly";
+                date_to.Visible = true;
+                date_to.Format = DateTimePickerFormat.Custom;
+                date_to.CustomFormat = "yyyy";
+                date_to.ShowUpDown = true;
+
+                lbl_to.Text = "Year";
+                date_from.Visible = lbl_from.Visible = false;
+                lbl_to.Visible = btn_custom.Visible = true;
+            }
+            else if(date_format.SelectedIndex == 4)
+            {
+                //Custom Date
+                func = "custom";
+                date_from.Visible = date_to.Visible = true;
+                lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = true;
+                lbl_from.Text = "From";
+                lbl_to.Text = "To";
+            }
         }
 
         private void doc_PrintPage(object sender, PrintPageEventHandler e)
