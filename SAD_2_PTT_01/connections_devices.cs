@@ -15,6 +15,7 @@ namespace SAD_2_PTT_01
         MySqlCommand comm;
         MySqlDataAdapter get;
         DataTable set;
+        public main_form reference_to_main { get; set; }
         public connections_devices()
         {
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
@@ -26,7 +27,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, req_date FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s:=0) AS s WHERE device_log.status = 1", conn);
+                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, req_date FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s:=0) AS s WHERE device_log.status = 2", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -69,17 +70,35 @@ namespace SAD_2_PTT_01
             #endregion
                 
                 int count = set.Rows.Count;
-                for(int i = 0; i < count; i++)
+                if (count == 0)
                 {
+                    string none = "None";
                     row = pending_data.NewRow();
-                    row["no"] = set.Rows[i]["no"].ToString();
-                    row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
-                    row["registration_no"] = set.Rows[i]["registration_no"].ToString();
-                    row["dp_name"] = set.Rows[i]["dp_name"].ToString();
-                    row["req_date"] = set.Rows[i]["req_date"].ToString();
-                    string text = "# " + set.Rows[i]["no"].ToString() + " " + Environment.NewLine + "RID#: " + set.Rows[i]["deviceLOG_id"].ToString() + ", " + set.Rows[i]["req_date"].ToString();
+                    row["no"] = none;
+                    row["deviceLOG_id"] = none;
+                    row["registration_no"] = none;
+                    row["dp_name"] = none;
+                    row["req_date"] = none;
+                    string text = "There are no pending requests.";
                     row["request_text"] = text;
                     pending_data.Rows.Add(row);
+                    reference_to_main.device_has_data_pending = false;
+                } else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = pending_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
+                        row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
+                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                        row["dp_name"] = set.Rows[i]["dp_name"].ToString();
+                        string[] req = set.Rows[i]["req_date"].ToString().Split();
+                        row["req_date"] = req[0];
+                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["dp_name"].ToString();
+                        row["request_text"] = text;
+                        pending_data.Rows.Add(row);
+                    }
+                    reference_to_main.device_has_data_pending = true;
                 }
 
                 view = new DataView(pending_data);
@@ -87,6 +106,7 @@ namespace SAD_2_PTT_01
                 pending_requests.DataSource = view;
 
                 conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_REQUESTS_LOADED] }");
             } catch (Exception e)
             {
                 conn.Close();

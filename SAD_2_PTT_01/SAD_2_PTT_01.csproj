@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +52,12 @@
     <Compile Include="connections_notifications.cs" />
     <Compile Include="connections_project.cs" />
     <Compile Include="connections_pwd.cs" />
+    <Compile Include="device_pending.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="device_pending.Designer.cs">
+      <DependentUpon>device_pending.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <Compile Include="system_sidenav_active.cs" />
     <Compile Include="system_functions.cs" />
+    <EmbeddedResource Include="device_pending.resx">
+      <DependentUpon>device_pending.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +293,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pending-dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notifbellact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notifbellact2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

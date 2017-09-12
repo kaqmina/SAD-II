@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_form));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -387,7 +388,7 @@
             // btn_hide
             // 
             this.btn_hide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.btn_hide.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.footer_jyplogo;
+            this.btn_hide.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_hide.BackgroundImage")));
             this.btn_hide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_hide.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_hide.FlatAppearance.BorderSize = 0;
@@ -445,6 +446,8 @@
             this.btn_notification.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(50)))));
             this.btn_notification.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(74)))), ((int)(((byte)(85)))));
             this.btn_notification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_notification.Image = global::SAD_2_PTT_01.Properties.Resources.notifbellact2;
+            this.btn_notification.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.btn_notification.Location = new System.Drawing.Point(966, 0);
             this.btn_notification.Name = "btn_notification";
             this.btn_notification.Size = new System.Drawing.Size(50, 28);
@@ -1105,8 +1108,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.device_requests.DefaultCellStyle = dataGridViewCellStyle3;
             this.device_requests.GridColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1116,6 +1119,7 @@
             this.device_requests.ReadOnly = true;
             this.device_requests.RowHeadersVisible = false;
             this.device_requests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.device_requests.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.device_requests.RowTemplate.Height = 40;
@@ -1124,8 +1128,10 @@
             this.device_requests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.device_requests.Size = new System.Drawing.Size(213, 494);
             this.device_requests.TabIndex = 43;
+            this.device_requests.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_requests_CellMouseDown);
             this.device_requests.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.device_requests_CellMouseLeave);
             this.device_requests.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_requests_CellMouseMove);
+            this.device_requests.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_requests_CellMouseUp);
             // 
             // label34
             // 

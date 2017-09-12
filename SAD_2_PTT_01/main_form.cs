@@ -70,6 +70,7 @@ namespace SAD_2_PTT_01
         public void load_references()
         {
             system_sidenav.reference_to_main = this;
+            conn_devi.reference_to_main = this;
         }
 
         public void grid_borderstyles()
@@ -972,10 +973,26 @@ namespace SAD_2_PTT_01
 
         #region DEVICE-MODULE
 
+        public bool device_has_data_pending = false;
+
         public void load_device_requests()
         {
             conn_devi.get_pending_requests(device_requests);
             device_requests_format();
+            Font def = new Font("Segoe UI", 8.25F);
+            if (device_has_data_pending == false)
+            {
+                device_requests.DefaultCellStyle.SelectionBackColor = Color.White;
+                device_requests.DefaultCellStyle.ForeColor = Color.Gray;
+                device_requests.DefaultCellStyle.Font = new Font(def, FontStyle.Italic);
+                device_requests.DefaultCellStyle.SelectionForeColor = Color.Gray;
+            } else
+            {
+                device_requests.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 224, 224);
+                device_requests.DefaultCellStyle.ForeColor = Color.FromArgb(41, 45, 56);
+                device_requests.DefaultCellStyle.Font = new Font(def, FontStyle.Regular);
+                device_requests.DefaultCellStyle.SelectionForeColor = Color.FromArgb(41, 45, 56);
+            }
             device_requests.ClearSelection();
         }
 
@@ -993,12 +1010,30 @@ namespace SAD_2_PTT_01
 
         private void device_requests_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
+            if(device_has_data_pending)
+            {
+                device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
+            } else
+            {
+                device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+            }
+            
         }
 
         private void device_requests_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
         }
+
+        private void device_requests_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        private void device_requests_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
     }
 }
