@@ -20,6 +20,7 @@ namespace SAD_2_PTT_01
         system_keypress key_ = new system_keypress();
         connections_pwd conn_pwd = new connections_pwd();
         connections_project conn_proj = new connections_project();
+        connections_devices conn_devi = new connections_devices();
         shadow shadow_;
         pwd_archive show_prompt;
         system_notification system_notify;
@@ -50,6 +51,7 @@ namespace SAD_2_PTT_01
             load_projects();
             projects_default_data();
 
+            load_device_requests();
         }
 
         private void main_properties()
@@ -888,8 +890,6 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #endregion
-
         private void btn_projects_persons_involved_Click(object sender, EventArgs e)
         {
             projects_panel_budget_items.Visible = false;
@@ -911,14 +911,16 @@ namespace SAD_2_PTT_01
             if (e.RowIndex < 0)
             {
                 //pass
-            } else
+            }
+            else
             {
                 current_project_persons_id = int.Parse(projects_grid_persons_involved.Rows[e.RowIndex].Cells["personsIN_id"].Value.ToString());
                 attendance = projects_grid_persons_involved.Rows[e.RowIndex].Cells["attendance"].Value.ToString();
                 if (attendance == "Present")
                 {
                     btn_projects_persons_attendance.Text = "MARK AS ABSENT";
-                } else if (attendance == "Absent")
+                }
+                else if (attendance == "Absent")
                 {
                     btn_projects_persons_attendance.Text = "MARK AS PRESENT";
                 }
@@ -933,7 +935,8 @@ namespace SAD_2_PTT_01
             {
                 conn_proj.persons_involved_attendance("0", current_project_persons_id.ToString());
                 attendance = "Absent";
-            } else if (attendance == "Absent")
+            }
+            else if (attendance == "Absent")
             {
                 conn_proj.persons_involved_attendance("1", current_project_persons_id.ToString());
                 attendance = "Present";
@@ -964,5 +967,27 @@ namespace SAD_2_PTT_01
             proj_add.ShowDialog();
             shadow_.Close();
         }
+
+        #endregion
+
+        #region DEVICE-MODULE
+
+        public void load_device_requests()
+        {
+            conn_devi.get_pending_requests(device_requests);
+            device_requests_format();
+        }
+
+        public void device_requests_format()
+        {
+            device_requests.Columns["no"].Visible = false;
+            device_requests.Columns["deviceLOG_id"].Visible = false;
+            device_requests.Columns["registration_no"].Visible = false;
+            device_requests.Columns["dp_name"].Visible = false;
+            device_requests.Columns["req_date"].Visible = false;
+
+        }
+
+        #endregion
     }
 }

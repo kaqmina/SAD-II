@@ -20,24 +20,69 @@ namespace SAD_2_PTT_01
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
         }
 
-        public void get_pending_requests()
+        public void get_pending_requests(DataGridView pending_requests)
         {
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT deviceLOG_id, registration_no, dp_name FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id ", conn);
+                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, req_date FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s := 0) AS s WHERE device_log.status = 1", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
                 DataTable pending_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
 
+                #region pending_data columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "deviceLOG_id";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "registration_no";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_name";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "req_date";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "request_text";
+                pending_data.Columns.Add(column);
+                #endregion
 
                 int count = set.Rows.Count;
-                int i = 0;
-                while (i != count)
+                for(int i = 0; i <= count; i++)
                 {
-
+                    row = pending_data.NewRow();
+                    row["no"] = set.Rows[i]["no"].ToString();
+                    row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
+                    row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                    row["dp_name"] = set.Rows[i]["dp_name"].ToString();
+                    row["req_date"] = set.Rows[i]["req_date"].ToString();
+                    string text = "# " + set.Rows[i]["no"].ToString() + Environment.NewLine + "RID#: " + set.Rows[i]["deviceLOG_id"].ToString() + ", " + set.Rows[i]["req_date"].ToString();
+                    row["request_text"] = text;
+                    pending_data.Rows.Add(row);
                 }
+
+                view = new DataView(pending_data);
+
+                pending_requests.DataSource = view;
 
                 conn.Close();
             } catch (Exception e)
