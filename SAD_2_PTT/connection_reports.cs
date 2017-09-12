@@ -33,7 +33,7 @@ namespace SAD_2_PTT
             try
             {
                 
-                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students ";
+                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students (SELECT @n := 0) AS n ";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -54,7 +54,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE BETWEEN '"+ from.ToString("yyyy-MM-dd") +"' AND '"+ to.ToString("yyyy-MM-dd") +"'";
+                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE BETWEEN '" + from.ToString("yyyy-MM-dd") +"' AND '"+ to.ToString("yyyy-MM-dd") + "' (SELECT @n := 0) AS n";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -75,7 +75,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT * FROM academic.students WHERE month(BIRTHDATE) = '"+ month.ToString("MM") +"' AND year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
+                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE month(BIRTHDATE) = '" + month.ToString("MM") +"' AND year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -96,7 +96,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT * FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
+                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -117,7 +117,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT * FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
+                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -138,7 +138,8 @@ namespace SAD_2_PTT
         {
           
             FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite);
-            Document doc = new Document(PageSize.LETTER, 55, 55, 30, 40);
+            Document doc = new Document(PageSize.LETTER);
+            doc.SetPageSize(PageSize.LETTER.Rotate());
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
 
@@ -173,6 +174,12 @@ namespace SAD_2_PTT
             title3.SpacingAfter = 30;
             doc.Add(title3);
 
+            //district
+            Paragraph title4 = new Paragraph("Lorem Ipsum dolor sit amet", subFont);
+            title4.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
+            title4.SpacingAfter = 30;
+            doc.Add(title4);
+
             //paragraph text
             var textFont = FontFactory.GetFont("Segoe UI", 12, BaseColor.BLACK);
             Paragraph text = new Paragraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus nisl eros, vitae fermentum augue rhoncus ac. Ut faucibus sem metus, et tempor massa ultrices ut. Praesent arcu nisl, tempor et imperdiet quis, venenatis ac arcu. Cras condimentum tincidunt felis a tincidunt. Quisque enim eros, auctor vel nibh non, consequat aliquam arcu. Proin id nibh elit. Pellentesque quis viverra mi. Nunc sed eros eu urna iaculis rhoncus at et magna. Morbi ut eros purus. Duis porttitor rutrum pulvinar.", textFont);
@@ -184,7 +191,6 @@ namespace SAD_2_PTT
             //table
             PdfPTable table = new PdfPTable(report.ColumnCount);
             table.HorizontalAlignment = Element.ALIGN_CENTER;
-            table.SetWidths(new int[] { 3, 5, 5, 5, 3, 4, 6 });
             table.WidthPercentage = 98;
 
             //table header
@@ -212,7 +218,7 @@ namespace SAD_2_PTT
 
             doc.Add(table);
 
-            
+            //other information
             var otherInfo = FontFactory.GetFont("Segoe UI", 14);
             int tstudents = table.Rows.Count - 1;
             Paragraph stud = new Paragraph("Total Students: " + tstudents.ToString());
