@@ -976,6 +976,7 @@ namespace SAD_2_PTT_01
         {
             conn_devi.get_pending_requests(device_requests);
             device_requests_format();
+            device_requests.ClearSelection();
         }
 
         public void device_requests_format()
@@ -989,5 +990,15 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        private void device_requests_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        private void device_requests_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
     }
 }

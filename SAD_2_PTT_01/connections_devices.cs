@@ -17,18 +17,20 @@ namespace SAD_2_PTT_01
         DataTable set;
         public connections_devices()
         {
-            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
+            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }
 
         public void get_pending_requests(DataGridView pending_requests)
         {
+            Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_REQUESTS_LOAD] }");
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, req_date FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s := 0) AS s WHERE device_log.status = 1", conn);
+                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, req_date FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s:=0) AS s WHERE device_log.status = 1", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
+
                 DataTable pending_data = new DataTable();
                 DataColumn column;
                 DataRow row;
@@ -64,10 +66,10 @@ namespace SAD_2_PTT_01
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "request_text";
                 pending_data.Columns.Add(column);
-                #endregion
-
+            #endregion
+                
                 int count = set.Rows.Count;
-                for(int i = 0; i <= count; i++)
+                for(int i = 0; i < count; i++)
                 {
                     row = pending_data.NewRow();
                     row["no"] = set.Rows[i]["no"].ToString();
@@ -75,7 +77,7 @@ namespace SAD_2_PTT_01
                     row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                     row["dp_name"] = set.Rows[i]["dp_name"].ToString();
                     row["req_date"] = set.Rows[i]["req_date"].ToString();
-                    string text = "# " + set.Rows[i]["no"].ToString() + Environment.NewLine + "RID#: " + set.Rows[i]["deviceLOG_id"].ToString() + ", " + set.Rows[i]["req_date"].ToString();
+                    string text = "# " + set.Rows[i]["no"].ToString() + " " + Environment.NewLine + "RID#: " + set.Rows[i]["deviceLOG_id"].ToString() + ", " + set.Rows[i]["req_date"].ToString();
                     row["request_text"] = text;
                     pending_data.Rows.Add(row);
                 }
@@ -88,6 +90,7 @@ namespace SAD_2_PTT_01
             } catch (Exception e)
             {
                 conn.Close();
+                Console.WriteLine(e.Message);
             }
         }
     }
