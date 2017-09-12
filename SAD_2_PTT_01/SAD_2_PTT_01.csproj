@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="connections_devices.cs" />
     <Compile Include="connections_login.cs" />
     <Compile Include="connections_notifications.cs" />
     <Compile Include="connections_project.cs" />
