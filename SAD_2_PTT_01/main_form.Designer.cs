@@ -37,6 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.side_tab = new System.Windows.Forms.Panel();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -97,7 +99,9 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.link_view = new System.Windows.Forms.LinkLabel();
+            this.device_recieved = new System.Windows.Forms.DataGridView();
+            this.device_btn_recieved = new System.Windows.Forms.Button();
+            this.device_btn_requested = new System.Windows.Forms.Button();
             this.device_requests = new System.Windows.Forms.DataGridView();
             this.label34 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -190,6 +194,7 @@
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.device_recieved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_requests)).BeginInit();
             this.panel3.SuspendLayout();
             this.pnl_projects.SuspendLayout();
@@ -1032,11 +1037,11 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(106, 47);
+            this.label28.Location = new System.Drawing.Point(102, 47);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(50, 13);
+            this.label28.Size = new System.Drawing.Size(54, 13);
             this.label28.TabIndex = 29;
-            this.label28.Text = "Pending";
+            this.label28.Text = "Requests";
             // 
             // label33
             // 
@@ -1070,26 +1075,87 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel16.Controls.Add(this.link_view);
+            this.panel16.Controls.Add(this.device_recieved);
+            this.panel16.Controls.Add(this.device_btn_recieved);
+            this.panel16.Controls.Add(this.device_btn_requested);
             this.panel16.Controls.Add(this.device_requests);
             this.panel16.Location = new System.Drawing.Point(0, 12);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(213, 513);
             this.panel16.TabIndex = 1;
             // 
-            // link_view
+            // device_recieved
             // 
-            this.link_view.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.link_view.AutoSize = true;
-            this.link_view.BackColor = System.Drawing.Color.Transparent;
-            this.link_view.ForeColor = System.Drawing.Color.White;
-            this.link_view.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.link_view.Location = new System.Drawing.Point(162, 2);
-            this.link_view.Name = "link_view";
-            this.link_view.Size = new System.Drawing.Size(48, 13);
-            this.link_view.TabIndex = 9;
-            this.link_view.TabStop = true;
-            this.link_view.Text = "View All";
+            this.device_recieved.AllowUserToAddRows = false;
+            this.device_recieved.AllowUserToDeleteRows = false;
+            this.device_recieved.AllowUserToResizeColumns = false;
+            this.device_recieved.AllowUserToResizeRows = false;
+            this.device_recieved.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.device_recieved.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.device_recieved.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.device_recieved.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.device_recieved.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.device_recieved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.device_recieved.ColumnHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_recieved.DefaultCellStyle = dataGridViewCellStyle3;
+            this.device_recieved.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.device_recieved.Location = new System.Drawing.Point(0, 18);
+            this.device_recieved.MultiSelect = false;
+            this.device_recieved.Name = "device_recieved";
+            this.device_recieved.ReadOnly = true;
+            this.device_recieved.RowHeadersVisible = false;
+            this.device_recieved.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_recieved.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.device_recieved.RowTemplate.Height = 40;
+            this.device_recieved.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.device_recieved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.device_recieved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.device_recieved.Size = new System.Drawing.Size(213, 494);
+            this.device_recieved.TabIndex = 44;
+            this.device_recieved.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.device_recieved_CellClick);
+            this.device_recieved.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_recieved_CellMouseDown);
+            this.device_recieved.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.device_recieved_CellMouseLeave);
+            this.device_recieved.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_recieved_CellMouseMove);
+            this.device_recieved.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_recieved_CellMouseUp);
+            // 
+            // device_btn_recieved
+            // 
+            this.device_btn_recieved.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.device_btn_recieved.FlatAppearance.BorderSize = 0;
+            this.device_btn_recieved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_btn_recieved.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_btn_recieved.Location = new System.Drawing.Point(107, -5);
+            this.device_btn_recieved.Name = "device_btn_recieved";
+            this.device_btn_recieved.Size = new System.Drawing.Size(106, 23);
+            this.device_btn_recieved.TabIndex = 2;
+            this.device_btn_recieved.Text = "RECEIVED";
+            this.device_btn_recieved.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.device_btn_recieved.UseVisualStyleBackColor = false;
+            this.device_btn_recieved.Click += new System.EventHandler(this.device_btn_recieved_Click);
+            // 
+            // device_btn_requested
+            // 
+            this.device_btn_requested.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.device_btn_requested.FlatAppearance.BorderSize = 0;
+            this.device_btn_requested.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_btn_requested.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_btn_requested.Location = new System.Drawing.Point(0, -5);
+            this.device_btn_requested.Name = "device_btn_requested";
+            this.device_btn_requested.Size = new System.Drawing.Size(106, 23);
+            this.device_btn_requested.TabIndex = 1;
+            this.device_btn_requested.Text = "REQUESTED";
+            this.device_btn_requested.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.device_btn_requested.UseVisualStyleBackColor = false;
+            this.device_btn_requested.Click += new System.EventHandler(this.device_btn_requested_Click);
             // 
             // device_requests
             // 
@@ -1104,14 +1170,14 @@
             this.device_requests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.device_requests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.device_requests.ColumnHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_requests.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_requests.DefaultCellStyle = dataGridViewCellStyle5;
             this.device_requests.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_requests.Location = new System.Drawing.Point(0, 18);
             this.device_requests.MultiSelect = false;
@@ -1119,15 +1185,16 @@
             this.device_requests.ReadOnly = true;
             this.device_requests.RowHeadersVisible = false;
             this.device_requests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_requests.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_requests.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.device_requests.RowTemplate.Height = 40;
             this.device_requests.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_requests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.device_requests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.device_requests.Size = new System.Drawing.Size(213, 494);
             this.device_requests.TabIndex = 43;
+            this.device_requests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.device_requests_CellClick);
             this.device_requests.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_requests_CellMouseDown);
             this.device_requests.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.device_requests_CellMouseLeave);
             this.device_requests.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.device_requests_CellMouseMove);
@@ -1140,9 +1207,9 @@
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.label34.Location = new System.Drawing.Point(13, 42);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(89, 21);
+            this.label34.Size = new System.Drawing.Size(83, 21);
             this.label34.TabIndex = 28;
-            this.label34.Text = "REQUESTS";
+            this.label34.Text = "PENDING";
             // 
             // panel3
             // 
@@ -1371,8 +1438,8 @@
             this.projects_grid_persons_involved.Name = "projects_grid_persons_involved";
             this.projects_grid_persons_involved.ReadOnly = true;
             this.projects_grid_persons_involved.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.projects_grid_persons_involved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.projects_grid_persons_involved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.projects_grid_persons_involved.Size = new System.Drawing.Size(522, 345);
@@ -1707,8 +1774,8 @@
             this.project_items_grid.Name = "project_items_grid";
             this.project_items_grid.ReadOnly = true;
             this.project_items_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.project_items_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_items_grid.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.project_items_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.project_items_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.project_items_grid.Size = new System.Drawing.Size(271, 235);
@@ -1893,8 +1960,8 @@
             this.projects_grid.Name = "projects_grid";
             this.projects_grid.ReadOnly = true;
             this.projects_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.projects_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.projects_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.projects_grid.Size = new System.Drawing.Size(481, 491);
@@ -2186,7 +2253,7 @@
             this.panel14.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.device_recieved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_requests)).EndInit();
             this.panel3.ResumeLayout(false);
             this.pnl_projects.ResumeLayout(false);
@@ -2354,7 +2421,9 @@
         private System.Windows.Forms.Panel panel15;
         public System.Windows.Forms.DataGridView device_requests;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.LinkLabel link_view;
+        private System.Windows.Forms.Button device_btn_recieved;
+        private System.Windows.Forms.Button device_btn_requested;
+        public System.Windows.Forms.DataGridView device_recieved;
     }
 }
 

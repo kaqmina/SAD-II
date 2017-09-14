@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,11 +52,11 @@
     <Compile Include="connections_notifications.cs" />
     <Compile Include="connections_project.cs" />
     <Compile Include="connections_pwd.cs" />
-    <Compile Include="device_pending.cs">
+    <Compile Include="device_pending_req.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="device_pending.Designer.cs">
-      <DependentUpon>device_pending.cs</DependentUpon>
+    <Compile Include="device_pending_req.Designer.cs">
+      <DependentUpon>device_pending_req.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -117,8 +117,8 @@
     </Compile>
     <Compile Include="system_sidenav_active.cs" />
     <Compile Include="system_functions.cs" />
-    <EmbeddedResource Include="device_pending.resx">
-      <DependentUpon>device_pending.cs</DependentUpon>
+    <EmbeddedResource Include="device_pending_req.resx">
+      <DependentUpon>device_pending_req.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

@@ -23,6 +23,7 @@ namespace SAD_2_PTT_01
         connections_devices conn_devi = new connections_devices();
         shadow shadow_;
         pwd_archive show_prompt;
+        device_pending_req device_requests_form;
         system_notification system_notify;
         public string current_user;
 
@@ -129,6 +130,7 @@ namespace SAD_2_PTT_01
 
         #region FORM-ACTIVATED
         bool pwd_archive = false;
+        bool device_pending = false;
 
         private void main_form_Activated(object sender, EventArgs e)
         {
@@ -136,6 +138,10 @@ namespace SAD_2_PTT_01
             {
                 this.BringToFront();
                 show_prompt.BringToFront();
+            } else if (device_pending == true )
+            {
+                this.BringToFront();
+                device_requests_form.BringToFront();
             }
         }
 
@@ -973,27 +979,29 @@ namespace SAD_2_PTT_01
 
         #region DEVICE-MODULE
 
-        public bool device_has_data_pending = false;
+        #region DEVICE-PENDING
+
+        public bool device_has_data_requests = false;
+        public bool device_has_data_recieved = false;
 
         public void load_device_requests()
         {
-            conn_devi.get_pending_requests(device_requests);
-            device_requests_format();
+            device_pending_requests();
             Font def = new Font("Segoe UI", 8.25F);
-            if (device_has_data_pending == false)
+            if (device_has_data_requests == false)
             {
                 device_requests.DefaultCellStyle.SelectionBackColor = Color.White;
                 device_requests.DefaultCellStyle.ForeColor = Color.Gray;
                 device_requests.DefaultCellStyle.Font = new Font(def, FontStyle.Italic);
                 device_requests.DefaultCellStyle.SelectionForeColor = Color.Gray;
-            } else
+            }
+            else
             {
                 device_requests.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 224, 224);
                 device_requests.DefaultCellStyle.ForeColor = Color.FromArgb(41, 45, 56);
                 device_requests.DefaultCellStyle.Font = new Font(def, FontStyle.Regular);
                 device_requests.DefaultCellStyle.SelectionForeColor = Color.FromArgb(41, 45, 56);
             }
-            device_requests.ClearSelection();
         }
 
         public void device_requests_format()
@@ -1001,23 +1009,36 @@ namespace SAD_2_PTT_01
             device_requests.Columns["no"].Visible = false;
             device_requests.Columns["deviceLOG_id"].Visible = false;
             device_requests.Columns["registration_no"].Visible = false;
+            device_requests.Columns["pwd_id"].Visible = false;
             device_requests.Columns["dp_name"].Visible = false;
             device_requests.Columns["req_date"].Visible = false;
 
         }
 
-        #endregion
+        public void device_recieved_format()
+        {
+            device_recieved.Columns["no"].Visible = false;
+            device_recieved.Columns["deviceLOG_id"].Visible = false;
+            device_recieved.Columns["registration_no"].Visible = false;
+            device_recieved.Columns["pwd_id"].Visible = false;
+            device_recieved.Columns["dp_name"].Visible = false;
+            device_recieved.Columns["date_in"].Visible = false;
+
+        }
+
+
+        #region REQUEST Default Control Response
 
         private void device_requests_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(device_has_data_pending)
+            if (device_has_data_requests)
             {
                 device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
-            } else
+            }
+            else
             {
                 device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
             }
-            
         }
 
         private void device_requests_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -1035,5 +1056,111 @@ namespace SAD_2_PTT_01
             device_requests.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
         }
 
+        private void device_btn_requested_Click(object sender, EventArgs e)
+        {
+            device_pending_requests();
+        }
+
+        public void device_pending_requests()
+        {
+            device_btn_recieved.BackColor = Color.FromArgb(240, 240, 240);
+            conn_devi.get_pending_requests(device_requests);
+            device_requests_format();
+            device_btn_requested.BackColor = Color.Silver;
+            device_requests.ClearSelection();
+            device_recieved.Visible = false;
+            device_requests.Visible = true;
+        }
+
+        #endregion
+
+        #region RECIEVED Default Control Response
+
+        public void device_pending_recieved()
+        {
+            device_btn_requested.BackColor = Color.FromArgb(240, 240, 240);
+            conn_devi.get_pending_recieved(device_recieved);
+            device_recieved_format();
+            device_btn_recieved.BackColor = Color.Silver;
+            device_recieved.ClearSelection();
+            device_requests.Visible = false;
+            device_recieved.Visible = true;
+        }
+
+        private void device_btn_recieved_Click(object sender, EventArgs e)
+        {
+            device_pending_recieved();
+        }
+
+        private void device_recieved_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            device_recieved.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
+        private void device_recieved_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (device_has_data_recieved)
+            {
+                device_recieved.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
+            }
+            else
+            {
+                device_recieved.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+            }
+        }
+
+        private void device_recieved_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            device_recieved.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
+        private void device_recieved_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            device_recieved.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
+
+
+        #endregion
+
+        #endregion
+
+
+        #endregion
+
+
+
+        private void device_recieved_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                //do nothing
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void device_requests_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || device_has_data_requests == false)
+            {
+                //do nothing
+            } else
+            {
+                device_pending = true;
+                device_requests_form = new device_pending_req();
+                device_requests_form.current_pwd_id = device_requests.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
+                device_requests_form.current_device_log_id = device_requests.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
+                device_requests_form.header_text.Text = "# " + device_requests.Rows[e.RowIndex].Cells["no"].Value.ToString();
+                shadow_ = new shadow();
+                shadow_.Location = new Point(this.Location.X, this.Location.Y);
+                shadow_.Show();
+                device_requests_form.ShowDialog();
+                shadow_.Close();
+                device_pending = false;
+            }
+        }
     }
 }
