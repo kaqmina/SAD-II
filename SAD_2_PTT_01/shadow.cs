@@ -16,5 +16,11 @@ namespace SAD_2_PTT_01
         {
             InitializeComponent();
         }
+        public main_form reference_to_main { get; set; }
+
+        private void shadow_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(reference_to_main.Location.X, reference_to_main.Location.Y);
+        }
     }
 }

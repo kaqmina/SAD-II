@@ -463,6 +463,7 @@
             // btn_close
             // 
             this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.control_close;
             this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_close.FlatAppearance.BorderSize = 0;
@@ -474,7 +475,6 @@
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(50, 28);
             this.btn_close.TabIndex = 16;
-            this.btn_close.Text = "x";
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
@@ -1029,9 +1029,9 @@
             this.label27.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(302, 47);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(156, 13);
+            this.label27.Size = new System.Drawing.Size(260, 13);
             this.label27.TabIndex = 30;
-            this.label27.Text = "Handed out Assistive Devices";
+            this.label27.Text = "Handed out Assistive Devices/Cancelled Requests";
             // 
             // label28
             // 
@@ -1272,6 +1272,7 @@
             this.projects_devices.TabIndex = 8;
             this.projects_devices.Text = "Devices";
             this.projects_devices.UseVisualStyleBackColor = true;
+            this.projects_devices.Click += new System.EventHandler(this.projects_devices_Click);
             // 
             // projects_history
             // 

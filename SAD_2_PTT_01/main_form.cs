@@ -24,6 +24,8 @@ namespace SAD_2_PTT_01
         shadow shadow_;
         pwd_archive show_prompt;
         device_pending_req device_requests_form;
+        device_pending_rec device_received_form;
+        device_device_add dev_add;
         system_notification system_notify;
         public string current_user;
 
@@ -130,7 +132,8 @@ namespace SAD_2_PTT_01
 
         #region FORM-ACTIVATED
         bool pwd_archive = false;
-        bool device_pending = false;
+        bool device_prequests_ = false;
+        bool device_received_ = false;
 
         private void main_form_Activated(object sender, EventArgs e)
         {
@@ -138,10 +141,14 @@ namespace SAD_2_PTT_01
             {
                 this.BringToFront();
                 show_prompt.BringToFront();
-            } else if (device_pending == true )
+            } else if (device_prequests_ == true )
             {
                 this.BringToFront();
                 device_requests_form.BringToFront();
+            } else if (device_received_ == true)
+            {
+                this.BringToFront();
+                device_received_form.BringToFront();
             }
         }
 
@@ -279,7 +286,7 @@ namespace SAD_2_PTT_01
             pwd_archive = true;
             show_prompt = new pwd_archive();
             shadow_ = new shadow();
-            shadow_.Location = new Point(this.Location.X, this.Location.Y);
+            shadow_.reference_to_main = this;
             show_prompt.current_id = current_pwd_id;
             show_prompt.reference_to_main = this;
             show_prompt.regis_no.Text = "Registration#: " + pwd_grid.Rows[current_pwd_grid_index].Cells["registration_no"].Value.ToString();
@@ -968,7 +975,7 @@ namespace SAD_2_PTT_01
         private void btn_project_add_Click(object sender, EventArgs e)
         {
             shadow_ = new shadow();
-            shadow_.Location = new Point(this.Location.X, this.Location.Y);
+            shadow_.reference_to_main = this;
             shadow_.Show();
             project_add proj_add = new project_add();
             proj_add.ShowDialog();
@@ -1023,7 +1030,6 @@ namespace SAD_2_PTT_01
             device_recieved.Columns["pwd_id"].Visible = false;
             device_recieved.Columns["dp_name"].Visible = false;
             device_recieved.Columns["date_in"].Visible = false;
-
         }
 
 
@@ -1138,7 +1144,18 @@ namespace SAD_2_PTT_01
             }
             else
             {
-                
+                device_received_ = true;
+                device_received_form = new device_pending_rec();
+                device_received_form.current_pwd_id = device_recieved.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
+                device_received_form.current_device_log_id = device_recieved.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
+                device_received_form.header_text.Text = "# " + device_recieved.Rows[e.RowIndex].Cells["no"].Value.ToString();
+                shadow_ = new shadow();
+                shadow_.reference_to_main = this;
+                shadow_.Show();
+                device_received_form.ShowDialog();
+                shadow_.Close();
+                device_received_ = false;
+                device_recieved.ClearSelection(); 
             }
         }
 
@@ -1149,18 +1166,29 @@ namespace SAD_2_PTT_01
                 //do nothing
             } else
             {
-                device_pending = true;
+                device_prequests_ = true;
                 device_requests_form = new device_pending_req();
+                device_requests_form.reference_to_main = this;
                 device_requests_form.current_pwd_id = device_requests.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
                 device_requests_form.current_device_log_id = device_requests.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
                 device_requests_form.header_text.Text = "# " + device_requests.Rows[e.RowIndex].Cells["no"].Value.ToString();
                 shadow_ = new shadow();
-                shadow_.Location = new Point(this.Location.X, this.Location.Y);
+                shadow_.reference_to_main = this;
                 shadow_.Show();
                 device_requests_form.ShowDialog();
                 shadow_.Close();
-                device_pending = false;
+                device_prequests_ = false;
             }
+        }
+
+        private void projects_devices_Click(object sender, EventArgs e)
+        {
+            dev_add = new device_device_add();
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.Show();
+            dev_add.ShowDialog();
+            shadow_.Close();
         }
     }
 }

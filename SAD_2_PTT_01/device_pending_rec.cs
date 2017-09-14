@@ -16,5 +16,32 @@ namespace SAD_2_PTT_01
         {
             InitializeComponent();
         }
+        public main_form reference_to_main { get; set; }
+        connections_devices conn_devi = new connections_devices();
+        public string current_pwd_id = "0", current_device_log_id = "0";
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void device_pending_rec_Load(object sender, EventArgs e)
+        {
+            DataTable info = new DataTable();
+            conn_devi.get_pending_received_data(current_pwd_id, current_device_log_id, info);
+            lbl_pwd_name.Text = info.Rows[0]["fullname"].ToString();
+            lbl_pwd_regis_no.Text = info.Rows[0]["registration_no"].ToString();
+            lbl_employee_referred.Text = info.Rows[0]["username"].ToString();
+            lbl_date_requested.Text = info.Rows[0]["req_date"].ToString();
+            lbl_device_requested.Text = info.Rows[0]["dev_name"].ToString();
+            lbl_provider.Text = info.Rows[0]["dp_name"].ToString();
+            lbl_date_in.Text = info.Rows[0]["date_in"].ToString();
+            lbl_in_emp_id.Text = info.Rows[0]["username_in"].ToString();
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

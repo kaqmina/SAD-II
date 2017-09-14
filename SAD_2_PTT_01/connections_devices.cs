@@ -21,13 +21,23 @@ namespace SAD_2_PTT_01
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }
 
+        #region PENDING-REQUESTS
         public void get_pending_requests(DataGridView pending_requests)
         {
             Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_REQUESTS_LOAD] }");
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, device_log.pwd_id, req_date FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s:=0) AS s WHERE device_log.status = 1 ORDER BY req_date DESC", conn);
+                comm = new MySqlCommand("SELECT (@s:=@s+1) no, "
+                                             + "deviceLOG_id, "
+                                             + "registration_no, "
+                                             + "dp_name, "
+                                             + "device_log.pwd_id, "
+                                             + "req_date "
+                                             + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
+                                             + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
+                                             + "(SELECT @s:=0) AS s "
+                                             + "WHERE device_log.status = 1 ORDER BY req_date DESC", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -127,7 +137,16 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT (@s:=@s+1) no, deviceLOG_id, registration_no, dp_name, device_log.pwd_id, date_in FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id JOIN pwd ON device_log.pwd_id = pwd.pwd_id, (SELECT @s:=0) AS s WHERE device_log.status = 2 ORDER BY date_in DESC", conn);
+                comm = new MySqlCommand("SELECT (@s:=@s+1) no, "
+                                             + "deviceLOG_id, "
+                                             + "registration_no, "
+                                             + "dp_name, "
+                                             + "device_log.pwd_id, "
+                                             + "date_in "
+                                             + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
+                                             + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
+                                             + "(SELECT @s:=0) AS s "
+                                             + "WHERE device_log.status = 2 ORDER BY date_in DESC", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -229,9 +248,71 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname,' ', pwd.middlename) AS fullname, pwd.registration_no, employee.username, device_log.req_date, device.dev_name, device_provider.dp_name FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id JOIN device ON device_log.device_id = device.device_id JOIN device_provider ON device_provider.dp_id = device_log.dp_id JOIN employee ON device_log.req_emp_id = employee.employee_id WHERE deviceLOG_id = " + dev_id, conn);
+                comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname,' ', pwd.middlename) AS fullname, "
+                                             + "pwd.registration_no, "
+                                             + "employee.username, "
+                                             + "device_log.req_date, "
+                                             + "device.dev_name, "
+                                             + "device_provider.dp_name "
+                                             + "FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
+                                             + "JOIN device ON device_log.device_id = device.device_id "
+                                             + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
+                                             + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
+                                             + "WHERE deviceLOG_id = " + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
                 get.Fill(data);
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+            }
+        }
+
+        public void get_pending_received_data(string pwd_id, string dev_id, DataTable data)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname, ' ', pwd.middlename) AS fullname, "
+                                             + "pwd.registration_no, "
+                                             + "employee.username, "
+                                             + "device_log.req_date, "
+                                             + "device.dev_name, "
+                                             + "device_provider.dp_name, "
+                                             + "device_log.date_in, "
+                                             + "device_log.in_emp_id, "
+                                             + "(SELECT username FROM employee JOIN device_log ON employee.employee_id = device_log.in_emp_id WHERE device_log.deviceLOG_id = " + dev_id + ") AS username_in "
+                                             + "FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
+                                             + "JOIN device ON device_log.device_id = device.device_id "
+                                             + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
+                                             + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
+                                             + "WHERE deviceLOG_id =" + dev_id, conn);
+                get = new MySqlDataAdapter(comm);
+                get.Fill(data);
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+            }
+        }
+        #endregion
+
+        public void get_device_list(DataGridView device_grid)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT * FROM device JOIN disability ON device.disability_id = disability.disability_id ORDER BY disability_type ASC", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                device_grid.DataSource = set;
 
                 conn.Close();
             } catch (Exception e)

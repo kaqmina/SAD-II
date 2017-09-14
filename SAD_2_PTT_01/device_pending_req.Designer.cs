@@ -32,7 +32,6 @@
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.header_text = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
             this.view_panel = new System.Windows.Forms.Panel();
             this.lbl_provider = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -55,9 +54,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_received = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.view_panel.SuspendLayout();
@@ -118,32 +118,12 @@
             this.header_text.Text = "# 1 RID: 000021";
             this.header_text.UseVisualStyleBackColor = true;
             // 
-            // btn_close
-            // 
-            this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.btn_close.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.control_close;
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(74)))), ((int)(((byte)(85)))));
-            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_close.Location = new System.Drawing.Point(395, 0);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(24, 24);
-            this.btn_close.TabIndex = 33;
-            this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
             // view_panel
             // 
             this.view_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.view_panel.Controls.Add(this.label9);
             this.view_panel.Controls.Add(this.label8);
-            this.view_panel.Controls.Add(this.button1);
+            this.view_panel.Controls.Add(this.btn_received);
             this.view_panel.Controls.Add(this.lbl_provider);
             this.view_panel.Controls.Add(this.label25);
             this.view_panel.Controls.Add(this.lbl_device_requested);
@@ -315,9 +295,9 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(12, 111);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 13);
+            this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 45;
-            this.label5.Text = "Employee Referred";
+            this.label5.Text = "Requested By";
             // 
             // label4
             // 
@@ -345,9 +325,9 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(11, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 42;
-            this.label2.Text = "Requested By";
+            this.label2.Text = "Recipient";
             // 
             // label1
             // 
@@ -388,19 +368,19 @@
             this.btn_edit.Text = "EDIT";
             this.btn_edit.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn_received
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button1.Location = new System.Drawing.Point(278, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 22);
-            this.button1.TabIndex = 61;
-            this.button1.Text = "MARK AS RECEIVED";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_received.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_received.FlatAppearance.BorderSize = 0;
+            this.btn_received.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_received.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_received.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_received.Location = new System.Drawing.Point(278, 29);
+            this.btn_received.Name = "btn_received";
+            this.btn_received.Size = new System.Drawing.Size(126, 22);
+            this.btn_received.TabIndex = 61;
+            this.btn_received.Text = "MARK AS RECEIVED";
+            this.btn_received.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
@@ -421,6 +401,26 @@
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 63;
             this.label9.Text = "REQUESTED";
+            // 
+            // btn_close
+            // 
+            this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.btn_close.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.control_close;
+            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(74)))), ((int)(((byte)(85)))));
+            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_close.Location = new System.Drawing.Point(395, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 24);
+            this.btn_close.TabIndex = 33;
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // device_pending_req
             // 
@@ -480,6 +480,6 @@
         public System.Windows.Forms.Label lbl_provider;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_received;
     }
 }
