@@ -30,8 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            // 
+            // exit_opacity
+            // 
+            this.exit_opacity.Interval = 1;
+            this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
             // shadow
             // 
@@ -45,6 +55,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "shadow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.shadow_FormClosing);
             this.Load += new System.EventHandler(this.shadow_Load);
             this.ResumeLayout(false);
 
@@ -53,6 +64,6 @@
         #endregion
 
         private System.Windows.Forms.Timer startup_opacity;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer exit_opacity;
     }
 }

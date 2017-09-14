@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.view_panel = new System.Windows.Forms.Panel();
             this.lbl_in_emp_id = new System.Windows.Forms.Label();
             this.lbl_date_in = new System.Windows.Forms.Label();
@@ -63,6 +64,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.header_text = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.view_panel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -486,6 +489,16 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            // 
+            // exit_opacity
+            // 
+            this.exit_opacity.Interval = 1;
+            this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
+            // 
             // device_pending_rec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,6 +517,7 @@
             this.Name = "device_pending_rec";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "device_pending_rec";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_pending_rec_FormClosing);
             this.Load += new System.EventHandler(this.device_pending_rec_Load);
             this.view_panel.ResumeLayout(false);
             this.view_panel.PerformLayout();
@@ -548,5 +562,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Timer exit_opacity;
     }
 }

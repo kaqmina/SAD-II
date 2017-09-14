@@ -23,6 +23,9 @@ namespace SAD_2_PTT_01
         {
             conn_devi.get_device_list(device_list);
             device_list_format();
+
+            conn_devi.get_disability_list(device_disability);
+
             startup_opacity.Start();
         }
 
@@ -33,6 +36,7 @@ namespace SAD_2_PTT_01
             device_list.Columns["dev_desc"].Visible = false;
             device_list.Columns["disability_desc"].Visible = false;
             device_list.Columns["disability_id1"].Visible = false;
+            device_list.Columns["isArchived"].Visible = false;
 
             device_list.Columns["dev_name"].HeaderText = "Device";
             device_list.Columns["disability_type"].HeaderText = "Disability";
@@ -63,7 +67,77 @@ namespace SAD_2_PTT_01
                 this.Close();
             }
         }
+        Font def = new Font("Segoe UI", 8.25F);
 
+        private void btn_add_Click(object sender, EventArgs e)
+        {
 
+            if (btn_add.Text == "NEW")
+            {
+                pnl_add.Visible = true;
+                device_desc.Visible = true;
+                lbl_provider.Visible = false;
+            } else
+            {
+                //do query
+                pnl_add.Visible = false;
+                device_desc.Visible = false;
+                lbl_provider.Visible = true;
+            }
+
+            if (btn_add.Text == "NEW")
+            {
+                btn_add.Text = "ADD";
+                btn_edit.Text = "CANCEL";
+                btn_add.Enabled = false;
+                btn_edit.Enabled = true;
+                btn_add.Font = new Font(def, FontStyle.Italic);
+                btn_edit.Font = new Font(def, FontStyle.Regular);
+            } else
+            {
+                btn_add.Text = "NEW";
+                btn_edit.Text = "EDIT";
+                btn_add.Enabled = true;
+                btn_edit.Enabled = false;
+                btn_edit.Font = new Font(def, FontStyle.Italic);
+                btn_add.Font = new Font(def, FontStyle.Regular);
+            }
+
+        }
+
+        public void check_required()
+        {
+            if (device_name.Text.Trim() == "" || device_disability.SelectedIndex <= 0)
+            {
+                btn_add.Enabled = false;
+                btn_add.Font = new Font(def, FontStyle.Italic);
+
+            } else
+            {
+                btn_add.Enabled = true;
+                btn_add.Font = new Font(def, FontStyle.Regular);
+            }
+        }
+
+        private void device_name_TextChanged(object sender, EventArgs e)
+        {
+            check_required();
+        }
+
+        private void device_disability_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            check_required();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (btn_edit.Text == "EDIT")
+            {
+                //do query
+            } else
+            {
+
+            }
+        }
     }
 }

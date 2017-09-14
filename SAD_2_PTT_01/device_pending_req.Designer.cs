@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.header_text = new System.Windows.Forms.Button();
             this.view_panel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_received = new System.Windows.Forms.Button();
             this.lbl_provider = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.lbl_device_requested = new System.Windows.Forms.Label();
@@ -54,10 +58,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_received = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
+            this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.view_panel.SuspendLayout();
@@ -147,6 +150,40 @@
             this.view_panel.Name = "view_panel";
             this.view_panel.Size = new System.Drawing.Size(413, 258);
             this.view_panel.TabIndex = 41;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(337, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 63;
+            this.label9.Text = "REQUESTED";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(275, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 17);
+            this.label8.TabIndex = 62;
+            this.label8.Text = "STATUS :";
+            // 
+            // btn_received
+            // 
+            this.btn_received.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_received.FlatAppearance.BorderSize = 0;
+            this.btn_received.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_received.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_received.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_received.Location = new System.Drawing.Point(278, 29);
+            this.btn_received.Name = "btn_received";
+            this.btn_received.Size = new System.Drawing.Size(126, 22);
+            this.btn_received.TabIndex = 61;
+            this.btn_received.Text = "MARK AS RECEIVED";
+            this.btn_received.UseVisualStyleBackColor = false;
             // 
             // lbl_provider
             // 
@@ -368,40 +405,6 @@
             this.btn_edit.Text = "EDIT";
             this.btn_edit.UseVisualStyleBackColor = false;
             // 
-            // btn_received
-            // 
-            this.btn_received.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_received.FlatAppearance.BorderSize = 0;
-            this.btn_received.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_received.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_received.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_received.Location = new System.Drawing.Point(278, 29);
-            this.btn_received.Name = "btn_received";
-            this.btn_received.Size = new System.Drawing.Size(126, 22);
-            this.btn_received.TabIndex = 61;
-            this.btn_received.Text = "MARK AS RECEIVED";
-            this.btn_received.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(275, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 17);
-            this.label8.TabIndex = 62;
-            this.label8.Text = "STATUS :";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(337, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 13);
-            this.label9.TabIndex = 63;
-            this.label9.Text = "REQUESTED";
-            // 
             // btn_close
             // 
             this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -422,6 +425,16 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            // 
+            // exit_opacity
+            // 
+            this.exit_opacity.Interval = 1;
+            this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
+            // 
             // device_pending_req
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,6 +453,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pending Request";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.device_pending_req_FormClosing);
             this.Load += new System.EventHandler(this.device_pending_req_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -481,5 +495,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_received;
+        private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Timer exit_opacity;
     }
 }

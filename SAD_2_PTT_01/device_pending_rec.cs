@@ -27,6 +27,7 @@ namespace SAD_2_PTT_01
 
         private void device_pending_rec_Load(object sender, EventArgs e)
         {
+            this.Opacity = 0;
             DataTable info = new DataTable();
             conn_devi.get_pending_received_data(current_pwd_id, current_device_log_id, info);
             lbl_pwd_name.Text = info.Rows[0]["fullname"].ToString();
@@ -37,6 +38,33 @@ namespace SAD_2_PTT_01
             lbl_provider.Text = info.Rows[0]["dp_name"].ToString();
             lbl_date_in.Text = info.Rows[0]["date_in"].ToString();
             lbl_in_emp_id.Text = info.Rows[0]["username_in"].ToString();
+
+            startup_opacity.Start();
+        }
+
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1)
+                this.Opacity += 0.1;
+            else
+                startup_opacity.Stop();
+        }
+
+        private void exit_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+            else
+            {
+                exit_opacity.Stop();
+            }
+        }
+
+        private void device_pending_rec_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            exit_opacity.Start();
         }
 
         private void btn_close_Click(object sender, EventArgs e)

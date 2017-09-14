@@ -320,5 +320,36 @@ namespace SAD_2_PTT_01
                 conn.Close();
             }
         }
+
+        public void get_disability_list(ComboBox disability_cbox)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT disability_type FROM disability", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    disability_cbox.Items.Add("No disabilities added.");
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        disability_cbox.Items.Add(data["disability_type"].ToString());
+                    }
+                }
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+            }
+        }
     }
 }
