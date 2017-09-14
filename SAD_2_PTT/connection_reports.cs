@@ -20,20 +20,34 @@ namespace SAD_2_PTT
         public MySqlConnection conn;
         public MySqlCommand comm;
         public MySqlDataReader dr;
+        public string age = " DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age,";
+        public string educ_at = " (CASE WHEN educ_attainment = 1 THEN 'Elementary' WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' WHEN educ_attainment = 3 THEN 'High School' WHEN educ_attainment = 4 THEN 'High School Undergraduate' WHEN educ_attainment = 5 THEN 'College' WHEN educ_attainment = 6 THEN 'College Undergraduate' WHEN educ_attainment = 7 THEN 'Graduate' WHEN educ_attainment = 8 THEN 'Post Graduate' WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment, ";
 
         public main_form reference_to_main { get; set; }
 
         public connection_reports()
         {
-            conn = new MySqlConnection("Server=localhost;Database=academic;Uid=root;Pwd=root;");
+            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }
 
+        public void reportFormat(DataGridView report)
+        {
+            report.Columns["lastname"].HeaderText = "LAST NAME";
+            report.Columns["firstname"].HeaderText = "FIRST NAME";
+            report.Columns["birthdate"].HeaderText = "BIRTH DATE";
+            report.Columns["address"].HeaderText = "ADDRESS";
+            report.Columns["disability_type"].HeaderText = "TYPE OF DISABILITY";
+            report.Columns["sex"].HeaderText = "SEX";
+            //report.Columns["application_date"].Visible = false;
+            report.Columns["age"].HeaderText = "AGE";
+            report.Columns["educ_attainment"].HeaderText = "EDUC. ATTAINMENT";
+        }
         public void report_gridView(DataGridView report)
         {
             try
             {
-                
-                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS FROM academic.students (SELECT @n := 0) AS n ";
+               
+                string query = "SELECT lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -41,6 +55,7 @@ namespace SAD_2_PTT
                 adp.Fill(dt);
 
                 report.DataSource = dt;
+                reportFormat(report);
 
                 conn.Close();
             }
@@ -54,7 +69,8 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE BETWEEN '" + from.ToString("yyyy-MM-dd") +"' AND '"+ to.ToString("yyyy-MM-dd") + "' (SELECT @n := 0) AS n";
+                string query = "SELECT application_date, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' (SELECT @n := 0) AS n ";
+                //string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE BIRTHDATE BETWEEN '" + from.ToString("yyyy-MM-dd") +"' AND '"+ to.ToString("yyyy-MM-dd") + "' (SELECT @n := 0) AS n";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -62,7 +78,7 @@ namespace SAD_2_PTT
                 adp.Fill(dt);
 
                 report.DataSource = dt;
-
+                reportFormat(report);
                 conn.Close();
             }
             catch (Exception ex)
@@ -75,7 +91,8 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE month(BIRTHDATE) = '" + month.ToString("MM") +"' AND year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
+                //string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS FROM academic.students WHERE month(BIRTHDATE) = '" + month.ToString("MM") +"' AND year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
+                string query = "SELECT application_date, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate,"+ educ_at +" address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "'";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -83,7 +100,7 @@ namespace SAD_2_PTT
                 adp.Fill(dt);
 
                 report.DataSource = dt;
-
+                reportFormat(report);
                 conn.Close();
             }
             catch (Exception ex)
@@ -96,7 +113,9 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
+                //string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
+                string query = "SELECT application_date, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + year.ToString("yyyy") + "'";
+
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -104,7 +123,7 @@ namespace SAD_2_PTT
                 adp.Fill(dt);
 
                 report.DataSource = dt;
-
+                reportFormat(report);
                 conn.Close();
             }
             catch (Exception ex)
@@ -117,7 +136,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT (@n:=@n+1) NO., STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m /%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "' (SELECT @n := 0) AS n";
+                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -125,7 +144,7 @@ namespace SAD_2_PTT
                 adp.Fill(dt);
 
                 report.DataSource = dt;
-
+                reportFormat(report);
                 conn.Close();
             }
             catch (Exception ex)
@@ -151,28 +170,28 @@ namespace SAD_2_PTT
             doc.Add(logo);
 
             //title
-            var titleFont = FontFactory.GetFont("Segoe UI", 14, BaseColor.BLACK);
+            var titleFont = FontFactory.GetFont("Segoe UI", 14, iTextSharp.text.Font.BOLD ,BaseColor.BLACK);
             var subFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.BLACK);
-            Paragraph title = new Paragraph("Lorem Ipsum", titleFont);
+            Paragraph title = new Paragraph("MASTERLIST OF PERSONS WITH DISABILITIES WHO AVAIL PWD ID", titleFont);
             title.Alignment = Element.ALIGN_CENTER;
             title.SpacingAfter = 1;
             doc.Add(title);
 
             //subtitles
             Paragraph title1 = new Paragraph("In tempus nisl eros, vitae ferm rayin falling from", subFont);
-            title1.Alignment = Element.ALIGN_CENTER;
+            title1.Alignment = Element.ALIGN_LEFT;
             title1.SpacingAfter = 1;
-            doc.Add(title1);
+            //doc.Add(title1);
 
             Paragraph title2 = new Paragraph("consectetur adipiscing elit to meeee", subFont);
             title2.Alignment = Element.ALIGN_CENTER;
             title2.SpacingAfter = 1;
-            doc.Add(title2);
+            //doc.Add(title2);
 
             Paragraph title3 = new Paragraph("Lorem Ipsum dolor sit amet", subFont);
             title3.Alignment = Element.ALIGN_CENTER;
             title3.SpacingAfter = 30;
-            doc.Add(title3);
+            //doc.Add(title3);
 
             //district
             Paragraph title4 = new Paragraph("Lorem Ipsum dolor sit amet", subFont);
