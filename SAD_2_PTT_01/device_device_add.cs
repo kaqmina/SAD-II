@@ -23,6 +23,7 @@ namespace SAD_2_PTT_01
         {
             conn_devi.get_device_list(device_list);
             device_list_format();
+            reset_values();
 
             conn_devi.get_disability_list(device_disability);
 
@@ -77,12 +78,13 @@ namespace SAD_2_PTT_01
                 pnl_add.Visible = true;
                 device_desc.Visible = true;
                 lbl_provider.Visible = false;
-            } else
+            } else if (btn_add.Text == "ADD")
             {
                 //do query
                 pnl_add.Visible = false;
                 device_desc.Visible = false;
                 lbl_provider.Visible = true;
+                reset_values();
             }
 
             if (btn_add.Text == "NEW")
@@ -93,7 +95,7 @@ namespace SAD_2_PTT_01
                 btn_edit.Enabled = true;
                 btn_add.Font = new Font(def, FontStyle.Italic);
                 btn_edit.Font = new Font(def, FontStyle.Regular);
-            } else
+            } else if (btn_add.Text == "ADD")
             {
                 btn_add.Text = "NEW";
                 btn_edit.Text = "EDIT";
@@ -101,6 +103,9 @@ namespace SAD_2_PTT_01
                 btn_edit.Enabled = false;
                 btn_edit.Font = new Font(def, FontStyle.Italic);
                 btn_add.Font = new Font(def, FontStyle.Regular);
+            } else
+            {
+                //do query
             }
 
         }
@@ -133,11 +138,48 @@ namespace SAD_2_PTT_01
         {
             if (btn_edit.Text == "EDIT")
             {
-                //do query
-            } else
+                pnl_add.Visible = true;
+                btn_add.Enabled = false;
+                device_desc.Visible = true;
+            } else if (btn_edit.Text == "CANCEL")
             {
-
+                pnl_add.Visible = false;
+                btn_add.Enabled = false;
+                device_desc.Visible = false;
             }
+
+            if (btn_edit.Text == "EDIT")
+            {
+                btn_edit.Text = "CANCEL";
+                btn_add.Text = "SAVE";
+                btn_edit.Enabled = true;
+                btn_add.Enabled = false;
+                btn_edit.Font = new Font(def, FontStyle.Regular);
+                btn_add.Font = new Font(def, FontStyle.Italic);
+            } else if (btn_edit.Text == "CANCEL")
+            {
+                device_name.Clear();
+                device_disability.SelectedIndex = 0;
+                device_desc.Clear();
+                reset_values();
+            }
+        }
+
+        public void reset_values()
+        {
+            lbl_device_name.Text = "--";
+            lbl_device_disability.Text = "--";
+            lbl_provider.Text = "--";
+
+            lbl_device_name.Font = new Font(def, FontStyle.Regular);
+            lbl_device_disability.Font = new Font(def, FontStyle.Regular);
+            lbl_provider.Font = new Font(def, FontStyle.Regular);
+
+            lbl_device_name.ForeColor = Color.Gray;
+            lbl_device_disability.ForeColor = Color.Gray;
+            lbl_provider.ForeColor = Color.Gray;
+            btn_add.Enabled = true;
+            btn_edit.Enabled = false;
         }
     }
 }
