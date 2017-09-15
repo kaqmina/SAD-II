@@ -10,9 +10,6 @@ using System.Drawing;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
-using OfficeOpenXml;
-using OfficeOpenXml.Table;
-using OfficeOpenXml.Drawing;
 
 
 
@@ -43,12 +40,20 @@ namespace SAD_2_PTT
             report.Columns["age"].HeaderText = "AGE";
             report.Columns["educ_attainment"].HeaderText = "EDUC. ATTAINMENT";
             report.Columns["num"].HeaderText = "NO.";
+
+            //Column Size
+            report.Columns["num"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            report.Columns["age"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            report.Columns["sex"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            report.Columns["birthdate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            report.Columns["num"].Width = report.Columns["age"].Width = report.Columns["sex"].Width = 35;
+            report.Columns["birthdate"].Width = 80;
         }
         public void report_gridView(DataGridView report)
         {
             try
             {
-                string query = no + "SELECT (@num:=@num + 1) AS num, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -57,6 +62,7 @@ namespace SAD_2_PTT
 
                 report.DataSource = dt;
                 reportFormat(report);
+                
 
                 conn.Close();
             }
@@ -70,7 +76,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT (@num:=@num + 1) AS num, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -91,7 +97,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT (@num:=@num + 1) AS num, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate,"+ educ_at +" address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname " + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate,"+ educ_at +" address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -111,8 +117,8 @@ namespace SAD_2_PTT
         public void report_YearlyFormat(DataGridView report, DateTime year)
         {
             try
-            {
-                string query = no + "SELECT (@num:=@num + 1) AS num, lastname, firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
+            { //"CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -209,6 +215,9 @@ namespace SAD_2_PTT
             PdfPTable table = new PdfPTable(report.ColumnCount);
             table.HorizontalAlignment = Element.ALIGN_CENTER;
             table.WidthPercentage = 98;
+            //int[] width = {1, 4, 4, 1, 1, 4, 5, 5, 4};
+            //table.SetWidths(width);
+            
 
             //table header
             var headerFont = FontFactory.GetFont("Segoe UI", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
