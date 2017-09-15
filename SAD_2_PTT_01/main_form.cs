@@ -1009,6 +1009,21 @@ namespace SAD_2_PTT_01
                 device_requests.DefaultCellStyle.Font = new Font(def, FontStyle.Regular);
                 device_requests.DefaultCellStyle.SelectionForeColor = Color.FromArgb(41, 45, 56);
             }
+
+            if (device_has_data_recieved == false)
+            {
+                device_recieved.DefaultCellStyle.SelectionBackColor = Color.White;
+                device_recieved.DefaultCellStyle.ForeColor = Color.Gray;
+                device_recieved.DefaultCellStyle.Font = new Font(def, FontStyle.Italic);
+                device_recieved.DefaultCellStyle.SelectionForeColor = Color.Gray;
+            }
+            else
+            {
+                device_recieved.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 224, 224);
+                device_recieved.DefaultCellStyle.ForeColor = Color.FromArgb(41, 45, 56);
+                device_recieved.DefaultCellStyle.Font = new Font(def, FontStyle.Regular);
+                device_recieved.DefaultCellStyle.SelectionForeColor = Color.FromArgb(41, 45, 56);
+            }
         }
 
         public void device_requests_format()
@@ -1138,7 +1153,7 @@ namespace SAD_2_PTT_01
 
         private void device_recieved_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || device_has_data_recieved == false)
             {
                 //do nothing
             }

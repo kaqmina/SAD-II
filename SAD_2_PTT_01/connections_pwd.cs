@@ -38,7 +38,7 @@ namespace SAD_2_PTT_01
                                              + "added_date, "
                                              + "district_id, "
                                              + "status_pwd "
-                                             + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE isArchived = 0", conn);
+                                             + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE pwd.isArchived = 0", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);

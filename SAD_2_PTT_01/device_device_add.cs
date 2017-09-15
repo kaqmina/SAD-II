@@ -21,13 +21,18 @@ namespace SAD_2_PTT_01
 
         private void device_device_add_Load(object sender, EventArgs e)
         {
-            conn_devi.get_device_list(device_list);
+            refresh_device_grid();
             device_list_format();
             reset_values();
 
             conn_devi.get_disability_list(device_disability);
 
             startup_opacity.Start();
+        }
+
+        public void refresh_device_grid()
+        {
+            conn_devi.get_device_list(device_list);
         }
 
         public void device_list_format()
@@ -38,6 +43,7 @@ namespace SAD_2_PTT_01
             device_list.Columns["disability_desc"].Visible = false;
             device_list.Columns["disability_id1"].Visible = false;
             device_list.Columns["isArchived"].Visible = false;
+            device_list.Columns["isArchived1"].Visible = false;
 
             device_list.Columns["dev_name"].HeaderText = "Device";
             device_list.Columns["disability_type"].HeaderText = "Disability";
@@ -80,11 +86,10 @@ namespace SAD_2_PTT_01
                 lbl_provider.Visible = false;
             } else if (btn_add.Text == "ADD")
             {
-                //do query
+                conn_devi.device_add(device_name.Text, device_desc.Text, device_disability.SelectedIndex);
                 pnl_add.Visible = false;
                 device_desc.Visible = false;
                 lbl_provider.Visible = true;
-                reset_values();
             }
 
             if (btn_add.Text == "NEW")
@@ -99,20 +104,17 @@ namespace SAD_2_PTT_01
             {
                 btn_add.Text = "NEW";
                 btn_edit.Text = "EDIT";
-                btn_add.Enabled = true;
-                btn_edit.Enabled = false;
-                btn_edit.Font = new Font(def, FontStyle.Italic);
-                btn_add.Font = new Font(def, FontStyle.Regular);
+                reset_values();
             } else
             {
-                //do query
+                //do query SAVE
             }
 
         }
 
         public void check_required()
         {
-            if (device_name.Text.Trim() == "" || device_disability.SelectedIndex <= 0)
+            if ((device_name.Text.Trim() == "" || device_disability.SelectedIndex <= 0) && btn_add.Text == "ADD")
             {
                 btn_add.Enabled = false;
                 btn_add.Font = new Font(def, FontStyle.Italic);
@@ -141,11 +143,13 @@ namespace SAD_2_PTT_01
                 pnl_add.Visible = true;
                 btn_add.Enabled = false;
                 device_desc.Visible = true;
+                lbl_provider.Visible = false;
             } else if (btn_edit.Text == "CANCEL")
             {
                 pnl_add.Visible = false;
                 btn_add.Enabled = false;
                 device_desc.Visible = false;
+                lbl_provider.Visible = true;
             }
 
             if (btn_edit.Text == "EDIT")
@@ -158,18 +162,34 @@ namespace SAD_2_PTT_01
                 btn_add.Font = new Font(def, FontStyle.Italic);
             } else if (btn_edit.Text == "CANCEL")
             {
-                device_name.Clear();
-                device_disability.SelectedIndex = 0;
-                device_desc.Clear();
                 reset_values();
             }
         }
 
         public void reset_values()
         {
+            reset_view();
+
+            btn_add.Enabled = true;
+            btn_edit.Enabled = false;
+            btn_add.Text = "NEW";
+            btn_edit.Text = "EDIT";
+            btn_add.Font = new Font(def, FontStyle.Regular);
+            btn_edit.Font = new Font(def, FontStyle.Italic);
+
+            device_name.Clear();
+            device_disability.SelectedIndex = 0;
+            device_desc.Clear();
+
+            refresh_device_grid();
+        }
+
+        public void reset_view()
+        {
+
             lbl_device_name.Text = "--";
             lbl_device_disability.Text = "--";
-            lbl_provider.Text = "--";
+            lbl_provider.Text = "rter";
 
             lbl_device_name.Font = new Font(def, FontStyle.Regular);
             lbl_device_disability.Font = new Font(def, FontStyle.Regular);
@@ -178,8 +198,28 @@ namespace SAD_2_PTT_01
             lbl_device_name.ForeColor = Color.Gray;
             lbl_device_disability.ForeColor = Color.Gray;
             lbl_provider.ForeColor = Color.Gray;
-            btn_add.Enabled = true;
-            btn_edit.Enabled = false;
+
+        }
+
+        private void device_list_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                lbl_device_name.Text = device_list.Rows[e.RowIndex].Cells["dev_name"].Value.ToString();
+                lbl_device_disability.Text = device_list.Rows[e.RowIndex].Cells["disability_type"].Value.ToString();
+                lbl_provider.Text = device_list.Rows[e.RowIndex].Cells["dev_desc"].Value.ToString();
+
+                lbl_device_name.ForeColor = Color.Black;
+                lbl_device_disability.ForeColor = Color.Black;
+                lbl_provider.ForeColor = Color.Black;
+                btn_edit.Enabled = true;
+            } else
+            {
+                btn_edit.Enabled = false;
+                reset_view();
+                device_list.ClearSelection();
+                Console.WriteLine("[CONNECTION_DEVICES] > CLEAR SELECTION DEVICE LIST");
+            }
         }
     }
 }

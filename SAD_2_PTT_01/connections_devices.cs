@@ -266,6 +266,7 @@ namespace SAD_2_PTT_01
             } catch (Exception e)
             {
                 conn.Close();
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -297,6 +298,7 @@ namespace SAD_2_PTT_01
             catch (Exception e)
             {
                 conn.Close();
+                Console.WriteLine(e.Message);
             }
         }
         #endregion
@@ -318,6 +320,7 @@ namespace SAD_2_PTT_01
             } catch (Exception e)
             {
                 conn.Close();
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -349,6 +352,24 @@ namespace SAD_2_PTT_01
             } catch (Exception e)
             {
                 conn.Close();
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void device_add(string dev_name, string dev_desc, int disability_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("INSERT INTO p_dao.device(dev_name, dev_desc, disability_id) VALUES ('"+ dev_name +"','"+ dev_desc +"', "+ disability_id +") ", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
             }
         }
     }
