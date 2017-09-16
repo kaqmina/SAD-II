@@ -440,7 +440,7 @@ namespace SAD_2_PTT_01
                 {
                     conn.Open();
                     
-                    MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM device WHERE dev_name = " + new_name, conn);
+                    MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM device WHERE isArchived != 1 AND dev_name = '" + new_name + "'", conn);
                     MySqlDataAdapter get = new MySqlDataAdapter(comm);
                     DataTable set = new DataTable();
                     get.Fill(set);
@@ -460,6 +460,23 @@ namespace SAD_2_PTT_01
             }
             return has_duplicate;
             
+        }
+
+        public void device_archive(string device_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE p_dao.device SET isArchived = 1 WHERE device_id = " + device_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[CONNECTIONS_DEVICE] > Archived device : " + device_id);
+            }
         }
     }
 }

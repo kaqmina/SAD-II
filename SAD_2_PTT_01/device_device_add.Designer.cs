@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.header_text = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
@@ -72,6 +72,9 @@
             this.device_list = new System.Windows.Forms.DataGridView();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
+            this.lbl_error_edit = new System.Windows.Forms.Label();
+            this.lbl_error_add = new System.Windows.Forms.Label();
+            this.btn_archive = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnl_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.device_list)).BeginInit();
@@ -135,6 +138,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.lbl_error_add);
+            this.panel1.Controls.Add(this.lbl_error_edit);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btn_add);
             this.panel1.Controls.Add(this.device_disability_add);
@@ -166,6 +171,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.device_list);
+            this.panel1.Controls.Add(this.btn_archive);
             this.panel1.Location = new System.Drawing.Point(3, 54);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(661, 357);
@@ -559,14 +565,14 @@
             this.device_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.device_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.device_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_list.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_list.DefaultCellStyle = dataGridViewCellStyle13;
             this.device_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_list.Location = new System.Drawing.Point(12, 55);
             this.device_list.MultiSelect = false;
@@ -574,8 +580,8 @@
             this.device_list.ReadOnly = true;
             this.device_list.RowHeadersVisible = false;
             this.device_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_list.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.device_list.RowTemplate.Height = 25;
             this.device_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -594,6 +600,44 @@
             // 
             this.exit_opacity.Interval = 1;
             this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
+            // 
+            // lbl_error_edit
+            // 
+            this.lbl_error_edit.AutoSize = true;
+            this.lbl_error_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_error_edit.Location = new System.Drawing.Point(543, 55);
+            this.lbl_error_edit.Name = "lbl_error_edit";
+            this.lbl_error_edit.Size = new System.Drawing.Size(87, 13);
+            this.lbl_error_edit.TabIndex = 144;
+            this.lbl_error_edit.Text = "* Already exists.";
+            this.lbl_error_edit.Visible = false;
+            // 
+            // lbl_error_add
+            // 
+            this.lbl_error_add.AutoSize = true;
+            this.lbl_error_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_error_add.Location = new System.Drawing.Point(543, 211);
+            this.lbl_error_add.Name = "lbl_error_add";
+            this.lbl_error_add.Size = new System.Drawing.Size(87, 13);
+            this.lbl_error_add.TabIndex = 145;
+            this.lbl_error_add.Text = "* Already exists.";
+            this.lbl_error_add.Visible = false;
+            // 
+            // btn_archive
+            // 
+            this.btn_archive.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_archive.FlatAppearance.BorderSize = 0;
+            this.btn_archive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_archive.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_archive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_archive.Location = new System.Drawing.Point(522, 163);
+            this.btn_archive.Name = "btn_archive";
+            this.btn_archive.Size = new System.Drawing.Size(63, 22);
+            this.btn_archive.TabIndex = 146;
+            this.btn_archive.Text = "ARCHIVE";
+            this.btn_archive.UseVisualStyleBackColor = false;
+            this.btn_archive.Visible = false;
+            this.btn_archive.Click += new System.EventHandler(this.btn_archive_Click);
             // 
             // device_device_add
             // 
@@ -665,5 +709,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox device_name_edit;
+        private System.Windows.Forms.Label lbl_error_add;
+        private System.Windows.Forms.Label lbl_error_edit;
+        private System.Windows.Forms.Button btn_archive;
     }
 }
