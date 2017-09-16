@@ -303,51 +303,7 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
-        public void get_device_list(DataGridView device_grid)
-        {
-            try
-            {
-                conn.Open();
-
-                comm = new MySqlCommand("SELECT * FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE device.isArchived != 1 ORDER BY disability_type ASC ", conn);
-                get = new MySqlDataAdapter(comm);
-                set = new DataTable();
-                get.Fill(set);
-
-                device_grid.DataSource = set;
-
-                conn.Close();
-            } catch (Exception e)
-            {
-                conn.Close();
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        public string count_rows()
-        {
-            string result;
-            try
-            {
-                conn.Open();
-
-                comm = new MySqlCommand("SELECT COUNT(*) AS result FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE device.isArchived != 1", conn);
-                get = new MySqlDataAdapter(comm);
-                set = new DataTable();
-                get.Fill(set);
-
-                result = "Total results: " + set.Rows[0]["result"].ToString();
-
-                conn.Close();
-            }
-            catch (Exception e)
-            {
-                result = "Total results: 0";
-                conn.Close();
-                Console.WriteLine(e.Message);
-            }
-            return result;
-        }
+        #region C-BOX - DUPLICATE
 
         public void get_disability_list(ComboBox disability_cbox)
         {
@@ -374,54 +330,8 @@ namespace SAD_2_PTT_01
                 }
 
                 conn.Close();
-            } catch (Exception e)
-            {
-                conn.Close();
-                Console.WriteLine(e.Message);
             }
-        }
-
-        public void device_add(string dev_name, string dev_desc, int disability_id)
-        {
-            try
-            {
-                conn.Open();
-
-                comm = new MySqlCommand("INSERT INTO p_dao.device(dev_name, "
-                                                               + "dev_desc, "
-                                                               + "disability_id) "
-                                                               + "VALUES ('"
-                                                               + dev_name 
-                                                               +"','"
-                                                               + dev_desc 
-                                                               +"', "
-                                                               + disability_id 
-                                                               +") ", conn);
-                comm.ExecuteNonQuery();
-
-                conn.Close();
-            } catch (Exception e)
-            {
-                conn.Close();
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        public void device_update(string dev_name, string dev_desc, int disability_id, string device_id)
-        {
-            try
-            {
-                conn.Open();
-
-                comm = new MySqlCommand("UPDATE device SET dev_name = '" 
-                                                         + dev_name + "', dev_desc = '"
-                                                         + dev_desc +"', disability_id =" 
-                                                         + disability_id 
-                                                         + " WHERE device_id = " + device_id, conn);
-                comm.ExecuteNonQuery();
-
-                conn.Close();
-            } catch (Exception e)
+            catch (Exception e)
             {
                 conn.Close();
                 Console.WriteLine(e.Message);
@@ -434,12 +344,13 @@ namespace SAD_2_PTT_01
             if (new_name == prev_name || new_name == "")
             {
                 has_duplicate = false;
-            } else
+            }
+            else
             {
                 try
                 {
                     conn.Open();
-                    
+
                     MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM device WHERE isArchived != 1 AND dev_name = '" + new_name + "'", conn);
                     MySqlDataAdapter get = new MySqlDataAdapter(comm);
                     DataTable set = new DataTable();
@@ -459,8 +370,120 @@ namespace SAD_2_PTT_01
                 }
             }
             return has_duplicate;
-            
+
         }
+
+        #endregion
+
+        #region ADD-MODE
+
+        public void device_add(string dev_name, string dev_desc, int disability_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("INSERT INTO p_dao.device(dev_name, "
+                                                               + "dev_desc, "
+                                                               + "disability_id) "
+                                                               + "VALUES ('"
+                                                               + dev_name
+                                                               + "','"
+                                                               + dev_desc
+                                                               + "', "
+                                                               + disability_id
+                                                               + ") ", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        #endregion
+
+        #region VIEW-MODE
+
+        public string count_rows()
+        {
+            string result;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT COUNT(*) AS result FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE device.isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                result = "Total results: " + set.Rows[0]["result"].ToString();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                result = "Total results: 0";
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+            return result;
+        }
+
+        public void get_device_list(DataGridView device_grid)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT * FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE device.isArchived != 1 ORDER BY disability_type ASC ", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                device_grid.DataSource = set;
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        #endregion
+
+        #region EDIT-MODE
+
+        public void device_update(string dev_name, string dev_desc, int disability_id, string device_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE device SET dev_name = '"
+                                                         + dev_name + "', dev_desc = '"
+                                                         + dev_desc + "', disability_id ="
+                                                         + disability_id
+                                                         + " WHERE device_id = " + device_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        #endregion
+
+        #region ARCHIVE-MODE
 
         public void device_archive(string device_id)
         {
@@ -472,11 +495,14 @@ namespace SAD_2_PTT_01
                 comm.ExecuteNonQuery();
 
                 conn.Close();
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 conn.Close();
                 Console.WriteLine("[CONNECTIONS_DEVICE] > Archived device : " + device_id);
             }
         }
+
+        #endregion
     }
 }
