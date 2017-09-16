@@ -37,7 +37,7 @@ namespace SAD_2_PTT_01
                                              + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
                                              + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
                                              + "(SELECT @s:=0) AS s "
-                                             + "WHERE device_log.status = 1 ORDER BY req_date DESC", conn);
+                                             + "WHERE device_log.status = 1 AND device_log.isArchived != 1 ORDER BY req_date DESC", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -146,7 +146,7 @@ namespace SAD_2_PTT_01
                                              + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
                                              + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
                                              + "(SELECT @s:=0) AS s "
-                                             + "WHERE device_log.status = 2 ORDER BY date_in DESC", conn);
+                                             + "WHERE device_log.status = 2 AND device_log.isArchived != 1 ORDER BY date_in DESC", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -258,7 +258,7 @@ namespace SAD_2_PTT_01
                                              + "JOIN device ON device_log.device_id = device.device_id "
                                              + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
                                              + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
-                                             + "WHERE deviceLOG_id = " + dev_id, conn);
+                                             + "WHERE device_log.isArchived != 1 AND deviceLOG_id = " + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
                 get.Fill(data);
 
@@ -289,7 +289,7 @@ namespace SAD_2_PTT_01
                                              + "JOIN device ON device_log.device_id = device.device_id "
                                              + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
                                              + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
-                                             + "WHERE deviceLOG_id =" + dev_id, conn);
+                                             + "WHERE device_log.isArchived != 1 AND deviceLOG_id =" + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
                 get.Fill(data);
 
@@ -309,7 +309,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT * FROM device JOIN disability ON device.disability_id = disability.disability_id ORDER BY disability_type ASC", conn);
+                comm = new MySqlCommand("SELECT * FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE device.isArchived != 1 ORDER BY disability_type ASC ", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -324,13 +324,38 @@ namespace SAD_2_PTT_01
             }
         }
 
+        public string count_rows()
+        {
+            string result;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT COUNT(*) AS result FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE device.isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                result = "Total results: " + set.Rows[0]["result"].ToString();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                result = "Total results: 0";
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+            return result;
+        }
+
         public void get_disability_list(ComboBox disability_cbox)
         {
             try
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT disability_type FROM disability", conn);
+                comm = new MySqlCommand("SELECT disability_type FROM disability WHERE isArchived != 1", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -401,6 +426,40 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public bool device_check_duplicate(string new_name, string prev_name)
+        {
+            bool has_duplicate = false;
+            if (new_name == prev_name || new_name == "")
+            {
+                has_duplicate = false;
+            } else
+            {
+                try
+                {
+                    conn.Open();
+                    
+                    MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM device WHERE dev_name = " + new_name, conn);
+                    MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                    DataTable set = new DataTable();
+                    get.Fill(set);
+                    int count = int.Parse(set.Rows[0]["COUNT(*)"].ToString());
+                    if (count == 0)
+                        has_duplicate = false;
+                    else
+                        has_duplicate = true;
+
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    conn.Close();
+                }
+            }
+            return has_duplicate;
+            
         }
     }
 }

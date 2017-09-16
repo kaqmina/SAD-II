@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.header_text = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.count_results = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.device_list = new System.Windows.Forms.DataGridView();
@@ -162,7 +162,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.count_results);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.device_list);
@@ -213,7 +213,6 @@
             // btn_add_clear
             // 
             this.btn_add_clear.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_add_clear.Enabled = false;
             this.btn_add_clear.FlatAppearance.BorderSize = 0;
             this.btn_add_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +224,7 @@
             this.btn_add_clear.Text = "CLEAR";
             this.btn_add_clear.UseVisualStyleBackColor = false;
             this.btn_add_clear.Visible = false;
+            this.btn_add_clear.Click += new System.EventHandler(this.btn_add_clear_Click);
             // 
             // device_name_add
             // 
@@ -514,15 +514,18 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "INFORMATION";
             // 
-            // label3
+            // count_results
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(9, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "FILTER :";
+            this.count_results.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.count_results.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count_results.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.count_results.Location = new System.Drawing.Point(57, 39);
+            this.count_results.Name = "count_results";
+            this.count_results.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.count_results.Size = new System.Drawing.Size(213, 13);
+            this.count_results.TabIndex = 48;
+            this.count_results.Text = "Results: 10";
+            this.count_results.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -556,14 +559,14 @@
             this.device_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.device_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.device_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_list.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_list.DefaultCellStyle = dataGridViewCellStyle3;
             this.device_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_list.Location = new System.Drawing.Point(12, 55);
             this.device_list.MultiSelect = false;
@@ -571,8 +574,8 @@
             this.device_list.ReadOnly = true;
             this.device_list.RowHeadersVisible = false;
             this.device_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_list.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.device_list.RowTemplate.Height = 25;
             this.device_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -580,6 +583,7 @@
             this.device_list.Size = new System.Drawing.Size(257, 290);
             this.device_list.TabIndex = 45;
             this.device_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.device_list_CellClick);
+            this.device_list.SelectionChanged += new System.EventHandler(this.device_list_SelectionChanged);
             // 
             // startup_opacity
             // 
@@ -605,6 +609,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "device_device_add";
             this.Opacity = 0D;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "device_device_add";
             this.Load += new System.EventHandler(this.device_device_add_Load);
@@ -624,7 +629,7 @@
         private System.Windows.Forms.Button btn_mode_status;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.DataGridView device_list;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label count_results;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
