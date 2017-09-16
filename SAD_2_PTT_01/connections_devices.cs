@@ -433,8 +433,9 @@ namespace SAD_2_PTT_01
             return result;
         }
 
-        public void get_device_list(DataGridView device_grid)
+        public bool get_device_list(DataGridView device_grid)
         {
+            bool has_data = false;
             try
             {
                 conn.Open();
@@ -444,7 +445,97 @@ namespace SAD_2_PTT_01
                 set = new DataTable();
                 get.Fill(set);
 
-                device_grid.DataSource = set;
+                DataTable device_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "device_id";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_id";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dev_desc";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_desc";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_id1";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "isArchived";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "isArchived1";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dev_name";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_type";
+                device_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = device_data.NewRow();
+                    row["device_id"] = none;
+                    row["disability_id"] = none;
+                    row["dev_desc"] = none;
+                    row["disability_desc"] = none;
+                    row["disability_id1"] = none;
+                    row["isArchived"] = none;
+                    row["isArchived1"] = none;
+                    row["dev_name"] = "There are no devices.";
+                    row["disability_type"] = "";
+                    device_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = device_data.NewRow();
+                        row["device_id"] = set.Rows[i]["device_id"].ToString();
+                        row["disability_id"] = set.Rows[i]["disability_id"].ToString();
+                        row["dev_desc"] = set.Rows[i]["dev_desc"].ToString();
+                        row["disability_desc"] = set.Rows[i]["disability_desc"].ToString();
+                        row["disability_id1"] = set.Rows[i]["disability_id1"].ToString();
+                        row["isArchived"] = set.Rows[i]["isArchived"].ToString();
+                        row["isArchived1"] = set.Rows[i]["isArchived1"].ToString();
+                        row["dev_name"] = set.Rows[i]["dev_name"].ToString();
+                        row["disability_type"] = set.Rows[i]["disability_type"].ToString();
+                        device_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(device_data);
+
+                device_grid.DataSource = view;
 
                 conn.Close();
             }
@@ -453,6 +544,7 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 Console.WriteLine(e.Message);
             }
+            return has_data;
         }
 
         #endregion
