@@ -18,14 +18,18 @@ namespace SAD_2_PTT_01
         }
         public main_form reference_to_main { get; set; }
         connections_devices conn_devi = new connections_devices();
+        system_functions sys_func = new system_functions();
 
         private void device_device_add_Load(object sender, EventArgs e)
         {
             refresh_device_grid();
             device_list_format();
-            reset_values();
+            reset_values_edit();
+            reset_values_add();
+            reset_view();
 
-            conn_devi.get_disability_list(device_disability);
+            conn_devi.get_disability_list(device_disability_edit);
+            conn_devi.get_disability_list(device_disability_add);
 
             startup_opacity.Start();
         }
@@ -33,6 +37,7 @@ namespace SAD_2_PTT_01
         public void refresh_device_grid()
         {
             conn_devi.get_device_list(device_list);
+            device_list.ClearSelection();
         }
 
         public void device_list_format()
@@ -74,132 +79,88 @@ namespace SAD_2_PTT_01
                 this.Close();
             }
         }
-        Font def = new Font("Segoe UI", 8.25F);
 
-        private void btn_add_Click(object sender, EventArgs e)
+        public void check_required_edit()
         {
+            if (device_name_edit.Text.Trim() == "" || device_disability_edit.SelectedIndex <= 0)
+            {
+                btn_edit.Enabled = false;
+                sys_func.btn_inactive(btn_edit);
 
-            if (btn_add.Text == "NEW")
-            {
-                pnl_add.Visible = true;
-                device_desc.Visible = true;
-                lbl_provider.Visible = false;
-            } else if (btn_add.Text == "ADD")
-            {
-                conn_devi.device_add(device_name.Text, device_desc.Text, device_disability.SelectedIndex);
-                pnl_add.Visible = false;
-                device_desc.Visible = false;
-                lbl_provider.Visible = true;
-            }
-
-            if (btn_add.Text == "NEW")
-            {
-                btn_add.Text = "ADD";
-                btn_edit.Text = "CANCEL";
-                btn_add.Enabled = false;
-                btn_edit.Enabled = true;
-                btn_add.Font = new Font(def, FontStyle.Italic);
-                btn_edit.Font = new Font(def, FontStyle.Regular);
-            } else if (btn_add.Text == "ADD")
-            {
-                btn_add.Text = "NEW";
-                btn_edit.Text = "EDIT";
-                reset_values();
             } else
             {
-                //do query SAVE
+                btn_edit.Enabled = true;
+                sys_func.btn_active(btn_edit);
             }
-
         }
 
-        public void check_required()
+        public void check_required_add()
         {
-            if ((device_name.Text.Trim() == "" || device_disability.SelectedIndex <= 0) && btn_add.Text == "ADD")
+            if (device_name_add.Text.Trim() == "" || device_disability_add.SelectedIndex <= 0)
             {
                 btn_add.Enabled = false;
-                btn_add.Font = new Font(def, FontStyle.Italic);
-
+                sys_func.btn_inactive(btn_add);
             } else
             {
                 btn_add.Enabled = true;
-                btn_add.Font = new Font(def, FontStyle.Regular);
+                sys_func.btn_active(btn_add);
             }
         }
 
-        private void device_name_TextChanged(object sender, EventArgs e)
+        public void reset_values_edit()
         {
-            check_required();
-        }
-
-        private void device_disability_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            check_required();
-        }
-
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-            if (btn_edit.Text == "EDIT")
-            {
-                pnl_add.Visible = true;
-                btn_add.Enabled = false;
-                device_desc.Visible = true;
-                lbl_provider.Visible = false;
-            } else if (btn_edit.Text == "CANCEL")
-            {
-                pnl_add.Visible = false;
-                btn_add.Enabled = false;
-                device_desc.Visible = false;
-                lbl_provider.Visible = true;
-            }
-
-            if (btn_edit.Text == "EDIT")
-            {
-                btn_edit.Text = "CANCEL";
-                btn_add.Text = "SAVE";
-                btn_edit.Enabled = true;
-                btn_add.Enabled = false;
-                btn_edit.Font = new Font(def, FontStyle.Regular);
-                btn_add.Font = new Font(def, FontStyle.Italic);
-            } else if (btn_edit.Text == "CANCEL")
-            {
-                reset_values();
-            }
-        }
-
-        public void reset_values()
-        {
-            reset_view();
-
-            btn_add.Enabled = true;
             btn_edit.Enabled = false;
-            btn_add.Text = "NEW";
+            btn_edit_cancel.Enabled = true;
+
+            btn_edit.Visible = true;
+            btn_edit_cancel.Visible = false;
+
             btn_edit.Text = "EDIT";
-            btn_add.Font = new Font(def, FontStyle.Regular);
-            btn_edit.Font = new Font(def, FontStyle.Italic);
+            btn_edit_cancel.Text = "CANCEL";
 
-            device_name.Clear();
-            device_disability.SelectedIndex = 0;
-            device_desc.Clear();
+            sys_func.btn_inactive(btn_edit);
+            sys_func.btn_active(btn_edit_cancel);
 
-            refresh_device_grid();
+            device_name_edit.Clear();
+            device_disability_edit.SelectedIndex = 0;
+            device_desc_edit.Clear();
+
+            pnl_edit.Visible = false;
+            device_desc_edit.Visible = false;
+        }
+
+        public void reset_values_add()
+        {
+            btn_add.Enabled = false;
+            btn_add_clear.Enabled = true;
+
+            btn_add.Visible = true;
+            btn_add_clear.Visible = false;
+
+            btn_add.Text = "ADD";
+            btn_add_clear.Text = "CLEAR";
+
+            sys_func.btn_inactive(btn_add);
+            sys_func.btn_active(btn_add_clear);
+
+            device_name_add.Clear();
+            device_disability_add.SelectedIndex = 0;
+            device_desc_add.Clear();
         }
 
         public void reset_view()
         {
-
+            device_list.ClearSelection();
             lbl_device_name.Text = "--";
             lbl_device_disability.Text = "--";
-            lbl_provider.Text = "rter";
+            lbl_provider.Text = "--";
 
-            lbl_device_name.Font = new Font(def, FontStyle.Regular);
-            lbl_device_disability.Font = new Font(def, FontStyle.Regular);
-            lbl_provider.Font = new Font(def, FontStyle.Regular);
-
-            lbl_device_name.ForeColor = Color.Gray;
-            lbl_device_disability.ForeColor = Color.Gray;
-            lbl_provider.ForeColor = Color.Gray;
-
+            sys_func.lbl_reset(lbl_device_name);
+            sys_func.lbl_reset(lbl_device_disability);
+            sys_func.lbl_reset(lbl_provider);
         }
+
+        int current_index = 0;
 
         private void device_list_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -208,18 +169,81 @@ namespace SAD_2_PTT_01
                 lbl_device_name.Text = device_list.Rows[e.RowIndex].Cells["dev_name"].Value.ToString();
                 lbl_device_disability.Text = device_list.Rows[e.RowIndex].Cells["disability_type"].Value.ToString();
                 lbl_provider.Text = device_list.Rows[e.RowIndex].Cells["dev_desc"].Value.ToString();
+                current_index = e.RowIndex;
 
-                lbl_device_name.ForeColor = Color.Black;
-                lbl_device_disability.ForeColor = Color.Black;
-                lbl_provider.ForeColor = Color.Black;
+                sys_func.lbl_has_value(lbl_device_name);
+                sys_func.lbl_has_value(lbl_device_disability);
+                sys_func.lbl_has_value(lbl_provider);
+                sys_func.btn_active(btn_edit);
+                
                 btn_edit.Enabled = true;
             } else
             {
                 btn_edit.Enabled = false;
+                sys_func.btn_inactive(btn_edit);
                 reset_view();
                 device_list.ClearSelection();
                 Console.WriteLine("[CONNECTION_DEVICES] > CLEAR SELECTION DEVICE LIST");
             }
+        }
+
+        private void device_name_edit_TextChanged(object sender, EventArgs e)
+        {
+            check_required_edit();
+        }
+
+        private void device_disability_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            check_required_edit();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (btn_edit.Text == "EDIT")
+            {
+                reset_values_edit();
+                pnl_edit.Visible = true;
+                device_desc_edit.Visible = true;
+                btn_edit_cancel.Visible = true;
+
+                device_name_edit.Text = device_list.Rows[current_index].Cells["dev_name"].Value.ToString();
+                device_disability_edit.SelectedIndex = int.Parse(device_list.Rows[current_index].Cells["disability_id"].Value.ToString());
+                device_desc_edit.Text = device_list.Rows[current_index].Cells["dev_desc"].Value.ToString();
+
+                btn_edit.Text = "SAVE";
+                sys_func.btn_inactive(btn_edit);
+            } else
+            {
+                pnl_edit.Visible = false;
+                device_desc_edit.Visible = false;
+                string current_id = device_list.Rows[current_index].Cells["device_id"].Value.ToString();
+                conn_devi.device_update(device_name_edit.Text, device_desc_edit.Text, device_disability_edit.SelectedIndex, current_id);
+                reset_values_edit();
+                reset_view();
+                refresh_device_grid();
+            }
+        }
+
+        private void btn_edit_cancel_Click(object sender, EventArgs e)
+        {
+            reset_values_edit();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            conn_devi.device_add(device_name_add.Text, device_desc_add.Text, device_disability_add.SelectedIndex);
+            reset_values_add();
+            refresh_device_grid();
+        }
+
+        private void device_name_add_TextChanged(object sender, EventArgs e)
+        {
+            check_required_add();
+        }
+
+        private void device_disability_add_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            check_required_add();
         }
     }
 }

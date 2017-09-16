@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,11 +39,29 @@ namespace SAD_2_PTT_01
             }
         }
         #endregion
+        
+        Font def = new Font("Segoe UI", 8.25F);
 
-        public void activate_form(Form main, Form prompt)
+        public void btn_inactive(Button current_btn)
         {
-            main.BringToFront();
-            prompt.BringToFront();
+            current_btn.Font = new Font(def, FontStyle.Italic);
+        }
+
+        public void btn_active(Button current_btn)
+        {
+            current_btn.Font = new Font(def, FontStyle.Regular);
+        }
+
+        public void lbl_reset(Label current_lbl)
+        {
+            current_lbl.Font = new Font(def, FontStyle.Italic);
+            current_lbl.ForeColor = Color.Gray;
+        }
+
+        public void lbl_has_value(Label current_lbl)
+        {
+            current_lbl.Font = new Font(def, FontStyle.Regular);
+            current_lbl.ForeColor = Color.Black;
         }
     }
 }

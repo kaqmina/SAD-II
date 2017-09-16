@@ -362,7 +362,37 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("INSERT INTO p_dao.device(dev_name, dev_desc, disability_id) VALUES ('"+ dev_name +"','"+ dev_desc +"', "+ disability_id +") ", conn);
+                comm = new MySqlCommand("INSERT INTO p_dao.device(dev_name, "
+                                                               + "dev_desc, "
+                                                               + "disability_id) "
+                                                               + "VALUES ('"
+                                                               + dev_name 
+                                                               +"','"
+                                                               + dev_desc 
+                                                               +"', "
+                                                               + disability_id 
+                                                               +") ", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void device_update(string dev_name, string dev_desc, int disability_id, string device_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE device SET dev_name = '" 
+                                                         + dev_name + "', dev_desc = '"
+                                                         + dev_desc +"', disability_id =" 
+                                                         + disability_id 
+                                                         + " WHERE device_id = " + device_id, conn);
                 comm.ExecuteNonQuery();
 
                 conn.Close();
