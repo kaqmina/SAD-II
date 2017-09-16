@@ -10,6 +10,10 @@ using System.Drawing;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
+using OfficeOpenXml.Drawing;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
+using OfficeOpenXml.Style;
 
 
 
@@ -19,9 +23,12 @@ namespace SAD_2_PTT
     {
         public MySqlConnection conn;
         public MySqlCommand comm;
-        public string age = " DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age,";
+        public MySqlDataReader dr;
+
+        public string age = " DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d'))";
         public string educ_at = " (CASE WHEN educ_attainment = 1 THEN 'Elementary' WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' WHEN educ_attainment = 3 THEN 'High School' WHEN educ_attainment = 4 THEN 'High School Undergraduate' WHEN educ_attainment = 5 THEN 'College' WHEN educ_attainment = 6 THEN 'College Undergraduate' WHEN educ_attainment = 7 THEN 'Graduate' WHEN educ_attainment = 8 THEN 'Post Graduate' WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment, ";
         public string no = "SET @num = 0; ";
+        
         public main_form reference_to_main { get; set; }
 
         public connection_reports()
@@ -29,6 +36,7 @@ namespace SAD_2_PTT
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }
 
+        #region << Methods >>
         public void reportFormat(DataGridView report)
         {
             report.Columns["lastname"].HeaderText = "LAST NAME";
@@ -53,7 +61,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -69,6 +77,7 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in report_gridView() : " + ex);
+                conn.Close();
             }
         }
 
@@ -76,7 +85,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -90,6 +99,7 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in report_customFormat() : " + ex);
+                conn.Close();
             }
         }
 
@@ -97,7 +107,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname " + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate,"+ educ_at +" address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at +" address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -111,14 +121,15 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in report_MonthlyFormat() : " + ex);
+                conn.Close();
             }
         }
 
         public void report_YearlyFormat(DataGridView report, DateTime year)
         {
             try
-            { //"CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS fullname
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + " (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
+            { 
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -132,6 +143,7 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in report_YearlyFormat() : " + ex);
+                conn.Close();
             }
         }
 
@@ -139,7 +151,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = "SELECT STUDENTCODE, LASTNAME, FIRSTNAME, MIDDLENAME, GENDER, date_format(BIRTHDATE, '%d/%m/%Y') AS BIRTHDATE, ADDRESS  FROM academic.students WHERE year(BIRTHDATE) = '" + year.ToString("yyyy") + "'";
+                string query = "";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -153,15 +165,21 @@ namespace SAD_2_PTT
             catch (Exception ex)
             {
                 MessageBox.Show("Error in report_WeeklyFormat() : " + ex);
+                conn.Close();
             }
         }
+        #endregion
 
-        #region [PWD Module -MasterList-]
+        #region <-- MASTERLIST --> [Print]
+
+        #endregion
+
+        #region  <-- MASTERLIST --> [Export PDF]
         public void pwd_PDFReport(string file, DataGridView report)
         {
           
             FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite);
-            Document doc = new Document(PageSize.LETTER);
+            Document doc = new Document(PageSize.LETTER,30,30,30,30);
             doc.SetPageSize(PageSize.LETTER.Rotate());
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
@@ -170,7 +188,7 @@ namespace SAD_2_PTT
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
             logo.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
             logo.ScalePercent(40);
-            logo.SetAbsolutePosition(0,0);
+            logo.SetAbsolutePosition(10,1000);
             doc.Add(logo);
 
             //title
@@ -181,26 +199,10 @@ namespace SAD_2_PTT
             title.SpacingAfter = 1;
             doc.Add(title);
 
-            //subtitles
-            Paragraph title1 = new Paragraph("In tempus nisl eros, vitae ferm rayin falling from", subFont);
-            title1.Alignment = Element.ALIGN_LEFT;
-            title1.SpacingAfter = 1;
-            //doc.Add(title1);
-
-            Paragraph title2 = new Paragraph("consectetur adipiscing elit to meeee", subFont);
-            title2.Alignment = Element.ALIGN_CENTER;
-            title2.SpacingAfter = 1;
-            //doc.Add(title2);
-
-            Paragraph title3 = new Paragraph("Lorem Ipsum dolor sit amet", subFont);
-            title3.Alignment = Element.ALIGN_CENTER;
-            title3.SpacingAfter = 30;
-            //doc.Add(title3);
-
             //district
-            Paragraph title4 = new Paragraph("Lorem Ipsum dolor sit amet", subFont);
+            Paragraph title4 = new Paragraph("SAMPLE DISTRICT", subFont);
             title4.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
-            title4.SpacingAfter = 30;
+            title4.SpacingAfter = 20;
             doc.Add(title4);
 
             //paragraph text
@@ -214,9 +216,9 @@ namespace SAD_2_PTT
             //table
             PdfPTable table = new PdfPTable(report.ColumnCount);
             table.HorizontalAlignment = Element.ALIGN_CENTER;
-            table.WidthPercentage = 98;
-            //int[] width = {1, 4, 4, 1, 1, 4, 5, 5, 4};
-            //table.SetWidths(width);
+            table.WidthPercentage = 100;
+            int[] width = {1, 4, 4, 2, 1, 4, 5, 5, 4};
+            table.SetWidths(width);
             
 
             //table header
@@ -238,6 +240,7 @@ namespace SAD_2_PTT
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(values.Value.ToString(), cellFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.VerticalAlignment = Element.ALIGN_JUSTIFIED;
                     table.AddCell(cell);
                 }
             }
@@ -249,38 +252,263 @@ namespace SAD_2_PTT
             int t_pwd = table.Rows.Count - 1;
             Paragraph pwd = new Paragraph("Total PWD Members: " + t_pwd.ToString());
             pwd.SpacingBefore = 15;
-            doc.Add(pwd);
+            //doc.Add(pwd);
 
             doc.Close();
             doc.Dispose();
             doc = null;
 
         }
-        public int count;
-        public string disability;
-        public void getDisability()
+
+        #endregion
+
+        #region <-- CONSOLIDATED REPORTS --> [Export Excel]
+        public void pwd_ExcelReport(string file)
         {
-            comm = new MySqlCommand("SELECT COUNT(*), disability_type FROM p_dao.disability", conn);
-            MySqlDataReader dr;
+            string[] district = { "AGDAO", "BAGUIO", "BUHANGIN", "BUNAWAN", "CALINAN", "CITY-A", "CITY-B", "MARILOG", "PAQUIBATO", "TALOMO-A", "TALOMO-B", "TORIL", "TUGBOK" };
+            ExcelPackage exc = new ExcelPackage();
+            ExcelWorksheet wsheet = exc.Workbook.Worksheets.Add("Sheet1");
+
+            #region Styles
+            //Font
+            wsheet.Cells.Style.Font.Size = 12;
+            wsheet.Cells.Style.Font.Name = "Calibri";
+
+            //Table [SCAM]
+            wsheet.Cells[4, 1, 20, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 2, 19, 3].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 4, 19, 5].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 6, 19, 7].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 8, 19, 9].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 10, 19, 11].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 12, 19, 13].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 14, 19, 15].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells[4, 16, 19, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+
+            //Title
+            var title = wsheet.Cells["A1:Q1"];
+            title.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            title.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            title.Style.Font.Bold = true;
+            title.Merge = true;
+            title.Style.Font.Size = 14;
+
+            //SubTitle
+            var subDate = wsheet.Cells["A2:Q2"];
+            subDate.Merge = true;
+            subDate.Style.Font.Bold = true;
+            subDate.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            subDate.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            subDate.Style.Font.Size = 13;
+
+            var subCat = wsheet.Cells["A3:Q3"];
+            subCat.Merge = true;
+            subCat.Style.Font.Bold = true;
+            subCat.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            subCat.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            subCat.Style.Font.Size = 13;
+          
+            //District Row
+            var disTitle = wsheet.Cells["A4:A5"];
+            disTitle.Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            disTitle.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            disTitle.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            disTitle.Style.Font.Bold = true;
+            wsheet.Row(4).Height = 28;
+
+            var districts = wsheet.Cells["A6:A18"];
+            districts.Style.Border.Left.Style = districts.Style.Border.Right.Style = ExcelBorderStyle.Thick;
+            wsheet.Column(1).Width = 14;
+            
+            //Headers
+            wsheet.Cells["B4:C4"].Merge = true;
+            wsheet.Cells["D4:E4"].Merge = true;
+            wsheet.Cells["F4:G4"].Merge = true;
+            wsheet.Cells["H4:I4"].Merge = true;
+            wsheet.Cells["J4:K4"].Merge = true;
+            wsheet.Cells["L4:M4"].Merge = true;
+            wsheet.Cells["N4:O4"].Merge = true;
+            wsheet.Cells["P4:Q4"].Merge = true;
+            var header = wsheet.Cells["B4:Q4"];
+            header.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            header.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            header.Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            header.Style.Font.Bold = true;
+
+            //SubHeaders
+            wsheet.Cells["B5:Q5"].Style.Font.Bold = true;
+
+            //Total
+            wsheet.Cells["A19:Q20"].Style.Font.Bold = true;
+            wsheet.Cells["A19"].Style.Border.Right.Style = ExcelBorderStyle.Thick;
+
+            //GrandTotal
+            wsheet.Cells["B20:Q20"].Merge = true;
+            wsheet.Cells["B20:Q20"].Style.Font.Bold = true;
+            wsheet.Cells["B20:Q20"].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsheet.Cells["A20"].Style.Font.Bold = true;
+            wsheet.Cells["A20"].Style.Border.Right.Style = ExcelBorderStyle.Thick;
+            #endregion
+
+            //Title
+            wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
+
+            //SubTitle
+            wsheet.Cells["A3:Q3"].Value = "(CHILDREN & ADULT CATEGORY)";
+
+            //District Columns
+            wsheet.Cells["A4:A5"].Merge = true;
+            wsheet.Cells["A4:A5"].Value = "DISTRICT";
+            wsheet.Cells["A6"].LoadFromCollection(district);
+
+            //Headers
+            wsheet.Cells["B4:C4"].Value = "0-2 YRS. OLD";
+            wsheet.Cells["D4:E4"].Value = "3-4 YRS. OLD";
+            wsheet.Cells["F4:G4"].Value = "5-6 YRS. OLD";
+            wsheet.Cells["H4:I4"].Value = "7-12 YRS. OLD";
+            wsheet.Cells["J4:K4"].Value = "13-18 YRS. OLD";
+            wsheet.Cells["L4:M4"].Value = "19-24 YRS. OLD";
+            wsheet.Cells["N4:O4"].Value = "25-59 YRS. OLD";
+            wsheet.Cells["P4:Q4"].Value = "60 YRS. OLD";
+
+            //SubHeaders [M,F]
+            
+
+            //Total
+            wsheet.Cells["A19"].Value = "TOTAL";
+            //GrandTotal
+            wsheet.Cells["A20"].Value = "GRAND TOTAL";
+
+            using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite))
+            {
+                exc.SaveAs(fs);
+            }
+
+            System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
+        }
+
+        public List<int> Agdao;
+        public List<int> Baguio;
+        public List<int> Buhangin;
+        public List<int> Bunawan;
+        public List<int> Calinan;
+        public List<int> CityA;
+        public List<int> CityB;
+        public List<int> Marilog;
+        public List<int> Paquibato;
+        public List<int> TalomoA;
+        public List<int> TalomoB;
+        public List<int> Toril;
+        public List<int> Tugbok;
+
+        public void pwd_Agdao()
+        {
+            int result;
+            string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8;
+            string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
+            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.pwd WHERE ";
+
+            cm1 = select + age + " BETWEEN '0' AND '2' AND sex = '0';";
+            cf1 = select + age + " BETWEEN '0' AND '2' AND sex = '1';";
+            cm2 = select + age + " BETWEEN '3' AND '4' AND sex = '0';";
+            cf2 = select + age + " BETWEEN '3' AND '4' AND sex = '1';";
+            cm3 = select + age + " BETWEEN '5' AND '6' AND sex = '0';";
+            cf3 = select + age + " BETWEEN '5' AND '6' AND sex = '1';";
+            cm4 = select + age + " BETWEEN '7' AND '12' AND sex = '0';";
+            cf4 = select + age + " BETWEEN '7' AND '12' AND sex = '1';";
+            cm5 = select + age + " BETWEEN '13' AND '18' AND sex = '0';";
+            cf5 = select + age + " BETWEEN '13' AND '18' AND sex = '1';";
+            cm6 = select + age + " BETWEEN '19' AND '24' AND sex = '0';";
+            cf6 = select + age + " BETWEEN '19' AND '24' AND sex = '1';";
+            cm7 = select + age + " BETWEEN '25' AND '59' AND sex = '0';";
+            cf7 = select + age + " BETWEEN '25' AND '59' AND sex = '1';";
+            cm8 = select + age + " = '60' AND sex = '0';";
+            cf8 = select + age + " = '60' AND sex = '1'";
             try
             {
+                
                 conn.Open();
+                comm = new MySqlCommand(cm1+cf1+cm2+cf2+cm3+cf3+cm4+cf4+cm5+cf5+cm6+cf6+cm7+cf7+cm8+cf8, conn);
                 dr = comm.ExecuteReader();
-
-                while (dr.Read())
+                do
                 {
-                    disability = dr.GetString("disability_type");
-                    count = dr.GetInt32("COUNT(*)");
-                }
+                    while (dr.Read())
+                    {
+                        result = dr.GetInt32(0);
+                        MessageBox.Show(result.ToString());
+
+                        Agdao = new List<int>();
+                        Agdao.Add(result);
+                        Agdao.ForEach(Console.WriteLine);
+                    }
+                } while (dr.NextResult());
+
+
                 conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in getDisability() : " + ex);
+                MessageBox.Show("Error in pwd_Agdao() : " + ex);
                 conn.Close();
             }
-        } 
+        }
 
+        public void pwd_Baguio()
+        {
+
+        }
+
+        public void pwd_Buhangin()
+        {
+
+        }
+        public void pwd_Calinan()
+        {
+
+        }
+        public void pwd_City_A()
+        {
+
+        }
+
+        public void pwd_City_B()
+        {
+
+        }
+
+        public void pwd_Marilog()
+        {
+
+        }
+
+        public void pwd_Paquibato()
+        {
+
+        }
+
+        public void pwd_Talomo_A()
+        {
+
+        }
+
+        public void pwd_Talomo_B()
+        {
+
+        }
+
+        public void pwd_Toril()
+        {
+
+        }
+
+        public void pwd_Tugbok()
+        {
+
+        }
         #endregion
+
+        
+        
+
     }
 }

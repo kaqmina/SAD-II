@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -37,6 +37,10 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.pnl_settings = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_dist = new System.Windows.Forms.Label();
+            this.district = new System.Windows.Forms.ComboBox();
             this.btn_custom = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.date_to = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.date_format = new System.Windows.Forms.ComboBox();
             this.report_grid = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
+            this.export_excel = new System.Windows.Forms.Button();
             this.print_prev = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -57,9 +61,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.s = new System.Windows.Forms.SaveFileDialog();
-            this.lbl_dist = new System.Windows.Forms.Label();
-            this.district = new System.Windows.Forms.ComboBox();
+            this.save_pdf = new System.Windows.Forms.SaveFileDialog();
+            this.save_Excel = new System.Windows.Forms.SaveFileDialog();
             this.panel11.SuspendLayout();
             this.pnl_settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).BeginInit();
@@ -164,6 +167,8 @@
             // pnl_settings
             // 
             this.pnl_settings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_settings.Controls.Add(this.label3);
+            this.pnl_settings.Controls.Add(this.label2);
             this.pnl_settings.Controls.Add(this.lbl_dist);
             this.pnl_settings.Controls.Add(this.district);
             this.pnl_settings.Controls.Add(this.btn_custom);
@@ -175,7 +180,7 @@
             this.pnl_settings.Controls.Add(this.label1);
             this.pnl_settings.Controls.Add(this.date_format);
             this.pnl_settings.Controls.Add(this.report_grid);
-            this.pnl_settings.Controls.Add(this.button7);
+            this.pnl_settings.Controls.Add(this.export_excel);
             this.pnl_settings.Controls.Add(this.print_prev);
             this.pnl_settings.Controls.Add(this.save);
             this.pnl_settings.Controls.Add(this.label15);
@@ -186,11 +191,64 @@
             this.pnl_settings.Size = new System.Drawing.Size(1069, 589);
             this.pnl_settings.TabIndex = 28;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Consolidated";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 54;
+            this.label2.Text = "MASTERLIST";
+            // 
+            // lbl_dist
+            // 
+            this.lbl_dist.AutoSize = true;
+            this.lbl_dist.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_dist.Location = new System.Drawing.Point(228, 88);
+            this.lbl_dist.Name = "lbl_dist";
+            this.lbl_dist.Size = new System.Drawing.Size(51, 13);
+            this.lbl_dist.TabIndex = 53;
+            this.lbl_dist.Text = "DISTRICT";
+            // 
+            // district
+            // 
+            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.district.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.district.FormattingEnabled = true;
+            this.district.Items.AddRange(new object[] {
+            "",
+            "Agdao ",
+            "Baguio",
+            "Buhangin",
+            "Bunawan",
+            "Calinan",
+            "City - A",
+            "City - B",
+            "Marilog",
+            "Paquibato",
+            "Talomo - A",
+            "Talomo - B",
+            "Toril ",
+            "Tugbok"});
+            this.district.Location = new System.Drawing.Point(285, 85);
+            this.district.Name = "district";
+            this.district.Size = new System.Drawing.Size(121, 21);
+            this.district.TabIndex = 52;
+            // 
             // btn_custom
             // 
-            this.btn_custom.Location = new System.Drawing.Point(996, 85);
+            this.btn_custom.Location = new System.Drawing.Point(996, 86);
             this.btn_custom.Name = "btn_custom";
-            this.btn_custom.Size = new System.Drawing.Size(32, 23);
+            this.btn_custom.Size = new System.Drawing.Size(32, 24);
             this.btn_custom.TabIndex = 51;
             this.btn_custom.Text = "OK";
             this.btn_custom.UseVisualStyleBackColor = true;
@@ -286,14 +344,14 @@
             this.report_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.report_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.report_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.report_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.report_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.report_grid.Location = new System.Drawing.Point(211, 117);
@@ -301,21 +359,22 @@
             this.report_grid.Name = "report_grid";
             this.report_grid.ReadOnly = true;
             this.report_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.report_grid.Size = new System.Drawing.Size(833, 422);
             this.report_grid.TabIndex = 43;
             // 
-            // button7
+            // export_excel
             // 
-            this.button7.Location = new System.Drawing.Point(103, 162);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(88, 23);
-            this.button7.TabIndex = 32;
-            this.button7.Text = "Export WORD";
-            this.button7.UseVisualStyleBackColor = true;
+            this.export_excel.Location = new System.Drawing.Point(103, 162);
+            this.export_excel.Name = "export_excel";
+            this.export_excel.Size = new System.Drawing.Size(88, 23);
+            this.export_excel.TabIndex = 32;
+            this.export_excel.Text = "Export EXCEL";
+            this.export_excel.UseVisualStyleBackColor = true;
+            this.export_excel.Click += new System.EventHandler(this.export_excel_Click);
             // 
             // print_prev
             // 
@@ -325,6 +384,7 @@
             this.print_prev.TabIndex = 31;
             this.print_prev.Text = "PRINT";
             this.print_prev.UseVisualStyleBackColor = true;
+            this.print_prev.Click += new System.EventHandler(this.print_prev_Click);
             // 
             // save
             // 
@@ -452,32 +512,6 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // lbl_dist
-            // 
-            this.lbl_dist.AutoSize = true;
-            this.lbl_dist.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dist.Location = new System.Drawing.Point(228, 88);
-            this.lbl_dist.Name = "lbl_dist";
-            this.lbl_dist.Size = new System.Drawing.Size(51, 13);
-            this.lbl_dist.TabIndex = 53;
-            this.lbl_dist.Text = "DISTRICT";
-            // 
-            // district
-            // 
-            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.district.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.district.FormattingEnabled = true;
-            this.district.Items.AddRange(new object[] {
-            "",
-            "Weekly ",
-            "Monthly",
-            "Yearly",
-            "Custom"});
-            this.district.Location = new System.Drawing.Point(285, 85);
-            this.district.Name = "district";
-            this.district.Size = new System.Drawing.Size(121, 21);
-            this.district.TabIndex = 52;
-            // 
             // sample_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,8 +550,8 @@
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.SaveFileDialog s;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.SaveFileDialog save_pdf;
+        private System.Windows.Forms.Button export_excel;
         private System.Windows.Forms.Button print_prev;
         private System.Windows.Forms.Label lbl_to;
         private System.Windows.Forms.Label lbl_from;
@@ -530,5 +564,8 @@
         private System.Windows.Forms.Button btn_custom;
         private System.Windows.Forms.Label lbl_dist;
         private System.Windows.Forms.ComboBox district;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.SaveFileDialog save_Excel;
     }
 }

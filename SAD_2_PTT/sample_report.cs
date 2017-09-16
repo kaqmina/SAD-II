@@ -40,14 +40,14 @@ namespace SAD_2_PTT
         private void save_Click(object sender, EventArgs e) // export PDF
         {
             string file = "";
-            s.Filter = "PDF files |*.pdf";
-            s.DefaultExt = "*.pdf";
-            s.FilterIndex = 1;
-            s.ShowDialog();
-            s.Title = "Export as PDF";
+            save_pdf.Filter = "PDF files |*.pdf";
+            save_pdf.DefaultExt = "*.pdf";
+            save_pdf.FilterIndex = 1;
+            save_pdf.ShowDialog();
+            save_pdf.Title = "Export as PDF";
 
 
-            file = s.FileName;
+            file = save_pdf.FileName;
             if (file == "") ; //pass
             else rep.pwd_PDFReport(file,report_grid);
 
@@ -131,6 +131,28 @@ namespace SAD_2_PTT
                 lbl_from.Text = "From";
                 lbl_to.Text = "To";
             }
+        }
+
+     
+        private void export_excel_Click(object sender, EventArgs e)
+        {
+            string sheet = "";
+            save_Excel.Filter = "Excel files |*.xlsx";
+            save_Excel.DefaultExt = "*.xlsx";
+            save_Excel.FilterIndex = 1;
+            save_Excel.ShowDialog();
+            save_Excel.Title = "Export as Excel Worksheet";
+
+            sheet = save_Excel.FileName;
+            if (sheet == "") ; //pass
+            else rep.pwd_ExcelReport(sheet);
+
+            
+        }
+
+        private void print_prev_Click(object sender, EventArgs e)
+        {
+            rep.pwd_Agdao();
         }
 
         private void doc_PrintPage(object sender, PrintPageEventHandler e)
