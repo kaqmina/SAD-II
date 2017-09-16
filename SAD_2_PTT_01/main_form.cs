@@ -12,6 +12,7 @@ namespace SAD_2_PTT_01
 {
     public partial class main_form : Form
     {
+
         public main_form()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace SAD_2_PTT_01
         device_pending_req device_requests_form;
         device_pending_rec device_received_form;
         device_device_add dev_add;
+        device_provider dev_pro;
         system_notification system_notify;
         public string current_user;
 
@@ -91,6 +93,44 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
+        #region FORM-ACTIVATED
+        bool pwd_archive = false;
+        bool device_requests_ = false;
+        bool device_received_ = false;
+        bool device_device_add_ = false;
+        bool device_provider_ = false;
+
+        private void main_form_Activated(object sender, EventArgs e)
+        {
+            if (pwd_archive == true)
+            {
+                this.BringToFront();
+                show_prompt.BringToFront();
+            }
+            else if (device_requests_ == true)
+            {
+                this.BringToFront();
+                device_requests_form.BringToFront();
+            }
+            else if (device_received_ == true)
+            {
+                this.BringToFront();
+                device_received_form.BringToFront();
+            }
+            else if (device_device_add_ == true)
+            {
+                this.BringToFront();
+                dev_add.BringToFront();
+            }
+            else if (device_provider_ == true)
+            {
+                this.BringToFront();
+                dev_pro.BringToFront();
+            }
+        }
+
+        #endregion
+
         #region PWD Module
 
         #region ON-LOAD
@@ -126,30 +166,6 @@ namespace SAD_2_PTT_01
             pwd_grid.Columns["sex"].Width = 40;
             pwd_grid.Columns["age"].Width = 40;
             pwd_cell_color();
-        }
-
-        #endregion
-
-        #region FORM-ACTIVATED
-        bool pwd_archive = false;
-        bool device_prequests_ = false;
-        bool device_received_ = false;
-
-        private void main_form_Activated(object sender, EventArgs e)
-        {
-            if (pwd_archive == true)
-            {
-                this.BringToFront();
-                show_prompt.BringToFront();
-            } else if (device_prequests_ == true )
-            {
-                this.BringToFront();
-                device_requests_form.BringToFront();
-            } else if (device_received_ == true)
-            {
-                this.BringToFront();
-                device_received_form.BringToFront();
-            }
         }
 
         #endregion
@@ -994,6 +1010,11 @@ namespace SAD_2_PTT_01
         public void load_device_requests()
         {
             device_pending_requests();
+            device_requests_grid_format();
+        }
+
+        public void device_requests_grid_format()
+        {
             Font def = new Font("Segoe UI", 8.25F);
             if (device_has_data_requests == false)
             {
@@ -1091,6 +1112,7 @@ namespace SAD_2_PTT_01
             device_requests.ClearSelection();
             device_recieved.Visible = false;
             device_requests.Visible = true;
+            device_requests_grid_format();
         }
 
         #endregion
@@ -1106,6 +1128,7 @@ namespace SAD_2_PTT_01
             device_recieved.ClearSelection();
             device_requests.Visible = false;
             device_recieved.Visible = true;
+            device_requests_grid_format();
         }
 
         private void device_btn_recieved_Click(object sender, EventArgs e)
@@ -1181,7 +1204,7 @@ namespace SAD_2_PTT_01
                 //do nothing
             } else
             {
-                device_prequests_ = true;
+                device_requests_ = true;
                 device_requests_form = new device_pending_req();
                 device_requests_form.reference_to_main = this;
                 device_requests_form.current_pwd_id = device_requests.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
@@ -1192,18 +1215,32 @@ namespace SAD_2_PTT_01
                 shadow_.Show();
                 device_requests_form.ShowDialog();
                 shadow_.Close();
-                device_prequests_ = false;
+                device_requests_ = false;
             }
         }
 
         private void projects_devices_Click(object sender, EventArgs e)
         {
+            device_device_add_ = true;
             dev_add = new device_device_add();
             shadow_ = new shadow();
             shadow_.reference_to_main = this;
             shadow_.Show();
             dev_add.ShowDialog();
             shadow_.Close();
+            device_device_add_ = false;
+        }
+
+        private void projects_providers_Click(object sender, EventArgs e)
+        {
+            device_provider_ = true;
+            dev_pro = new device_provider();
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.Show();
+            dev_pro.ShowDialog();
+            shadow_.Close();
+            device_provider_ = false;
         }
     }
 }
