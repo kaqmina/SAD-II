@@ -374,7 +374,6 @@ namespace SAD_2_PTT_01
                 }
             }
             return has_duplicate;
-
         }
 
         public bool provider_check_duplicate(string new_name, string prev_name)

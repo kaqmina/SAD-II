@@ -22,6 +22,7 @@ namespace SAD_2_PTT_01
         connections_pwd conn_pwd = new connections_pwd();
         connections_project conn_proj = new connections_project();
         connections_devices conn_devi = new connections_devices();
+        disability disability_form;
         shadow shadow_;
         pwd_archive show_prompt;
         device_pending_req device_requests_form;
@@ -100,6 +101,8 @@ namespace SAD_2_PTT_01
         bool device_received_ = false;
         bool device_device_add_ = false;
         bool device_provider_ = false;
+        bool disability_form_ = false;
+
         bool notification_data_ = false; //independent
 
         private void main_form_Activated(object sender, EventArgs e)
@@ -128,6 +131,10 @@ namespace SAD_2_PTT_01
             {
                 this.BringToFront();
                 dev_pro.BringToFront();
+            } else if (disability_form_ == true)
+            {
+                this.BringToFront();
+                disability_form.BringToFront();
             }
 
             if (notification_data_ == true)
@@ -1261,16 +1268,22 @@ namespace SAD_2_PTT_01
             dboard_head.Enabled = true;
         }
 
-        #endregion
 
         #endregion
 
+        #endregion
 
-
-
-
-
-
-
+        private void projects_disability_Click(object sender, EventArgs e)
+        {
+            disability_form_ = true;
+            disability_form = new disability();
+            disability_form.reference_to_main = this;
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.Show();
+            disability_form.ShowDialog();
+            shadow_.Close();
+            disability_form_ = false;
+        }
     }
 }

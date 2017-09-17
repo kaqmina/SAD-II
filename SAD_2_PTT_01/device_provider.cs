@@ -79,6 +79,7 @@ namespace SAD_2_PTT_01
             btn_edit.Text = "EDIT";
             btn_cancel.Visible = false;
             btn_archive.Visible = false;
+            btn_edit.Enabled = false;
 
             lbl_error_edit.Visible = false;
         }
