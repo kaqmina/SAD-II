@@ -37,7 +37,7 @@ namespace SAD_2_PTT_01
                                              + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
                                              + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
                                              + "(SELECT @s:=0) AS s "
-                                             + "WHERE device_log.status = 1 AND device_log.isArchived != 1 ORDER BY req_date DESC", conn);
+                                             + "WHERE device_log.status = 1 AND device_log.isArchived != 1 ORDER BY dp_name ASC", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -127,13 +127,13 @@ namespace SAD_2_PTT_01
             } catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine(e.Message);
+                Console.WriteLine("[DVC] - [CONNECTION_DEVICES] > { [DEVICES_PENDING_REQUESTS_ERROR] } " + e.Message);
             }
         }
 
         public void get_pending_recieved(DataGridView pending_requests)
         {
-            Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_REQUESTS_LOAD] }");
+            Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_RECEIVED_LOAD] }");
             try
             {
                 conn.Open();
@@ -146,7 +146,7 @@ namespace SAD_2_PTT_01
                                              + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
                                              + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
                                              + "(SELECT @s:=0) AS s "
-                                             + "WHERE device_log.status = 2 AND device_log.isArchived != 1 ORDER BY date_in DESC", conn);
+                                             + "WHERE device_log.status = 2 AND device_log.isArchived != 1 ORDER BY dp_name ASC", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -233,12 +233,12 @@ namespace SAD_2_PTT_01
                 pending_requests.DataSource = view;
 
                 conn.Close();
-                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_REQUESTS_LOADED] }");
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_RECEIVED_LOADED] }");
             }
             catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine(e.Message);
+                Console.WriteLine("[DVC] - [CONNECTION_DEVICES] > { [DEVICE_PENDING_RECEIVED_ERROR] }" + e.Message);
             }
         }
 
@@ -246,6 +246,7 @@ namespace SAD_2_PTT_01
         {
             try
             {
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_RECEIVED] }");
                 conn.Open();
 
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname,' ', pwd.middlename) AS fullname, "
@@ -263,10 +264,11 @@ namespace SAD_2_PTT_01
                 get.Fill(data);
 
                 conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_RECEIVED_SUCCESS] }");
             } catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine(e.Message);
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_RECEIVED_ERROR] }" + e.Message);
             }
         }
 
@@ -274,6 +276,7 @@ namespace SAD_2_PTT_01
         {
             try
             {
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_REQUESTS] }");
                 conn.Open();
 
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname, ' ', pwd.middlename) AS fullname, "
@@ -294,11 +297,12 @@ namespace SAD_2_PTT_01
                 get.Fill(data);
 
                 conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_REQUESTS_SUCCESS] }");
             }
             catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine(e.Message);
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_REQUESTS_ERROR] }" + e.Message);
             }
         }
         #endregion
@@ -373,7 +377,44 @@ namespace SAD_2_PTT_01
 
         }
 
+        public bool provider_check_duplicate(string new_name, string prev_name)
+        {
+            bool has_duplicate = false;
+            if (new_name == prev_name || new_name == "")
+            {
+                has_duplicate = false;
+            }
+            else
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM device_provider WHERE isArchived != 1 AND dp_name = '" + new_name + "'", conn);
+                    MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                    DataTable set = new DataTable();
+                    get.Fill(set);
+                    int count = int.Parse(set.Rows[0]["COUNT(*)"].ToString());
+                    if (count == 0)
+                        has_duplicate = false;
+                    else
+                        has_duplicate = true;
+
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    conn.Close();
+                }
+            }
+            return has_duplicate;
+
+        }
+
         #endregion
+
+        #region [MODE - DEVICE]
 
         #region ADD-MODE
 
@@ -596,5 +637,250 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        #endregion
+
+        public void provider_update(string dp_name, string dp_address, int dp_type, string mobile_no, string tel_no, string email_add, string dp_id)
+        {
+            try
+            {
+                conn.Open();
+
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { PROVIDER_UPDATE }");
+                comm = new MySqlCommand("UPDATE p_dao.device_provider SET dp_name = '"+ dp_name 
+                                                      +"', dp_address = '"+ dp_address 
+                                                      +"', dp_type = "+ dp_type 
+                                                      +", mobile_no = '"+ mobile_no 
+                                                      +"', tel_no = '"+ tel_no 
+                                                      +"', email_add = '"+ email_add 
+                                                      +"' WHERE dp_id = " + dp_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { PROVIDER_UPDATE_SUCCESS }");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { PROVIDER_UPDATE_ERROR } : " + e.Message);
+            }
+        }
+
+        public string count_rows_provider()
+        {
+            string result;
+            try
+            {
+                conn.Open();
+
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_COUNT_ROWS] }");
+                comm = new MySqlCommand("SELECT COUNT(*) AS result FROM device_provider WHERE isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                result = "Total results: " + set.Rows[0]["result"].ToString();
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_COUNT_ROWS_SUCCESS] }");
+            }
+            catch (Exception e)
+            {
+                result = "Total results: 0";
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_COUNT_ROWS_ERROR] } :" + e.Message);
+            }
+            return result;
+        }
+
+        public bool get_provider_list(DataGridView provider_grid)
+        {
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PROVIDER_LIST] }");
+                comm = new MySqlCommand("SELECT device_provider.dp_id, "
+                                             + "dp_name, "
+                                             + "dp_address, "
+                                             + "(CASE WHEN dp_type = 0 THEN 'Government' ELSE 'Sponsor' END) AS dp_type_name, "
+                                             + "dp_type AS dp_type_id, "
+                                             + "mobile_no, "
+                                             + "tel_no, "
+                                             + "email_add, "
+                                             + "COUNT(device_log.dp_id) as result "
+                                             + "FROM device_provider JOIN device_log ON device_provider.dp_id = device_log.dp_id WHERE device_provider.isArchived != 1 GROUP BY dp_id", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable provider_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_id";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_name";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_address";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_type_name";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_type_id";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "mobile_no";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "tel_no";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "email_add";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "result";
+                provider_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = provider_data.NewRow();
+                    row["dp_id"] = none;
+                    row["dp_name"] = "There are no providers listed.";
+                    row["dp_address"] = none;
+                    row["dp_type_name"] = none;
+                    row["dp_type_id"] = "0";
+                    row["mobile_no"] = none;
+                    row["tel_no"] = none;
+                    row["email_add"] = none;
+                    row["result"] = " ";
+                    provider_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = provider_data.NewRow();
+                        row["dp_id"] = set.Rows[i]["dp_id"].ToString();
+                        row["dp_name"] = set.Rows[i]["dp_name"].ToString();
+                        row["dp_address"] = set.Rows[i]["dp_address"].ToString();
+                        row["dp_type_name"] = set.Rows[i]["dp_type_name"].ToString();
+                        row["dp_type_id"] = set.Rows[i]["dp_type_id"].ToString();
+                        row["mobile_no"] = set.Rows[i]["mobile_no"].ToString();
+                        row["tel_no"] = set.Rows[i]["tel_no"].ToString();
+                        row["email_add"] = set.Rows[i]["email_add"].ToString();
+                        row["result"] = set.Rows[i]["result"].ToString();
+                        provider_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(provider_data);
+
+                provider_grid.DataSource = view;
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PROVIDER_LIST_SUCCESS] }");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PROVIDER_LIST_ERROR] } :" + e.Message);
+            }
+            return has_data;
+        }
+
+        public bool provider_devices_provided(DataGridView devices_provided_grid, string dp_id)
+        {
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+                MessageBox.Show(dp_id);
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_DEVICE_PROVIDED] }");
+                comm = new MySqlCommand("SELECT dev_name, COUNT(*) AS result FROM device_log JOIN device ON device_log.device_id = device.device_id WHERE dp_id = "+ dp_id +" GROUP BY dev_name", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable device_provided_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dev_name";
+                device_provided_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "result";
+                device_provided_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "No devices provided yet.";
+                    row = device_provided_data.NewRow();
+                    row["dev_name"] = none;
+                    row["result"] = " ";
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = device_provided_data.NewRow();
+                        row["dev_name"] = set.Rows[i]["dev_name"].ToString();
+                        row["result"] = set.Rows[i]["result"].ToString();
+                        device_provided_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(device_provided_data);
+
+                devices_provided_grid.DataSource = view;
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_DEVICE_PROVIDED_SUCCESS] }");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_DEVICE_PROVIDED_ERROR] } :" + e.Message);
+            }
+            return has_data;
+        }
     }
 }

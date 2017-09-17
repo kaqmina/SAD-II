@@ -92,7 +92,7 @@ namespace SAD_2_PTT_01
         {
             confirmation = true;
             shadow_ = new shadow();
-            shadow_.Location = new Point(reference_to_main.Location.X, reference_to_main.Location.Y);
+            shadow_.reference_to_main = this.reference_to_main;
             shadow_.Show();
             prompt = new pwd_ask();
             prompt.reference_to_main = this;

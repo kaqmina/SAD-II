@@ -20,7 +20,8 @@ namespace SAD_2_PTT_01
         connections_devices conn_devi = new connections_devices();
         system_functions sys_func = new system_functions();
         bool has_device_data = false;
-        bool has_duplicate = false;
+        bool has_duplicate_edit = false;
+        bool has_duplicate_add = false;
         string device_current_name = "";
         int current_index = 0;
 
@@ -137,8 +138,8 @@ namespace SAD_2_PTT_01
 
         public void check_required_edit(string current_text)
         {
-            has_duplicate = conn_devi.device_check_duplicate(current_text, device_current_name);
-            if (has_duplicate == true || device_name_edit.Text.Trim() == "" || device_disability_edit.SelectedIndex <= 0)
+            has_duplicate_edit = conn_devi.device_check_duplicate(current_text, device_current_name);
+            if (has_duplicate_edit == true || device_name_edit.Text.Trim() == "" || device_disability_edit.SelectedIndex <= 0)
             {
                 btn_edit.Enabled = false;
                 sys_func.btn_inactive(btn_edit);
@@ -149,7 +150,7 @@ namespace SAD_2_PTT_01
                 sys_func.btn_active(btn_edit);
             }
 
-            if (has_duplicate)
+            if (has_duplicate_edit)
                 lbl_error_edit.Visible = true;
             else
                 lbl_error_edit.Visible = false;
@@ -157,8 +158,8 @@ namespace SAD_2_PTT_01
 
         public void check_required_add(string current_text)
         {
-            has_duplicate = conn_devi.device_check_duplicate(current_text, "-");
-            if (device_name_add.Text.Trim() == "" || device_disability_add.SelectedIndex <= 0)
+            has_duplicate_add = conn_devi.device_check_duplicate(current_text, "-");
+            if (has_duplicate_add == true || device_name_add.Text.Trim() == "" || device_disability_add.SelectedIndex <= 0)
             {
                 btn_add.Enabled = false;
                 sys_func.btn_inactive(btn_add);
@@ -169,7 +170,7 @@ namespace SAD_2_PTT_01
                 sys_func.btn_active(btn_add);
             }
 
-            if (has_duplicate)
+            if (has_duplicate_add)
                 lbl_error_add.Visible = true;
             else
                 lbl_error_add.Visible = false;

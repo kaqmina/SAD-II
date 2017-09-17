@@ -30,6 +30,7 @@ namespace SAD_2_PTT_01
         device_provider dev_pro;
         system_notification system_notify;
         public string current_user;
+        
 
         #region FORM-LOAD
 
@@ -1233,14 +1234,15 @@ namespace SAD_2_PTT_01
 
         private void projects_providers_Click(object sender, EventArgs e)
         {
+            side_tab.Enabled = false;
+            dboard_head.Enabled = false;
             device_provider_ = true;
             dev_pro = new device_provider();
-            shadow_ = new shadow();
-            shadow_.reference_to_main = this;
-            shadow_.Show();
+            dev_pro.reference_to_main = this;
             dev_pro.ShowDialog();
-            shadow_.Close();
             device_provider_ = false;
+            side_tab.Enabled = true;
+            dboard_head.Enabled = true;
         }
     }
 }

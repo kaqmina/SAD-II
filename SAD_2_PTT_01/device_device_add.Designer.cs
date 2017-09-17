@@ -251,7 +251,6 @@
             this.btn_add_clear.TabIndex = 143;
             this.btn_add_clear.Text = "CLEAR";
             this.btn_add_clear.UseVisualStyleBackColor = false;
-            this.btn_add_clear.Visible = false;
             this.btn_add_clear.Click += new System.EventHandler(this.btn_add_clear_Click);
             // 
             // device_name_add
