@@ -85,7 +85,7 @@ namespace SAD_2_PTT_01
             btn_add_clear.Enabled = true;
 
             btn_add.Visible = true;
-            btn_add_clear.Visible = false;
+            btn_add_clear.Visible = true;
 
             btn_add.Text = "ADD";
             btn_add_clear.Text = "CLEAR";
@@ -338,7 +338,7 @@ namespace SAD_2_PTT_01
         {
             DialogResult ask;
             string message = "Are you sure you want to archive '" + device_list.Rows[current_index].Cells["dev_name"].Value.ToString() + "'?";
-            string caption = "Archive Device";
+            string caption = "Archive Device Details";
             MessageBoxButtons btn = MessageBoxButtons.YesNo;
             ask = MessageBox.Show(message, caption, btn);
 

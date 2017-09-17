@@ -416,7 +416,7 @@ namespace SAD_2_PTT_01
 
         #region [MODE - DEVICE]
 
-        #region ADD-MODE
+        #region [DEVICE] ADD-MODE
 
         public void device_add(string dev_name, string dev_desc, int disability_id)
         {
@@ -447,7 +447,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #region VIEW-MODE
+        #region [DEVICE] VIEW-MODE
 
         public string count_rows()
         {
@@ -590,7 +590,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #region EDIT-MODE
+        #region [DEVICE] EDIT-MODE
 
         public void device_update(string dev_name, string dev_desc, int disability_id, string device_id)
         {
@@ -616,7 +616,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #region ARCHIVE-MODE
+        #region [DEVICE] ARCHIVE-MODE
 
         public void device_archive(string device_id)
         {
@@ -624,15 +624,17 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > Archive device");
                 comm = new MySqlCommand("UPDATE p_dao.device SET isArchived = 1 WHERE device_id = " + device_id, conn);
                 comm.ExecuteNonQuery();
 
                 conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > Archived device : " + device_id);
             }
             catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine("[CONNECTIONS_DEVICE] > Archived device : " + device_id);
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > Archived device error : " + e.Message);
             }
         }
 
@@ -640,31 +642,80 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        public void provider_update(string dp_name, string dp_address, int dp_type, string mobile_no, string tel_no, string email_add, string dp_id)
+        #region [MODE - PROVIDER]
+
+        #region [PROVIDER] ADD-MODE
+
+        public bool provider_add(string dp_name, string dp_address, int dp_type, string mobile_no, string tel_no, string email_add)
         {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("INSERT INTO p_dao.device_provider(dp_name, "
+                                                                        + "dp_address, "
+                                                                        + "dp_type, "
+                                                                        + "mobile_no, "
+                                                                        + "tel_no, "
+                                                                        + "email_add) VALUES ('"
+                                                                        + dp_name + "', '"
+                                                                        + dp_address + "', "
+                                                                        + dp_type + ", '"
+                                                                        + mobile_no + "', '"
+                                                                        + tel_no + "', '"
+                                                                        + email_add + "')", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        #endregion
+
+        #region [PROVIDER] EDIT-MODE
+
+        public bool provider_update(string dp_name, string dp_address, int dp_type, string mobile_no, string tel_no, string email_add, string dp_id)
+        {
+            bool success = false;
             try
             {
                 conn.Open();
 
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { PROVIDER_UPDATE }");
-                comm = new MySqlCommand("UPDATE p_dao.device_provider SET dp_name = '"+ dp_name 
-                                                      +"', dp_address = '"+ dp_address 
-                                                      +"', dp_type = "+ dp_type 
-                                                      +", mobile_no = '"+ mobile_no 
-                                                      +"', tel_no = '"+ tel_no 
-                                                      +"', email_add = '"+ email_add 
-                                                      +"' WHERE dp_id = " + dp_id, conn);
+                comm = new MySqlCommand("UPDATE p_dao.device_provider SET dp_name = '" + dp_name
+                                                      + "', dp_address = '" + dp_address
+                                                      + "', dp_type = " + dp_type
+                                                      + ", mobile_no = '" + mobile_no
+                                                      + "', tel_no = '" + tel_no
+                                                      + "', email_add = '" + email_add
+                                                      + "' WHERE dp_id = " + dp_id, conn);
                 comm.ExecuteNonQuery();
 
                 conn.Close();
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { PROVIDER_UPDATE_SUCCESS }");
+                success = true;
             }
             catch (Exception e)
             {
                 conn.Close();
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { PROVIDER_UPDATE_ERROR } : " + e.Message);
+                success = false;
             }
+            return success;
         }
+
+        #endregion
+
+        #region [PROVIDER] VIEW-MODE
 
         public string count_rows_provider()
         {
@@ -709,7 +760,7 @@ namespace SAD_2_PTT_01
                                              + "tel_no, "
                                              + "email_add, "
                                              + "COUNT(device_log.dp_id) as result "
-                                             + "FROM device_provider JOIN device_log ON device_provider.dp_id = device_log.dp_id WHERE device_provider.isArchived != 1 GROUP BY dp_id", conn);
+                                             + "FROM device_provider LEFT JOIN device_log ON device_provider.dp_id = device_log.dp_id WHERE device_provider.isArchived != 1 GROUP BY dp_id", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -823,9 +874,9 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                MessageBox.Show(dp_id);
+
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_DEVICE_PROVIDED] }");
-                comm = new MySqlCommand("SELECT dev_name, COUNT(*) AS result FROM device_log JOIN device ON device_log.device_id = device.device_id WHERE dp_id = "+ dp_id +" GROUP BY dev_name", conn);
+                comm = new MySqlCommand("SELECT dev_name, COUNT(*) AS result FROM device_log JOIN device ON device_log.device_id = device.device_id WHERE dp_id = " + dp_id + " GROUP BY dev_name", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -848,13 +899,15 @@ namespace SAD_2_PTT_01
                 #endregion
 
                 int count = set.Rows.Count;
-                if (count == 0)
+                if (count == 0 || set.Rows[0]["result"].ToString() == "0")
                 {
                     string none = "No devices provided yet.";
                     row = device_provided_data.NewRow();
                     row["dev_name"] = none;
                     row["result"] = " ";
+                    device_provided_data.Rows.Add(row);
                     has_data = false;
+                    Console.WriteLine("No devices provided.");
                 }
                 else
                 {
@@ -882,5 +935,37 @@ namespace SAD_2_PTT_01
             }
             return has_data;
         }
+
+        #endregion
+
+        #region [PROVIDER] ARCHIVE-MODE
+
+        public bool provider_archive(string dp_id)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > Archive provider");
+                comm = new MySqlCommand("UPDATE p_dao.device_provider SET isArchived = 1 WHERE dp_id = " + dp_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                Console.WriteLine("[CONNECTIONS_DEVICE] > Archived provider : " + dp_id);
+                success = true;
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[CONNECTIONS_DEVICE] > Archived provider error : " + e.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        #endregion
+
+        #endregion
     }
 }

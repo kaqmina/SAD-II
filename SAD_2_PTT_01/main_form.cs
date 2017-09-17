@@ -100,6 +100,7 @@ namespace SAD_2_PTT_01
         bool device_received_ = false;
         bool device_device_add_ = false;
         bool device_provider_ = false;
+        bool notification_data_ = false; //independent
 
         private void main_form_Activated(object sender, EventArgs e)
         {
@@ -127,6 +128,11 @@ namespace SAD_2_PTT_01
             {
                 this.BringToFront();
                 dev_pro.BringToFront();
+            }
+
+            if (notification_data_ == true)
+            {
+                system_notify.BringToFront();
             }
         }
 
@@ -586,10 +592,12 @@ namespace SAD_2_PTT_01
         {
             //827, 531
             success = false;
+            notification_data_ = true;
             system_notify = new system_notification();
             system_notify.Location = new Point(this.Location.X + 827, this.Location.Y + 531);
             system_notify.notification_message = notification_;
             system_notify.Show();
+            notification_data_ = false;
             notification_ = "";
         }
 
@@ -1005,6 +1013,7 @@ namespace SAD_2_PTT_01
 
         #region DEVICE-PENDING
 
+        #region VIEW-MODE
         public bool device_has_data_requests = false;
         public bool device_has_data_recieved = false;
 
@@ -1069,6 +1078,57 @@ namespace SAD_2_PTT_01
             device_recieved.Columns["date_in"].Visible = false;
         }
 
+        #endregion
+
+        #region CELL-CLICK
+
+        private void device_recieved_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || device_has_data_recieved == false)
+            {
+                //do nothing
+            }
+            else
+            {
+                device_received_ = true;
+                device_received_form = new device_pending_rec();
+                device_received_form.current_pwd_id = device_recieved.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
+                device_received_form.current_device_log_id = device_recieved.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
+                device_received_form.header_text.Text = "# " + device_recieved.Rows[e.RowIndex].Cells["no"].Value.ToString();
+                shadow_ = new shadow();
+                shadow_.reference_to_main = this;
+                shadow_.Show();
+                device_received_form.ShowDialog();
+                shadow_.Close();
+                device_received_ = false;
+                device_recieved.ClearSelection();
+            }
+        }
+
+        private void device_requests_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || device_has_data_requests == false)
+            {
+                //do nothing
+            }
+            else
+            {
+                device_requests_ = true;
+                device_requests_form = new device_pending_req();
+                device_requests_form.reference_to_main = this;
+                device_requests_form.current_pwd_id = device_requests.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
+                device_requests_form.current_device_log_id = device_requests.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
+                device_requests_form.header_text.Text = "# " + device_requests.Rows[e.RowIndex].Cells["no"].Value.ToString();
+                shadow_ = new shadow();
+                shadow_.reference_to_main = this;
+                shadow_.Show();
+                device_requests_form.ShowDialog();
+                shadow_.Close();
+                device_requests_ = false;
+            }
+        }
+
+        #endregion
 
         #region REQUEST Default Control Response
 
@@ -1170,55 +1230,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-
-        #endregion
-
-
-
-        private void device_recieved_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || device_has_data_recieved == false)
-            {
-                //do nothing
-            }
-            else
-            {
-                device_received_ = true;
-                device_received_form = new device_pending_rec();
-                device_received_form.current_pwd_id = device_recieved.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
-                device_received_form.current_device_log_id = device_recieved.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
-                device_received_form.header_text.Text = "# " + device_recieved.Rows[e.RowIndex].Cells["no"].Value.ToString();
-                shadow_ = new shadow();
-                shadow_.reference_to_main = this;
-                shadow_.Show();
-                device_received_form.ShowDialog();
-                shadow_.Close();
-                device_received_ = false;
-                device_recieved.ClearSelection(); 
-            }
-        }
-
-        private void device_requests_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || device_has_data_requests == false)
-            {
-                //do nothing
-            } else
-            {
-                device_requests_ = true;
-                device_requests_form = new device_pending_req();
-                device_requests_form.reference_to_main = this;
-                device_requests_form.current_pwd_id = device_requests.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
-                device_requests_form.current_device_log_id = device_requests.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
-                device_requests_form.header_text.Text = "# " + device_requests.Rows[e.RowIndex].Cells["no"].Value.ToString();
-                shadow_ = new shadow();
-                shadow_.reference_to_main = this;
-                shadow_.Show();
-                device_requests_form.ShowDialog();
-                shadow_.Close();
-                device_requests_ = false;
-            }
-        }
+        #region DEVICE-DEVICE
 
         private void projects_devices_Click(object sender, EventArgs e)
         {
@@ -1232,6 +1244,10 @@ namespace SAD_2_PTT_01
             device_device_add_ = false;
         }
 
+        #endregion
+
+        #region DEVICE-PROVIDER
+
         private void projects_providers_Click(object sender, EventArgs e)
         {
             side_tab.Enabled = false;
@@ -1244,5 +1260,17 @@ namespace SAD_2_PTT_01
             side_tab.Enabled = true;
             dboard_head.Enabled = true;
         }
+
+        #endregion
+
+        #endregion
+
+
+
+
+
+
+
+
     }
 }
