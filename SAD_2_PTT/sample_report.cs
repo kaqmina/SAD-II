@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using System.Drawing.Text;
 
 namespace SAD_2_PTT
 {
@@ -18,11 +19,10 @@ namespace SAD_2_PTT
         connections_settings conn = new connections_settings();
         connection_reports rep = new connection_reports();
 
-        PrintPreviewDialog print_;
-        private PrintDocument doc = new PrintDocument();
-
         DateTime from, to;
         public string func = "";
+
+        private System.Drawing.Printing.PrintDocument doc =  new System.Drawing.Printing.PrintDocument();
 
         public sample_report()
         {
@@ -31,10 +31,8 @@ namespace SAD_2_PTT
 
             date_from.Visible = date_to.Visible = false;
             lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = false;
-           
-           // this.print_.Name = "Print Preview";
 
-          //  this.doc.PrintPage += new PrintPageEventHandler(doc_PrintPage);
+            this.doc.PrintPage += new PrintPageEventHandler(rep.printDocument_PrintPage);
         }
 
         private void save_Click(object sender, EventArgs e) // export PDF
@@ -49,7 +47,7 @@ namespace SAD_2_PTT
 
             file = save_pdf.FileName;
             if (file == "") ; //pass
-            else rep.pwd_PDFReport(file,report_grid);
+            else rep.pwd_PDFReport(file, report_grid);
 
             System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
         }
@@ -68,11 +66,11 @@ namespace SAD_2_PTT
             {
                 rep.report_customFormat(report_grid, from, to);
             }
-            else if(func == "yearly")
+            else if (func == "yearly")
             {
                 rep.report_YearlyFormat(report_grid, to);
             }
-            else if(func == "monthly")
+            else if (func == "monthly")
             {
                 rep.report_MonthlyFormat(report_grid, from, to);
             }
@@ -87,11 +85,11 @@ namespace SAD_2_PTT
                 date_to.Visible = false;
                 lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = false;
             }
-            else if(date_format.SelectedIndex == 1)
+            else if (date_format.SelectedIndex == 1)
             {
                 //Weekly
             }
-            else if(date_format.SelectedIndex == 2)
+            else if (date_format.SelectedIndex == 2)
             {
                 //Monthly
                 func = "monthly";
@@ -109,7 +107,7 @@ namespace SAD_2_PTT
 
                 lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = true;
             }
-            else if(date_format.SelectedIndex == 3)
+            else if (date_format.SelectedIndex == 3)
             {
                 //Yearly
                 func = "yearly";
@@ -122,7 +120,7 @@ namespace SAD_2_PTT
                 date_from.Visible = lbl_from.Visible = false;
                 lbl_to.Visible = btn_custom.Visible = true;
             }
-            else if(date_format.SelectedIndex == 4)
+            else if (date_format.SelectedIndex == 4)
             {
                 //Custom Date
                 func = "custom";
@@ -133,7 +131,7 @@ namespace SAD_2_PTT
             }
         }
 
-     
+
         private void export_excel_Click(object sender, EventArgs e)
         {
             string sheet = "";
@@ -146,18 +144,15 @@ namespace SAD_2_PTT
             sheet = save_Excel.FileName;
             if (sheet == "") ; //pass
             else rep.pwd_ExcelReport(sheet);
-
-            
         }
 
         private void print_prev_Click(object sender, EventArgs e)
         {
-            rep.pwd_Agdao();
+             
+           // to_print.ShowDialog();
+           // to_print.Document = doc;
         }
 
-        private void doc_PrintPage(object sender, PrintPageEventHandler e)
-        {
-
-        }
+       
     }
 }

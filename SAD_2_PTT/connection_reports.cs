@@ -28,8 +28,9 @@ namespace SAD_2_PTT
         public string age = " DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d'))";
         public string educ_at = " (CASE WHEN educ_attainment = 1 THEN 'Elementary' WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' WHEN educ_attainment = 3 THEN 'High School' WHEN educ_attainment = 4 THEN 'High School Undergraduate' WHEN educ_attainment = 5 THEN 'College' WHEN educ_attainment = 6 THEN 'College Undergraduate' WHEN educ_attainment = 7 THEN 'Graduate' WHEN educ_attainment = 8 THEN 'Post Graduate' WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment, ";
         public string no = "SET @num = 0; ";
-        
+
         public main_form reference_to_main { get; set; }
+        public sample_report report { get; set; }
 
         public connection_reports()
         {
@@ -61,7 +62,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -70,7 +71,7 @@ namespace SAD_2_PTT
 
                 report.DataSource = dt;
                 reportFormat(report);
-                
+
 
                 conn.Close();
             }
@@ -85,7 +86,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " +educ_at+ "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -107,7 +108,7 @@ namespace SAD_2_PTT
         {
             try
             {
-                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at +" address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
+                string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + month.ToString("MM") + "' AND year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -128,7 +129,7 @@ namespace SAD_2_PTT
         public void report_YearlyFormat(DataGridView report, DateTime year)
         {
             try
-            { 
+            {
                 string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + year.ToString("yyyy") + "' ORDER BY lastname ASC";
                 conn.Open();
                 comm = new MySqlCommand(query, conn);
@@ -171,15 +172,26 @@ namespace SAD_2_PTT
         #endregion
 
         #region <-- MASTERLIST --> [Print]
+        public void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            System.Drawing.Font bodyFont = new System.Drawing.Font("Calibri", 12, System.Drawing.FontStyle.Regular);
+            System.Drawing.Font titleFont = new System.Drawing.Font("Calibri", 14, System.Drawing.FontStyle.Bold);
 
+            string title = "MASTERLIST OF PERSONS WITH DISABILITIES WHO AVAIL PWD ID";
+            e.Graphics.DrawString(title, titleFont, System.Drawing.Brushes.Black, 10, 10);
+            foreach (DataGridViewColumn column in report.report_grid.Columns)
+            {
+
+            }
+        }
         #endregion
 
         #region  <-- MASTERLIST --> [Export PDF]
         public void pwd_PDFReport(string file, DataGridView report)
         {
-          
+
             FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite);
-            Document doc = new Document(PageSize.LETTER,30,30,30,30);
+            Document doc = new Document(PageSize.LETTER, 30, 30, 30, 30);
             doc.SetPageSize(PageSize.LETTER.Rotate());
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
@@ -188,11 +200,11 @@ namespace SAD_2_PTT
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
             logo.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
             logo.ScalePercent(40);
-            logo.SetAbsolutePosition(10,1000);
+            logo.SetAbsolutePosition(10, 1000);
             doc.Add(logo);
 
             //title
-            var titleFont = FontFactory.GetFont("Segoe UI", 14, iTextSharp.text.Font.BOLD ,BaseColor.BLACK);
+            var titleFont = FontFactory.GetFont("Segoe UI", 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
             var subFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.BLACK);
             Paragraph title = new Paragraph("MASTERLIST OF PERSONS WITH DISABILITIES WHO AVAIL PWD ID", titleFont);
             title.Alignment = Element.ALIGN_CENTER;
@@ -211,15 +223,15 @@ namespace SAD_2_PTT
             text.FirstLineIndent = 60;
             text.SpacingAfter = 18;
             text.Alignment = Element.ALIGN_JUSTIFIED | Element.ALIGN_CENTER;
-           // doc.Add(text);
+            // doc.Add(text);
 
             //table
             PdfPTable table = new PdfPTable(report.ColumnCount);
             table.HorizontalAlignment = Element.ALIGN_CENTER;
             table.WidthPercentage = 100;
-            int[] width = {1, 4, 4, 2, 1, 4, 5, 5, 4};
+            int[] width = { 1, 4, 4, 2, 1, 4, 5, 5, 4 };
             table.SetWidths(width);
-            
+
 
             //table header
             var headerFont = FontFactory.GetFont("Segoe UI", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
@@ -265,6 +277,7 @@ namespace SAD_2_PTT
         #region <-- CONSOLIDATED REPORTS --> [Export Excel]
         public void pwd_ExcelReport(string file)
         {
+            string[] ageBracket = { "0-2 YRS. OLD", "3-4 YRS. OLD", "5-6 YRS. OLD", "7-12 YRS. OLD", "13-18 YRS. OLD", "19-24 YRS. OLD", "25-59 YRS. OLD", "60 YRS. OLD" };
             string[] district = { "AGDAO", "BAGUIO", "BUHANGIN", "BUNAWAN", "CALINAN", "CITY-A", "CITY-B", "MARILOG", "PAQUIBATO", "TALOMO-A", "TALOMO-B", "TORIL", "TUGBOK" };
             ExcelPackage exc = new ExcelPackage();
             ExcelWorksheet wsheet = exc.Workbook.Worksheets.Add("Sheet1");
@@ -307,7 +320,7 @@ namespace SAD_2_PTT
             subCat.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
             subCat.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             subCat.Style.Font.Size = 13;
-          
+
             //District Row
             var disTitle = wsheet.Cells["A4:A5"];
             disTitle.Style.Border.BorderAround(ExcelBorderStyle.Thick);
@@ -319,7 +332,7 @@ namespace SAD_2_PTT
             var districts = wsheet.Cells["A6:A18"];
             districts.Style.Border.Left.Style = districts.Style.Border.Right.Style = ExcelBorderStyle.Thick;
             wsheet.Column(1).Width = 14;
-            
+
             //Headers
             wsheet.Cells["B4:C4"].Merge = true;
             wsheet.Cells["D4:E4"].Merge = true;
@@ -354,6 +367,7 @@ namespace SAD_2_PTT
             wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
 
             //SubTitle
+            wsheet.Cells["A2:Q2"].Value = "*INSERT DATE HERE*";
             wsheet.Cells["A3:Q3"].Value = "(CHILDREN & ADULT CATEGORY)";
 
             //District Columns
@@ -362,17 +376,23 @@ namespace SAD_2_PTT
             wsheet.Cells["A6"].LoadFromCollection(district);
 
             //Headers
-            wsheet.Cells["B4:C4"].Value = "0-2 YRS. OLD";
-            wsheet.Cells["D4:E4"].Value = "3-4 YRS. OLD";
-            wsheet.Cells["F4:G4"].Value = "5-6 YRS. OLD";
-            wsheet.Cells["H4:I4"].Value = "7-12 YRS. OLD";
-            wsheet.Cells["J4:K4"].Value = "13-18 YRS. OLD";
-            wsheet.Cells["L4:M4"].Value = "19-24 YRS. OLD";
-            wsheet.Cells["N4:O4"].Value = "25-59 YRS. OLD";
-            wsheet.Cells["P4:Q4"].Value = "60 YRS. OLD";
+            int i = 0;
+            foreach (var age in ageBracket)
+            {
+                wsheet.Cells[4, i = i + 2].Value = age;
+            }
 
             //SubHeaders [M,F]
-            
+
+
+            //Body
+            pwd_Districts();
+            int a = 2;
+
+            foreach (var num in Agdao)
+            {
+                wsheet.Cells[6, a++].Value = num;
+            }
 
             //Total
             wsheet.Cells["A19"].Value = "TOTAL";
@@ -387,6 +407,7 @@ namespace SAD_2_PTT
             System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
         }
 
+        #region << Districts >>
         public List<int> Agdao;
         public List<int> Baguio;
         public List<int> Buhangin;
@@ -399,51 +420,90 @@ namespace SAD_2_PTT
         public List<int> TalomoA;
         public List<int> TalomoB;
         public List<int> Toril;
-        public List<int> Tugbok;
+        public List<int> Tugbok;       
+        
 
-        public void pwd_Agdao()
+        public string[] ageQuery = { " BETWEEN 0 AND 2 AND sex = 0;", " BETWEEN 0 AND 2 AND sex = 1;", " BETWEEN 3 AND 4 AND sex = 0;", " BETWEEN 3 AND 4 AND sex = 1;" ,
+                                     " BETWEEN 5 AND 6 AND sex = 0;", " BETWEEN 5 AND 6 AND sex = 1;", " BETWEEN 7 AND 12 AND sex = 0;", " BETWEEN 7 AND 12 AND sex = 1;",
+                                     " BETWEEN 13 AND 18 AND sex = 0;", " BETWEEN 13 AND 18 AND sex = 1;", " BETWEEN 19 AND 24 AND sex = 0;", " BETWEEN 19 AND 24 AND sex = 1;",
+                                     " BETWEEN 25 AND 59 AND sex = 0;", " BETWEEN 25 AND 59 AND sex = 1;", " = 60 AND sex = 0;", " = 60 AND sex = 1" };
+        public string[] distQuery = { " AND district_id = 1;", " AND district_id = 2;", " AND district_id = 3;", " AND district_id = 4;", " AND district_id = 5;", " AND district_id = 6;",
+                                      " AND district_id = 7;", " AND district_id = 8;", " AND district_id = 9;", " AND district_id = 10;", " AND district_id = 11;", " AND district_id = 12;",
+                                      " AND district_id = 13;"};
+        public void pwd_Districts()
         {
-            int result;
+            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.pwd WHERE ";
             string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8;
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
-            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.pwd WHERE ";
+            string query, district = "";
+            int num = 0;
+            /*
+            if (district == "Agdao") num = 0;
+            else if (district == "Baguio") num = 1;
+            else if (district == "Buhangin") num = 2;
+            else if (district == "Bunawan") num = 3;
+            else if (district == "Calinan") num = 4;
+            else if (district == "CityA") num = 5;
+            else if (district == "CityB") num = 6;
+            else if (district == "Marilog") num = 7;
+            else if (district == "Paquibato") num = 8;
+            else if (district == "TalomoA") num = 9;
+            else if (district == "TalomoB") num = 10;
+            else if (district == "Toril") num = 11;
+            else if (district == "Tugbok") num = 12;*/
 
-            cm1 = select + age + " BETWEEN '0' AND '2' AND sex = '0';";
-            cf1 = select + age + " BETWEEN '0' AND '2' AND sex = '1';";
-            cm2 = select + age + " BETWEEN '3' AND '4' AND sex = '0';";
-            cf2 = select + age + " BETWEEN '3' AND '4' AND sex = '1';";
-            cm3 = select + age + " BETWEEN '5' AND '6' AND sex = '0';";
-            cf3 = select + age + " BETWEEN '5' AND '6' AND sex = '1';";
-            cm4 = select + age + " BETWEEN '7' AND '12' AND sex = '0';";
-            cf4 = select + age + " BETWEEN '7' AND '12' AND sex = '1';";
-            cm5 = select + age + " BETWEEN '13' AND '18' AND sex = '0';";
-            cf5 = select + age + " BETWEEN '13' AND '18' AND sex = '1';";
-            cm6 = select + age + " BETWEEN '19' AND '24' AND sex = '0';";
-            cf6 = select + age + " BETWEEN '19' AND '24' AND sex = '1';";
-            cm7 = select + age + " BETWEEN '25' AND '59' AND sex = '0';";
-            cf7 = select + age + " BETWEEN '25' AND '59' AND sex = '1';";
-            cm8 = select + age + " = '60' AND sex = '0';";
-            cf8 = select + age + " = '60' AND sex = '1'";
+            // add district id paaa >.<
+            cm1 = select + age + ageQuery[0]; //+ distQuery[num];
+            cf1 = select + age + ageQuery[1]; //+ distQuery[num];
+            cm2 = select + age + ageQuery[2]; //+ distQuery[num];
+            cf2 = select + age + ageQuery[3]; //+ distQuery[num];
+            cm3 = select + age + ageQuery[4]; //+ distQuery[num];
+            cf3 = select + age + ageQuery[5]; //+ distQuery[num];
+            cm4 = select + age + ageQuery[6]; //+ distQuery[num];
+            cf4 = select + age + ageQuery[7]; //+ distQuery[num];
+            cm5 = select + age + ageQuery[8]; //+ distQuery[num];
+            cf5 = select + age + ageQuery[9]; //+ distQuery[num];
+            cm6 = select + age + ageQuery[10]; //+ distQuery[num];
+            cf6 = select + age + ageQuery[11]; //+ distQuery[num];
+            cm7 = select + age + ageQuery[12]; //+ distQuery[num];
+            cf7 = select + age + ageQuery[13]; //+ distQuery[num];
+            cm8 = select + age + ageQuery[14]; //+ distQuery[num];
+            cf8 = select + age + ageQuery[15]; //+ distQuery[num];
+
+            query = cm1 + cf1 + cm2 + cf2 + cm3 + cf3 + cm4 + cf4 + cm5 + cf5 + cm6 + cf6 + cm7 + cf7 + cm8 + cf8;
+            pwd_Agdao(query);
+        }
+        public void getQuery(string query, string district)
+        {
+            //if (district == "Agdao") pwd_Agdao(query);
+            /*
+            else if (district == "Baguio") pwd_Baguio(query);
+            else if (district == "Buhangin") pwd_Buhangin(query);
+            else if (district == "Bunawan") pwd_Bunawan(query);
+            else if (district == "Calinan") pwd_Calinan(query);
+            else if (district == "CityA") pwd_City_A(query);
+            else if (district == "CityB") pwd_City_B(query);
+            else if (district == "Marilog") pwd_Marilog(query);
+            else if (district == "Paquibato") pwd_Paquibato(query);
+            else if (district == "TalomoA") pwd_Talomo_A(query);
+            else if (district == "TalomoB") pwd_Talomo_B(query);
+            else if (district == "Toril") pwd_Toril(query);
+            else if (district == "Tugbok") pwd_Tugbok(query);*/
+        }
+       
+        public void pwd_Agdao(string query)
+        {
+            Agdao = new List<int>();
             try
             {
-                
                 conn.Open();
-                comm = new MySqlCommand(cm1+cf1+cm2+cf2+cm3+cf3+cm4+cf4+cm5+cf5+cm6+cf6+cm7+cf7+cm8+cf8, conn);
+                comm = new MySqlCommand(query, conn);
                 dr = comm.ExecuteReader();
                 do
                 {
-                    while (dr.Read())
-                    {
-                        result = dr.GetInt32(0);
-                        MessageBox.Show(result.ToString());
-
-                        Agdao = new List<int>();
-                        Agdao.Add(result);
-                        Agdao.ForEach(Console.WriteLine);
-                    }
+                    while (dr.Read()) Agdao.Add(dr.GetInt32(0));
                 } while (dr.NextResult());
-
-
+             
                 conn.Close();
             }
             catch (Exception ex)
@@ -452,63 +512,264 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
-
-        public void pwd_Baguio()
+        public void pwd_Baguio(string query)
         {
+            Baguio = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Baguio.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Baguio() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Buhangin()
+        public void pwd_Buhangin(string query)
         {
+            Buhangin = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Buhangin.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Buhangin() : " + ex);
+                conn.Close();
+            }
         }
-        public void pwd_Calinan()
+        public void pwd_Bunawan(string query)
         {
+            Bunawan = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Bunawan.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Bunawan() : " + ex);
+                conn.Close();
+            }
         }
-        public void pwd_City_A()
+        public void pwd_Calinan(string query)
         {
+            Calinan = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Calinan.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Calinan() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_City_B()
+        public void pwd_City_A(string query)
         {
+            CityA = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) CityA.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_City_A() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Marilog()
+        public void pwd_City_B(string query)
         {
+            CityB = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) CityB.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_City_B() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Paquibato()
+        public void pwd_Marilog(string query)
         {
+            Marilog = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Marilog.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Marilog() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Talomo_A()
+        public void pwd_Paquibato(string query)
         {
+            Paquibato = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Paquibato.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Paquibato() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Talomo_B()
+        public void pwd_Talomo_A(string query)
         {
+            TalomoA = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) TalomoA.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Talomo_A() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Toril()
+        public void pwd_Talomo_B(string query)
         {
+            TalomoB = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) TalomoB.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Talomo_B() : " + ex);
+                conn.Close();
+            }
         }
-
-        public void pwd_Tugbok()
+        public void pwd_Toril(string query)
         {
+            Toril = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Toril.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Toril() : " + ex);
+                conn.Close();
+            }
+        }
+        public void pwd_Tugbok(string query)
+        {
+            Tugbok = new List<int>();
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read()) Tugbok.Add(dr.GetInt32(0));
+                } while (dr.NextResult());
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in pwd_Tugbok() : " + ex);
+                conn.Close();
+            }
         }
         #endregion
 
-        
-        
+        #endregion
+
+
+
 
     }
 }

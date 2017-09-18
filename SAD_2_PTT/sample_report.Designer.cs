@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sample_report));
             this.panel11 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -63,6 +64,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
+            this.to_print = new System.Windows.Forms.PrintPreviewDialog();
             this.panel11.SuspendLayout();
             this.pnl_settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).BeginInit();
@@ -512,6 +514,16 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // to_print
+            // 
+            this.to_print.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.to_print.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.to_print.ClientSize = new System.Drawing.Size(400, 300);
+            this.to_print.Enabled = true;
+            this.to_print.Icon = ((System.Drawing.Icon)(resources.GetObject("to_print.Icon")));
+            this.to_print.Name = "printPreviewDialog1";
+            this.to_print.Visible = false;
+            // 
             // sample_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,5 +579,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.SaveFileDialog save_Excel;
+        private System.Windows.Forms.PrintPreviewDialog to_print;
     }
 }
