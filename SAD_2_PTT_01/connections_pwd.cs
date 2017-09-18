@@ -100,7 +100,7 @@ namespace SAD_2_PTT_01
                                                           + "(CASE WHEN status_pwd = 0 THEN 'Expired' ELSE 'Active' END) as status_pwd, "
                                                           + "CONCAT(address_house_no_street, ', ', address_barangay, ', ', address_municipality, ', ', address_province) as address,"
                                                           + "district_name "
-                                                          + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) LEFT JOIN p_dao.pwd_district ON (pwd.district_id = pwd_district.district_id) WHERE isArchived = 0 AND pwd_id = " + current_id, conn);
+                                                          + "FROM p_dao.pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) LEFT JOIN p_dao.pwd_district ON (pwd.district_id = pwd_district.district_id) WHERE pwd.isArchived = 0 AND pwd_id = " + current_id, conn);
                 MySqlDataAdapter main_data = new MySqlDataAdapter(comm);
                 main_data.Fill(main);
                 Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_VIEW_PROFILE_MAIN_DATA_LOADED }");

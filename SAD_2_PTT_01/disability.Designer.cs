@@ -36,7 +36,6 @@
             this.btn_close = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_error_add = new System.Windows.Forms.Label();
-            this.lbl_error_edit = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.pnl_edit = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
+            this.lbl_error_edit = new System.Windows.Forms.Label();
             this.disability_name_edit = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.disability_desc_edit = new System.Windows.Forms.TextBox();
@@ -172,17 +172,6 @@
             this.lbl_error_add.TabIndex = 145;
             this.lbl_error_add.Text = "* Already exists.";
             this.lbl_error_add.Visible = false;
-            // 
-            // lbl_error_edit
-            // 
-            this.lbl_error_edit.AutoSize = true;
-            this.lbl_error_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_error_edit.Location = new System.Drawing.Point(169, 8);
-            this.lbl_error_edit.Name = "lbl_error_edit";
-            this.lbl_error_edit.Size = new System.Drawing.Size(87, 13);
-            this.lbl_error_edit.TabIndex = 144;
-            this.lbl_error_edit.Text = "* Already exists.";
-            this.lbl_error_edit.Visible = false;
             // 
             // label11
             // 
@@ -319,6 +308,17 @@
             this.label13.TabIndex = 135;
             this.label13.Text = "(Optional)";
             // 
+            // lbl_error_edit
+            // 
+            this.lbl_error_edit.AutoSize = true;
+            this.lbl_error_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_error_edit.Location = new System.Drawing.Point(169, 8);
+            this.lbl_error_edit.Name = "lbl_error_edit";
+            this.lbl_error_edit.Size = new System.Drawing.Size(87, 13);
+            this.lbl_error_edit.TabIndex = 144;
+            this.lbl_error_edit.Text = "* Already exists.";
+            this.lbl_error_edit.Visible = false;
+            // 
             // disability_name_edit
             // 
             this.disability_name_edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -347,7 +347,6 @@
             this.disability_desc_edit.Name = "disability_desc_edit";
             this.disability_desc_edit.Size = new System.Drawing.Size(159, 36);
             this.disability_desc_edit.TabIndex = 4;
-            this.disability_desc_edit.Visible = false;
             // 
             // btn_edit
             // 

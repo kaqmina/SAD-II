@@ -206,7 +206,7 @@ namespace SAD_2_PTT_01
                 bool success = false;
                 pnl_edit.Visible = false;
                 string current_id = disability_list.Rows[current_index].Cells["disability_id"].Value.ToString();
-                success = conn_disa.disability_update(disability_name_edit.Text, disability_desc_edit.Text, current_id);
+                success = conn_disa.disability_update(current_id, disability_name_edit.Text, disability_desc_edit.Text);
                 if (success)
                     reference_to_main.notification_ = "Successfully Updated!";
                 else

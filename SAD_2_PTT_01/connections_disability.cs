@@ -24,8 +24,8 @@ namespace SAD_2_PTT_01
         public bool get_disability_data(DataGridView disability_grid)
         {
             bool has_data = false;
-            //try
-            //{
+            try
+            {
                 conn.Open();
                 Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_LIST] }");
                 comm = new MySqlCommand("SELECT disability.disability_id, "
@@ -96,13 +96,13 @@ namespace SAD_2_PTT_01
 
                 conn.Close();
                 Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_LIST_SUCCESS] }");
-            //}
-            //catch (Exception e)
-            //{
-            //    conn.Close();
-            //    Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_LIST_ERROR] } :" + e.Message);
-            //    has_data = false;
-           // }
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                 Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_LIST_ERROR] } :" + e.Message);
+                has_data = false;
+            }
             return has_data;
         }
 
@@ -137,19 +137,19 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [DISABILITY_ADD] }");
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [DISABILITY_UPDATE] }");
 
                 comm = new MySqlCommand("UPDATE disability SET disability_type = '"+ disability_type +"', disability_desc = '"+ disability_desc +"' WHERE disability_id = " + disability_id, conn);
                 comm.ExecuteNonQuery();
                 success = true;
 
                 conn.Close();
-                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [DISABILITY_ADD_SUCCESS] }");
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [DISABILITY_UPDATE_SUCCESS] }");
             }
             catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [DISABILITY_ADD_ERROR] } : " + e.Message);
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [DISABILITY_UPDATE_ERROR] } : " + e.Message);
                 success = false;
             }
 
