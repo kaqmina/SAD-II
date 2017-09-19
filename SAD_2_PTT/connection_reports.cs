@@ -282,45 +282,44 @@ namespace SAD_2_PTT
             string[] gender = { "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F" };
             ExcelPackage exc = new ExcelPackage();
             ExcelWorksheet wsheet = exc.Workbook.Worksheets.Add("Sheet1");
+            ExcelWorksheet wschild = exc.Workbook.Worksheets.Add("Sheet2");
+            ExcelWorksheet wsadult = exc.Workbook.Worksheets.Add("Sheet3");
 
             #region Styles
             //Font
-            wsheet.Cells.Style.Font.Size = 12;
-            wsheet.Cells.Style.Font.Name = "Calibri";
+            wsheet.Cells.Style.Font.Size = wschild.Cells.Style.Font.Size = wsadult.Cells.Style.Font.Size = 12;
+            wsheet.Cells.Style.Font.Name = wschild.Cells.Style.Font.Name = wsadult.Cells.Style.Font.Name = "Calibri";
 
             //Table [SCAM]
             wsheet.Cells[4, 1, 20, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 2, 19, 3].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 4, 19, 5].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 6, 19, 7].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 8, 19, 9].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 10, 19, 11].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 12, 19, 13].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 14, 19, 15].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells[4, 16, 19, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
 
+            for (int j = 1; j < 17; j++) wsheet.Cells[4, j, 19, j++].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            for (int j = 16; j < 26; j++) // 26 - count of disability + 1
+            {
+                int k = j + 1;
+                wsheet.Cells[4, j, 19, k].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            }
+            
             //Title
             var title = wsheet.Cells["A1:Q1"];
-            title.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-            title.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            title.Style.Font.Bold = true;
-            title.Merge = true;
-            title.Style.Font.Size = 14;
+            title.Style.HorizontalAlignment = wschild.Cells["A1:Q1"].Style.HorizontalAlignment = wsadult.Cells["A1:Q1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            title.Style.Font.Bold = wschild.Cells["A1:Q1"].Style.Font.Bold = wsadult.Cells["A1:Q1"].Style.Font.Bold = true;
+            title.Merge = wschild.Cells["A1:Q1"].Merge = wsadult.Cells["A1:Q1"].Merge = true;
+            title.Style.Font.Size = wschild.Cells["A1:Q1"].Style.Font.Size = wsadult.Cells["A1:Q1"].Style.Font.Size = 14;
 
             //SubTitle
             var subDate = wsheet.Cells["A2:Q2"];
-            subDate.Merge = true;
-            subDate.Style.Font.Bold = true;
+            subDate.Merge = wschild.Cells["A2:Q2"].Merge = wsadult.Cells["A2:Q2"].Merge = true;
+            subDate.Style.Font.Bold = wschild.Cells["A2:Q2"].Style.Font.Bold = wsadult.Cells["A2:Q2"].Style.Font.Bold = true;
             subDate.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-            subDate.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            subDate.Style.HorizontalAlignment = wschild.Cells["A2:Q2"].Style.HorizontalAlignment = wsadult.Cells["A2:Q2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             subDate.Style.Font.Size = 13;
 
             var subCat = wsheet.Cells["A3:Q3"];
-            subCat.Merge = true;
-            subCat.Style.Font.Bold = true;
-            subCat.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-            subCat.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            subCat.Style.Font.Size = 13;
+            subCat.Merge = wschild.Cells["A3:Q3"].Merge = wsadult.Cells["A3:Q3"].Merge = true;
+            subCat.Style.Font.Bold = wschild.Cells["A3:Q3"].Style.Font.Bold = wsadult.Cells["A3:Q3"].Style.Font.Bold = true;
+            subCat.Style.HorizontalAlignment = wschild.Cells["A3:Q3"].Style.HorizontalAlignment = wsadult.Cells["A3:Q3"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            subCat.Style.Font.Size = wschild.Cells["A3:Q3"].Style.Font.Size = wsadult.Cells["A3:Q3"].Style.Font.Size = subDate.Style.Font.Size;
 
             //District Row
             var disTitle = wsheet.Cells["A4:A5"];
@@ -358,143 +357,116 @@ namespace SAD_2_PTT
             wsheet.Cells["A19"].Style.Border.Right.Style = ExcelBorderStyle.Thick;
 
             //GrandTotal
-            wsheet.Cells["B20:Q20"].Merge = true;
-            wsheet.Cells["B20:Q20"].Style.Font.Bold = true;
+            wsheet.Cells["B20:Q20"].Merge = wschild.Cells["B20:Q20"].Merge = wsadult.Cells["B20:Q20"].Merge = true;
+            wsheet.Cells["B20:Q20"].Style.Font.Bold = wschild.Cells["B20:Q20"].Style.Font.Bold = wsadult.Cells["B20:Q20"].Style.Font.Bold = true;
             wsheet.Cells["B20:Q20"].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            wsheet.Cells["A20"].Style.Font.Bold = true;
+            wsheet.Cells["A20"].Style.Font.Bold = wschild.Cells["A20"].Style.Font.Bold = wsadult.Cells["A20"].Style.Font.Bold = true;
             wsheet.Cells["A20"].Style.Border.Right.Style = ExcelBorderStyle.Thick;
-            wsheet.Cells["B20"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            wsheet.Cells["B20"].Style.HorizontalAlignment = wschild.Cells["B20"].Style.HorizontalAlignment = wsadult.Cells["B20"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             #endregion
 
             //Title
             wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
+            wschild.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
+            wsadult.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
 
             //SubTitle
-            wsheet.Cells["A2:Q2"].Value = "*INSERT DATE HERE*";
+            wsheet.Cells["A2:Q2"].Value = wschild.Cells["A2:Q2"].Value = wsadult.Cells["A2:Q2"].Value = "*INSERT DATE HERE*";
             wsheet.Cells["A3:Q3"].Value = "(CHILDREN & ADULT CATEGORY)";
+            wschild.Cells["A3:Q3"].Value = "(CHILD CATEGORY)";
+            wsadult.Cells["A3:Q3"].Value = "(ADULT CATEGORY)";
 
             //District Columns
-            wsheet.Cells["A4:A5"].Merge = true;
-            wsheet.Cells["A4:A5"].Value = "DISTRICT";
+            wsheet.Cells["A4:A5"].Merge = wschild.Cells["A4:A5"].Merge = wsadult.Cells["A4:A5"].Merge =  true;
+            wsheet.Cells["A4:A5"].Value = wschild.Cells["A4:A5"].Value = wsadult.Cells["A4:A5"].Value = "DISTRICT";
             wsheet.Cells["A6"].LoadFromCollection(district);
+            wschild.Cells["A6"].LoadFromCollection(district);
+            wsadult.Cells["A6"].LoadFromCollection(district);
 
             //Headers
             int i = 0;
-            foreach (var age in ageBracket)
-            {
-                wsheet.Cells[4, i = i + 2].Value = age;
-                
-            }
+            foreach (var age in ageBracket) wsheet.Cells[4, i = i + 2].Value = age;
 
             //SubHeaders [M,F]
             int a = 2;
-            foreach (var sex in gender)
-            {
-                wsheet.Cells[5, a++].Value = sex;
-            }
+            foreach (var sex in gender) wsheet.Cells[5, a++].Value = sex;
+            a = 2;
+            foreach(var sex in gender) wschild.Cells[5, a++].Value = sex;
+            a = 2;
+            foreach(var sex in gender) wsadult.Cells[5, a++].Value = sex;
 
             // Body
-            #region << District Values >>
+            #region << Values >>
+            #region -- Sheet1 --
             pwd_Districts();
             int b = 2;
-            foreach (var num in Agdao)
-            {
-                wsheet.Cells[6, b++].Value = num;
-            }
+            foreach (var num in Agdao) wsheet.Cells[6, b++].Value = num;
             b = 2;
-            foreach (var num in Baguio)
-            {
-                wsheet.Cells[7, b++].Value = num;
-            }
+            foreach (var num in Baguio) wsheet.Cells[7, b++].Value = num;
             b = 2;
-            foreach (var num in Buhangin)
-            {
-                wsheet.Cells[8, b++].Value = num;
-            }
+            foreach (var num in Buhangin) wsheet.Cells[8, b++].Value = num;
             b = 2;
-            foreach (var num in Bunawan)
-            {
-                wsheet.Cells[9, b++].Value = num;
-            }
+            foreach (var num in Bunawan) wsheet.Cells[9, b++].Value = num;
             b = 2;
-            foreach (var num in Calinan)
-            {
-                wsheet.Cells[10, b++].Value = num;
-            }
+            foreach (var num in Calinan) wsheet.Cells[10, b++].Value = num;
             b = 2;
-            foreach (var num in CityA)
-            {
-                wsheet.Cells[11, b++].Value = num;
-            }
+            foreach (var num in CityA) wsheet.Cells[11, b++].Value = num;
             b = 2;
-            foreach (var num in CityB)
-            {
-                wsheet.Cells[12, b++].Value = num;
-            }
+            foreach (var num in CityB) wsheet.Cells[12, b++].Value = num;
             b = 2;
-            foreach (var num in Marilog)
-            {
-                wsheet.Cells[13, b++].Value = num;
-            }
+            foreach (var num in Marilog) wsheet.Cells[13, b++].Value = num;
             b = 2;
-            foreach (var num in Paquibato)
-            {
-                wsheet.Cells[14, b++].Value = num;
-            }
+            foreach (var num in Paquibato) wsheet.Cells[14, b++].Value = num;
             b = 2;
-            foreach (var num in TalomoA)
-            {
-                wsheet.Cells[15, b++].Value = num;
-            }
+            foreach (var num in TalomoA) wsheet.Cells[15, b++].Value = num;
             b = 2;
-            foreach (var num in TalomoB)
-            {
-                wsheet.Cells[16, b++].Value = num;
-            }
+            foreach (var num in TalomoB) wsheet.Cells[16, b++].Value = num;
             b = 2;
-            foreach (var num in Toril)
-            {
-                wsheet.Cells[17, b++].Value = num;
-            }
+            foreach (var num in Toril) wsheet.Cells[17, b++].Value = num;
             b = 2;
-            foreach (var num in Tugbok)
-            {
-                wsheet.Cells[18, b++].Value = num;
-            }
+            foreach (var num in Tugbok) wsheet.Cells[18, b++].Value = num;
+
+            Agdao.Clear(); Baguio.Clear(); Buhangin.Clear(); Bunawan.Clear(); Calinan.Clear(); CityA.Clear();
+            CityB.Clear(); Marilog.Clear(); Paquibato.Clear(); TalomoA.Clear(); TalomoB.Clear(); Toril.Clear(); Tugbok.Clear();
+            #endregion
+            #region -- Sheet2 --
+            #endregion
+            #region -- Sheet3 -- 
+            #endregion
             #endregion
 
             //Total
-            #region  << Per District Formula >>
-            wsheet.Cells["B19"].Formula = "=SUM(B6:B18)";
-            wsheet.Cells["C19"].Formula = "=SUM(C6:C18)";
-            wsheet.Cells["D19"].Formula = "=SUM(D6:D18)";
-            wsheet.Cells["E19"].Formula = "=SUM(E6:E18)";
-            wsheet.Cells["F19"].Formula = "=SUM(F6:F18)";
-            wsheet.Cells["G19"].Formula = "=SUM(G6:G18)";
-            wsheet.Cells["H19"].Formula = "=SUM(H6:H18)";
-            wsheet.Cells["I19"].Formula = "=SUM(I6:I18)";
-            wsheet.Cells["J19"].Formula = "=SUM(J6:J18)";
-            wsheet.Cells["K19"].Formula = "=SUM(K6:K18)";
-            wsheet.Cells["L19"].Formula = "=SUM(L6:L18)";
-            wsheet.Cells["M19"].Formula = "=SUM(M6:M18)";
-            wsheet.Cells["N19"].Formula = "=SUM(N6:N18)";
-            wsheet.Cells["O19"].Formula = "=SUM(O6:O18)";
-            wsheet.Cells["P19"].Formula = "=SUM(P6:P18)";
-            wsheet.Cells["Q19"].Formula = "=SUM(Q6:Q18)";
+            #region  << Per *Column* Formula >>
+            wsheet.Cells["B19"].Formula = wschild.Cells["B19"].Formula = wsadult.Cells["B19"].Formula = "=SUM(B6:B18)";
+            wsheet.Cells["C19"].Formula = wschild.Cells["C19"].Formula = wsadult.Cells["C19"].Formula = "=SUM(C6:C18)";
+            wsheet.Cells["D19"].Formula = wschild.Cells["D19"].Formula = wsadult.Cells["D19"].Formula = "=SUM(D6:D18)";
+            wsheet.Cells["E19"].Formula = wschild.Cells["E19"].Formula = wsadult.Cells["E19"].Formula = "=SUM(E6:E18)";
+            wsheet.Cells["F19"].Formula = wschild.Cells["F19"].Formula = wsadult.Cells["F19"].Formula = "=SUM(F6:F18)";
+            wsheet.Cells["G19"].Formula = wschild.Cells["G19"].Formula = wsadult.Cells["G19"].Formula = "=SUM(G6:G18)";
+            wsheet.Cells["H19"].Formula = wschild.Cells["H19"].Formula = wsadult.Cells["H19"].Formula = "=SUM(H6:H18)";
+            wsheet.Cells["I19"].Formula = wschild.Cells["I19"].Formula = wsadult.Cells["I19"].Formula = "=SUM(I6:I18)";
+            wsheet.Cells["J19"].Formula = wschild.Cells["J19"].Formula = wsadult.Cells["J19"].Formula = "=SUM(J6:J18)";
+            wsheet.Cells["K19"].Formula = wschild.Cells["K19"].Formula = wsadult.Cells["K19"].Formula = "=SUM(K6:K18)";
+            wsheet.Cells["L19"].Formula = wschild.Cells["L19"].Formula = wsadult.Cells["L19"].Formula = "=SUM(L6:L18)";
+            wsheet.Cells["M19"].Formula = wschild.Cells["M19"].Formula = wsadult.Cells["M19"].Formula = "=SUM(M6:M18)";
+            wsheet.Cells["N19"].Formula = wschild.Cells["N19"].Formula = wsadult.Cells["N19"].Formula = "=SUM(N6:N18)";
+            wsheet.Cells["O19"].Formula = wschild.Cells["O19"].Formula = wsadult.Cells["O19"].Formula = "=SUM(O6:O18)";
+            wsheet.Cells["P19"].Formula = wschild.Cells["P19"].Formula = wsadult.Cells["P19"].Formula = "=SUM(P6:P18)";
+            wsheet.Cells["Q19"].Formula = wschild.Cells["Q19"].Formula = wsadult.Cells["Q19"].Formula = "=SUM(Q6:Q18)";
             #endregion
 
-            wsheet.Cells["A19"].Value = "TOTAL";
+            wsheet.Cells["A19"].Value = wschild.Cells["A19"].Value = wsadult.Cells["A19"].Value = "TOTAL";
 
             //GrandTotal
-            wsheet.Cells["B20"].Formula = "=SUM(B19:Q19)";
-            wsheet.Cells["A20"].Value = "GRAND TOTAL";
+            wsheet.Cells["B20"].Formula = wschild.Cells["B20"].Formula = wsadult.Cells["B20"].Formula = "=SUM(B19:Q19)";
+            wsheet.Cells["A20"].Value = wschild.Cells["A20"].Value = wsadult.Cells["A20"].Value = "GRAND TOTAL";
 
             using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite))
             {
                 exc.SaveAs(fs);
             }
 
-            System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
+            System.Diagnostics.Process.Start(file); // to open document directly after creating EXCEL
         }
 
         #region << Districts >>
@@ -526,7 +498,7 @@ namespace SAD_2_PTT
                                       " AND district = 'Tugbok';"};
         public void pwd_Districts()
         {
-            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.my_Table WHERE ";
+            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.table WHERE ";
             string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8;
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
             string query = "";
