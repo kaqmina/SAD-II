@@ -279,6 +279,7 @@ namespace SAD_2_PTT
         {
             string[] ageBracket = { "0-2 YRS. OLD", "3-4 YRS. OLD", "5-6 YRS. OLD", "7-12 YRS. OLD", "13-18 YRS. OLD", "19-24 YRS. OLD", "25-59 YRS. OLD", "60 YRS. OLD" };
             string[] district = { "AGDAO", "BAGUIO", "BUHANGIN", "BUNAWAN", "CALINAN", "CITY-A", "CITY-B", "MARILOG", "PAQUIBATO", "TALOMO-A", "TALOMO-B", "TORIL", "TUGBOK" };
+            string[] gender = { "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F" };
             ExcelPackage exc = new ExcelPackage();
             ExcelWorksheet wsheet = exc.Workbook.Worksheets.Add("Sheet1");
 
@@ -331,7 +332,7 @@ namespace SAD_2_PTT
 
             var districts = wsheet.Cells["A6:A18"];
             districts.Style.Border.Left.Style = districts.Style.Border.Right.Style = ExcelBorderStyle.Thick;
-            wsheet.Column(1).Width = 14;
+            wsheet.Column(1).Width = 16;
 
             //Headers
             wsheet.Cells["B4:C4"].Merge = true;
@@ -350,6 +351,7 @@ namespace SAD_2_PTT
 
             //SubHeaders
             wsheet.Cells["B5:Q5"].Style.Font.Bold = true;
+            wsheet.Cells["B5:Q5"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
             //Total
             wsheet.Cells["A19:Q20"].Style.Font.Bold = true;
@@ -361,6 +363,7 @@ namespace SAD_2_PTT
             wsheet.Cells["B20:Q20"].Style.Border.BorderAround(ExcelBorderStyle.Thick);
             wsheet.Cells["A20"].Style.Font.Bold = true;
             wsheet.Cells["A20"].Style.Border.Right.Style = ExcelBorderStyle.Thick;
+            wsheet.Cells["B20"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             #endregion
 
             //Title
@@ -380,23 +383,110 @@ namespace SAD_2_PTT
             foreach (var age in ageBracket)
             {
                 wsheet.Cells[4, i = i + 2].Value = age;
+                
             }
 
             //SubHeaders [M,F]
-
-
-            //Body
-            pwd_Districts();
             int a = 2;
-
-            foreach (var num in Agdao)
+            foreach (var sex in gender)
             {
-                wsheet.Cells[6, a++].Value = num;
+                wsheet.Cells[5, a++].Value = sex;
             }
 
+            // Body
+            #region << District Values >>
+            pwd_Districts();
+            int b = 2;
+            foreach (var num in Agdao)
+            {
+                wsheet.Cells[6, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Baguio)
+            {
+                wsheet.Cells[7, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Buhangin)
+            {
+                wsheet.Cells[8, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Bunawan)
+            {
+                wsheet.Cells[9, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Calinan)
+            {
+                wsheet.Cells[10, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in CityA)
+            {
+                wsheet.Cells[11, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in CityB)
+            {
+                wsheet.Cells[12, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Marilog)
+            {
+                wsheet.Cells[13, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Paquibato)
+            {
+                wsheet.Cells[14, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in TalomoA)
+            {
+                wsheet.Cells[15, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in TalomoB)
+            {
+                wsheet.Cells[16, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Toril)
+            {
+                wsheet.Cells[17, b++].Value = num;
+            }
+            b = 2;
+            foreach (var num in Tugbok)
+            {
+                wsheet.Cells[18, b++].Value = num;
+            }
+            #endregion
+
             //Total
+            #region  << Per District Formula >>
+            wsheet.Cells["B19"].Formula = "=SUM(B6:B18)";
+            wsheet.Cells["C19"].Formula = "=SUM(C6:C18)";
+            wsheet.Cells["D19"].Formula = "=SUM(D6:D18)";
+            wsheet.Cells["E19"].Formula = "=SUM(E6:E18)";
+            wsheet.Cells["F19"].Formula = "=SUM(F6:F18)";
+            wsheet.Cells["G19"].Formula = "=SUM(G6:G18)";
+            wsheet.Cells["H19"].Formula = "=SUM(H6:H18)";
+            wsheet.Cells["I19"].Formula = "=SUM(I6:I18)";
+            wsheet.Cells["J19"].Formula = "=SUM(J6:J18)";
+            wsheet.Cells["K19"].Formula = "=SUM(K6:K18)";
+            wsheet.Cells["L19"].Formula = "=SUM(L6:L18)";
+            wsheet.Cells["M19"].Formula = "=SUM(M6:M18)";
+            wsheet.Cells["N19"].Formula = "=SUM(N6:N18)";
+            wsheet.Cells["O19"].Formula = "=SUM(O6:O18)";
+            wsheet.Cells["P19"].Formula = "=SUM(P6:P18)";
+            wsheet.Cells["Q19"].Formula = "=SUM(Q6:Q18)";
+            #endregion
+
             wsheet.Cells["A19"].Value = "TOTAL";
+
             //GrandTotal
+            wsheet.Cells["B20"].Formula = "=SUM(B19:Q19)";
             wsheet.Cells["A20"].Value = "GRAND TOTAL";
 
             using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite))
@@ -423,72 +513,61 @@ namespace SAD_2_PTT
         public List<int> Tugbok;       
         
 
-        public string[] ageQuery = { " BETWEEN 0 AND 2 AND sex = 0;", " BETWEEN 0 AND 2 AND sex = 1;", " BETWEEN 3 AND 4 AND sex = 0;", " BETWEEN 3 AND 4 AND sex = 1;" ,
-                                     " BETWEEN 5 AND 6 AND sex = 0;", " BETWEEN 5 AND 6 AND sex = 1;", " BETWEEN 7 AND 12 AND sex = 0;", " BETWEEN 7 AND 12 AND sex = 1;",
-                                     " BETWEEN 13 AND 18 AND sex = 0;", " BETWEEN 13 AND 18 AND sex = 1;", " BETWEEN 19 AND 24 AND sex = 0;", " BETWEEN 19 AND 24 AND sex = 1;",
-                                     " BETWEEN 25 AND 59 AND sex = 0;", " BETWEEN 25 AND 59 AND sex = 1;", " = 60 AND sex = 0;", " = 60 AND sex = 1" };
-        public string[] distQuery = { " AND district_id = 1;", " AND district_id = 2;", " AND district_id = 3;", " AND district_id = 4;", " AND district_id = 5;", " AND district_id = 6;",
-                                      " AND district_id = 7;", " AND district_id = 8;", " AND district_id = 9;", " AND district_id = 10;", " AND district_id = 11;", " AND district_id = 12;",
-                                      " AND district_id = 13;"};
+        public string[] ageQuery = { " BETWEEN 0 AND 2 AND sex = 0", " BETWEEN 0 AND 2 AND sex = 1", " BETWEEN 3 AND 4 AND sex = 0", " BETWEEN 3 AND 4 AND sex = 1" ,
+                                     " BETWEEN 5 AND 6 AND sex = 0", " BETWEEN 5 AND 6 AND sex = 1", " BETWEEN 7 AND 12 AND sex = 0", " BETWEEN 7 AND 12 AND sex = 1",
+                                     " BETWEEN 13 AND 18 AND sex = 0", " BETWEEN 13 AND 18 AND sex = 1", " BETWEEN 19 AND 24 AND sex = 0", " BETWEEN 19 AND 24 AND sex = 1",
+                                     " BETWEEN 25 AND 59 AND sex = 0", " BETWEEN 25 AND 59 AND sex = 1", " = 60 AND sex = 0", " = 60 AND sex = 1" };
+        //public string[] distQuery = { " AND district_id = 1;", " AND district_id = 2;", " AND district_id = 3;", " AND district_id = 4;", " AND district_id = 5;", " AND district_id = 6;",
+                                     // " AND district_id = 7;", " AND district_id = 8;", " AND district_id = 9;", " AND district_id = 10;", " AND district_id = 11;", " AND district_id = 12;",
+                                    //  " AND district_id = 13;"};
+        //my_Table data
+        public string[] distQuery = { " AND district = 'Agdao';", " AND district = 'Baguio';", " AND district = 'Buhangin';", " AND district = 'Bunawan';", " AND district = 'Calinan';", " AND district = 'CityA';",
+                                      " AND district = 'CityB';", " AND district = 'Marilog';", " AND district = 'Paquibato';", " AND district = 'TalomoA';", " AND district = 'TalomoB';", " AND district = 'Toril';",
+                                      " AND district = 'Tugbok';"};
         public void pwd_Districts()
         {
-            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.pwd WHERE ";
+            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.my_Table WHERE ";
             string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8;
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
-            string query, district = "";
+            string query = "";
             int num = 0;
-            /*
-            if (district == "Agdao") num = 0;
-            else if (district == "Baguio") num = 1;
-            else if (district == "Buhangin") num = 2;
-            else if (district == "Bunawan") num = 3;
-            else if (district == "Calinan") num = 4;
-            else if (district == "CityA") num = 5;
-            else if (district == "CityB") num = 6;
-            else if (district == "Marilog") num = 7;
-            else if (district == "Paquibato") num = 8;
-            else if (district == "TalomoA") num = 9;
-            else if (district == "TalomoB") num = 10;
-            else if (district == "Toril") num = 11;
-            else if (district == "Tugbok") num = 12;*/
 
             // add district id paaa >.<
-            cm1 = select + age + ageQuery[0]; //+ distQuery[num];
-            cf1 = select + age + ageQuery[1]; //+ distQuery[num];
-            cm2 = select + age + ageQuery[2]; //+ distQuery[num];
-            cf2 = select + age + ageQuery[3]; //+ distQuery[num];
-            cm3 = select + age + ageQuery[4]; //+ distQuery[num];
-            cf3 = select + age + ageQuery[5]; //+ distQuery[num];
-            cm4 = select + age + ageQuery[6]; //+ distQuery[num];
-            cf4 = select + age + ageQuery[7]; //+ distQuery[num];
-            cm5 = select + age + ageQuery[8]; //+ distQuery[num];
-            cf5 = select + age + ageQuery[9]; //+ distQuery[num];
-            cm6 = select + age + ageQuery[10]; //+ distQuery[num];
-            cf6 = select + age + ageQuery[11]; //+ distQuery[num];
-            cm7 = select + age + ageQuery[12]; //+ distQuery[num];
-            cf7 = select + age + ageQuery[13]; //+ distQuery[num];
-            cm8 = select + age + ageQuery[14]; //+ distQuery[num];
-            cf8 = select + age + ageQuery[15]; //+ distQuery[num];
+            for (num = 0; num < 13; num++)
+            {
+                cm1 = select + age + ageQuery[0] + distQuery[num];
+                cf1 = select + age + ageQuery[1] + distQuery[num];
+                cm2 = select + age + ageQuery[2] + distQuery[num];
+                cf2 = select + age + ageQuery[3] + distQuery[num];
+                cm3 = select + age + ageQuery[4] + distQuery[num];
+                cf3 = select + age + ageQuery[5] + distQuery[num];
+                cm4 = select + age + ageQuery[6] + distQuery[num];
+                cf4 = select + age + ageQuery[7] + distQuery[num];
+                cm5 = select + age + ageQuery[8] + distQuery[num];
+                cf5 = select + age + ageQuery[9] + distQuery[num];
+                cm6 = select + age + ageQuery[10] + distQuery[num];
+                cf6 = select + age + ageQuery[11] + distQuery[num];
+                cm7 = select + age + ageQuery[12] + distQuery[num];
+                cf7 = select + age + ageQuery[13] + distQuery[num];
+                cm8 = select + age + ageQuery[14] + distQuery[num];
+                cf8 = select + age + ageQuery[15] + distQuery[num];
 
-            query = cm1 + cf1 + cm2 + cf2 + cm3 + cf3 + cm4 + cf4 + cm5 + cf5 + cm6 + cf6 + cm7 + cf7 + cm8 + cf8;
-            pwd_Agdao(query);
-        }
-        public void getQuery(string query, string district)
-        {
-            //if (district == "Agdao") pwd_Agdao(query);
-            /*
-            else if (district == "Baguio") pwd_Baguio(query);
-            else if (district == "Buhangin") pwd_Buhangin(query);
-            else if (district == "Bunawan") pwd_Bunawan(query);
-            else if (district == "Calinan") pwd_Calinan(query);
-            else if (district == "CityA") pwd_City_A(query);
-            else if (district == "CityB") pwd_City_B(query);
-            else if (district == "Marilog") pwd_Marilog(query);
-            else if (district == "Paquibato") pwd_Paquibato(query);
-            else if (district == "TalomoA") pwd_Talomo_A(query);
-            else if (district == "TalomoB") pwd_Talomo_B(query);
-            else if (district == "Toril") pwd_Toril(query);
-            else if (district == "Tugbok") pwd_Tugbok(query);*/
+                query = cm1 + cf1 + cm2 + cf2 + cm3 + cf3 + cm4 + cf4 + cm5 + cf5 + cm6 + cf6 + cm7 + cf7 + cm8 + cf8;
+
+                if (num == 0) pwd_Agdao(query);
+                else if (num == 1) pwd_Baguio(query);
+                else if (num == 2) pwd_Buhangin(query);
+                else if (num == 3) pwd_Bunawan(query);
+                else if (num == 4) pwd_Calinan(query);
+                else if (num == 5) pwd_City_A(query);
+                else if (num == 6) pwd_City_B(query);
+                else if (num == 7) pwd_Marilog(query);
+                else if (num == 8) pwd_Paquibato(query);
+                else if (num == 9) pwd_Talomo_A(query);
+                else if (num == 10) pwd_Talomo_B(query);
+                else if (num == 11) pwd_Toril(query);
+                else if (num == 12) pwd_Tugbok(query);
+            }  
         }
        
         public void pwd_Agdao(string query)
