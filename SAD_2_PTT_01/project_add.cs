@@ -20,13 +20,26 @@ namespace SAD_2_PTT_01
         private void project_add_Load(object sender, EventArgs e)
         {
             load_time_format();
+            load_date_min_max();
+            load_default_enabled();
             btn_add_enable();
+        }
+
+        private void load_date_min_max()
+        {
+            //start_date.MaxDate = DateTime.Now;
+        }
+
+        private void load_default_enabled()
+        {
+            end_date.Enabled = false;
+            //end_time.Enabled = false;
         }
 
         public void load_time_format()
         {
             start_time.ShowUpDown = true;
-            end_time.ShowUpDown = true;
+            //end_time.ShowUpDown = true;
         }
 
         public void btn_add_enable()
@@ -68,7 +81,26 @@ namespace SAD_2_PTT_01
         {
             var start_date_ = new DateTime(start_date.Value.Year, start_date.Value.Month, start_date.Value.Day, start_time.Value.Hour, start_time.Value.Minute, 00);
             var end_date_ = new DateTime(end_date.Value.Year, end_date.Value.Month, end_date.Value.Day, end_date.Value.Hour, end_date.Value.Minute, 00);
-            MessageBox.Show(start_date_.ToString() + " " + end_date_.ToString());
+
+
+        }
+
+        private void start_time_ValueChanged(object sender, EventArgs e)
+        {
+            //DateTime parse = DateTime.Parse(start_time.Value.ToString());
+            //end_time.MinDate = DateTime.Parse(parse.ToString("hh:mm tt"));
+            //end_time.Enabled = true;
+        }
+
+        private void start_date_ValueChanged(object sender, EventArgs e)
+        {
+            end_date.MinDate = start_date.Value;
+            end_date.Enabled = true;
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            btn_cancel_Click(sender, e);
         }
     }
 }

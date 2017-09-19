@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_error_edit = new System.Windows.Forms.Label();
             this.count_results = new System.Windows.Forms.Label();
             this.pnl_edit = new System.Windows.Forms.Panel();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.provider_email_edit = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.provider_tel_no_edit = new System.Windows.Forms.MaskedTextBox();
@@ -49,6 +53,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbl_error_add = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
             this.provider_tel_no_add = new System.Windows.Forms.MaskedTextBox();
@@ -103,11 +108,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.provider_list = new System.Windows.Forms.DataGridView();
-            this.lbl_error_add = new System.Windows.Forms.Label();
-            this.lbl_error_edit = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
@@ -164,6 +164,17 @@
             this.panel1.Size = new System.Drawing.Size(1060, 577);
             this.panel1.TabIndex = 9;
             // 
+            // lbl_error_edit
+            // 
+            this.lbl_error_edit.AutoSize = true;
+            this.lbl_error_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_error_edit.Location = new System.Drawing.Point(611, 56);
+            this.lbl_error_edit.Name = "lbl_error_edit";
+            this.lbl_error_edit.Size = new System.Drawing.Size(87, 13);
+            this.lbl_error_edit.TabIndex = 151;
+            this.lbl_error_edit.Text = "* Already exists.";
+            this.lbl_error_edit.Visible = false;
+            // 
             // count_results
             // 
             this.count_results.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -196,6 +207,36 @@
             this.pnl_edit.Size = new System.Drawing.Size(249, 209);
             this.pnl_edit.TabIndex = 153;
             this.pnl_edit.Visible = false;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label40.Location = new System.Drawing.Point(237, 39);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(12, 13);
+            this.label40.TabIndex = 157;
+            this.label40.Text = "*";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label39.Location = new System.Drawing.Point(237, 89);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(12, 13);
+            this.label39.TabIndex = 156;
+            this.label39.Text = "*";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label33.Location = new System.Drawing.Point(237, 8);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(12, 13);
+            this.label33.TabIndex = 155;
+            this.label33.Text = "*";
             // 
             // provider_email_edit
             // 
@@ -294,7 +335,7 @@
             this.btn_exit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_exit.FlatAppearance.BorderSize = 0;
             this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.btn_exit.Location = new System.Drawing.Point(927, 532);
             this.btn_exit.Name = "btn_exit";
@@ -338,6 +379,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(696, 209);
             this.panel4.TabIndex = 51;
+            // 
+            // lbl_error_add
+            // 
+            this.lbl_error_add.AutoSize = true;
+            this.lbl_error_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_error_add.Location = new System.Drawing.Point(265, 15);
+            this.lbl_error_add.Name = "lbl_error_add";
+            this.lbl_error_add.Size = new System.Drawing.Size(87, 13);
+            this.lbl_error_add.TabIndex = 150;
+            this.lbl_error_add.Text = "* Already exists.";
+            this.lbl_error_add.Visible = false;
             // 
             // btn_add
             // 
@@ -560,6 +612,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label16.Location = new System.Drawing.Point(9, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(106, 17);
@@ -630,6 +683,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label3.Location = new System.Drawing.Point(358, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 17);
@@ -704,14 +758,14 @@
             this.device_provided_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.device_provided_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.device_provided_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_provided_list.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_provided_list.DefaultCellStyle = dataGridViewCellStyle1;
             this.device_provided_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_provided_list.Location = new System.Drawing.Point(369, 21);
             this.device_provided_list.MultiSelect = false;
@@ -719,8 +773,8 @@
             this.device_provided_list.ReadOnly = true;
             this.device_provided_list.RowHeadersVisible = false;
             this.device_provided_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_provided_list.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_provided_list.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.device_provided_list.RowTemplate.Height = 25;
             this.device_provided_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_provided_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -946,6 +1000,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
@@ -963,14 +1018,14 @@
             this.provider_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.provider_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.provider_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.provider_list.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.provider_list.DefaultCellStyle = dataGridViewCellStyle3;
             this.provider_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.provider_list.Location = new System.Drawing.Point(16, 72);
             this.provider_list.MultiSelect = false;
@@ -978,8 +1033,8 @@
             this.provider_list.ReadOnly = true;
             this.provider_list.RowHeadersVisible = false;
             this.provider_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.provider_list.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.provider_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.provider_list.RowTemplate.Height = 25;
             this.provider_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.provider_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -988,58 +1043,6 @@
             this.provider_list.TabIndex = 46;
             this.provider_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.provider_list_CellClick);
             this.provider_list.SelectionChanged += new System.EventHandler(this.provider_list_SelectionChanged);
-            // 
-            // lbl_error_add
-            // 
-            this.lbl_error_add.AutoSize = true;
-            this.lbl_error_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_error_add.Location = new System.Drawing.Point(265, 15);
-            this.lbl_error_add.Name = "lbl_error_add";
-            this.lbl_error_add.Size = new System.Drawing.Size(87, 13);
-            this.lbl_error_add.TabIndex = 150;
-            this.lbl_error_add.Text = "* Already exists.";
-            this.lbl_error_add.Visible = false;
-            // 
-            // lbl_error_edit
-            // 
-            this.lbl_error_edit.AutoSize = true;
-            this.lbl_error_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_error_edit.Location = new System.Drawing.Point(611, 56);
-            this.lbl_error_edit.Name = "lbl_error_edit";
-            this.lbl_error_edit.Size = new System.Drawing.Size(87, 13);
-            this.lbl_error_edit.TabIndex = 151;
-            this.lbl_error_edit.Text = "* Already exists.";
-            this.lbl_error_edit.Visible = false;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label33.Location = new System.Drawing.Point(237, 8);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(12, 13);
-            this.label33.TabIndex = 155;
-            this.label33.Text = "*";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label39.Location = new System.Drawing.Point(237, 89);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(12, 13);
-            this.label39.TabIndex = 156;
-            this.label39.Text = "*";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label40.Location = new System.Drawing.Point(237, 39);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(12, 13);
-            this.label40.TabIndex = 157;
-            this.label40.Text = "*";
             // 
             // startup_opacity
             // 

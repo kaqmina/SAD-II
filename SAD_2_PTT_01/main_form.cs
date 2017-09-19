@@ -29,7 +29,7 @@ namespace SAD_2_PTT_01
         device_pending_rec device_received_form;
         device_device_add dev_add;
         device_provider dev_pro;
-        system_notification system_notify;
+        public system_notification system_notify;
         public string current_user;
         
 
@@ -59,6 +59,7 @@ namespace SAD_2_PTT_01
             projects_default_data();
 
             load_device_requests();
+            device_pnl_request_new.BringToFront();
         }
 
         private void main_properties()
@@ -754,15 +755,15 @@ namespace SAD_2_PTT_01
 
             Font def = new Font("Segoe UI", 9);
 
-            project_title.Font = new Font(def, FontStyle.Bold);
-            project_description.Font = new Font(def, FontStyle.Bold);
-            project_start_time.Font = new Font(def, FontStyle.Bold);
-            project_end_time.Font = new Font(def, FontStyle.Bold);
-            project_date_proposed.Font = new Font(def, FontStyle.Bold);
-            project_approved_by.Font = new Font(def, FontStyle.Bold);
-            project_event_held.Font = new Font(def, FontStyle.Bold);
-            project_budget.Font = new Font(def, FontStyle.Bold); ;
-            project_budget_description.Font = new Font(def, FontStyle.Bold);
+            project_title.Font = new Font(def, FontStyle.Regular);
+            project_description.Font = new Font(def, FontStyle.Regular);
+            project_start_time.Font = new Font(def, FontStyle.Regular);
+            project_end_time.Font = new Font(def, FontStyle.Regular);
+            project_date_proposed.Font = new Font(def, FontStyle.Regular);
+            project_approved_by.Font = new Font(def, FontStyle.Regular);
+            project_event_held.Font = new Font(def, FontStyle.Regular);
+            project_budget.Font = new Font(def, FontStyle.Regular); ;
+            project_budget_description.Font = new Font(def, FontStyle.Regular);
 
             project_title.Text = main_data.Rows[0]["project_title"].ToString();
             project_description.Text = main_data.Rows[0]["project_desc"].ToString();
@@ -938,7 +939,7 @@ namespace SAD_2_PTT_01
 
         private void btn_projects_persons_involved_Click(object sender, EventArgs e)
         {
-            projects_panel_budget_items.Visible = false;
+            projects_pnl_information.Visible = false;
             projects_panel_persons.Visible = true;
         }
 
@@ -1284,6 +1285,16 @@ namespace SAD_2_PTT_01
             disability_form.ShowDialog();
             shadow_.Close();
             disability_form_ = false;
+        }
+
+        private void device_request_new_Click(object sender, EventArgs e)
+        {
+            device_pnl_request_new.Visible = true;
+        }
+
+        private void projects_history_Click(object sender, EventArgs e)
+        {
+            device_pnl_request_new.Visible = false;
         }
     }
 }

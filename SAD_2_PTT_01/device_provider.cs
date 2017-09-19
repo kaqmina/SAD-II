@@ -315,7 +315,7 @@ namespace SAD_2_PTT_01
         private void btn_add_Click(object sender, EventArgs e)
         {
             bool success = false;
-            success = conn_devi.provider_add(provider_name_add.Text, provider_address_add.Text, provider_type_add.SelectedIndex, provider_mobile_no_add.Text, provider_tel_no_add.Text, provider_email_add.Text);
+            success = conn_devi.provider_add(provider_name_add.Text, provider_address_add.Text, provider_type_add.SelectedIndex - 1, provider_mobile_no_add.Text, provider_tel_no_add.Text, provider_email_add.Text);
             if (success)
                 reference_to_main.notification_ = "Successfully Added!";
             else
