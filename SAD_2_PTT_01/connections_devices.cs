@@ -311,6 +311,8 @@ namespace SAD_2_PTT_01
 
         public void get_disability_list(ComboBox disability_cbox)
         {
+            disability_cbox.Items.Clear();
+            disability_cbox.Items.Add("");
             try
             {
                 conn.Open();
@@ -340,6 +342,88 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public bool get_provider_list(ComboBox sponsor_cbox)
+        {
+            sponsor_cbox.Items.Clear();
+            sponsor_cbox.Items.Add("");
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_PROVIDER_LIST ] }");
+                comm = new MySqlCommand("SELECT * FROM device_provider WHERE isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    sponsor_cbox.Items.Add("No providers added.");
+                    has_data = false;
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        sponsor_cbox.Items.Add(data["dp_name"].ToString());
+                    }
+                    has_data = true;
+                }
+
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_PROVIDER_LIST_SUCCESS ] }");
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_PROVIDER_LIST_ERROR ] } : " + e.Message);
+                conn.Close();
+                has_data = false;
+            }
+            return has_data;
+        }
+
+        public bool get_device_list(ComboBox device_cbox)
+        {
+            device_cbox.Items.Clear();
+            device_cbox.Items.Add("");
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST ] }");
+                comm = new MySqlCommand("SELECT * FROM device WHERE isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    device_cbox.Items.Add("No devices added.");
+                    has_data = false;
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        device_cbox.Items.Add(data["dev_name"].ToString());
+                    }
+                    has_data = true;
+                }
+
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST_SUCCESS ] }");
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST_ERROR ] } : " + e.Message);
+                conn.Close();
+                has_data = false;
+            }
+            return has_data;
         }
 
         public bool device_check_duplicate(string new_name, string prev_name)
@@ -966,5 +1050,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #endregion
+
+        
     }
 }

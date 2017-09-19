@@ -211,9 +211,11 @@
             // 
             // device_disability_add
             // 
+            this.device_disability_add.DropDownHeight = 80;
             this.device_disability_add.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.device_disability_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.device_disability_add.FormattingEnabled = true;
+            this.device_disability_add.IntegralHeight = false;
             this.device_disability_add.Items.AddRange(new object[] {
             ""});
             this.device_disability_add.Location = new System.Drawing.Point(381, 232);
@@ -351,9 +353,11 @@
             // 
             // device_disability_edit
             // 
+            this.device_disability_edit.DropDownHeight = 80;
             this.device_disability_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.device_disability_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.device_disability_edit.FormattingEnabled = true;
+            this.device_disability_edit.IntegralHeight = false;
             this.device_disability_edit.Items.AddRange(new object[] {
             ""});
             this.device_disability_edit.Location = new System.Drawing.Point(6, 20);

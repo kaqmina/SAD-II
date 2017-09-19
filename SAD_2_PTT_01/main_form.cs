@@ -42,6 +42,7 @@ namespace SAD_2_PTT_01
             main_properties();
             grid_borderstyles();
             load_notifications();
+            load_device_cbox();
             
             btn_current = btn_dashboard;
             system_sidenav.lbl_current_text("dashboard");
@@ -1286,10 +1287,20 @@ namespace SAD_2_PTT_01
             shadow_.Close();
             disability_form_ = false;
         }
+        bool device_has_providers = false;
+        bool device_has_devices = false;
+
+        public void load_device_cbox()
+        {
+            device_has_providers = conn_devi.get_provider_list(device_sponsor_cbox);
+            device_has_devices = conn_devi.get_device_list(device_device_cbox);
+        }
 
         private void device_request_new_Click(object sender, EventArgs e)
         {
             device_pnl_request_new.Visible = true;
+            load_device_cbox();
+            conn_pwd.
         }
 
         private void projects_history_Click(object sender, EventArgs e)

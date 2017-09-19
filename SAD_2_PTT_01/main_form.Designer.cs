@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
             this.side_tab = new System.Windows.Forms.Panel();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -97,31 +97,16 @@
             this.btn_pwd_view = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pnl_devices = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.btn_exit = new System.Windows.Forms.Button();
-            this.device_handed_out_grid = new System.Windows.Forms.DataGridView();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.device_recieved = new System.Windows.Forms.DataGridView();
-            this.device_btn_recieved = new System.Windows.Forms.Button();
-            this.device_btn_requested = new System.Windows.Forms.Button();
-            this.device_requests = new System.Windows.Forms.DataGridView();
-            this.label34 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.device_request_new = new System.Windows.Forms.Button();
-            this.projects_disability = new System.Windows.Forms.Button();
-            this.projects_providers = new System.Windows.Forms.Button();
-            this.projects_devices = new System.Windows.Forms.Button();
-            this.projects_history = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.device_pnl_request_new = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.device_device_cbox = new System.Windows.Forms.ComboBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.device_lbl_contact_no = new System.Windows.Forms.Label();
+            this.device_request_desc = new System.Windows.Forms.TextBox();
+            this.device_request_date = new System.Windows.Forms.DateTimePicker();
+            this.device_sponsor_cbox = new System.Windows.Forms.ComboBox();
+            this.label66 = new System.Windows.Forms.Label();
             this.device_lbl_id_no = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -151,6 +136,28 @@
             this.pwd_list = new System.Windows.Forms.DataGridView();
             this.label58 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
+            this.device_handed_out_grid = new System.Windows.Forms.DataGridView();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.device_recieved = new System.Windows.Forms.DataGridView();
+            this.device_btn_recieved = new System.Windows.Forms.Button();
+            this.device_btn_requested = new System.Windows.Forms.Button();
+            this.device_requests = new System.Windows.Forms.DataGridView();
+            this.label34 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.device_request_new = new System.Windows.Forms.Button();
+            this.projects_disability = new System.Windows.Forms.Button();
+            this.projects_providers = new System.Windows.Forms.Button();
+            this.projects_devices = new System.Windows.Forms.Button();
+            this.projects_history = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnl_projects = new System.Windows.Forms.Panel();
             this.projects_panel_persons = new System.Windows.Forms.Panel();
             this.btn_projects_persons_attendance = new System.Windows.Forms.Button();
@@ -228,7 +235,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btn_notifications_pwd = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.device_reference_no = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -242,6 +251,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnl_devices.SuspendLayout();
+            this.device_pnl_request_new.SuspendLayout();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_list)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.device_handed_out_grid)).BeginInit();
             this.panel15.SuspendLayout();
@@ -249,9 +261,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.device_recieved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_requests)).BeginInit();
             this.panel3.SuspendLayout();
-            this.device_pnl_request_new.SuspendLayout();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_list)).BeginInit();
             this.pnl_projects.SuspendLayout();
             this.projects_panel_persons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).BeginInit();
@@ -446,7 +455,7 @@
             // 
             // btn_hide
             // 
-            this.btn_hide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.btn_hide.BackColor = System.Drawing.Color.Transparent;
             this.btn_hide.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_hide.BackgroundImage")));
             this.btn_hide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_hide.Dock = System.Windows.Forms.DockStyle.Top;
@@ -546,11 +555,11 @@
             // lbl_current
             // 
             this.lbl_current.AutoSize = true;
-            this.lbl_current.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_current.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Document, ((byte)(0)));
             this.lbl_current.ForeColor = System.Drawing.Color.White;
-            this.lbl_current.Location = new System.Drawing.Point(110, 3);
+            this.lbl_current.Location = new System.Drawing.Point(110, 5);
             this.lbl_current.Name = "lbl_current";
-            this.lbl_current.Size = new System.Drawing.Size(137, 21);
+            this.lbl_current.Size = new System.Drawing.Size(110, 17);
             this.lbl_current.TabIndex = 9;
             this.lbl_current.Text = "CURRENT PANEL";
             // 
@@ -973,22 +982,22 @@
             this.pwd_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.pwd_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.pwd_grid.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pwd_grid.DefaultCellStyle = dataGridViewCellStyle53;
             this.pwd_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pwd_grid.Location = new System.Drawing.Point(194, 139);
             this.pwd_grid.MultiSelect = false;
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle54;
             this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(858, 424);
@@ -1064,18 +1073,483 @@
             // 
             // pnl_devices
             // 
+            this.pnl_devices.Controls.Add(this.device_pnl_request_new);
             this.pnl_devices.Controls.Add(this.label27);
             this.pnl_devices.Controls.Add(this.label28);
             this.pnl_devices.Controls.Add(this.label33);
             this.pnl_devices.Controls.Add(this.panel14);
             this.pnl_devices.Controls.Add(this.label34);
             this.pnl_devices.Controls.Add(this.panel3);
-            this.pnl_devices.Controls.Add(this.device_pnl_request_new);
             this.pnl_devices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_devices.Location = new System.Drawing.Point(71, 28);
             this.pnl_devices.Name = "pnl_devices";
             this.pnl_devices.Size = new System.Drawing.Size(1066, 611);
             this.pnl_devices.TabIndex = 6;
+            // 
+            // device_pnl_request_new
+            // 
+            this.device_pnl_request_new.Controls.Add(this.label25);
+            this.device_pnl_request_new.Controls.Add(this.panel18);
+            this.device_pnl_request_new.Controls.Add(this.label26);
+            this.device_pnl_request_new.Location = new System.Drawing.Point(213, 28);
+            this.device_pnl_request_new.Name = "device_pnl_request_new";
+            this.device_pnl_request_new.Size = new System.Drawing.Size(853, 583);
+            this.device_pnl_request_new.TabIndex = 58;
+            this.device_pnl_request_new.Visible = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(134, 19);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(137, 13);
+            this.label25.TabIndex = 30;
+            this.label25.Text = "Only for registered PWDs";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel18.Controls.Add(this.label69);
+            this.panel18.Controls.Add(this.label67);
+            this.panel18.Controls.Add(this.device_reference_no);
+            this.panel18.Controls.Add(this.device_device_cbox);
+            this.panel18.Controls.Add(this.label68);
+            this.panel18.Controls.Add(this.device_lbl_contact_no);
+            this.panel18.Controls.Add(this.device_request_desc);
+            this.panel18.Controls.Add(this.device_request_date);
+            this.panel18.Controls.Add(this.device_sponsor_cbox);
+            this.panel18.Controls.Add(this.label66);
+            this.panel18.Controls.Add(this.device_lbl_id_no);
+            this.panel18.Controls.Add(this.label30);
+            this.panel18.Controls.Add(this.label32);
+            this.panel18.Controls.Add(this.label35);
+            this.panel18.Controls.Add(this.label36);
+            this.panel18.Controls.Add(this.lbl_provider_address);
+            this.panel18.Controls.Add(this.device_lbl_disability);
+            this.panel18.Controls.Add(this.device_lbl_pwd_name);
+            this.panel18.Controls.Add(this.label40);
+            this.panel18.Controls.Add(this.label41);
+            this.panel18.Controls.Add(this.label42);
+            this.panel18.Controls.Add(this.label43);
+            this.panel18.Controls.Add(this.label44);
+            this.panel18.Controls.Add(this.label45);
+            this.panel18.Controls.Add(this.label47);
+            this.panel18.Controls.Add(this.label48);
+            this.panel18.Controls.Add(this.label49);
+            this.panel18.Controls.Add(this.label50);
+            this.panel18.Controls.Add(this.label51);
+            this.panel18.Controls.Add(this.label52);
+            this.panel18.Controls.Add(this.label53);
+            this.panel18.Controls.Add(this.label54);
+            this.panel18.Controls.Add(this.label55);
+            this.panel18.Controls.Add(this.label56);
+            this.panel18.Controls.Add(this.label57);
+            this.panel18.Controls.Add(this.device_request_count_results);
+            this.panel18.Controls.Add(this.pwd_list);
+            this.panel18.Controls.Add(this.label58);
+            this.panel18.Location = new System.Drawing.Point(0, 48);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(853, 535);
+            this.panel18.TabIndex = 32;
+            // 
+            // device_device_cbox
+            // 
+            this.device_device_cbox.DropDownHeight = 80;
+            this.device_device_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.device_device_cbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_device_cbox.FormattingEnabled = true;
+            this.device_device_cbox.IntegralHeight = false;
+            this.device_device_cbox.Items.AddRange(new object[] {
+            ""});
+            this.device_device_cbox.Location = new System.Drawing.Point(482, 320);
+            this.device_device_cbox.Name = "device_device_cbox";
+            this.device_device_cbox.Size = new System.Drawing.Size(201, 21);
+            this.device_device_cbox.TabIndex = 219;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(480, 330);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(207, 15);
+            this.label68.TabIndex = 220;
+            this.label68.Text = "________________________________________";
+            // 
+            // device_lbl_contact_no
+            // 
+            this.device_lbl_contact_no.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.device_lbl_contact_no.AutoSize = true;
+            this.device_lbl_contact_no.ForeColor = System.Drawing.Color.Black;
+            this.device_lbl_contact_no.Location = new System.Drawing.Point(479, 202);
+            this.device_lbl_contact_no.MaximumSize = new System.Drawing.Size(153, 52);
+            this.device_lbl_contact_no.Name = "device_lbl_contact_no";
+            this.device_lbl_contact_no.Size = new System.Drawing.Size(148, 13);
+            this.device_lbl_contact_no.TabIndex = 218;
+            this.device_lbl_contact_no.Text = "Ateneo de Davao University";
+            // 
+            // device_request_desc
+            // 
+            this.device_request_desc.Location = new System.Drawing.Point(483, 278);
+            this.device_request_desc.MaxLength = 40;
+            this.device_request_desc.Multiline = true;
+            this.device_request_desc.Name = "device_request_desc";
+            this.device_request_desc.Size = new System.Drawing.Size(200, 36);
+            this.device_request_desc.TabIndex = 217;
+            this.device_request_desc.Visible = false;
+            // 
+            // device_request_date
+            // 
+            this.device_request_date.Location = new System.Drawing.Point(483, 246);
+            this.device_request_date.Name = "device_request_date";
+            this.device_request_date.Size = new System.Drawing.Size(200, 22);
+            this.device_request_date.TabIndex = 216;
+            // 
+            // device_sponsor_cbox
+            // 
+            this.device_sponsor_cbox.DropDownHeight = 80;
+            this.device_sponsor_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.device_sponsor_cbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_sponsor_cbox.FormattingEnabled = true;
+            this.device_sponsor_cbox.IntegralHeight = false;
+            this.device_sponsor_cbox.Items.AddRange(new object[] {
+            ""});
+            this.device_sponsor_cbox.Location = new System.Drawing.Point(482, 218);
+            this.device_sponsor_cbox.Name = "device_sponsor_cbox";
+            this.device_sponsor_cbox.Size = new System.Drawing.Size(201, 21);
+            this.device_sponsor_cbox.TabIndex = 214;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(480, 228);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(207, 15);
+            this.label66.TabIndex = 215;
+            this.label66.Text = "________________________________________";
+            // 
+            // device_lbl_id_no
+            // 
+            this.device_lbl_id_no.AutoSize = true;
+            this.device_lbl_id_no.ForeColor = System.Drawing.Color.Black;
+            this.device_lbl_id_no.Location = new System.Drawing.Point(479, 92);
+            this.device_lbl_id_no.Name = "device_lbl_id_no";
+            this.device_lbl_id_no.Size = new System.Drawing.Size(101, 13);
+            this.device_lbl_id_no.TabIndex = 213;
+            this.device_lbl_id_no.Text = "Name of Recipient";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label30.Location = new System.Drawing.Point(463, 352);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(10, 13);
+            this.label30.TabIndex = 212;
+            this.label30.Text = ":";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label32.Location = new System.Drawing.Point(356, 352);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(87, 13);
+            this.label32.TabIndex = 211;
+            this.label32.Text = "Reference No. *";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label35.Location = new System.Drawing.Point(463, 92);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(10, 13);
+            this.label35.TabIndex = 210;
+            this.label35.Text = ":";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label36.Location = new System.Drawing.Point(356, 92);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(39, 13);
+            this.label36.TabIndex = 209;
+            this.label36.Text = "ID No.";
+            // 
+            // lbl_provider_address
+            // 
+            this.lbl_provider_address.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_provider_address.AutoSize = true;
+            this.lbl_provider_address.ForeColor = System.Drawing.Color.Black;
+            this.lbl_provider_address.Location = new System.Drawing.Point(479, 140);
+            this.lbl_provider_address.MaximumSize = new System.Drawing.Size(153, 52);
+            this.lbl_provider_address.Name = "lbl_provider_address";
+            this.lbl_provider_address.Size = new System.Drawing.Size(148, 13);
+            this.lbl_provider_address.TabIndex = 208;
+            this.lbl_provider_address.Text = "Ateneo de Davao University";
+            // 
+            // device_lbl_disability
+            // 
+            this.device_lbl_disability.AutoSize = true;
+            this.device_lbl_disability.ForeColor = System.Drawing.Color.Black;
+            this.device_lbl_disability.Location = new System.Drawing.Point(479, 116);
+            this.device_lbl_disability.Name = "device_lbl_disability";
+            this.device_lbl_disability.Size = new System.Drawing.Size(101, 13);
+            this.device_lbl_disability.TabIndex = 206;
+            this.device_lbl_disability.Text = "Name of Recipient";
+            // 
+            // device_lbl_pwd_name
+            // 
+            this.device_lbl_pwd_name.AutoSize = true;
+            this.device_lbl_pwd_name.ForeColor = System.Drawing.Color.Black;
+            this.device_lbl_pwd_name.Location = new System.Drawing.Point(479, 69);
+            this.device_lbl_pwd_name.Name = "device_lbl_pwd_name";
+            this.device_lbl_pwd_name.Size = new System.Drawing.Size(101, 13);
+            this.device_lbl_pwd_name.TabIndex = 205;
+            this.device_lbl_pwd_name.Text = "Name of Recipient";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label40.Location = new System.Drawing.Point(463, 327);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(10, 13);
+            this.label40.TabIndex = 204;
+            this.label40.Text = ":";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label41.Location = new System.Drawing.Point(463, 274);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(10, 13);
+            this.label41.TabIndex = 203;
+            this.label41.Text = ":";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label42.Location = new System.Drawing.Point(463, 250);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(10, 13);
+            this.label42.TabIndex = 202;
+            this.label42.Text = ":";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label43.Location = new System.Drawing.Point(463, 226);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(10, 13);
+            this.label43.TabIndex = 201;
+            this.label43.Text = ":";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label44.Location = new System.Drawing.Point(463, 203);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(10, 13);
+            this.label44.TabIndex = 200;
+            this.label44.Text = ":";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label45.Location = new System.Drawing.Point(463, 140);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(10, 13);
+            this.label45.TabIndex = 199;
+            this.label45.Text = ":";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label47.Location = new System.Drawing.Point(463, 116);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(10, 13);
+            this.label47.TabIndex = 198;
+            this.label47.Text = ":";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label48.Location = new System.Drawing.Point(463, 69);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(10, 13);
+            this.label48.TabIndex = 197;
+            this.label48.Text = ":";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label49.Location = new System.Drawing.Point(356, 203);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(75, 13);
+            this.label49.TabIndex = 196;
+            this.label49.Text = "Contact no. *";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label50.Location = new System.Drawing.Point(356, 140);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(48, 13);
+            this.label50.TabIndex = 195;
+            this.label50.Text = "Address";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label51.Location = new System.Drawing.Point(356, 274);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(66, 13);
+            this.label51.TabIndex = 194;
+            this.label51.Text = "Description";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label52.Location = new System.Drawing.Point(356, 327);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(106, 13);
+            this.label52.TabIndex = 193;
+            this.label52.Text = "Requested Device *";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label53.Location = new System.Drawing.Point(356, 250);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(84, 13);
+            this.label53.TabIndex = 192;
+            this.label53.Text = "Request Date *";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label54.Location = new System.Drawing.Point(356, 226);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(58, 13);
+            this.label54.TabIndex = 191;
+            this.label54.Text = "Sponsor *";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label55.Location = new System.Drawing.Point(356, 116);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(54, 13);
+            this.label55.TabIndex = 190;
+            this.label55.Text = "Disability";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(356, 9);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(98, 17);
+            this.label56.TabIndex = 189;
+            this.label56.Text = "INFORMATION";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label57.Location = new System.Drawing.Point(356, 69);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(101, 13);
+            this.label57.TabIndex = 188;
+            this.label57.Text = "Name of Recipient";
+            // 
+            // device_request_count_results
+            // 
+            this.device_request_count_results.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.device_request_count_results.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_request_count_results.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.device_request_count_results.Location = new System.Drawing.Point(167, 10);
+            this.device_request_count_results.Name = "device_request_count_results";
+            this.device_request_count_results.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.device_request_count_results.Size = new System.Drawing.Size(172, 14);
+            this.device_request_count_results.TabIndex = 187;
+            this.device_request_count_results.Text = "Results: 10";
+            this.device_request_count_results.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pwd_list
+            // 
+            this.pwd_list.AllowUserToAddRows = false;
+            this.pwd_list.AllowUserToDeleteRows = false;
+            this.pwd_list.AllowUserToResizeColumns = false;
+            this.pwd_list.AllowUserToResizeRows = false;
+            this.pwd_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.pwd_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.pwd_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pwd_list.DefaultCellStyle = dataGridViewCellStyle55;
+            this.pwd_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_list.Location = new System.Drawing.Point(14, 30);
+            this.pwd_list.MultiSelect = false;
+            this.pwd_list.Name = "pwd_list";
+            this.pwd_list.ReadOnly = true;
+            this.pwd_list.RowHeadersVisible = false;
+            this.pwd_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_list.RowsDefaultCellStyle = dataGridViewCellStyle56;
+            this.pwd_list.RowTemplate.Height = 25;
+            this.pwd_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.pwd_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.pwd_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pwd_list.Size = new System.Drawing.Size(327, 493);
+            this.pwd_list.TabIndex = 186;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(12, 9);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(44, 17);
+            this.label58.TabIndex = 185;
+            this.label58.Text = "PWDs";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label26.Location = new System.Drawing.Point(6, 14);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(122, 21);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "NEW REQUEST";
             // 
             // label27
             // 
@@ -1175,14 +1649,14 @@
             this.device_handed_out_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.device_handed_out_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.device_handed_out_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_handed_out_grid.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_handed_out_grid.DefaultCellStyle = dataGridViewCellStyle57;
             this.device_handed_out_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_handed_out_grid.Location = new System.Drawing.Point(223, 30);
             this.device_handed_out_grid.MultiSelect = false;
@@ -1190,8 +1664,8 @@
             this.device_handed_out_grid.ReadOnly = true;
             this.device_handed_out_grid.RowHeadersVisible = false;
             this.device_handed_out_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_handed_out_grid.RowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_handed_out_grid.RowsDefaultCellStyle = dataGridViewCellStyle58;
             this.device_handed_out_grid.RowTemplate.Height = 25;
             this.device_handed_out_grid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_handed_out_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1233,14 +1707,14 @@
             this.device_recieved.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.device_recieved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.device_recieved.ColumnHeadersVisible = false;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_recieved.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_recieved.DefaultCellStyle = dataGridViewCellStyle59;
             this.device_recieved.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_recieved.Location = new System.Drawing.Point(0, 18);
             this.device_recieved.MultiSelect = false;
@@ -1248,9 +1722,9 @@
             this.device_recieved.ReadOnly = true;
             this.device_recieved.RowHeadersVisible = false;
             this.device_recieved.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_recieved.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_recieved.RowsDefaultCellStyle = dataGridViewCellStyle60;
             this.device_recieved.RowTemplate.Height = 40;
             this.device_recieved.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_recieved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1306,14 +1780,14 @@
             this.device_requests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.device_requests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.device_requests.ColumnHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_requests.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_requests.DefaultCellStyle = dataGridViewCellStyle61;
             this.device_requests.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_requests.Location = new System.Drawing.Point(0, 18);
             this.device_requests.MultiSelect = false;
@@ -1321,9 +1795,9 @@
             this.device_requests.ReadOnly = true;
             this.device_requests.RowHeadersVisible = false;
             this.device_requests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_requests.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_requests.RowsDefaultCellStyle = dataGridViewCellStyle62;
             this.device_requests.RowTemplate.Height = 40;
             this.device_requests.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_requests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1466,388 +1940,9 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // device_pnl_request_new
-            // 
-            this.device_pnl_request_new.Controls.Add(this.label25);
-            this.device_pnl_request_new.Controls.Add(this.panel18);
-            this.device_pnl_request_new.Controls.Add(this.label26);
-            this.device_pnl_request_new.Location = new System.Drawing.Point(213, 28);
-            this.device_pnl_request_new.Name = "device_pnl_request_new";
-            this.device_pnl_request_new.Size = new System.Drawing.Size(853, 583);
-            this.device_pnl_request_new.TabIndex = 58;
-            this.device_pnl_request_new.Visible = false;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(134, 19);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(137, 13);
-            this.label25.TabIndex = 30;
-            this.label25.Text = "Only for registered PWDs";
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel18.Controls.Add(this.device_lbl_id_no);
-            this.panel18.Controls.Add(this.label30);
-            this.panel18.Controls.Add(this.label32);
-            this.panel18.Controls.Add(this.label35);
-            this.panel18.Controls.Add(this.label36);
-            this.panel18.Controls.Add(this.lbl_provider_address);
-            this.panel18.Controls.Add(this.device_lbl_disability);
-            this.panel18.Controls.Add(this.device_lbl_pwd_name);
-            this.panel18.Controls.Add(this.label40);
-            this.panel18.Controls.Add(this.label41);
-            this.panel18.Controls.Add(this.label42);
-            this.panel18.Controls.Add(this.label43);
-            this.panel18.Controls.Add(this.label44);
-            this.panel18.Controls.Add(this.label45);
-            this.panel18.Controls.Add(this.label47);
-            this.panel18.Controls.Add(this.label48);
-            this.panel18.Controls.Add(this.label49);
-            this.panel18.Controls.Add(this.label50);
-            this.panel18.Controls.Add(this.label51);
-            this.panel18.Controls.Add(this.label52);
-            this.panel18.Controls.Add(this.label53);
-            this.panel18.Controls.Add(this.label54);
-            this.panel18.Controls.Add(this.label55);
-            this.panel18.Controls.Add(this.label56);
-            this.panel18.Controls.Add(this.label57);
-            this.panel18.Controls.Add(this.device_request_count_results);
-            this.panel18.Controls.Add(this.pwd_list);
-            this.panel18.Controls.Add(this.label58);
-            this.panel18.Location = new System.Drawing.Point(0, 48);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(853, 535);
-            this.panel18.TabIndex = 32;
-            // 
-            // device_lbl_id_no
-            // 
-            this.device_lbl_id_no.AutoSize = true;
-            this.device_lbl_id_no.ForeColor = System.Drawing.Color.Black;
-            this.device_lbl_id_no.Location = new System.Drawing.Point(479, 92);
-            this.device_lbl_id_no.Name = "device_lbl_id_no";
-            this.device_lbl_id_no.Size = new System.Drawing.Size(101, 13);
-            this.device_lbl_id_no.TabIndex = 213;
-            this.device_lbl_id_no.Text = "Name of Recipient";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label30.Location = new System.Drawing.Point(463, 371);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(10, 13);
-            this.label30.TabIndex = 212;
-            this.label30.Text = ":";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label32.Location = new System.Drawing.Point(356, 371);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(79, 13);
-            this.label32.TabIndex = 211;
-            this.label32.Text = "Reference No.";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label35.Location = new System.Drawing.Point(463, 92);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(10, 13);
-            this.label35.TabIndex = 210;
-            this.label35.Text = ":";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label36.Location = new System.Drawing.Point(356, 92);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(39, 13);
-            this.label36.TabIndex = 209;
-            this.label36.Text = "ID No.";
-            // 
-            // lbl_provider_address
-            // 
-            this.lbl_provider_address.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_provider_address.AutoSize = true;
-            this.lbl_provider_address.ForeColor = System.Drawing.Color.Black;
-            this.lbl_provider_address.Location = new System.Drawing.Point(479, 164);
-            this.lbl_provider_address.MaximumSize = new System.Drawing.Size(153, 52);
-            this.lbl_provider_address.Name = "lbl_provider_address";
-            this.lbl_provider_address.Size = new System.Drawing.Size(148, 13);
-            this.lbl_provider_address.TabIndex = 208;
-            this.lbl_provider_address.Text = "Ateneo de Davao University";
-            // 
-            // device_lbl_disability
-            // 
-            this.device_lbl_disability.AutoSize = true;
-            this.device_lbl_disability.ForeColor = System.Drawing.Color.Black;
-            this.device_lbl_disability.Location = new System.Drawing.Point(479, 116);
-            this.device_lbl_disability.Name = "device_lbl_disability";
-            this.device_lbl_disability.Size = new System.Drawing.Size(101, 13);
-            this.device_lbl_disability.TabIndex = 206;
-            this.device_lbl_disability.Text = "Name of Recipient";
-            // 
-            // device_lbl_pwd_name
-            // 
-            this.device_lbl_pwd_name.AutoSize = true;
-            this.device_lbl_pwd_name.ForeColor = System.Drawing.Color.Black;
-            this.device_lbl_pwd_name.Location = new System.Drawing.Point(479, 69);
-            this.device_lbl_pwd_name.Name = "device_lbl_pwd_name";
-            this.device_lbl_pwd_name.Size = new System.Drawing.Size(101, 13);
-            this.device_lbl_pwd_name.TabIndex = 205;
-            this.device_lbl_pwd_name.Text = "Name of Recipient";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label40.Location = new System.Drawing.Point(463, 348);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(10, 13);
-            this.label40.TabIndex = 204;
-            this.label40.Text = ":";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label41.Location = new System.Drawing.Point(463, 274);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(10, 13);
-            this.label41.TabIndex = 203;
-            this.label41.Text = ":";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label42.Location = new System.Drawing.Point(463, 250);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(10, 13);
-            this.label42.TabIndex = 202;
-            this.label42.Text = ":";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label43.Location = new System.Drawing.Point(463, 226);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(10, 13);
-            this.label43.TabIndex = 201;
-            this.label43.Text = ":";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label44.Location = new System.Drawing.Point(463, 164);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(10, 13);
-            this.label44.TabIndex = 200;
-            this.label44.Text = ":";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label45.Location = new System.Drawing.Point(463, 140);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(10, 13);
-            this.label45.TabIndex = 199;
-            this.label45.Text = ":";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label47.Location = new System.Drawing.Point(463, 116);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(10, 13);
-            this.label47.TabIndex = 198;
-            this.label47.Text = ":";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label48.Location = new System.Drawing.Point(463, 69);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(10, 13);
-            this.label48.TabIndex = 197;
-            this.label48.Text = ":";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label49.Location = new System.Drawing.Point(356, 164);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(48, 13);
-            this.label49.TabIndex = 196;
-            this.label49.Text = "Address";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label50.Location = new System.Drawing.Point(356, 140);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(75, 13);
-            this.label50.TabIndex = 195;
-            this.label50.Text = "Contact no. *";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label51.Location = new System.Drawing.Point(356, 274);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(66, 13);
-            this.label51.TabIndex = 194;
-            this.label51.Text = "Description";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label52.Location = new System.Drawing.Point(356, 348);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(98, 13);
-            this.label52.TabIndex = 193;
-            this.label52.Text = "Requested Device";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label53.Location = new System.Drawing.Point(356, 250);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(76, 13);
-            this.label53.TabIndex = 192;
-            this.label53.Text = "Request Date";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label54.Location = new System.Drawing.Point(356, 226);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(50, 13);
-            this.label54.TabIndex = 191;
-            this.label54.Text = "Sponsor";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label55.Location = new System.Drawing.Point(356, 116);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(54, 13);
-            this.label55.TabIndex = 190;
-            this.label55.Text = "Disability";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(356, 9);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(98, 17);
-            this.label56.TabIndex = 189;
-            this.label56.Text = "INFORMATION";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label57.Location = new System.Drawing.Point(356, 69);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(101, 13);
-            this.label57.TabIndex = 188;
-            this.label57.Text = "Name of Recipient";
-            // 
-            // device_request_count_results
-            // 
-            this.device_request_count_results.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.device_request_count_results.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_request_count_results.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.device_request_count_results.Location = new System.Drawing.Point(126, 10);
-            this.device_request_count_results.Name = "device_request_count_results";
-            this.device_request_count_results.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.device_request_count_results.Size = new System.Drawing.Size(213, 13);
-            this.device_request_count_results.TabIndex = 187;
-            this.device_request_count_results.Text = "Results: 10";
-            this.device_request_count_results.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pwd_list
-            // 
-            this.pwd_list.AllowUserToAddRows = false;
-            this.pwd_list.AllowUserToDeleteRows = false;
-            this.pwd_list.AllowUserToResizeColumns = false;
-            this.pwd_list.AllowUserToResizeRows = false;
-            this.pwd_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.pwd_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.pwd_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.pwd_list.DefaultCellStyle = dataGridViewCellStyle22;
-            this.pwd_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_list.Location = new System.Drawing.Point(14, 30);
-            this.pwd_list.MultiSelect = false;
-            this.pwd_list.Name = "pwd_list";
-            this.pwd_list.ReadOnly = true;
-            this.pwd_list.RowHeadersVisible = false;
-            this.pwd_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_list.RowsDefaultCellStyle = dataGridViewCellStyle23;
-            this.pwd_list.RowTemplate.Height = 25;
-            this.pwd_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.pwd_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.pwd_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pwd_list.Size = new System.Drawing.Size(327, 493);
-            this.pwd_list.TabIndex = 186;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(12, 9);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(87, 17);
-            this.label58.TabIndex = 185;
-            this.label58.Text = "LIST OF PWD";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label26.Location = new System.Drawing.Point(6, 14);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(122, 21);
-            this.label26.TabIndex = 31;
-            this.label26.Text = "NEW REQUEST";
-            // 
             // pnl_projects
             // 
             this.pnl_projects.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnl_projects.Controls.Add(this.panel11);
             this.pnl_projects.Controls.Add(this.projects_panel_persons);
             this.pnl_projects.Controls.Add(this.panel17);
             this.pnl_projects.Controls.Add(this.projects_pnl_information);
@@ -1943,8 +2038,8 @@
             this.projects_grid_persons_involved.Name = "projects_grid_persons_involved";
             this.projects_grid_persons_involved.ReadOnly = true;
             this.projects_grid_persons_involved.RowHeadersVisible = false;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle63;
             this.projects_grid_persons_involved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.projects_grid_persons_involved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.projects_grid_persons_involved.Size = new System.Drawing.Size(522, 366);
@@ -2359,8 +2454,8 @@
             this.project_items_grid.Name = "project_items_grid";
             this.project_items_grid.ReadOnly = true;
             this.project_items_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.project_items_grid.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_items_grid.RowsDefaultCellStyle = dataGridViewCellStyle64;
             this.project_items_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.project_items_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.project_items_grid.Size = new System.Drawing.Size(271, 235);
@@ -2602,8 +2697,8 @@
             this.projects_grid.Name = "projects_grid";
             this.projects_grid.ReadOnly = true;
             this.projects_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle65;
             this.projects_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.projects_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.projects_grid.Size = new System.Drawing.Size(481, 491);
@@ -2623,7 +2718,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
             this.panel4.Controls.Add(this.btn_project_add);
             this.panel4.Controls.Add(this.btn_project_list);
             this.panel4.Controls.Add(this.button3);
@@ -2847,12 +2942,34 @@
             this.btn_notifications_pwd.Text = "There are no new notifications..";
             this.btn_notifications_pwd.UseVisualStyleBackColor = false;
             // 
-            // panel11
+            // device_reference_no
             // 
-            this.panel11.Location = new System.Drawing.Point(0, 28);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1066, 583);
-            this.panel11.TabIndex = 146;
+            this.device_reference_no.Location = new System.Drawing.Point(483, 348);
+            this.device_reference_no.Name = "device_reference_no";
+            this.device_reference_no.Size = new System.Drawing.Size(200, 22);
+            this.device_reference_no.TabIndex = 221;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label67.Location = new System.Drawing.Point(51, 11);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(112, 13);
+            this.label67.TabIndex = 145;
+            this.label67.Text = "(Not yet given devices)";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label69.Location = new System.Drawing.Point(360, 287);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(55, 13);
+            this.label69.TabIndex = 222;
+            this.label69.Text = "(Optional)";
             // 
             // main_form
             // 
@@ -2860,8 +2977,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
-            this.Controls.Add(this.pnl_projects);
             this.Controls.Add(this.pnl_devices);
+            this.Controls.Add(this.pnl_projects);
             this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_settings);
@@ -2899,6 +3016,11 @@
             this.panel2.ResumeLayout(false);
             this.pnl_devices.ResumeLayout(false);
             this.pnl_devices.PerformLayout();
+            this.device_pnl_request_new.ResumeLayout(false);
+            this.device_pnl_request_new.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_list)).EndInit();
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.device_handed_out_grid)).EndInit();
             this.panel15.ResumeLayout(false);
@@ -2906,11 +3028,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.device_recieved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_requests)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.device_pnl_request_new.ResumeLayout(false);
-            this.device_pnl_request_new.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_list)).EndInit();
             this.pnl_projects.ResumeLayout(false);
             this.pnl_projects.PerformLayout();
             this.projects_panel_persons.ResumeLayout(false);
@@ -3123,7 +3240,16 @@
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.DateTimePicker device_request_date;
+        private System.Windows.Forms.ComboBox device_sponsor_cbox;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.ComboBox device_device_cbox;
+        private System.Windows.Forms.Label label68;
+        public System.Windows.Forms.Label device_lbl_contact_no;
+        private System.Windows.Forms.TextBox device_request_desc;
+        private System.Windows.Forms.TextBox device_reference_no;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label69;
     }
 }
 

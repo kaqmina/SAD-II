@@ -28,23 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_add_project = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.project_venue = new System.Windows.Forms.TextBox();
-            this.project_desc = new System.Windows.Forms.TextBox();
-            this.project_title = new System.Windows.Forms.TextBox();
-            this.start_date = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.start_time = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.pnl_basic = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -55,230 +39,69 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.project_venue = new System.Windows.Forms.TextBox();
+            this.project_desc = new System.Windows.Forms.TextBox();
+            this.project_title = new System.Windows.Forms.TextBox();
+            this.start_date = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.start_time = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.header_text = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.btn_add_project = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.pnl_budget_items = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.pnl_basic.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnl_budget_items.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnl_basic
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.dateTimePicker3);
-            this.panel1.Controls.Add(this.dateTimePicker4);
-            this.panel1.Controls.Add(this.dateTimePicker5);
-            this.panel1.Controls.Add(this.date_proposed);
-            this.panel1.Controls.Add(this.end_date);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.btn_add_project);
-            this.panel1.Controls.Add(this.btn_cancel);
-            this.panel1.Controls.Add(this.project_venue);
-            this.panel1.Controls.Add(this.project_desc);
-            this.panel1.Controls.Add(this.project_title);
-            this.panel1.Controls.Add(this.start_date);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.start_time);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Location = new System.Drawing.Point(3, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(714, 305);
-            this.panel1.TabIndex = 9;
-            // 
-            // btn_add_project
-            // 
-            this.btn_add_project.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add_project.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_add_project.Enabled = false;
-            this.btn_add_project.FlatAppearance.BorderSize = 0;
-            this.btn_add_project.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_project.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add_project.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_add_project.Location = new System.Drawing.Point(387, 265);
-            this.btn_add_project.Name = "btn_add_project";
-            this.btn_add_project.Size = new System.Drawing.Size(118, 31);
-            this.btn_add_project.TabIndex = 104;
-            this.btn_add_project.Text = "ADD";
-            this.btn_add_project.UseVisualStyleBackColor = false;
-            this.btn_add_project.Click += new System.EventHandler(this.btn_add_project_Click);
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.FlatAppearance.BorderSize = 0;
-            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_cancel.Location = new System.Drawing.Point(266, 265);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(118, 31);
-            this.btn_cancel.TabIndex = 103;
-            this.btn_cancel.Text = "CANCEL";
-            this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
-            // 
-            // project_venue
-            // 
-            this.project_venue.Location = new System.Drawing.Point(15, 197);
-            this.project_venue.MaxLength = 100;
-            this.project_venue.Multiline = true;
-            this.project_venue.Name = "project_venue";
-            this.project_venue.Size = new System.Drawing.Size(231, 62);
-            this.project_venue.TabIndex = 102;
-            this.project_venue.TextChanged += new System.EventHandler(this.project_venue_TextChanged);
-            // 
-            // project_desc
-            // 
-            this.project_desc.Location = new System.Drawing.Point(15, 72);
-            this.project_desc.MaxLength = 100;
-            this.project_desc.Multiline = true;
-            this.project_desc.Name = "project_desc";
-            this.project_desc.Size = new System.Drawing.Size(231, 104);
-            this.project_desc.TabIndex = 99;
-            this.project_desc.TextChanged += new System.EventHandler(this.project_desc_TextChanged);
-            // 
-            // project_title
-            // 
-            this.project_title.Location = new System.Drawing.Point(15, 31);
-            this.project_title.MaxLength = 60;
-            this.project_title.Name = "project_title";
-            this.project_title.Size = new System.Drawing.Size(231, 22);
-            this.project_title.TabIndex = 98;
-            this.project_title.TextChanged += new System.EventHandler(this.project_title_TextChanged);
-            // 
-            // start_date
-            // 
-            this.start_date.CustomFormat = "";
-            this.start_date.Location = new System.Drawing.Point(266, 31);
-            this.start_date.Name = "start_date";
-            this.start_date.Size = new System.Drawing.Size(239, 22);
-            this.start_date.TabIndex = 96;
-            this.start_date.ValueChanged += new System.EventHandler(this.start_date_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(12, 181);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 95;
-            this.label8.Text = "VENUE";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(263, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 91;
-            this.label4.Text = "START DATE";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(263, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 87;
-            this.label2.Text = "TIME";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 86;
-            this.label1.Text = "DESCRIPTION";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(12, 15);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(31, 13);
-            this.label20.TabIndex = 85;
-            this.label20.Text = "TITLE";
-            // 
-            // start_time
-            // 
-            this.start_time.CustomFormat = "hh";
-            this.start_time.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start_time.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.start_time.Location = new System.Drawing.Point(304, 73);
-            this.start_time.Name = "start_time";
-            this.start_time.ShowUpDown = true;
-            this.start_time.Size = new System.Drawing.Size(43, 23);
-            this.start_time.TabIndex = 88;
-            this.start_time.ValueChanged += new System.EventHandler(this.start_time_ValueChanged);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "mm";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(405, 73);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(43, 23);
-            this.dateTimePicker1.TabIndex = 108;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "tt";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(454, 73);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(43, 23);
-            this.dateTimePicker2.TabIndex = 109;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(353, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
-            this.label7.TabIndex = 110;
-            this.label7.Text = "Minute :";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(263, 78);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 13);
-            this.label10.TabIndex = 115;
-            this.label10.Text = "Hour :";
+            this.pnl_basic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_basic.Controls.Add(this.label9);
+            this.pnl_basic.Controls.Add(this.label11);
+            this.pnl_basic.Controls.Add(this.dateTimePicker3);
+            this.pnl_basic.Controls.Add(this.dateTimePicker4);
+            this.pnl_basic.Controls.Add(this.btn_cancel);
+            this.pnl_basic.Controls.Add(this.btn_add_project);
+            this.pnl_basic.Controls.Add(this.dateTimePicker5);
+            this.pnl_basic.Controls.Add(this.date_proposed);
+            this.pnl_basic.Controls.Add(this.end_date);
+            this.pnl_basic.Controls.Add(this.label6);
+            this.pnl_basic.Controls.Add(this.label5);
+            this.pnl_basic.Controls.Add(this.label3);
+            this.pnl_basic.Controls.Add(this.label10);
+            this.pnl_basic.Controls.Add(this.label7);
+            this.pnl_basic.Controls.Add(this.dateTimePicker2);
+            this.pnl_basic.Controls.Add(this.dateTimePicker1);
+            this.pnl_basic.Controls.Add(this.project_venue);
+            this.pnl_basic.Controls.Add(this.project_desc);
+            this.pnl_basic.Controls.Add(this.project_title);
+            this.pnl_basic.Controls.Add(this.start_date);
+            this.pnl_basic.Controls.Add(this.label8);
+            this.pnl_basic.Controls.Add(this.label4);
+            this.pnl_basic.Controls.Add(this.start_time);
+            this.pnl_basic.Controls.Add(this.label2);
+            this.pnl_basic.Controls.Add(this.label1);
+            this.pnl_basic.Controls.Add(this.label20);
+            this.pnl_basic.Location = new System.Drawing.Point(226, 54);
+            this.pnl_basic.Name = "pnl_basic";
+            this.pnl_basic.Size = new System.Drawing.Size(572, 394);
+            this.pnl_basic.TabIndex = 9;
             // 
             // label9
             // 
@@ -382,6 +205,155 @@
             this.label3.TabIndex = 121;
             this.label3.Text = "LASTS FOR :";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(263, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 115;
+            this.label10.Text = "Hour :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(353, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 13);
+            this.label7.TabIndex = 110;
+            this.label7.Text = "Minute :";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "tt";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(454, 73);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(43, 23);
+            this.dateTimePicker2.TabIndex = 109;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "mm";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(405, 73);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(43, 23);
+            this.dateTimePicker1.TabIndex = 108;
+            // 
+            // project_venue
+            // 
+            this.project_venue.Location = new System.Drawing.Point(15, 197);
+            this.project_venue.MaxLength = 100;
+            this.project_venue.Multiline = true;
+            this.project_venue.Name = "project_venue";
+            this.project_venue.Size = new System.Drawing.Size(231, 62);
+            this.project_venue.TabIndex = 102;
+            this.project_venue.TextChanged += new System.EventHandler(this.project_venue_TextChanged);
+            // 
+            // project_desc
+            // 
+            this.project_desc.Location = new System.Drawing.Point(15, 72);
+            this.project_desc.MaxLength = 100;
+            this.project_desc.Multiline = true;
+            this.project_desc.Name = "project_desc";
+            this.project_desc.Size = new System.Drawing.Size(231, 104);
+            this.project_desc.TabIndex = 99;
+            this.project_desc.TextChanged += new System.EventHandler(this.project_desc_TextChanged);
+            // 
+            // project_title
+            // 
+            this.project_title.Location = new System.Drawing.Point(15, 31);
+            this.project_title.MaxLength = 60;
+            this.project_title.Name = "project_title";
+            this.project_title.Size = new System.Drawing.Size(231, 22);
+            this.project_title.TabIndex = 98;
+            this.project_title.TextChanged += new System.EventHandler(this.project_title_TextChanged);
+            // 
+            // start_date
+            // 
+            this.start_date.CustomFormat = "";
+            this.start_date.Location = new System.Drawing.Point(266, 31);
+            this.start_date.Name = "start_date";
+            this.start_date.Size = new System.Drawing.Size(239, 22);
+            this.start_date.TabIndex = 96;
+            this.start_date.ValueChanged += new System.EventHandler(this.start_date_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(12, 181);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 95;
+            this.label8.Text = "VENUE";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(263, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 91;
+            this.label4.Text = "START DATE";
+            // 
+            // start_time
+            // 
+            this.start_time.CustomFormat = "hh";
+            this.start_time.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.start_time.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.start_time.Location = new System.Drawing.Point(304, 73);
+            this.start_time.Name = "start_time";
+            this.start_time.ShowUpDown = true;
+            this.start_time.Size = new System.Drawing.Size(43, 23);
+            this.start_time.TabIndex = 88;
+            this.start_time.ValueChanged += new System.EventHandler(this.start_time_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(263, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 87;
+            this.label2.Text = "TIME";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 86;
+            this.label1.Text = "DESCRIPTION";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(12, 15);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(31, 13);
+            this.label20.TabIndex = 85;
+            this.label20.Text = "TITLE";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
@@ -390,7 +362,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(720, 28);
+            this.panel2.Size = new System.Drawing.Size(801, 28);
             this.panel2.TabIndex = 8;
             // 
             // btn_close
@@ -406,7 +378,7 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_close.Location = new System.Drawing.Point(694, 2);
+            this.btn_close.Location = new System.Drawing.Point(775, 2);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(24, 24);
             this.btn_close.TabIndex = 121;
@@ -425,10 +397,19 @@
             this.btn_mode_status.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_mode_status.Location = new System.Drawing.Point(0, 0);
             this.btn_mode_status.Name = "btn_mode_status";
-            this.btn_mode_status.Size = new System.Drawing.Size(720, 28);
+            this.btn_mode_status.Size = new System.Drawing.Size(801, 28);
             this.btn_mode_status.TabIndex = 3;
             this.btn_mode_status.Text = "ADD PROJECT";
             this.btn_mode_status.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(41)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 51);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(223, 400);
+            this.panel3.TabIndex = 105;
             // 
             // header_text
             // 
@@ -443,18 +424,98 @@
             this.header_text.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.header_text.Location = new System.Drawing.Point(0, 28);
             this.header_text.Name = "header_text";
-            this.header_text.Size = new System.Drawing.Size(720, 23);
+            this.header_text.Size = new System.Drawing.Size(801, 23);
             this.header_text.TabIndex = 55;
             this.header_text.UseVisualStyleBackColor = false;
+            // 
+            // btn_add_project
+            // 
+            this.btn_add_project.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add_project.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_add_project.Enabled = false;
+            this.btn_add_project.FlatAppearance.BorderSize = 0;
+            this.btn_add_project.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_project.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_project.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_add_project.Location = new System.Drawing.Point(416, 345);
+            this.btn_add_project.Name = "btn_add_project";
+            this.btn_add_project.Size = new System.Drawing.Size(118, 31);
+            this.btn_add_project.TabIndex = 104;
+            this.btn_add_project.Text = "ADD";
+            this.btn_add_project.UseVisualStyleBackColor = false;
+            this.btn_add_project.Click += new System.EventHandler(this.btn_add_project_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_cancel.Location = new System.Drawing.Point(295, 345);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(118, 31);
+            this.btn_cancel.TabIndex = 103;
+            this.btn_cancel.Text = "CANCEL";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // pnl_budget_items
+            // 
+            this.pnl_budget_items.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_budget_items.Controls.Add(this.label19);
+            this.pnl_budget_items.Controls.Add(this.label21);
+            this.pnl_budget_items.Controls.Add(this.label24);
+            this.pnl_budget_items.Location = new System.Drawing.Point(226, 54);
+            this.pnl_budget_items.Name = "pnl_budget_items";
+            this.pnl_budget_items.Size = new System.Drawing.Size(572, 394);
+            this.pnl_budget_items.TabIndex = 131;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(12, 181);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 13);
+            this.label19.TabIndex = 95;
+            this.label19.Text = "VENUE";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(263, 15);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(64, 13);
+            this.label21.TabIndex = 91;
+            this.label21.Text = "START DATE";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(12, 15);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(31, 13);
+            this.label24.TabIndex = 85;
+            this.label24.Text = "TITLE";
             // 
             // project_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
-            this.ClientSize = new System.Drawing.Size(720, 362);
+            this.ClientSize = new System.Drawing.Size(801, 451);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.header_text);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_budget_items);
+            this.Controls.Add(this.pnl_basic);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -462,15 +523,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "project_add";
             this.Load += new System.EventHandler(this.project_add_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnl_basic.ResumeLayout(false);
+            this.pnl_basic.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.pnl_budget_items.ResumeLayout(false);
+            this.pnl_budget_items.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_basic;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label20;
@@ -480,8 +543,6 @@
         private System.Windows.Forms.TextBox project_venue;
         private System.Windows.Forms.TextBox project_desc;
         private System.Windows.Forms.TextBox project_title;
-        private System.Windows.Forms.Button btn_add_project;
-        private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -500,6 +561,13 @@
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_mode_status;
+        private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Button header_text;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_add_project;
+        private System.Windows.Forms.Panel pnl_budget_items;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label24;
     }
 }
