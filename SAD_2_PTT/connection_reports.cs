@@ -169,6 +169,35 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
+        public List<string> disability;
+        public int disability_count;
+        public void getDisability()
+        {
+            comm = new MySqlCommand("SELECT disability_type, COUNT(disability_type) FROM p_dao.disability", conn);
+            string dis;
+            disability = new List<string>();
+            try
+            {
+                conn.Open();
+                dr = comm.ExecuteReader();
+                do
+                {
+                    while (dr.Read())
+                    {
+                        dis = dr.GetString("disability_type");
+                        disability_count = dr.GetInt32("COUNT(disability_type)");
+                        if (dis == "") MessageBox.Show("No disabilities added.");
+                        else disability.Add(dr.GetString(dis));
+                    }
+                } while (dr.NextResult());
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getDisability() : " + ex);
+                conn.Close();
+            }
+        }
         #endregion
 
         #region <-- MASTERLIST --> [Print]
@@ -280,6 +309,7 @@ namespace SAD_2_PTT
             string[] ageBracket = { "0-2 YRS. OLD", "3-4 YRS. OLD", "5-6 YRS. OLD", "7-12 YRS. OLD", "13-18 YRS. OLD", "19-24 YRS. OLD", "25-59 YRS. OLD", "60 YRS. OLD" };
             string[] district = { "AGDAO", "BAGUIO", "BUHANGIN", "BUNAWAN", "CALINAN", "CITY-A", "CITY-B", "MARILOG", "PAQUIBATO", "TALOMO-A", "TALOMO-B", "TORIL", "TUGBOK" };
             string[] gender = { "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F", "M", "F" };
+        
             ExcelPackage exc = new ExcelPackage();
             ExcelWorksheet wsheet = exc.Workbook.Worksheets.Add("Sheet1");
             ExcelWorksheet wschild = exc.Workbook.Worksheets.Add("Sheet2");
@@ -292,9 +322,14 @@ namespace SAD_2_PTT
 
             //Table [SCAM]
             wsheet.Cells[4, 1, 20, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wschild.Cells[4, 1, 20, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            wsadult.Cells[4, 1, 20, 17].Style.Border.BorderAround(ExcelBorderStyle.Thick);
 
+            getDisability();
             for (int j = 1; j < 17; j++) wsheet.Cells[4, j, 19, j++].Style.Border.BorderAround(ExcelBorderStyle.Thick);
-            for (int j = 16; j < 26; j++) // 26 - count of disability + 1
+           // for (int j = 1; j < 17; j++) wsadult.Cells[4, j, 19, j++].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+           // for (int j = 1; j < 17; j++) wschild.Cells[4, j, 19, j++].Style.Border.BorderAround(ExcelBorderStyle.Thick);
+            for (int j = 16; j < disability_count; j++) // 26 - count of disability + 1
             {
                 int k = j + 1;
                 wsheet.Cells[4, j, 19, k].Style.Border.BorderAround(ExcelBorderStyle.Thick);
@@ -347,10 +382,14 @@ namespace SAD_2_PTT
             header.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
             header.Style.Border.BorderAround(ExcelBorderStyle.Thick);
             header.Style.Font.Bold = true;
+            //for (int l = 16; i < disability_count; i++) wschild.Cells[4, l += 2].Merge = true;
 
             //SubHeaders
             wsheet.Cells["B5:Q5"].Style.Font.Bold = true;
             wsheet.Cells["B5:Q5"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+            //va;ues
+            wsheet.Cells[6, 2, 19, 17].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
             //Total
             wsheet.Cells["A19:Q20"].Style.Font.Bold = true;
@@ -365,6 +404,7 @@ namespace SAD_2_PTT
             wsheet.Cells["B20"].Style.HorizontalAlignment = wschild.Cells["B20"].Style.HorizontalAlignment = wsadult.Cells["B20"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             #endregion
 
+            #region Sheet Format
             //Title
             wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
             wschild.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
@@ -382,11 +422,14 @@ namespace SAD_2_PTT
             wsheet.Cells["A6"].LoadFromCollection(district);
             wschild.Cells["A6"].LoadFromCollection(district);
             wsadult.Cells["A6"].LoadFromCollection(district);
+            wsadult.Cells["A6"].LoadFromDataReader(dr, false, "disability");
 
             //Headers
+            getDisability();
             int i = 0;
             foreach (var age in ageBracket) wsheet.Cells[4, i = i + 2].Value = age;
-
+            foreach (var type in disability) wschild.Cells[4, i += 2].Value = type;
+           
             //SubHeaders [M,F]
             int a = 2;
             foreach (var sex in gender) wsheet.Cells[5, a++].Value = sex;
@@ -460,6 +503,7 @@ namespace SAD_2_PTT
             //GrandTotal
             wsheet.Cells["B20"].Formula = wschild.Cells["B20"].Formula = wsadult.Cells["B20"].Formula = "=SUM(B19:Q19)";
             wsheet.Cells["A20"].Value = wschild.Cells["A20"].Value = wsadult.Cells["A20"].Value = "GRAND TOTAL";
+            #endregion
 
             using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite))
             {
@@ -498,7 +542,7 @@ namespace SAD_2_PTT
                                       " AND district = 'Tugbok';"};
         public void pwd_Districts()
         {
-            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.table WHERE ";
+            string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.my_Table WHERE ";
             string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8;
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
             string query = "";
