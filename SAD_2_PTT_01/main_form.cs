@@ -1300,7 +1300,7 @@ namespace SAD_2_PTT_01
         {
             device_pnl_request_new.Visible = true;
             load_device_cbox();
-            conn_pwd.
+            conn_devi.get_pwd_list(device_pwd_list);
         }
 
         private void projects_history_Click(object sender, EventArgs e)

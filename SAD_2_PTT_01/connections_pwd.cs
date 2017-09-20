@@ -445,7 +445,7 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        public void get_pwd_list_device(DataGridView)
+        public void get_pwd_list_device(DataGridView b)
         {
 
         }

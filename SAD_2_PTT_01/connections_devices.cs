@@ -1051,6 +1051,107 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        
+        public bool get_pwd_list(DataGridView pwd_grid)
+        {
+            Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PWD_LIST] }");
+            bool has_data = false;
+
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT registration_no, CONCAT(lastname,' ',firstname,' ',middlename) as fullname, id_no, CONCAT(address_house_no_street, ', ',address_barangay, ', ',address_municipality, ', ' ,address_province) as address, disability_type, tel_no, mobile_no FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id WHERE pwd.isArchived != 1 ORDER BY fullname DESC ", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable device_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "registration_no";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "id_no";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "address";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_type";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "tel_no";
+                device_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "mobile_no";
+                device_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = device_data.NewRow();
+                    row["registration_no"] = none;
+                    row["full_name"] = none;
+                    row["id_no"] = none;
+                    row["address"] = none;
+                    row["disability_type"] = none;
+                    row["tel_no"] = none;
+                    row["mobile_no"] = none;
+                    device_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = device_data.NewRow();
+                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
+                        row["address"] = set.Rows[i]["address"].ToString();
+                        row["disability_type"] = set.Rows[i]["disability_type"].ToString();
+                        row["tel_no"] = set.Rows[i]["tel_no"].ToString();
+                        row["mobile_no"] = set.Rows[i]["mobile_no"].ToString();
+
+                        device_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(device_data);
+
+                pwd_grid.DataSource = view;
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+            }
+            return has_data;
+        }
     }
 }
