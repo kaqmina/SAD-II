@@ -19,9 +19,11 @@ namespace SAD_2_PTT_01
         }
         system_sidenav_active system_sidenav = new system_sidenav_active();
         system_keypress key_ = new system_keypress();
+        system_functions sys_func = new system_functions();
         connections_pwd conn_pwd = new connections_pwd();
         connections_project conn_proj = new connections_project();
         connections_devices conn_devi = new connections_devices();
+        connections_user conn_user = new connections_user();
         disability disability_form;
         shadow shadow_;
         pwd_archive show_prompt;
@@ -42,7 +44,6 @@ namespace SAD_2_PTT_01
             main_properties();
             grid_borderstyles();
             load_notifications();
-            load_device_cbox();
             
             btn_current = btn_dashboard;
             system_sidenav.lbl_current_text("dashboard");
@@ -1273,7 +1274,281 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region DEVICE-REQUEST
+
+        bool device_has_providers = false;
+        bool device_has_devices = false;
+        bool device_has_pwd = false;
+        int device_pwd_list_index = 0;
+
+        #region LOAD-RESET-REFRESH
+
+        public void load_device_request_defaults()
+        {
+            device_has_providers = conn_devi.get_provider_list(device_sponsor_cbox);
+            device_has_pwd = conn_devi.get_pwd_list(device_pwd_list);
+            device_has_devices = conn_devi.get_device_list(device_device_cbox);
+
+            conn_user.get_user_cbox(device_requested_by);
+            device_device_cbox.Items.Clear();
+            device_device_cbox.Items.Add("");
+        }
+
+        public void device_request_clear()
+        {
+            device_lbl_pwd_name.Text = "--";
+            device_lbl_id_no.Text = "--";
+            device_lbl_disability.Text = "--";
+            device_lbl_tel_no.Text = "--";
+            device_lbl_mobile_no.Text = "--";
+            device_lbl_provider_address.Text = "--";
+            device_sponsor_cbox.SelectedIndex = 0;
+            device_request_date.Value = DateTime.Now;
+            device_request_desc.Clear();
+            device_device_cbox.SelectedIndex = 0;
+            device_requested_by.SelectedIndex = 0;
+            device_sponsor_cbox.SelectedIndex = 0;
+            device_reference_no.Clear();
+
+            sys_func.lbl_reset(device_lbl_pwd_name);
+            sys_func.lbl_reset(device_lbl_id_no);
+            sys_func.lbl_reset(device_lbl_disability);
+            sys_func.lbl_reset(device_lbl_tel_no);
+            sys_func.lbl_reset(device_lbl_mobile_no);
+            sys_func.lbl_reset(device_lbl_provider_address);
+            sys_func.btn_inactive(device_btn_request_add);
+            device_btn_request_add.Enabled = false;
+
+            load_device_request_defaults();
+        }
+
+        private void device_btn_request_clear_Click(object sender, EventArgs e)
+        {
+            device_request_clear();
+        }
+
         #endregion
+
+        #region ADD-REQUEST
+
+
+        private void device_request_new_Click(object sender, EventArgs e)
+        {
+            load_device_request_defaults();
+            if (device_has_providers == false || device_has_devices == false)
+            {
+                device_pnl_request_new.Visible = false;
+                string start = "The following required fields are empty, please add records :" + Environment.NewLine;
+                if (device_has_providers == false)
+                {
+                    start += "- Sponsors List" + Environment.NewLine;
+                }
+                if (device_has_devices == false)
+                {
+                    start += "- Device List" + Environment.NewLine;
+                }
+                MessageBox.Show(start, "Empty Database", MessageBoxButtons.OK);
+            }
+            else
+            {
+                device_pnl_request_new.Visible = true;
+                device_request_clear();
+
+                device_pwd_list.Columns["pwd_id"].Visible = false;
+                device_pwd_list.Columns["id_no"].Visible = false;
+                device_pwd_list.Columns["address"].Visible = false;
+                device_pwd_list.Columns["mobile_no"].Visible = false;
+                device_pwd_list.Columns["tel_no"].Visible = false;
+                device_pwd_list.Columns["disability_type"].Visible = false;
+                device_pwd_list.Columns["dis_id"].Visible = false;
+
+                device_pwd_list.Columns["registration_no"].HeaderText = "Registration no.";
+                device_pwd_list.Columns["fullname"].HeaderText = "Fullname";
+            }
+
+        }
+
+        private void device_btn_request_add_Click(object sender, EventArgs e)
+        {
+            string pwd_id = device_pwd_list.Rows[device_pwd_list_index].Cells["pwd_id"].Value.ToString();
+            string device_id = conn_devi.get_device_by_name(device_device_cbox.SelectedItem.ToString());
+            string dp_id = conn_devi.get_sponsor_by_name(device_sponsor_cbox.SelectedItem.ToString());
+            string req_date = device_request_date.Value.ToString("yyyy-MM-dd");
+            string req_desc = device_request_desc.Text;
+            string req_emp_id;
+            if (device_requested_by.SelectedIndex <= 0)
+            {
+                req_emp_id = conn_user.get_user_id_by_name(current_user);
+            }
+            else
+            {
+                req_emp_id = conn_user.get_user_id_by_name(device_requested_by.SelectedItem.ToString());
+            }
+            string reference = device_reference_no.Text;
+            string recent = conn_user.get_user_id_by_name(current_user);
+            string query = "INSERT INTO device_log(pwd_id, device_id, dp_id, req_date, req_desc, req_emp_id, status, reference_no, recently_modified_by_id) VALUES ( "
+                                                       + pwd_id + ", "
+                                                       + device_id + ", "
+                                                       + dp_id + ", '"
+                                                       + req_date + "', '"
+                                                       + req_desc + "', "
+                                                       + req_emp_id + ", "
+                                                       + "status = 1, '"
+                                                       + reference + "', "
+                                                       + recent + ")";
+            bool request_success = conn_devi.request_add(query);
+
+            system_notify = new system_notification();
+            if (request_success == true)
+            {
+                system_notify.message.Text = "Successfully Added Request!";
+                device_request_clear();
+                load_device_requests();
+            }
+            else
+            {
+                system_notify.message.Text = "Unsuccessful in Adding Request, please try again with valid values.";
+            }
+            system_notify.Show();
+
+        }
+
+        #endregion
+
+        #region SELECTION-CELL_CLICK
+
+        private void device_pwd_list_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (device_has_pwd == false)
+            {
+                device_request_clear();
+            }
+            else
+            {
+                if (e.RowIndex >= 0)
+                {
+                    device_pwd_list_index = e.RowIndex;
+                    device_pwd_selection();
+                }
+                else
+                {
+                    device_pwd_list_index = 0;
+                    device_btn_request_add.Enabled = false;
+                    sys_func.btn_inactive(device_btn_request_add);
+                    device_request_clear();
+                    device_pwd_list.ClearSelection();
+                }
+            }
+        }
+
+        private void device_pwd_list_SelectionChanged(object sender, EventArgs e)
+        {
+            if (device_has_pwd == false)
+            {
+                //do nothing
+            }
+            else
+            {
+                device_pwd_list_index = device_pwd_list.CurrentCell.RowIndex;
+                device_pwd_selection();
+            }
+        }
+
+        public void device_pwd_selection()
+        {
+            device_lbl_pwd_name.Text = device_pwd_list.Rows[device_pwd_list_index].Cells["fullname"].Value.ToString();
+            device_lbl_id_no.Text = device_pwd_list.Rows[device_pwd_list_index].Cells["id_no"].Value.ToString();
+            device_lbl_disability.Text = device_pwd_list.Rows[device_pwd_list_index].Cells["disability_type"].Value.ToString();
+            device_lbl_provider_address.Text = device_pwd_list.Rows[device_pwd_list_index].Cells["address"].Value.ToString();
+            device_lbl_mobile_no.Text = device_pwd_list.Rows[device_pwd_list_index].Cells["mobile_no"].Value.ToString();
+            device_lbl_tel_no.Text = device_pwd_list.Rows[device_pwd_list_index].Cells["tel_no"].Value.ToString();
+            string dis_id = device_pwd_list.Rows[device_pwd_list_index].Cells["dis_id"].Value.ToString();
+
+            device_has_devices = conn_devi.get_device_list(device_device_cbox, dis_id);
+
+            sys_func.lbl_has_value(device_lbl_pwd_name);
+            sys_func.lbl_has_value(device_lbl_id_no);
+            sys_func.lbl_has_value(device_lbl_disability);
+            sys_func.lbl_has_value(device_lbl_provider_address);
+            sys_func.lbl_has_value(device_lbl_mobile_no);
+            sys_func.lbl_has_value(device_lbl_tel_no);
+        }
+
+        #endregion
+
+        #region SELECTED-INDEX-TEXT-CHANGED
+
+        private void device_sponsor_cbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_request_check_required();
+            string dp_id = conn_devi.get_sponsor_by_name(device_sponsor_cbox.SelectedItem.ToString());
+            MessageBox.Show(dp_id);
+        }
+
+        private void device_device_cbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_request_check_required();
+        }
+
+        private void device_reference_no_TextChanged(object sender, EventArgs e)
+        {
+            device_request_check_required();
+        }
+
+        #endregion
+
+        #region CHECK-REQUIRED
+
+        public void device_request_check_required()
+        {
+            if (device_sponsor_cbox.SelectedIndex == 0 || device_device_cbox.SelectedIndex == 0 || device_reference_no.Text.Trim() == "" || device_has_devices == false)
+            {
+                device_btn_request_add.Enabled = false;
+                sys_func.btn_inactive(device_btn_request_add);
+                if (device_sponsor_cbox.SelectedIndex == 0)
+                {
+                    sys_func.lbl_required_error(device_lbl_head_sponsor);
+                }
+                else
+                {
+                    sys_func.lbl_required_success(device_lbl_head_sponsor);
+                }
+
+                if (device_device_cbox.SelectedIndex == 0 || device_has_devices == false)
+                {
+                    sys_func.lbl_required_error(device_lbl_head_device);
+                }
+                else
+                {
+                    sys_func.lbl_required_success(device_lbl_head_device);
+                }
+
+                if (device_reference_no.Text.Trim() == "")
+                {
+                    sys_func.lbl_required_error(device_lbl_head_reference);
+                }
+                else
+                {
+                    sys_func.lbl_required_success(device_lbl_head_reference);
+                }
+            }
+            else
+            {
+                device_btn_request_add.Enabled = true;
+                sys_func.btn_active(device_btn_request_add);
+                sys_func.lbl_required_success(device_lbl_head_sponsor);
+                sys_func.lbl_required_success(device_lbl_head_device);
+                sys_func.lbl_required_success(device_lbl_head_reference);
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #endregion
+
+
 
         private void projects_disability_Click(object sender, EventArgs e)
         {
@@ -1287,25 +1562,14 @@ namespace SAD_2_PTT_01
             shadow_.Close();
             disability_form_ = false;
         }
-        bool device_has_providers = false;
-        bool device_has_devices = false;
-
-        public void load_device_cbox()
-        {
-            device_has_providers = conn_devi.get_provider_list(device_sponsor_cbox);
-            device_has_devices = conn_devi.get_device_list(device_device_cbox);
-        }
-
-        private void device_request_new_Click(object sender, EventArgs e)
-        {
-            device_pnl_request_new.Visible = true;
-            load_device_cbox();
-            conn_devi.get_pwd_list(device_pwd_list);
-        }
+        
 
         private void projects_history_Click(object sender, EventArgs e)
         {
             device_pnl_request_new.Visible = false;
         }
+        
+        
+        
     }
 }

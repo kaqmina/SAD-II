@@ -63,5 +63,15 @@ namespace SAD_2_PTT_01
             current_lbl.Font = new Font(def, FontStyle.Regular);
             current_lbl.ForeColor = Color.Black;
         }
+
+        public void lbl_required_error (Label current_lbl)
+        {
+            current_lbl.ForeColor = Color.Red;
+        }
+
+        public void lbl_required_success(Label current_lbl)
+        {
+            current_lbl.ForeColor = Color.FromArgb(41, 45, 56);
+        }
     }
 }

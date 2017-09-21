@@ -18,6 +18,7 @@ namespace SAD_2_PTT_01
         }
         public main_form reference_to_main { get; set; }
         connections_devices conn_devi = new connections_devices();
+        connections_user conn_user = new connections_user();
         public string current_pwd_id = "0", current_device_log_id = "0";
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -63,6 +64,72 @@ namespace SAD_2_PTT_01
         private void device_pending_req_FormClosing(object sender, FormClosingEventArgs e)
         {
             exit_opacity.Start();
+        }
+
+        public string date_rec_;
+
+        private void btn_received_Click(object sender, EventArgs e)
+        {
+            device_rec_req_date date = new device_rec_req_date();
+            date.reference_to_main = this;
+            date.req_date = Convert.ToDateTime(lbl_date_requested.Text);
+            string current_user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+
+            var result = date.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                conn_devi.mark_as_received(current_device_log_id, current_user_id, date_rec_);
+                reference_to_main.load_device_requests();
+                this.Close();
+            } else
+            {
+                //nothing
+            }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult ask;
+            string message = "This will mark the request as cancelled. Continue?";
+            string caption = "Mark as Cancalled?";
+            MessageBoxButtons btn = MessageBoxButtons.YesNo;
+            ask = MessageBox.Show(message, caption, btn);
+            string current_user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+            string can_date = DateTime.Now.ToString("yyyy-MM-dd");
+
+            if (ask == System.Windows.Forms.DialogResult.Yes)
+            {
+                conn_devi.mark_as_cancelled(current_device_log_id, current_user_id, can_date);
+                this.Close();
+            }
+            else
+            {
+                //nothing
+            }
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (btn_edit.Text == "EDIT")
+            {
+                pnl_edit.Visible = true;
+                conn_devi.get_provider_list(sponsor_edit);
+                conn_devi.get_device_list(device_req_edit, lbl_disability.Text);
+                conn_user.get_user_cbox(requested_by_edit);
+
+                request_desc_edit.Text = lbl_desc.Text;
+                btn_edit.Text = "DISCARD CHANGES";
+                btn_ok.Text = "SAVE CHANGES";
+            } else
+            {
+                pnl_edit.Visible = false;
+                btn_edit.Text = "EDIT";
+            }
+        }
+
+        public void check_required()
+        {
+            if (requested_by_edit.SelectedIndex <= 0 || sponsor_edit.SelectedIndex <= 0 || )
         }
 
         private void btn_ok_Click(object sender, EventArgs e)

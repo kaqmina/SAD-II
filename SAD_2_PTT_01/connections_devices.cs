@@ -426,6 +426,47 @@ namespace SAD_2_PTT_01
             return has_data;
         }
 
+        public bool get_device_list(ComboBox device_cbox, string for_disability)
+        {
+            device_cbox.Items.Clear();
+            device_cbox.Items.Add("");
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST ] }");
+                comm = new MySqlCommand("SELECT * FROM device WHERE isArchived != 1 AND disability_id = " + for_disability, conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    device_cbox.Items.Add("No devices added.");
+                    has_data = false;
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        device_cbox.Items.Add(data["dev_name"].ToString());
+                    }
+                    has_data = true;
+                }
+
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST_SUCCESS ] }");
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST_ERROR ] } : " + e.Message);
+                conn.Close();
+                has_data = false;
+            }
+            return has_data;
+        }
+
         public bool device_check_duplicate(string new_name, string prev_name)
         {
             bool has_duplicate = false;
@@ -1051,6 +1092,8 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region [MODE - REQUEST-ADD]
+
         public bool get_pwd_list(DataGridView pwd_grid)
         {
             Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PWD_LIST] }");
@@ -1060,12 +1103,22 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT registration_no, CONCAT(lastname,' ',firstname,' ',middlename) as fullname, id_no, CONCAT(address_house_no_street, ', ',address_barangay, ', ',address_municipality, ', ' ,address_province) as address, disability_type, tel_no, mobile_no FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id WHERE pwd.isArchived != 1 ORDER BY fullname DESC ", conn);
+                comm = new MySqlCommand("SELECT pwd_id, "
+                                             + "registration_no, "
+                                             + "CONCAT(lastname,', ',firstname,' ',middlename) as fullname, "
+                                             + "id_no, "
+                                             + "CONCAT(address_house_no_street, ', ',address_barangay, ', ',address_municipality, ', ' ,address_province) as address, "
+                                             + "pwd.disability_id AS dis_id, "
+                                             + "disability_type, "
+                                             + "tel_no, "
+                                             + "mobile_no "
+                                             + "FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id WHERE pwd.isArchived != 1 AND "
+                                             + "(SELECT EXISTS(SELECT pwd_id FROM device_log WHERE pwd_id = pwd.pwd_id)) = 0 ORDER BY fullname ASC ", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
 
-                DataTable device_data = new DataTable();
+                DataTable provider_data = new DataTable();
                 DataColumn column;
                 DataRow row;
                 DataView view;
@@ -1073,74 +1126,88 @@ namespace SAD_2_PTT_01
                 #region Columns
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "pwd_id";
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "registration_no";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "fullname";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "id_no";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "address";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dis_id";
+                provider_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "disability_type";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "tel_no";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "mobile_no";
-                device_data.Columns.Add(column);
+                provider_data.Columns.Add(column);
                 #endregion
 
                 int count = set.Rows.Count;
                 if (count == 0)
                 {
                     string none = "None";
-                    row = device_data.NewRow();
+                    row = provider_data.NewRow();
+                    row["pwd_id"] = none;
                     row["registration_no"] = none;
-                    row["full_name"] = none;
+                    row["fullname"] = none;
                     row["id_no"] = none;
                     row["address"] = none;
+                    row["dis_id"] = none;
                     row["disability_type"] = none;
                     row["tel_no"] = none;
                     row["mobile_no"] = none;
-                    device_data.Rows.Add(row);
+                    provider_data.Rows.Add(row);
                     has_data = false;
                 }
                 else
                 {
                     for (int i = 0; i < count; i++)
                     {
-                        row = device_data.NewRow();
+                        row = provider_data.NewRow();
+                        row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
                         row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["id_no"] = set.Rows[i]["id_no"].ToString();
                         row["address"] = set.Rows[i]["address"].ToString();
+                        row["dis_id"] = set.Rows[i]["dis_id"].ToString();
                         row["disability_type"] = set.Rows[i]["disability_type"].ToString();
                         row["tel_no"] = set.Rows[i]["tel_no"].ToString();
                         row["mobile_no"] = set.Rows[i]["mobile_no"].ToString();
 
-                        device_data.Rows.Add(row);
+                        provider_data.Rows.Add(row);
                     }
                     has_data = true;
                 }
 
-                view = new DataView(device_data);
+                view = new DataView(provider_data);
 
                 pwd_grid.DataSource = view;
 
@@ -1152,6 +1219,144 @@ namespace SAD_2_PTT_01
                 Console.WriteLine(e.Message);
             }
             return has_data;
+        }
+
+        public bool request_add(string query)
+        {
+            bool success = false;
+            try
+            {
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [REQUEST_ADD] }");
+                conn.Open();
+
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                success = true;
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [REQUEST_ADD_SUCESS] }");
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [REQUEST_ADD_ERROR] } : " + e.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        public string get_device_by_name(string dev_name)
+        {
+            string ret_dev_id;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_DEVICE_BY_NAME] }");
+
+                comm = new MySqlCommand("SELECT device_id FROM device WHERE dev_name = '"+ dev_name +"' AND isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                ret_dev_id = set.Rows[0]["device_id"].ToString();
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_DEVICE_BY_NAME_SUCCESS] }");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                ret_dev_id = "0";
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_DEVICE_BY_NAME_ERROR] } : " + e.Message);
+            }
+            return ret_dev_id;
+        }
+
+        public string get_sponsor_by_name(string dp_name)
+        {
+            string ret_dp_id;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PROVIDER_BY_NAME] }");
+
+                comm = new MySqlCommand("SELECT dp_id FROM device_provider WHERE dp_name = '" + dp_name + "' AND isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                ret_dp_id = set.Rows[0]["dp_id"].ToString();
+
+                conn.Close();
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PROVIDER_BY_NAME_SUCCESS] }");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                ret_dp_id = "0";
+                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [GET_PROVIDER_BY_NAME_ERROR] } : " + e.Message);
+            }
+            return ret_dp_id;
+        }
+        #endregion
+
+        public void mark_as_received(string deviceLOG_id, string in_emp_id, string date)
+        {
+            try
+            {
+                Console.WriteLine("Mark as Received.");
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE device_log SET date_in = '"+ date +"', in_emp_id = "+ in_emp_id +", status = 2 WHERE deviceLOG_id = " + deviceLOG_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                Console.WriteLine("Marked as Received.");
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("Mark as Received Out Failed : " + e.Message);
+            }
+        }
+
+        public void mark_as_handed_out(string deviceLOG_id, string out_emp_id, string date)
+        {
+            try
+            {
+                Console.WriteLine("Mark as Handed Out.");
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE device_log SET date_out = '"+ date +"', out_emp_id = "+ out_emp_id +",status = 3 WHERE deviceLOG_id = " + deviceLOG_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                Console.WriteLine("Marked as Handed Out.");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("Mark as Handed Out Failed : " + e.Message);
+            }
+        }
+
+        public void mark_as_cancelled(string deviceLOG_id, string cancel_emp_id, string date)
+        {
+
+            try
+            {
+                Console.WriteLine("Mark as Cancelled.");
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE device_log SET cancel_date = '"+ date +"', cancel_emp_id = "+ cancel_emp_id +",status = 4 WHERE deviceLOG_id = " + deviceLOG_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                Console.WriteLine("Marked as Cancelled.");
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("Mark as Cancelled Failed : " + e.Message);
+            }
         }
     }
 }
