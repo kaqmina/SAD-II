@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_dist = new System.Windows.Forms.Label();
-            this.district = new System.Windows.Forms.ComboBox();
+            this.district_format = new System.Windows.Forms.ComboBox();
             this.btn_custom = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.date_to = new System.Windows.Forms.DateTimePicker();
@@ -172,7 +172,7 @@
             this.pnl_settings.Controls.Add(this.label3);
             this.pnl_settings.Controls.Add(this.label2);
             this.pnl_settings.Controls.Add(this.lbl_dist);
-            this.pnl_settings.Controls.Add(this.district);
+            this.pnl_settings.Controls.Add(this.district_format);
             this.pnl_settings.Controls.Add(this.btn_custom);
             this.pnl_settings.Controls.Add(this.button8);
             this.pnl_settings.Controls.Add(this.date_to);
@@ -221,12 +221,12 @@
             this.lbl_dist.TabIndex = 53;
             this.lbl_dist.Text = "DISTRICT";
             // 
-            // district
+            // district_format
             // 
-            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.district.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.district.FormattingEnabled = true;
-            this.district.Items.AddRange(new object[] {
+            this.district_format.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.district_format.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.district_format.FormattingEnabled = true;
+            this.district_format.Items.AddRange(new object[] {
             "",
             "Agdao ",
             "Baguio",
@@ -241,10 +241,11 @@
             "Talomo - B",
             "Toril ",
             "Tugbok"});
-            this.district.Location = new System.Drawing.Point(285, 85);
-            this.district.Name = "district";
-            this.district.Size = new System.Drawing.Size(121, 21);
-            this.district.TabIndex = 52;
+            this.district_format.Location = new System.Drawing.Point(285, 85);
+            this.district_format.Name = "district_format";
+            this.district_format.Size = new System.Drawing.Size(121, 21);
+            this.district_format.TabIndex = 52;
+            this.district_format.SelectedIndexChanged += new System.EventHandler(this.district_format_SelectedIndexChanged);
             // 
             // btn_custom
             // 
@@ -325,7 +326,6 @@
             this.date_format.FormattingEnabled = true;
             this.date_format.Items.AddRange(new object[] {
             "",
-            "Weekly ",
             "Monthly",
             "Yearly",
             "Custom"});
@@ -568,14 +568,14 @@
         private System.Windows.Forms.Label lbl_to;
         private System.Windows.Forms.Label lbl_from;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox date_format;
+        public System.Windows.Forms.ComboBox date_format;
         public System.Windows.Forms.DataGridView report_grid;
-        private System.Windows.Forms.DateTimePicker date_to;
-        private System.Windows.Forms.DateTimePicker date_from;
+        public System.Windows.Forms.DateTimePicker date_to;
+        public System.Windows.Forms.DateTimePicker date_from;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button btn_custom;
         private System.Windows.Forms.Label lbl_dist;
-        private System.Windows.Forms.ComboBox district;
+        public System.Windows.Forms.ComboBox district_format;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.SaveFileDialog save_Excel;

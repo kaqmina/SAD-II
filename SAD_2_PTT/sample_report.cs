@@ -21,13 +21,14 @@ namespace SAD_2_PTT
 
         DateTime from, to;
         public string func = "";
+        public string district;
 
         private System.Drawing.Printing.PrintDocument doc =  new System.Drawing.Printing.PrintDocument();
 
         public sample_report()
         {
             InitializeComponent();
-            rep.report_gridView(report_grid);
+            rep.report_Grid(report_grid);
 
             date_from.Visible = date_to.Visible = false;
             lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = false;
@@ -44,10 +45,11 @@ namespace SAD_2_PTT
             save_pdf.ShowDialog();
             save_pdf.Title = "Export as PDF";
 
+            if (district == "") district = "ALL";            
 
             file = save_pdf.FileName;
             if (file == "") ; //pass
-            else rep.pwd_PDFReport(file, report_grid);
+            else rep.pwd_PDFReport(file, report_grid, district);
 
             System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
         }
@@ -61,35 +63,23 @@ namespace SAD_2_PTT
         {
             from = date_from.Value.Date;
             to = date_to.Value.Date;
-
-            if (func == "custom")
-            {
-                rep.report_customFormat(report_grid, from, to);
-            }
-            else if (func == "yearly")
-            {
-                rep.report_YearlyFormat(report_grid, to);
-            }
-            else if (func == "monthly")
-            {
-                rep.report_MonthlyFormat(report_grid, from, to);
-            }
+          
+            rep.getDateQuery(report_grid, format, from, to, district_num);
         }
 
+        public int format;
         private void date_format_SelectedIndexChanged(object sender, EventArgs e)
         {
             date_from.Value = date_to.Value = DateTime.Now;
+            format = date_format.SelectedIndex;
             if (date_format.SelectedIndex == 0)
             {
                 date_from.Visible = false;
                 date_to.Visible = false;
                 lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = false;
+                rep.report_Grid(report_grid);
             }
             else if (date_format.SelectedIndex == 1)
-            {
-                //Weekly
-            }
-            else if (date_format.SelectedIndex == 2)
             {
                 //Monthly
                 func = "monthly";
@@ -107,7 +97,7 @@ namespace SAD_2_PTT
 
                 lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = true;
             }
-            else if (date_format.SelectedIndex == 3)
+            else if (date_format.SelectedIndex == 2)
             {
                 //Yearly
                 func = "yearly";
@@ -120,7 +110,7 @@ namespace SAD_2_PTT
                 date_from.Visible = lbl_from.Visible = false;
                 lbl_to.Visible = btn_custom.Visible = true;
             }
-            else if (date_format.SelectedIndex == 4)
+            else if (date_format.SelectedIndex == 3)
             {
                 //Custom Date
                 func = "custom";
@@ -129,6 +119,7 @@ namespace SAD_2_PTT
                 lbl_from.Text = "From";
                 lbl_to.Text = "To";
             }
+       
         }
 
         private void export_excel_Click(object sender, EventArgs e)
@@ -143,6 +134,21 @@ namespace SAD_2_PTT
             sheet = save_Excel.FileName;
             if (sheet == "") ; //pass
             else rep.pwd_ExcelReport(sheet);
+        }
+
+        public int district_num;
+        private void district_format_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            district_num = district_format.SelectedIndex;
+            district = district_format.SelectedItem.ToString();
+            if (format != 0)
+            {
+               rep.getDateQuery(report_grid, format, from, to, district_num);
+            }
+            else
+            {
+                 rep.getDistrictQuery(report_grid, district_num); 
+            }
         }
 
         private void print_prev_Click(object sender, EventArgs e)
