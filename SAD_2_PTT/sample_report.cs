@@ -19,9 +19,10 @@ namespace SAD_2_PTT
         connections_settings conn = new connections_settings();
         connection_reports rep = new connection_reports();
 
-        DateTime from, to;
+        public DateTime from, to;
         public string func = "";
         public string district;
+        public int format;
 
         private System.Drawing.Printing.PrintDocument doc =  new System.Drawing.Printing.PrintDocument();
 
@@ -39,19 +40,39 @@ namespace SAD_2_PTT
         private void save_Click(object sender, EventArgs e) // export PDF
         {
             string file = "";
+            string district_pass, date = "";
             save_pdf.Filter = "PDF files |*.pdf";
             save_pdf.DefaultExt = "*.pdf";
             save_pdf.FilterIndex = 1;
             save_pdf.ShowDialog();
             save_pdf.Title = "Export as PDF";
 
-            if (district == "") district = "ALL";            
+            #region << District & Date Format [PDF] >>
+            if (lbl_from.Text == "From" && lbl_to.Text == "To" && date_from.CustomFormat == "MMMM dd, yyyy") //custom
+            {
+                date = from.ToString("MMMM dd") + " - " + to.ToString("MMMM dd yyyy");
+            }
+            else if(lbl_from.Text == "Month" && lbl_to.Text == "Year" && date_from.CustomFormat == "MMMM") //monthly
+            {
+                date = from.ToString("MMMM") + " " + to.ToString("yyyy");
+            }
+            else if(lbl_from.Visible == false && date_from.Visible == false && date_to.CustomFormat == "yyyy") //yearly
+            {
+                date = to.ToString("yyyy");
+            }
 
+            if (district == null) district_pass = "ALL";
+            else district_pass = district_format.SelectedItem.ToString();
+            #endregion
             file = save_pdf.FileName;
-            if (file == "") ; //pass
-            else rep.pwd_PDFReport(file, report_grid, district);
 
-            System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
+            if (file == "") ; //pass
+            else
+            {
+                rep.pwd_PDFReport(file, report_grid, district_pass, date);
+                System.Diagnostics.Process.Start(file); // to open document directly after creating PDF
+            }
+            save_pdf.FileName = "";
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -63,11 +84,12 @@ namespace SAD_2_PTT
         {
             from = date_from.Value.Date;
             to = date_to.Value.Date;
+
           
             rep.getDateQuery(report_grid, format, from, to, district_num);
         }
 
-        public int format;
+        
         private void date_format_SelectedIndexChanged(object sender, EventArgs e)
         {
             date_from.Value = date_to.Value = DateTime.Now;
@@ -115,6 +137,8 @@ namespace SAD_2_PTT
                 //Custom Date
                 func = "custom";
                 date_from.Visible = date_to.Visible = true;
+                date_to.Format = date_from.Format = DateTimePickerFormat.Custom;
+                date_to.CustomFormat = date_from.CustomFormat = "MMMM dd, yyyy";
                 lbl_from.Visible = lbl_to.Visible = btn_custom.Visible = true;
                 lbl_from.Text = "From";
                 lbl_to.Text = "To";
@@ -133,7 +157,12 @@ namespace SAD_2_PTT
 
             sheet = save_Excel.FileName;
             if (sheet == "") ; //pass
-            else rep.pwd_ExcelReport(sheet);
+            else
+            {
+                rep.pwd_ExcelReport(sheet);
+                System.Diagnostics.Process.Start(sheet); // to open document directly after creating EXCEL
+            }
+            save_Excel.FileName = "";
         }
 
         public int district_num;
@@ -141,6 +170,7 @@ namespace SAD_2_PTT
         {
             district_num = district_format.SelectedIndex;
             district = district_format.SelectedItem.ToString();
+           
             if (format != 0)
             {
                rep.getDateQuery(report_grid, format, from, to, district_num);

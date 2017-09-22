@@ -201,7 +201,7 @@ namespace SAD_2_PTT
         #endregion
 
         #region  <-- MASTERLIST --> [Export PDF]
-        public void pwd_PDFReport(string file, DataGridView report, string district)
+        public void pwd_PDFReport(string file, DataGridView report, string district, string date)
         {
 
             FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite);
@@ -225,11 +225,17 @@ namespace SAD_2_PTT
             title.SpacingAfter = 1;
             doc.Add(title);
 
+            //date
+            Paragraph title2 = new Paragraph(date, titleFont);
+            title2.Alignment = Element.ALIGN_CENTER;
+            title2.SpacingAfter = 20;
+            doc.Add(title2);
+
             //district
-            Paragraph title4 = new Paragraph(district.ToUpper() + " DISTRICT", subFont);
-            title4.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
-            title4.SpacingAfter = 20;
-            doc.Add(title4);
+            Paragraph title1 = new Paragraph(district.ToUpper() + " DISTRICT", subFont);
+            title1.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
+            title1.SpacingAfter = 20;
+            doc.Add(title1);
 
             //paragraph text
             var textFont = FontFactory.GetFont("Segoe UI", 12, BaseColor.BLACK);
@@ -598,10 +604,8 @@ namespace SAD_2_PTT
             using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite))
             {
                 exc.SaveAs(fs);
-                fs.Dispose();
             }
-            System.Diagnostics.Process.Start(file); // to open document directly after creating EXCEL
-            file = null;
+           
         }
 
         #region << Districts >>
