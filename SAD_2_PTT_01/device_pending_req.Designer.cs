@@ -34,6 +34,35 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.header_text = new System.Windows.Forms.Button();
             this.view_panel = new System.Windows.Forms.Panel();
+            this.pnl_edit = new System.Windows.Forms.Panel();
+            this.reference_no_edit = new System.Windows.Forms.TextBox();
+            this.sponsor_edit = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.device_req_edit = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.date_req_edit = new System.Windows.Forms.DateTimePicker();
+            this.requested_by_edit = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.request_desc_edit = new System.Windows.Forms.TextBox();
+            this.head_lbl_colon = new System.Windows.Forms.Label();
+            this.lbl_reference_no = new System.Windows.Forms.Label();
+            this.head_lbl_reference_no = new System.Windows.Forms.Label();
+            this.lbl_disability = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lbl_mobile_no = new System.Windows.Forms.Label();
+            this.lbl_tel_no = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lbl_id_no = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_desc = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_received = new System.Windows.Forms.Button();
@@ -60,35 +89,7 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lbl_desc = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lbl_id_no = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lbl_tel_no = new System.Windows.Forms.Label();
-            this.lbl_mobile_no = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.lbl_disability = new System.Windows.Forms.Label();
-            this.pnl_edit = new System.Windows.Forms.Panel();
-            this.request_desc_edit = new System.Windows.Forms.TextBox();
-            this.requested_by_edit = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.date_req_edit = new System.Windows.Forms.DateTimePicker();
-            this.device_req_edit = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.sponsor_edit = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.head_lbl_reference_no = new System.Windows.Forms.Label();
-            this.head_lbl_colon = new System.Windows.Forms.Label();
-            this.reference_no_edit = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.view_panel.SuspendLayout();
@@ -153,9 +154,10 @@
             // view_panel
             // 
             this.view_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.view_panel.Controls.Add(this.head_lbl_colon);
-            this.view_panel.Controls.Add(this.head_lbl_reference_no);
             this.view_panel.Controls.Add(this.pnl_edit);
+            this.view_panel.Controls.Add(this.head_lbl_colon);
+            this.view_panel.Controls.Add(this.lbl_reference_no);
+            this.view_panel.Controls.Add(this.head_lbl_reference_no);
             this.view_panel.Controls.Add(this.lbl_disability);
             this.view_panel.Controls.Add(this.label29);
             this.view_panel.Controls.Add(this.btn_cancel);
@@ -198,6 +200,321 @@
             this.view_panel.Name = "view_panel";
             this.view_panel.Size = new System.Drawing.Size(413, 356);
             this.view_panel.TabIndex = 41;
+            // 
+            // pnl_edit
+            // 
+            this.pnl_edit.Controls.Add(this.reference_no_edit);
+            this.pnl_edit.Controls.Add(this.sponsor_edit);
+            this.pnl_edit.Controls.Add(this.label32);
+            this.pnl_edit.Controls.Add(this.device_req_edit);
+            this.pnl_edit.Controls.Add(this.label31);
+            this.pnl_edit.Controls.Add(this.date_req_edit);
+            this.pnl_edit.Controls.Add(this.requested_by_edit);
+            this.pnl_edit.Controls.Add(this.label30);
+            this.pnl_edit.Controls.Add(this.request_desc_edit);
+            this.pnl_edit.Location = new System.Drawing.Point(136, 180);
+            this.pnl_edit.Name = "pnl_edit";
+            this.pnl_edit.Size = new System.Drawing.Size(277, 176);
+            this.pnl_edit.TabIndex = 80;
+            this.pnl_edit.Visible = false;
+            // 
+            // reference_no_edit
+            // 
+            this.reference_no_edit.Location = new System.Drawing.Point(11, 144);
+            this.reference_no_edit.Name = "reference_no_edit";
+            this.reference_no_edit.Size = new System.Drawing.Size(205, 22);
+            this.reference_no_edit.TabIndex = 156;
+            this.reference_no_edit.TextChanged += new System.EventHandler(this.reference_no_edit_TextChanged);
+            // 
+            // sponsor_edit
+            // 
+            this.sponsor_edit.DropDownHeight = 80;
+            this.sponsor_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sponsor_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sponsor_edit.FormattingEnabled = true;
+            this.sponsor_edit.IntegralHeight = false;
+            this.sponsor_edit.Items.AddRange(new object[] {
+            ""});
+            this.sponsor_edit.Location = new System.Drawing.Point(10, 114);
+            this.sponsor_edit.Name = "sponsor_edit";
+            this.sponsor_edit.Size = new System.Drawing.Size(206, 21);
+            this.sponsor_edit.TabIndex = 154;
+            this.sponsor_edit.SelectedIndexChanged += new System.EventHandler(this.sponsor_edit_SelectedIndexChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(8, 124);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(212, 15);
+            this.label32.TabIndex = 155;
+            this.label32.Text = "_________________________________________";
+            // 
+            // device_req_edit
+            // 
+            this.device_req_edit.DropDownHeight = 80;
+            this.device_req_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.device_req_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_req_edit.FormattingEnabled = true;
+            this.device_req_edit.IntegralHeight = false;
+            this.device_req_edit.Items.AddRange(new object[] {
+            ""});
+            this.device_req_edit.Location = new System.Drawing.Point(10, 90);
+            this.device_req_edit.Name = "device_req_edit";
+            this.device_req_edit.Size = new System.Drawing.Size(206, 21);
+            this.device_req_edit.TabIndex = 152;
+            this.device_req_edit.SelectedIndexChanged += new System.EventHandler(this.device_req_edit_SelectedIndexChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(8, 100);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(212, 15);
+            this.label31.TabIndex = 153;
+            this.label31.Text = "_________________________________________";
+            // 
+            // date_req_edit
+            // 
+            this.date_req_edit.CustomFormat = "MMMM dd, yyyy";
+            this.date_req_edit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_req_edit.Location = new System.Drawing.Point(11, 67);
+            this.date_req_edit.Name = "date_req_edit";
+            this.date_req_edit.Size = new System.Drawing.Size(206, 22);
+            this.date_req_edit.TabIndex = 151;
+            // 
+            // requested_by_edit
+            // 
+            this.requested_by_edit.DropDownHeight = 80;
+            this.requested_by_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.requested_by_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.requested_by_edit.FormattingEnabled = true;
+            this.requested_by_edit.IntegralHeight = false;
+            this.requested_by_edit.Items.AddRange(new object[] {
+            ""});
+            this.requested_by_edit.Location = new System.Drawing.Point(10, 42);
+            this.requested_by_edit.Name = "requested_by_edit";
+            this.requested_by_edit.Size = new System.Drawing.Size(206, 21);
+            this.requested_by_edit.TabIndex = 149;
+            this.requested_by_edit.SelectedIndexChanged += new System.EventHandler(this.requested_by_edit_SelectedIndexChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(8, 52);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(212, 15);
+            this.label30.TabIndex = 150;
+            this.label30.Text = "_________________________________________";
+            // 
+            // request_desc_edit
+            // 
+            this.request_desc_edit.Location = new System.Drawing.Point(10, 5);
+            this.request_desc_edit.MaxLength = 40;
+            this.request_desc_edit.Multiline = true;
+            this.request_desc_edit.Name = "request_desc_edit";
+            this.request_desc_edit.Size = new System.Drawing.Size(207, 36);
+            this.request_desc_edit.TabIndex = 81;
+            // 
+            // head_lbl_colon
+            // 
+            this.head_lbl_colon.AutoSize = true;
+            this.head_lbl_colon.ForeColor = System.Drawing.Color.Black;
+            this.head_lbl_colon.Location = new System.Drawing.Point(126, 330);
+            this.head_lbl_colon.Name = "head_lbl_colon";
+            this.head_lbl_colon.Size = new System.Drawing.Size(10, 13);
+            this.head_lbl_colon.TabIndex = 82;
+            this.head_lbl_colon.Text = ":";
+            // 
+            // lbl_reference_no
+            // 
+            this.lbl_reference_no.AutoSize = true;
+            this.lbl_reference_no.ForeColor = System.Drawing.Color.Black;
+            this.lbl_reference_no.Location = new System.Drawing.Point(144, 331);
+            this.lbl_reference_no.MaximumSize = new System.Drawing.Size(153, 52);
+            this.lbl_reference_no.Name = "lbl_reference_no";
+            this.lbl_reference_no.Size = new System.Drawing.Size(148, 13);
+            this.lbl_reference_no.TabIndex = 157;
+            this.lbl_reference_no.Text = "Ateneo de Davao University";
+            // 
+            // head_lbl_reference_no
+            // 
+            this.head_lbl_reference_no.AutoSize = true;
+            this.head_lbl_reference_no.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.head_lbl_reference_no.Location = new System.Drawing.Point(13, 330);
+            this.head_lbl_reference_no.Name = "head_lbl_reference_no";
+            this.head_lbl_reference_no.Size = new System.Drawing.Size(78, 13);
+            this.head_lbl_reference_no.TabIndex = 81;
+            this.head_lbl_reference_no.Text = "Reference no.";
+            // 
+            // lbl_disability
+            // 
+            this.lbl_disability.AutoSize = true;
+            this.lbl_disability.ForeColor = System.Drawing.Color.Black;
+            this.lbl_disability.Location = new System.Drawing.Point(265, 111);
+            this.lbl_disability.Name = "lbl_disability";
+            this.lbl_disability.Size = new System.Drawing.Size(77, 13);
+            this.lbl_disability.TabIndex = 79;
+            this.lbl_disability.Text = "Requested By";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label29.Location = new System.Drawing.Point(254, 86);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(60, 13);
+            this.label29.TabIndex = 78;
+            this.label29.Text = "Disability :";
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_cancel.Location = new System.Drawing.Point(331, 29);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(73, 22);
+            this.btn_cancel.TabIndex = 77;
+            this.btn_cancel.Text = "CANCEL";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(127, 302);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(10, 13);
+            this.label28.TabIndex = 76;
+            this.label28.Text = ":";
+            // 
+            // lbl_mobile_no
+            // 
+            this.lbl_mobile_no.AutoSize = true;
+            this.lbl_mobile_no.ForeColor = System.Drawing.Color.Black;
+            this.lbl_mobile_no.Location = new System.Drawing.Point(143, 136);
+            this.lbl_mobile_no.Name = "lbl_mobile_no";
+            this.lbl_mobile_no.Size = new System.Drawing.Size(77, 13);
+            this.lbl_mobile_no.TabIndex = 75;
+            this.lbl_mobile_no.Text = "Requested By";
+            // 
+            // lbl_tel_no
+            // 
+            this.lbl_tel_no.AutoSize = true;
+            this.lbl_tel_no.ForeColor = System.Drawing.Color.Black;
+            this.lbl_tel_no.Location = new System.Drawing.Point(143, 161);
+            this.lbl_tel_no.Name = "lbl_tel_no";
+            this.lbl_tel_no.Size = new System.Drawing.Size(77, 13);
+            this.lbl_tel_no.TabIndex = 74;
+            this.lbl_tel_no.Text = "Requested By";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(126, 225);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(10, 13);
+            this.label24.TabIndex = 73;
+            this.label24.Text = ":";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(126, 188);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(10, 13);
+            this.label23.TabIndex = 72;
+            this.label23.Text = ":";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label22.Location = new System.Drawing.Point(12, 225);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(77, 13);
+            this.label22.TabIndex = 71;
+            this.label22.Text = "Requested By";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label21.Location = new System.Drawing.Point(11, 188);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(66, 13);
+            this.label21.TabIndex = 70;
+            this.label21.Text = "Description";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(126, 111);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(10, 13);
+            this.label20.TabIndex = 69;
+            this.label20.Text = ":";
+            // 
+            // lbl_id_no
+            // 
+            this.lbl_id_no.AutoSize = true;
+            this.lbl_id_no.ForeColor = System.Drawing.Color.Black;
+            this.lbl_id_no.Location = new System.Drawing.Point(143, 111);
+            this.lbl_id_no.Name = "lbl_id_no";
+            this.lbl_id_no.Size = new System.Drawing.Size(77, 13);
+            this.lbl_id_no.TabIndex = 68;
+            this.lbl_id_no.Text = "Requested By";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label13.Location = new System.Drawing.Point(12, 111);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "ID No.";
+            // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.ForeColor = System.Drawing.Color.Black;
+            this.lbl_desc.Location = new System.Drawing.Point(143, 187);
+            this.lbl_desc.MaximumSize = new System.Drawing.Size(153, 52);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(148, 13);
+            this.lbl_desc.TabIndex = 66;
+            this.lbl_desc.Text = "Ateneo de Davao University";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(126, 161);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(10, 13);
+            this.label11.TabIndex = 65;
+            this.label11.Text = ":";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label10.Location = new System.Drawing.Point(11, 161);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Tel. no.";
             // 
             // label9
             // 
@@ -467,137 +784,6 @@
             this.exit_opacity.Interval = 1;
             this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label10.Location = new System.Drawing.Point(11, 161);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 64;
-            this.label10.Text = "Tel no.";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(126, 161);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(10, 13);
-            this.label11.TabIndex = 65;
-            this.label11.Text = ":";
-            // 
-            // lbl_desc
-            // 
-            this.lbl_desc.AutoSize = true;
-            this.lbl_desc.ForeColor = System.Drawing.Color.Black;
-            this.lbl_desc.Location = new System.Drawing.Point(143, 187);
-            this.lbl_desc.MaximumSize = new System.Drawing.Size(153, 52);
-            this.lbl_desc.Name = "lbl_desc";
-            this.lbl_desc.Size = new System.Drawing.Size(148, 13);
-            this.lbl_desc.TabIndex = 66;
-            this.lbl_desc.Text = "Ateneo de Davao University";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label13.Location = new System.Drawing.Point(12, 111);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 13);
-            this.label13.TabIndex = 67;
-            this.label13.Text = "ID No.";
-            // 
-            // lbl_id_no
-            // 
-            this.lbl_id_no.AutoSize = true;
-            this.lbl_id_no.ForeColor = System.Drawing.Color.Black;
-            this.lbl_id_no.Location = new System.Drawing.Point(143, 111);
-            this.lbl_id_no.Name = "lbl_id_no";
-            this.lbl_id_no.Size = new System.Drawing.Size(77, 13);
-            this.lbl_id_no.TabIndex = 68;
-            this.lbl_id_no.Text = "Requested By";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(126, 111);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(10, 13);
-            this.label20.TabIndex = 69;
-            this.label20.Text = ":";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label21.Location = new System.Drawing.Point(11, 188);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(66, 13);
-            this.label21.TabIndex = 70;
-            this.label21.Text = "Description";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label22.Location = new System.Drawing.Point(12, 225);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 13);
-            this.label22.TabIndex = 71;
-            this.label22.Text = "Requested By";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(126, 188);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(10, 13);
-            this.label23.TabIndex = 72;
-            this.label23.Text = ":";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(126, 225);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(10, 13);
-            this.label24.TabIndex = 73;
-            this.label24.Text = ":";
-            // 
-            // lbl_tel_no
-            // 
-            this.lbl_tel_no.AutoSize = true;
-            this.lbl_tel_no.ForeColor = System.Drawing.Color.Black;
-            this.lbl_tel_no.Location = new System.Drawing.Point(143, 161);
-            this.lbl_tel_no.Name = "lbl_tel_no";
-            this.lbl_tel_no.Size = new System.Drawing.Size(77, 13);
-            this.lbl_tel_no.TabIndex = 74;
-            this.lbl_tel_no.Text = "Requested By";
-            // 
-            // lbl_mobile_no
-            // 
-            this.lbl_mobile_no.AutoSize = true;
-            this.lbl_mobile_no.ForeColor = System.Drawing.Color.Black;
-            this.lbl_mobile_no.Location = new System.Drawing.Point(143, 136);
-            this.lbl_mobile_no.Name = "lbl_mobile_no";
-            this.lbl_mobile_no.Size = new System.Drawing.Size(77, 13);
-            this.lbl_mobile_no.TabIndex = 75;
-            this.lbl_mobile_no.Text = "Requested By";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(127, 302);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(10, 13);
-            this.label28.TabIndex = 76;
-            this.label28.Text = ":";
-            // 
             // btn_close
             // 
             this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -617,176 +803,6 @@
             this.btn_close.TabIndex = 33;
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_cancel.FlatAppearance.BorderSize = 0;
-            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_cancel.Location = new System.Drawing.Point(331, 29);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(73, 22);
-            this.btn_cancel.TabIndex = 77;
-            this.btn_cancel.Text = "CANCEL";
-            this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label29.Location = new System.Drawing.Point(293, 86);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(60, 13);
-            this.label29.TabIndex = 78;
-            this.label29.Text = "Disability :";
-            // 
-            // lbl_disability
-            // 
-            this.lbl_disability.AutoSize = true;
-            this.lbl_disability.ForeColor = System.Drawing.Color.Black;
-            this.lbl_disability.Location = new System.Drawing.Point(304, 111);
-            this.lbl_disability.Name = "lbl_disability";
-            this.lbl_disability.Size = new System.Drawing.Size(77, 13);
-            this.lbl_disability.TabIndex = 79;
-            this.lbl_disability.Text = "Requested By";
-            // 
-            // pnl_edit
-            // 
-            this.pnl_edit.Controls.Add(this.reference_no_edit);
-            this.pnl_edit.Controls.Add(this.sponsor_edit);
-            this.pnl_edit.Controls.Add(this.label32);
-            this.pnl_edit.Controls.Add(this.device_req_edit);
-            this.pnl_edit.Controls.Add(this.label31);
-            this.pnl_edit.Controls.Add(this.date_req_edit);
-            this.pnl_edit.Controls.Add(this.requested_by_edit);
-            this.pnl_edit.Controls.Add(this.label30);
-            this.pnl_edit.Controls.Add(this.request_desc_edit);
-            this.pnl_edit.Location = new System.Drawing.Point(136, 180);
-            this.pnl_edit.Name = "pnl_edit";
-            this.pnl_edit.Size = new System.Drawing.Size(277, 176);
-            this.pnl_edit.TabIndex = 80;
-            this.pnl_edit.Visible = false;
-            // 
-            // request_desc_edit
-            // 
-            this.request_desc_edit.Location = new System.Drawing.Point(10, 5);
-            this.request_desc_edit.MaxLength = 40;
-            this.request_desc_edit.Multiline = true;
-            this.request_desc_edit.Name = "request_desc_edit";
-            this.request_desc_edit.Size = new System.Drawing.Size(207, 36);
-            this.request_desc_edit.TabIndex = 81;
-            this.request_desc_edit.Visible = false;
-            // 
-            // requested_by_edit
-            // 
-            this.requested_by_edit.DropDownHeight = 80;
-            this.requested_by_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.requested_by_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.requested_by_edit.FormattingEnabled = true;
-            this.requested_by_edit.IntegralHeight = false;
-            this.requested_by_edit.Items.AddRange(new object[] {
-            ""});
-            this.requested_by_edit.Location = new System.Drawing.Point(10, 42);
-            this.requested_by_edit.Name = "requested_by_edit";
-            this.requested_by_edit.Size = new System.Drawing.Size(206, 21);
-            this.requested_by_edit.TabIndex = 149;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(8, 52);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(212, 15);
-            this.label30.TabIndex = 150;
-            this.label30.Text = "_________________________________________";
-            // 
-            // date_req_edit
-            // 
-            this.date_req_edit.Location = new System.Drawing.Point(11, 67);
-            this.date_req_edit.Name = "date_req_edit";
-            this.date_req_edit.Size = new System.Drawing.Size(206, 22);
-            this.date_req_edit.TabIndex = 151;
-            // 
-            // device_req_edit
-            // 
-            this.device_req_edit.DropDownHeight = 80;
-            this.device_req_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.device_req_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.device_req_edit.FormattingEnabled = true;
-            this.device_req_edit.IntegralHeight = false;
-            this.device_req_edit.Items.AddRange(new object[] {
-            ""});
-            this.device_req_edit.Location = new System.Drawing.Point(10, 90);
-            this.device_req_edit.Name = "device_req_edit";
-            this.device_req_edit.Size = new System.Drawing.Size(206, 21);
-            this.device_req_edit.TabIndex = 152;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(8, 100);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(212, 15);
-            this.label31.TabIndex = 153;
-            this.label31.Text = "_________________________________________";
-            // 
-            // sponsor_edit
-            // 
-            this.sponsor_edit.DropDownHeight = 80;
-            this.sponsor_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sponsor_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sponsor_edit.FormattingEnabled = true;
-            this.sponsor_edit.IntegralHeight = false;
-            this.sponsor_edit.Items.AddRange(new object[] {
-            ""});
-            this.sponsor_edit.Location = new System.Drawing.Point(10, 114);
-            this.sponsor_edit.Name = "sponsor_edit";
-            this.sponsor_edit.Size = new System.Drawing.Size(206, 21);
-            this.sponsor_edit.TabIndex = 154;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(8, 124);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(212, 15);
-            this.label32.TabIndex = 155;
-            this.label32.Text = "_________________________________________";
-            // 
-            // head_lbl_reference_no
-            // 
-            this.head_lbl_reference_no.AutoSize = true;
-            this.head_lbl_reference_no.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.head_lbl_reference_no.Location = new System.Drawing.Point(13, 326);
-            this.head_lbl_reference_no.Name = "head_lbl_reference_no";
-            this.head_lbl_reference_no.Size = new System.Drawing.Size(78, 13);
-            this.head_lbl_reference_no.TabIndex = 81;
-            this.head_lbl_reference_no.Text = "Reference no.";
-            this.head_lbl_reference_no.Visible = false;
-            // 
-            // head_lbl_colon
-            // 
-            this.head_lbl_colon.AutoSize = true;
-            this.head_lbl_colon.ForeColor = System.Drawing.Color.Black;
-            this.head_lbl_colon.Location = new System.Drawing.Point(126, 326);
-            this.head_lbl_colon.Name = "head_lbl_colon";
-            this.head_lbl_colon.Size = new System.Drawing.Size(10, 13);
-            this.head_lbl_colon.TabIndex = 82;
-            this.head_lbl_colon.Text = ":";
-            this.head_lbl_colon.Visible = false;
-            // 
-            // reference_no_edit
-            // 
-            this.reference_no_edit.Location = new System.Drawing.Point(11, 140);
-            this.reference_no_edit.Name = "reference_no_edit";
-            this.reference_no_edit.Size = new System.Drawing.Size(205, 22);
-            this.reference_no_edit.TabIndex = 156;
             // 
             // device_pending_req
             // 
@@ -880,5 +896,6 @@
         private System.Windows.Forms.Label head_lbl_colon;
         private System.Windows.Forms.Label head_lbl_reference_no;
         private System.Windows.Forms.TextBox reference_no_edit;
+        public System.Windows.Forms.Label lbl_reference_no;
     }
 }

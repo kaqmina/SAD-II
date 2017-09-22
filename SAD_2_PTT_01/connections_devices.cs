@@ -252,13 +252,20 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname,' ', pwd.middlename) AS fullname, "
                                              + "pwd.registration_no, "
                                              + "employee.username, "
-                                             + "device_log.req_date, "
+                                             + "DATE(device_log.req_date) AS req_date, "
                                              + "device.dev_name, "
-                                             + "device_provider.dp_name "
+                                             + "device_provider.dp_name, "
+                                             + "req_desc, "
+                                             + "reference_no, "
+                                             + "pwd.id_no, "
+                                             + "pwd.mobile_no, "
+                                             + "pwd.tel_no, "
+                                             + "disability.disability_type "
                                              + "FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
                                              + "JOIN device ON device_log.device_id = device.device_id "
                                              + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
                                              + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
+                                             + "JOIN disability ON disability.disability_id = pwd.disability_id "
                                              + "WHERE device_log.isArchived != 1 AND deviceLOG_id = " + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
                 get.Fill(data);
@@ -282,16 +289,23 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname, ' ', pwd.middlename) AS fullname, "
                                              + "pwd.registration_no, "
                                              + "employee.username, "
-                                             + "device_log.req_date, "
+                                             + "DATE(device_log.req_date) AS req_date, "
                                              + "device.dev_name, "
                                              + "device_provider.dp_name, "
-                                             + "device_log.date_in, "
+                                             + "DATE(device_log.date_in) AS date_in, "
                                              + "device_log.in_emp_id, "
+                                             + "req_desc, "
+                                             + "reference_no, "
+                                             + "pwd.id_no, "
+                                             + "pwd.mobile_no, "
+                                             + "pwd.tel_no, "
+                                             + "disability.disability_type, "
                                              + "(SELECT username FROM employee JOIN device_log ON employee.employee_id = device_log.in_emp_id WHERE device_log.deviceLOG_id = " + dev_id + ") AS username_in "
                                              + "FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
                                              + "JOIN device ON device_log.device_id = device.device_id "
                                              + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
                                              + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
+                                             + "JOIN disability ON pwd.disability_id = disability.disability_id "
                                              + "WHERE device_log.isArchived != 1 AND deviceLOG_id =" + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
                 get.Fill(data);
@@ -1113,7 +1127,7 @@ namespace SAD_2_PTT_01
                                              + "tel_no, "
                                              + "mobile_no "
                                              + "FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id WHERE pwd.isArchived != 1 AND "
-                                             + "(SELECT EXISTS(SELECT pwd_id FROM device_log WHERE pwd_id = pwd.pwd_id)) = 0 ORDER BY fullname ASC ", conn);
+                                             + "(SELECT EXISTS(SELECT pwd_id FROM device_log WHERE pwd_id = pwd.pwd_id AND isArchived != 1 AND status != 4)) = 0 ORDER BY fullname ASC ", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -1346,7 +1360,7 @@ namespace SAD_2_PTT_01
                 Console.WriteLine("Mark as Cancelled.");
                 conn.Open();
 
-                comm = new MySqlCommand("UPDATE device_log SET cancel_date = '"+ date +"', cancel_emp_id = "+ cancel_emp_id +",status = 4 WHERE deviceLOG_id = " + deviceLOG_id, conn);
+                comm = new MySqlCommand("UPDATE device_log SET cancel_date = '"+ date +"', cancel_emp_id = "+ cancel_emp_id +", status = 4 WHERE deviceLOG_id = " + deviceLOG_id, conn);
                 comm.ExecuteNonQuery();
 
                 conn.Close();
@@ -1357,6 +1371,65 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 Console.WriteLine("Mark as Cancelled Failed : " + e.Message);
             }
+        }
+
+        public bool request_update(string desc, string user_id, string date_requested, string device_requested_id, string sponsor_id, string reference_no, string current_dev_log_id)
+        {
+            bool success = false;
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[EXECUTE] : request_update() >" + desc + Environment.NewLine + user_id + Environment.NewLine + date_requested + Environment.NewLine + device_requested_id + Environment.NewLine + sponsor_id + Environment.NewLine + reference_no);
+                comm = new MySqlCommand("UPDATE device_log SET req_desc = '"+ desc +"', "
+                                                            + "req_emp_id = "+ user_id +", "
+                                                            + "req_date = '"+ date_requested +"', "
+                                                            + "device_id = "+ device_requested_id +", "
+                                                            + "dp_id = "+ sponsor_id +", "
+                                                            + "reference_no = '"+ reference_no +"' WHERE isArchived != 1 AND deviceLOG_id = " + current_dev_log_id, conn);
+                comm.ExecuteNonQuery();
+                success = true;
+                Console.WriteLine("[SUCCESS] : request_update()");
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                success = false;
+                Console.WriteLine("[ERROR] : request_update() > " + e.Message);
+            }
+
+            return success;
+        }
+
+        public bool received_update(string desc, string user_id, string date_requested, string device_requested_id, string sponsor_id, string reference_no, string current_dev_log_id, string user_in_id, string date_in)
+        {
+            bool success = false;
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("[EXECUTE] : received_update() >" + desc + Environment.NewLine + user_id + Environment.NewLine + date_requested + Environment.NewLine + device_requested_id + Environment.NewLine + sponsor_id + Environment.NewLine + reference_no + Environment.NewLine + user_in_id + Environment.NewLine + date_in);
+                comm = new MySqlCommand("UPDATE device_log SET req_desc = '" + desc + "', "
+                                                            + "req_emp_id = " + user_id + ", "
+                                                            + "req_date = '" + date_requested + "', "
+                                                            + "device_id = " + device_requested_id + ", "
+                                                            + "dp_id = " + sponsor_id + ", "
+                                                            + "in_emp_id = " + user_in_id + ", "
+                                                            + "date_in = '" + date_in + "', " 
+                                                            + "reference_no = '" + reference_no + "' WHERE isArchived != 1 AND deviceLOG_id = " + current_dev_log_id, conn);
+                comm.ExecuteNonQuery();
+                success = true;
+                Console.WriteLine("[SUCCESS] : received_update()");
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                success = false;
+                Console.WriteLine("[ERROR] : received_update() > " + e.Message);
+            }
+
+            return success;
         }
     }
 }

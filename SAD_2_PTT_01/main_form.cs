@@ -1102,6 +1102,7 @@ namespace SAD_2_PTT_01
             {
                 device_received_ = true;
                 device_received_form = new device_pending_rec();
+                device_received_form.reference_to_main = this;
                 device_received_form.current_pwd_id = device_recieved.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
                 device_received_form.current_device_log_id = device_recieved.Rows[e.RowIndex].Cells["deviceLOG_id"].Value.ToString();
                 device_received_form.header_text.Text = "# " + device_recieved.Rows[e.RowIndex].Cells["no"].Value.ToString();
@@ -1317,7 +1318,6 @@ namespace SAD_2_PTT_01
             sys_func.lbl_reset(device_lbl_mobile_no);
             sys_func.lbl_reset(device_lbl_provider_address);
             sys_func.btn_inactive(device_btn_request_add);
-            device_btn_request_add.Enabled = false;
 
             load_device_request_defaults();
         }
@@ -1386,7 +1386,7 @@ namespace SAD_2_PTT_01
             }
             string reference = device_reference_no.Text;
             string recent = conn_user.get_user_id_by_name(current_user);
-            string query = "INSERT INTO device_log(pwd_id, device_id, dp_id, req_date, req_desc, req_emp_id, status, reference_no, recently_modified_by_id) VALUES ( "
+            string query = "INSERT INTO device_log(pwd_id, device_id, dp_id, req_date, req_desc, req_emp_id, status, reference_no) VALUES ( "
                                                        + pwd_id + ", "
                                                        + device_id + ", "
                                                        + dp_id + ", '"
@@ -1394,22 +1394,20 @@ namespace SAD_2_PTT_01
                                                        + req_desc + "', "
                                                        + req_emp_id + ", "
                                                        + "status = 1, '"
-                                                       + reference + "', "
-                                                       + recent + ")";
+                                                       + reference + "') ";
             bool request_success = conn_devi.request_add(query);
-
-            system_notify = new system_notification();
+            
             if (request_success == true)
             {
-                system_notify.message.Text = "Successfully Added Request!";
+                notification_ = "Successfully Added Request!";
                 device_request_clear();
                 load_device_requests();
             }
             else
             {
-                system_notify.message.Text = "Unsuccessful in Adding Request, please try again with valid values.";
+                notification_ = "Unsuccessful in Adding Request, please try again with valid values.";
             }
-            system_notify.Show();
+            show_success_message();
 
         }
 
@@ -1433,7 +1431,6 @@ namespace SAD_2_PTT_01
                 else
                 {
                     device_pwd_list_index = 0;
-                    device_btn_request_add.Enabled = false;
                     sys_func.btn_inactive(device_btn_request_add);
                     device_request_clear();
                     device_pwd_list.ClearSelection();
@@ -1501,9 +1498,8 @@ namespace SAD_2_PTT_01
 
         public void device_request_check_required()
         {
-            if (device_sponsor_cbox.SelectedIndex == 0 || device_device_cbox.SelectedIndex == 0 || device_reference_no.Text.Trim() == "" || device_has_devices == false)
+            if (device_sponsor_cbox.Text == "" || device_device_cbox.Text == "" || device_reference_no.Text.Trim() == "" || device_has_devices == false)
             {
-                device_btn_request_add.Enabled = false;
                 sys_func.btn_inactive(device_btn_request_add);
                 if (device_sponsor_cbox.SelectedIndex == 0)
                 {
@@ -1534,7 +1530,6 @@ namespace SAD_2_PTT_01
             }
             else
             {
-                device_btn_request_add.Enabled = true;
                 sys_func.btn_active(device_btn_request_add);
                 sys_func.lbl_required_success(device_lbl_head_sponsor);
                 sys_func.lbl_required_success(device_lbl_head_device);

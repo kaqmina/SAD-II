@@ -16,12 +16,18 @@ namespace SAD_2_PTT_01
         {
             InitializeComponent();
         }
-        public device_pending_req reference_to_main { get; set; }
+        public device_pending_req reference_to_requests { get; set; }
+        public device_pending_rec reference_to_received { get; set; }
         public DateTime req_date;
+        public DateTime rec_date;
+        public int state = 0;
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            reference_to_main.date_rec_ = rec_date_value.Value.ToString("yyyy-MM-dd");
+            if (state == 0)
+                reference_to_requests.date_rec_ = rec_date_value.Value.ToString("yyyy-MM-dd");
+            else 
+                reference_to_received.date_out_ = rec_date_value.Value.ToString("yyyy-MM-dd");
             btn_ok.DialogResult = DialogResult.OK;
         }
 
@@ -32,7 +38,10 @@ namespace SAD_2_PTT_01
 
         private void device_rec_req_date_Load(object sender, EventArgs e)
         {
-            rec_date_value.MinDate = req_date;
+            if (state == 0)
+                rec_date_value.MinDate = req_date;
+            else
+                rec_date_value.MinDate = rec_date;
         }
     }
 }

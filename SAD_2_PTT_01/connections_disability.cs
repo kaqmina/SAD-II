@@ -241,5 +241,30 @@ namespace SAD_2_PTT_01
             }
             return result;
         }
+
+        public string get_disability_by_name(string disability_name)
+        {
+            string ret_disability_id;
+            try
+            {
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_BY_NAME] } : " + disability_name);
+                conn.Open();
+                comm = new MySqlCommand("SELECT disability_id FROM disability WHERE disability_type = '" + disability_name + "'", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                ret_disability_id = set.Rows[0]["disability_id"].ToString();
+
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_BY_SUCCESS] } " + ret_disability_id);
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                ret_disability_id = "0";
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_BY_ERROR] } : " + e.Message);
+            }
+            return ret_disability_id;
+        }
     }
 }

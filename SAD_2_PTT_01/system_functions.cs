@@ -44,11 +44,13 @@ namespace SAD_2_PTT_01
 
         public void btn_inactive(Button current_btn)
         {
+            current_btn.Enabled = false;
             current_btn.Font = new Font(def, FontStyle.Italic);
         }
 
         public void btn_active(Button current_btn)
         {
+            current_btn.Enabled = true;
             current_btn.Font = new Font(def, FontStyle.Regular);
         }
 

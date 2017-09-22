@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.caption = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rec_date_value = new System.Windows.Forms.DateTimePicker();
             this.btn_ok = new System.Windows.Forms.Button();
@@ -36,20 +36,20 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // caption
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Select date recieved :";
+            this.caption.AutoSize = true;
+            this.caption.Location = new System.Drawing.Point(12, 20);
+            this.caption.Name = "caption";
+            this.caption.Size = new System.Drawing.Size(114, 13);
+            this.caption.TabIndex = 0;
+            this.caption.Text = "Select date recieved :";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.rec_date_value);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.caption);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -113,11 +113,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker rec_date_value;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Button btn_cancel;
+        public System.Windows.Forms.Label caption;
     }
 }
