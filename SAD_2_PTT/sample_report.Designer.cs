@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sample_report));
             this.panel11 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
@@ -38,6 +40,17 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.pnl_settings = new System.Windows.Forms.Panel();
+            this.btn_project = new System.Windows.Forms.Button();
+            this.btn_device = new System.Windows.Forms.Button();
+            this.pnl_device = new System.Windows.Forms.Panel();
+            this.device_grid = new System.Windows.Forms.DataGridView();
+            this.pnl_pwd = new System.Windows.Forms.Panel();
+            this.report_grid = new System.Windows.Forms.DataGridView();
+            this.btn_pwd = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dev_status = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.export_device = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_dist = new System.Windows.Forms.Label();
@@ -50,7 +63,6 @@
             this.lbl_from = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.date_format = new System.Windows.Forms.ComboBox();
-            this.report_grid = new System.Windows.Forms.DataGridView();
             this.export_excel = new System.Windows.Forms.Button();
             this.print_prev = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
@@ -65,8 +77,13 @@
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
             this.to_print = new System.Windows.Forms.PrintPreviewDialog();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel11.SuspendLayout();
             this.pnl_settings.SuspendLayout();
+            this.pnl_device.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.device_grid)).BeginInit();
+            this.pnl_pwd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -169,6 +186,17 @@
             // pnl_settings
             // 
             this.pnl_settings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_settings.Controls.Add(this.label6);
+            this.pnl_settings.Controls.Add(this.button6);
+            this.pnl_settings.Controls.Add(this.btn_project);
+            this.pnl_settings.Controls.Add(this.btn_device);
+            this.pnl_settings.Controls.Add(this.pnl_device);
+            this.pnl_settings.Controls.Add(this.pnl_pwd);
+            this.pnl_settings.Controls.Add(this.btn_pwd);
+            this.pnl_settings.Controls.Add(this.label5);
+            this.pnl_settings.Controls.Add(this.dev_status);
+            this.pnl_settings.Controls.Add(this.label4);
+            this.pnl_settings.Controls.Add(this.export_device);
             this.pnl_settings.Controls.Add(this.label3);
             this.pnl_settings.Controls.Add(this.label2);
             this.pnl_settings.Controls.Add(this.lbl_dist);
@@ -181,7 +209,6 @@
             this.pnl_settings.Controls.Add(this.lbl_from);
             this.pnl_settings.Controls.Add(this.label1);
             this.pnl_settings.Controls.Add(this.date_format);
-            this.pnl_settings.Controls.Add(this.report_grid);
             this.pnl_settings.Controls.Add(this.export_excel);
             this.pnl_settings.Controls.Add(this.print_prev);
             this.pnl_settings.Controls.Add(this.save);
@@ -192,6 +219,170 @@
             this.pnl_settings.Name = "pnl_settings";
             this.pnl_settings.Size = new System.Drawing.Size(1069, 589);
             this.pnl_settings.TabIndex = 28;
+            // 
+            // btn_project
+            // 
+            this.btn_project.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_project.FlatAppearance.BorderSize = 0;
+            this.btn_project.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_project.Location = new System.Drawing.Point(379, 122);
+            this.btn_project.Name = "btn_project";
+            this.btn_project.Size = new System.Drawing.Size(75, 23);
+            this.btn_project.TabIndex = 64;
+            this.btn_project.Text = "3";
+            this.btn_project.UseVisualStyleBackColor = false;
+            // 
+            // btn_device
+            // 
+            this.btn_device.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_device.FlatAppearance.BorderSize = 0;
+            this.btn_device.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_device.Location = new System.Drawing.Point(307, 122);
+            this.btn_device.Name = "btn_device";
+            this.btn_device.Size = new System.Drawing.Size(75, 23);
+            this.btn_device.TabIndex = 63;
+            this.btn_device.Text = "2";
+            this.btn_device.UseVisualStyleBackColor = false;
+            this.btn_device.Click += new System.EventHandler(this.btn_device_Click);
+            // 
+            // pnl_device
+            // 
+            this.pnl_device.Controls.Add(this.device_grid);
+            this.pnl_device.Location = new System.Drawing.Point(210, 147);
+            this.pnl_device.Name = "pnl_device";
+            this.pnl_device.Size = new System.Drawing.Size(845, 420);
+            this.pnl_device.TabIndex = 57;
+            // 
+            // device_grid
+            // 
+            this.device_grid.AllowUserToAddRows = false;
+            this.device_grid.AllowUserToDeleteRows = false;
+            this.device_grid.AllowUserToResizeColumns = false;
+            this.device_grid.AllowUserToResizeRows = false;
+            this.device_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.device_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.device_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.device_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.device_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.device_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.device_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.device_grid.Location = new System.Drawing.Point(0, 0);
+            this.device_grid.MultiSelect = false;
+            this.device_grid.Name = "device_grid";
+            this.device_grid.ReadOnly = true;
+            this.device_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.device_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.device_grid.Size = new System.Drawing.Size(845, 420);
+            this.device_grid.TabIndex = 56;
+            // 
+            // pnl_pwd
+            // 
+            this.pnl_pwd.Controls.Add(this.report_grid);
+            this.pnl_pwd.Location = new System.Drawing.Point(211, 147);
+            this.pnl_pwd.Name = "pnl_pwd";
+            this.pnl_pwd.Size = new System.Drawing.Size(844, 420);
+            this.pnl_pwd.TabIndex = 62;
+            // 
+            // report_grid
+            // 
+            this.report_grid.AllowUserToAddRows = false;
+            this.report_grid.AllowUserToDeleteRows = false;
+            this.report_grid.AllowUserToResizeColumns = false;
+            this.report_grid.AllowUserToResizeRows = false;
+            this.report_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.report_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.report_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.report_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.report_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.report_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.report_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.report_grid.Location = new System.Drawing.Point(3, 0);
+            this.report_grid.MultiSelect = false;
+            this.report_grid.Name = "report_grid";
+            this.report_grid.ReadOnly = true;
+            this.report_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.report_grid.Size = new System.Drawing.Size(833, 427);
+            this.report_grid.TabIndex = 43;
+            // 
+            // btn_pwd
+            // 
+            this.btn_pwd.BackColor = System.Drawing.Color.White;
+            this.btn_pwd.FlatAppearance.BorderSize = 0;
+            this.btn_pwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pwd.Location = new System.Drawing.Point(231, 122);
+            this.btn_pwd.Name = "btn_pwd";
+            this.btn_pwd.Size = new System.Drawing.Size(75, 23);
+            this.btn_pwd.TabIndex = 61;
+            this.btn_pwd.Text = "1";
+            this.btn_pwd.UseVisualStyleBackColor = false;
+            this.btn_pwd.Click += new System.EventHandler(this.btn_pwd_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(26, 308);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 60;
+            this.label5.Text = "STATUS";
+            // 
+            // dev_status
+            // 
+            this.dev_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dev_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dev_status.FormattingEnabled = true;
+            this.dev_status.Items.AddRange(new object[] {
+            "",
+            "Requested",
+            "Handed Out"});
+            this.dev_status.Location = new System.Drawing.Point(83, 305);
+            this.dev_status.Name = "dev_status";
+            this.dev_status.Size = new System.Drawing.Size(107, 21);
+            this.dev_status.TabIndex = 59;
+            this.dev_status.SelectedIndexChanged += new System.EventHandler(this.dev_status_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 271);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "DEVICE";
+            // 
+            // export_device
+            // 
+            this.export_device.Location = new System.Drawing.Point(104, 266);
+            this.export_device.Name = "export_device";
+            this.export_device.Size = new System.Drawing.Size(88, 23);
+            this.export_device.TabIndex = 57;
+            this.export_device.Text = "Export PDF";
+            this.export_device.UseVisualStyleBackColor = true;
+            this.export_device.Click += new System.EventHandler(this.export_device_Click);
             // 
             // label3
             // 
@@ -326,6 +517,7 @@
             this.date_format.FormattingEnabled = true;
             this.date_format.Items.AddRange(new object[] {
             "",
+            "Weekly",
             "Monthly",
             "Yearly",
             "Custom"});
@@ -334,39 +526,6 @@
             this.date_format.Size = new System.Drawing.Size(121, 21);
             this.date_format.TabIndex = 44;
             this.date_format.SelectedIndexChanged += new System.EventHandler(this.date_format_SelectedIndexChanged);
-            // 
-            // report_grid
-            // 
-            this.report_grid.AllowUserToAddRows = false;
-            this.report_grid.AllowUserToDeleteRows = false;
-            this.report_grid.AllowUserToResizeColumns = false;
-            this.report_grid.AllowUserToResizeRows = false;
-            this.report_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.report_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.report_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.report_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.report_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.report_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.report_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.report_grid.Location = new System.Drawing.Point(211, 117);
-            this.report_grid.MultiSelect = false;
-            this.report_grid.Name = "report_grid";
-            this.report_grid.ReadOnly = true;
-            this.report_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.report_grid.Size = new System.Drawing.Size(833, 422);
-            this.report_grid.TabIndex = 43;
             // 
             // export_excel
             // 
@@ -461,7 +620,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 31);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Providers";
+            this.button2.Text = "Projects";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -524,6 +683,24 @@
             this.to_print.Name = "printPreviewDialog1";
             this.to_print.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 369);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "PROJECT";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(102, 364);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(88, 23);
+            this.button6.TabIndex = 65;
+            this.button6.Text = "Export PDF";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // sample_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -538,6 +715,9 @@
             this.panel11.ResumeLayout(false);
             this.pnl_settings.ResumeLayout(false);
             this.pnl_settings.PerformLayout();
+            this.pnl_device.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.device_grid)).EndInit();
+            this.pnl_pwd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -580,5 +760,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.SaveFileDialog save_Excel;
         private System.Windows.Forms.PrintPreviewDialog to_print;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button export_device;
+        public System.Windows.Forms.DataGridView device_grid;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox dev_status;
+        private System.Windows.Forms.Button btn_project;
+        private System.Windows.Forms.Button btn_device;
+        private System.Windows.Forms.Panel pnl_device;
+        private System.Windows.Forms.Panel pnl_pwd;
+        private System.Windows.Forms.Button btn_pwd;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button6;
     }
 }
