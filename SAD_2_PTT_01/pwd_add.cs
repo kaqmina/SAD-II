@@ -19,6 +19,7 @@ namespace SAD_2_PTT_01
         public main_form reference_to_main { get; set; }
         public pwd_view reference_to_view { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
+        connections_disability conn_disa = new connections_disability();
         shadow shadow_;
         pwd_ask prompt;
         system_keypress key_ = new system_keypress();
@@ -80,6 +81,7 @@ namespace SAD_2_PTT_01
         bool all_required = false;
         public bool update_mode = false;
         public string update_regis_no = "";
+        public string update_id_no = "";
         Image picture = null;
 
         #endregion
@@ -223,6 +225,11 @@ namespace SAD_2_PTT_01
         {
             key_.key_letter(sender, e);
         }
+
+        private void id_no_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            key_.key_number_letter(sender, e);
+        }
         #endregion
 
         #region ON_LOAD - ON_CLOSE
@@ -340,6 +347,42 @@ namespace SAD_2_PTT_01
 
         #region BTN-NEXT
 
+        public void btn_side_active()
+        {
+            btn_general.BackColor = Color.FromArgb(255, 255, 255);
+            btn_personal.BackColor = Color.FromArgb(255, 255, 255);
+            btn_contact.BackColor = Color.FromArgb(255, 255, 255);
+            btn_educational.BackColor = Color.FromArgb(255, 255, 255);
+            btn_type_of_skill.BackColor = Color.FromArgb(255, 255, 255);
+            btn_educational.BackColor = Color.FromArgb(255, 255, 255);
+            btn_organizational.BackColor = Color.FromArgb(255, 255, 255);
+            btn_other.BackColor = Color.FromArgb(255, 255, 255);
+            btn_parental.BackColor = Color.FromArgb(255, 255, 255);
+
+            if (current_panel == 1)
+            {
+                btn_general.BackColor = Color.FromArgb(240, 240, 240);
+            } else if (current_panel == 2)
+            {
+                btn_personal.BackColor = Color.FromArgb(240, 240, 240);
+            } else if (current_panel == 3)
+            {
+                btn_contact.BackColor = Color.FromArgb(240, 240, 240);
+                btn_educational.BackColor = Color.FromArgb(240, 240, 240);
+            } else if (current_panel == 4)
+            {
+                btn_employment.BackColor = Color.FromArgb(240, 240, 240);
+                btn_type_of_skill.BackColor = Color.FromArgb(240, 240, 240);
+            } else if (current_panel == 5)
+            {
+                btn_organizational.BackColor = Color.FromArgb(240, 240, 240);
+                btn_other.BackColor = Color.FromArgb(240, 240, 240);
+            } else
+            {
+                btn_parental.BackColor = Color.FromArgb(240, 240, 240);
+            }
+        }
+
         private void pwd_next_Click(object sender, EventArgs e)
         {
             if (current_panel == 1) //PANEL 2
@@ -406,6 +449,7 @@ namespace SAD_2_PTT_01
             {
                 pwd_add_update_profile();
             }
+            btn_side_active();
         }
 
         int current_panel = 1;
@@ -413,7 +457,7 @@ namespace SAD_2_PTT_01
 
         public void panel_1_next ()
         {
-            if(pwd_regisno.Text != "" && pwd_appdate.Value.ToString() != "" && disability_type.Text != "" && lbl_regis_no_error.Visible == false) 
+            if(pwd_regisno.Text != "" && pwd_appdate.Value.ToString() != "" && disability_type.Text != "" && lbl_regis_no_error.Visible == false && lbl_id_no_error.Visible == false) 
             {
                 pwd_next.Enabled = true;
                 btn_general.ForeColor = Color.FromArgb(41, 45, 56);
@@ -553,7 +597,7 @@ namespace SAD_2_PTT_01
 
         private void disability_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            disability = disability_type.SelectedIndex;
+            disability = int.Parse(conn_disa.get_disability_by_name(disability_type.Text));
             panel_1_next();
         }
         private void pwd_regisno_TextChanged(object sender, EventArgs e)
@@ -1494,6 +1538,7 @@ namespace SAD_2_PTT_01
             #region <-----[MAIN DATA]----->
 
             pwd_regisno.Text = main_data.Rows[0]["registration_no"].ToString();
+            id_no.Text = main_data.Rows[0]["id_no"].ToString();
             ln_txt.Text = main_data.Rows[0]["lastname"].ToString();
             fn_txt.Text = main_data.Rows[0]["firstname"].ToString();
             mn_txt.Text = main_data.Rows[0]["middlename"].ToString();
@@ -1573,5 +1618,20 @@ namespace SAD_2_PTT_01
             }
             
         }
+
+        private void id_no_TextChanged(object sender, EventArgs e)
+        {
+            if (conn_pwd.pwd_check_registration_has_duplicate(id_no.Text, update_id_no) == true)
+            {
+                lbl_id_no_error.Visible = true;
+                panel_1_next();
+            }
+            else
+            {
+                lbl_id_no_error.Visible = false;
+                panel_1_next();
+            }
+        }
+
     }
 }

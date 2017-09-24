@@ -56,7 +56,6 @@ namespace SAD_2_PTT_01
             startup_opacity.Start();
             //<---[ Modules ]--->
             load_pwd();
-            conn_pwd.populate_cbox(pwd_combobox_disability, pwd_combobox_district);
 
             load_projects();
             projects_default_data();
@@ -155,33 +154,102 @@ namespace SAD_2_PTT_01
         #region PWD Module
 
         #region ON-LOAD
+        bool pwd_has_pwd = false;
+
         public void load_pwd()
         {
-            conn_pwd.pwd_grid_list(pwd_grid);
+            pwd_has_pwd = conn_pwd.pwd_grid_list(pwd_grid);
             pwd_grid.ClearSelection();
             pwd_format();
 
             pwd_load_row_count();
+            if (pwd_has_pwd == false)
+            {
+                sys_func.btn_inactive(btn_pwd_edit);
+                sys_func.btn_inactive(btn_pwd_viewmore);
+                sys_func.btn_inactive(btn_archive);
+                sys_func.btn_inactive(btn_renew);
+            } else
+            {
+                sys_func.btn_active(btn_pwd_edit);
+                sys_func.btn_active(btn_pwd_viewmore);
+                sys_func.btn_active(btn_archive);
+                sys_func.btn_active(btn_renew);
+            }
         }
 
         public void pwd_load_row_count()
         {
-            pwd_grid_row_count.Text = pwd_grid.Rows.Count.ToString();
+            if (pwd_has_pwd == false)
+            {
+                pwd_grid_row_count.Text = "0";
+            } else
+            {
+                pwd_grid_row_count.Text = pwd_grid.Rows.Count.ToString();
+            }
         }
 
         public void pwd_format()
         {
-            pwd_grid.Columns["pwd_id"].Visible = false;
-            pwd_grid.Columns["status_pwd"].Visible = false;
-            pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
-            pwd_grid.Columns["fullname"].HeaderText = "Full Name";
-            pwd_grid.Columns["sex"].HeaderText = "Sex";
-            pwd_grid.Columns["disability_type"].HeaderText = "Disability";
-            pwd_grid.Columns["blood_type"].HeaderText = "Blood Type";
-            pwd_grid.Columns["civil_status"].HeaderText = "Civil Status";
-            pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
-            pwd_grid.Columns["added_date"].HeaderText = "Date Added";
-            pwd_grid.Columns["age"].HeaderText = "Age";
+            if (pwd_has_pwd == false)
+            {
+                pwd_grid.DefaultCellStyle.ForeColor = Color.Gray;
+                pwd_grid.DefaultCellStyle.SelectionForeColor = Color.Gray;
+                pwd_grid.DefaultCellStyle.SelectionBackColor = Color.White;
+                pwd_grid.Columns["pwd_id"].Visible = false;
+                pwd_grid.Columns["status_pwd"].Visible = false;
+                pwd_grid.Columns["district_id"].Visible = false;
+                pwd_grid.Columns["end_date"].Visible = false;
+                pwd_grid.Columns["blood_type"].Visible = false;
+                pwd_grid.Columns["civil_status"].Visible = false;
+                pwd_grid.Columns["added_date"].Visible = false;
+                pwd_grid.Columns["registration_no"].Visible = false;
+                pwd_grid.Columns["fullname"].Visible = false;
+                pwd_grid.Columns["sex"].Visible = false;
+                pwd_grid.Columns["disability_type"].Visible = false;
+                pwd_grid.Columns["application_date"].Visible = false; 
+                pwd_grid.Columns["added_date"].Visible = false;
+                pwd_grid.Columns["age"].Visible = false;
+                pwd_grid.Columns["id_no"].Visible = false;
+                pwd_grid.Columns["district_name"].Visible = false;
+
+                pwd_grid.Columns["display_text"].Visible = true;
+                pwd_grid.Columns["display_text"].HeaderText = "Full List";
+
+            } else
+            {
+                pwd_grid.DefaultCellStyle.ForeColor = Color.FromArgb(41, 45, 56);
+                pwd_grid.DefaultCellStyle.SelectionForeColor = Color.Black;
+                pwd_grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 224, 224);
+                pwd_grid.Columns["pwd_id"].Visible = false;
+                pwd_grid.Columns["status_pwd"].Visible = false;
+                pwd_grid.Columns["district_id"].Visible = false;
+                pwd_grid.Columns["end_date"].Visible = false;
+                pwd_grid.Columns["blood_type"].Visible = false;
+                pwd_grid.Columns["civil_status"].Visible = false;
+                pwd_grid.Columns["added_date"].Visible = false;
+                pwd_grid.Columns["display_text"].Visible = false;
+
+                pwd_grid.Columns["registration_no"].Visible = true;
+                pwd_grid.Columns["fullname"].Visible = true;
+                pwd_grid.Columns["sex"].Visible = true;
+                pwd_grid.Columns["disability_type"].Visible = true;
+                pwd_grid.Columns["application_date"].Visible = true;
+                pwd_grid.Columns["age"].Visible = true;
+                pwd_grid.Columns["id_no"].Visible = true;
+                pwd_grid.Columns["district_name"].Visible = true;
+                pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
+                pwd_grid.Columns["fullname"].HeaderText = "Full Name";
+                pwd_grid.Columns["sex"].HeaderText = "Sex";
+                pwd_grid.Columns["disability_type"].HeaderText = "Disability";
+                pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
+                pwd_grid.Columns["added_date"].HeaderText = "Date Added";
+                pwd_grid.Columns["age"].HeaderText = "Age";
+                pwd_grid.Columns["id_no"].HeaderText = "ID No.";
+                pwd_grid.Columns["district_name"].HeaderText = "District";
+            }
+
+            
 
             pwd_grid.Columns["registration_no"].Width = 90;
             pwd_grid.Columns["sex"].Width = 40;
@@ -197,28 +265,35 @@ namespace SAD_2_PTT_01
 
         private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (pwd_has_pwd == false)
             {
-                //nothing
-            }
-            else
+
+            } else
             {
-                btn_pwd_viewmore.Enabled = true;
-                btn_pwd_edit.Enabled = true;
-                btn_archive.Enabled = true;
-                if (pwd_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Salmon)
+                if (e.RowIndex < 0)
                 {
-                    btn_renew.Enabled = true;
-                    btn_archive.Enabled = true;
+                    //nothing
                 }
                 else
                 {
-                    btn_renew.Enabled = false;
-                    btn_archive.Enabled = false;
+                    btn_pwd_viewmore.Enabled = true;
+                    btn_pwd_edit.Enabled = true;
+                    btn_archive.Enabled = true;
+                    if (pwd_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Salmon)
+                    {
+                        btn_renew.Enabled = true;
+                        btn_archive.Enabled = true;
+                    }
+                    else
+                    {
+                        btn_renew.Enabled = false;
+                        btn_archive.Enabled = false;
+                    }
+                    current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
+                    current_pwd_grid_index = e.RowIndex;
                 }
-                current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
-                current_pwd_grid_index = e.RowIndex;
             }
+            
         }
 
         public void pwd_cell_color()
@@ -307,6 +382,7 @@ namespace SAD_2_PTT_01
             edit.pwd_update_id = current_pwd_id;
             edit.update_mode = true;
             edit.update_regis_no = pwd_grid.Rows[current_pwd_grid_index].Cells["registration_no"].Value.ToString();
+            edit.update_id_no = pwd_grid.Rows[current_pwd_grid_index].Cells["id_no"].Value.ToString();
             Console.WriteLine("[PWD] ->> [EDIT-MODE]");
             edit.ShowDialog();
             if (success == true)
@@ -351,19 +427,25 @@ namespace SAD_2_PTT_01
 
         private void pwd_searchbox_TextChanged(object sender, EventArgs e)
         {
-            if (pwd_searchbox.Text.Trim() != "")
+            if (pwd_has_pwd == false)
             {
-                conn_pwd.pwd_search(pwd_grid, pwd_searchbox);
-                pwd_grid.Columns["lastname"].Visible = false;
-                pwd_grid.Columns["firstname"].Visible = false;
-                pwd_grid.Columns["middlename"].Visible = false;
-                pwd_format();
-            }
-            else
+                //nothing
+            } else
             {
-                load_pwd();
+                if (pwd_searchbox.Text.Trim() != "")
+                {
+                    conn_pwd.pwd_search(pwd_grid, pwd_searchbox);
+                    pwd_grid.Columns["lastname"].Visible = false;
+                    pwd_grid.Columns["firstname"].Visible = false;
+                    pwd_grid.Columns["middlename"].Visible = false;
+                    pwd_format();
+                }
+                else
+                {
+                    load_pwd();
+                }
+                pwd_load_row_count();
             }
-            pwd_load_row_count();
         }
 
         #endregion
@@ -450,35 +532,42 @@ namespace SAD_2_PTT_01
         public void pwd_grid_filter()
         {
             load_pwd();
-            pwd_grid_filter_multiple();
-            if(pwd_filter_ == true)
+            if (pwd_has_pwd == false)
             {
-                Console.WriteLine("PWD_FILTER_MULTIPLE " + pwd_gender_ + " " + pwd_status_);
-                conn_pwd.filter_status_gender(pwd_status_, pwd_gender_, pwd_grid);
+                //nothing
             } else
             {
-                Console.WriteLine("PWD_FILTER_ONCE");
-                if (pwd_filter_male.Checked)
+                pwd_grid_filter_multiple();
+                if (pwd_filter_ == true)
                 {
-                    conn_pwd.filter_gender("M", pwd_grid);
+                    Console.WriteLine("PWD_FILTER_MULTIPLE " + pwd_gender_ + " " + pwd_status_);
+                    conn_pwd.filter_status_gender(pwd_status_, pwd_gender_, pwd_grid);
                 }
-                if (pwd_filter_female.Checked)
+                else
                 {
-                    conn_pwd.filter_gender("F", pwd_grid);
+                    Console.WriteLine("PWD_FILTER_ONCE");
+                    if (pwd_filter_male.Checked)
+                    {
+                        conn_pwd.filter_gender("M", pwd_grid);
+                    }
+                    if (pwd_filter_female.Checked)
+                    {
+                        conn_pwd.filter_gender("F", pwd_grid);
+                    }
+                    if (pwd_filter_active.Checked)
+                    {
+                        conn_pwd.filter_status("1", pwd_grid);
+                    }
+                    if (pwd_filter_inactive.Checked)
+                    {
+                        conn_pwd.filter_status("0", pwd_grid);
+                    }
                 }
-                if (pwd_filter_active.Checked)
-                {
-                    conn_pwd.filter_status("1", pwd_grid);
-                }
-                if (pwd_filter_inactive.Checked)
-                {
-                    conn_pwd.filter_status("0", pwd_grid);
-                }
+
+
+                pwd_grid.ClearSelection();
+                pwd_cell_color();
             }
-
-
-            pwd_grid.ClearSelection();
-            pwd_cell_color();
         }
 
         bool pwd_filter_ = false;
@@ -1313,7 +1402,6 @@ namespace SAD_2_PTT_01
             device_lbl_mobile_no.Text = "--";
             device_lbl_provider_address.Text = "--";
             device_sponsor_cbox.SelectedIndex = 0;
-            device_request_date.Value = DateTime.Now;
             device_request_date.MaxDate = DateTime.Now;
             device_request_desc.Clear();
             device_device_cbox.SelectedIndex = 0;
@@ -1967,8 +2055,6 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #endregion
-
         private void projects_disability_Click(object sender, EventArgs e)
         {
             disability_form_ = true;
@@ -1982,30 +2068,15 @@ namespace SAD_2_PTT_01
             shadow_.Close();
             disability_form_ = false;
         }
-        
 
         private void projects_history_Click(object sender, EventArgs e)
         {
             device_pnl_request_new.Visible = false;
             load_handedout_data();
         }
+        #endregion
 
         
 
-
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
     }
 }

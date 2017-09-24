@@ -211,6 +211,11 @@
             this.btn_revert = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
+            this.id_no = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.lbl_id_no_error = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.quick_panel.SuspendLayout();
             this.panel_1_.SuspendLayout();
@@ -422,6 +427,7 @@
             // 
             // btn_general
             // 
+            this.btn_general.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_general.FlatAppearance.BorderSize = 0;
             this.btn_general.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_general.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,7 +437,7 @@
             this.btn_general.TabIndex = 2;
             this.btn_general.Text = "                     General Information";
             this.btn_general.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_general.UseVisualStyleBackColor = true;
+            this.btn_general.UseVisualStyleBackColor = false;
             this.btn_general.Click += new System.EventHandler(this.btn_general_Click);
             // 
             // button11
@@ -450,6 +456,10 @@
             // 
             // panel_1_
             // 
+            this.panel_1_.Controls.Add(this.lbl_id_no_error);
+            this.panel_1_.Controls.Add(this.label53);
+            this.panel_1_.Controls.Add(this.id_no);
+            this.panel_1_.Controls.Add(this.label52);
             this.panel_1_.Controls.Add(this.lbl_regis_no_error);
             this.panel_1_.Controls.Add(this.pwd_appdate);
             this.panel_1_.Controls.Add(this.disability_type);
@@ -461,6 +471,7 @@
             this.panel_1_.Controls.Add(this.pictureBox1);
             this.panel_1_.Controls.Add(this.label48);
             this.panel_1_.Controls.Add(this.label1);
+            this.panel_1_.Controls.Add(this.label54);
             this.panel_1_.Location = new System.Drawing.Point(272, 27);
             this.panel_1_.Name = "panel_1_";
             this.panel_1_.Size = new System.Drawing.Size(794, 535);
@@ -2532,6 +2543,61 @@
             this.exit_opacity.Interval = 1;
             this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
+            // id_no
+            // 
+            this.id_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.id_no.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_no.Location = new System.Drawing.Point(287, 413);
+            this.id_no.Multiline = true;
+            this.id_no.Name = "id_no";
+            this.id_no.Size = new System.Drawing.Size(206, 26);
+            this.id_no.TabIndex = 74;
+            this.id_no.TextChanged += new System.EventHandler(this.id_no_TextChanged);
+            this.id_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_no_KeyPress);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(284, 427);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(212, 15);
+            this.label52.TabIndex = 75;
+            this.label52.Text = "_________________________________________";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.Black;
+            this.label53.Location = new System.Drawing.Point(284, 398);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(39, 13);
+            this.label53.TabIndex = 76;
+            this.label53.Text = "ID No.";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(284, 377);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(212, 15);
+            this.label54.TabIndex = 77;
+            this.label54.Text = "_________________________________________";
+            // 
+            // lbl_id_no_error
+            // 
+            this.lbl_id_no_error.AutoSize = true;
+            this.lbl_id_no_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id_no_error.ForeColor = System.Drawing.Color.Red;
+            this.lbl_id_no_error.Location = new System.Drawing.Point(499, 415);
+            this.lbl_id_no_error.Name = "lbl_id_no_error";
+            this.lbl_id_no_error.Size = new System.Drawing.Size(121, 13);
+            this.lbl_id_no_error.TabIndex = 78;
+            this.lbl_id_no_error.Text = "* ID No. already exists.";
+            this.lbl_id_no_error.Visible = false;
+            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2771,5 +2837,10 @@
         private System.Windows.Forms.Button btn_revert;
         private System.Windows.Forms.Timer startup_opacity;
         private System.Windows.Forms.Timer exit_opacity;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox id_no;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label lbl_id_no_error;
     }
 }
