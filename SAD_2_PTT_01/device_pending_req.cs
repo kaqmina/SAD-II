@@ -79,6 +79,7 @@ namespace SAD_2_PTT_01
         private void device_pending_req_FormClosing(object sender, FormClosingEventArgs e)
         {
             exit_opacity.Start();
+            reference_to_main.load_handedout_data();
         }
 
         public string date_rec_;
@@ -96,6 +97,7 @@ namespace SAD_2_PTT_01
             {
                 conn_devi.mark_as_received(current_device_log_id, current_user_id, date_rec_);
                 reference_to_main.load_device_requests();
+                reference_to_main.load_handedout_data();
                 this.Close();
             } else
             {
@@ -137,6 +139,7 @@ namespace SAD_2_PTT_01
                 request_desc_edit.Text = lbl_desc.Text;
                 requested_by_edit.Text = lbl_employee_referred.Text;
                 date_req_edit.Value = Convert.ToDateTime(lbl_date_requested.Text);
+                date_req_edit.MaxDate = DateTime.Now;
                 device_req_edit.Text = lbl_device_requested.Text;
                 sponsor_edit.Text = lbl_provider.Text;
                 reference_no_edit.Text = lbl_reference_no.Text;

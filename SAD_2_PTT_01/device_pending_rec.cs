@@ -109,6 +109,7 @@ namespace SAD_2_PTT_01
         private void device_pending_rec_FormClosing(object sender, FormClosingEventArgs e)
         {
             exit_opacity.Start();
+           reference_to_main.load_handedout_data();
         }
 
         private void received_by_edit_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,6 +132,7 @@ namespace SAD_2_PTT_01
             {
                 conn_devi.mark_as_handed_out(current_device_log_id, current_user_id, date_out_);
                 reference_to_main.load_device_requests();
+                reference_to_main.load_handedout_data();
                 this.Close();
             }
             else
@@ -199,12 +201,14 @@ namespace SAD_2_PTT_01
                 request_desc_edit.Text = lbl_desc.Text;
                 requested_by_edit.Text = lbl_employee_referred.Text;
                 date_req_edit.Value = Convert.ToDateTime(lbl_date_requested.Text);
+                date_req_edit.MaxDate = DateTime.Now;
                 device_req_edit.Text = lbl_device_requested.Text;
                 sponsor_edit.Text = lbl_provider.Text;
                 reference_no_edit.Text = lbl_reference_no.Text;
                 received_by_edit.Text = lbl_in_emp_id.Text;
                 date_in_edit.MinDate = date_req_edit.Value;
                 date_in_edit.Value = Convert.ToDateTime(lbl_date_in.Text);
+                date_in_edit.MaxDate = DateTime.Now;
 
                 btn_edit.Text = "DISCARD CHANGES";
                 btn_ok.Text = "SAVE CHANGES";

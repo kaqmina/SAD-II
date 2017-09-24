@@ -28,16 +28,25 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT (@s:=@s+1) no, "
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                             + "fullname, "
                                              + "deviceLOG_id, "
                                              + "registration_no, "
                                              + "dp_name, "
-                                             + "device_log.pwd_id, "
+                                             + "reference_no, "
+                                             + "pwd_id, "
                                              + "req_date "
-                                             + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
-                                             + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
-                                             + "(SELECT @s:=0) AS s "
-                                             + "WHERE device_log.status = 1 AND device_log.isArchived != 1 ORDER BY dp_name ASC", conn);
+                                             + "FROM (SELECT (CONCAT(lastname, ',', firstname,' ' ,SUBSTRING(middlename, 1, 1), '.')) AS fullname, "
+                                                          + "deviceLOG_id, "
+                                                          + "registration_no, "
+                                                          + "dp_name, "
+                                                          + "reference_no, "
+                                                          + "device_log.pwd_id, "
+                                                          + "req_date "
+                                                          + "FROM device_log "
+                                                          + "JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
+                                                          + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id WHERE device_log.status = 1 AND device_log.isArchived != 1 "
+                                                          + "ORDER BY dp_name ASC) t1, (SELECT @row_number:=0) t2;", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -55,6 +64,11 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "deviceLOG_id";
                 pending_data.Columns.Add(column);
 
@@ -66,6 +80,11 @@ namespace SAD_2_PTT_01
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "dp_name";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "reference_no";
                 pending_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -90,11 +109,13 @@ namespace SAD_2_PTT_01
                     string none = "None";
                     row = pending_data.NewRow();
                     row["no"] = none;
+                    row["fullname"] = none;
                     row["deviceLOG_id"] = none;
                     row["registration_no"] = none;
                     row["dp_name"] = none;
                     row["pwd_id"] = none;
                     row["req_date"] = none;
+                    row["reference_no"] = none;
                     string text = "There are no pending requests.";
                     row["request_text"] = text;
                     pending_data.Rows.Add(row);
@@ -105,13 +126,15 @@ namespace SAD_2_PTT_01
                     {
                         row = pending_data.NewRow();
                         row["no"] = set.Rows[i]["no"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
                         row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                         row["dp_name"] = set.Rows[i]["dp_name"].ToString();
+                        row["reference_no"] = set.Rows[i]["reference_no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
                         string[] req = set.Rows[i]["req_date"].ToString().Split();
                         row["req_date"] = req[0];
-                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["dp_name"].ToString();
+                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["fullname"].ToString() + Environment.NewLine +  set.Rows[i]["dp_name"].ToString();
                         row["request_text"] = text;
                         pending_data.Rows.Add(row);
                     }
@@ -137,16 +160,24 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT (@s:=@s+1) no, "
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                             + "fullname, "
                                              + "deviceLOG_id, "
                                              + "registration_no, "
                                              + "dp_name, "
-                                             + "device_log.pwd_id, "
+                                             + "reference_no, "
+                                             + "pwd_id, "
                                              + "date_in "
-                                             + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
-                                             + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id, "
-                                             + "(SELECT @s:=0) AS s "
-                                             + "WHERE device_log.status = 2 AND device_log.isArchived != 1 ORDER BY dp_name ASC", conn);
+                                             + "FROM (SELECT CONCAT(lastname, ',' , firstname, ' ', SUBSTRING(middlename, 1, 1), '.') AS fullname, "
+                                                          + "deviceLOG_id, "
+                                                          + "registration_no, "
+                                                          + "dp_name, "
+                                                          + "reference_no, "
+                                                          + "device_log.pwd_id, "
+                                                          + "date_in "
+                                                          + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
+                                                          + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id WHERE device_log.status = 2 AND device_log.isArchived != 1 "
+                                                          + "ORDER BY dp_name ASC) t1, (SELECT @row_number:=0) t2;", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -160,6 +191,11 @@ namespace SAD_2_PTT_01
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "no";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
                 pending_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -189,6 +225,11 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "reference_no";
+                pending_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "recieved_text";
                 pending_data.Columns.Add(column);
                 #endregion
@@ -199,11 +240,13 @@ namespace SAD_2_PTT_01
                     string none = "None";
                     row = pending_data.NewRow();
                     row["no"] = none;
+                    row["fullname"] = none;
                     row["deviceLOG_id"] = none;
                     row["registration_no"] = none;
                     row["dp_name"] = none;
                     row["pwd_id"] = none;
                     row["date_in"] = none;
+                    row["reference_no"] = none;
                     string text = "There are no pending recieved devices.";
                     row["recieved_text"] = text;
                     pending_data.Rows.Add(row);
@@ -215,13 +258,15 @@ namespace SAD_2_PTT_01
                     {
                         row = pending_data.NewRow();
                         row["no"] = set.Rows[i]["no"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
                         row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
                         row["dp_name"] = set.Rows[i]["dp_name"].ToString();
+                        row["reference_no"] = set.Rows[i]["reference_no"].ToString();
                         string[] req = set.Rows[i]["date_in"].ToString().Split();
                         row["date_in"] = req[0];
-                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["dp_name"].ToString();
+                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["fullname"].ToString() + Environment.NewLine + set.Rows[i]["dp_name"].ToString();
                         row["recieved_text"] = text;
                         pending_data.Rows.Add(row);
                     }
@@ -556,7 +601,7 @@ namespace SAD_2_PTT_01
 
         #region [DEVICE] ADD-MODE
 
-        public void device_add(string dev_name, string dev_desc, int disability_id)
+        public void device_add(string dev_name, string dev_desc, string disability_id)
         {
             try
             {
@@ -730,7 +775,7 @@ namespace SAD_2_PTT_01
 
         #region [DEVICE] EDIT-MODE
 
-        public void device_update(string dev_name, string dev_desc, int disability_id, string device_id)
+        public void device_update(string dev_name, string dev_desc, string disability_id, string device_id)
         {
             try
             {
@@ -738,7 +783,7 @@ namespace SAD_2_PTT_01
 
                 comm = new MySqlCommand("UPDATE device SET dev_name = '"
                                                          + dev_name + "', dev_desc = '"
-                                                         + dev_desc + "', disability_id ="
+                                                         + dev_desc + "', disability_id = "
                                                          + disability_id
                                                          + " WHERE device_id = " + device_id, conn);
                 comm.ExecuteNonQuery();
@@ -1429,6 +1474,264 @@ namespace SAD_2_PTT_01
                 Console.WriteLine("[ERROR] : received_update() > " + e.Message);
             }
 
+            return success;
+        }
+
+        public bool get_handedout_list(DataGridView handedout_grid)
+        {
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT (@row_number := @row_number+1) AS no, "
+                                              + "deviceLOG_id, "
+                                              + "dp_name, "
+                                              + "fullname, "
+                                              + "dev_name, "
+                                              + "req_date, "
+                                              + "req_desc, "
+                                              + "user_req, "
+                                              + "date_in, "
+                                              + "user_in, "
+                                              + "date_out, "
+                                              + "user_out, "
+                                              + "status, "
+                                              + "reference_no,"
+                                              + "disability_type, "
+                                              + "mobile_no, "
+                                              + "tel_no, "
+                                              + "id_no, "
+                                              + "registration_no "
+                                              + "FROM(SELECT "
+                                                  + "deviceLOG_id, "
+                                                  + "dp_name, "
+                                                  + "(CONCAT(lastname, ',', firstname, ' ', SUBSTRING(middlename, 1, 1))) AS fullname, "
+                                                  + "dev_name, "
+                                                  + "req_date, "
+                                                  + "req_desc, "
+                                                  + "(SELECT username FROM employee WHERE employee.employee_id = device_log.req_emp_id) AS user_req,"
+                                                  + "device_log.date_in, "
+                                                  + "(SELECT username FROM employee WHERE employee.employee_id = device_log.in_emp_id) AS user_in, "
+                                                  + "device_log.date_out, "
+                                                  + "(SELECT username FROM employee WHERE employee.employee_id = device_log.out_emp_id) AS user_out, "
+                                                  + "device_log.status, "
+                                                  + "device_log.reference_no, "
+                                                  + "disability.disability_type, "
+                                                  + "pwd.mobile_no, "
+                                                  + "pwd.tel_no, "
+                                                  + "pwd.id_no, "
+                                                  + "pwd.registration_no "
+                                                  + "FROM device_log JOIN device ON device_log.device_id = device.device_id "
+                                                  + "JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
+                                                  + "JOIN disability ON pwd.disability_id = disability.disability_id "
+                                                  + "JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
+                                                  + "WHERE device_log.isArchived != 1 AND status = 3 "
+                                                  + "ORDER BY date_out DESC) t1, (SELECT @row_number:= 0) t2;", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable handout_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "deviceLOG_id";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dp_name";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "dev_name";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "req_date";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "req_desc";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "user_req";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "date_in";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "user_in";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "date_out";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "user_out";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "status";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "reference_no";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_type";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "mobile_no";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "tel_no";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "id_no";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "registration_no";
+                handout_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "handed_out_text";
+                handout_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = handout_data.NewRow();
+                    row["no"] = none;
+                    row["deviceLOG_id"] = "0";
+                    row["dp_name"] = none;
+                    row["fullname"] = none;
+                    row["dev_name"] = none;
+                    row["req_date"] = none;
+                    row["req_desc"] = none;
+                    row["user_req"] = none;
+                    row["date_in"] = none;
+                    row["user_in"] = none;
+                    row["date_out"] = none;
+                    row["user_out"] = none;
+                    row["status"] = none;
+                    row["reference_no"] = none;
+                    row["disability_type"] = none;
+                    row["mobile_no"] = none;
+                    row["tel_no"] = none;
+                    row["id_no"] = none;
+                    row["registration_no"] = none;
+                    row["handed_out_text"] = "There are currently no devices handed out.";
+                    handout_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = handout_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
+                        row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
+                        row["dp_name"] = set.Rows[i]["dp_name"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
+                        row["dev_name"] = set.Rows[i]["dev_name"].ToString();
+                        string[] req_date = set.Rows[i]["req_date"].ToString().Split();
+                        row["req_date"] = req_date[0];
+                        row["req_desc"] = set.Rows[i]["req_desc"].ToString();
+                        row["user_req"] = set.Rows[i]["user_req"].ToString();
+                        string[] date_in = set.Rows[i]["date_in"].ToString().Split();
+                        row["date_in"] = date_in[0];
+                        row["user_in"] = set.Rows[i]["user_in"].ToString();
+                        string[] date_out = set.Rows[i]["date_out"].ToString().Split();
+                        row["date_out"] = date_out[0];
+                        row["user_out"] = set.Rows[i]["user_out"].ToString();
+                        row["status"] = set.Rows[i]["status"].ToString();
+                        row["reference_no"] = set.Rows[i]["reference_no"].ToString();
+                        row["disability_type"] = set.Rows[i]["disability_type"].ToString();
+                        row["mobile_no"] = set.Rows[i]["mobile_no"].ToString();
+                        row["tel_no"] = set.Rows[i]["tel_no"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
+                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                        row["handed_out_text"] = " ";
+                        handout_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(handout_data);
+
+                handedout_grid.DataSource = view;
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] get_cancelled_handedout_list() : " + e.Message);
+            }
+
+            return has_data;
+        }
+
+        public bool handout_update(string query)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+
+                success = true;
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+                success = false;
+            }
             return success;
         }
     }

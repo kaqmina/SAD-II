@@ -38,6 +38,7 @@ namespace SAD_2_PTT_01
 
         private void device_rec_req_date_Load(object sender, EventArgs e)
         {
+            rec_date_value.MaxDate = DateTime.Now;
             if (state == 0)
                 rec_date_value.MinDate = req_date;
             else

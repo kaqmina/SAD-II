@@ -54,6 +54,12 @@
     <Compile Include="connections_notifications.cs" />
     <Compile Include="connections_project.cs" />
     <Compile Include="connections_pwd.cs" />
+    <Compile Include="device_history_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="device_history_view.Designer.cs">
+      <DependentUpon>device_history_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="device_rec_req_date.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </Compile>
     <Compile Include="system_sidenav_active.cs" />
     <Compile Include="system_functions.cs" />
+    <EmbeddedResource Include="device_history_view.resx">
+      <DependentUpon>device_history_view.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="device_rec_req_date.resx">
       <DependentUpon>device_rec_req_date.cs</DependentUpon>
     </EmbeddedResource>

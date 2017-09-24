@@ -30,6 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.view_panel = new System.Windows.Forms.Panel();
+            this.lbl_disability = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.pnl_edit = new System.Windows.Forms.Panel();
+            this.received_by_edit = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.date_in_edit = new System.Windows.Forms.DateTimePicker();
+            this.reference_no_edit = new System.Windows.Forms.TextBox();
+            this.sponsor_edit = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.device_req_edit = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.date_req_edit = new System.Windows.Forms.DateTimePicker();
+            this.requested_by_edit = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.request_desc_edit = new System.Windows.Forms.TextBox();
+            this.lbl_reference_no = new System.Windows.Forms.Label();
+            this.head_lbl_colon = new System.Windows.Forms.Label();
+            this.head_lbl_reference_no = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.lbl_mobile_no = new System.Windows.Forms.Label();
@@ -62,6 +82,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.lbl_in_emp_id = new System.Windows.Forms.Label();
+            this.lbl_date_in = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -77,30 +98,9 @@
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.btn_close = new System.Windows.Forms.Button();
-            this.head_lbl_colon = new System.Windows.Forms.Label();
-            this.head_lbl_reference_no = new System.Windows.Forms.Label();
-            this.lbl_reference_no = new System.Windows.Forms.Label();
-            this.pnl_edit = new System.Windows.Forms.Panel();
-            this.reference_no_edit = new System.Windows.Forms.TextBox();
-            this.sponsor_edit = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.device_req_edit = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.date_req_edit = new System.Windows.Forms.DateTimePicker();
-            this.requested_by_edit = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.request_desc_edit = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.lbl_date_in = new System.Windows.Forms.Label();
-            this.date_in_edit = new System.Windows.Forms.DateTimePicker();
-            this.received_by_edit = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbl_disability = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.view_panel.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.pnl_edit.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // view_panel
@@ -108,7 +108,6 @@
             this.view_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.view_panel.Controls.Add(this.lbl_disability);
             this.view_panel.Controls.Add(this.label26);
-            this.view_panel.Controls.Add(this.pnl_edit);
             this.view_panel.Controls.Add(this.lbl_reference_no);
             this.view_panel.Controls.Add(this.head_lbl_colon);
             this.view_panel.Controls.Add(this.head_lbl_reference_no);
@@ -152,10 +151,242 @@
             this.view_panel.Controls.Add(this.btn_hand_out);
             this.view_panel.Controls.Add(this.label3);
             this.view_panel.Controls.Add(this.label1);
+            this.view_panel.Controls.Add(this.pnl_edit);
             this.view_panel.Location = new System.Drawing.Point(3, 54);
             this.view_panel.Name = "view_panel";
             this.view_panel.Size = new System.Drawing.Size(576, 356);
             this.view_panel.TabIndex = 46;
+            // 
+            // lbl_disability
+            // 
+            this.lbl_disability.AutoSize = true;
+            this.lbl_disability.ForeColor = System.Drawing.Color.Black;
+            this.lbl_disability.Location = new System.Drawing.Point(392, 111);
+            this.lbl_disability.Name = "lbl_disability";
+            this.lbl_disability.Size = new System.Drawing.Size(77, 13);
+            this.lbl_disability.TabIndex = 161;
+            this.lbl_disability.Text = "Requested By";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label26.Location = new System.Drawing.Point(381, 86);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(60, 13);
+            this.label26.TabIndex = 160;
+            this.label26.Text = "Disability :";
+            // 
+            // pnl_edit
+            // 
+            this.pnl_edit.Controls.Add(this.received_by_edit);
+            this.pnl_edit.Controls.Add(this.label14);
+            this.pnl_edit.Controls.Add(this.date_in_edit);
+            this.pnl_edit.Controls.Add(this.reference_no_edit);
+            this.pnl_edit.Controls.Add(this.sponsor_edit);
+            this.pnl_edit.Controls.Add(this.label27);
+            this.pnl_edit.Controls.Add(this.label4);
+            this.pnl_edit.Controls.Add(this.label33);
+            this.pnl_edit.Controls.Add(this.device_req_edit);
+            this.pnl_edit.Controls.Add(this.label11);
+            this.pnl_edit.Controls.Add(this.date_req_edit);
+            this.pnl_edit.Controls.Add(this.requested_by_edit);
+            this.pnl_edit.Controls.Add(this.label13);
+            this.pnl_edit.Controls.Add(this.request_desc_edit);
+            this.pnl_edit.Location = new System.Drawing.Point(136, 180);
+            this.pnl_edit.Name = "pnl_edit";
+            this.pnl_edit.Size = new System.Drawing.Size(440, 176);
+            this.pnl_edit.TabIndex = 159;
+            this.pnl_edit.Visible = false;
+            // 
+            // received_by_edit
+            // 
+            this.received_by_edit.DropDownHeight = 80;
+            this.received_by_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.received_by_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.received_by_edit.FormattingEnabled = true;
+            this.received_by_edit.IntegralHeight = false;
+            this.received_by_edit.Items.AddRange(new object[] {
+            ""});
+            this.received_by_edit.Location = new System.Drawing.Point(262, 119);
+            this.received_by_edit.Name = "received_by_edit";
+            this.received_by_edit.Size = new System.Drawing.Size(162, 21);
+            this.received_by_edit.TabIndex = 160;
+            this.received_by_edit.SelectedIndexChanged += new System.EventHandler(this.received_by_edit_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(260, 129);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(167, 15);
+            this.label14.TabIndex = 161;
+            this.label14.Text = "________________________________";
+            // 
+            // date_in_edit
+            // 
+            this.date_in_edit.CustomFormat = "MMMM dd, yyyy";
+            this.date_in_edit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_in_edit.Location = new System.Drawing.Point(262, 67);
+            this.date_in_edit.Name = "date_in_edit";
+            this.date_in_edit.Size = new System.Drawing.Size(162, 22);
+            this.date_in_edit.TabIndex = 162;
+            // 
+            // reference_no_edit
+            // 
+            this.reference_no_edit.Location = new System.Drawing.Point(11, 144);
+            this.reference_no_edit.Name = "reference_no_edit";
+            this.reference_no_edit.Size = new System.Drawing.Size(205, 22);
+            this.reference_no_edit.TabIndex = 156;
+            this.reference_no_edit.TextChanged += new System.EventHandler(this.reference_no_edit_TextChanged);
+            // 
+            // sponsor_edit
+            // 
+            this.sponsor_edit.DropDownHeight = 80;
+            this.sponsor_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sponsor_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sponsor_edit.FormattingEnabled = true;
+            this.sponsor_edit.IntegralHeight = false;
+            this.sponsor_edit.Items.AddRange(new object[] {
+            ""});
+            this.sponsor_edit.Location = new System.Drawing.Point(10, 114);
+            this.sponsor_edit.Name = "sponsor_edit";
+            this.sponsor_edit.Size = new System.Drawing.Size(206, 21);
+            this.sponsor_edit.TabIndex = 154;
+            this.sponsor_edit.SelectedIndexChanged += new System.EventHandler(this.sponsor_edit_SelectedIndexChanged);
+            // 
+            // label27
+            // 
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label27.Location = new System.Drawing.Point(247, 97);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(112, 13);
+            this.label27.TabIndex = 161;
+            this.label27.Text = "Marked received by :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 124);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(212, 15);
+            this.label4.TabIndex = 155;
+            this.label4.Text = "_________________________________________";
+            // 
+            // label33
+            // 
+            this.label33.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label33.Location = new System.Drawing.Point(245, 45);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(114, 13);
+            this.label33.TabIndex = 160;
+            this.label33.Text = "Marked recieved on :";
+            // 
+            // device_req_edit
+            // 
+            this.device_req_edit.DropDownHeight = 80;
+            this.device_req_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.device_req_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_req_edit.FormattingEnabled = true;
+            this.device_req_edit.IntegralHeight = false;
+            this.device_req_edit.Items.AddRange(new object[] {
+            ""});
+            this.device_req_edit.Location = new System.Drawing.Point(10, 90);
+            this.device_req_edit.Name = "device_req_edit";
+            this.device_req_edit.Size = new System.Drawing.Size(206, 21);
+            this.device_req_edit.TabIndex = 152;
+            this.device_req_edit.SelectedIndexChanged += new System.EventHandler(this.device_req_edit_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(8, 100);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(212, 15);
+            this.label11.TabIndex = 153;
+            this.label11.Text = "_________________________________________";
+            // 
+            // date_req_edit
+            // 
+            this.date_req_edit.CustomFormat = "MMMM dd, yyyy";
+            this.date_req_edit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_req_edit.Location = new System.Drawing.Point(11, 67);
+            this.date_req_edit.Name = "date_req_edit";
+            this.date_req_edit.Size = new System.Drawing.Size(206, 22);
+            this.date_req_edit.TabIndex = 151;
+            this.date_req_edit.ValueChanged += new System.EventHandler(this.date_req_edit_ValueChanged);
+            // 
+            // requested_by_edit
+            // 
+            this.requested_by_edit.DropDownHeight = 80;
+            this.requested_by_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.requested_by_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.requested_by_edit.FormattingEnabled = true;
+            this.requested_by_edit.IntegralHeight = false;
+            this.requested_by_edit.Items.AddRange(new object[] {
+            ""});
+            this.requested_by_edit.Location = new System.Drawing.Point(10, 42);
+            this.requested_by_edit.Name = "requested_by_edit";
+            this.requested_by_edit.Size = new System.Drawing.Size(206, 21);
+            this.requested_by_edit.TabIndex = 149;
+            this.requested_by_edit.SelectedIndexChanged += new System.EventHandler(this.requested_by_edit_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(8, 52);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(212, 15);
+            this.label13.TabIndex = 150;
+            this.label13.Text = "_________________________________________";
+            // 
+            // request_desc_edit
+            // 
+            this.request_desc_edit.Location = new System.Drawing.Point(10, 5);
+            this.request_desc_edit.MaxLength = 40;
+            this.request_desc_edit.Multiline = true;
+            this.request_desc_edit.Name = "request_desc_edit";
+            this.request_desc_edit.Size = new System.Drawing.Size(207, 36);
+            this.request_desc_edit.TabIndex = 81;
+            // 
+            // lbl_reference_no
+            // 
+            this.lbl_reference_no.AutoSize = true;
+            this.lbl_reference_no.ForeColor = System.Drawing.Color.Black;
+            this.lbl_reference_no.Location = new System.Drawing.Point(143, 330);
+            this.lbl_reference_no.MaximumSize = new System.Drawing.Size(153, 52);
+            this.lbl_reference_no.Name = "lbl_reference_no";
+            this.lbl_reference_no.Size = new System.Drawing.Size(148, 13);
+            this.lbl_reference_no.TabIndex = 158;
+            this.lbl_reference_no.Text = "Ateneo de Davao University";
+            // 
+            // head_lbl_colon
+            // 
+            this.head_lbl_colon.AutoSize = true;
+            this.head_lbl_colon.ForeColor = System.Drawing.Color.Black;
+            this.head_lbl_colon.Location = new System.Drawing.Point(126, 330);
+            this.head_lbl_colon.Name = "head_lbl_colon";
+            this.head_lbl_colon.Size = new System.Drawing.Size(10, 13);
+            this.head_lbl_colon.TabIndex = 109;
+            this.head_lbl_colon.Text = ":";
+            // 
+            // head_lbl_reference_no
+            // 
+            this.head_lbl_reference_no.AutoSize = true;
+            this.head_lbl_reference_no.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.head_lbl_reference_no.Location = new System.Drawing.Point(13, 330);
+            this.head_lbl_reference_no.Name = "head_lbl_reference_no";
+            this.head_lbl_reference_no.Size = new System.Drawing.Size(78, 13);
+            this.head_lbl_reference_no.TabIndex = 108;
+            this.head_lbl_reference_no.Text = "Reference no.";
             // 
             // btn_cancel
             // 
@@ -197,6 +428,7 @@
             this.lbl_desc.AutoSize = true;
             this.lbl_desc.ForeColor = System.Drawing.Color.Black;
             this.lbl_desc.Location = new System.Drawing.Point(143, 188);
+            this.lbl_desc.MaximumSize = new System.Drawing.Size(153, 52);
             this.lbl_desc.Name = "lbl_desc";
             this.lbl_desc.Size = new System.Drawing.Size(77, 13);
             this.lbl_desc.TabIndex = 104;
@@ -485,6 +717,17 @@
             this.lbl_in_emp_id.TabIndex = 69;
             this.lbl_in_emp_id.Text = "Requested By";
             // 
+            // lbl_date_in
+            // 
+            this.lbl_date_in.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbl_date_in.AutoSize = true;
+            this.lbl_date_in.ForeColor = System.Drawing.Color.Black;
+            this.lbl_date_in.Location = new System.Drawing.Point(395, 252);
+            this.lbl_date_in.Name = "lbl_date_in";
+            this.lbl_date_in.Size = new System.Drawing.Size(77, 13);
+            this.lbl_date_in.TabIndex = 68;
+            this.lbl_date_in.Text = "Requested By";
+            // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -669,248 +912,6 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // head_lbl_colon
-            // 
-            this.head_lbl_colon.AutoSize = true;
-            this.head_lbl_colon.ForeColor = System.Drawing.Color.Black;
-            this.head_lbl_colon.Location = new System.Drawing.Point(126, 330);
-            this.head_lbl_colon.Name = "head_lbl_colon";
-            this.head_lbl_colon.Size = new System.Drawing.Size(10, 13);
-            this.head_lbl_colon.TabIndex = 109;
-            this.head_lbl_colon.Text = ":";
-            // 
-            // head_lbl_reference_no
-            // 
-            this.head_lbl_reference_no.AutoSize = true;
-            this.head_lbl_reference_no.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.head_lbl_reference_no.Location = new System.Drawing.Point(13, 330);
-            this.head_lbl_reference_no.Name = "head_lbl_reference_no";
-            this.head_lbl_reference_no.Size = new System.Drawing.Size(78, 13);
-            this.head_lbl_reference_no.TabIndex = 108;
-            this.head_lbl_reference_no.Text = "Reference no.";
-            // 
-            // lbl_reference_no
-            // 
-            this.lbl_reference_no.AutoSize = true;
-            this.lbl_reference_no.ForeColor = System.Drawing.Color.Black;
-            this.lbl_reference_no.Location = new System.Drawing.Point(143, 330);
-            this.lbl_reference_no.MaximumSize = new System.Drawing.Size(153, 52);
-            this.lbl_reference_no.Name = "lbl_reference_no";
-            this.lbl_reference_no.Size = new System.Drawing.Size(148, 13);
-            this.lbl_reference_no.TabIndex = 158;
-            this.lbl_reference_no.Text = "Ateneo de Davao University";
-            // 
-            // pnl_edit
-            // 
-            this.pnl_edit.Controls.Add(this.received_by_edit);
-            this.pnl_edit.Controls.Add(this.label14);
-            this.pnl_edit.Controls.Add(this.date_in_edit);
-            this.pnl_edit.Controls.Add(this.reference_no_edit);
-            this.pnl_edit.Controls.Add(this.sponsor_edit);
-            this.pnl_edit.Controls.Add(this.label27);
-            this.pnl_edit.Controls.Add(this.label4);
-            this.pnl_edit.Controls.Add(this.label33);
-            this.pnl_edit.Controls.Add(this.device_req_edit);
-            this.pnl_edit.Controls.Add(this.label11);
-            this.pnl_edit.Controls.Add(this.date_req_edit);
-            this.pnl_edit.Controls.Add(this.requested_by_edit);
-            this.pnl_edit.Controls.Add(this.label13);
-            this.pnl_edit.Controls.Add(this.request_desc_edit);
-            this.pnl_edit.Location = new System.Drawing.Point(136, 180);
-            this.pnl_edit.Name = "pnl_edit";
-            this.pnl_edit.Size = new System.Drawing.Size(440, 176);
-            this.pnl_edit.TabIndex = 159;
-            this.pnl_edit.Visible = false;
-            // 
-            // reference_no_edit
-            // 
-            this.reference_no_edit.Location = new System.Drawing.Point(11, 144);
-            this.reference_no_edit.Name = "reference_no_edit";
-            this.reference_no_edit.Size = new System.Drawing.Size(205, 22);
-            this.reference_no_edit.TabIndex = 156;
-            this.reference_no_edit.TextChanged += new System.EventHandler(this.reference_no_edit_TextChanged);
-            // 
-            // sponsor_edit
-            // 
-            this.sponsor_edit.DropDownHeight = 80;
-            this.sponsor_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sponsor_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sponsor_edit.FormattingEnabled = true;
-            this.sponsor_edit.IntegralHeight = false;
-            this.sponsor_edit.Items.AddRange(new object[] {
-            ""});
-            this.sponsor_edit.Location = new System.Drawing.Point(10, 114);
-            this.sponsor_edit.Name = "sponsor_edit";
-            this.sponsor_edit.Size = new System.Drawing.Size(206, 21);
-            this.sponsor_edit.TabIndex = 154;
-            this.sponsor_edit.SelectedIndexChanged += new System.EventHandler(this.sponsor_edit_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 15);
-            this.label4.TabIndex = 155;
-            this.label4.Text = "_________________________________________";
-            // 
-            // device_req_edit
-            // 
-            this.device_req_edit.DropDownHeight = 80;
-            this.device_req_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.device_req_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.device_req_edit.FormattingEnabled = true;
-            this.device_req_edit.IntegralHeight = false;
-            this.device_req_edit.Items.AddRange(new object[] {
-            ""});
-            this.device_req_edit.Location = new System.Drawing.Point(10, 90);
-            this.device_req_edit.Name = "device_req_edit";
-            this.device_req_edit.Size = new System.Drawing.Size(206, 21);
-            this.device_req_edit.TabIndex = 152;
-            this.device_req_edit.SelectedIndexChanged += new System.EventHandler(this.device_req_edit_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(8, 100);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(212, 15);
-            this.label11.TabIndex = 153;
-            this.label11.Text = "_________________________________________";
-            // 
-            // date_req_edit
-            // 
-            this.date_req_edit.CustomFormat = "MMMM dd, yyyy";
-            this.date_req_edit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_req_edit.Location = new System.Drawing.Point(11, 67);
-            this.date_req_edit.Name = "date_req_edit";
-            this.date_req_edit.Size = new System.Drawing.Size(206, 22);
-            this.date_req_edit.TabIndex = 151;
-            this.date_req_edit.ValueChanged += new System.EventHandler(this.date_req_edit_ValueChanged);
-            // 
-            // requested_by_edit
-            // 
-            this.requested_by_edit.DropDownHeight = 80;
-            this.requested_by_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.requested_by_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.requested_by_edit.FormattingEnabled = true;
-            this.requested_by_edit.IntegralHeight = false;
-            this.requested_by_edit.Items.AddRange(new object[] {
-            ""});
-            this.requested_by_edit.Location = new System.Drawing.Point(10, 42);
-            this.requested_by_edit.Name = "requested_by_edit";
-            this.requested_by_edit.Size = new System.Drawing.Size(206, 21);
-            this.requested_by_edit.TabIndex = 149;
-            this.requested_by_edit.SelectedIndexChanged += new System.EventHandler(this.requested_by_edit_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(8, 52);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(212, 15);
-            this.label13.TabIndex = 150;
-            this.label13.Text = "_________________________________________";
-            // 
-            // request_desc_edit
-            // 
-            this.request_desc_edit.Location = new System.Drawing.Point(10, 5);
-            this.request_desc_edit.MaxLength = 40;
-            this.request_desc_edit.Multiline = true;
-            this.request_desc_edit.Name = "request_desc_edit";
-            this.request_desc_edit.Size = new System.Drawing.Size(207, 36);
-            this.request_desc_edit.TabIndex = 81;
-            // 
-            // label27
-            // 
-            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label27.Location = new System.Drawing.Point(247, 97);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(112, 13);
-            this.label27.TabIndex = 161;
-            this.label27.Text = "Marked received by :";
-            // 
-            // label33
-            // 
-            this.label33.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label33.AutoSize = true;
-            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label33.Location = new System.Drawing.Point(245, 45);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(114, 13);
-            this.label33.TabIndex = 160;
-            this.label33.Text = "Marked recieved on :";
-            // 
-            // lbl_date_in
-            // 
-            this.lbl_date_in.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbl_date_in.AutoSize = true;
-            this.lbl_date_in.ForeColor = System.Drawing.Color.Black;
-            this.lbl_date_in.Location = new System.Drawing.Point(395, 252);
-            this.lbl_date_in.Name = "lbl_date_in";
-            this.lbl_date_in.Size = new System.Drawing.Size(77, 13);
-            this.lbl_date_in.TabIndex = 68;
-            this.lbl_date_in.Text = "Requested By";
-            // 
-            // date_in_edit
-            // 
-            this.date_in_edit.CustomFormat = "MMMM dd, yyyy";
-            this.date_in_edit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_in_edit.Location = new System.Drawing.Point(262, 67);
-            this.date_in_edit.Name = "date_in_edit";
-            this.date_in_edit.Size = new System.Drawing.Size(162, 22);
-            this.date_in_edit.TabIndex = 162;
-            // 
-            // received_by_edit
-            // 
-            this.received_by_edit.DropDownHeight = 80;
-            this.received_by_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.received_by_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.received_by_edit.FormattingEnabled = true;
-            this.received_by_edit.IntegralHeight = false;
-            this.received_by_edit.Items.AddRange(new object[] {
-            ""});
-            this.received_by_edit.Location = new System.Drawing.Point(262, 119);
-            this.received_by_edit.Name = "received_by_edit";
-            this.received_by_edit.Size = new System.Drawing.Size(162, 21);
-            this.received_by_edit.TabIndex = 160;
-            this.received_by_edit.SelectedIndexChanged += new System.EventHandler(this.received_by_edit_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(260, 129);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(167, 15);
-            this.label14.TabIndex = 161;
-            this.label14.Text = "________________________________";
-            // 
-            // lbl_disability
-            // 
-            this.lbl_disability.AutoSize = true;
-            this.lbl_disability.ForeColor = System.Drawing.Color.Black;
-            this.lbl_disability.Location = new System.Drawing.Point(392, 111);
-            this.lbl_disability.Name = "lbl_disability";
-            this.lbl_disability.Size = new System.Drawing.Size(77, 13);
-            this.lbl_disability.TabIndex = 161;
-            this.lbl_disability.Text = "Requested By";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label26.Location = new System.Drawing.Point(381, 86);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(60, 13);
-            this.label26.TabIndex = 160;
-            this.label26.Text = "Disability :";
-            // 
             // device_pending_rec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -933,9 +934,9 @@
             this.Load += new System.EventHandler(this.device_pending_rec_Load);
             this.view_panel.ResumeLayout(false);
             this.view_panel.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.pnl_edit.ResumeLayout(false);
             this.pnl_edit.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

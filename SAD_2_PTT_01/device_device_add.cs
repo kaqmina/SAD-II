@@ -18,6 +18,7 @@ namespace SAD_2_PTT_01
         }
         public main_form reference_to_main { get; set; }
         connections_devices conn_devi = new connections_devices();
+        connections_disability conn_disa = new connections_disability();
         system_functions sys_func = new system_functions();
         bool has_device_data = false;
         bool has_duplicate_edit = false;
@@ -298,7 +299,8 @@ namespace SAD_2_PTT_01
                 pnl_edit.Visible = false;
                 device_desc_edit.Visible = false;
                 string current_id = device_list.Rows[current_index].Cells["device_id"].Value.ToString();
-                conn_devi.device_update(device_name_edit.Text, device_desc_edit.Text, device_disability_edit.SelectedIndex, current_id);
+                string disability_id = conn_disa.get_disability_by_name(device_disability_edit.Text);
+                conn_devi.device_update(device_name_edit.Text, device_desc_edit.Text, disability_id, current_id);
                 refresh_device_grid();
                 reset_values_edit();
                 reset_view();
@@ -317,7 +319,8 @@ namespace SAD_2_PTT_01
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            conn_devi.device_add(device_name_add.Text, device_desc_add.Text, device_disability_add.SelectedIndex);
+            string disability_id = conn_disa.get_disability_by_name(device_disability_add.Text);
+            conn_devi.device_add(device_name_add.Text, device_desc_add.Text, disability_id);
             reset_values_add();
             refresh_device_grid();
             device_list.Rows[device_list.CurrentCell.RowIndex].Selected = false;

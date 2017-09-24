@@ -23,6 +23,7 @@ namespace SAD_2_PTT_01
         connections_pwd conn_pwd = new connections_pwd();
         connections_project conn_proj = new connections_project();
         connections_devices conn_devi = new connections_devices();
+        connections_disability conn_disa = new connections_disability();
         connections_user conn_user = new connections_user();
         disability disability_form;
         shadow shadow_;
@@ -61,7 +62,10 @@ namespace SAD_2_PTT_01
             projects_default_data();
 
             load_device_requests();
+            device_request_clear();
             device_pnl_request_new.BringToFront();
+            load_handedout_data();
+            device_handedout_clear_view();
         }
 
         private void main_properties()
@@ -1075,7 +1079,8 @@ namespace SAD_2_PTT_01
             device_requests.Columns["pwd_id"].Visible = false;
             device_requests.Columns["dp_name"].Visible = false;
             device_requests.Columns["req_date"].Visible = false;
-
+            device_requests.Columns["reference_no"].Visible = false;
+            device_requests.Columns["fullname"].Visible = false;
         }
 
         public void device_recieved_format()
@@ -1086,6 +1091,8 @@ namespace SAD_2_PTT_01
             device_recieved.Columns["pwd_id"].Visible = false;
             device_recieved.Columns["dp_name"].Visible = false;
             device_recieved.Columns["date_in"].Visible = false;
+            device_recieved.Columns["reference_no"].Visible = false;
+            device_recieved.Columns["fullname"].Visible = false;
         }
 
         #endregion
@@ -1251,6 +1258,7 @@ namespace SAD_2_PTT_01
             shadow_.reference_to_main = this;
             shadow_.Show();
             dev_add.ShowDialog();
+            load_handedout_data();
             shadow_.Close();
             device_device_add_ = false;
         }
@@ -1267,6 +1275,7 @@ namespace SAD_2_PTT_01
             dev_pro = new device_provider();
             dev_pro.reference_to_main = this;
             dev_pro.ShowDialog();
+            load_handedout_data();
             device_provider_ = false;
             side_tab.Enabled = true;
             dboard_head.Enabled = true;
@@ -1305,6 +1314,7 @@ namespace SAD_2_PTT_01
             device_lbl_provider_address.Text = "--";
             device_sponsor_cbox.SelectedIndex = 0;
             device_request_date.Value = DateTime.Now;
+            device_request_date.MaxDate = DateTime.Now;
             device_request_desc.Clear();
             device_device_cbox.SelectedIndex = 0;
             device_requested_by.SelectedIndex = 0;
@@ -1335,8 +1345,10 @@ namespace SAD_2_PTT_01
         private void device_request_new_Click(object sender, EventArgs e)
         {
             load_device_request_defaults();
+            device_request_clear();
             if (device_has_providers == false || device_has_devices == false)
             {
+                device_pnl_request_new.SendToBack();
                 device_pnl_request_new.Visible = false;
                 string start = "The following required fields are empty, please add records :" + Environment.NewLine;
                 if (device_has_providers == false)
@@ -1351,6 +1363,7 @@ namespace SAD_2_PTT_01
             }
             else
             {
+                device_pnl_request_new.BringToFront();
                 device_pnl_request_new.Visible = true;
                 device_request_clear();
 
@@ -1442,7 +1455,7 @@ namespace SAD_2_PTT_01
         {
             if (device_has_pwd == false)
             {
-                //do nothing
+                device_request_clear();
             }
             else
             {
@@ -1479,7 +1492,6 @@ namespace SAD_2_PTT_01
         {
             device_request_check_required();
             string dp_id = conn_devi.get_sponsor_by_name(device_sponsor_cbox.SelectedItem.ToString());
-            MessageBox.Show(dp_id);
         }
 
         private void device_device_cbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1541,9 +1553,421 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region DEVICE-HANDED-OUT
+
+        int device_handout_index = 0;
+        bool device_has_handedout = false;
+
+        #region LOAD-RESET-REFRESH
+
+        private void device_handout_btn_refresh_Click(object sender, EventArgs e)
+        {
+            load_handedout_data();
+            device_handedout_clear_view();
+        }
+
+        public void device_handedout_clear_view()
+        {
+            device_handout_lbl_req_id.Text = "--";
+            device_handout_lbl_recipient.Text = "--";
+            device_handout_lbl_registration_no.Text = "--";
+            device_handout_lbl_disability.Text = "--";
+            device_handout_lbl_id_no.Text = "--";
+            device_handout_lbl_mobile_no.Text = "--";
+            device_handout_lbl_tel_no.Text = "--";
+            device_handout_date_requested.Text = "--";
+            device_handout_desc.Text = "--";
+            device_handout_requested_by.Text = "--";
+            device_handout_date_in.Text = "--";
+            device_handout_in_emp_id.Text = "--";
+            device_handout_reference_no.Text = "--";
+            device_handout_status.Text = "--";
+            device_handout_status_date.Text = "--";
+            device_handout_lbl_out_emp_id.Text = "--";
+            device_handout_sponsor.Text = "--";
+            device_handout_device_requested.Text = "--";
+
+            sys_func.lbl_reset(device_handout_lbl_req_id);
+            sys_func.lbl_reset(device_handout_lbl_recipient);
+            sys_func.lbl_reset(device_handout_lbl_registration_no);
+            sys_func.lbl_reset(device_handout_lbl_disability);
+            sys_func.lbl_reset(device_handout_lbl_id_no);
+            sys_func.lbl_reset(device_handout_lbl_mobile_no);
+            sys_func.lbl_reset(device_handout_lbl_tel_no);
+            sys_func.lbl_reset(device_handout_date_requested);
+            sys_func.lbl_reset(device_handout_desc);
+            sys_func.lbl_reset(device_handout_requested_by);
+            sys_func.lbl_reset(device_handout_date_in);
+            sys_func.lbl_reset(device_handout_in_emp_id);
+            sys_func.lbl_reset(device_handout_reference_no);
+            sys_func.lbl_reset(device_handout_status);
+            sys_func.lbl_reset(device_handout_status_date);
+            sys_func.lbl_reset(device_handout_lbl_out_emp_id);
+            sys_func.lbl_reset(device_handout_sponsor);
+            sys_func.lbl_reset(device_handout_device_requested);
+        }
+
+        public void load_handedout_data()
+        {
+            device_has_handedout = conn_devi.get_handedout_list(device_handed_out_grid);
+            device_handedout_format();
+            sys_func.btn_inactive(device_handout_archive);
+        }
+
+        public void device_handout_clear()
+        {
+
+            device_handout_request_desc_edit.Clear();
+            device_handout_requested_by_edit.Text = "";
+            device_handout_sponsor_edit.Text = "";
+            device_handout_reference_no_edit.Clear();
+            device_handout_received_by_edit.Text = device_handout_in_emp_id.Text;
+            device_handout_status_edit.Text = "Handed Out";
+            device_handout_out_emp_id_edit.Text = device_handout_lbl_out_emp_id.Text;
+
+            device_handout_date_in_edit.MinDate = device_handout_date_req_edit.Value;
+            device_handout_status_date_edit.MinDate = device_handout_date_in_edit.Value;
+        }
+
+
         #endregion
 
+        #region FORMAT
 
+        public void device_handedout_format()
+        {
+            device_handed_out_grid.Columns["deviceLOG_id"].Visible = false;
+            device_handed_out_grid.Columns["req_date"].Visible = false;
+            device_handed_out_grid.Columns["req_desc"].Visible = false;
+            device_handed_out_grid.Columns["user_req"].Visible = false;
+            device_handed_out_grid.Columns["date_in"].Visible = false;
+            device_handed_out_grid.Columns["user_in"].Visible = false;
+            device_handed_out_grid.Columns["user_out"].Visible = false;
+            device_handed_out_grid.Columns["status"].Visible = false;
+            device_handed_out_grid.Columns["reference_no"].Visible = false;
+            device_handed_out_grid.Columns["disability_type"].Visible = false;
+            device_handed_out_grid.Columns["mobile_no"].Visible = false;
+            device_handed_out_grid.Columns["tel_no"].Visible = false;
+            device_handed_out_grid.Columns["id_no"].Visible = false;
+            device_handed_out_grid.Columns["registration_no"].Visible = false;
+            device_handed_out_grid.Columns["dev_name"].Visible = false;
+
+            device_handed_out_grid.Columns["no"].Width = 35;
+            device_handed_out_grid.Columns["no"].HeaderText = "No.";
+            device_handed_out_grid.Columns["fullname"].HeaderText = "Full Name";
+            device_handed_out_grid.Columns["dp_name"].HeaderText = "Sponsor";
+            device_handed_out_grid.Columns["date_out"].HeaderText = "Date Handed Out";
+            device_handed_out_grid.Columns["dev_name"].HeaderText = "Device";
+            device_handed_out_grid.Columns["handed_out_text"].HeaderText = "List";
+
+            if (device_has_handedout == false)
+            {
+                device_handed_out_grid.Columns["no"].Visible = false;
+                device_handed_out_grid.Columns["fullname"].Visible = false;
+                device_handed_out_grid.Columns["dp_name"].Visible = false;
+                device_handed_out_grid.Columns["date_out"].Visible = false;
+                device_handed_out_grid.Columns["handed_out_text"].Visible = true;
+            }
+            else
+            {
+                device_handed_out_grid.Columns["no"].Visible = true;
+                device_handed_out_grid.Columns["fullname"].Visible = true;
+                device_handed_out_grid.Columns["dp_name"].Visible = true;
+                device_handed_out_grid.Columns["date_out"].Visible = true;
+                device_handed_out_grid.Columns["handed_out_text"].Visible = false;
+            }
+        }
+        #endregion
+
+        #region SELECTION-CHANGED
+        public void device_handedout_selection()
+        {
+            device_handout_lbl_req_id.Text = device_handed_out_grid.Rows[device_handout_index].Cells["deviceLOG_id"].Value.ToString();
+            device_handout_lbl_recipient.Text = device_handed_out_grid.Rows[device_handout_index].Cells["fullname"].Value.ToString();
+            device_handout_lbl_registration_no.Text = device_handed_out_grid.Rows[device_handout_index].Cells["registration_no"].Value.ToString();
+            device_handout_lbl_disability.Text = device_handed_out_grid.Rows[device_handout_index].Cells["disability_type"].Value.ToString();
+            device_handout_lbl_id_no.Text = device_handed_out_grid.Rows[device_handout_index].Cells["id_no"].Value.ToString();
+            device_handout_lbl_mobile_no.Text = device_handed_out_grid.Rows[device_handout_index].Cells["mobile_no"].Value.ToString();
+            device_handout_lbl_tel_no.Text = device_handed_out_grid.Rows[device_handout_index].Cells["tel_no"].Value.ToString();
+            device_handout_date_requested.Text = device_handed_out_grid.Rows[device_handout_index].Cells["req_date"].Value.ToString();
+            device_handout_desc.Text = device_handed_out_grid.Rows[device_handout_index].Cells["req_desc"].Value.ToString();
+            device_handout_requested_by.Text = device_handed_out_grid.Rows[device_handout_index].Cells["user_req"].Value.ToString();
+            device_handout_date_in.Text = device_handed_out_grid.Rows[device_handout_index].Cells["date_in"].Value.ToString();
+            device_handout_in_emp_id.Text = device_handed_out_grid.Rows[device_handout_index].Cells["user_in"].Value.ToString();
+            device_handout_reference_no.Text = device_handed_out_grid.Rows[device_handout_index].Cells["reference_no"].Value.ToString();
+            device_handout_status.Text = "Handed out.";
+            device_handout_status_date.Text = device_handed_out_grid.Rows[device_handout_index].Cells["date_out"].Value.ToString();
+            device_handout_lbl_out_emp_id.Text = device_handed_out_grid.Rows[device_handout_index].Cells["user_out"].Value.ToString();
+            device_handout_sponsor.Text = device_handed_out_grid.Rows[device_handout_index].Cells["dp_name"].Value.ToString();
+            device_handout_device_requested.Text = device_handed_out_grid.Rows[device_handout_index].Cells["dev_name"].Value.ToString();
+
+            sys_func.lbl_has_value(device_handout_lbl_req_id);
+            sys_func.lbl_has_value(device_handout_lbl_recipient);
+            sys_func.lbl_has_value(device_handout_lbl_registration_no);
+            sys_func.lbl_has_value(device_handout_lbl_disability);
+            sys_func.lbl_has_value(device_handout_lbl_id_no);
+            sys_func.lbl_has_value(device_handout_lbl_mobile_no);
+            sys_func.lbl_has_value(device_handout_lbl_tel_no);
+            sys_func.lbl_has_value(device_handout_date_requested);
+            sys_func.lbl_has_value(device_handout_desc);
+            sys_func.lbl_has_value(device_handout_requested_by);
+            sys_func.lbl_has_value(device_handout_date_in);
+            sys_func.lbl_has_value(device_handout_in_emp_id);
+            sys_func.lbl_has_value(device_handout_reference_no);
+            sys_func.lbl_has_value(device_handout_status);
+            sys_func.lbl_has_value(device_handout_status_date);
+            sys_func.lbl_has_value(device_handout_lbl_out_emp_id);
+            sys_func.lbl_has_value(device_handout_sponsor);
+            sys_func.lbl_has_value(device_handout_device_requested);
+        }
+
+        private void device_handed_out_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (device_has_handedout == false)
+            {
+                device_handedout_clear_view();
+            }
+            else
+            {
+                if (e.RowIndex >= 0)
+                {
+                    device_handout_index = e.RowIndex;
+                    device_handedout_selection();
+                    sys_func.btn_active(device_handout_archive);
+                }
+                else
+                {
+                    device_handout_index = 0;
+                    sys_func.btn_inactive(device_handout_archive);
+                    device_handedout_clear_view();
+                }
+            }
+        }
+
+        private void device_handed_out_grid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (device_has_handedout == false)
+            {
+                //do nothing
+            }
+            else
+            {
+                try
+                {
+                    device_handout_index = device_handed_out_grid.CurrentCell.RowIndex;
+                    device_handedout_selection();
+                    sys_func.btn_active(device_handout_archive);
+                }
+                catch (Exception ex)
+                {
+                    //why..
+                    device_handout_index = 0;
+                    sys_func.btn_inactive(device_handout_archive);
+                }
+            }
+        }
+        #endregion
+
+        #region SELECTION-INDEX-CHANGED
+
+        private void device_handout_requested_by_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        private void device_handout_date_req_edit_ValueChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+            device_handout_mindate();
+        }
+
+        private void device_handout_device_requested_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        private void device_handout_sponsor_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        private void device_handout_reference_no_edit_TextChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        private void device_handout_date_in_edit_ValueChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+            device_handout_mindate();
+        }
+
+        private void device_handout_received_by_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        private void device_handout_status_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        private void device_handout_out_emp_id_edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            device_handout_check_required();
+        }
+
+        public void device_handout_check_required()
+        {
+            if (device_handout_btn_edit.Text == "EDIT")
+            {
+                //nothing
+            }
+            else
+            {
+                if (device_handout_requested_by_edit.Text.Trim() == "" || device_handout_sponsor_edit.Text.Trim() == "" || device_handout_reference_no_edit.Text.Trim() == ""
+                    || device_handout_received_by_edit.Text.Trim() == "" || device_handout_status_edit.Text.Trim() == "" || device_handout_out_emp_id_edit.Text.Trim() == "" || device_handout_device_requested_edit.Text.Trim() == "")
+                {
+                    sys_func.btn_inactive(device_handout_btn_edit);
+                }
+                else
+                {
+                    sys_func.btn_active(device_handout_btn_edit);
+                }
+            }
+        }
+
+        public void device_handout_mindate()
+        {
+            if (device_handout_btn_edit.Text == "EDIT")
+            {
+
+            }
+            else
+            {
+                device_handout_date_in_edit.MinDate = device_handout_date_req_edit.Value;
+                device_handout_status_date_edit.MinDate = device_handout_date_in_edit.Value;
+
+                device_handout_date_in_edit.MaxDate = DateTime.Now;
+                device_handout_status_date_edit.MaxDate = DateTime.Now;
+            }
+        }
+
+        #endregion
+
+        #region EDIT-MODE
+
+        public void device_handout_edit()
+        {
+            string disability_id = conn_disa.get_disability_by_name(device_handout_lbl_disability.Text);
+            conn_devi.get_device_list(device_handout_device_requested_edit, disability_id);
+            conn_user.get_user_cbox(device_handout_requested_by_edit);
+            conn_user.get_user_cbox(device_handout_received_by_edit);
+            conn_user.get_user_cbox(device_handout_out_emp_id_edit);
+            conn_devi.get_provider_list(device_handout_sponsor_edit);
+
+            device_handout_request_desc_edit.Text = device_handout_desc.Text;
+            device_handout_requested_by_edit.Text = device_handout_requested_by.Text;
+            device_handout_date_req_edit.Value = Convert.ToDateTime(device_handout_date_requested.Text);
+            device_handout_sponsor_edit.Text = device_handout_sponsor.Text;
+            device_handout_device_requested_edit.Text = device_handout_device_requested.Text;
+            device_handout_reference_no_edit.Text = device_handout_reference_no.Text;
+            device_handout_date_in_edit.Value = Convert.ToDateTime(device_handout_date_in.Text);
+            device_handout_received_by_edit.Text = device_handout_in_emp_id.Text;
+            device_handout_status_edit.Text = "Handed Out";
+            device_handout_status_date_edit.Value = Convert.ToDateTime(device_handout_status_date.Text);
+            device_handout_out_emp_id_edit.Text = device_handout_lbl_out_emp_id.Text;
+
+
+            device_handout_date_in_edit.MinDate = device_handout_date_in_edit.Value;
+            device_handout_status_date_edit.MinDate = device_handout_date_in_edit.Value;
+        }
+
+        private void device_handout_btn_edit_Click(object sender, EventArgs e)
+        {
+            if (device_handout_btn_edit.Text == "EDIT")
+            {
+                device_handout_btn_cancel.Visible = true;
+                device_handout_btn_edit.Text = "SAVE CHANGES";
+                sys_func.btn_inactive(device_handout_btn_edit);
+                sys_func.btn_inactive(device_handout_archive);
+                device_handout_pnl_edit.Visible = true;
+                device_handed_out_grid.Enabled = false;
+
+                device_handed_out_grid.DefaultCellStyle.ForeColor = Color.Gray;
+
+                device_handout_edit();
+            }
+            else
+            {
+                string req_id = device_handout_lbl_req_id.Text;
+                string desc = device_handout_request_desc_edit.Text;
+                string req_by = conn_user.get_user_id_by_name(device_handout_requested_by_edit.Text);
+                string req_date = device_handout_date_req_edit.Value.ToString("yyyy-MM-dd");
+                string sponsor = conn_devi.get_sponsor_by_name(device_handout_sponsor_edit.Text);
+                string reference_no = device_handout_reference_no_edit.Text;
+                string received_on = device_handout_date_in_edit.Value.ToString("yyyy-MM-dd");
+                string received_by = conn_user.get_user_id_by_name(device_handout_received_by_edit.Text);
+                string device_id = conn_devi.get_device_by_name(device_handout_device_requested_edit.Text);
+                string out_emp_id = conn_user.get_user_id_by_name(device_handout_out_emp_id_edit.Text);
+                string status;
+                string status_date;
+                string query;
+                if (device_handout_status_edit.Text == "Handed Out")
+                {
+                    status = "3";
+                    status_date = device_handout_status_date_edit.Value.ToString("yyyy-MM-dd");
+                    query = "UPDATE device_log SET dp_id = " + sponsor + ", req_desc = '" + desc + "', req_emp_id = " + req_by + ", req_date = '" + req_date + "', date_out = '" + status_date
+                        + "', out_emp_id = " + out_emp_id + ", status = 3, device_id = " + device_id + ", reference_no = '" + reference_no + "', "
+                        + "cancel_emp_id = NULL, cancel_date = NULL WHERE deviceLOG_id =" + req_id;
+                }
+                else
+                {
+                    status = "4";
+                    status_date = device_handout_status_date_edit.Value.ToString("yyyy-MM-dd");
+                    query = "UPDATE device_log SET dp_id = " + sponsor + ", req_desc = '" + desc + "', req_emp_id = " + req_by + ", req_date = '" + req_date + "', cancel_date = '" + status_date
+                        + "', cancel_emp_id = " + out_emp_id + ", status = 4, device_id = " + device_id + ", reference_no = '" + reference_no + "', "
+                        + "out_emp_id = NULL, date_out = NULL WHERE deviceLOG_id =" + req_id;
+                }
+
+                bool success = conn_devi.handout_update(query);
+                if (success == false)
+                {
+                    notification_ = "Unsuccessful in updating, please try again.";
+                }
+                else
+                {
+                    notification_ = "Successfully updated!";
+
+                    device_handed_out_grid.Enabled = true;
+                    device_handout_pnl_edit.Visible = false;
+                    device_handout_btn_cancel.Visible = false;
+                    device_handout_btn_edit.Text = "EDIT";
+                    sys_func.btn_active(device_handout_btn_edit);
+                    device_handed_out_grid.DefaultCellStyle.ForeColor = Color.FromArgb(41, 45, 56);
+
+                    load_handedout_data();
+                    device_handout_clear();
+                }
+                show_success_message();
+            }
+        }
+
+        private void device_handout_btn_cancel_Click(object sender, EventArgs e)
+        {
+            device_handed_out_grid.Enabled = true;
+            device_handout_pnl_edit.Visible = false;
+            device_handout_btn_cancel.Visible = false;
+            device_handed_out_grid.DefaultCellStyle.ForeColor = Color.FromArgb(41, 45, 56);
+            device_handout_btn_edit.Text = "EDIT";
+            sys_func.btn_active(device_handout_btn_edit);
+        }
+
+        #endregion
+
+        #endregion
+
+        #endregion
 
         private void projects_disability_Click(object sender, EventArgs e)
         {
@@ -1554,6 +1978,7 @@ namespace SAD_2_PTT_01
             shadow_.reference_to_main = this;
             shadow_.Show();
             disability_form.ShowDialog();
+            load_handedout_data();
             shadow_.Close();
             disability_form_ = false;
         }
@@ -1562,9 +1987,25 @@ namespace SAD_2_PTT_01
         private void projects_history_Click(object sender, EventArgs e)
         {
             device_pnl_request_new.Visible = false;
+            load_handedout_data();
         }
+
         
+
+
+
         
+
+        
+
+        
+
+        
+
+        
+
+        
+
         
     }
 }
