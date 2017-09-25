@@ -58,6 +58,7 @@ namespace SAD_2_PTT_01
         string accom_fn;
         string accom_mn;
         string no_unit;
+        string id_no_;
         int district_id;
         string registration_no;
         int disability;
@@ -995,6 +996,7 @@ namespace SAD_2_PTT_01
         {
             #region <---[ MAIN DATA ]--->
 
+            id_no_ = id_no.Text;
             application_date = pwd_appdate.Value.ToString("yyyy-MM-dd"); //date
             end_date = pwd_appdate.Value.AddYears(3).ToString("yyyy-MM-dd"); //date
             firstname = fn_txt.Text;
@@ -1062,6 +1064,7 @@ namespace SAD_2_PTT_01
             main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
                                             + "middlename, "
+                                            + "id_no, "
                                             + "sex, "
                                             + "disability_id, "
                                             + "address_house_no_street, "
@@ -1092,6 +1095,8 @@ namespace SAD_2_PTT_01
                                          + firstname
                                          + "', '"
                                          + middlename
+                                         + "', '"
+                                         + id_no_
                                          + "', "
                                          + sex
                                          + ", "
@@ -1246,6 +1251,9 @@ namespace SAD_2_PTT_01
                                                   + "', "
                                                   + "middlename = '"
                                                   + middlename
+                                                  + "', "
+                                                  + "id_no = '"
+                                                  + id_no_
                                                   + "', "
                                                   + "sex = "
                                                   + sex

@@ -222,6 +222,7 @@ namespace SAD_2_PTT_01
                                            + "ELSE 'Special Occupation' END) AS type_of_skill, ";
                 comm = new MySqlCommand("SELECT pwd_id, "
                                                           + "registration_no, "
+                                                          + "id_no, "
                                                           + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
                                                           + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
                                                           + "disability_type, "
@@ -294,7 +295,7 @@ namespace SAD_2_PTT_01
                     try
                     {
                         conn.Open();
-                        MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE registration_no = '" + registration_no + "'", conn);
+                        MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE registration_no = '" + registration_no + "' AND isArchived != 1", conn);
                         MySqlDataAdapter get = new MySqlDataAdapter(comm);
                         DataTable set = new DataTable();
                         get.Fill(set);
@@ -329,7 +330,7 @@ namespace SAD_2_PTT_01
                     try
                     {
                         conn.Open();
-                        MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE id_no = " + id_no, conn);
+                        MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM p_dao.pwd WHERE id_no = '" + id_no + "' AND isArchived != 1", conn);
                         MySqlDataAdapter get = new MySqlDataAdapter(comm);
                         DataTable set = new DataTable();
                         get.Fill(set);
@@ -358,7 +359,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM p_dao.disability", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM p_dao.disability WHERE isArchived != 1", conn);
                 MySqlDataAdapter get = new MySqlDataAdapter(comm);
                 DataTable set = new DataTable();
                 get.Fill(set);
@@ -571,7 +572,7 @@ namespace SAD_2_PTT_01
                                                       + lastname + " OR "
                                                       + firstname + " OR "
                                                       + middlename + " OR "
-                                                      + app_date, conn);
+                                                      + app_date + " AND isArchived != 1", conn);
 
             MySqlDataAdapter getresult = new MySqlDataAdapter(comm);
             DataTable resulttable = new DataTable();

@@ -169,12 +169,6 @@ namespace SAD_2_PTT_01
                 sys_func.btn_inactive(btn_pwd_viewmore);
                 sys_func.btn_inactive(btn_archive);
                 sys_func.btn_inactive(btn_renew);
-            } else
-            {
-                sys_func.btn_active(btn_pwd_edit);
-                sys_func.btn_active(btn_pwd_viewmore);
-                sys_func.btn_active(btn_archive);
-                sys_func.btn_active(btn_renew);
             }
         }
 
@@ -273,21 +267,24 @@ namespace SAD_2_PTT_01
                 if (e.RowIndex < 0)
                 {
                     //nothing
+                    sys_func.btn_inactive(btn_pwd_viewmore);
+                    sys_func.btn_inactive(btn_pwd_edit);
+                    sys_func.btn_inactive(btn_archive);
                 }
                 else
                 {
-                    btn_pwd_viewmore.Enabled = true;
-                    btn_pwd_edit.Enabled = true;
-                    btn_archive.Enabled = true;
+                    sys_func.btn_active(btn_pwd_viewmore);
+                    sys_func.btn_active(btn_pwd_edit);
+                    sys_func.btn_active(btn_archive);
                     if (pwd_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Salmon)
                     {
-                        btn_renew.Enabled = true;
-                        btn_archive.Enabled = true;
+                        sys_func.btn_active(btn_renew);
+                        sys_func.btn_active(btn_archive);
                     }
                     else
                     {
-                        btn_renew.Enabled = false;
-                        btn_archive.Enabled = false;
+                        sys_func.btn_inactive(btn_renew);
+                        sys_func.btn_inactive(btn_archive);
                     }
                     current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
                     current_pwd_grid_index = e.RowIndex;
@@ -1417,12 +1414,12 @@ namespace SAD_2_PTT_01
             sys_func.lbl_reset(device_lbl_provider_address);
             sys_func.btn_inactive(device_btn_request_add);
 
-            load_device_request_defaults();
         }
 
         private void device_btn_request_clear_Click(object sender, EventArgs e)
         {
             device_request_clear();
+            load_device_request_defaults();
         }
 
         #endregion
@@ -1432,8 +1429,8 @@ namespace SAD_2_PTT_01
 
         private void device_request_new_Click(object sender, EventArgs e)
         {
-            load_device_request_defaults();
             device_request_clear();
+            load_device_request_defaults();
             if (device_has_providers == false || device_has_devices == false)
             {
                 device_pnl_request_new.SendToBack();
@@ -1503,6 +1500,7 @@ namespace SAD_2_PTT_01
                 notification_ = "Successfully Added Request!";
                 device_request_clear();
                 load_device_requests();
+                load_device_request_defaults();
             }
             else
             {

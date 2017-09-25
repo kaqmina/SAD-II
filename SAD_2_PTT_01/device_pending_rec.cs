@@ -109,7 +109,8 @@ namespace SAD_2_PTT_01
         private void device_pending_rec_FormClosing(object sender, FormClosingEventArgs e)
         {
             exit_opacity.Start();
-           reference_to_main.load_handedout_data();
+            reference_to_main.load_handedout_data();
+            reference_to_main.load_device_requests();
         }
 
         private void received_by_edit_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,8 +132,6 @@ namespace SAD_2_PTT_01
             if (result == DialogResult.OK)
             {
                 conn_devi.mark_as_handed_out(current_device_log_id, current_user_id, date_out_);
-                reference_to_main.load_device_requests();
-                reference_to_main.load_handedout_data();
                 this.Close();
             }
             else
