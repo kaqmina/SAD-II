@@ -760,7 +760,6 @@ namespace SAD_2_PTT_01
             projects_grid.Columns["approved_by"].Visible = false;
             projects_grid.Columns["event_held"].Visible = false;
             projects_grid.Columns["budget"].Visible = false;
-            projects_grid.Columns["budget_desc"].Visible = false;
             projects_grid.Columns["isArchived"].Visible = false;
             projects_grid.Columns["employee_id"].Visible = false;
             projects_grid.Columns["progress_id1"].Visible = false;
@@ -865,7 +864,6 @@ namespace SAD_2_PTT_01
             project_approved_by.Text = main_data.Rows[0]["approved_by"].ToString();
             project_event_held.Text = main_data.Rows[0]["event_held"].ToString();
             project_budget.Text = main_data.Rows[0]["budget"].ToString();
-            project_budget_description.Text = main_data.Rows[0]["budget_desc"].ToString();
 
             project_items_grid.DataSource = item_data;
             project_load_item_row_count();
@@ -1038,7 +1036,7 @@ namespace SAD_2_PTT_01
         private void button10_Click(object sender, EventArgs e)
         {
             projects_panel_persons.Visible = false;
-            projects_panel_budget_items.Visible = true;
+            projects_pnl_information.Visible = true;
         }
 
         int current_project_persons_id = 0;
