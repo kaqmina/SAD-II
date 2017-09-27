@@ -377,6 +377,23 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
+
+        public void getQuery(string query, int num)
+        {
+            if (num == 0) pwd_Agdao(query);
+            else if (num == 1) pwd_Baguio(query);
+            else if (num == 2) pwd_Buhangin(query);
+            else if (num == 3) pwd_Bunawan(query);
+            else if (num == 4) pwd_Calinan(query);
+            else if (num == 5) pwd_City_A(query);
+            else if (num == 6) pwd_City_B(query);
+            else if (num == 7) pwd_Marilog(query);
+            else if (num == 8) pwd_Paquibato(query);
+            else if (num == 9) pwd_Talomo_A(query);
+            else if (num == 10) pwd_Talomo_B(query);
+            else if (num == 11) pwd_Toril(query);
+            else if (num == 12) pwd_Tugbok(query);
+        }
         #endregion
 
         #region <-- MASTERLIST --> [Print]
@@ -996,25 +1013,31 @@ namespace SAD_2_PTT
             #endregion
 
             #endregion
-
+            for(int s = 65; s <= 90; s++)
+            {
+                Convert.ToChar(s);
+             //   SUBSTITUTE(ADDRESS(1; colNum; 4); "1"; "")
+            }
             //Total
             #region  << Per *Column* Formula >>
-            wsheet.Cells["B19"].Formula = wschild.Cells["B19"].Formula = wsadult.Cells["B19"].Formula = "=SUM(B6:B18)";
-            wsheet.Cells["C19"].Formula = wschild.Cells["C19"].Formula = wsadult.Cells["C19"].Formula = "=SUM(C6:C18)";
-            wsheet.Cells["D19"].Formula = wschild.Cells["D19"].Formula = wsadult.Cells["D19"].Formula = "=SUM(D6:D18)";
-            wsheet.Cells["E19"].Formula = wschild.Cells["E19"].Formula = wsadult.Cells["E19"].Formula = "=SUM(E6:E18)";
-            wsheet.Cells["F19"].Formula = wschild.Cells["F19"].Formula = wsadult.Cells["F19"].Formula = "=SUM(F6:F18)";
-            wsheet.Cells["G19"].Formula = wschild.Cells["G19"].Formula = wsadult.Cells["G19"].Formula = "=SUM(G6:G18)";
-            wsheet.Cells["H19"].Formula = wschild.Cells["H19"].Formula = wsadult.Cells["H19"].Formula = "=SUM(H6:H18)";
-            wsheet.Cells["I19"].Formula = wschild.Cells["I19"].Formula = wsadult.Cells["I19"].Formula = "=SUM(I6:I18)";
-            wsheet.Cells["J19"].Formula = wschild.Cells["J19"].Formula = wsadult.Cells["J19"].Formula = "=SUM(J6:J18)";
-            wsheet.Cells["K19"].Formula = wschild.Cells["K19"].Formula = wsadult.Cells["K19"].Formula = "=SUM(K6:K18)";
-            wsheet.Cells["L19"].Formula = wschild.Cells["L19"].Formula = wsadult.Cells["L19"].Formula = "=SUM(L6:L18)";
-            wsheet.Cells["M19"].Formula = wschild.Cells["M19"].Formula = wsadult.Cells["M19"].Formula = "=SUM(M6:M18)";
-            wsheet.Cells["N19"].Formula = wschild.Cells["N19"].Formula = wsadult.Cells["N19"].Formula = "=SUM(N6:N18)";
-            wsheet.Cells["O19"].Formula = wschild.Cells["O19"].Formula = wsadult.Cells["O19"].Formula = "=SUM(O6:O18)";
-            wsheet.Cells["P19"].Formula = wschild.Cells["P19"].Formula = wsadult.Cells["P19"].Formula = "=SUM(P6:P18)";
-            wsheet.Cells["Q19"].Formula = wschild.Cells["Q19"].Formula = wsadult.Cells["Q19"].Formula = "=SUM(Q6:Q18)";
+            wsheet.Cells["B19"].Formula = wschild.Cells["B19"].Formula = wsadult.Cells["B19"].Formula = "SUM()";
+            wsheet.Cells["C19"].Formula = wschild.Cells["C19"].Formula = wsadult.Cells["C19"].Formula = "SUM(C6:C18)";
+            wsheet.Cells["D19"].Formula = wschild.Cells["D19"].Formula = wsadult.Cells["D19"].Formula = "SUM(D6:D18)";
+            wsheet.Cells["E19"].Formula = wschild.Cells["E19"].Formula = wsadult.Cells["E19"].Formula = "SUM(E6:E18)";
+            wsheet.Cells["F19"].Formula = wschild.Cells["F19"].Formula = wsadult.Cells["F19"].Formula = "SUM(F6:F18)";
+            wsheet.Cells["G19"].Formula = wschild.Cells["G19"].Formula = wsadult.Cells["G19"].Formula = "SUM(G6:G18)";
+            wsheet.Cells["H19"].Formula = wschild.Cells["H19"].Formula = wsadult.Cells["H19"].Formula = "SUM(H6:H18)";
+            wsheet.Cells["I19"].Formula = wschild.Cells["I19"].Formula = wsadult.Cells["I19"].Formula = "SUM(I6:I18)";
+            wsheet.Cells["J19"].Formula = wschild.Cells["J19"].Formula = wsadult.Cells["J19"].Formula = "SUM(J6:J18)";
+            wsheet.Cells["K19"].Formula = wschild.Cells["K19"].Formula = wsadult.Cells["K19"].Formula = "SUM(K6:K18)";
+            wsheet.Cells["L19"].Formula = wschild.Cells["L19"].Formula = wsadult.Cells["L19"].Formula = "SUM(L6:L18)";
+            wsheet.Cells["M19"].Formula = wschild.Cells["M19"].Formula = wsadult.Cells["M19"].Formula = "SUM(M6:M18)";
+            wsheet.Cells["N19"].Formula = wschild.Cells["N19"].Formula = wsadult.Cells["N19"].Formula = "SUM(N6:N18)";
+            wsheet.Cells["O19"].Formula = wschild.Cells["O19"].Formula = wsadult.Cells["O19"].Formula = "SUM(O6:O18)";
+            wsheet.Cells["P19"].Formula = wschild.Cells["P19"].Formula = wsadult.Cells["P19"].Formula = "SUM(P6:P18)";
+            wsheet.Cells["Q19"].Formula = wschild.Cells["Q19"].Formula = wsadult.Cells["Q19"].Formula = "SUM(Q6:Q18)";
+
+            
             /*for(int s = 0; s < disability_count * 2 + 1; s++)
             {
                 wsheet.Cells[19,s++].Formula = "=SUM(" + + ")";
@@ -1395,44 +1418,59 @@ namespace SAD_2_PTT
             string male = " AND sex = 0";
             string female = " AND sex = 1";
             string disability = "disability_id = ";
-            string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8, cm9;
-            string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8, cf9;
-            string query = "", query1 = "";
+            string query = "", query1 = "", query2 = "", query3 = "", query4 = "";
+            string query5 = "", query6 = "", query7 = "", query8 = "", query9 = "";
+            string query10 = "", query11 = "", query12 = "";
             string mainquery = "";
-            int i, num;
+            int i;
 
 
             // add district id paaa >.<
-            for(num = 0;num < 13; num++) {
+          
                 for (i = 1; i < disability_count; i++)
                 {
-                    query = select + disability + i + ageQuery + male + distQuery[num] + select + disability + i + ageQuery + female + distQuery[num];
+                    query += select + disability + i + ageQuery + male + distQuery[0] + select + disability + i + ageQuery + female + distQuery[0];
+                    getQuery(query, 0);
 
-                    mainquery = query;
+                    query1 += select + disability + i + ageQuery + male + distQuery[1] + select + disability + i + ageQuery + female + distQuery[1];
+                    getQuery(query1, 1);
 
-                    if (num == 0) pwd_Agdao(mainquery);
-                    else if (num == 1) pwd_Baguio(mainquery);
-                    else if (num == 2) pwd_Buhangin(mainquery);
-                    else if (num == 3) pwd_Bunawan(mainquery);
-                    else if (num == 4) pwd_Calinan(mainquery);
-                    else if (num == 5) pwd_City_A(mainquery);
-                    else if (num == 6) pwd_City_B(mainquery);
-                    else if (num == 7) pwd_Marilog(mainquery);
-                    else if (num == 8) pwd_Paquibato(mainquery);
-                    else if (num == 9) pwd_Talomo_A(mainquery);
-                    else if (num == 10) pwd_Talomo_B(mainquery);
-                    else if (num == 11) pwd_Toril(mainquery);
-                    else if (num == 12) pwd_Tugbok(mainquery);
+                    query2 += select + disability + i + ageQuery + male + distQuery[2] + select + disability + i + ageQuery + female + distQuery[2];
+                    getQuery(query2, 2);
 
-                 
-                   
+                    query3 += select + disability + i + ageQuery + male + distQuery[3] + select + disability + i + ageQuery + female + distQuery[3];
+                    getQuery(query3, 3);
 
+                    query4 += select + disability + i + ageQuery + male + distQuery[4] + select + disability + i + ageQuery + female + distQuery[4];
+                    getQuery(query4, 4);
 
-                    //    
+                    query5 += select + disability + i + ageQuery + male + distQuery[5] + select + disability + i + ageQuery + female + distQuery[5];
+                    getQuery(query5, 5);
 
-                }
+                    query6 += select + disability + i + ageQuery + male + distQuery[6] + select + disability + i + ageQuery + female + distQuery[6];
+                    getQuery(query6, 6);
+
+                    query7 += select + disability + i + ageQuery + male + distQuery[7] + select + disability + i + ageQuery + female + distQuery[7];
+                    getQuery(query7, 7);
+
+                    query8 += select + disability + i + ageQuery + male + distQuery[8] + select + disability + i + ageQuery + female + distQuery[8];
+                    getQuery(query8, 8);
+
+                    query9 += select + disability + i + ageQuery + male + distQuery[9] + select + disability + i + ageQuery + female + distQuery[9];
+                    getQuery(query9, 9);
+
+                    query10 += select + disability + i + ageQuery + male + distQuery[10] + select + disability + i + ageQuery + female + distQuery[10];
+                    getQuery(query10, 10);
+
+                    query11 += select + disability + i + ageQuery + male + distQuery[11] + select + disability + i + ageQuery + female + distQuery[11];
+                    getQuery(query11, 11);
+
+                    query12 += select + disability + i + ageQuery + male + distQuery[12] + select + disability + i + ageQuery + female + distQuery[12];
+                    getQuery(query12, 12);
             }
+
         }
+
         #endregion
 
         #region << Adult >>
@@ -1447,51 +1485,52 @@ namespace SAD_2_PTT
             string male = " AND sex = 0";
             string female = " AND sex = 1";
             string disability = "disability_id = ";
-            string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8, cm9;
-            string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8, cf9;
-            string query = "";
-           
+            string query = "", query1 = "", query2 = "", query3 = "", query4 = "";
+            string query5 = "", query6 = "", query7 = "", query8 = "", query9 = "";
+            string query10 = "", query11 = "", query12 = "";
+            int i;
 
             // add district id paaa >.<
-            for (int num = 0; num < 13; num++)
+            for (i = 1; i < disability_count; i++)
             {
-                int i = 0;
-                cm1 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf1 = select + disability + i + ageQuery + female + distQuery[num];
-                cm2 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf2 = select + disability + i + ageQuery + female + distQuery[num];
-                cm3 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf3 = select + disability + i + ageQuery + female + distQuery[num];
-                cm4 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf4 = select + disability + i + ageQuery + female + distQuery[num];
-                cm5 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf5 = select + disability + i + ageQuery + female + distQuery[num];
-                cm6 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf6 = select + disability + i + ageQuery + female + distQuery[num];
-                cm7 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf7 = select + disability + i + ageQuery + female + distQuery[num];
-                cm8 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf8 = select + disability + i + ageQuery + female + distQuery[num];
-                cm9 = select + disability + i++ + ageQuery + male + distQuery[num];
-                cf9 = select + disability + i + ageQuery + female + distQuery[num];
-     
-                i = 0;
-                query = cm1 + cf1 + cm2 + cf2 + cm3 + cf3 + cm4 + cf4 + cm5 + cf5 + cm6 + cf6 + cm7 + cf7 + cm8 + cf8 + cm9 + cf9;
+                query += select + disability + i + ageQuery + male + distQuery[0] + select + disability + i + ageQuery + female + distQuery[0];
+                getQuery(query, 0);
 
-                if (num == 0) pwd_Agdao(query);
-                else if (num == 1) pwd_Baguio(query);
-                else if (num == 2) pwd_Buhangin(query);
-                else if (num == 3) pwd_Bunawan(query);
-                else if (num == 4) pwd_Calinan(query);
-                else if (num == 5) pwd_City_A(query);
-                else if (num == 6) pwd_City_B(query);
-                else if (num == 7) pwd_Marilog(query);
-                else if (num == 8) pwd_Paquibato(query);
-                else if (num == 9) pwd_Talomo_A(query);
-                else if (num == 10) pwd_Talomo_B(query);
-                else if (num == 11) pwd_Toril(query);
-                else if (num == 12) pwd_Tugbok(query);
-                else num = 0;
+                query1 += select + disability + i + ageQuery + male + distQuery[1] + select + disability + i + ageQuery + female + distQuery[1];
+                getQuery(query1, 1);
+
+                query2 += select + disability + i + ageQuery + male + distQuery[2] + select + disability + i + ageQuery + female + distQuery[2];
+                getQuery(query2, 2);
+
+                query3 += select + disability + i + ageQuery + male + distQuery[3] + select + disability + i + ageQuery + female + distQuery[3];
+                getQuery(query3, 3);
+
+                query4 += select + disability + i + ageQuery + male + distQuery[4] + select + disability + i + ageQuery + female + distQuery[4];
+                getQuery(query4, 4);
+
+                query5 += select + disability + i + ageQuery + male + distQuery[5] + select + disability + i + ageQuery + female + distQuery[5];
+                getQuery(query5, 5);
+
+                query6 += select + disability + i + ageQuery + male + distQuery[6] + select + disability + i + ageQuery + female + distQuery[6];
+                getQuery(query6, 6);
+
+                query7 += select + disability + i + ageQuery + male + distQuery[7] + select + disability + i + ageQuery + female + distQuery[7];
+                getQuery(query7, 7);
+
+                query8 += select + disability + i + ageQuery + male + distQuery[8] + select + disability + i + ageQuery + female + distQuery[8];
+                getQuery(query8, 8);
+
+                query9 += select + disability + i + ageQuery + male + distQuery[9] + select + disability + i + ageQuery + female + distQuery[9];
+                getQuery(query9, 9);
+
+                query10 += select + disability + i + ageQuery + male + distQuery[10] + select + disability + i + ageQuery + female + distQuery[10];
+                getQuery(query10, 10);
+
+                query11 += select + disability + i + ageQuery + male + distQuery[11] + select + disability + i + ageQuery + female + distQuery[11];
+                getQuery(query11, 11);
+
+                query12 += select + disability + i + ageQuery + male + distQuery[12] + select + disability + i + ageQuery + female + distQuery[12];
+                getQuery(query12, 12);
             }
         }
         #endregion
