@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_basic = new System.Windows.Forms.Panel();
             this.lbl_date_error = new System.Windows.Forms.Label();
             this.lbl_start_date = new System.Windows.Forms.Label();
@@ -100,20 +100,21 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.pnl_persons_involved = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_pnl_to_pwd = new System.Windows.Forms.Button();
             this.persons_grid = new System.Windows.Forms.DataGridView();
             this.label43 = new System.Windows.Forms.Label();
             this.pnl_pwd_list = new System.Windows.Forms.Panel();
-            this.btn_add_pwd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.device_filter_by = new System.Windows.Forms.ComboBox();
+            this.btn_back_to_persons = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btn_pwd_refresh = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btn_pwd_search = new System.Windows.Forms.Button();
             this.pwd_searchbox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.device_filter_by = new System.Windows.Forms.ComboBox();
+            this.btn_add_pwd = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
             this.pnl_basic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lasts_for_day)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lasts_for_minute)).BeginInit();
@@ -130,8 +131,8 @@
             this.pnl_persons_involved.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.persons_grid)).BeginInit();
             this.pnl_pwd_list.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_basic
@@ -191,6 +192,7 @@
             this.lbl_start_date.Size = new System.Drawing.Size(15, 13);
             this.lbl_start_date.TabIndex = 149;
             this.lbl_start_date.Text = "--";
+            this.lbl_start_date.TextChanged += new System.EventHandler(this.lbl_start_date_TextChanged);
             // 
             // label9
             // 
@@ -233,6 +235,7 @@
             this.lbl_end_date.Size = new System.Drawing.Size(15, 13);
             this.lbl_end_date.TabIndex = 144;
             this.lbl_end_date.Text = "--";
+            this.lbl_end_date.TextChanged += new System.EventHandler(this.lbl_end_date_TextChanged);
             // 
             // lasts_for_minute
             // 
@@ -614,6 +617,7 @@
             this.btn_persons.TabIndex = 135;
             this.btn_persons.Text = "Persons Involved";
             this.btn_persons.UseVisualStyleBackColor = false;
+            this.btn_persons.Visible = false;
             this.btn_persons.Click += new System.EventHandler(this.btn_persons_Click);
             // 
             // btn_budget_items
@@ -724,8 +728,8 @@
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
             this.items_list.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.items_list.Size = new System.Drawing.Size(321, 308);
@@ -815,6 +819,7 @@
             this.btn_clear_items.TabIndex = 160;
             this.btn_clear_items.Text = "Clear Items";
             this.btn_clear_items.UseVisualStyleBackColor = false;
+            this.btn_clear_items.Click += new System.EventHandler(this.btn_clear_items_Click);
             // 
             // btn_clear_all
             // 
@@ -836,7 +841,7 @@
             // 
             this.items_cost_before.Location = new System.Drawing.Point(370, 116);
             this.items_cost_before.Maximum = new decimal(new int[] {
-            100000,
+            1000000,
             0,
             0,
             0});
@@ -882,12 +887,7 @@
             // 
             this.items_quantity.Location = new System.Drawing.Point(370, 157);
             this.items_quantity.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.items_quantity.Minimum = new decimal(new int[] {
-            1,
+            10000,
             0,
             0,
             0});
@@ -1021,7 +1021,7 @@
             // pnl_persons_involved
             // 
             this.pnl_persons_involved.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnl_persons_involved.Controls.Add(this.button2);
+            this.pnl_persons_involved.Controls.Add(this.btn_pnl_to_pwd);
             this.pnl_persons_involved.Controls.Add(this.persons_grid);
             this.pnl_persons_involved.Controls.Add(this.label43);
             this.pnl_persons_involved.Location = new System.Drawing.Point(3, 54);
@@ -1030,20 +1030,21 @@
             this.pnl_persons_involved.TabIndex = 138;
             this.pnl_persons_involved.Visible = false;
             // 
-            // button2
+            // btn_pnl_to_pwd
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button2.Location = new System.Drawing.Point(380, 361);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 31);
-            this.button2.TabIndex = 136;
-            this.button2.Text = "ADD";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_pnl_to_pwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_pnl_to_pwd.BackColor = System.Drawing.Color.White;
+            this.btn_pnl_to_pwd.FlatAppearance.BorderSize = 0;
+            this.btn_pnl_to_pwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pnl_to_pwd.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pnl_to_pwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_pnl_to_pwd.Location = new System.Drawing.Point(380, 361);
+            this.btn_pnl_to_pwd.Name = "btn_pnl_to_pwd";
+            this.btn_pnl_to_pwd.Size = new System.Drawing.Size(132, 31);
+            this.btn_pnl_to_pwd.TabIndex = 136;
+            this.btn_pnl_to_pwd.Text = "ADD";
+            this.btn_pnl_to_pwd.UseVisualStyleBackColor = false;
+            this.btn_pnl_to_pwd.Click += new System.EventHandler(this.btn_pnl_to_pwd_Click);
             // 
             // persons_grid
             // 
@@ -1063,8 +1064,8 @@
             this.persons_grid.Name = "persons_grid";
             this.persons_grid.ReadOnly = true;
             this.persons_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.persons_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.persons_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.persons_grid.Size = new System.Drawing.Size(503, 305);
@@ -1083,6 +1084,7 @@
             // pnl_pwd_list
             // 
             this.pnl_pwd_list.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_pwd_list.Controls.Add(this.btn_back_to_persons);
             this.pnl_pwd_list.Controls.Add(this.label27);
             this.pnl_pwd_list.Controls.Add(this.btn_pwd_refresh);
             this.pnl_pwd_list.Controls.Add(this.panel9);
@@ -1097,78 +1099,21 @@
             this.pnl_pwd_list.TabIndex = 139;
             this.pnl_pwd_list.Visible = false;
             // 
-            // btn_add_pwd
+            // btn_back_to_persons
             // 
-            this.btn_add_pwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add_pwd.BackColor = System.Drawing.Color.White;
-            this.btn_add_pwd.FlatAppearance.BorderSize = 0;
-            this.btn_add_pwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_pwd.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add_pwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_add_pwd.Location = new System.Drawing.Point(380, 361);
-            this.btn_add_pwd.Name = "btn_add_pwd";
-            this.btn_add_pwd.Size = new System.Drawing.Size(132, 31);
-            this.btn_add_pwd.TabIndex = 136;
-            this.btn_add_pwd.Text = "ADD";
-            this.btn_add_pwd.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 305);
-            this.dataGridView1.TabIndex = 132;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(10, 9);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 17);
-            this.label14.TabIndex = 131;
-            this.label14.Text = "PWD List";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label19.Location = new System.Drawing.Point(11, 28);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 13);
-            this.label19.TabIndex = 153;
-            this.label19.Text = "FILTER :";
-            // 
-            // device_filter_by
-            // 
-            this.device_filter_by.DropDownHeight = 80;
-            this.device_filter_by.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.device_filter_by.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.device_filter_by.FormattingEnabled = true;
-            this.device_filter_by.IntegralHeight = false;
-            this.device_filter_by.Items.AddRange(new object[] {
-            ""});
-            this.device_filter_by.Location = new System.Drawing.Point(58, 23);
-            this.device_filter_by.Name = "device_filter_by";
-            this.device_filter_by.Size = new System.Drawing.Size(206, 21);
-            this.device_filter_by.TabIndex = 152;
+            this.btn_back_to_persons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_back_to_persons.BackColor = System.Drawing.Color.White;
+            this.btn_back_to_persons.FlatAppearance.BorderSize = 0;
+            this.btn_back_to_persons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back_to_persons.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back_to_persons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_back_to_persons.Location = new System.Drawing.Point(240, 361);
+            this.btn_back_to_persons.Name = "btn_back_to_persons";
+            this.btn_back_to_persons.Size = new System.Drawing.Size(132, 31);
+            this.btn_back_to_persons.TabIndex = 157;
+            this.btn_back_to_persons.Text = "BACK";
+            this.btn_back_to_persons.UseVisualStyleBackColor = false;
+            this.btn_back_to_persons.Click += new System.EventHandler(this.btn_back_to_persons_Click);
             // 
             // label27
             // 
@@ -1227,24 +1172,101 @@
             this.pwd_searchbox.Size = new System.Drawing.Size(176, 25);
             this.pwd_searchbox.TabIndex = 0;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label19.Location = new System.Drawing.Point(11, 28);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 153;
+            this.label19.Text = "FILTER :";
+            // 
+            // device_filter_by
+            // 
+            this.device_filter_by.DropDownHeight = 80;
+            this.device_filter_by.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.device_filter_by.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_filter_by.FormattingEnabled = true;
+            this.device_filter_by.IntegralHeight = false;
+            this.device_filter_by.Items.AddRange(new object[] {
+            ""});
+            this.device_filter_by.Location = new System.Drawing.Point(58, 23);
+            this.device_filter_by.Name = "device_filter_by";
+            this.device_filter_by.Size = new System.Drawing.Size(206, 21);
+            this.device_filter_by.TabIndex = 152;
+            // 
+            // btn_add_pwd
+            // 
+            this.btn_add_pwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add_pwd.BackColor = System.Drawing.Color.White;
+            this.btn_add_pwd.FlatAppearance.BorderSize = 0;
+            this.btn_add_pwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_pwd.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_pwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_add_pwd.Location = new System.Drawing.Point(380, 361);
+            this.btn_add_pwd.Name = "btn_add_pwd";
+            this.btn_add_pwd.Size = new System.Drawing.Size(132, 31);
+            this.btn_add_pwd.TabIndex = 136;
+            this.btn_add_pwd.Text = "ADD";
+            this.btn_add_pwd.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 53);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(523, 305);
+            this.dataGridView1.TabIndex = 132;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(10, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 17);
+            this.label14.TabIndex = 131;
+            this.label14.Text = "PWD List";
+            // 
             // project_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(801, 451);
-            this.Controls.Add(this.pnl_pwd_list);
-            this.Controls.Add(this.pnl_persons_involved);
-            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.pnl_basic);
+            this.Controls.Add(this.pnl_budget_items);
+            this.Controls.Add(this.pnl_persons_involved);
+            this.Controls.Add(this.pnl_pwd_list);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.header_text);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "project_add";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "project_add";
+            this.Activated += new System.EventHandler(this.project_add_Activated);
+            this.Deactivate += new System.EventHandler(this.project_add_Deactivate);
             this.Load += new System.EventHandler(this.project_add_Load);
             this.pnl_basic.ResumeLayout(false);
             this.pnl_basic.PerformLayout();
@@ -1267,9 +1289,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.persons_grid)).EndInit();
             this.pnl_pwd_list.ResumeLayout(false);
             this.pnl_pwd_list.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1314,7 +1336,7 @@
         private System.Windows.Forms.Button btn_add_item;
         private System.Windows.Forms.Panel pnl_persons_involved;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_pnl_to_pwd;
         public System.Windows.Forms.DataGridView persons_grid;
         private System.Windows.Forms.Label lbl_end_date;
         private System.Windows.Forms.NumericUpDown lasts_for_minute;
@@ -1358,5 +1380,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btn_pwd_search;
         private System.Windows.Forms.TextBox pwd_searchbox;
+        private System.Windows.Forms.Button btn_back_to_persons;
     }
 }

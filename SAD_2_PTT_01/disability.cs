@@ -124,7 +124,6 @@ namespace SAD_2_PTT_01
                     btn_edit.Enabled = false;
                     sys_func.btn_inactive(btn_edit);
                     reset_view();
-                    disability_list.ClearSelection();
                 }
             }
         }
@@ -173,7 +172,7 @@ namespace SAD_2_PTT_01
         {
             bool success = false;
             success = conn_disa.disability_add(disability_name_add.Text, disability_desc_add.Text);
-            if (success)
+            if (success == true)
                 reference_to_main.notification_ = "Successfully Added!";
             else
                 reference_to_main.notification_ = "Add unsuccessfull!";
@@ -345,8 +344,12 @@ namespace SAD_2_PTT_01
         {
             exit_opacity.Start();
         }
+
         #endregion
 
-        
+        private void btn_pwd_refresh_Click(object sender, EventArgs e)
+        {
+            load_disability_data();
+        }
     }
 }

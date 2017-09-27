@@ -404,10 +404,9 @@ namespace SAD_2_PTT_01
             show_prompt.app_date.Text = "Application_date: " + pwd_grid.Rows[current_pwd_grid_index].Cells["application_date"].Value.ToString();
             show_prompt.prompt_title.Text = "Archive";
             show_prompt.action.Text = "The following profile will be archived:";
-            shadow_.Show();
+            shadow_.form_to_show = show_prompt;
             Console.WriteLine("[PWD] ->> [ARCHIVE-MODE]");
-            show_prompt.ShowDialog();
-            shadow_.Close();
+            shadow_.ShowDialog();
             btn_renew.Enabled = false;
             btn_archive.Enabled = false;
             pwd_archive = false;
@@ -869,7 +868,6 @@ namespace SAD_2_PTT_01
             project_load_item_row_count();
 
             project_items_grid.Columns["item_name"].HeaderText = "Name";
-            project_items_grid.Columns["item_desc"].HeaderText = "Description";
             project_items_grid.Columns["cost"].HeaderText = "Price";
             project_items_grid.Columns["quantity"].HeaderText = "Quantity";
 
@@ -1099,10 +1097,10 @@ namespace SAD_2_PTT_01
         {
             shadow_ = new shadow();
             shadow_.reference_to_main = this;
-            shadow_.Show();
             project_add proj_add = new project_add();
-            proj_add.ShowDialog();
-            shadow_.Close();
+            shadow_.form_to_show = proj_add;
+            proj_add.reference_to_main = this;
+            shadow_.ShowDialog();
         }
 
         #endregion
@@ -1199,9 +1197,8 @@ namespace SAD_2_PTT_01
                 device_received_form.header_text.Text = "# " + device_recieved.Rows[e.RowIndex].Cells["no"].Value.ToString();
                 shadow_ = new shadow();
                 shadow_.reference_to_main = this;
-                shadow_.Show();
-                device_received_form.ShowDialog();
-                shadow_.Close();
+                shadow_.form_to_show = device_received_form;
+                shadow_.ShowDialog();
                 device_received_ = false;
                 device_recieved.ClearSelection();
             }
@@ -1223,9 +1220,8 @@ namespace SAD_2_PTT_01
                 device_requests_form.header_text.Text = "# " + device_requests.Rows[e.RowIndex].Cells["no"].Value.ToString();
                 shadow_ = new shadow();
                 shadow_.reference_to_main = this;
-                shadow_.Show();
-                device_requests_form.ShowDialog();
-                shadow_.Close();
+                shadow_.form_to_show = device_requests_form;
+                shadow_.ShowDialog();
                 device_requests_ = false;
             }
         }
@@ -1340,10 +1336,9 @@ namespace SAD_2_PTT_01
             dev_add = new device_device_add();
             shadow_ = new shadow();
             shadow_.reference_to_main = this;
-            shadow_.Show();
-            dev_add.ShowDialog();
+            shadow_.form_to_show = dev_add;
+            shadow_.ShowDialog();
             load_handedout_data();
-            shadow_.Close();
             device_device_add_ = false;
         }
 
@@ -2058,10 +2053,9 @@ namespace SAD_2_PTT_01
             disability_form.reference_to_main = this;
             shadow_ = new shadow();
             shadow_.reference_to_main = this;
-            shadow_.Show();
-            disability_form.ShowDialog();
+            shadow_.form_to_show = disability_form;
+            shadow_.ShowDialog();
             load_handedout_data();
-            shadow_.Close();
             disability_form_ = false;
         }
 

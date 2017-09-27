@@ -100,7 +100,7 @@ namespace SAD_2_PTT_01
             catch (Exception e)
             {
                 conn.Close();
-                 Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_LIST_ERROR] } :" + e.Message);
+                Console.WriteLine("[DBY] - [CONNECTIONS_DISABILITY] > { [GET_DISABILITY_LIST_ERROR] } :" + e.Message);
                 has_data = false;
             }
             return has_data;

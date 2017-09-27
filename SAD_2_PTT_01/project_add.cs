@@ -17,34 +17,21 @@ namespace SAD_2_PTT_01
             InitializeComponent();
         }
         system_functions sys_func = new system_functions();
+        connections_user conn_user = new connections_user();
+        connections_project conn_proj = new connections_project();
+        public main_form reference_to_main { get; set; }
 
         private void project_add_Load(object sender, EventArgs e)
         {
-            load_time_format();
-            load_date_min_max();
-            load_default_enabled();
             btn_add_enable();
-        }
-
-        private void load_date_min_max()
-        {
-
-        }
-
-        private void load_default_enabled()
-        {
-
-        }
-
-        public void load_time_format()
-        {
-
         }
 
         public void btn_add_enable()
         {
             sys_func.btn_inactive(btn_add_item);
-            if (project_title.Text.Trim() == "" || project_venue.Text.Trim() == "")
+            if (project_title.Text.Trim() == "" || project_venue.Text.Trim() == "" || 
+                lbl_start_date.Text == "--" || lbl_end_date.Text == "--" 
+                || lbl_date_error.Visible == true )
             {
                 sys_func.btn_inactive(btn_add_project);
             } else
@@ -75,11 +62,53 @@ namespace SAD_2_PTT_01
 
         private void btn_add_project_Click(object sender, EventArgs e)
         {
+            string current_user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+            string title = project_title.Text;
+            string desc = project_desc.Text;
+            DateTime time = new DateTime();
+            time = Convert.ToDateTime(lbl_start_date.Text);
+            string start_time = time.ToString("yyyy-MM-dd hh:mm:ss tt");
+            time = Convert.ToDateTime(lbl_end_date.Text);
+            string end_time = time.ToString("yyyy-MM-dd hh:mm:ss tt");
+            string date_proposed_ = date_proposed.Value.ToString("yyyy-MM-dd hh:mm:ss tt");
+            string venue = project_venue.Text;
+            string budget = lbl_items_total.Text;
+            string fields = "INSERT INTO project(employee_id, project_title, project_desc, start_time, end_time, date_proposed, event_held, budget) VALUES ";
+            string values = "("+ current_user_id  +", '"+ title +"' , '"+ desc +"', '"+ start_time +"', '"+ end_time +"', '"+date_proposed_+"', '"+ venue +"', "+ budget +")";
+            string query = fields + values;
 
-        }
+            MessageBox.Show(start_time + " " + end_time);
+            MessageBox.Show(start_date_time.ToString("yyyy-MM-dd") + " " + end_date_time.ToString("yyyy-MM-dd"));
+            DateTime check = new DateTime(2017, 9, 27, 10, 0, 0);
+            DateTime end = new DateTime(2017, 9, 27, 14, 37, 0);
+            DateTime now = DateTime.Now;
+            if ((now > check) && (now < end))
+            {
+                MessageBox.Show("Hey");
+            }
 
-        private void start_time_ValueChanged(object sender, EventArgs e)
-        { 
+            bool try_ = false;
+            //conn_proj.project_add_data(query);
+            bool items_ = false;
+            bool progress_ = false;
+            if (try_ == true)
+            {
+                if (items_list.Rows.Count > 0)
+                {
+                    //add items here
+                }
+                progress_ = conn_proj.project_add_progress("INSERT INTO project_progress(project_id, progress_type, date_changed) VALUES (LAST_INSERT_ID(), 1, '" + DateTime.Now.ToString("yyyy-MM-dd") + "')");
+            } else
+            {
+
+            }
+            if (progress_ == false || items_ == false || try_ == false)
+            {
+                //notify 
+            } else
+            {
+                //notify
+            }
         }
 
         private void start_date_ValueChanged(object sender, EventArgs e)
@@ -119,6 +148,9 @@ namespace SAD_2_PTT_01
 
         #region DATE-START_END
 
+        DateTime start_date_time;
+        DateTime end_date_time;
+
         public void end_date_()
         {
 
@@ -133,6 +165,7 @@ namespace SAD_2_PTT_01
 
             lbl_end_date.Text = end.ToString();
             date_validity(start, end);
+            end_date_time = end;
         }
 
         public void start_date_()
@@ -142,6 +175,7 @@ namespace SAD_2_PTT_01
             var start = start_date.Value.Date + new TimeSpan(start_hour_, start_minutes_, 0);
 
             lbl_start_date.Text = start.ToString();
+            start_date_time = start;
         }
 
         public void date_validity(DateTime start, DateTime end)
@@ -285,7 +319,7 @@ namespace SAD_2_PTT_01
         public bool items_check_required()
         {
             bool all_required = false;
-            if (items_name.Text.Trim() == "" || items_quantity.Value <= 0)
+            if (items_name.Text.Trim() == "")
             {
                 all_required = false;
                 sys_func.btn_inactive(btn_add_item);
@@ -314,7 +348,7 @@ namespace SAD_2_PTT_01
         {
             if (items_list.Rows.Count == 0)
             {
-
+                lbl_items_total.Text = "0.00";
             } else
             {
                 double subtotal = 0.0;
@@ -331,7 +365,7 @@ namespace SAD_2_PTT_01
             items_name.Text = "";
             items_cost_before.Value = 0;
             items_cost_after.Value = 0;
-            items_quantity.Value = 1;
+            items_quantity.Value = 0;
             lbl_subtotal.Text = "0.00";
             sys_func.btn_inactive(btn_add_item);
         }
@@ -339,6 +373,7 @@ namespace SAD_2_PTT_01
         public void clear_items()
         {
             items_list.Rows.Clear();
+            calculate_items_total();
         }
 
         private void btn_clear_all_Click(object sender, EventArgs e)
@@ -361,6 +396,42 @@ namespace SAD_2_PTT_01
                 }
                 calculate_items_total();
             }
+        }
+
+        private void project_add_Activated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void project_add_Deactivate(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_back_to_persons_Click(object sender, EventArgs e)
+        {
+            pnl_pwd_list.Visible = false;
+            pnl_persons_involved.Visible = true;
+        }
+
+        private void btn_pnl_to_pwd_Click(object sender, EventArgs e)
+        {
+            pnl_persons_involved.Visible = false;
+            pnl_pwd_list.Visible = true;
+        }
+
+        private void btn_clear_items_Click(object sender, EventArgs e)
+        {
+            clear_items();
+        }
+
+        private void lbl_start_date_TextChanged(object sender, EventArgs e)
+        {
+            btn_add_enable();
+        }
+
+        private void lbl_end_date_TextChanged(object sender, EventArgs e)
+        {
+            btn_add_enable();
         }
     }
 }

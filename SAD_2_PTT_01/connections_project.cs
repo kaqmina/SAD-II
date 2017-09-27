@@ -148,8 +148,9 @@ namespace SAD_2_PTT_01
             }
         }
 
-        public void project_add_data(string query)
+        public bool project_add_data(string query)
         {
+            bool success = false;
             try
             {
                 conn.Open();
@@ -157,13 +158,85 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
-
+                success = true;
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 MessageBox.Show("[ERROR_ADD_PROJECTS]");
                 conn.Close();
+                success = false;
             }
+            return success;
+        }
+
+        public bool project_add_progress(string query)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("[ERROR_ADD_PROJECTS]");
+                conn.Close();
+                success = false;
+            }
+            return success;
+        }
+
+        public bool project_add_items(string query)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("[ERROR_ADD_PROJECTS]");
+                conn.Close();
+                success = false;
+            }
+            return success;
+        }
+
+        public void get_pwd_persons_involved(DataGridView persons_grid)
+        {
+
+        }
+
+        public bool get_pwd_projects_list(DataGridView pwd_projects_grid)
+        {
+            bool has_data = false;
+
+            comm = new MySqlCommand("SELECT pwd.pwd_id, CONCAT(lastname, ', ', firstname, ' ', UCASE(SUBSTRING(middlename, 1,1) ), '.' ) AS fullname, "
+                                         + "pwd.disability_id, "
+                                         + "disability.disability_type, "
+                                         + "pwd.district_id, "
+                                         + "district_name, "
+                                         + "registration_no "
+                                         + "FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id "
+                                         + "JOIN pwd_district ON pwd_district.district_id = pwd.district_id ON WHERE SELECT EXISTS(SELECT pwd_id FROM device_log WHERE pwd_id = pwd.pwd_id AND isArchived != 1 AND status != 4) = 0 ORDER BY fullname DESC", conn);
+            get = new MySqlDataAdapter(comm);
+            set = new DataTable();
+            get.Fill(set);
+
+            DataTable pwd_data = new DataTable();
+
+            return has_data;
         }
         
     }

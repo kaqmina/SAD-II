@@ -17,6 +17,7 @@ namespace SAD_2_PTT_01
             InitializeComponent();
         }
         public main_form reference_to_main { get; set; }
+        public Form form_to_show;
 
         private void shadow_Load(object sender, EventArgs e)
         {
@@ -27,9 +28,14 @@ namespace SAD_2_PTT_01
         private void startup_opacity_Tick(object sender, EventArgs e)
         {
             if (this.Opacity < 0.6)
+            {
                 this.Opacity += 0.1;
+            }
             else
+            {
                 startup_opacity.Stop();
+                show_form();
+            }
         }
 
         private void exit_opacity_Tick(object sender, EventArgs e)
@@ -47,6 +53,12 @@ namespace SAD_2_PTT_01
         private void shadow_FormClosing(object sender, FormClosingEventArgs e)
         {
             exit_opacity.Start();
+        }
+
+        public void show_form()
+        {
+            form_to_show.ShowDialog();
+            this.Close();
         }
     }
 }

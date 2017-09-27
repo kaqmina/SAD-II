@@ -96,11 +96,10 @@ namespace SAD_2_PTT_01
             confirmation = true;
             shadow_ = new shadow();
             shadow_.reference_to_main = this.reference_to_main;
-            shadow_.Show();
             prompt = new pwd_ask();
             prompt.reference_to_main = this;
-            prompt.ShowDialog();
-            shadow_.Close();
+            shadow_.form_to_show = prompt;
+            shadow_.ShowDialog();
             //confirmation = false;
 
             if (continue_)
