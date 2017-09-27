@@ -18,8 +18,10 @@ namespace SAD_2_PTT
         public device_disability dev_dis { get; set; }
         public device_provider  dev_prov { get; set; }
         public device_view dev_view { get; set; }
+        public sample_report report { get; set; }
 
         connections conn = new connections();
+        connection_reports rep = new connection_reports();
 
         String function;
         #endregion
@@ -31,15 +33,23 @@ namespace SAD_2_PTT
 
             date_out.Value = DateTime.Now;
 
-            if (function == "Status : Handed Out")
+            if (function == "Export PDF of Participants")
+            {
+                date_out.Visible = false;
+                lbl_quest.Visible = lbl_out.Visible = false;
+                prompt_title.Text = "List of Participants";
+            }
+                if (function == "Status : Handed Out")
             {
                 lbl_quest.Visible = false;
             }
-            else
+            else 
             {
                 date_out.Visible = lbl_out.Visible = false;
                 lbl_quest.Visible = true;
             }
+
+         
         }
 
         private void btn_continue_Click(object sender, EventArgs e)
@@ -96,7 +106,10 @@ namespace SAD_2_PTT
             else
                 startup_opacity.Stop();
         }
-        
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

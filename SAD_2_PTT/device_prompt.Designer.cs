@@ -40,6 +40,8 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +92,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.date_out);
             this.panel2.Controls.Add(this.lbl_out);
             this.panel2.Controls.Add(this.lbl_quest);
@@ -177,6 +180,21 @@
             this.panel3.Size = new System.Drawing.Size(420, 23);
             this.panel3.TabIndex = 34;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(103, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(206, 33);
+            this.button1.TabIndex = 70;
+            this.button1.Text = "EXPORT PDF";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // device_prompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +231,7 @@
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.DateTimePicker date_out;
         public System.Windows.Forms.Label lbl_out;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog save_pdf;
     }
 }

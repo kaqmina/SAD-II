@@ -74,19 +74,19 @@ namespace SAD_2_PTT
             // query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + " ORDER BY lastname ASC";
             //Monthly
             else if (format == 2)
-                if (format == 1 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + "ORDER BY lastname ASC";
+                if (district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + "ORDER BY lastname ASC";
                 else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' ORDER BY lastname ASC";
             //Yearly
             else if (format == 3)
-                if (format == 2 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + " ORDER BY lastname ASC";
+                if (district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + " ORDER BY lastname ASC";
                 else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' ORDER BY lastname ASC";
             //Custom
             else if (format == 4)
-                if (format == 2 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
+                if (district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
                 else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
             //Weekly
             else if (format == 1)
-                if (format == 1 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
+                if (district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
                 else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + "address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
             try { 
                 conn.Open();
@@ -108,6 +108,7 @@ namespace SAD_2_PTT
         }
         public void getDistrictQuery(DataGridView rep, int district)
         {
+            
             string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + " address, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE district_id = " + district + " ORDER BY lastname ASC";
             try
             {
@@ -210,7 +211,7 @@ namespace SAD_2_PTT
             }
         }
 
-        public void device_status_grid(DataGridView rep, string format, DateTime from, DateTime to, int dformat)
+        public void device_status_grid(DataGridView rep, string format, DateTime from, DateTime to, DateTime end, int dformat)
         {
            
             try
@@ -218,11 +219,15 @@ namespace SAD_2_PTT
                 string query = "";
                 //Monthly
                 if (format == "requested" || format == "default")
-                    if (format == "requested" && dformat == 1) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 0 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    if (format == "requested" && dformat == 2) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 0 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else if (format == "requested" && dformat == 1) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/&d/&Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 0 AND req_date BETWEEN '"+ to.ToString("yyyy-MM-dd")+"' AND '"+ end.ToString("yyyy-MM-dd")+"' ORDER BY lastname ASC";
+                    else if (format == "requested" && dformat == 3) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 0 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
                     else query = "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 0 ORDER BY lastname ASC";
                 //Yearly
                 else if (format == "handed out")
-                    if (format == "handed out" && dformat == 2) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 2 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    if (format == "handed out" && dformat == 3) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 2 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else if (format == "handed out" && dformat == 2) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 2 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else if (format == "handed out" && dformat == 1) query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/&d/&Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 0 AND req_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
                     else query = no + "SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 2  ORDER BY lastname ASC";
 
 
@@ -255,13 +260,15 @@ namespace SAD_2_PTT
             project.Columns["end_time"].HeaderText = "END TIME";
             project.Columns["date_proposed"].HeaderText = "DATE PROPOSED";
             project.Columns["num"].HeaderText = "NO.";
+            project.Columns["budget"].HeaderText = "BUDGET";
 
             //Column Size
             project.Columns["num"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            project.Columns["lastname"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            project.Columns["start_time"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            project.Columns["end_time"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            project.Columns["date_proposed"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             project.Columns["num"].Width = 35;
             project.Columns["start_time"].Width = project.Columns["end_time"].Width = project.Columns["date_proposed"].Width = 80;
-            project.Columns["project_title"].Width = 100;
         }
 
         public void project_grid(DataGridView rep)
@@ -269,7 +276,7 @@ namespace SAD_2_PTT
             try
             {
                 conn.Open();
-                comm = new MySqlCommand(no + "SELECT project_title, event_held, date_format(date_proposed,'%m/%d/%Y') AS date_proposed, date_format(start_time, '%h:%i') AS start_time, date_format(end-time, '%h:%i') AS end_time, CONCAT(budget + '.00') AS budget FROM p_dao.projects", conn);
+                comm = new MySqlCommand(no + "SELECT CONCAT((@num := @num + 1), '.') AS num, project_title, event_held, date_format(date_proposed,'%m/%d/%Y') AS date_proposed, date_format(start_time, '%h:%i') AS start_time, date_format(end_time, '%h:%i') AS end_time, CONCAT(budget, '.00') AS budget FROM p_dao.project", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -281,7 +288,7 @@ namespace SAD_2_PTT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in device_grid() : " + ex);
+                MessageBox.Show("Error in project_grid() : " + ex);
                 conn.Close();
             }
         }
@@ -326,35 +333,42 @@ namespace SAD_2_PTT
                 conn.Close();
             }
         }
+        public int proj_id;
 
         public void getProjectID(string project)
         {
-            comm = new MySqlCommand("SELECT project_id FROM p_dao.project_persons WHERE project_name = ", conn);
-            disability = new List<string>();
+            comm = new MySqlCommand("SELECT project_id FROM p_dao.project WHERE project_title = '"+ project + "'", conn);
             try
             {
                 conn.Open();
                 dr = comm.ExecuteReader();
-                while (dr.Read()) disability_count = dr.GetInt32("COUNT(disability_type)");
+                while (dr.Read()) proj_id = dr.GetInt32(0);
                 conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in getDisabilityCount() : " + ex);
+                MessageBox.Show("Error in getProjectID() : " + ex);
                 conn.Close();
             }
         }
+
         public List<string> pwd;
         public void getAttendance()
         {
             pwd = new List<string>();
-            comm = new MySqlCommand("SELECT pwd_name FROM p_dao.project_persons JOIN p_dao.pwd ON pwd.pwd_id = project_persons.pwd_id WHERE project_id = ", conn);
+            comm = new MySqlCommand("SELECT CONCAT(lastname, ', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS pwd_name FROM p_dao.pwd JOIN p_dao.project_persons ON pwd.pwd_id = project_persons.pwd_id WHERE project_id = " + proj_id, conn);
        
             try
             {
                 conn.Open();
                 dr = comm.ExecuteReader();
-                while (dr.Read()) pwd.Add(dr.GetString("pwd_name"));
+                do
+                {
+                    while (dr.Read())
+                    {
+                        pwd.Add(dr.GetString("pwd_name"));
+                    }
+                } while (dr.NextResult());
                 conn.Close();
             }
             catch (Exception ex)
@@ -398,17 +412,17 @@ namespace SAD_2_PTT
             doc.Add(logo);
 
             //title
-            var titleFont = FontFactory.GetFont("Segoe UI", 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-            var subFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.BLACK);
-            Paragraph title = new Paragraph("MASTERLIST OF PERSONS WITH DISABILITIES WHO AVAIL PWD ID", titleFont);
+            var titleFont = FontFactory.GetFont("Calibri", 13, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            var subFont = FontFactory.GetFont("Calibri", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            Paragraph title = new Paragraph("MASTERLIST OF PWD MEMBERS", titleFont);
             title.Alignment = Element.ALIGN_CENTER;
-            title.SpacingAfter = 1;
             doc.Add(title);
 
             //date
-            Paragraph title2 = new Paragraph(date, titleFont);
+            if (date == "") date = DateTime.Now.ToString("MMMM dd, yyyy");
+            Paragraph title2 = new Paragraph(date, subFont);
             title2.Alignment = Element.ALIGN_CENTER;
-            title2.SpacingAfter = 20;
+            title2.SpacingAfter = 15;
             doc.Add(title2);
 
             //district
@@ -433,8 +447,8 @@ namespace SAD_2_PTT
             table.SetWidths(width);
 
             //table header
-            var headerFont = FontFactory.GetFont("Segoe UI", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
-            var cellFont = FontFactory.GetFont("Segoe UI", 10);
+            var headerFont = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
+            var cellFont = FontFactory.GetFont("Calibri", 10);
 
             foreach (DataGridViewColumn col in report.Columns)
             {
@@ -459,7 +473,7 @@ namespace SAD_2_PTT
             doc.Add(table);
 
             //other information
-            var otherInfo = FontFactory.GetFont("Segoe UI", 14);
+            var otherInfo = FontFactory.GetFont("Calibri", 14);
             int t_pwd = table.Rows.Count - 1;
             Paragraph pwd = new Paragraph("Total PWD Members: " + t_pwd.ToString());
             pwd.SpacingBefore = 15;
@@ -486,21 +500,22 @@ namespace SAD_2_PTT
             doc.Add(logo);
 
             //title
-            var titleFont = FontFactory.GetFont("Segoe UI", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-            var subFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.BLACK);
-            Paragraph title = new Paragraph("MASTERLIST OF PERSONS WITH DISABILITIES WHO AVAIL ASSISTIVE DEVICES", titleFont);
+            var titleFont = FontFactory.GetFont("Calibri", 13, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            var subFont = FontFactory.GetFont("Calibri", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            Paragraph title = new Paragraph("MASTERLIST OF AVAIL ASSISTIVE DEVICES", titleFont);
             title.Alignment = Element.ALIGN_CENTER;
-            title.SpacingAfter = 1;
+            //title.SpacingAfter = 1;
             doc.Add(title);
 
             //subtitle
-            Paragraph title1 = new Paragraph("(" + status.ToUpper() + " ASSISTIVE DEVICES)", titleFont);
+            Paragraph title1 = new Paragraph("(" + status.ToUpper() + " ASSISTIVE DEVICES)", subFont);
             title1.Alignment = Element.ALIGN_CENTER;
-            title1.SpacingAfter = 1;
+            //title1.SpacingAfter = 1;
             doc.Add(title1);
 
             //date
-            Paragraph title2 = new Paragraph(date.ToUpper(), titleFont);
+            if (date == "") date = DateTime.Now.ToString("MMMM dd, yyyy");
+            Paragraph title2 = new Paragraph(date.ToUpper(), subFont);
             title2.Alignment = Element.ALIGN_CENTER;
             title2.SpacingAfter = 20;
             doc.Add(title2);
@@ -521,8 +536,8 @@ namespace SAD_2_PTT
             //table.SetWidths(width);
 
             //table header
-            var headerFont = FontFactory.GetFont("Segoe UI", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
-            var cellFont = FontFactory.GetFont("Segoe UI", 10);
+            var headerFont = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
+            var cellFont = FontFactory.GetFont("Calibri", 10);
 
             foreach (DataGridViewColumn col in report.Columns)
             {
@@ -575,9 +590,9 @@ namespace SAD_2_PTT
             doc.Add(logo);
 
             //title
-            var titleFont = FontFactory.GetFont("Segoe UI", 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-            var subFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.BLACK);
-            Paragraph title = new Paragraph("MASTERLIST OF PERSONS WITH DISABILITIES WHO AVAIL ASSISTIVE DEVICES", titleFont);
+            var titleFont = FontFactory.GetFont("Calibri", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            var subFont = FontFactory.GetFont("Calibri", 10, BaseColor.BLACK);
+            Paragraph title = new Paragraph("MASTERLIST OF PROJECTS", titleFont);
             title.Alignment = Element.ALIGN_CENTER;
             title.SpacingAfter = 1;
             doc.Add(title);
@@ -588,24 +603,16 @@ namespace SAD_2_PTT
             title2.SpacingAfter = 20;
             doc.Add(title2);
 
-            //paragraph text
-            var textFont = FontFactory.GetFont("Segoe UI", 12, BaseColor.BLACK);
-            Paragraph text = new Paragraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus nisl eros, vitae fermentum augue rhoncus ac. Ut faucibus sem metus, et tempor massa ultrices ut. Praesent arcu nisl, tempor et imperdiet quis, venenatis ac arcu. Cras condimentum tincidunt felis a tincidunt. Quisque enim eros, auctor vel nibh non, consequat aliquam arcu. Proin id nibh elit. Pellentesque quis viverra mi. Nunc sed eros eu urna iaculis rhoncus at et magna. Morbi ut eros purus. Duis porttitor rutrum pulvinar.", textFont);
-            text.FirstLineIndent = 60;
-            text.SpacingAfter = 18;
-            text.Alignment = Element.ALIGN_JUSTIFIED | Element.ALIGN_CENTER;
-            // doc.Add(text);
-
             //table
             PdfPTable table = new PdfPTable(report.ColumnCount);
             table.HorizontalAlignment = Element.ALIGN_CENTER;
             table.WidthPercentage = 100;
-            int[] width = { 1, 4, 4, 2, 1, 4, 5, 5, 4 };
+            int[] width = { 1, 5, 5, 3, 2, 2, 4 };
             table.SetWidths(width);
 
             //table header
-            var headerFont = FontFactory.GetFont("Segoe UI", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
-            var cellFont = FontFactory.GetFont("Segoe UI", 10);
+            var headerFont = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.BOLD, BaseColor.WHITE);
+            var cellFont = FontFactory.GetFont("Calibri", 10);
 
             foreach (DataGridViewColumn col in report.Columns)
             {
@@ -643,30 +650,31 @@ namespace SAD_2_PTT
         #endregion
 
         #region <-- PROJECTS: ATTENDANCE --> [PDF]
-        public void project_attendance(string file, string project, string date, DataGridView report)
+        public void project_attendance(string file, string project, string date, string place)
         {
             FileStream fs = new FileStream(file, FileMode.Create, FileAccess.ReadWrite);
-            Document doc = new Document(PageSize.LETTER, 30, 30, 30, 30);
+            Document doc = new Document(PageSize.LETTER, 50, 50, 40, 40);
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
 
             //logo
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
-            logo.Alignment = Element.ALIGN_LEFT | Element.ALIGN_TOP;
+            logo.Alignment = Element.ALIGN_CENTER | Element.ALIGN_TOP;
             logo.ScalePercent(40);
             logo.SpacingAfter = 15;
             doc.Add(logo);
 
             //title
-            var titleFont = FontFactory.GetFont("Segoe UI", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-            var subFont = FontFactory.GetFont("Segoe UI", 10, BaseColor.BLACK);
+            var titleFont = FontFactory.GetFont("Calibri", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            var subFont = FontFactory.GetFont("Calibri", 10, BaseColor.BLACK);
             Paragraph title = new Paragraph("EVENT: " + project.ToUpper(), titleFont);
-            Paragraph title1 = new Paragraph("LIST OF PARTICIPANTS" + project.ToUpper(), titleFont);
+            Paragraph title3 = new Paragraph("PLACE: " + place.ToUpper(), titleFont);
+            Paragraph title1 = new Paragraph("LIST OF PARTICIPANTS", titleFont);
             title.Alignment = Element.ALIGN_LEFT;
             title1.Alignment = Element.ALIGN_CENTER;
-            title.SpacingAfter = 3;
+            //title.SpacingAfter = 3;
             title1.SpacingAfter = 8;
-            doc.Add(title1); doc.Add(title); 
+            doc.Add(title1); doc.Add(title); doc.Add(title3);
 
             //date
             Paragraph title2 = new Paragraph("DATE: " + date, titleFont);
@@ -674,24 +682,21 @@ namespace SAD_2_PTT
             title2.SpacingAfter = 20;
             doc.Add(title2);
 
-            //paragraph text
-            var textFont = FontFactory.GetFont("Segoe UI", 12, BaseColor.BLACK);
-            Paragraph text = new Paragraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus nisl eros, vitae fermentum augue rhoncus ac. Ut faucibus sem metus, et tempor massa ultrices ut. Praesent arcu nisl, tempor et imperdiet quis, venenatis ac arcu. Cras condimentum tincidunt felis a tincidunt. Quisque enim eros, auctor vel nibh non, consequat aliquam arcu. Proin id nibh elit. Pellentesque quis viverra mi. Nunc sed eros eu urna iaculis rhoncus at et magna. Morbi ut eros purus. Duis porttitor rutrum pulvinar.", textFont);
-            text.FirstLineIndent = 60;
-            text.SpacingAfter = 18;
-            text.Alignment = Element.ALIGN_JUSTIFIED | Element.ALIGN_CENTER;
-            // doc.Add(text);
-
             //list
-            iTextSharp.text.List list = new List(iTextSharp.text.List.NUMERICAL);
-            foreach(string person in pwd)
+            getAttendance();
+            iTextSharp.text.List list = new List(iTextSharp.text.List.ORDERED);
+            list.Numbered = true;
+            foreach (string person in pwd)
             {
-                list.Add(new Paragraph(person));
+                list.Add(new ListItem(person));
+              
             }
+            doc.Add(list);
+
             //other information
-            var otherInfo = FontFactory.GetFont("Segoe UI", 14);
-            //int t_pwd = ;
-            Paragraph p = new Paragraph("Total Participants: "); //+ t_pwd.ToString());
+            var otherInfo = FontFactory.GetFont("Calibri", 12);
+            int t_pwd = list.Items.Count;
+            Paragraph p = new Paragraph("Total Participants: " + t_pwd.ToString());
             p.SpacingBefore = 15;
             doc.Add(p);
 
@@ -917,19 +922,45 @@ namespace SAD_2_PTT
             #endregion
             #region -- Sheet2 --
             pwd_Children(); //19, disability_count*2+1
-            b = 2;
-            a = 6;
+            //b = 2;
+            //a = 6;
 
-            foreach (var num in Agdao)
-            {
-                wschild.Cells[a++, b++, 19, disability_count * 2 + 1].Value = num;
-                Agdao.Clear();
-            }
-           
-          
+            //foreach (var num in Agdao)
+            //{
+            //  wschild.Cells[a++, b++, 19, disability_count * 2 + 1].Value = num;
+            // Agdao.Clear();
+            // }
+
+            b = 2;
+            foreach (var num in Agdao) wschild.Cells[6, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Baguio) wschild.Cells[7, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Buhangin) wschild.Cells[8, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Bunawan) wschild.Cells[9, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Calinan) wschild.Cells[10, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in CityA) wschild.Cells[11, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in CityB) wschild.Cells[12, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Marilog) wschild.Cells[13, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Paquibato) wschild.Cells[14, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in TalomoA) wschild.Cells[15, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in TalomoB) wschild.Cells[16, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Toril) wschild.Cells[17, b++, 18, disability_count * 2 + 1].Value = num;
+            b = 2;
+            foreach (var num in Tugbok) wschild.Cells[18, b++, 18, disability_count * 2 + 1].Value = num;
 
             Agdao.Clear(); Baguio.Clear(); Buhangin.Clear(); Bunawan.Clear(); Calinan.Clear(); CityA.Clear();
             CityB.Clear(); Marilog.Clear(); Paquibato.Clear(); TalomoA.Clear(); TalomoB.Clear(); Toril.Clear(); Tugbok.Clear();
+
             #endregion
             #region -- Sheet3 -- 
             pwd_Adults();
@@ -1366,32 +1397,40 @@ namespace SAD_2_PTT
             string disability = "disability_id = ";
             string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8, cm9;
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8, cf9;
-            string query = "";
-           
+            string query = "", query1 = "";
+            string mainquery = "";
+            int i, num;
+
 
             // add district id paaa >.<
-            for (int num = 0; num < 13; num++)
-            {
-                for (int i = 1; i <= disability_count; i++)
+            for(num = 0;num < 13; num++) {
+                for (i = 1; i < disability_count; i++)
                 {
-                    query =
-                             select + disability + i + ageQuery + male + distQuery[0] + select + disability + i + ageQuery + female + distQuery[0] +
-                             select + disability + i + ageQuery + male + distQuery[1] + select + disability + i + ageQuery + female + distQuery[1] +
-                             select + disability + i + ageQuery + male + distQuery[2] + select + disability + i + ageQuery + female + distQuery[2] +
-                             select + disability + i + ageQuery + male + distQuery[3] + select + disability + i + ageQuery + female + distQuery[3] +
-                             select + disability + i + ageQuery + male + distQuery[4] + select + disability + i + ageQuery + female + distQuery[4] +
-                             select + disability + i + ageQuery + male + distQuery[5] + select + disability + i + ageQuery + female + distQuery[5] +
-                             select + disability + i + ageQuery + male + distQuery[6] + select + disability + i + ageQuery + female + distQuery[6] +
-                             select + disability + i + ageQuery + male + distQuery[7] + select + disability + i + ageQuery + female + distQuery[7] +
-                             select + disability + i + ageQuery + male + distQuery[8] + select + disability + i + ageQuery + female + distQuery[8] +
-                             select + disability + i + ageQuery + male + distQuery[9] + select + disability + i + ageQuery + female + distQuery[9] +
-                             select + disability + i + ageQuery + male + distQuery[10] + select + disability + i + ageQuery + female + distQuery[10] +
-                             select + disability + i + ageQuery + male + distQuery[11] + select + disability + i + ageQuery + female + distQuery[11] +
-                             select + disability + i + ageQuery + male + distQuery[12] + select + disability + i + ageQuery + female + distQuery[12];
+                    query = select + disability + i + ageQuery + male + distQuery[num] + select + disability + i + ageQuery + female + distQuery[num];
 
-                    pwd_Agdao(query);
-                  
-                }                
+                    mainquery = query;
+
+                    if (num == 0) pwd_Agdao(mainquery);
+                    else if (num == 1) pwd_Baguio(mainquery);
+                    else if (num == 2) pwd_Buhangin(mainquery);
+                    else if (num == 3) pwd_Bunawan(mainquery);
+                    else if (num == 4) pwd_Calinan(mainquery);
+                    else if (num == 5) pwd_City_A(mainquery);
+                    else if (num == 6) pwd_City_B(mainquery);
+                    else if (num == 7) pwd_Marilog(mainquery);
+                    else if (num == 8) pwd_Paquibato(mainquery);
+                    else if (num == 9) pwd_Talomo_A(mainquery);
+                    else if (num == 10) pwd_Talomo_B(mainquery);
+                    else if (num == 11) pwd_Toril(mainquery);
+                    else if (num == 12) pwd_Tugbok(mainquery);
+
+                 
+                   
+
+
+                    //    
+
+                }
             }
         }
         #endregion

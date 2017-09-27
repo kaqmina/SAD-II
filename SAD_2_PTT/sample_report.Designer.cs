@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sample_report));
             this.panel11 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
@@ -40,8 +42,12 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.pnl_settings = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.export_project = new System.Windows.Forms.Button();
             this.btn_project = new System.Windows.Forms.Button();
             this.btn_device = new System.Windows.Forms.Button();
+            this.pnl_project = new System.Windows.Forms.Panel();
+            this.project_grid = new System.Windows.Forms.DataGridView();
             this.pnl_device = new System.Windows.Forms.Panel();
             this.device_grid = new System.Windows.Forms.DataGridView();
             this.pnl_pwd = new System.Windows.Forms.Panel();
@@ -64,7 +70,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.date_format = new System.Windows.Forms.ComboBox();
             this.export_excel = new System.Windows.Forms.Button();
-            this.print_prev = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -77,10 +82,11 @@
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
             this.to_print = new System.Windows.Forms.PrintPreviewDialog();
-            this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.panel11.SuspendLayout();
             this.pnl_settings.SuspendLayout();
+            this.pnl_project.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.project_grid)).BeginInit();
             this.pnl_device.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.device_grid)).BeginInit();
             this.pnl_pwd.SuspendLayout();
@@ -187,9 +193,10 @@
             // 
             this.pnl_settings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pnl_settings.Controls.Add(this.label6);
-            this.pnl_settings.Controls.Add(this.button6);
+            this.pnl_settings.Controls.Add(this.export_project);
             this.pnl_settings.Controls.Add(this.btn_project);
             this.pnl_settings.Controls.Add(this.btn_device);
+            this.pnl_settings.Controls.Add(this.pnl_project);
             this.pnl_settings.Controls.Add(this.pnl_device);
             this.pnl_settings.Controls.Add(this.pnl_pwd);
             this.pnl_settings.Controls.Add(this.btn_pwd);
@@ -210,7 +217,6 @@
             this.pnl_settings.Controls.Add(this.label1);
             this.pnl_settings.Controls.Add(this.date_format);
             this.pnl_settings.Controls.Add(this.export_excel);
-            this.pnl_settings.Controls.Add(this.print_prev);
             this.pnl_settings.Controls.Add(this.save);
             this.pnl_settings.Controls.Add(this.label15);
             this.pnl_settings.Controls.Add(this.label16);
@@ -219,6 +225,25 @@
             this.pnl_settings.Name = "pnl_settings";
             this.pnl_settings.Size = new System.Drawing.Size(1069, 589);
             this.pnl_settings.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(27, 367);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "PROJECT";
+            // 
+            // export_project
+            // 
+            this.export_project.Location = new System.Drawing.Point(100, 362);
+            this.export_project.Name = "export_project";
+            this.export_project.Size = new System.Drawing.Size(88, 23);
+            this.export_project.TabIndex = 65;
+            this.export_project.Text = "Export PDF";
+            this.export_project.UseVisualStyleBackColor = true;
+            this.export_project.Click += new System.EventHandler(this.export_project_Click);
             // 
             // btn_project
             // 
@@ -231,6 +256,7 @@
             this.btn_project.TabIndex = 64;
             this.btn_project.Text = "3";
             this.btn_project.UseVisualStyleBackColor = false;
+            this.btn_project.Click += new System.EventHandler(this.btn_project_Click);
             // 
             // btn_device
             // 
@@ -244,6 +270,49 @@
             this.btn_device.Text = "2";
             this.btn_device.UseVisualStyleBackColor = false;
             this.btn_device.Click += new System.EventHandler(this.btn_device_Click);
+            // 
+            // pnl_project
+            // 
+            this.pnl_project.Controls.Add(this.button6);
+            this.pnl_project.Controls.Add(this.project_grid);
+            this.pnl_project.Location = new System.Drawing.Point(213, 147);
+            this.pnl_project.Name = "pnl_project";
+            this.pnl_project.Size = new System.Drawing.Size(834, 420);
+            this.pnl_project.TabIndex = 67;
+            // 
+            // project_grid
+            // 
+            this.project_grid.AllowUserToAddRows = false;
+            this.project_grid.AllowUserToDeleteRows = false;
+            this.project_grid.AllowUserToResizeColumns = false;
+            this.project_grid.AllowUserToResizeRows = false;
+            this.project_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.project_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.project_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.project_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.project_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.project_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.project_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.project_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.project_grid.Location = new System.Drawing.Point(1, 0);
+            this.project_grid.MultiSelect = false;
+            this.project_grid.Name = "project_grid";
+            this.project_grid.ReadOnly = true;
+            this.project_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.project_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.project_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.project_grid.Size = new System.Drawing.Size(832, 383);
+            this.project_grid.TabIndex = 57;
+            this.project_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.project_grid_CellClick);
             // 
             // pnl_device
             // 
@@ -264,14 +333,14 @@
             this.device_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.device_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.device_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.device_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.device_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_grid.Location = new System.Drawing.Point(0, 0);
@@ -279,8 +348,8 @@
             this.device_grid.Name = "device_grid";
             this.device_grid.ReadOnly = true;
             this.device_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.device_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.device_grid.Size = new System.Drawing.Size(845, 420);
@@ -305,14 +374,14 @@
             this.report_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.report_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.report_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.report_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.report_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.report_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.report_grid.Location = new System.Drawing.Point(3, 0);
@@ -320,8 +389,8 @@
             this.report_grid.Name = "report_grid";
             this.report_grid.ReadOnly = true;
             this.report_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.report_grid.Size = new System.Drawing.Size(833, 427);
@@ -344,7 +413,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 308);
+            this.label5.Location = new System.Drawing.Point(24, 285);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 60;
@@ -359,7 +428,7 @@
             "",
             "Requested",
             "Handed Out"});
-            this.dev_status.Location = new System.Drawing.Point(83, 305);
+            this.dev_status.Location = new System.Drawing.Point(81, 282);
             this.dev_status.Name = "dev_status";
             this.dev_status.Size = new System.Drawing.Size(107, 21);
             this.dev_status.TabIndex = 59;
@@ -368,7 +437,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 271);
+            this.label4.Location = new System.Drawing.Point(29, 248);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 58;
@@ -376,7 +445,7 @@
             // 
             // export_device
             // 
-            this.export_device.Location = new System.Drawing.Point(104, 266);
+            this.export_device.Location = new System.Drawing.Point(102, 243);
             this.export_device.Name = "export_device";
             this.export_device.Size = new System.Drawing.Size(88, 23);
             this.export_device.TabIndex = 57;
@@ -484,7 +553,7 @@
             // 
             this.lbl_to.AutoSize = true;
             this.lbl_to.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_to.Location = new System.Drawing.Point(822, 91);
+            this.lbl_to.Location = new System.Drawing.Point(818, 91);
             this.lbl_to.Name = "lbl_to";
             this.lbl_to.Size = new System.Drawing.Size(18, 13);
             this.lbl_to.TabIndex = 47;
@@ -536,16 +605,6 @@
             this.export_excel.Text = "Export EXCEL";
             this.export_excel.UseVisualStyleBackColor = true;
             this.export_excel.Click += new System.EventHandler(this.export_excel_Click);
-            // 
-            // print_prev
-            // 
-            this.print_prev.Location = new System.Drawing.Point(103, 206);
-            this.print_prev.Name = "print_prev";
-            this.print_prev.Size = new System.Drawing.Size(87, 23);
-            this.print_prev.TabIndex = 31;
-            this.print_prev.Text = "PRINT";
-            this.print_prev.UseVisualStyleBackColor = true;
-            this.print_prev.Click += new System.EventHandler(this.print_prev_Click);
             // 
             // save
             // 
@@ -683,23 +742,15 @@
             this.to_print.Name = "printPreviewDialog1";
             this.to_print.Visible = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 369);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 66;
-            this.label6.Text = "PROJECT";
-            // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(102, 364);
+            this.button6.Location = new System.Drawing.Point(655, 389);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 23);
-            this.button6.TabIndex = 65;
-            this.button6.Text = "Export PDF";
+            this.button6.Size = new System.Drawing.Size(143, 23);
+            this.button6.TabIndex = 68;
+            this.button6.Text = "List of Participants";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // sample_report
             // 
@@ -715,6 +766,8 @@
             this.panel11.ResumeLayout(false);
             this.pnl_settings.ResumeLayout(false);
             this.pnl_settings.PerformLayout();
+            this.pnl_project.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.project_grid)).EndInit();
             this.pnl_device.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.device_grid)).EndInit();
             this.pnl_pwd.ResumeLayout(false);
@@ -744,7 +797,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.SaveFileDialog save_pdf;
         private System.Windows.Forms.Button export_excel;
-        private System.Windows.Forms.Button print_prev;
         private System.Windows.Forms.Label lbl_to;
         private System.Windows.Forms.Label lbl_from;
         private System.Windows.Forms.Label label1;
@@ -771,6 +823,9 @@
         private System.Windows.Forms.Panel pnl_pwd;
         private System.Windows.Forms.Button btn_pwd;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button export_project;
+        private System.Windows.Forms.Panel pnl_project;
+        public System.Windows.Forms.DataGridView project_grid;
         private System.Windows.Forms.Button button6;
     }
 }
