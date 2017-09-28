@@ -20,10 +20,17 @@ namespace SAD_2_PTT_01
         connections_user conn_user = new connections_user();
         connections_project conn_proj = new connections_project();
         public main_form reference_to_main { get; set; }
+        public string update_id = "0";
 
         private void project_add_Load(object sender, EventArgs e)
         {
             btn_add_enable();
+            this.Opacity = 0;
+            startup_opacity.Start();
+
+            sys_func.btn_inactive(btn_persons);
+            start_date.MinDate = date_proposed.Value;
+            btn_add_project.Text = "ADD PROJECT";
         }
 
         public void btn_add_enable()
@@ -59,56 +66,148 @@ namespace SAD_2_PTT_01
         {
             this.Close();
         }
+        public string id_;
 
         private void btn_add_project_Click(object sender, EventArgs e)
         {
-            string current_user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
-            string title = project_title.Text;
-            string desc = project_desc.Text;
-            DateTime time = new DateTime();
-            time = Convert.ToDateTime(lbl_start_date.Text);
-            string start_time = time.ToString("yyyy-MM-dd hh:mm:ss tt");
-            time = Convert.ToDateTime(lbl_end_date.Text);
-            string end_time = time.ToString("yyyy-MM-dd hh:mm:ss tt");
-            string date_proposed_ = date_proposed.Value.ToString("yyyy-MM-dd hh:mm:ss tt");
-            string venue = project_venue.Text;
-            string budget = lbl_items_total.Text;
-            string fields = "INSERT INTO project(employee_id, project_title, project_desc, start_time, end_time, date_proposed, event_held, budget) VALUES ";
-            string values = "("+ current_user_id  +", '"+ title +"' , '"+ desc +"', '"+ start_time +"', '"+ end_time +"', '"+date_proposed_+"', '"+ venue +"', "+ budget +")";
-            string query = fields + values;
-
-            MessageBox.Show(start_time + " " + end_time);
-            MessageBox.Show(start_date_time.ToString("yyyy-MM-dd") + " " + end_date_time.ToString("yyyy-MM-dd"));
-            DateTime check = new DateTime(2017, 9, 27, 10, 0, 0);
-            DateTime end = new DateTime(2017, 9, 27, 14, 37, 0);
-            DateTime now = DateTime.Now;
-            if ((now > check) && (now < end))
+            if (btn_add_project.Text == "ADD PROJECT")
             {
-                MessageBox.Show("Hey");
-            }
+                string current_user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                string title = project_title.Text;
+                string desc = project_desc.Text;
+                DateTime time = new DateTime();
+                time = Convert.ToDateTime(lbl_start_date.Text);
+                string start_time = time.ToString("yyyy-MM-dd HH:mm:ss");
+                time = Convert.ToDateTime(lbl_end_date.Text);
+                string end_time = time.ToString("yyyy-MM-dd HH:mm:ss");
+                string date_proposed_ = date_proposed.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                string venue = project_venue.Text;
+                string budget = lbl_items_total.Text;
+                string fields = "INSERT INTO project(employee_id, project_title, project_desc, start_time, end_time, date_proposed, event_held, budget) VALUES ";
+                string values = "(" + current_user_id + ", '" + title + "' , '" + desc + "', '" + start_time + "', '" + end_time + "', '" + date_proposed_ + "', '" + venue + "', " + budget + ")";
+                string query = fields + values;
 
-            bool try_ = false;
-            //conn_proj.project_add_data(query);
-            bool items_ = false;
-            bool progress_ = false;
-            if (try_ == true)
-            {
-                if (items_list.Rows.Count > 0)
+                bool try_ = conn_proj.project_add_data(query);
+                bool items_ = false;
+                bool progress_ = false;
+                if (try_ == true)
                 {
-                    //add items here
-                }
-                progress_ = conn_proj.project_add_progress("INSERT INTO project_progress(project_id, progress_type, date_changed) VALUES (LAST_INSERT_ID(), 1, '" + DateTime.Now.ToString("yyyy-MM-dd") + "')");
-            } else
-            {
+                    id_ = conn_proj.get_latest_project_id();
+                    if (items_list.Rows.Count > 0)
+                    {
+                        items_ = items_add();
+                    }
+                    else
+                    {
+                        items_ = true;
+                    }
+                    progress_ = conn_proj.project_add_progress("INSERT INTO project_progress(project_id, progress_type, date_changed) VALUES (" + id_ + ", 1, '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')");
 
-            }
-            if (progress_ == false || items_ == false || try_ == false)
-            {
-                //notify 
+                    if (progress_ == true)
+                    {
+                        conn_proj.project_progress_update(id_);
+                    }
+                }
+                else
+                {
+
+                }
+                if (progress_ == false || items_ == false || try_ == false)
+                {
+                    reference_to_main.notification_ = "Project Unsuccessfully Added.";
+                    reference_to_main.show_success_message();
+                    sys_func.btn_inactive(btn_persons);
+                    btn_persons.Location = new Point(-8, 99);
+                    btn_view_info.Visible = false;
+                }
+                else
+                {
+                    reference_to_main.notification_ = "Project Successfully Added.";
+                    reference_to_main.show_success_message();
+                    btn_add_project.Text = "FINISH";
+                    sys_func.btn_active(btn_persons);
+                    btn_persons.Location = new Point(-8, 69);
+                    btn_view_info.Visible = true;
+                    view_paste();
+                }
             } else
             {
-                //notify
+                //do something
             }
+            
+        }
+
+
+        public void view_paste()
+        {
+            DataTable project = new DataTable();
+            conn_proj.projects_data(project, id_);
+
+            view_title.Text = project.Rows[0]["project_title"].ToString();
+            view_desc.Text = project.Rows[0]["project_desc"].ToString();
+            view_date_proposed.Text = project.Rows[0]["date_proposed"].ToString();
+            view_venue.Text = project.Rows[0]["event_held"].ToString();
+            view_start_date.Text = project.Rows[0]["start_time"].ToString();
+            view_end_date.Text = project.Rows[0]["end_time"].ToString();
+            view_budget.Text = project.Rows[0]["budget"].ToString();
+
+            bool has_view_items_ = false;
+            view_items_list.DataSource = null;
+            has_view_items_ = conn_proj.projects_items(view_items_list, id_);
+            
+            view_items_list.Columns["item_name"].HeaderText = "Name";
+            view_items_list.Columns["cost"].HeaderText = "Cost";
+            view_items_list.Columns["quantity"].HeaderText = "Quantity";
+            view_items_list.Columns["subtotal"].HeaderText = "Subtotal";
+            view_items_list.Columns["display_text"].HeaderText = "Results";
+
+            if (has_view_items_ == false)
+            {
+                view_items_list.Columns["items_id"].Visible = false;
+                view_items_list.Columns["project_id"].Visible = false;
+                view_items_list.Columns["item_name"].Visible = false;
+                view_items_list.Columns["cost"].Visible = false;
+                view_items_list.Columns["quantity"].Visible = false;
+                view_items_list.Columns["subtotal"].Visible = false;
+                view_items_list.Columns["display_text"].Visible = true;
+                Console.WriteLine(has_view_items_.ToString());
+            } else
+            {
+                view_items_list.Columns["items_id"].Visible = false;
+                view_items_list.Columns["project_id"].Visible = false;
+                view_items_list.Columns["item_name"].Visible = true;
+                view_items_list.Columns["cost"].Visible = true;
+                view_items_list.Columns["quantity"].Visible = true;
+                view_items_list.Columns["subtotal"].Visible = true;
+                view_items_list.Columns["display_text"].Visible = false;
+                Console.WriteLine(has_view_items_.ToString());
+            }
+
+
+        }
+
+        public bool items_add()
+        {
+            bool success = true;
+            string item_name_;
+            string cost_;
+            string quantity_;
+            try
+            {
+                foreach (DataGridViewRow row in items_list.Rows)
+                {
+                    item_name_ = row.Cells["name"].Value.ToString();
+                    cost_ = row.Cells["cost"].Value.ToString();
+                    quantity_ = row.Cells["quantity"].Value.ToString();
+                    string query = "INSERT INTO project_items(project_id, item_name, cost, quantity) VALUES (" + id_ + ", '" + item_name_ + "', " + cost_ + ", " + quantity_ + ")";
+                    conn_proj.project_add_items(query);
+                }
+                success = true;
+            } catch (Exception e)
+            {
+                success = false;
+            }
+            return success;
         }
 
         private void start_date_ValueChanged(object sender, EventArgs e)
@@ -126,6 +225,8 @@ namespace SAD_2_PTT_01
             pnl_basic.Visible = false;
             pnl_budget_items.Visible = false;
             pnl_persons_involved.Visible = false;
+
+            pnl_basic_view.Visible = false;
         }
 
         private void btn_basic_Click(object sender, EventArgs e)
@@ -139,13 +240,108 @@ namespace SAD_2_PTT_01
             pnl_visible_false();
             pnl_budget_items.Visible = true;
         }
+        bool has_pwd = false;
+        bool has_persons = false;
 
         private void btn_persons_Click(object sender, EventArgs e)
         {
             pnl_visible_false();
             pnl_persons_involved.Visible = true;
+            load_pwd_to_be_involved();
+            load_persons_involved();
         }
 
+        public void load_persons_involved()
+        {
+            has_persons = conn_proj.get_pwd_persons_involved(persons_grid, id_);
+            persons_format();
+        }
+
+        public void load_pwd_to_be_involved()
+        {
+            has_pwd = conn_proj.get_pwd_projects_list(pwd_grid, id_);
+            pwd_format();
+        }
+
+        public void pwd_format()
+        {
+            pwd_grid.Columns["fullname"].HeaderText = "Full Name";
+            pwd_grid.Columns["disability_type"].HeaderText = "Disability";
+            pwd_grid.Columns["id_no"].HeaderText = "ID No.";
+            pwd_grid.Columns["district_name"].HeaderText = "District";
+            pwd_grid.Columns["registration_no"].HeaderText = "Registration No.";
+            pwd_grid.Columns["display_text"].HeaderText = "Results";
+
+
+            pwd_grid.Columns["fullname"].ReadOnly = true;
+            pwd_grid.Columns["disability_type"].ReadOnly = true;
+            pwd_grid.Columns["id_no"].ReadOnly = true;
+            pwd_grid.Columns["district_name"].ReadOnly = true;
+            pwd_grid.Columns["registration_no"].ReadOnly = true;
+            pwd_grid.Columns["display_text"].ReadOnly = true;
+            if (has_pwd == true)
+            {
+                pwd_grid.Columns["pwd_id"].Visible = false;
+                pwd_grid.Columns["disability_id"].Visible = false;
+                pwd_grid.Columns["district_id"].Visible = false;
+                pwd_grid.Columns["display_text"].Visible = false;
+
+                pwd_grid.Columns["fullname"].Visible = true;
+                pwd_grid.Columns["disability_type"].Visible = true;
+                pwd_grid.Columns["id_no"].Visible = true;
+                pwd_grid.Columns["district_name"].Visible = true;
+                pwd_grid.Columns["registration_no"].Visible = true;
+            } else
+            {
+                pwd_grid.Columns["pwd_id"].Visible = false;
+                pwd_grid.Columns["disability_id"].Visible = false;
+                pwd_grid.Columns["district_id"].Visible = false;
+                pwd_grid.Columns["display_text"].Visible = true;
+
+                pwd_grid.Columns["fullname"].Visible = false;
+                pwd_grid.Columns["disability_type"].Visible = false;
+                pwd_grid.Columns["id_no"].Visible = false;
+                pwd_grid.Columns["district_name"].Visible = false;
+                pwd_grid.Columns["registration_no"].Visible = false;
+            }
+
+        }
+
+        public void persons_format()
+        {
+            persons_grid.Columns["fullname"].HeaderText = "Full Name";
+            persons_grid.Columns["disability_type"].HeaderText = "Disability";
+            persons_grid.Columns["id_no"].HeaderText = "ID No.";
+            persons_grid.Columns["district_name"].HeaderText = "District";
+            persons_grid.Columns["registration_no"].HeaderText = "Registration No.";
+            persons_grid.Columns["display_text"].HeaderText = "Results";
+            if (has_persons == true)
+            {
+                persons_grid.Columns["pwd_id"].Visible = false;
+                persons_grid.Columns["disability_id"].Visible = false;
+                persons_grid.Columns["district_id"].Visible = false;
+                persons_grid.Columns["display_text"].Visible = false;
+
+                persons_grid.Columns["fullname"].Visible = true;
+                persons_grid.Columns["disability_type"].Visible = true;
+                persons_grid.Columns["id_no"].Visible = true;
+                persons_grid.Columns["district_name"].Visible = true;
+                persons_grid.Columns["registration_no"].Visible = true;
+            }
+            else
+            {
+                persons_grid.Columns["pwd_id"].Visible = false;
+                persons_grid.Columns["disability_id"].Visible = false;
+                persons_grid.Columns["district_id"].Visible = false;
+                persons_grid.Columns["display_text"].Visible = true;
+
+                persons_grid.Columns["fullname"].Visible = false;
+                persons_grid.Columns["disability_type"].Visible = false;
+                persons_grid.Columns["id_no"].Visible = false;
+                persons_grid.Columns["district_name"].Visible = false;
+                persons_grid.Columns["registration_no"].Visible = false;
+            }
+        }
         #region DATE-START_END
 
         DateTime start_date_time;
@@ -180,7 +376,7 @@ namespace SAD_2_PTT_01
 
         public void date_validity(DateTime start, DateTime end)
         {
-            if (start == end)
+            if (start >= end )
             {
                 lbl_date_error.Visible = true;
             } else
@@ -192,6 +388,15 @@ namespace SAD_2_PTT_01
         private void start_time_hour_ValueChanged(object sender, EventArgs e)
         {
             start_date_();
+            string start = lbl_start_date.Text;
+            string end = lbl_end_date.Text;
+            if (start == end)
+            {
+                lbl_date_error.Visible = true;
+            } else
+            {
+                lbl_date_error.Visible = false;
+            }
         }
 
         private void start_time_minute_ValueChanged(object sender, EventArgs e)
@@ -205,6 +410,15 @@ namespace SAD_2_PTT_01
                 start_time_minute.Value = 0;
             }
             start_date_();
+            string start = lbl_start_date.Text;
+            string end = lbl_end_date.Text;
+            if (start == end)
+            {
+                lbl_date_error.Visible = true;
+            } else
+            {
+                lbl_date_error.Visible = false;
+            }
         }
 
         private void start_time_tt_SelectedItemChanged(object sender, EventArgs e)
@@ -263,6 +477,7 @@ namespace SAD_2_PTT_01
                 {
                     if (items_list.Rows[i].Cells["name"].Value.Equals(name))
                     {
+                        #region ALTERNATE
                         /*string temp = (items_list.Rows[i].Cells["quantity"].Value.ToString());
                         int actual = int.Parse(temp);
                         actual = int.Parse(temp) + int.Parse(quantity);
@@ -271,6 +486,7 @@ namespace SAD_2_PTT_01
                         temp = (items_list.Rows[i].Cells["subtotal"].Value.ToString());
                         double new_subtotal = double.Parse(temp) + double.Parse(subtotal);
                         items_list.Rows[i].Cells["subtotal"].Value = new_subtotal;*/
+                        #endregion
                         duplicate = true;
                         MessageBox.Show("Item already added.", "Add Item");
                     }
@@ -340,8 +556,6 @@ namespace SAD_2_PTT_01
             double total_cost = double.Parse(cost) * double.Parse(quantity);
 
             lbl_subtotal.Text = string.Format("{0:n}", total_cost);
-
-
         }
 
         public void calculate_items_total()
@@ -386,7 +600,7 @@ namespace SAD_2_PTT_01
         {
             if (items_list.Rows.Count == 0)
             {
-
+                //nothing
             }
             else
             {
@@ -396,15 +610,6 @@ namespace SAD_2_PTT_01
                 }
                 calculate_items_total();
             }
-        }
-
-        private void project_add_Activated(object sender, EventArgs e)
-        {
-
-        }
-
-        private void project_add_Deactivate(object sender, EventArgs e)
-        {
         }
 
         private void btn_back_to_persons_Click(object sender, EventArgs e)
@@ -432,6 +637,102 @@ namespace SAD_2_PTT_01
         private void lbl_end_date_TextChanged(object sender, EventArgs e)
         {
             btn_add_enable();
+        }
+
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1)
+                this.Opacity += 0.1;
+            else
+                startup_opacity.Stop();
+        }
+
+        private void btn_add_pwd_Click(object sender, EventArgs e)
+        {
+            if (has_pwd == true)
+            {
+                if (pwd_grid.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in pwd_grid.SelectedRows)
+                    {
+                        string pwd_id = row.Cells["pwd_id"].Value.ToString();
+                        string query = "INSERT INTO project_persons(project_id, pwd_id) VALUES (" + id_ + " ," + pwd_id + ")";
+                        conn_proj.persons_add(query);
+                        Console.WriteLine(id_ + " - " + pwd_id);
+                    }
+                }
+                load_pwd_to_be_involved();
+                load_persons_involved();
+            }
+        }
+
+        private void pwd_grid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (has_pwd == true)
+            {
+                if (pwd_grid.SelectedRows.Count > 0)
+                {
+                    sys_func.btn_active(btn_add_pwd);
+                }
+                else
+                {
+                    sys_func.btn_inactive(btn_add_pwd);
+                }
+            }
+        }
+
+        private void btn_pwd_refresh_Click(object sender, EventArgs e)
+        {
+            load_pwd_to_be_involved();
+        }
+
+        private void btn_remove_persons_Click(object sender, EventArgs e)
+        {
+            if (has_persons == true)
+            {
+                if (persons_grid.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in persons_grid.SelectedRows)
+                    {
+                        string pwd_id = row.Cells["pwd_id"].Value.ToString();
+                        conn_proj.persons_remove(pwd_id, id_);
+                        Console.WriteLine(id_ + " - " + pwd_id);
+                    }
+                }
+                load_pwd_to_be_involved();
+                load_persons_involved();
+            }
+        }
+
+        private void persons_grid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (has_persons == true)
+            {
+                if (persons_grid.SelectedRows.Count > 0)
+                {
+                    sys_func.btn_active(btn_remove_persons);
+                }
+                else
+                {
+                    sys_func.btn_inactive(btn_remove_persons);
+                }
+            }
+        }
+
+        private void date_proposed_ValueChanged(object sender, EventArgs e)
+        {
+            start_date.MinDate = date_proposed.Value;
+        }
+
+        private void btn_refresh_persons_Click(object sender, EventArgs e)
+        {
+            load_persons_involved();
+        }
+
+        private void btn_view_info_Click(object sender, EventArgs e)
+        {
+            pnl_visible_false();
+            pnl_basic_view.Visible = true;
         }
     }
 }

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_basic = new System.Windows.Forms.Panel();
             this.lbl_date_error = new System.Windows.Forms.Label();
             this.lbl_start_date = new System.Windows.Forms.Label();
@@ -67,6 +69,8 @@
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.header_text = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_view_info = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
             this.btn_persons = new System.Windows.Forms.Button();
             this.btn_budget_items = new System.Windows.Forms.Button();
             this.btn_basic = new System.Windows.Forms.Button();
@@ -100,21 +104,37 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.pnl_persons_involved = new System.Windows.Forms.Panel();
+            this.btn_refresh_persons = new System.Windows.Forms.Button();
+            this.btn_remove_persons = new System.Windows.Forms.Button();
             this.btn_pnl_to_pwd = new System.Windows.Forms.Button();
             this.persons_grid = new System.Windows.Forms.DataGridView();
             this.label43 = new System.Windows.Forms.Label();
             this.pnl_pwd_list = new System.Windows.Forms.Panel();
             this.btn_back_to_persons = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
             this.btn_pwd_refresh = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btn_pwd_search = new System.Windows.Forms.Button();
-            this.pwd_searchbox = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.device_filter_by = new System.Windows.Forms.ComboBox();
             this.btn_add_pwd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pwd_grid = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
+            this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.closing_opacity = new System.Windows.Forms.Timer(this.components);
+            this.pnl_basic_view = new System.Windows.Forms.Panel();
+            this.view_budget = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.view_items_list = new System.Windows.Forms.DataGridView();
+            this.view_date_proposed = new System.Windows.Forms.Label();
+            this.view_venue = new System.Windows.Forms.Label();
+            this.view_desc = new System.Windows.Forms.Label();
+            this.view_title = new System.Windows.Forms.Label();
+            this.view_start_date = new System.Windows.Forms.Label();
+            this.view_end_date = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
             this.pnl_basic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lasts_for_day)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lasts_for_minute)).BeginInit();
@@ -131,8 +151,9 @@
             this.pnl_persons_involved.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.persons_grid)).BeginInit();
             this.pnl_pwd_list.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).BeginInit();
+            this.pnl_basic_view.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.view_items_list)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_basic
@@ -352,6 +373,7 @@
             this.date_proposed.Name = "date_proposed";
             this.date_proposed.Size = new System.Drawing.Size(231, 22);
             this.date_proposed.TabIndex = 125;
+            this.date_proposed.ValueChanged += new System.EventHandler(this.date_proposed_ValueChanged);
             // 
             // label6
             // 
@@ -592,6 +614,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.btn_view_info);
+            this.panel1.Controls.Add(this.label28);
             this.panel1.Controls.Add(this.btn_persons);
             this.panel1.Controls.Add(this.btn_budget_items);
             this.panel1.Controls.Add(this.btn_basic);
@@ -602,6 +626,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(268, 394);
             this.panel1.TabIndex = 57;
+            // 
+            // btn_view_info
+            // 
+            this.btn_view_info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_view_info.BackColor = System.Drawing.Color.White;
+            this.btn_view_info.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_view_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_view_info.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_view_info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_view_info.Location = new System.Drawing.Point(-8, 39);
+            this.btn_view_info.Name = "btn_view_info";
+            this.btn_view_info.Size = new System.Drawing.Size(292, 31);
+            this.btn_view_info.TabIndex = 137;
+            this.btn_view_info.Text = "View Information";
+            this.btn_view_info.UseVisualStyleBackColor = false;
+            this.btn_view_info.Visible = false;
+            this.btn_view_info.Click += new System.EventHandler(this.btn_view_info_Click);
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label28.Location = new System.Drawing.Point(14, 282);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(250, 37);
+            this.label28.TabIndex = 136;
+            this.label28.Text = "* You can add the PWDs involved once you\'ve\r\n                       added the pro" +
+    "ject.";
             // 
             // btn_persons
             // 
@@ -617,7 +669,6 @@
             this.btn_persons.TabIndex = 135;
             this.btn_persons.Text = "Persons Involved";
             this.btn_persons.UseVisualStyleBackColor = false;
-            this.btn_persons.Visible = false;
             this.btn_persons.Click += new System.EventHandler(this.btn_persons_Click);
             // 
             // btn_budget_items
@@ -728,8 +779,8 @@
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
             this.items_list.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.items_list.Size = new System.Drawing.Size(321, 308);
@@ -1021,6 +1072,8 @@
             // pnl_persons_involved
             // 
             this.pnl_persons_involved.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_persons_involved.Controls.Add(this.btn_refresh_persons);
+            this.pnl_persons_involved.Controls.Add(this.btn_remove_persons);
             this.pnl_persons_involved.Controls.Add(this.btn_pnl_to_pwd);
             this.pnl_persons_involved.Controls.Add(this.persons_grid);
             this.pnl_persons_involved.Controls.Add(this.label43);
@@ -1029,6 +1082,38 @@
             this.pnl_persons_involved.Size = new System.Drawing.Size(523, 394);
             this.pnl_persons_involved.TabIndex = 138;
             this.pnl_persons_involved.Visible = false;
+            // 
+            // btn_refresh_persons
+            // 
+            this.btn_refresh_persons.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_refresh_persons.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.reload;
+            this.btn_refresh_persons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_refresh_persons.FlatAppearance.BorderSize = 0;
+            this.btn_refresh_persons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refresh_persons.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh_persons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_refresh_persons.Location = new System.Drawing.Point(499, 19);
+            this.btn_refresh_persons.Name = "btn_refresh_persons";
+            this.btn_refresh_persons.Size = new System.Drawing.Size(22, 25);
+            this.btn_refresh_persons.TabIndex = 156;
+            this.btn_refresh_persons.UseVisualStyleBackColor = false;
+            this.btn_refresh_persons.Click += new System.EventHandler(this.btn_refresh_persons_Click);
+            // 
+            // btn_remove_persons
+            // 
+            this.btn_remove_persons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_remove_persons.BackColor = System.Drawing.Color.White;
+            this.btn_remove_persons.FlatAppearance.BorderSize = 0;
+            this.btn_remove_persons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove_persons.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove_persons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_remove_persons.Location = new System.Drawing.Point(240, 361);
+            this.btn_remove_persons.Name = "btn_remove_persons";
+            this.btn_remove_persons.Size = new System.Drawing.Size(132, 31);
+            this.btn_remove_persons.TabIndex = 137;
+            this.btn_remove_persons.Text = "REMOVE";
+            this.btn_remove_persons.UseVisualStyleBackColor = false;
+            this.btn_remove_persons.Click += new System.EventHandler(this.btn_remove_persons_Click);
             // 
             // btn_pnl_to_pwd
             // 
@@ -1064,12 +1149,13 @@
             this.persons_grid.Name = "persons_grid";
             this.persons_grid.ReadOnly = true;
             this.persons_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.persons_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.persons_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.persons_grid.Size = new System.Drawing.Size(503, 305);
             this.persons_grid.TabIndex = 132;
+            this.persons_grid.SelectionChanged += new System.EventHandler(this.persons_grid_SelectionChanged);
             // 
             // label43
             // 
@@ -1085,13 +1171,9 @@
             // 
             this.pnl_pwd_list.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pnl_pwd_list.Controls.Add(this.btn_back_to_persons);
-            this.pnl_pwd_list.Controls.Add(this.label27);
             this.pnl_pwd_list.Controls.Add(this.btn_pwd_refresh);
-            this.pnl_pwd_list.Controls.Add(this.panel9);
-            this.pnl_pwd_list.Controls.Add(this.label19);
-            this.pnl_pwd_list.Controls.Add(this.device_filter_by);
             this.pnl_pwd_list.Controls.Add(this.btn_add_pwd);
-            this.pnl_pwd_list.Controls.Add(this.dataGridView1);
+            this.pnl_pwd_list.Controls.Add(this.pwd_grid);
             this.pnl_pwd_list.Controls.Add(this.label14);
             this.pnl_pwd_list.Location = new System.Drawing.Point(3, 54);
             this.pnl_pwd_list.Name = "pnl_pwd_list";
@@ -1115,16 +1197,6 @@
             this.btn_back_to_persons.UseVisualStyleBackColor = false;
             this.btn_back_to_persons.Click += new System.EventHandler(this.btn_back_to_persons_Click);
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(274, 5);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(48, 13);
-            this.label27.TabIndex = 156;
-            this.label27.Text = "SEARCH";
-            // 
             // btn_pwd_refresh
             // 
             this.btn_pwd_refresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1139,62 +1211,7 @@
             this.btn_pwd_refresh.Size = new System.Drawing.Size(22, 25);
             this.btn_pwd_refresh.TabIndex = 155;
             this.btn_pwd_refresh.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.btn_pwd_search);
-            this.panel9.Controls.Add(this.pwd_searchbox);
-            this.panel9.Location = new System.Drawing.Point(280, 19);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(213, 25);
-            this.panel9.TabIndex = 154;
-            // 
-            // btn_pwd_search
-            // 
-            this.btn_pwd_search.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.search;
-            this.btn_pwd_search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_pwd_search.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_pwd_search.FlatAppearance.BorderSize = 0;
-            this.btn_pwd_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pwd_search.Location = new System.Drawing.Point(179, 0);
-            this.btn_pwd_search.Name = "btn_pwd_search";
-            this.btn_pwd_search.Size = new System.Drawing.Size(32, 23);
-            this.btn_pwd_search.TabIndex = 2;
-            this.btn_pwd_search.UseVisualStyleBackColor = true;
-            // 
-            // pwd_searchbox
-            // 
-            this.pwd_searchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pwd_searchbox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_searchbox.Location = new System.Drawing.Point(-1, -1);
-            this.pwd_searchbox.Name = "pwd_searchbox";
-            this.pwd_searchbox.Size = new System.Drawing.Size(176, 25);
-            this.pwd_searchbox.TabIndex = 0;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label19.Location = new System.Drawing.Point(11, 28);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 13);
-            this.label19.TabIndex = 153;
-            this.label19.Text = "FILTER :";
-            // 
-            // device_filter_by
-            // 
-            this.device_filter_by.DropDownHeight = 80;
-            this.device_filter_by.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.device_filter_by.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.device_filter_by.FormattingEnabled = true;
-            this.device_filter_by.IntegralHeight = false;
-            this.device_filter_by.Items.AddRange(new object[] {
-            ""});
-            this.device_filter_by.Location = new System.Drawing.Point(58, 23);
-            this.device_filter_by.Name = "device_filter_by";
-            this.device_filter_by.Size = new System.Drawing.Size(206, 21);
-            this.device_filter_by.TabIndex = 152;
+            this.btn_pwd_refresh.Click += new System.EventHandler(this.btn_pwd_refresh_Click);
             // 
             // btn_add_pwd
             // 
@@ -1210,30 +1227,31 @@
             this.btn_add_pwd.TabIndex = 136;
             this.btn_add_pwd.Text = "ADD";
             this.btn_add_pwd.UseVisualStyleBackColor = false;
+            this.btn_add_pwd.Click += new System.EventHandler(this.btn_add_pwd_Click);
             // 
-            // dataGridView1
+            // pwd_grid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 305);
-            this.dataGridView1.TabIndex = 132;
+            this.pwd_grid.AllowUserToAddRows = false;
+            this.pwd_grid.AllowUserToDeleteRows = false;
+            this.pwd_grid.AllowUserToResizeRows = false;
+            this.pwd_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.pwd_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwd_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.pwd_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.pwd_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.pwd_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_grid.Location = new System.Drawing.Point(0, 53);
+            this.pwd_grid.Name = "pwd_grid";
+            this.pwd_grid.ReadOnly = true;
+            this.pwd_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pwd_grid.Size = new System.Drawing.Size(523, 305);
+            this.pwd_grid.TabIndex = 132;
+            this.pwd_grid.SelectionChanged += new System.EventHandler(this.pwd_grid_SelectionChanged);
             // 
             // label14
             // 
@@ -1245,16 +1263,249 @@
             this.label14.TabIndex = 131;
             this.label14.Text = "PWD List";
             // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            // 
+            // closing_opacity
+            // 
+            this.closing_opacity.Interval = 1;
+            // 
+            // pnl_basic_view
+            // 
+            this.pnl_basic_view.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_basic_view.Controls.Add(this.view_budget);
+            this.pnl_basic_view.Controls.Add(this.label29);
+            this.pnl_basic_view.Controls.Add(this.label19);
+            this.pnl_basic_view.Controls.Add(this.view_items_list);
+            this.pnl_basic_view.Controls.Add(this.view_date_proposed);
+            this.pnl_basic_view.Controls.Add(this.view_venue);
+            this.pnl_basic_view.Controls.Add(this.view_desc);
+            this.pnl_basic_view.Controls.Add(this.view_title);
+            this.pnl_basic_view.Controls.Add(this.view_start_date);
+            this.pnl_basic_view.Controls.Add(this.view_end_date);
+            this.pnl_basic_view.Controls.Add(this.label39);
+            this.pnl_basic_view.Controls.Add(this.label40);
+            this.pnl_basic_view.Controls.Add(this.label41);
+            this.pnl_basic_view.Controls.Add(this.label45);
+            this.pnl_basic_view.Controls.Add(this.label46);
+            this.pnl_basic_view.Controls.Add(this.label48);
+            this.pnl_basic_view.Controls.Add(this.label49);
+            this.pnl_basic_view.Location = new System.Drawing.Point(3, 54);
+            this.pnl_basic_view.Name = "pnl_basic_view";
+            this.pnl_basic_view.Size = new System.Drawing.Size(523, 394);
+            this.pnl_basic_view.TabIndex = 151;
+            this.pnl_basic_view.Visible = false;
+            // 
+            // view_budget
+            // 
+            this.view_budget.AutoSize = true;
+            this.view_budget.ForeColor = System.Drawing.Color.Black;
+            this.view_budget.Location = new System.Drawing.Point(241, 369);
+            this.view_budget.MaximumSize = new System.Drawing.Size(153, 52);
+            this.view_budget.Name = "view_budget";
+            this.view_budget.Size = new System.Drawing.Size(61, 13);
+            this.view_budget.TabIndex = 171;
+            this.view_budget.Text = "<Budget>";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.Black;
+            this.label29.Location = new System.Drawing.Point(188, 369);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(55, 13);
+            this.label29.TabIndex = 170;
+            this.label29.Text = "BUDGET :";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(188, 37);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(59, 13);
+            this.label19.TabIndex = 169;
+            this.label19.Text = "ITEMS LIST";
+            // 
+            // view_items_list
+            // 
+            this.view_items_list.AllowUserToAddRows = false;
+            this.view_items_list.AllowUserToDeleteRows = false;
+            this.view_items_list.AllowUserToResizeRows = false;
+            this.view_items_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.view_items_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.view_items_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.view_items_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.view_items_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.view_items_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.view_items_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.view_items_list.Location = new System.Drawing.Point(191, 53);
+            this.view_items_list.MultiSelect = false;
+            this.view_items_list.Name = "view_items_list";
+            this.view_items_list.ReadOnly = true;
+            this.view_items_list.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_items_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.view_items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.view_items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.view_items_list.Size = new System.Drawing.Size(321, 308);
+            this.view_items_list.TabIndex = 168;
+            // 
+            // view_date_proposed
+            // 
+            this.view_date_proposed.AutoSize = true;
+            this.view_date_proposed.ForeColor = System.Drawing.Color.Black;
+            this.view_date_proposed.Location = new System.Drawing.Point(20, 223);
+            this.view_date_proposed.MaximumSize = new System.Drawing.Size(153, 52);
+            this.view_date_proposed.Name = "view_date_proposed";
+            this.view_date_proposed.Size = new System.Drawing.Size(99, 13);
+            this.view_date_proposed.TabIndex = 154;
+            this.view_date_proposed.Text = "<Date Proposed>";
+            // 
+            // view_venue
+            // 
+            this.view_venue.AutoSize = true;
+            this.view_venue.ForeColor = System.Drawing.Color.Black;
+            this.view_venue.Location = new System.Drawing.Point(20, 162);
+            this.view_venue.MaximumSize = new System.Drawing.Size(153, 52);
+            this.view_venue.Name = "view_venue";
+            this.view_venue.Size = new System.Drawing.Size(78, 13);
+            this.view_venue.TabIndex = 153;
+            this.view_venue.Text = "<Event Held>";
+            // 
+            // view_desc
+            // 
+            this.view_desc.AutoSize = true;
+            this.view_desc.ForeColor = System.Drawing.Color.Black;
+            this.view_desc.Location = new System.Drawing.Point(20, 97);
+            this.view_desc.MaximumSize = new System.Drawing.Size(153, 52);
+            this.view_desc.Name = "view_desc";
+            this.view_desc.Size = new System.Drawing.Size(120, 13);
+            this.view_desc.TabIndex = 152;
+            this.view_desc.Text = "<Project Description>";
+            // 
+            // view_title
+            // 
+            this.view_title.AutoSize = true;
+            this.view_title.Location = new System.Drawing.Point(20, 50);
+            this.view_title.Name = "view_title";
+            this.view_title.Size = new System.Drawing.Size(82, 13);
+            this.view_title.TabIndex = 151;
+            this.view_title.Text = "<Project Title>";
+            // 
+            // view_start_date
+            // 
+            this.view_start_date.AutoSize = true;
+            this.view_start_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_start_date.ForeColor = System.Drawing.Color.Black;
+            this.view_start_date.Location = new System.Drawing.Point(33, 271);
+            this.view_start_date.Name = "view_start_date";
+            this.view_start_date.Size = new System.Drawing.Size(15, 13);
+            this.view_start_date.TabIndex = 149;
+            this.view_start_date.Text = "--";
+            // 
+            // view_end_date
+            // 
+            this.view_end_date.AutoSize = true;
+            this.view_end_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_end_date.ForeColor = System.Drawing.Color.Black;
+            this.view_end_date.Location = new System.Drawing.Point(33, 315);
+            this.view_end_date.Name = "view_end_date";
+            this.view_end_date.Size = new System.Drawing.Size(15, 13);
+            this.view_end_date.TabIndex = 144;
+            this.view_end_date.Text = "--";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(10, 9);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(138, 17);
+            this.label39.TabIndex = 131;
+            this.label39.Text = "MAIN INFORMATION";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Black;
+            this.label40.Location = new System.Drawing.Point(10, 205);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(92, 13);
+            this.label40.TabIndex = 123;
+            this.label40.Text = "DATE PROPOSED";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(10, 299);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(57, 13);
+            this.label41.TabIndex = 122;
+            this.label41.Text = "END DATE";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.Black;
+            this.label45.Location = new System.Drawing.Point(10, 143);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(42, 13);
+            this.label45.TabIndex = 95;
+            this.label45.Text = "VENUE";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.Black;
+            this.label46.Location = new System.Drawing.Point(10, 258);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(64, 13);
+            this.label46.TabIndex = 91;
+            this.label46.Text = "START DATE";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.Black;
+            this.label48.Location = new System.Drawing.Point(10, 78);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(75, 13);
+            this.label48.TabIndex = 86;
+            this.label48.Text = "DESCRIPTION";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.Black;
+            this.label49.Location = new System.Drawing.Point(10, 37);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(31, 13);
+            this.label49.TabIndex = 85;
+            this.label49.Text = "TITLE";
+            // 
             // project_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(801, 451);
+            this.Controls.Add(this.pnl_basic_view);
             this.Controls.Add(this.pnl_basic);
-            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.pnl_persons_involved);
             this.Controls.Add(this.pnl_pwd_list);
+            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.header_text);
             this.Controls.Add(this.panel2);
@@ -1265,8 +1516,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "project_add";
-            this.Activated += new System.EventHandler(this.project_add_Activated);
-            this.Deactivate += new System.EventHandler(this.project_add_Deactivate);
             this.Load += new System.EventHandler(this.project_add_Load);
             this.pnl_basic.ResumeLayout(false);
             this.pnl_basic.PerformLayout();
@@ -1289,9 +1538,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.persons_grid)).EndInit();
             this.pnl_pwd_list.ResumeLayout(false);
             this.pnl_pwd_list.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).EndInit();
+            this.pnl_basic_view.ResumeLayout(false);
+            this.pnl_basic_view.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.view_items_list)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1371,15 +1621,33 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel pnl_pwd_list;
         private System.Windows.Forms.Button btn_add_pwd;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView pwd_grid;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox device_filter_by;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btn_pwd_refresh;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button btn_pwd_search;
-        private System.Windows.Forms.TextBox pwd_searchbox;
         private System.Windows.Forms.Button btn_back_to_persons;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Timer closing_opacity;
+        private System.Windows.Forms.Button btn_remove_persons;
+        private System.Windows.Forms.Button btn_refresh_persons;
+        private System.Windows.Forms.Panel pnl_basic_view;
+        private System.Windows.Forms.Label view_start_date;
+        private System.Windows.Forms.Label view_end_date;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label view_title;
+        public System.Windows.Forms.Label view_date_proposed;
+        public System.Windows.Forms.Label view_venue;
+        public System.Windows.Forms.Label view_desc;
+        public System.Windows.Forms.Label view_budget;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.DataGridView view_items_list;
+        private System.Windows.Forms.Button btn_view_info;
     }
 }

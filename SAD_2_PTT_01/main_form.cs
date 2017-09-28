@@ -662,6 +662,7 @@ namespace SAD_2_PTT_01
             system_sidenav.pnl_deactivate(btn_current.Name);
             btn_current = btn_reports;
             system_sidenav.lbl_current_text("reports");
+            reports_pnl_visible();
         }
 
         private void btn_settings_Click(object sender, EventArgs e)
@@ -677,7 +678,12 @@ namespace SAD_2_PTT_01
             this.Close();
         }
 
-
+        public void reports_pnl_visible()
+        {
+            reports_pnl_pwd.Visible = false;
+            reports_pnl_device.Visible = false;
+            reports_pnl_projects.Visible = false;
+        }
 
 
         #endregion
@@ -2064,9 +2070,32 @@ namespace SAD_2_PTT_01
             device_pnl_request_new.Visible = false;
             load_handedout_data();
         }
+
+
         #endregion
 
-        
+        private void main_form_Deactivate(object sender, EventArgs e)
+        {
+            if (notification_data_ == true) 
+                system_notify.TopMost = false;
+        }
 
+        private void reports_btn_pwd_Click(object sender, EventArgs e)
+        {
+            reports_pnl_visible();
+            reports_pnl_pwd.Visible = true;
+        }
+
+        private void reports_btn_device_referral_Click(object sender, EventArgs e)
+        {
+            reports_pnl_visible();
+            reports_pnl_device.Visible = true;
+        }
+
+        private void reports_btn_projects_Click(object sender, EventArgs e)
+        {
+            reports_pnl_visible();
+            reports_pnl_projects.Visible = true;
+        }
     }
 }

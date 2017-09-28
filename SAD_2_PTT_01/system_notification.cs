@@ -53,8 +53,14 @@ namespace SAD_2_PTT_01
 
         private void system_notification_Load(object sender, EventArgs e)
         {
+            this.TopMost = true;
             message.Text = notification_message;
             notification.Start();
+        }
+
+        private void system_notification_Deactivate(object sender, EventArgs e)
+        {
+            this.BringToFront();
         }
     }
 }

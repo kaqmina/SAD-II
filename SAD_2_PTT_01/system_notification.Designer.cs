@@ -72,6 +72,8 @@
             this.Opacity = 0D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.TopMost = true;
+            this.Deactivate += new System.EventHandler(this.system_notification_Deactivate);
             this.Load += new System.EventHandler(this.system_notification_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
