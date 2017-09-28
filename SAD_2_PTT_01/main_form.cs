@@ -760,7 +760,6 @@ namespace SAD_2_PTT_01
 
             projects_grid.Columns["project_id"].Visible = false;
             projects_grid.Columns["project_desc"].Visible = false;
-            projects_grid.Columns["items_id"].Visible = false;
             projects_grid.Columns["progress_id"].Visible = false;
             projects_grid.Columns["approved_by"].Visible = false;
             projects_grid.Columns["event_held"].Visible = false;

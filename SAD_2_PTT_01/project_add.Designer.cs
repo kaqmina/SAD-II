@@ -516,7 +516,6 @@
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.BackColor = System.Drawing.Color.White;
-            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -821,6 +820,7 @@
             this.items_cost_after.Name = "items_cost_after";
             this.items_cost_after.Size = new System.Drawing.Size(39, 22);
             this.items_cost_after.TabIndex = 165;
+            this.items_cost_after.Visible = false;
             this.items_cost_after.ValueChanged += new System.EventHandler(this.items_cost_after_ValueChanged);
             // 
             // label16
@@ -890,6 +890,7 @@
             // 
             // items_cost_before
             // 
+            this.items_cost_before.DecimalPlaces = 2;
             this.items_cost_before.Location = new System.Drawing.Point(370, 116);
             this.items_cost_before.Maximum = new decimal(new int[] {
             1000000,
@@ -911,6 +912,7 @@
             this.label24.Size = new System.Drawing.Size(10, 13);
             this.label24.TabIndex = 156;
             this.label24.Text = ".";
+            this.label24.Visible = false;
             // 
             // label15
             // 
@@ -1501,11 +1503,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(801, 451);
-            this.Controls.Add(this.pnl_basic_view);
+            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.pnl_basic);
+            this.Controls.Add(this.pnl_basic_view);
             this.Controls.Add(this.pnl_persons_involved);
             this.Controls.Add(this.pnl_pwd_list);
-            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.header_text);
             this.Controls.Add(this.panel2);

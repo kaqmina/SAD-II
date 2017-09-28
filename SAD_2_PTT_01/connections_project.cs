@@ -170,6 +170,29 @@ namespace SAD_2_PTT_01
             return success;
         }
 
+        public bool project_update_data(string query)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                success = true;
+                Console.WriteLine("[SUCCESS] project_update_data :" + query);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("[ERROR_UPDATE_PROJECTS]" + e.Message);
+                conn.Close();
+                success = false;
+            }
+            return success;
+        }
+
         public string get_latest_project_id()
         {
             string project_id = "0";
@@ -223,12 +246,38 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
                 comm = new MySqlCommand("UPDATE project SET project.progress_id = (SELECT progress_id FROM project_progress WHERE project.project_id = project_progress.project_id) WHERE project_id = " + project_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                success = true;
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+        public bool progress_update(string project_id, string progress_type)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+
+                comm = new MySqlCommand("UPDATE project_progress SET progress_type = " + progress_type + " WHERE project_id = " + project_id, conn);
+                comm.ExecuteNonQuery();
+                success = true;
 
                 conn.Close();
             } catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine(e.Message);
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] progress_update() : " + e.Message);
+                success = false;
             }
 
             return success;
@@ -250,10 +299,31 @@ namespace SAD_2_PTT_01
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                MessageBox.Show("[ERROR_ADD_ITEMS]");
                 conn.Close();
                 success = false;
             }
+            return success;
+        }
+
+        public bool project_remove_items(string query)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+
+                success = true;
+                Console.WriteLine("Item deleted.");
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine(e.Message);
+                success = false;
+            }
+
             return success;
         }
 
@@ -686,7 +756,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "item_name";
+                column.ColumnName = "name";
                 item_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -717,7 +787,7 @@ namespace SAD_2_PTT_01
                     row = item_data.NewRow();
                     row["items_id"] = none;
                     row["project_id"] = none;
-                    row["item_name"] = none;
+                    row["name"] = none;
                     row["cost"] = none;
                     row["quantity"] = none;
                     row["subtotal"] = none;
@@ -732,7 +802,7 @@ namespace SAD_2_PTT_01
                         row = item_data.NewRow();
                         row["items_id"] = set.Rows[i]["items_id"].ToString();
                         row["project_id"] = set.Rows[i]["project_id"].ToString();
-                        row["item_name"] = set.Rows[i]["item_name"].ToString();
+                        row["name"] = set.Rows[i]["item_name"].ToString();
                         row["cost"] = set.Rows[i]["cost"].ToString();
                         row["quantity"] = set.Rows[i]["quantity"].ToString();
                         string cost_ = set.Rows[i]["cost"].ToString();
@@ -751,6 +821,108 @@ namespace SAD_2_PTT_01
                 view = new DataView(item_data);
 
                 items_list.DataSource = view;
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] projects_items() : " + e.Message);
+                has_data = false;
+            }
+            return has_data;
+        }
+
+        public bool projects_items(DataTable items_list, string project_id)
+        {
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT * FROM project_items WHERE project_id = " + project_id, conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+                
+                DataColumn column;
+                DataRow row;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "items_id";
+                items_list.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "project_id";
+                items_list.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "name";
+                items_list.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "cost";
+                items_list.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "quantity";
+                items_list.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "subtotal";
+                items_list.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "display_text";
+                items_list.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = items_list.NewRow();
+                    row["items_id"] = none;
+                    row["project_id"] = none;
+                    row["name"] = none;
+                    row["cost"] = none;
+                    row["quantity"] = none;
+                    row["subtotal"] = none;
+                    row["display_text"] = "There are no items added.";
+                    items_list.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = items_list.NewRow();
+                        row["items_id"] = set.Rows[i]["items_id"].ToString();
+                        row["project_id"] = set.Rows[i]["project_id"].ToString();
+                        row["name"] = set.Rows[i]["item_name"].ToString();
+                        row["cost"] = set.Rows[i]["cost"].ToString();
+                        row["quantity"] = set.Rows[i]["quantity"].ToString();
+                        string cost_ = set.Rows[i]["cost"].ToString();
+                        string quantity_ = set.Rows[i]["quantity"].ToString();
+                        double cost = double.Parse(cost_);
+                        double quantity = double.Parse(quantity_);
+                        double subtotal = cost * quantity;
+                        row["subtotal"] = string.Format("{0:n}", subtotal);
+                        row["display_text"] = " ";
+
+                        items_list.Rows.Add(row);
+
+                        has_data = true;
+                    }
+                }
 
                 conn.Close();
             }
