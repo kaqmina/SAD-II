@@ -746,7 +746,6 @@ namespace SAD_2_PTT
             wschild.Cells[4, 1, 20, disability_count * 2 + 1].Style.Border.BorderAround(ExcelBorderStyle.Thick);
             wsadult.Cells[4, 1, 20, disability_count * 2 + 1].Style.Border.BorderAround(ExcelBorderStyle.Thick);
 
-            getDisability();
             for (int j = 1; j < 17; j++) wsheet.Cells[4, j, 19, j++].Style.Border.BorderAround(ExcelBorderStyle.Thick);
             for (int j = 1; j < disability_count * 2 + 1; j++)
             {
@@ -1020,7 +1019,7 @@ namespace SAD_2_PTT
             }
             //Total
             #region  << Per *Column* Formula >>
-            wsheet.Cells["B19"].Formula = wschild.Cells["B19"].Formula = wsadult.Cells["B19"].Formula = "SUM()";
+            wsheet.Cells["B19"].Formula = wschild.Cells["B19"].Formula = wsadult.Cells["B19"].Formula = "SUM(B6:B18)";
             wsheet.Cells["C19"].Formula = wschild.Cells["C19"].Formula = wsadult.Cells["C19"].Formula = "SUM(C6:C18)";
             wsheet.Cells["D19"].Formula = wschild.Cells["D19"].Formula = wsadult.Cells["D19"].Formula = "SUM(D6:D18)";
             wsheet.Cells["E19"].Formula = wschild.Cells["E19"].Formula = wsadult.Cells["E19"].Formula = "SUM(E6:E18)";
@@ -1407,8 +1406,6 @@ namespace SAD_2_PTT
         #endregion
 
         #region << Child >>
-        //SELECT COUNT(pwd_id) FROM p_dao.pwd WHERE district_id = *something* AND disability_id = *something* AND age BETWEEN 0 AND 18  AND sex = *something*
-        //AND 0 =< child >= 18
 
         public void pwd_Children()
         {
@@ -1423,11 +1420,8 @@ namespace SAD_2_PTT
             string query10 = "", query11 = "", query12 = "";
             string mainquery = "";
             int i;
-
-
-            // add district id paaa >.<
           
-                for (i = 1; i < disability_count; i++)
+                for (i = 1; i < disability_count+1; i++)
                 {
                     query += select + disability + i + ageQuery + male + distQuery[0] + select + disability + i + ageQuery + female + distQuery[0];
                     getQuery(query, 0);
@@ -1474,8 +1468,6 @@ namespace SAD_2_PTT
         #endregion
 
         #region << Adult >>
-        //SELECT COUNT(pwd_id) FROM p_dao.pwd WHERE district_id = *something* AND disability_id = *something* AND age BETWEEN 19 AND 60 AND sex = *something*
-        //AND 19 =< adult >= 60
 
         public void pwd_Adults()
         {
@@ -1490,8 +1482,7 @@ namespace SAD_2_PTT
             string query10 = "", query11 = "", query12 = "";
             int i;
 
-            // add district id paaa >.<
-            for (i = 1; i < disability_count; i++)
+            for (i = 1; i < disability_count+1; i++)
             {
                 query += select + disability + i + ageQuery + male + distQuery[0] + select + disability + i + ageQuery + female + distQuery[0];
                 getQuery(query, 0);
@@ -1537,5 +1528,7 @@ namespace SAD_2_PTT
 
 
         #endregion
+
+        //auto-genearated formula
     }
 }
