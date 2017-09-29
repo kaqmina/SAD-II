@@ -23,32 +23,6 @@ namespace SAD_2_PTT_01
         }
 
         #region GRID-MAIN_FORM
-        public void pwd_grid_side(DataTable data, string pwd_id)
-        {
-            try
-            {
-                conn.Open();
-
-                comm = new MySqlCommand("SELECT pwd_id, "
-                                            + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
-                                            + "end_date, "
-                                            + "(CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) AS status_pwd, "
-                                            + "added_date, "
-                                            + "username, "
-                                            + "(SELECT username FROM pwd_usr_log WHERE pwd_id = pwd.pwd_id) AS recent_user "
-                                            + "FROM pwd LEFT JOIN user ON pwd.user_id = user.user_id WHERE pwd_id = " + pwd_id, conn);
-                get = new MySqlDataAdapter(comm);
-                get.Fill(data);
-
-
-
-                conn.Close();
-            } catch (Exception e)
-            {
-                conn.Close();
-                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_grid_side() : " + e.Message);
-            }
-        }
 
         public bool pwd_grid_list(DataGridView pwd_grid)
         {

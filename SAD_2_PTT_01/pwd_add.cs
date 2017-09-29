@@ -1068,10 +1068,10 @@ namespace SAD_2_PTT_01
             bool success;
             string new_id = "0";
             bool has_pic = false;
-            var pic_file = picturetoDB(pwd_pic_box.BackgroundImage);
+            var pic_file = picturetoDB(pwd_pic_box.Image);
 
             #region main_data
-            if (pwd_pic_box.BackgroundImage == null)
+            if (pwd_pic_box.Image == null)
             {
                 has_pic = false;
                 #region MAIN-FIELDS
@@ -1370,9 +1370,9 @@ namespace SAD_2_PTT_01
             string parental_data;
             bool success;
             bool has_pic = false;
-            var pic_file = picturetoDB(pwd_pic_box.BackgroundImage);
+            var pic_file = picturetoDB(pwd_pic_box.Image);
 
-            if (pwd_pic_box.BackgroundImage == null)
+            if (pwd_pic_box.Image == null)
             {
                 has_pic = false;
                 #region main_data
@@ -1804,6 +1804,7 @@ namespace SAD_2_PTT_01
             telno.Text = main_data.Rows[0]["tel_no"].ToString();
             mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
             email.Text = main_data.Rows[0]["email_add"].ToString();
+            /*
             pwd_pic_box.BackgroundImage = null;
             try
             {
@@ -1815,8 +1816,8 @@ namespace SAD_2_PTT_01
             catch
             {
                 pwd_pic_box.Image = SAD_2_PTT_01.Properties.Resources.pwd;
-                pwd_pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.CenterImage;
+            }*/
 
             educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
             empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());
@@ -1905,7 +1906,8 @@ namespace SAD_2_PTT_01
             {
                 string pic_location = pwd_picture.FileName.ToString();
                 pwd_pic_box.ImageLocation = pic_location;
-                pwd_pic_box.BackgroundImage = Image.FromFile(pic_location);
+                pwd_pic_box.Image = Image.FromFile(pic_location);
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
