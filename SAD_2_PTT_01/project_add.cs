@@ -389,7 +389,7 @@ namespace SAD_2_PTT_01
                 Console.WriteLine(venue);
                 Console.WriteLine(budget);
 
-                string fields = "INSERT INTO project(employee_id, project_title, project_desc, start_time, end_time, date_proposed, event_held, budget) VALUES ";
+                string fields = "INSERT INTO project(user_id, project_title, project_desc, start_time, end_time, date_proposed, event_held, budget) VALUES ";
                 string values = "(" + current_user_id + ", '" + title + "' , '" + desc + "', '" + start_time + "', '" + end_time + "', '" + date_proposed_ + "', '" + venue + "', " + budget + ")";
                 string query = fields + values;
 

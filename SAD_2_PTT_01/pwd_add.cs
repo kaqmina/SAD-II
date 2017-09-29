@@ -1150,7 +1150,7 @@ namespace SAD_2_PTT_01
                                          + ", "
                                          + to_skill
                                          + ", "
-                                         + "(SELECT employee_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "')"
+                                         + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "')"
                                          + ")";
             #endregion
 

@@ -616,11 +616,11 @@ namespace SAD_2_PTT_01
                 conn.Open();
                 if (action == "add")
                 {
-                    comm = new MySqlCommand("INSERT INTO p_dao.pwd_emp_log(pwd_id, recent_emp_id, date_updated) VALUES (LAST_INSERT_ID(), (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), CURDATE())", conn);
+                    comm = new MySqlCommand("INSERT INTO p_dao.pwd_usr_log(pwd_id, recent_emp_id, date_updated) VALUES (LAST_INSERT_ID(), (SELECT user_id FROM p_dao.user WHERE username = '" + uname + "'), CURDATE())", conn);
                 }
                 else
                 {
-                    comm = new MySqlCommand("UPDATE p_dao.pwd_emp_log SET pwd_id = " + pwd_id + ", recent_emp_id = (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), date_updated = CURDATE())", conn);
+                    comm = new MySqlCommand("UPDATE p_dao.pwd_usr_log SET pwd_id = " + pwd_id + ", recent_emp_id = (SELECT user_id FROM p_dao.user WHERE username = '" + uname + "'), date_updated = CURDATE())", conn);
                     comm.ExecuteNonQuery();
                 }
                 conn.Close();

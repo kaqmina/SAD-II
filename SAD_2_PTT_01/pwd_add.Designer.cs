@@ -45,6 +45,10 @@
             this.btn_general = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.panel_1_ = new System.Windows.Forms.Panel();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.btn_add_picture = new System.Windows.Forms.Button();
+            this.pwd_pic_box = new System.Windows.Forms.PictureBox();
             this.lbl_id_no_error = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.id_no = new System.Windows.Forms.TextBox();
@@ -217,13 +221,10 @@
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.pwd_picture = new System.Windows.Forms.OpenFileDialog();
-            this.pwd_pic_box = new System.Windows.Forms.PictureBox();
-            this.btn_add_picture = new System.Windows.Forms.Button();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.quick_panel.SuspendLayout();
             this.panel_1_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_2_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -238,7 +239,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel_6_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -486,6 +486,51 @@
             this.panel_1_.Name = "panel_1_";
             this.panel_1_.Size = new System.Drawing.Size(794, 535);
             this.panel_1_.TabIndex = 52;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.ForeColor = System.Drawing.Color.Gray;
+            this.label87.Location = new System.Drawing.Point(460, 440);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(179, 13);
+            this.label87.TabIndex = 82;
+            this.label87.Text = "(Optional; 16 MB maximum file size.)";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.ForeColor = System.Drawing.Color.Black;
+            this.label86.Location = new System.Drawing.Point(455, 252);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(49, 13);
+            this.label86.TabIndex = 81;
+            this.label86.Text = "PICTURE";
+            // 
+            // btn_add_picture
+            // 
+            this.btn_add_picture.Location = new System.Drawing.Point(616, 244);
+            this.btn_add_picture.Name = "btn_add_picture";
+            this.btn_add_picture.Size = new System.Drawing.Size(27, 23);
+            this.btn_add_picture.TabIndex = 80;
+            this.btn_add_picture.Text = "...";
+            this.btn_add_picture.UseVisualStyleBackColor = true;
+            this.btn_add_picture.Click += new System.EventHandler(this.btn_add_picture_Click);
+            // 
+            // pwd_pic_box
+            // 
+            this.pwd_pic_box.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
+            this.pwd_pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pwd_pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pwd_pic_box.ErrorImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
+            this.pwd_pic_box.Location = new System.Drawing.Point(458, 268);
+            this.pwd_pic_box.Name = "pwd_pic_box";
+            this.pwd_pic_box.Size = new System.Drawing.Size(184, 169);
+            this.pwd_pic_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pwd_pic_box.TabIndex = 79;
+            this.pwd_pic_box.TabStop = false;
             // 
             // lbl_id_no_error
             // 
@@ -2631,50 +2676,6 @@
             // 
             this.pwd_picture.FileName = "openFileDialog1";
             // 
-            // pwd_pic_box
-            // 
-            this.pwd_pic_box.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
-            this.pwd_pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pwd_pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pwd_pic_box.ErrorImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
-            this.pwd_pic_box.Location = new System.Drawing.Point(458, 268);
-            this.pwd_pic_box.Name = "pwd_pic_box";
-            this.pwd_pic_box.Size = new System.Drawing.Size(184, 169);
-            this.pwd_pic_box.TabIndex = 79;
-            this.pwd_pic_box.TabStop = false;
-            // 
-            // btn_add_picture
-            // 
-            this.btn_add_picture.Location = new System.Drawing.Point(616, 244);
-            this.btn_add_picture.Name = "btn_add_picture";
-            this.btn_add_picture.Size = new System.Drawing.Size(27, 23);
-            this.btn_add_picture.TabIndex = 80;
-            this.btn_add_picture.Text = "...";
-            this.btn_add_picture.UseVisualStyleBackColor = true;
-            this.btn_add_picture.Click += new System.EventHandler(this.btn_add_picture_Click);
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label86.ForeColor = System.Drawing.Color.Black;
-            this.label86.Location = new System.Drawing.Point(455, 252);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(49, 13);
-            this.label86.TabIndex = 81;
-            this.label86.Text = "PICTURE";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label87.ForeColor = System.Drawing.Color.Gray;
-            this.label87.Location = new System.Drawing.Point(460, 440);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(179, 13);
-            this.label87.TabIndex = 82;
-            this.label87.Text = "(Optional; 16 MB maximum file size.)";
-            // 
             // pwd_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2707,6 +2708,7 @@
             this.quick_panel.ResumeLayout(false);
             this.panel_1_.ResumeLayout(false);
             this.panel_1_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_2_.ResumeLayout(false);
             this.panel_2_.PerformLayout();
@@ -2726,7 +2728,6 @@
             this.panel_6_.ResumeLayout(false);
             this.panel_6_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).EndInit();
             this.ResumeLayout(false);
 
         }
