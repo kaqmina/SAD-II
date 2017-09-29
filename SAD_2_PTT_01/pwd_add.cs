@@ -21,6 +21,7 @@ namespace SAD_2_PTT_01
         public pwd_view reference_to_view { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
         connections_disability conn_disa = new connections_disability();
+        connections_user conn_user = new connections_user();
         shadow shadow_;
         pwd_ask prompt;
         system_keypress key_ = new system_keypress();
@@ -79,7 +80,7 @@ namespace SAD_2_PTT_01
         int to_skill;
         int civil_status;
         int pwd_status;
-        public int pwd_update_id = 0;
+        public string pwd_update_id = "0";
         bool all_required = false;
         public bool update_mode = false;
         public string update_regis_no = "";
@@ -1064,8 +1065,13 @@ namespace SAD_2_PTT_01
             string parental_data;
             string parental_variables;
             bool success;
+            string new_id = "0";
+
             #region main_data
-            main_data = "INSERT INTO p_dao.pwd(lastname, "
+            if (pwd_pic_box.BackgroundImage == null)
+            {
+                #region MAIN-FIELDS
+                main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
                                             + "middlename, "
                                             + "id_no, "
@@ -1094,7 +1100,108 @@ namespace SAD_2_PTT_01
                                             + "status_pwd, "
                                             + "type_of_skill, "
                                             + "user_id) ";
-            main_variables = "VALUES ('" + lastname
+                #endregion
+                #region MAIN-VARIABLES
+                main_variables = "VALUES ('" + lastname
+                                             + "', '"
+                                             + firstname
+                                             + "', '"
+                                             + middlename
+                                             + "', '"
+                                             + id_no_
+                                             + "', "
+                                             + sex
+                                             + ", "
+                                             + disability
+                                             + ", '"
+                                             + has
+                                             + "', '"
+                                             + bar
+                                             + "', '"
+                                             + mun
+                                             + "', '"
+                                             + prov
+                                             + "', "
+                                             + district_id
+                                             + ", '"
+                                             + blood_type
+                                             + "', '"
+                                             + dob
+                                             + "', '"
+                                             + tel_no
+                                             + "', '"
+                                             + mobile_no
+                                             + "', '"
+                                             + e_mail
+                                             + "', "
+                                             + civil_status
+                                             + ", '"
+                                             + natio
+                                             + "', '"
+                                             + end_date
+                                             + "', '"
+                                             + (DateTime.Now.ToString("yyyy-MM-dd"))
+                                             + "', '"
+                                             + application_date
+                                             + "', "
+                                             + educ_att
+                                             + ", "
+                                             + emp_status
+                                             + ", "
+                                             + no_emp
+                                             + ", "
+                                             + type_oemp
+                                             + ", '"
+                                             + registration_no
+                                             + "', "
+                                             + pwd_status
+                                             + ", "
+                                             + to_skill
+                                             + ", "
+                                             + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "')"
+                                             + ")";
+                #endregion
+            }
+            else
+            {
+
+                var pic_file = picturetoDB(pwd_pic_box.BackgroundImage);
+                int pic_size = pic_file.Length;
+                #region MAIN-FIELDS-PIC
+                main_data = "INSERT INTO p_dao.pwd(lastname, "
+                                            + "firstname, "
+                                            + "middlename, "
+                                            + "id_no, "
+                                            + "sex, "
+                                            + "disability_id, "
+                                            + "address_house_no_street, "
+                                            + "address_barangay, "
+                                            + "address_municipality, "
+                                            + "address_province, "
+                                            + "district_id, "
+                                            + "blood_type, "
+                                            + "birthdate, "
+                                            + "tel_no, "
+                                            + "mobile_no, "
+                                            + "email_add, "
+                                            + "civil_status, "
+                                            + "nationality, "
+                                            + "end_date, "
+                                            + "added_date, "
+                                            + "application_date, "
+                                            + "educ_attainment, "
+                                            + "employment_status, "
+                                            + "nature_of_employer, "
+                                            + "type_of_employment, "
+                                            + "registration_no, "
+                                            + "status_pwd, "
+                                            + "type_of_skill, "
+                                            + "user_id, "
+                                            + "picture) ";
+                #endregion
+                #region MAIN-VARIABLES-PIC
+
+                main_variables = "VALUES ('" + lastname
                                          + "', '"
                                          + firstname
                                          + "', '"
@@ -1150,8 +1257,12 @@ namespace SAD_2_PTT_01
                                          + ", "
                                          + to_skill
                                          + ", "
-                                         + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "')"
+                                         + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "'), "
+                                         + "@Image"
                                          + ")";
+
+                #endregion
+            }
             #endregion
 
             #region other_data
@@ -1228,7 +1339,9 @@ namespace SAD_2_PTT_01
             success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
             if (success == true)
             {
-                conn_pwd.emp_log_add(reference_to_main.current_user, 0, "add");
+                string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                new_id = conn_pwd.get_last_insert_id_pwd();
+                conn_pwd.usr_log_add(user_id, new_id);
                 reference_to_main.success = true;
                 reference_to_main.load_pwd();
                 exit_opacity.Start();
@@ -1240,9 +1353,10 @@ namespace SAD_2_PTT_01
             }
         }
 
-        public void pwd_update_profile(int pwd_update_id)
+        public void pwd_update_profile(string pwd_update_id)
         {
             bool success;
+
             #region main_data
             string main_data = "UPDATE p_dao.pwd SET registration_no = '"
                                                   + registration_no
@@ -1399,17 +1513,22 @@ namespace SAD_2_PTT_01
                                                                 + "' "
                                                                 + "WHERE pwd_id = " + pwd_update_id;
             #endregion
+
+
             success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
             if(success == true)
             {
                 if(from_view)
                 {
-                    conn_pwd.emp_log_add(reference_to_main.current_user, pwd_update_id, "update");
+                    string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                    conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_view.success = true;
                     reference_to_view.pwd_load_data(pwd_update_id);
                     exit_opacity.Start();
                 } else
                 {
+                    string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                    conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_main.success = true;
                     reference_to_main.load_pwd();
                     exit_opacity.Start();

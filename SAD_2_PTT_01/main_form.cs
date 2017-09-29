@@ -254,7 +254,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region PWD-GRID
-        int current_pwd_id = 0;
+        string current_pwd_id = "0";
         int current_pwd_grid_index = 0;
 
         private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -286,7 +286,7 @@ namespace SAD_2_PTT_01
                         sys_func.btn_inactive(btn_renew);
                         sys_func.btn_inactive(btn_archive);
                     }
-                    current_pwd_id = int.Parse(pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString());
+                    current_pwd_id = pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
                     current_pwd_grid_index = e.RowIndex;
                 }
             }

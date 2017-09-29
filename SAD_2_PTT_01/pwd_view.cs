@@ -19,7 +19,7 @@ namespace SAD_2_PTT_01
         public main_form reference_to_main { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
         system_notification system_notify;
-        public int current_pwd = 0;
+        public string current_pwd = "0";
         public bool success;
 
         #region ON-LOAD | ON-CLOSE
@@ -57,7 +57,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region PWD DATA Paste
-        public void pwd_load_data(int current_pwd)
+        public void pwd_load_data(string current_pwd)
         {
             DataTable main_data = new DataTable();
             DataTable other_data = new DataTable();

@@ -206,7 +206,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region VIEW-MODE
-        public void pwd_view_profile(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
+        public void pwd_view_profile(string current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             try
             {
@@ -407,15 +407,136 @@ namespace SAD_2_PTT_01
         public bool pwd_add_profile(string main_data, string other_data, string parental_data)
         {
             bool success = false;
+            bool main_ = false;
+            bool other_ = false;
+            bool parent_ = false;
             try
             {
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(main_data, conn);
-                comm.ExecuteNonQuery();
+                #region MAIN
+                try
+                {
+                    comm.ExecuteNonQuery();
+                } catch (Exception e)
+                {
+                    main_ = false;
+                }
+
+                if (main_ == false)
+                {
+                    return false;
+                }
+                #endregion
                 comm = new MySqlCommand(other_data, conn);
-                comm.ExecuteNonQuery();
+                #region OTHER
+                try
+                {
+                    comm.ExecuteNonQuery();
+                } catch (Exception e )
+                {
+                    other_ = false;
+                }
+
+                if (other_ == false)
+                {
+                    return false;
+                }
+                #endregion
                 comm = new MySqlCommand(parental_data, conn);
-                comm.ExecuteNonQuery();
+                #region PARENT
+                try
+                {
+                    comm.ExecuteNonQuery();
+                } catch (Exception e)
+                {
+                    parent_ = false;
+                }
+
+                if (parent_ == false)
+                {
+                    return false;
+                }
+                #endregion
+                conn.Close();
+                success = true;
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_ADD_PROFILE_DATA }");
+            }
+            catch (Exception e)
+            {
+                success = false;
+                conn.Close();
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_ADD]");
+            }
+            return success;
+        }
+
+        public bool pwd_add_profile(string main_data, string other_data, string parental_data, byte[] image)
+        {
+            bool success = false;
+            bool main_ = false;
+            bool other_ = false;
+            bool parent_ = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                var parameter = new MySqlParameter("@Image", MySqlDbType.MediumBlob, image.Length);
+
+                parameter.Value = image;
+                comm.Parameters.Add(parameter);
+
+                #region MAIN
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    main_ = true;
+                }
+                catch (Exception e)
+                {
+                    main_ = false;
+                }
+
+                if (main_ == false)
+                {
+                    return false;
+                }
+                #endregion
+                comm = new MySqlCommand(other_data, conn);
+                #region OTHER
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    other_ = true;
+                }
+                catch (Exception e)
+                {
+                    other_ = false;
+                }
+
+                if (other_ == false)
+                {
+                    return false;
+                }
+                #endregion
+                comm = new MySqlCommand(parental_data, conn);
+                #region PARENT
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    parent_ = true;
+                }
+                catch (Exception e)
+                {
+                    parent_ = false;
+                }
+
+                if (parent_ == false)
+                {
+                    return false;
+                }
+                #endregion
                 conn.Close();
                 success = true;
                 Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_ADD_PROFILE_DATA }");
@@ -433,7 +554,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region ARCHIVE-MODE
-        public void archive_profile(int current_id)
+        public void archive_profile(string current_id)
         {
             Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { ARCHIVE_PROFILE }");
             conn.Open();
@@ -447,7 +568,7 @@ namespace SAD_2_PTT_01
 
         #region EDIT-MODE
 
-        public void pwd_update_profile_data(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
+        public void pwd_update_profile_data(string current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_DATA }");
             try
@@ -609,26 +730,68 @@ namespace SAD_2_PTT_01
 
         #region EMP_LOG
 
-        public void emp_log_add(string uname, int pwd_id, string action)
+        public string get_last_insert_id_pwd()
+        {
+            string user_id = "0";
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT LAST_INSERT_ID() AS pwd_id", conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+                if(set.Rows.Count == 0)
+                {
+                    return "0";
+                } else
+                {
+                    user_id = set.Rows[0]["pwd_id"].ToString();
+                }
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] get_last_insert_id_pwd() : " + e.Message);
+            }
+
+            return user_id;
+        }
+
+        public void usr_log_update(string user_id, string pwd_id)
         {
             try
             {
                 conn.Open();
-                if (action == "add")
-                {
-                    comm = new MySqlCommand("INSERT INTO p_dao.pwd_usr_log(pwd_id, recent_emp_id, date_updated) VALUES (LAST_INSERT_ID(), (SELECT user_id FROM p_dao.user WHERE username = '" + uname + "'), CURDATE())", conn);
-                }
-                else
-                {
-                    comm = new MySqlCommand("UPDATE p_dao.pwd_usr_log SET pwd_id = " + pwd_id + ", recent_emp_id = (SELECT user_id FROM p_dao.user WHERE username = '" + uname + "'), date_updated = CURDATE())", conn);
-                    comm.ExecuteNonQuery();
-                }
+
+                comm = new MySqlCommand("UPDATE p_dao.pwd_usr_log SET recent_emp_id = "+ user_id +", date_updated = CURDATE() WHERE pwd_id = "+ pwd_id +")", conn);
+                comm.ExecuteNonQuery();
+
                 conn.Close();
             }
             catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message);
+                MessageBox.Show("[ERROR] - [CONNECTIONS_PWD] usr_log_update() : " + e.Message);
+            }
+        }
+
+        public void usr_log_add(string user_id, string pwd_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("INSERT INTO p_dao.pwd_usr_log(pwd_id, recent_emp_id, date_updated) VALUES (" + pwd_id + ", " + user_id + ", CURDATE())", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] usr_log_add() : " + e.Message);
             }
         }
 
