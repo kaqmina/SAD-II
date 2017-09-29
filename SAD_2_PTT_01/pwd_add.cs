@@ -413,6 +413,7 @@ namespace SAD_2_PTT_01
                 btn_contact.Enabled = true;
                 btn_educational.Enabled = true;
                 current_panel_active = panel_3_;
+
             } else if (current_panel == 3) //PANEL 4
             {
                 pwd_next.Text = "NEXT";
@@ -1066,10 +1067,13 @@ namespace SAD_2_PTT_01
             string parental_variables;
             bool success;
             string new_id = "0";
+            bool has_pic = false;
+            var pic_file = picturetoDB(pwd_pic_box.BackgroundImage);
 
             #region main_data
             if (pwd_pic_box.BackgroundImage == null)
             {
+                has_pic = false;
                 #region MAIN-FIELDS
                 main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
@@ -1164,9 +1168,7 @@ namespace SAD_2_PTT_01
             }
             else
             {
-
-                var pic_file = picturetoDB(pwd_pic_box.BackgroundImage);
-                int pic_size = pic_file.Length;
+                has_pic = true;
                 #region MAIN-FIELDS-PIC
                 main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
@@ -1258,7 +1260,7 @@ namespace SAD_2_PTT_01
                                          + to_skill
                                          + ", "
                                          + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "'), "
-                                         + "@Image"
+                                         + "@Image "
                                          + ")";
 
                 #endregion
@@ -1336,7 +1338,15 @@ namespace SAD_2_PTT_01
                                              + guardian_mn
                                              + "', (SELECT LAST_INSERT_ID()) )";
             #endregion
-            success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
+
+            if (has_pic == false)
+            {
+                success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
+            } else
+            {
+                success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables), pic_file);
+            }
+
             if (success == true)
             {
                 string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
@@ -1355,97 +1365,200 @@ namespace SAD_2_PTT_01
 
         public void pwd_update_profile(string pwd_update_id)
         {
+            string main_data;
+            string other_data;
+            string parental_data;
             bool success;
+            bool has_pic = false;
+            var pic_file = picturetoDB(pwd_pic_box.BackgroundImage);
 
-            #region main_data
-            string main_data = "UPDATE p_dao.pwd SET registration_no = '"
-                                                  + registration_no
-                                                  + "', "
-                                                  + "lastname = '"
-                                                  + lastname
-                                                  + "', "
-                                                  + "firstname = '"
-                                                  + firstname
-                                                  + "', "
-                                                  + "middlename = '"
-                                                  + middlename
-                                                  + "', "
-                                                  + "id_no = '"
-                                                  + id_no_
-                                                  + "', "
-                                                  + "sex = "
-                                                  + sex
-                                                  + ", "
-                                                  + "disability_id = "
-                                                  + disability
-                                                  + ", "
-                                                  + "address_house_no_street = '"
-                                                  + has
-                                                  + "', "
-                                                  + "address_municipality = '"
-                                                  + mun
-                                                  + "', "
-                                                  + "address_barangay = '"
-                                                  + bar
-                                                  + "', "
-                                                  + "address_province = '"
-                                                  + prov
-                                                  + "', "
-                                                  + "district_id = "
-                                                  + district_id
-                                                  + ", "
-                                                  + "blood_type = '"
-                                                  + blood_type
-                                                  + "', "
-                                                  + "birthdate = '"
-                                                  + dob
-                                                  + "', "
-                                                  + "tel_no = "
-                                                  + tel_no
-                                                  + ", "
-                                                  + "mobile_no = "
-                                                  + mobile_no
-                                                  + ", "
-                                                  + "email_add = '"
-                                                  + e_mail
-                                                  + "', "
-                                                  + "civil_status = "
-                                                  + civil_status
-                                                  + ", "
-                                                  + "nationality = '"
-                                                  + natio
-                                                  + "', "
-                                                  + "end_date = '"
-                                                  + end_date
-                                                  + "', "
-                                                  + "added_date = '"
-                                                  + added_date
-                                                  + "', "
-                                                  + "application_date = '"
-                                                  + application_date
-                                                  + "', "
-                                                  + "educ_attainment = "
-                                                  + educ_att
-                                                  + ", "
-                                                  + "employment_status = "
-                                                  + emp_status
-                                                  + ", "
-                                                  + "nature_of_employer = "
-                                                  + no_emp
-                                                  + ", "
-                                                  + "type_of_employment = "
-                                                  + type_oemp
-                                                  + ", "
-                                                  + "type_of_skill = "
-                                                  + to_skill
-                                                  + ", "
-                                                  + "status_pwd = "
-                                                  + pwd_status
-                                                  + " "
-                                                  + "WHERE pwd_id = " + pwd_update_id;
-            #endregion
+            if (pwd_pic_box.BackgroundImage == null)
+            {
+                has_pic = false;
+                #region main_data
+                main_data = "UPDATE p_dao.pwd SET registration_no = '"
+                                                      + registration_no
+                                                      + "', "
+                                                      + "lastname = '"
+                                                      + lastname
+                                                      + "', "
+                                                      + "firstname = '"
+                                                      + firstname
+                                                      + "', "
+                                                      + "middlename = '"
+                                                      + middlename
+                                                      + "', "
+                                                      + "id_no = '"
+                                                      + id_no_
+                                                      + "', "
+                                                      + "sex = "
+                                                      + sex
+                                                      + ", "
+                                                      + "disability_id = "
+                                                      + disability
+                                                      + ", "
+                                                      + "address_house_no_street = '"
+                                                      + has
+                                                      + "', "
+                                                      + "address_municipality = '"
+                                                      + mun
+                                                      + "', "
+                                                      + "address_barangay = '"
+                                                      + bar
+                                                      + "', "
+                                                      + "address_province = '"
+                                                      + prov
+                                                      + "', "
+                                                      + "district_id = "
+                                                      + district_id
+                                                      + ", "
+                                                      + "blood_type = '"
+                                                      + blood_type
+                                                      + "', "
+                                                      + "birthdate = '"
+                                                      + dob
+                                                      + "', "
+                                                      + "tel_no = "
+                                                      + tel_no
+                                                      + ", "
+                                                      + "mobile_no = "
+                                                      + mobile_no
+                                                      + ", "
+                                                      + "email_add = '"
+                                                      + e_mail
+                                                      + "', "
+                                                      + "civil_status = "
+                                                      + civil_status
+                                                      + ", "
+                                                      + "nationality = '"
+                                                      + natio
+                                                      + "', "
+                                                      + "end_date = '"
+                                                      + end_date
+                                                      + "', "
+                                                      + "added_date = '"
+                                                      + added_date
+                                                      + "', "
+                                                      + "application_date = '"
+                                                      + application_date
+                                                      + "', "
+                                                      + "educ_attainment = "
+                                                      + educ_att
+                                                      + ", "
+                                                      + "employment_status = "
+                                                      + emp_status
+                                                      + ", "
+                                                      + "nature_of_employer = "
+                                                      + no_emp
+                                                      + ", "
+                                                      + "type_of_employment = "
+                                                      + type_oemp
+                                                      + ", "
+                                                      + "type_of_skill = "
+                                                      + to_skill
+                                                      + ", "
+                                                      + "status_pwd = "
+                                                      + pwd_status
+                                                      + " "
+                                                      + "WHERE pwd_id = " + pwd_update_id;
+                #endregion
+            }
+            else
+            {
+                has_pic = true;
+                main_data = "UPDATE p_dao.pwd SET registration_no = '"
+                                                      + registration_no
+                                                      + "', "
+                                                      + "lastname = '"
+                                                      + lastname
+                                                      + "', "
+                                                      + "firstname = '"
+                                                      + firstname
+                                                      + "', "
+                                                      + "middlename = '"
+                                                      + middlename
+                                                      + "', "
+                                                      + "id_no = '"
+                                                      + id_no_
+                                                      + "', "
+                                                      + "sex = "
+                                                      + sex
+                                                      + ", "
+                                                      + "disability_id = "
+                                                      + disability
+                                                      + ", "
+                                                      + "address_house_no_street = '"
+                                                      + has
+                                                      + "', "
+                                                      + "address_municipality = '"
+                                                      + mun
+                                                      + "', "
+                                                      + "address_barangay = '"
+                                                      + bar
+                                                      + "', "
+                                                      + "address_province = '"
+                                                      + prov
+                                                      + "', "
+                                                      + "district_id = "
+                                                      + district_id
+                                                      + ", "
+                                                      + "blood_type = '"
+                                                      + blood_type
+                                                      + "', "
+                                                      + "birthdate = '"
+                                                      + dob
+                                                      + "', "
+                                                      + "tel_no = "
+                                                      + tel_no
+                                                      + ", "
+                                                      + "mobile_no = "
+                                                      + mobile_no
+                                                      + ", "
+                                                      + "email_add = '"
+                                                      + e_mail
+                                                      + "', "
+                                                      + "civil_status = "
+                                                      + civil_status
+                                                      + ", "
+                                                      + "nationality = '"
+                                                      + natio
+                                                      + "', "
+                                                      + "end_date = '"
+                                                      + end_date
+                                                      + "', "
+                                                      + "added_date = '"
+                                                      + added_date
+                                                      + "', "
+                                                      + "application_date = '"
+                                                      + application_date
+                                                      + "', "
+                                                      + "educ_attainment = "
+                                                      + educ_att
+                                                      + ", "
+                                                      + "employment_status = "
+                                                      + emp_status
+                                                      + ", "
+                                                      + "nature_of_employer = "
+                                                      + no_emp
+                                                      + ", "
+                                                      + "type_of_employment = "
+                                                      + type_oemp
+                                                      + ", "
+                                                      + "type_of_skill = "
+                                                      + to_skill
+                                                      + ", "
+                                                      + "status_pwd = "
+                                                      + pwd_status
+                                                      + ", "
+                                                      + "picture = "
+                                                      + "@Image "
+                                                      + "WHERE pwd_id = " + pwd_update_id;
+
+            }
+
+            
             #region other_data
-            string other_data = "UPDATE pwd_otherinfo SET sss_no = '"
+            other_data = "UPDATE pwd_otherinfo SET sss_no = '"
                                                         + sss_no
                                                         + "', "
                                                         + "gsis_no = "
@@ -1484,7 +1597,7 @@ namespace SAD_2_PTT_01
                                                         + "WHERE pwd_id = " + pwd_update_id;
             #endregion
             #region parental_data
-            string parental_data = "UPDATE p_dao.parental_info SET fatherfn = '"
+            parental_data = "UPDATE p_dao.parental_info SET fatherfn = '"
                                                                 + father_fn
                                                                 + "', "
                                                                 + "fathermn = '"
@@ -1514,9 +1627,16 @@ namespace SAD_2_PTT_01
                                                                 + "WHERE pwd_id = " + pwd_update_id;
             #endregion
 
+            if (has_pic == false)
+            {
+                success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
+            } else
+            {
+                success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data, pic_file);
+            }
 
-            success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
-            if(success == true)
+
+            if (success == true)
             {
                 if(from_view)
                 {
@@ -1576,8 +1696,9 @@ namespace SAD_2_PTT_01
                 {
                     pwd_next.Text = "ADD";
                 }
-                
+
             }
+            btn_side_active();
         }
 
         private void btn_general_Click(object sender, EventArgs e)
@@ -1683,6 +1804,19 @@ namespace SAD_2_PTT_01
             telno.Text = main_data.Rows[0]["tel_no"].ToString();
             mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
             email.Text = main_data.Rows[0]["email_add"].ToString();
+            pwd_pic_box.BackgroundImage = null;
+            try
+            {
+                byte[] image = (byte[])main_data.Rows[0]["picture"];
+                MemoryStream ms = new MemoryStream(image);
+                pwd_pic_box.Image = Image.FromStream(ms);
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch
+            {
+                pwd_pic_box.Image = SAD_2_PTT_01.Properties.Resources.pwd;
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
 
             educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
             empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());

@@ -257,6 +257,18 @@ namespace SAD_2_PTT_01
         string current_pwd_id = "0";
         int current_pwd_grid_index = 0;
 
+        public void pwd_side_data(string pwd_id)
+        {
+            DataTable value = new DataTable();
+            conn_pwd.pwd_grid_side(value, pwd_id);
+
+            pwd_lbl_added_by.Text = value.Rows[0]["username"].ToString();
+            pwd_lbl_added_on.Text = value.Rows[0]["added_date"].ToString();
+            pwd_lbl_estimated_end_date.Text = value.Rows[0]["end_date"].ToString();
+            pwd_lbl_recently_modified_by.Text = value.Rows[0]["recent_user"].ToString();
+            pwd_lbl_status.Text = value.Rows[0]["status_pwd"].ToString();
+        }
+
         private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (pwd_has_pwd == false)
@@ -273,6 +285,10 @@ namespace SAD_2_PTT_01
                 }
                 else
                 {
+                    string pwd_id = pwd_grid.Rows[e.RowIndex].Cells["pwd_id"].Value.ToString();
+                    conn_pwd.pwd_view_picture(pwd_id, pwd_view_pp);
+                    pwd_side_data(pwd_id);
+
                     sys_func.btn_active(btn_pwd_viewmore);
                     sys_func.btn_active(btn_pwd_edit);
                     sys_func.btn_active(btn_archive);

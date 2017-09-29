@@ -18,7 +18,7 @@ namespace SAD_2_PTT_01
         }
 
         public main_form reference_to_main { get; set; }
-        public string current_id = 0;
+        public string current_id = "0";
 
         private void prompt_Load(object sender, EventArgs e)
         {

@@ -348,16 +348,83 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnl_settings = new System.Windows.Forms.Panel();
+            this.accounts_add_lbl_username_error = new System.Windows.Forms.Label();
+            this.label193 = new System.Windows.Forms.Label();
+            this.label157 = new System.Windows.Forms.Label();
+            this.accounts_pnl_edit = new System.Windows.Forms.Panel();
+            this.accounts_edit_lbl_user_error = new System.Windows.Forms.Label();
+            this.accounts_lbl_admin = new System.Windows.Forms.Label();
+            this.label192 = new System.Windows.Forms.Label();
+            this.accounts_btn_cancel = new System.Windows.Forms.Button();
+            this.label155 = new System.Windows.Forms.Label();
+            this.accounts_edit_password = new System.Windows.Forms.TextBox();
+            this.label186 = new System.Windows.Forms.Label();
+            this.label160 = new System.Windows.Forms.Label();
+            this.label187 = new System.Windows.Forms.Label();
+            this.label188 = new System.Windows.Forms.Label();
+            this.accounts_edit_username = new System.Windows.Forms.TextBox();
+            this.label189 = new System.Windows.Forms.Label();
+            this.label167 = new System.Windows.Forms.Label();
+            this.label168 = new System.Windows.Forms.Label();
+            this.label169 = new System.Windows.Forms.Label();
+            this.accounts_edit_contact_no = new System.Windows.Forms.MaskedTextBox();
+            this.accounts_edit_status = new System.Windows.Forms.ComboBox();
+            this.label190 = new System.Windows.Forms.Label();
+            this.accounts_edit_account_type = new System.Windows.Forms.ComboBox();
+            this.label191 = new System.Windows.Forms.Label();
+            this.accounts_edit_lastname = new System.Windows.Forms.TextBox();
+            this.accounts_edit_middlename = new System.Windows.Forms.TextBox();
+            this.accounts_edit_firstname = new System.Windows.Forms.TextBox();
+            this.label170 = new System.Windows.Forms.Label();
+            this.label171 = new System.Windows.Forms.Label();
+            this.label172 = new System.Windows.Forms.Label();
+            this.label173 = new System.Windows.Forms.Label();
+            this.label174 = new System.Windows.Forms.Label();
+            this.label175 = new System.Windows.Forms.Label();
+            this.label176 = new System.Windows.Forms.Label();
+            this.label177 = new System.Windows.Forms.Label();
+            this.label178 = new System.Windows.Forms.Label();
+            this.label179 = new System.Windows.Forms.Label();
+            this.label180 = new System.Windows.Forms.Label();
+            this.label181 = new System.Windows.Forms.Label();
+            this.label182 = new System.Windows.Forms.Label();
+            this.label183 = new System.Windows.Forms.Label();
+            this.label184 = new System.Windows.Forms.Label();
+            this.label185 = new System.Windows.Forms.Label();
+            this.accounts_btn_save = new System.Windows.Forms.Button();
             this.label166 = new System.Windows.Forms.Label();
             this.label165 = new System.Windows.Forms.Label();
+            this.label164 = new System.Windows.Forms.Label();
+            this.label162 = new System.Windows.Forms.Label();
+            this.label161 = new System.Windows.Forms.Label();
+            this.accounts_lbl_error_firstname = new System.Windows.Forms.Label();
             this.accounts_refresh = new System.Windows.Forms.Button();
+            this.accounts_add_contact_no = new System.Windows.Forms.MaskedTextBox();
             this.accounts_btn_add = new System.Windows.Forms.Button();
+            this.accounts_add_status = new System.Windows.Forms.ComboBox();
+            this.accounts_add_account_type = new System.Windows.Forms.ComboBox();
             this.accounts_add_password = new System.Windows.Forms.TextBox();
             this.accounts_add_username = new System.Windows.Forms.TextBox();
+            this.accounts_add_lastname = new System.Windows.Forms.TextBox();
+            this.accounts_add_middlename = new System.Windows.Forms.TextBox();
+            this.accounts_add_firstname = new System.Windows.Forms.TextBox();
+            this.label142 = new System.Windows.Forms.Label();
+            this.label141 = new System.Windows.Forms.Label();
+            this.label140 = new System.Windows.Forms.Label();
+            this.label139 = new System.Windows.Forms.Label();
             this.label158 = new System.Windows.Forms.Label();
             this.label159 = new System.Windows.Forms.Label();
             this.label145 = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
+            this.label147 = new System.Windows.Forms.Label();
+            this.label148 = new System.Windows.Forms.Label();
+            this.label149 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
+            this.label151 = new System.Windows.Forms.Label();
+            this.label152 = new System.Windows.Forms.Label();
+            this.label153 = new System.Windows.Forms.Label();
+            this.label154 = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
             this.accounts_username = new System.Windows.Forms.Label();
             this.accounts_status = new System.Windows.Forms.Label();
             this.accounts_name = new System.Windows.Forms.Label();
@@ -378,83 +445,30 @@
             this.label126 = new System.Windows.Forms.Label();
             this.label127 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label143 = new System.Windows.Forms.Label();
+            this.label156 = new System.Windows.Forms.Label();
+            this.label163 = new System.Windows.Forms.Label();
+            this.accounts_btn_edit = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.pnl_notif_pp = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btn_notifications_pwd = new System.Windows.Forms.Button();
-            this.accounts_pnl_edit = new System.Windows.Forms.Panel();
-            this.accounts_btn_edit = new System.Windows.Forms.Button();
-            this.accounts_btn_save = new System.Windows.Forms.Button();
-            this.label163 = new System.Windows.Forms.Label();
-            this.label156 = new System.Windows.Forms.Label();
-            this.label143 = new System.Windows.Forms.Label();
-            this.label144 = new System.Windows.Forms.Label();
-            this.label154 = new System.Windows.Forms.Label();
-            this.label153 = new System.Windows.Forms.Label();
-            this.label152 = new System.Windows.Forms.Label();
-            this.label151 = new System.Windows.Forms.Label();
-            this.label149 = new System.Windows.Forms.Label();
-            this.label148 = new System.Windows.Forms.Label();
-            this.label147 = new System.Windows.Forms.Label();
-            this.label146 = new System.Windows.Forms.Label();
-            this.label139 = new System.Windows.Forms.Label();
-            this.label140 = new System.Windows.Forms.Label();
-            this.label141 = new System.Windows.Forms.Label();
-            this.label142 = new System.Windows.Forms.Label();
-            this.accounts_add_firstname = new System.Windows.Forms.TextBox();
-            this.accounts_add_middlename = new System.Windows.Forms.TextBox();
-            this.accounts_add_lastname = new System.Windows.Forms.TextBox();
-            this.accounts_add_account_type = new System.Windows.Forms.ComboBox();
-            this.accounts_add_status = new System.Windows.Forms.ComboBox();
-            this.accounts_add_contact_no = new System.Windows.Forms.MaskedTextBox();
-            this.accounts_lbl_error_firstname = new System.Windows.Forms.Label();
-            this.label161 = new System.Windows.Forms.Label();
-            this.label162 = new System.Windows.Forms.Label();
-            this.label164 = new System.Windows.Forms.Label();
-            this.label160 = new System.Windows.Forms.Label();
-            this.label167 = new System.Windows.Forms.Label();
-            this.label168 = new System.Windows.Forms.Label();
-            this.label169 = new System.Windows.Forms.Label();
-            this.accounts_edit_contact_no = new System.Windows.Forms.MaskedTextBox();
-            this.accounts_edit_status = new System.Windows.Forms.ComboBox();
-            this.accounts_edit_account_type = new System.Windows.Forms.ComboBox();
-            this.accounts_edit_lastname = new System.Windows.Forms.TextBox();
-            this.accounts_edit_middlename = new System.Windows.Forms.TextBox();
-            this.accounts_edit_firstname = new System.Windows.Forms.TextBox();
-            this.label170 = new System.Windows.Forms.Label();
-            this.label171 = new System.Windows.Forms.Label();
-            this.label172 = new System.Windows.Forms.Label();
-            this.label173 = new System.Windows.Forms.Label();
-            this.label174 = new System.Windows.Forms.Label();
-            this.label175 = new System.Windows.Forms.Label();
-            this.label176 = new System.Windows.Forms.Label();
-            this.label177 = new System.Windows.Forms.Label();
-            this.label178 = new System.Windows.Forms.Label();
-            this.label179 = new System.Windows.Forms.Label();
-            this.label180 = new System.Windows.Forms.Label();
-            this.label181 = new System.Windows.Forms.Label();
-            this.label182 = new System.Windows.Forms.Label();
-            this.label183 = new System.Windows.Forms.Label();
-            this.label184 = new System.Windows.Forms.Label();
-            this.label185 = new System.Windows.Forms.Label();
-            this.label186 = new System.Windows.Forms.Label();
-            this.label187 = new System.Windows.Forms.Label();
-            this.accounts_edit_password = new System.Windows.Forms.TextBox();
-            this.accounts_edit_username = new System.Windows.Forms.TextBox();
-            this.label188 = new System.Windows.Forms.Label();
-            this.label189 = new System.Windows.Forms.Label();
-            this.label190 = new System.Windows.Forms.Label();
-            this.label191 = new System.Windows.Forms.Label();
-            this.accounts_btn_cancel = new System.Windows.Forms.Button();
-            this.label155 = new System.Windows.Forms.Label();
-            this.label157 = new System.Windows.Forms.Label();
-            this.label192 = new System.Windows.Forms.Label();
-            this.label193 = new System.Windows.Forms.Label();
-            this.accounts_lbl_admin = new System.Windows.Forms.Label();
-            this.accounts_edit_lbl_user_error = new System.Windows.Forms.Label();
-            this.accounts_add_lbl_username_error = new System.Windows.Forms.Label();
+            this.label194 = new System.Windows.Forms.Label();
+            this.label195 = new System.Windows.Forms.Label();
+            this.pwd_lbl_status = new System.Windows.Forms.Label();
+            this.label197 = new System.Windows.Forms.Label();
+            this.label198 = new System.Windows.Forms.Label();
+            this.label199 = new System.Windows.Forms.Label();
+            this.pwd_lbl_added_by = new System.Windows.Forms.Label();
+            this.pwd_lbl_added_on = new System.Windows.Forms.Label();
+            this.label202 = new System.Windows.Forms.Label();
+            this.label203 = new System.Windows.Forms.Label();
+            this.pwd_lbl_recently_modified_by = new System.Windows.Forms.Label();
+            this.label205 = new System.Windows.Forms.Label();
+            this.label206 = new System.Windows.Forms.Label();
+            this.pwd_lbl_estimated_end_date = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -499,9 +513,9 @@
             this.reports_pnl_pwd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).BeginInit();
             this.pnl_settings.SuspendLayout();
+            this.accounts_pnl_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accounts_grid)).BeginInit();
             this.pnl_notif_pp.SuspendLayout();
-            this.accounts_pnl_edit.SuspendLayout();
             this.SuspendLayout();
             // 
             // side_tab
@@ -1137,6 +1151,20 @@
             // pwd_side_info
             // 
             this.pwd_side_info.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_side_info.Controls.Add(this.pwd_lbl_estimated_end_date);
+            this.pwd_side_info.Controls.Add(this.label206);
+            this.pwd_side_info.Controls.Add(this.label205);
+            this.pwd_side_info.Controls.Add(this.pwd_lbl_recently_modified_by);
+            this.pwd_side_info.Controls.Add(this.label203);
+            this.pwd_side_info.Controls.Add(this.label202);
+            this.pwd_side_info.Controls.Add(this.pwd_lbl_added_on);
+            this.pwd_side_info.Controls.Add(this.pwd_lbl_added_by);
+            this.pwd_side_info.Controls.Add(this.label199);
+            this.pwd_side_info.Controls.Add(this.label198);
+            this.pwd_side_info.Controls.Add(this.pwd_lbl_status);
+            this.pwd_side_info.Controls.Add(this.label197);
+            this.pwd_side_info.Controls.Add(this.label195);
+            this.pwd_side_info.Controls.Add(this.label194);
             this.pwd_side_info.Controls.Add(this.pwd_view_pp);
             this.pwd_side_info.Dock = System.Windows.Forms.DockStyle.Left;
             this.pwd_side_info.Location = new System.Drawing.Point(0, 28);
@@ -1147,12 +1175,12 @@
             // pwd_view_pp
             // 
             this.pwd_view_pp.BackColor = System.Drawing.Color.Transparent;
-            this.pwd_view_pp.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
             this.pwd_view_pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pwd_view_pp.ErrorImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
+            this.pwd_view_pp.Image = global::SAD_2_PTT_01.Properties.Resources.pwd;
             this.pwd_view_pp.Location = new System.Drawing.Point(11, 11);
             this.pwd_view_pp.Name = "pwd_view_pp";
             this.pwd_view_pp.Size = new System.Drawing.Size(169, 161);
+            this.pwd_view_pp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pwd_view_pp.TabIndex = 28;
             this.pwd_view_pp.TabStop = false;
             // 
@@ -4557,6 +4585,526 @@
             this.pnl_settings.Size = new System.Drawing.Size(1066, 611);
             this.pnl_settings.TabIndex = 7;
             // 
+            // accounts_add_lbl_username_error
+            // 
+            this.accounts_add_lbl_username_error.AutoSize = true;
+            this.accounts_add_lbl_username_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accounts_add_lbl_username_error.ForeColor = System.Drawing.Color.Red;
+            this.accounts_add_lbl_username_error.Location = new System.Drawing.Point(665, 491);
+            this.accounts_add_lbl_username_error.Name = "accounts_add_lbl_username_error";
+            this.accounts_add_lbl_username_error.Size = new System.Drawing.Size(122, 13);
+            this.accounts_add_lbl_username_error.TabIndex = 215;
+            this.accounts_add_lbl_username_error.Text = "Username already exists.";
+            this.accounts_add_lbl_username_error.Visible = false;
+            // 
+            // label193
+            // 
+            this.label193.AutoSize = true;
+            this.label193.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label193.ForeColor = System.Drawing.Color.Gray;
+            this.label193.Location = new System.Drawing.Point(860, 538);
+            this.label193.Name = "label193";
+            this.label193.Size = new System.Drawing.Size(158, 13);
+            this.label193.TabIndex = 213;
+            this.label193.Text = "Must be atleast 8-16 characters.";
+            // 
+            // label157
+            // 
+            this.label157.AutoSize = true;
+            this.label157.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label157.ForeColor = System.Drawing.Color.Gray;
+            this.label157.Location = new System.Drawing.Point(860, 514);
+            this.label157.Name = "label157";
+            this.label157.Size = new System.Drawing.Size(158, 13);
+            this.label157.TabIndex = 211;
+            this.label157.Text = "Must be atleast 6-12 characters.";
+            // 
+            // accounts_pnl_edit
+            // 
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_lbl_user_error);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_lbl_admin);
+            this.accounts_pnl_edit.Controls.Add(this.label192);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_btn_cancel);
+            this.accounts_pnl_edit.Controls.Add(this.label155);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_password);
+            this.accounts_pnl_edit.Controls.Add(this.label186);
+            this.accounts_pnl_edit.Controls.Add(this.label160);
+            this.accounts_pnl_edit.Controls.Add(this.label187);
+            this.accounts_pnl_edit.Controls.Add(this.label188);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_username);
+            this.accounts_pnl_edit.Controls.Add(this.label189);
+            this.accounts_pnl_edit.Controls.Add(this.label167);
+            this.accounts_pnl_edit.Controls.Add(this.label168);
+            this.accounts_pnl_edit.Controls.Add(this.label169);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_contact_no);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_status);
+            this.accounts_pnl_edit.Controls.Add(this.label190);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_account_type);
+            this.accounts_pnl_edit.Controls.Add(this.label191);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_lastname);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_middlename);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_firstname);
+            this.accounts_pnl_edit.Controls.Add(this.label170);
+            this.accounts_pnl_edit.Controls.Add(this.label171);
+            this.accounts_pnl_edit.Controls.Add(this.label172);
+            this.accounts_pnl_edit.Controls.Add(this.label173);
+            this.accounts_pnl_edit.Controls.Add(this.label174);
+            this.accounts_pnl_edit.Controls.Add(this.label175);
+            this.accounts_pnl_edit.Controls.Add(this.label176);
+            this.accounts_pnl_edit.Controls.Add(this.label177);
+            this.accounts_pnl_edit.Controls.Add(this.label178);
+            this.accounts_pnl_edit.Controls.Add(this.label179);
+            this.accounts_pnl_edit.Controls.Add(this.label180);
+            this.accounts_pnl_edit.Controls.Add(this.label181);
+            this.accounts_pnl_edit.Controls.Add(this.label182);
+            this.accounts_pnl_edit.Controls.Add(this.label183);
+            this.accounts_pnl_edit.Controls.Add(this.label184);
+            this.accounts_pnl_edit.Controls.Add(this.label185);
+            this.accounts_pnl_edit.Controls.Add(this.accounts_btn_save);
+            this.accounts_pnl_edit.Location = new System.Drawing.Point(560, 83);
+            this.accounts_pnl_edit.Name = "accounts_pnl_edit";
+            this.accounts_pnl_edit.Size = new System.Drawing.Size(492, 231);
+            this.accounts_pnl_edit.TabIndex = 181;
+            this.accounts_pnl_edit.Visible = false;
+            // 
+            // accounts_edit_lbl_user_error
+            // 
+            this.accounts_edit_lbl_user_error.AutoSize = true;
+            this.accounts_edit_lbl_user_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accounts_edit_lbl_user_error.ForeColor = System.Drawing.Color.Red;
+            this.accounts_edit_lbl_user_error.Location = new System.Drawing.Point(305, 112);
+            this.accounts_edit_lbl_user_error.Name = "accounts_edit_lbl_user_error";
+            this.accounts_edit_lbl_user_error.Size = new System.Drawing.Size(122, 13);
+            this.accounts_edit_lbl_user_error.TabIndex = 215;
+            this.accounts_edit_lbl_user_error.Text = "Username already exists.";
+            this.accounts_edit_lbl_user_error.Visible = false;
+            // 
+            // accounts_lbl_admin
+            // 
+            this.accounts_lbl_admin.AutoSize = true;
+            this.accounts_lbl_admin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accounts_lbl_admin.ForeColor = System.Drawing.Color.Red;
+            this.accounts_lbl_admin.Location = new System.Drawing.Point(306, 22);
+            this.accounts_lbl_admin.Name = "accounts_lbl_admin";
+            this.accounts_lbl_admin.Size = new System.Drawing.Size(162, 26);
+            this.accounts_lbl_admin.TabIndex = 214;
+            this.accounts_lbl_admin.Text = "Not allowed to edit main admin \r\nusername.";
+            this.accounts_lbl_admin.Visible = false;
+            // 
+            // label192
+            // 
+            this.label192.AutoSize = true;
+            this.label192.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label192.ForeColor = System.Drawing.Color.Gray;
+            this.label192.Location = new System.Drawing.Point(305, 175);
+            this.label192.Name = "label192";
+            this.label192.Size = new System.Drawing.Size(158, 13);
+            this.label192.TabIndex = 212;
+            this.label192.Text = "Must be atleast 8-16 characters.";
+            // 
+            // accounts_btn_cancel
+            // 
+            this.accounts_btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.accounts_btn_cancel.BackColor = System.Drawing.Color.White;
+            this.accounts_btn_cancel.FlatAppearance.BorderSize = 0;
+            this.accounts_btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accounts_btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.accounts_btn_cancel.Location = new System.Drawing.Point(220, 198);
+            this.accounts_btn_cancel.Name = "accounts_btn_cancel";
+            this.accounts_btn_cancel.Size = new System.Drawing.Size(132, 31);
+            this.accounts_btn_cancel.TabIndex = 184;
+            this.accounts_btn_cancel.Text = "CANCEL";
+            this.accounts_btn_cancel.UseVisualStyleBackColor = false;
+            this.accounts_btn_cancel.Click += new System.EventHandler(this.accounts_btn_cancel_Click);
+            // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label155.ForeColor = System.Drawing.Color.Gray;
+            this.label155.Location = new System.Drawing.Point(305, 95);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(158, 13);
+            this.label155.TabIndex = 210;
+            this.label155.Text = "Must be atleast 6-12 characters.";
+            // 
+            // accounts_edit_password
+            // 
+            this.accounts_edit_password.Location = new System.Drawing.Point(308, 151);
+            this.accounts_edit_password.MaxLength = 16;
+            this.accounts_edit_password.Name = "accounts_edit_password";
+            this.accounts_edit_password.Size = new System.Drawing.Size(173, 22);
+            this.accounts_edit_password.TabIndex = 188;
+            this.accounts_edit_password.TextChanged += new System.EventHandler(this.accounts_edit_password_TextChanged);
+            // 
+            // label186
+            // 
+            this.label186.AutoSize = true;
+            this.label186.ForeColor = System.Drawing.Color.Red;
+            this.label186.Location = new System.Drawing.Point(367, 128);
+            this.label186.Name = "label186";
+            this.label186.Size = new System.Drawing.Size(12, 13);
+            this.label186.TabIndex = 190;
+            this.label186.Text = "*";
+            // 
+            // label160
+            // 
+            this.label160.AutoSize = true;
+            this.label160.ForeColor = System.Drawing.Color.Red;
+            this.label160.Location = new System.Drawing.Point(50, 179);
+            this.label160.Name = "label160";
+            this.label160.Size = new System.Drawing.Size(12, 13);
+            this.label160.TabIndex = 209;
+            this.label160.Text = "*";
+            // 
+            // label187
+            // 
+            this.label187.AutoSize = true;
+            this.label187.ForeColor = System.Drawing.Color.Red;
+            this.label187.Location = new System.Drawing.Point(367, 49);
+            this.label187.Name = "label187";
+            this.label187.Size = new System.Drawing.Size(12, 13);
+            this.label187.TabIndex = 189;
+            this.label187.Text = "*";
+            // 
+            // label188
+            // 
+            this.label188.AutoSize = true;
+            this.label188.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label188.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label188.Location = new System.Drawing.Point(389, 129);
+            this.label188.Name = "label188";
+            this.label188.Size = new System.Drawing.Size(10, 13);
+            this.label188.TabIndex = 186;
+            this.label188.Text = ":";
+            // 
+            // accounts_edit_username
+            // 
+            this.accounts_edit_username.Location = new System.Drawing.Point(308, 70);
+            this.accounts_edit_username.MaxLength = 12;
+            this.accounts_edit_username.Name = "accounts_edit_username";
+            this.accounts_edit_username.Size = new System.Drawing.Size(173, 22);
+            this.accounts_edit_username.TabIndex = 187;
+            this.accounts_edit_username.TextChanged += new System.EventHandler(this.accounts_edit_username_TextChanged);
+            // 
+            // label189
+            // 
+            this.label189.AutoSize = true;
+            this.label189.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label189.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label189.Location = new System.Drawing.Point(305, 129);
+            this.label189.Name = "label189";
+            this.label189.Size = new System.Drawing.Size(65, 13);
+            this.label189.TabIndex = 185;
+            this.label189.Text = "PASSWORD";
+            // 
+            // label167
+            // 
+            this.label167.AutoSize = true;
+            this.label167.ForeColor = System.Drawing.Color.Red;
+            this.label167.Location = new System.Drawing.Point(68, 103);
+            this.label167.Name = "label167";
+            this.label167.Size = new System.Drawing.Size(12, 13);
+            this.label167.TabIndex = 207;
+            this.label167.Text = "*";
+            // 
+            // label168
+            // 
+            this.label168.AutoSize = true;
+            this.label168.ForeColor = System.Drawing.Color.Red;
+            this.label168.Location = new System.Drawing.Point(84, 76);
+            this.label168.Name = "label168";
+            this.label168.Size = new System.Drawing.Size(12, 13);
+            this.label168.TabIndex = 206;
+            this.label168.Text = "*";
+            // 
+            // label169
+            // 
+            this.label169.AutoSize = true;
+            this.label169.ForeColor = System.Drawing.Color.Red;
+            this.label169.Location = new System.Drawing.Point(71, 50);
+            this.label169.Name = "label169";
+            this.label169.Size = new System.Drawing.Size(12, 13);
+            this.label169.TabIndex = 205;
+            this.label169.Text = "*";
+            // 
+            // accounts_edit_contact_no
+            // 
+            this.accounts_edit_contact_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.accounts_edit_contact_no.Location = new System.Drawing.Point(109, 154);
+            this.accounts_edit_contact_no.Mask = "00000000000";
+            this.accounts_edit_contact_no.Name = "accounts_edit_contact_no";
+            this.accounts_edit_contact_no.Size = new System.Drawing.Size(189, 15);
+            this.accounts_edit_contact_no.TabIndex = 204;
+            this.accounts_edit_contact_no.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.accounts_edit_contact_no_MaskInputRejected);
+            // 
+            // accounts_edit_status
+            // 
+            this.accounts_edit_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accounts_edit_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_edit_status.FormattingEnabled = true;
+            this.accounts_edit_status.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "Break"});
+            this.accounts_edit_status.Location = new System.Drawing.Point(108, 172);
+            this.accounts_edit_status.Name = "accounts_edit_status";
+            this.accounts_edit_status.Size = new System.Drawing.Size(189, 21);
+            this.accounts_edit_status.TabIndex = 201;
+            this.accounts_edit_status.SelectedIndexChanged += new System.EventHandler(this.accounts_edit_status_SelectedIndexChanged);
+            // 
+            // label190
+            // 
+            this.label190.AutoSize = true;
+            this.label190.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label190.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label190.Location = new System.Drawing.Point(389, 49);
+            this.label190.Name = "label190";
+            this.label190.Size = new System.Drawing.Size(10, 13);
+            this.label190.TabIndex = 184;
+            this.label190.Text = ":";
+            // 
+            // accounts_edit_account_type
+            // 
+            this.accounts_edit_account_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accounts_edit_account_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_edit_account_type.FormattingEnabled = true;
+            this.accounts_edit_account_type.Items.AddRange(new object[] {
+            "Admin",
+            "IT Officer",
+            "Inventory Manager",
+            "Project Manager"});
+            this.accounts_edit_account_type.Location = new System.Drawing.Point(112, 124);
+            this.accounts_edit_account_type.Name = "accounts_edit_account_type";
+            this.accounts_edit_account_type.Size = new System.Drawing.Size(185, 21);
+            this.accounts_edit_account_type.TabIndex = 200;
+            this.accounts_edit_account_type.SelectedIndexChanged += new System.EventHandler(this.accounts_edit_account_type_SelectedIndexChanged);
+            // 
+            // label191
+            // 
+            this.label191.AutoSize = true;
+            this.label191.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label191.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label191.Location = new System.Drawing.Point(305, 49);
+            this.label191.Name = "label191";
+            this.label191.Size = new System.Drawing.Size(65, 13);
+            this.label191.TabIndex = 183;
+            this.label191.Text = "USERNAME";
+            // 
+            // accounts_edit_lastname
+            // 
+            this.accounts_edit_lastname.Location = new System.Drawing.Point(108, 97);
+            this.accounts_edit_lastname.Name = "accounts_edit_lastname";
+            this.accounts_edit_lastname.Size = new System.Drawing.Size(189, 22);
+            this.accounts_edit_lastname.TabIndex = 199;
+            this.accounts_edit_lastname.TextChanged += new System.EventHandler(this.accounts_edit_lastname_TextChanged);
+            // 
+            // accounts_edit_middlename
+            // 
+            this.accounts_edit_middlename.Location = new System.Drawing.Point(108, 70);
+            this.accounts_edit_middlename.Name = "accounts_edit_middlename";
+            this.accounts_edit_middlename.Size = new System.Drawing.Size(189, 22);
+            this.accounts_edit_middlename.TabIndex = 198;
+            this.accounts_edit_middlename.TextChanged += new System.EventHandler(this.accounts_edit_middlename_TextChanged);
+            // 
+            // accounts_edit_firstname
+            // 
+            this.accounts_edit_firstname.Location = new System.Drawing.Point(108, 43);
+            this.accounts_edit_firstname.Name = "accounts_edit_firstname";
+            this.accounts_edit_firstname.Size = new System.Drawing.Size(189, 22);
+            this.accounts_edit_firstname.TabIndex = 197;
+            this.accounts_edit_firstname.TextChanged += new System.EventHandler(this.accounts_edit_firstname_TextChanged);
+            // 
+            // label170
+            // 
+            this.label170.AutoSize = true;
+            this.label170.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label170.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label170.Location = new System.Drawing.Point(93, 50);
+            this.label170.Name = "label170";
+            this.label170.Size = new System.Drawing.Size(10, 13);
+            this.label170.TabIndex = 196;
+            this.label170.Text = ":";
+            // 
+            // label171
+            // 
+            this.label171.AutoSize = true;
+            this.label171.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label171.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label171.Location = new System.Drawing.Point(93, 76);
+            this.label171.Name = "label171";
+            this.label171.Size = new System.Drawing.Size(10, 13);
+            this.label171.TabIndex = 195;
+            this.label171.Text = ":";
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label172.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label172.Location = new System.Drawing.Point(9, 50);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(66, 13);
+            this.label172.TabIndex = 194;
+            this.label172.Text = "FIRSTNAME";
+            // 
+            // label173
+            // 
+            this.label173.AutoSize = true;
+            this.label173.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label173.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label173.Location = new System.Drawing.Point(9, 76);
+            this.label173.Name = "label173";
+            this.label173.Size = new System.Drawing.Size(78, 13);
+            this.label173.TabIndex = 193;
+            this.label173.Text = "MIDDLENAME";
+            // 
+            // label174
+            // 
+            this.label174.AutoSize = true;
+            this.label174.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label174.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label174.Location = new System.Drawing.Point(93, 179);
+            this.label174.Name = "label174";
+            this.label174.Size = new System.Drawing.Size(10, 13);
+            this.label174.TabIndex = 192;
+            this.label174.Text = ":";
+            // 
+            // label175
+            // 
+            this.label175.AutoSize = true;
+            this.label175.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label175.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label175.Location = new System.Drawing.Point(93, 154);
+            this.label175.Name = "label175";
+            this.label175.Size = new System.Drawing.Size(10, 13);
+            this.label175.TabIndex = 191;
+            this.label175.Text = ":";
+            // 
+            // label176
+            // 
+            this.label176.AutoSize = true;
+            this.label176.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label176.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label176.Location = new System.Drawing.Point(100, 127);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(10, 13);
+            this.label176.TabIndex = 190;
+            this.label176.Text = ":";
+            // 
+            // label177
+            // 
+            this.label177.AutoSize = true;
+            this.label177.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label177.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label177.Location = new System.Drawing.Point(93, 103);
+            this.label177.Name = "label177";
+            this.label177.Size = new System.Drawing.Size(10, 13);
+            this.label177.TabIndex = 189;
+            this.label177.Text = ":";
+            // 
+            // label178
+            // 
+            this.label178.AutoSize = true;
+            this.label178.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label178.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label178.Location = new System.Drawing.Point(9, 179);
+            this.label178.Name = "label178";
+            this.label178.Size = new System.Drawing.Size(44, 13);
+            this.label178.TabIndex = 188;
+            this.label178.Text = "STATUS";
+            // 
+            // label179
+            // 
+            this.label179.AutoSize = true;
+            this.label179.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label179.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label179.Location = new System.Drawing.Point(9, 154);
+            this.label179.Name = "label179";
+            this.label179.Size = new System.Drawing.Size(80, 13);
+            this.label179.TabIndex = 187;
+            this.label179.Text = "CONTACT NO. ";
+            // 
+            // label180
+            // 
+            this.label180.AutoSize = true;
+            this.label180.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label180.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label180.Location = new System.Drawing.Point(9, 129);
+            this.label180.Name = "label180";
+            this.label180.Size = new System.Drawing.Size(85, 13);
+            this.label180.TabIndex = 186;
+            this.label180.Text = "ACCOUNT TYPE";
+            // 
+            // label181
+            // 
+            this.label181.AutoSize = true;
+            this.label181.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label181.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label181.Location = new System.Drawing.Point(9, 103);
+            this.label181.Name = "label181";
+            this.label181.Size = new System.Drawing.Size(62, 13);
+            this.label181.TabIndex = 185;
+            this.label181.Text = "LASTNAME";
+            // 
+            // label182
+            // 
+            this.label182.AutoSize = true;
+            this.label182.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label182.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label182.Location = new System.Drawing.Point(9, 22);
+            this.label182.Name = "label182";
+            this.label182.Size = new System.Drawing.Size(72, 17);
+            this.label182.TabIndex = 184;
+            this.label182.Text = "EDIT USER";
+            // 
+            // label183
+            // 
+            this.label183.AutoSize = true;
+            this.label183.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label183.Location = new System.Drawing.Point(105, 133);
+            this.label183.Name = "label183";
+            this.label183.Size = new System.Drawing.Size(197, 15);
+            this.label183.TabIndex = 202;
+            this.label183.Text = "______________________________________";
+            // 
+            // label184
+            // 
+            this.label184.AutoSize = true;
+            this.label184.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label184.Location = new System.Drawing.Point(105, 181);
+            this.label184.Name = "label184";
+            this.label184.Size = new System.Drawing.Size(197, 15);
+            this.label184.TabIndex = 203;
+            this.label184.Text = "______________________________________";
+            // 
+            // label185
+            // 
+            this.label185.AutoSize = true;
+            this.label185.ForeColor = System.Drawing.Color.Red;
+            this.label185.Location = new System.Drawing.Point(91, 129);
+            this.label185.Name = "label185";
+            this.label185.Size = new System.Drawing.Size(12, 13);
+            this.label185.TabIndex = 208;
+            this.label185.Text = "*";
+            // 
+            // accounts_btn_save
+            // 
+            this.accounts_btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.accounts_btn_save.BackColor = System.Drawing.Color.White;
+            this.accounts_btn_save.FlatAppearance.BorderSize = 0;
+            this.accounts_btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_btn_save.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accounts_btn_save.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.accounts_btn_save.Location = new System.Drawing.Point(358, 198);
+            this.accounts_btn_save.Name = "accounts_btn_save";
+            this.accounts_btn_save.Size = new System.Drawing.Size(132, 31);
+            this.accounts_btn_save.TabIndex = 183;
+            this.accounts_btn_save.Text = "SAVE";
+            this.accounts_btn_save.UseVisualStyleBackColor = false;
+            this.accounts_btn_save.Click += new System.EventHandler(this.accounts_btn_save_Click);
+            // 
             // label166
             // 
             this.label166.AutoSize = true;
@@ -4577,6 +5125,46 @@
             this.label165.TabIndex = 179;
             this.label165.Text = "*";
             // 
+            // label164
+            // 
+            this.label164.AutoSize = true;
+            this.label164.ForeColor = System.Drawing.Color.Red;
+            this.label164.Location = new System.Drawing.Point(607, 474);
+            this.label164.Name = "label164";
+            this.label164.Size = new System.Drawing.Size(12, 13);
+            this.label164.TabIndex = 178;
+            this.label164.Text = "*";
+            // 
+            // label162
+            // 
+            this.label162.AutoSize = true;
+            this.label162.ForeColor = System.Drawing.Color.Red;
+            this.label162.Location = new System.Drawing.Point(625, 398);
+            this.label162.Name = "label162";
+            this.label162.Size = new System.Drawing.Size(12, 13);
+            this.label162.TabIndex = 176;
+            this.label162.Text = "*";
+            // 
+            // label161
+            // 
+            this.label161.AutoSize = true;
+            this.label161.ForeColor = System.Drawing.Color.Red;
+            this.label161.Location = new System.Drawing.Point(641, 371);
+            this.label161.Name = "label161";
+            this.label161.Size = new System.Drawing.Size(12, 13);
+            this.label161.TabIndex = 175;
+            this.label161.Text = "*";
+            // 
+            // accounts_lbl_error_firstname
+            // 
+            this.accounts_lbl_error_firstname.AutoSize = true;
+            this.accounts_lbl_error_firstname.ForeColor = System.Drawing.Color.Red;
+            this.accounts_lbl_error_firstname.Location = new System.Drawing.Point(628, 345);
+            this.accounts_lbl_error_firstname.Name = "accounts_lbl_error_firstname";
+            this.accounts_lbl_error_firstname.Size = new System.Drawing.Size(12, 13);
+            this.accounts_lbl_error_firstname.TabIndex = 174;
+            this.accounts_lbl_error_firstname.Text = "*";
+            // 
             // accounts_refresh
             // 
             this.accounts_refresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -4593,6 +5181,15 @@
             this.accounts_refresh.UseVisualStyleBackColor = false;
             this.accounts_refresh.Click += new System.EventHandler(this.accounts_refresh_Click);
             // 
+            // accounts_add_contact_no
+            // 
+            this.accounts_add_contact_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.accounts_add_contact_no.Location = new System.Drawing.Point(666, 449);
+            this.accounts_add_contact_no.Mask = "00000000000";
+            this.accounts_add_contact_no.Name = "accounts_add_contact_no";
+            this.accounts_add_contact_no.Size = new System.Drawing.Size(189, 15);
+            this.accounts_add_contact_no.TabIndex = 172;
+            // 
             // accounts_btn_add
             // 
             this.accounts_btn_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -4608,6 +5205,37 @@
             this.accounts_btn_add.Text = "ADD USER";
             this.accounts_btn_add.UseVisualStyleBackColor = false;
             this.accounts_btn_add.Click += new System.EventHandler(this.accounts_btn_add_Click);
+            // 
+            // accounts_add_status
+            // 
+            this.accounts_add_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accounts_add_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_add_status.FormattingEnabled = true;
+            this.accounts_add_status.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "Break"});
+            this.accounts_add_status.Location = new System.Drawing.Point(665, 467);
+            this.accounts_add_status.Name = "accounts_add_status";
+            this.accounts_add_status.Size = new System.Drawing.Size(189, 21);
+            this.accounts_add_status.TabIndex = 168;
+            this.accounts_add_status.SelectedIndexChanged += new System.EventHandler(this.accounts_add_status_SelectedIndexChanged);
+            // 
+            // accounts_add_account_type
+            // 
+            this.accounts_add_account_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accounts_add_account_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_add_account_type.FormattingEnabled = true;
+            this.accounts_add_account_type.Items.AddRange(new object[] {
+            "Admin",
+            "Inventory Manager",
+            "Project Manager",
+            "IT Officer"});
+            this.accounts_add_account_type.Location = new System.Drawing.Point(669, 419);
+            this.accounts_add_account_type.Name = "accounts_add_account_type";
+            this.accounts_add_account_type.Size = new System.Drawing.Size(185, 21);
+            this.accounts_add_account_type.TabIndex = 167;
+            this.accounts_add_account_type.SelectedIndexChanged += new System.EventHandler(this.accounts_add_account_type_SelectedIndexChanged);
             // 
             // accounts_add_password
             // 
@@ -4626,6 +5254,74 @@
             this.accounts_add_username.Size = new System.Drawing.Size(189, 22);
             this.accounts_add_username.TabIndex = 165;
             this.accounts_add_username.TextChanged += new System.EventHandler(this.accounts_add_username_TextChanged);
+            // 
+            // accounts_add_lastname
+            // 
+            this.accounts_add_lastname.Location = new System.Drawing.Point(665, 392);
+            this.accounts_add_lastname.Name = "accounts_add_lastname";
+            this.accounts_add_lastname.Size = new System.Drawing.Size(189, 22);
+            this.accounts_add_lastname.TabIndex = 164;
+            this.accounts_add_lastname.TextChanged += new System.EventHandler(this.accounts_add_lastname_TextChanged);
+            // 
+            // accounts_add_middlename
+            // 
+            this.accounts_add_middlename.Location = new System.Drawing.Point(665, 365);
+            this.accounts_add_middlename.Name = "accounts_add_middlename";
+            this.accounts_add_middlename.Size = new System.Drawing.Size(189, 22);
+            this.accounts_add_middlename.TabIndex = 163;
+            this.accounts_add_middlename.TextChanged += new System.EventHandler(this.accounts_add_middlename_TextChanged);
+            // 
+            // accounts_add_firstname
+            // 
+            this.accounts_add_firstname.Location = new System.Drawing.Point(665, 338);
+            this.accounts_add_firstname.Name = "accounts_add_firstname";
+            this.accounts_add_firstname.Size = new System.Drawing.Size(189, 22);
+            this.accounts_add_firstname.TabIndex = 162;
+            this.accounts_add_firstname.TextChanged += new System.EventHandler(this.accounts_add_firstname_TextChanged);
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label142.Location = new System.Drawing.Point(650, 345);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(10, 13);
+            this.label142.TabIndex = 161;
+            this.label142.Text = ":";
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label141.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label141.Location = new System.Drawing.Point(650, 371);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(10, 13);
+            this.label141.TabIndex = 160;
+            this.label141.Text = ":";
+            // 
+            // label140
+            // 
+            this.label140.AutoSize = true;
+            this.label140.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label140.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label140.Location = new System.Drawing.Point(566, 345);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(66, 13);
+            this.label140.TabIndex = 159;
+            this.label140.Text = "FIRSTNAME";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label139.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label139.Location = new System.Drawing.Point(566, 371);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(78, 13);
+            this.label139.TabIndex = 158;
+            this.label139.Text = "MIDDLENAME";
             // 
             // label158
             // 
@@ -4660,6 +5356,50 @@
             this.label145.TabIndex = 152;
             this.label145.Text = ":";
             // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label146.Location = new System.Drawing.Point(650, 474);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(10, 13);
+            this.label146.TabIndex = 151;
+            this.label146.Text = ":";
+            // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label147.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label147.Location = new System.Drawing.Point(650, 449);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(10, 13);
+            this.label147.TabIndex = 150;
+            this.label147.Text = ":";
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label148.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label148.Location = new System.Drawing.Point(657, 422);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(10, 13);
+            this.label148.TabIndex = 149;
+            this.label148.Text = ":";
+            // 
+            // label149
+            // 
+            this.label149.AutoSize = true;
+            this.label149.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label149.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label149.Location = new System.Drawing.Point(650, 398);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(10, 13);
+            this.label149.TabIndex = 148;
+            this.label149.Text = ":";
+            // 
             // label150
             // 
             this.label150.AutoSize = true;
@@ -4670,6 +5410,61 @@
             this.label150.Size = new System.Drawing.Size(65, 13);
             this.label150.TabIndex = 147;
             this.label150.Text = "USERNAME";
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label151.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label151.Location = new System.Drawing.Point(566, 474);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(44, 13);
+            this.label151.TabIndex = 146;
+            this.label151.Text = "STATUS";
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label152.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label152.Location = new System.Drawing.Point(566, 449);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(80, 13);
+            this.label152.TabIndex = 145;
+            this.label152.Text = "CONTACT NO. ";
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label153.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label153.Location = new System.Drawing.Point(566, 424);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(85, 13);
+            this.label153.TabIndex = 144;
+            this.label153.Text = "ACCOUNT TYPE";
+            // 
+            // label154
+            // 
+            this.label154.AutoSize = true;
+            this.label154.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label154.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label154.Location = new System.Drawing.Point(566, 398);
+            this.label154.Name = "label154";
+            this.label154.Size = new System.Drawing.Size(62, 13);
+            this.label154.TabIndex = 143;
+            this.label154.Text = "LASTNAME";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label144.Location = new System.Drawing.Point(566, 317);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(106, 17);
+            this.label144.TabIndex = 142;
+            this.label144.Text = "ADD NEW USER";
             // 
             // accounts_username
             // 
@@ -4903,6 +5698,53 @@
             this.panel6.Size = new System.Drawing.Size(1066, 28);
             this.panel6.TabIndex = 6;
             // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label143.Location = new System.Drawing.Point(662, 428);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(197, 15);
+            this.label143.TabIndex = 169;
+            this.label143.Text = "______________________________________";
+            // 
+            // label156
+            // 
+            this.label156.AutoSize = true;
+            this.label156.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label156.Location = new System.Drawing.Point(662, 476);
+            this.label156.Name = "label156";
+            this.label156.Size = new System.Drawing.Size(197, 15);
+            this.label156.TabIndex = 170;
+            this.label156.Text = "______________________________________";
+            // 
+            // label163
+            // 
+            this.label163.AutoSize = true;
+            this.label163.ForeColor = System.Drawing.Color.Red;
+            this.label163.Location = new System.Drawing.Point(648, 424);
+            this.label163.Name = "label163";
+            this.label163.Size = new System.Drawing.Size(12, 13);
+            this.label163.TabIndex = 177;
+            this.label163.Text = "*";
+            // 
+            // accounts_btn_edit
+            // 
+            this.accounts_btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.accounts_btn_edit.BackColor = System.Drawing.Color.White;
+            this.accounts_btn_edit.Enabled = false;
+            this.accounts_btn_edit.FlatAppearance.BorderSize = 0;
+            this.accounts_btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accounts_btn_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accounts_btn_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.accounts_btn_edit.Location = new System.Drawing.Point(918, 281);
+            this.accounts_btn_edit.Name = "accounts_btn_edit";
+            this.accounts_btn_edit.Size = new System.Drawing.Size(132, 31);
+            this.accounts_btn_edit.TabIndex = 182;
+            this.accounts_btn_edit.Text = "EDIT";
+            this.accounts_btn_edit.UseVisualStyleBackColor = false;
+            this.accounts_btn_edit.Click += new System.EventHandler(this.accounts_btn_edit_Click);
+            // 
             // startup_opacity
             // 
             this.startup_opacity.Interval = 1;
@@ -4977,819 +5819,145 @@
             this.btn_notifications_pwd.Text = "There are no new notifications..";
             this.btn_notifications_pwd.UseVisualStyleBackColor = false;
             // 
-            // accounts_pnl_edit
-            // 
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_lbl_user_error);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_lbl_admin);
-            this.accounts_pnl_edit.Controls.Add(this.label192);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_btn_cancel);
-            this.accounts_pnl_edit.Controls.Add(this.label155);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_password);
-            this.accounts_pnl_edit.Controls.Add(this.label186);
-            this.accounts_pnl_edit.Controls.Add(this.label160);
-            this.accounts_pnl_edit.Controls.Add(this.label187);
-            this.accounts_pnl_edit.Controls.Add(this.label188);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_username);
-            this.accounts_pnl_edit.Controls.Add(this.label189);
-            this.accounts_pnl_edit.Controls.Add(this.label167);
-            this.accounts_pnl_edit.Controls.Add(this.label168);
-            this.accounts_pnl_edit.Controls.Add(this.label169);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_contact_no);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_status);
-            this.accounts_pnl_edit.Controls.Add(this.label190);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_account_type);
-            this.accounts_pnl_edit.Controls.Add(this.label191);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_lastname);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_middlename);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_edit_firstname);
-            this.accounts_pnl_edit.Controls.Add(this.label170);
-            this.accounts_pnl_edit.Controls.Add(this.label171);
-            this.accounts_pnl_edit.Controls.Add(this.label172);
-            this.accounts_pnl_edit.Controls.Add(this.label173);
-            this.accounts_pnl_edit.Controls.Add(this.label174);
-            this.accounts_pnl_edit.Controls.Add(this.label175);
-            this.accounts_pnl_edit.Controls.Add(this.label176);
-            this.accounts_pnl_edit.Controls.Add(this.label177);
-            this.accounts_pnl_edit.Controls.Add(this.label178);
-            this.accounts_pnl_edit.Controls.Add(this.label179);
-            this.accounts_pnl_edit.Controls.Add(this.label180);
-            this.accounts_pnl_edit.Controls.Add(this.label181);
-            this.accounts_pnl_edit.Controls.Add(this.label182);
-            this.accounts_pnl_edit.Controls.Add(this.label183);
-            this.accounts_pnl_edit.Controls.Add(this.label184);
-            this.accounts_pnl_edit.Controls.Add(this.label185);
-            this.accounts_pnl_edit.Controls.Add(this.accounts_btn_save);
-            this.accounts_pnl_edit.Location = new System.Drawing.Point(560, 83);
-            this.accounts_pnl_edit.Name = "accounts_pnl_edit";
-            this.accounts_pnl_edit.Size = new System.Drawing.Size(492, 231);
-            this.accounts_pnl_edit.TabIndex = 181;
-            this.accounts_pnl_edit.Visible = false;
-            // 
-            // accounts_btn_edit
-            // 
-            this.accounts_btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.accounts_btn_edit.BackColor = System.Drawing.Color.White;
-            this.accounts_btn_edit.Enabled = false;
-            this.accounts_btn_edit.FlatAppearance.BorderSize = 0;
-            this.accounts_btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_btn_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accounts_btn_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.accounts_btn_edit.Location = new System.Drawing.Point(918, 281);
-            this.accounts_btn_edit.Name = "accounts_btn_edit";
-            this.accounts_btn_edit.Size = new System.Drawing.Size(132, 31);
-            this.accounts_btn_edit.TabIndex = 182;
-            this.accounts_btn_edit.Text = "EDIT";
-            this.accounts_btn_edit.UseVisualStyleBackColor = false;
-            this.accounts_btn_edit.Click += new System.EventHandler(this.accounts_btn_edit_Click);
-            // 
-            // accounts_btn_save
-            // 
-            this.accounts_btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.accounts_btn_save.BackColor = System.Drawing.Color.White;
-            this.accounts_btn_save.FlatAppearance.BorderSize = 0;
-            this.accounts_btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_btn_save.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accounts_btn_save.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.accounts_btn_save.Location = new System.Drawing.Point(358, 198);
-            this.accounts_btn_save.Name = "accounts_btn_save";
-            this.accounts_btn_save.Size = new System.Drawing.Size(132, 31);
-            this.accounts_btn_save.TabIndex = 183;
-            this.accounts_btn_save.Text = "SAVE";
-            this.accounts_btn_save.UseVisualStyleBackColor = false;
-            this.accounts_btn_save.Click += new System.EventHandler(this.accounts_btn_save_Click);
-            // 
-            // label163
-            // 
-            this.label163.AutoSize = true;
-            this.label163.ForeColor = System.Drawing.Color.Red;
-            this.label163.Location = new System.Drawing.Point(648, 424);
-            this.label163.Name = "label163";
-            this.label163.Size = new System.Drawing.Size(12, 13);
-            this.label163.TabIndex = 177;
-            this.label163.Text = "*";
-            // 
-            // label156
-            // 
-            this.label156.AutoSize = true;
-            this.label156.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label156.Location = new System.Drawing.Point(662, 476);
-            this.label156.Name = "label156";
-            this.label156.Size = new System.Drawing.Size(197, 15);
-            this.label156.TabIndex = 170;
-            this.label156.Text = "______________________________________";
-            // 
-            // label143
-            // 
-            this.label143.AutoSize = true;
-            this.label143.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label143.Location = new System.Drawing.Point(662, 428);
-            this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(197, 15);
-            this.label143.TabIndex = 169;
-            this.label143.Text = "______________________________________";
-            // 
-            // label144
-            // 
-            this.label144.AutoSize = true;
-            this.label144.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label144.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label144.Location = new System.Drawing.Point(566, 317);
-            this.label144.Name = "label144";
-            this.label144.Size = new System.Drawing.Size(106, 17);
-            this.label144.TabIndex = 142;
-            this.label144.Text = "ADD NEW USER";
-            // 
-            // label154
-            // 
-            this.label154.AutoSize = true;
-            this.label154.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label154.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label154.Location = new System.Drawing.Point(566, 398);
-            this.label154.Name = "label154";
-            this.label154.Size = new System.Drawing.Size(62, 13);
-            this.label154.TabIndex = 143;
-            this.label154.Text = "LASTNAME";
-            // 
-            // label153
-            // 
-            this.label153.AutoSize = true;
-            this.label153.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label153.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label153.Location = new System.Drawing.Point(566, 424);
-            this.label153.Name = "label153";
-            this.label153.Size = new System.Drawing.Size(85, 13);
-            this.label153.TabIndex = 144;
-            this.label153.Text = "ACCOUNT TYPE";
-            // 
-            // label152
-            // 
-            this.label152.AutoSize = true;
-            this.label152.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label152.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label152.Location = new System.Drawing.Point(566, 449);
-            this.label152.Name = "label152";
-            this.label152.Size = new System.Drawing.Size(80, 13);
-            this.label152.TabIndex = 145;
-            this.label152.Text = "CONTACT NO. ";
-            // 
-            // label151
-            // 
-            this.label151.AutoSize = true;
-            this.label151.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label151.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label151.Location = new System.Drawing.Point(566, 474);
-            this.label151.Name = "label151";
-            this.label151.Size = new System.Drawing.Size(44, 13);
-            this.label151.TabIndex = 146;
-            this.label151.Text = "STATUS";
-            // 
-            // label149
-            // 
-            this.label149.AutoSize = true;
-            this.label149.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label149.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label149.Location = new System.Drawing.Point(650, 398);
-            this.label149.Name = "label149";
-            this.label149.Size = new System.Drawing.Size(10, 13);
-            this.label149.TabIndex = 148;
-            this.label149.Text = ":";
-            // 
-            // label148
-            // 
-            this.label148.AutoSize = true;
-            this.label148.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label148.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label148.Location = new System.Drawing.Point(657, 422);
-            this.label148.Name = "label148";
-            this.label148.Size = new System.Drawing.Size(10, 13);
-            this.label148.TabIndex = 149;
-            this.label148.Text = ":";
-            // 
-            // label147
-            // 
-            this.label147.AutoSize = true;
-            this.label147.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label147.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label147.Location = new System.Drawing.Point(650, 449);
-            this.label147.Name = "label147";
-            this.label147.Size = new System.Drawing.Size(10, 13);
-            this.label147.TabIndex = 150;
-            this.label147.Text = ":";
-            // 
-            // label146
-            // 
-            this.label146.AutoSize = true;
-            this.label146.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label146.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label146.Location = new System.Drawing.Point(650, 474);
-            this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(10, 13);
-            this.label146.TabIndex = 151;
-            this.label146.Text = ":";
-            // 
-            // label139
-            // 
-            this.label139.AutoSize = true;
-            this.label139.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label139.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label139.Location = new System.Drawing.Point(566, 371);
-            this.label139.Name = "label139";
-            this.label139.Size = new System.Drawing.Size(78, 13);
-            this.label139.TabIndex = 158;
-            this.label139.Text = "MIDDLENAME";
-            // 
-            // label140
-            // 
-            this.label140.AutoSize = true;
-            this.label140.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label140.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label140.Location = new System.Drawing.Point(566, 345);
-            this.label140.Name = "label140";
-            this.label140.Size = new System.Drawing.Size(66, 13);
-            this.label140.TabIndex = 159;
-            this.label140.Text = "FIRSTNAME";
-            // 
-            // label141
-            // 
-            this.label141.AutoSize = true;
-            this.label141.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label141.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label141.Location = new System.Drawing.Point(650, 371);
-            this.label141.Name = "label141";
-            this.label141.Size = new System.Drawing.Size(10, 13);
-            this.label141.TabIndex = 160;
-            this.label141.Text = ":";
-            // 
-            // label142
-            // 
-            this.label142.AutoSize = true;
-            this.label142.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label142.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label142.Location = new System.Drawing.Point(650, 345);
-            this.label142.Name = "label142";
-            this.label142.Size = new System.Drawing.Size(10, 13);
-            this.label142.TabIndex = 161;
-            this.label142.Text = ":";
-            // 
-            // accounts_add_firstname
-            // 
-            this.accounts_add_firstname.Location = new System.Drawing.Point(665, 338);
-            this.accounts_add_firstname.Name = "accounts_add_firstname";
-            this.accounts_add_firstname.Size = new System.Drawing.Size(189, 22);
-            this.accounts_add_firstname.TabIndex = 162;
-            this.accounts_add_firstname.TextChanged += new System.EventHandler(this.accounts_add_firstname_TextChanged);
-            // 
-            // accounts_add_middlename
-            // 
-            this.accounts_add_middlename.Location = new System.Drawing.Point(665, 365);
-            this.accounts_add_middlename.Name = "accounts_add_middlename";
-            this.accounts_add_middlename.Size = new System.Drawing.Size(189, 22);
-            this.accounts_add_middlename.TabIndex = 163;
-            this.accounts_add_middlename.TextChanged += new System.EventHandler(this.accounts_add_middlename_TextChanged);
-            // 
-            // accounts_add_lastname
-            // 
-            this.accounts_add_lastname.Location = new System.Drawing.Point(665, 392);
-            this.accounts_add_lastname.Name = "accounts_add_lastname";
-            this.accounts_add_lastname.Size = new System.Drawing.Size(189, 22);
-            this.accounts_add_lastname.TabIndex = 164;
-            this.accounts_add_lastname.TextChanged += new System.EventHandler(this.accounts_add_lastname_TextChanged);
-            // 
-            // accounts_add_account_type
-            // 
-            this.accounts_add_account_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.accounts_add_account_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_add_account_type.FormattingEnabled = true;
-            this.accounts_add_account_type.Items.AddRange(new object[] {
-            "Admin",
-            "Inventory Manager",
-            "Project Manager",
-            "IT Officer"});
-            this.accounts_add_account_type.Location = new System.Drawing.Point(669, 419);
-            this.accounts_add_account_type.Name = "accounts_add_account_type";
-            this.accounts_add_account_type.Size = new System.Drawing.Size(185, 21);
-            this.accounts_add_account_type.TabIndex = 167;
-            this.accounts_add_account_type.SelectedIndexChanged += new System.EventHandler(this.accounts_add_account_type_SelectedIndexChanged);
-            // 
-            // accounts_add_status
-            // 
-            this.accounts_add_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.accounts_add_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_add_status.FormattingEnabled = true;
-            this.accounts_add_status.Items.AddRange(new object[] {
-            "Active",
-            "Inactive",
-            "Break"});
-            this.accounts_add_status.Location = new System.Drawing.Point(665, 467);
-            this.accounts_add_status.Name = "accounts_add_status";
-            this.accounts_add_status.Size = new System.Drawing.Size(189, 21);
-            this.accounts_add_status.TabIndex = 168;
-            this.accounts_add_status.SelectedIndexChanged += new System.EventHandler(this.accounts_add_status_SelectedIndexChanged);
-            // 
-            // accounts_add_contact_no
-            // 
-            this.accounts_add_contact_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.accounts_add_contact_no.Location = new System.Drawing.Point(666, 449);
-            this.accounts_add_contact_no.Mask = "00000000000";
-            this.accounts_add_contact_no.Name = "accounts_add_contact_no";
-            this.accounts_add_contact_no.Size = new System.Drawing.Size(189, 15);
-            this.accounts_add_contact_no.TabIndex = 172;
-            // 
-            // accounts_lbl_error_firstname
-            // 
-            this.accounts_lbl_error_firstname.AutoSize = true;
-            this.accounts_lbl_error_firstname.ForeColor = System.Drawing.Color.Red;
-            this.accounts_lbl_error_firstname.Location = new System.Drawing.Point(628, 345);
-            this.accounts_lbl_error_firstname.Name = "accounts_lbl_error_firstname";
-            this.accounts_lbl_error_firstname.Size = new System.Drawing.Size(12, 13);
-            this.accounts_lbl_error_firstname.TabIndex = 174;
-            this.accounts_lbl_error_firstname.Text = "*";
-            // 
-            // label161
-            // 
-            this.label161.AutoSize = true;
-            this.label161.ForeColor = System.Drawing.Color.Red;
-            this.label161.Location = new System.Drawing.Point(641, 371);
-            this.label161.Name = "label161";
-            this.label161.Size = new System.Drawing.Size(12, 13);
-            this.label161.TabIndex = 175;
-            this.label161.Text = "*";
-            // 
-            // label162
-            // 
-            this.label162.AutoSize = true;
-            this.label162.ForeColor = System.Drawing.Color.Red;
-            this.label162.Location = new System.Drawing.Point(625, 398);
-            this.label162.Name = "label162";
-            this.label162.Size = new System.Drawing.Size(12, 13);
-            this.label162.TabIndex = 176;
-            this.label162.Text = "*";
-            // 
-            // label164
-            // 
-            this.label164.AutoSize = true;
-            this.label164.ForeColor = System.Drawing.Color.Red;
-            this.label164.Location = new System.Drawing.Point(607, 474);
-            this.label164.Name = "label164";
-            this.label164.Size = new System.Drawing.Size(12, 13);
-            this.label164.TabIndex = 178;
-            this.label164.Text = "*";
-            // 
-            // label160
-            // 
-            this.label160.AutoSize = true;
-            this.label160.ForeColor = System.Drawing.Color.Red;
-            this.label160.Location = new System.Drawing.Point(50, 179);
-            this.label160.Name = "label160";
-            this.label160.Size = new System.Drawing.Size(12, 13);
-            this.label160.TabIndex = 209;
-            this.label160.Text = "*";
-            // 
-            // label167
-            // 
-            this.label167.AutoSize = true;
-            this.label167.ForeColor = System.Drawing.Color.Red;
-            this.label167.Location = new System.Drawing.Point(68, 103);
-            this.label167.Name = "label167";
-            this.label167.Size = new System.Drawing.Size(12, 13);
-            this.label167.TabIndex = 207;
-            this.label167.Text = "*";
-            // 
-            // label168
-            // 
-            this.label168.AutoSize = true;
-            this.label168.ForeColor = System.Drawing.Color.Red;
-            this.label168.Location = new System.Drawing.Point(84, 76);
-            this.label168.Name = "label168";
-            this.label168.Size = new System.Drawing.Size(12, 13);
-            this.label168.TabIndex = 206;
-            this.label168.Text = "*";
-            // 
-            // label169
-            // 
-            this.label169.AutoSize = true;
-            this.label169.ForeColor = System.Drawing.Color.Red;
-            this.label169.Location = new System.Drawing.Point(71, 50);
-            this.label169.Name = "label169";
-            this.label169.Size = new System.Drawing.Size(12, 13);
-            this.label169.TabIndex = 205;
-            this.label169.Text = "*";
-            // 
-            // accounts_edit_contact_no
-            // 
-            this.accounts_edit_contact_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.accounts_edit_contact_no.Location = new System.Drawing.Point(109, 154);
-            this.accounts_edit_contact_no.Mask = "00000000000";
-            this.accounts_edit_contact_no.Name = "accounts_edit_contact_no";
-            this.accounts_edit_contact_no.Size = new System.Drawing.Size(189, 15);
-            this.accounts_edit_contact_no.TabIndex = 204;
-            this.accounts_edit_contact_no.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.accounts_edit_contact_no_MaskInputRejected);
-            // 
-            // accounts_edit_status
-            // 
-            this.accounts_edit_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.accounts_edit_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_edit_status.FormattingEnabled = true;
-            this.accounts_edit_status.Items.AddRange(new object[] {
-            "Active",
-            "Inactive",
-            "Break"});
-            this.accounts_edit_status.Location = new System.Drawing.Point(108, 172);
-            this.accounts_edit_status.Name = "accounts_edit_status";
-            this.accounts_edit_status.Size = new System.Drawing.Size(189, 21);
-            this.accounts_edit_status.TabIndex = 201;
-            this.accounts_edit_status.SelectedIndexChanged += new System.EventHandler(this.accounts_edit_status_SelectedIndexChanged);
-            // 
-            // accounts_edit_account_type
-            // 
-            this.accounts_edit_account_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.accounts_edit_account_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_edit_account_type.FormattingEnabled = true;
-            this.accounts_edit_account_type.Items.AddRange(new object[] {
-            "Admin",
-            "IT Officer",
-            "Inventory Manager",
-            "Project Manager"});
-            this.accounts_edit_account_type.Location = new System.Drawing.Point(112, 124);
-            this.accounts_edit_account_type.Name = "accounts_edit_account_type";
-            this.accounts_edit_account_type.Size = new System.Drawing.Size(185, 21);
-            this.accounts_edit_account_type.TabIndex = 200;
-            this.accounts_edit_account_type.SelectedIndexChanged += new System.EventHandler(this.accounts_edit_account_type_SelectedIndexChanged);
-            // 
-            // accounts_edit_lastname
-            // 
-            this.accounts_edit_lastname.Location = new System.Drawing.Point(108, 97);
-            this.accounts_edit_lastname.Name = "accounts_edit_lastname";
-            this.accounts_edit_lastname.Size = new System.Drawing.Size(189, 22);
-            this.accounts_edit_lastname.TabIndex = 199;
-            this.accounts_edit_lastname.TextChanged += new System.EventHandler(this.accounts_edit_lastname_TextChanged);
-            // 
-            // accounts_edit_middlename
-            // 
-            this.accounts_edit_middlename.Location = new System.Drawing.Point(108, 70);
-            this.accounts_edit_middlename.Name = "accounts_edit_middlename";
-            this.accounts_edit_middlename.Size = new System.Drawing.Size(189, 22);
-            this.accounts_edit_middlename.TabIndex = 198;
-            this.accounts_edit_middlename.TextChanged += new System.EventHandler(this.accounts_edit_middlename_TextChanged);
-            // 
-            // accounts_edit_firstname
-            // 
-            this.accounts_edit_firstname.Location = new System.Drawing.Point(108, 43);
-            this.accounts_edit_firstname.Name = "accounts_edit_firstname";
-            this.accounts_edit_firstname.Size = new System.Drawing.Size(189, 22);
-            this.accounts_edit_firstname.TabIndex = 197;
-            this.accounts_edit_firstname.TextChanged += new System.EventHandler(this.accounts_edit_firstname_TextChanged);
-            // 
-            // label170
-            // 
-            this.label170.AutoSize = true;
-            this.label170.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label170.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label170.Location = new System.Drawing.Point(93, 50);
-            this.label170.Name = "label170";
-            this.label170.Size = new System.Drawing.Size(10, 13);
-            this.label170.TabIndex = 196;
-            this.label170.Text = ":";
-            // 
-            // label171
-            // 
-            this.label171.AutoSize = true;
-            this.label171.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label171.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label171.Location = new System.Drawing.Point(93, 76);
-            this.label171.Name = "label171";
-            this.label171.Size = new System.Drawing.Size(10, 13);
-            this.label171.TabIndex = 195;
-            this.label171.Text = ":";
-            // 
-            // label172
-            // 
-            this.label172.AutoSize = true;
-            this.label172.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label172.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label172.Location = new System.Drawing.Point(9, 50);
-            this.label172.Name = "label172";
-            this.label172.Size = new System.Drawing.Size(66, 13);
-            this.label172.TabIndex = 194;
-            this.label172.Text = "FIRSTNAME";
-            // 
-            // label173
-            // 
-            this.label173.AutoSize = true;
-            this.label173.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label173.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label173.Location = new System.Drawing.Point(9, 76);
-            this.label173.Name = "label173";
-            this.label173.Size = new System.Drawing.Size(78, 13);
-            this.label173.TabIndex = 193;
-            this.label173.Text = "MIDDLENAME";
-            // 
-            // label174
-            // 
-            this.label174.AutoSize = true;
-            this.label174.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label174.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label174.Location = new System.Drawing.Point(93, 179);
-            this.label174.Name = "label174";
-            this.label174.Size = new System.Drawing.Size(10, 13);
-            this.label174.TabIndex = 192;
-            this.label174.Text = ":";
-            // 
-            // label175
-            // 
-            this.label175.AutoSize = true;
-            this.label175.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label175.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label175.Location = new System.Drawing.Point(93, 154);
-            this.label175.Name = "label175";
-            this.label175.Size = new System.Drawing.Size(10, 13);
-            this.label175.TabIndex = 191;
-            this.label175.Text = ":";
-            // 
-            // label176
-            // 
-            this.label176.AutoSize = true;
-            this.label176.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label176.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label176.Location = new System.Drawing.Point(100, 127);
-            this.label176.Name = "label176";
-            this.label176.Size = new System.Drawing.Size(10, 13);
-            this.label176.TabIndex = 190;
-            this.label176.Text = ":";
-            // 
-            // label177
-            // 
-            this.label177.AutoSize = true;
-            this.label177.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label177.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label177.Location = new System.Drawing.Point(93, 103);
-            this.label177.Name = "label177";
-            this.label177.Size = new System.Drawing.Size(10, 13);
-            this.label177.TabIndex = 189;
-            this.label177.Text = ":";
-            // 
-            // label178
-            // 
-            this.label178.AutoSize = true;
-            this.label178.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label178.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label178.Location = new System.Drawing.Point(9, 179);
-            this.label178.Name = "label178";
-            this.label178.Size = new System.Drawing.Size(44, 13);
-            this.label178.TabIndex = 188;
-            this.label178.Text = "STATUS";
-            // 
-            // label179
-            // 
-            this.label179.AutoSize = true;
-            this.label179.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label179.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label179.Location = new System.Drawing.Point(9, 154);
-            this.label179.Name = "label179";
-            this.label179.Size = new System.Drawing.Size(80, 13);
-            this.label179.TabIndex = 187;
-            this.label179.Text = "CONTACT NO. ";
-            // 
-            // label180
-            // 
-            this.label180.AutoSize = true;
-            this.label180.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label180.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label180.Location = new System.Drawing.Point(9, 129);
-            this.label180.Name = "label180";
-            this.label180.Size = new System.Drawing.Size(85, 13);
-            this.label180.TabIndex = 186;
-            this.label180.Text = "ACCOUNT TYPE";
-            // 
-            // label181
-            // 
-            this.label181.AutoSize = true;
-            this.label181.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label181.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label181.Location = new System.Drawing.Point(9, 103);
-            this.label181.Name = "label181";
-            this.label181.Size = new System.Drawing.Size(62, 13);
-            this.label181.TabIndex = 185;
-            this.label181.Text = "LASTNAME";
-            // 
-            // label182
-            // 
-            this.label182.AutoSize = true;
-            this.label182.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label182.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label182.Location = new System.Drawing.Point(9, 22);
-            this.label182.Name = "label182";
-            this.label182.Size = new System.Drawing.Size(72, 17);
-            this.label182.TabIndex = 184;
-            this.label182.Text = "EDIT USER";
-            // 
-            // label183
-            // 
-            this.label183.AutoSize = true;
-            this.label183.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label183.Location = new System.Drawing.Point(105, 133);
-            this.label183.Name = "label183";
-            this.label183.Size = new System.Drawing.Size(197, 15);
-            this.label183.TabIndex = 202;
-            this.label183.Text = "______________________________________";
-            // 
-            // label184
-            // 
-            this.label184.AutoSize = true;
-            this.label184.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label184.Location = new System.Drawing.Point(105, 181);
-            this.label184.Name = "label184";
-            this.label184.Size = new System.Drawing.Size(197, 15);
-            this.label184.TabIndex = 203;
-            this.label184.Text = "______________________________________";
-            // 
-            // label185
-            // 
-            this.label185.AutoSize = true;
-            this.label185.ForeColor = System.Drawing.Color.Red;
-            this.label185.Location = new System.Drawing.Point(91, 129);
-            this.label185.Name = "label185";
-            this.label185.Size = new System.Drawing.Size(12, 13);
-            this.label185.TabIndex = 208;
-            this.label185.Text = "*";
-            // 
-            // label186
-            // 
-            this.label186.AutoSize = true;
-            this.label186.ForeColor = System.Drawing.Color.Red;
-            this.label186.Location = new System.Drawing.Point(367, 128);
-            this.label186.Name = "label186";
-            this.label186.Size = new System.Drawing.Size(12, 13);
-            this.label186.TabIndex = 190;
-            this.label186.Text = "*";
-            // 
-            // label187
-            // 
-            this.label187.AutoSize = true;
-            this.label187.ForeColor = System.Drawing.Color.Red;
-            this.label187.Location = new System.Drawing.Point(367, 49);
-            this.label187.Name = "label187";
-            this.label187.Size = new System.Drawing.Size(12, 13);
-            this.label187.TabIndex = 189;
-            this.label187.Text = "*";
-            // 
-            // accounts_edit_password
-            // 
-            this.accounts_edit_password.Location = new System.Drawing.Point(308, 151);
-            this.accounts_edit_password.MaxLength = 16;
-            this.accounts_edit_password.Name = "accounts_edit_password";
-            this.accounts_edit_password.Size = new System.Drawing.Size(173, 22);
-            this.accounts_edit_password.TabIndex = 188;
-            this.accounts_edit_password.TextChanged += new System.EventHandler(this.accounts_edit_password_TextChanged);
-            // 
-            // accounts_edit_username
-            // 
-            this.accounts_edit_username.Location = new System.Drawing.Point(308, 70);
-            this.accounts_edit_username.MaxLength = 12;
-            this.accounts_edit_username.Name = "accounts_edit_username";
-            this.accounts_edit_username.Size = new System.Drawing.Size(173, 22);
-            this.accounts_edit_username.TabIndex = 187;
-            this.accounts_edit_username.TextChanged += new System.EventHandler(this.accounts_edit_username_TextChanged);
-            // 
-            // label188
-            // 
-            this.label188.AutoSize = true;
-            this.label188.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label188.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label188.Location = new System.Drawing.Point(389, 129);
-            this.label188.Name = "label188";
-            this.label188.Size = new System.Drawing.Size(10, 13);
-            this.label188.TabIndex = 186;
-            this.label188.Text = ":";
-            // 
-            // label189
-            // 
-            this.label189.AutoSize = true;
-            this.label189.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label189.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label189.Location = new System.Drawing.Point(305, 129);
-            this.label189.Name = "label189";
-            this.label189.Size = new System.Drawing.Size(65, 13);
-            this.label189.TabIndex = 185;
-            this.label189.Text = "PASSWORD";
-            // 
-            // label190
-            // 
-            this.label190.AutoSize = true;
-            this.label190.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label190.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label190.Location = new System.Drawing.Point(389, 49);
-            this.label190.Name = "label190";
-            this.label190.Size = new System.Drawing.Size(10, 13);
-            this.label190.TabIndex = 184;
-            this.label190.Text = ":";
-            // 
-            // label191
-            // 
-            this.label191.AutoSize = true;
-            this.label191.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label191.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label191.Location = new System.Drawing.Point(305, 49);
-            this.label191.Name = "label191";
-            this.label191.Size = new System.Drawing.Size(65, 13);
-            this.label191.TabIndex = 183;
-            this.label191.Text = "USERNAME";
-            // 
-            // accounts_btn_cancel
-            // 
-            this.accounts_btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.accounts_btn_cancel.BackColor = System.Drawing.Color.White;
-            this.accounts_btn_cancel.FlatAppearance.BorderSize = 0;
-            this.accounts_btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accounts_btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accounts_btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.accounts_btn_cancel.Location = new System.Drawing.Point(220, 198);
-            this.accounts_btn_cancel.Name = "accounts_btn_cancel";
-            this.accounts_btn_cancel.Size = new System.Drawing.Size(132, 31);
-            this.accounts_btn_cancel.TabIndex = 184;
-            this.accounts_btn_cancel.Text = "CANCEL";
-            this.accounts_btn_cancel.UseVisualStyleBackColor = false;
-            this.accounts_btn_cancel.Click += new System.EventHandler(this.accounts_btn_cancel_Click);
-            // 
-            // label155
-            // 
-            this.label155.AutoSize = true;
-            this.label155.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label155.ForeColor = System.Drawing.Color.Gray;
-            this.label155.Location = new System.Drawing.Point(305, 95);
-            this.label155.Name = "label155";
-            this.label155.Size = new System.Drawing.Size(158, 13);
-            this.label155.TabIndex = 210;
-            this.label155.Text = "Must be atleast 6-12 characters.";
-            // 
-            // label157
-            // 
-            this.label157.AutoSize = true;
-            this.label157.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label157.ForeColor = System.Drawing.Color.Gray;
-            this.label157.Location = new System.Drawing.Point(860, 514);
-            this.label157.Name = "label157";
-            this.label157.Size = new System.Drawing.Size(158, 13);
-            this.label157.TabIndex = 211;
-            this.label157.Text = "Must be atleast 6-12 characters.";
-            // 
-            // label192
-            // 
-            this.label192.AutoSize = true;
-            this.label192.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label192.ForeColor = System.Drawing.Color.Gray;
-            this.label192.Location = new System.Drawing.Point(305, 175);
-            this.label192.Name = "label192";
-            this.label192.Size = new System.Drawing.Size(158, 13);
-            this.label192.TabIndex = 212;
-            this.label192.Text = "Must be atleast 8-16 characters.";
-            // 
-            // label193
-            // 
-            this.label193.AutoSize = true;
-            this.label193.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label193.ForeColor = System.Drawing.Color.Gray;
-            this.label193.Location = new System.Drawing.Point(860, 538);
-            this.label193.Name = "label193";
-            this.label193.Size = new System.Drawing.Size(158, 13);
-            this.label193.TabIndex = 213;
-            this.label193.Text = "Must be atleast 8-16 characters.";
-            // 
-            // accounts_lbl_admin
-            // 
-            this.accounts_lbl_admin.AutoSize = true;
-            this.accounts_lbl_admin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accounts_lbl_admin.ForeColor = System.Drawing.Color.Red;
-            this.accounts_lbl_admin.Location = new System.Drawing.Point(306, 22);
-            this.accounts_lbl_admin.Name = "accounts_lbl_admin";
-            this.accounts_lbl_admin.Size = new System.Drawing.Size(162, 26);
-            this.accounts_lbl_admin.TabIndex = 214;
-            this.accounts_lbl_admin.Text = "Not allowed to edit main admin \r\nusername.";
-            this.accounts_lbl_admin.Visible = false;
-            // 
-            // accounts_edit_lbl_user_error
-            // 
-            this.accounts_edit_lbl_user_error.AutoSize = true;
-            this.accounts_edit_lbl_user_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accounts_edit_lbl_user_error.ForeColor = System.Drawing.Color.Red;
-            this.accounts_edit_lbl_user_error.Location = new System.Drawing.Point(305, 112);
-            this.accounts_edit_lbl_user_error.Name = "accounts_edit_lbl_user_error";
-            this.accounts_edit_lbl_user_error.Size = new System.Drawing.Size(122, 13);
-            this.accounts_edit_lbl_user_error.TabIndex = 215;
-            this.accounts_edit_lbl_user_error.Text = "Username already exists.";
-            this.accounts_edit_lbl_user_error.Visible = false;
-            // 
-            // accounts_add_lbl_username_error
-            // 
-            this.accounts_add_lbl_username_error.AutoSize = true;
-            this.accounts_add_lbl_username_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accounts_add_lbl_username_error.ForeColor = System.Drawing.Color.Red;
-            this.accounts_add_lbl_username_error.Location = new System.Drawing.Point(665, 491);
-            this.accounts_add_lbl_username_error.Name = "accounts_add_lbl_username_error";
-            this.accounts_add_lbl_username_error.Size = new System.Drawing.Size(122, 13);
-            this.accounts_add_lbl_username_error.TabIndex = 215;
-            this.accounts_add_lbl_username_error.Text = "Username already exists.";
-            this.accounts_add_lbl_username_error.Visible = false;
+            // label194
+            // 
+            this.label194.AutoSize = true;
+            this.label194.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label194.Location = new System.Drawing.Point(8, 237);
+            this.label194.Name = "label194";
+            this.label194.Size = new System.Drawing.Size(74, 17);
+            this.label194.TabIndex = 52;
+            this.label194.Text = "ADDED BY";
+            // 
+            // label195
+            // 
+            this.label195.AutoSize = true;
+            this.label195.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label195.Location = new System.Drawing.Point(8, 289);
+            this.label195.Name = "label195";
+            this.label195.Size = new System.Drawing.Size(78, 17);
+            this.label195.TabIndex = 53;
+            this.label195.Text = "ADDED ON";
+            // 
+            // pwd_lbl_status
+            // 
+            this.pwd_lbl_status.AutoSize = true;
+            this.pwd_lbl_status.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_lbl_status.Location = new System.Drawing.Point(28, 211);
+            this.pwd_lbl_status.Name = "pwd_lbl_status";
+            this.pwd_lbl_status.Size = new System.Drawing.Size(15, 13);
+            this.pwd_lbl_status.TabIndex = 55;
+            this.pwd_lbl_status.Text = "--";
+            // 
+            // label197
+            // 
+            this.label197.AutoSize = true;
+            this.label197.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label197.Location = new System.Drawing.Point(8, 183);
+            this.label197.Name = "label197";
+            this.label197.Size = new System.Drawing.Size(141, 17);
+            this.label197.TabIndex = 54;
+            this.label197.Text = "MEMBERSHIP STATUS";
+            // 
+            // label198
+            // 
+            this.label198.AutoSize = true;
+            this.label198.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label198.Location = new System.Drawing.Point(86, 240);
+            this.label198.Name = "label198";
+            this.label198.Size = new System.Drawing.Size(10, 13);
+            this.label198.TabIndex = 56;
+            this.label198.Text = ":";
+            // 
+            // label199
+            // 
+            this.label199.AutoSize = true;
+            this.label199.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label199.Location = new System.Drawing.Point(86, 292);
+            this.label199.Name = "label199";
+            this.label199.Size = new System.Drawing.Size(10, 13);
+            this.label199.TabIndex = 57;
+            this.label199.Text = ":";
+            // 
+            // pwd_lbl_added_by
+            // 
+            this.pwd_lbl_added_by.AutoSize = true;
+            this.pwd_lbl_added_by.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_lbl_added_by.Location = new System.Drawing.Point(28, 262);
+            this.pwd_lbl_added_by.Name = "pwd_lbl_added_by";
+            this.pwd_lbl_added_by.Size = new System.Drawing.Size(15, 13);
+            this.pwd_lbl_added_by.TabIndex = 58;
+            this.pwd_lbl_added_by.Text = "--";
+            // 
+            // pwd_lbl_added_on
+            // 
+            this.pwd_lbl_added_on.AutoSize = true;
+            this.pwd_lbl_added_on.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_lbl_added_on.Location = new System.Drawing.Point(28, 315);
+            this.pwd_lbl_added_on.Name = "pwd_lbl_added_on";
+            this.pwd_lbl_added_on.Size = new System.Drawing.Size(15, 13);
+            this.pwd_lbl_added_on.TabIndex = 59;
+            this.pwd_lbl_added_on.Text = "--";
+            // 
+            // label202
+            // 
+            this.label202.AutoSize = true;
+            this.label202.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label202.Location = new System.Drawing.Point(8, 345);
+            this.label202.Name = "label202";
+            this.label202.Size = new System.Drawing.Size(158, 17);
+            this.label202.TabIndex = 60;
+            this.label202.Text = "RECENTLY MODIFIED BY";
+            // 
+            // label203
+            // 
+            this.label203.AutoSize = true;
+            this.label203.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label203.Location = new System.Drawing.Point(169, 348);
+            this.label203.Name = "label203";
+            this.label203.Size = new System.Drawing.Size(10, 13);
+            this.label203.TabIndex = 61;
+            this.label203.Text = ":";
+            // 
+            // pwd_lbl_recently_modified_by
+            // 
+            this.pwd_lbl_recently_modified_by.AutoSize = true;
+            this.pwd_lbl_recently_modified_by.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_lbl_recently_modified_by.Location = new System.Drawing.Point(28, 370);
+            this.pwd_lbl_recently_modified_by.Name = "pwd_lbl_recently_modified_by";
+            this.pwd_lbl_recently_modified_by.Size = new System.Drawing.Size(15, 13);
+            this.pwd_lbl_recently_modified_by.TabIndex = 62;
+            this.pwd_lbl_recently_modified_by.Text = "--";
+            // 
+            // label205
+            // 
+            this.label205.AutoSize = true;
+            this.label205.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label205.Location = new System.Drawing.Point(8, 401);
+            this.label205.Name = "label205";
+            this.label205.Size = new System.Drawing.Size(147, 17);
+            this.label205.TabIndex = 63;
+            this.label205.Text = "ESTIMATED END DATE";
+            // 
+            // label206
+            // 
+            this.label206.AutoSize = true;
+            this.label206.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label206.Location = new System.Drawing.Point(156, 404);
+            this.label206.Name = "label206";
+            this.label206.Size = new System.Drawing.Size(10, 13);
+            this.label206.TabIndex = 64;
+            this.label206.Text = ":";
+            // 
+            // pwd_lbl_estimated_end_date
+            // 
+            this.pwd_lbl_estimated_end_date.AutoSize = true;
+            this.pwd_lbl_estimated_end_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_lbl_estimated_end_date.Location = new System.Drawing.Point(28, 428);
+            this.pwd_lbl_estimated_end_date.Name = "pwd_lbl_estimated_end_date";
+            this.pwd_lbl_estimated_end_date.Size = new System.Drawing.Size(15, 13);
+            this.pwd_lbl_estimated_end_date.TabIndex = 65;
+            this.pwd_lbl_estimated_end_date.Text = "--";
             // 
             // main_form
             // 
@@ -5797,11 +5965,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
+            this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_settings);
             this.Controls.Add(this.pnl_reports);
             this.Controls.Add(this.pnl_projects);
             this.Controls.Add(this.pnl_devices);
-            this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_dashboard);
             this.Controls.Add(this.dboard_head);
@@ -5832,6 +6000,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.pwd_side_info.ResumeLayout(false);
+            this.pwd_side_info.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_view_pp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_grid)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -5885,10 +6054,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).EndInit();
             this.pnl_settings.ResumeLayout(false);
             this.pnl_settings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accounts_grid)).EndInit();
-            this.pnl_notif_pp.ResumeLayout(false);
             this.accounts_pnl_edit.ResumeLayout(false);
             this.accounts_pnl_edit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_grid)).EndInit();
+            this.pnl_notif_pp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6303,6 +6472,20 @@
         private System.Windows.Forms.Label accounts_lbl_admin;
         private System.Windows.Forms.Label accounts_add_lbl_username_error;
         private System.Windows.Forms.Label accounts_edit_lbl_user_error;
+        private System.Windows.Forms.Label pwd_lbl_estimated_end_date;
+        private System.Windows.Forms.Label label206;
+        private System.Windows.Forms.Label label205;
+        private System.Windows.Forms.Label pwd_lbl_recently_modified_by;
+        private System.Windows.Forms.Label label203;
+        private System.Windows.Forms.Label label202;
+        private System.Windows.Forms.Label pwd_lbl_added_on;
+        private System.Windows.Forms.Label pwd_lbl_added_by;
+        private System.Windows.Forms.Label label199;
+        private System.Windows.Forms.Label label198;
+        private System.Windows.Forms.Label pwd_lbl_status;
+        private System.Windows.Forms.Label label197;
+        private System.Windows.Forms.Label label195;
+        private System.Windows.Forms.Label label194;
     }
 }
 

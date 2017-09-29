@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace SAD_2_PTT_01
 {
@@ -21,6 +23,33 @@ namespace SAD_2_PTT_01
         }
 
         #region GRID-MAIN_FORM
+        public void pwd_grid_side(DataTable data, string pwd_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT pwd_id, "
+                                            + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                            + "end_date, "
+                                            + "(CASE WHEN status_pwd = 0 THEN 'Inactive/Expired' ELSE 'Active' END) AS status_pwd, "
+                                            + "added_date, "
+                                            + "username, "
+                                            + "(SELECT username FROM pwd_usr_log WHERE pwd_id = pwd.pwd_id) AS recent_user "
+                                            + "FROM pwd LEFT JOIN user ON pwd.user_id = user.user_id WHERE pwd_id = " + pwd_id, conn);
+                get = new MySqlDataAdapter(comm);
+                get.Fill(data);
+
+
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_grid_side() : " + e.Message);
+            }
+        }
+
         public bool pwd_grid_list(DataGridView pwd_grid)
         {
             bool has_data = false;
@@ -206,6 +235,38 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region VIEW-MODE
+
+        public void pwd_view_picture(string pwd_id, PictureBox pic_box)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT picture FROM pwd WHERE pwd_id = " + pwd_id + "", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_view_picture() : " + e.Message);
+            }
+            try
+            {
+                byte[] image = (byte[])set.Rows[0]["picture"];
+                MemoryStream ms = new MemoryStream(image);
+                pic_box.Image = Image.FromStream(ms);
+                pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch
+            {
+                pic_box.Image = SAD_2_PTT_01.Properties.Resources.pwd;
+                pic_box.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+        }
+
         public void pwd_view_profile(string current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             try
@@ -500,6 +561,7 @@ namespace SAD_2_PTT_01
 
                 if (main_ == false)
                 {
+                    conn.Close();
                     return false;
                 }
                 #endregion
@@ -517,6 +579,7 @@ namespace SAD_2_PTT_01
 
                 if (other_ == false)
                 {
+                    conn.Close();
                     return false;
                 }
                 #endregion
@@ -534,6 +597,7 @@ namespace SAD_2_PTT_01
 
                 if (parent_ == false)
                 {
+                    conn.Close();
                     return false;
                 }
                 #endregion
@@ -624,6 +688,93 @@ namespace SAD_2_PTT_01
             return success;
         }
 
+        public bool pwd_update_profile(string main_data, string other_data, string parental_data, byte[] image)
+        {
+            Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_ }");
+            bool success = false;
+            bool main_ = false;
+            bool other_ = false;
+            bool parent_ = false;
+
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(main_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_MAIN_DATA }");
+                var parameter = new MySqlParameter("@Image", MySqlDbType.MediumBlob, image.Length);
+
+                parameter.Value = image;
+                #region MAIN-DATA
+                comm.Parameters.Add(parameter);
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    main_ = true;
+                } catch (Exception e)
+                {
+                    main_ = false;
+                }
+
+                if (main_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
+
+                comm = new MySqlCommand(other_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_OTHER_DATA }");
+                #region OTHER-DATA
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    other_ = true;
+                } catch (Exception e)
+                {
+                    other_ = false;
+                }
+
+                if (other_ == false)
+                {
+                    conn.Close();
+                    return false;
+
+                }
+                #endregion
+
+                comm = new MySqlCommand(parental_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_PARENTAL_DATA }");
+
+                #region PARENTAL-DATA
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    parent_ = true;
+                } catch (Exception e)
+                {
+                    parent_ = false;
+                }
+
+                if (parent_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                success = false;
+                conn.Close();
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_UPDATE_PROFILE]");
+            }
+
+            return success;
+        }
+
         #endregion
 
         #region FILTER-MODE
@@ -693,7 +844,7 @@ namespace SAD_2_PTT_01
                                                       + lastname + " OR "
                                                       + firstname + " OR "
                                                       + middlename + " OR "
-                                                      + app_date + " AND isArchived != 1", conn);
+                                                      + app_date + " AND pwd.isArchived != 1", conn);
 
             MySqlDataAdapter getresult = new MySqlDataAdapter(comm);
             DataTable resulttable = new DataTable();
@@ -766,7 +917,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("UPDATE p_dao.pwd_usr_log SET recent_emp_id = "+ user_id +", date_updated = CURDATE() WHERE pwd_id = "+ pwd_id +")", conn);
+                comm = new MySqlCommand("UPDATE p_dao.pwd_usr_log SET recent_emp_id = "+ user_id +", date_updated = CURDATE() WHERE pwd_id = "+ pwd_id , conn);
                 comm.ExecuteNonQuery();
 
                 conn.Close();
