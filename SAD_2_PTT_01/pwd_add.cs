@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SAD_2_PTT_01
 {
@@ -250,6 +251,7 @@ namespace SAD_2_PTT_01
             }
             else
             {
+                //found
                 exit_opacity.Stop();
                 if (update_mode)
                 {
@@ -272,7 +274,7 @@ namespace SAD_2_PTT_01
         public void load_date_time_picker_max_date()
         {
             pwd_appdate.MaxDate = DateTime.Now;
-            dateofbirth.MaxDate = DateTime.Now;
+            dateofbirth.MaxDate = pwd_appdate.Value;
         }
 
         public void load_combobox()
@@ -292,16 +294,19 @@ namespace SAD_2_PTT_01
 
         public void load_panel_quick_button_enabled()
         {
-            btn_general.Enabled = true;
-            btn_personal.Enabled = false;
-            btn_contact.Enabled = false;
-            btn_educational.Enabled = false;
-            btn_employment.Enabled = false;
-            btn_type_of_skill.Enabled = false;
-            btn_organizational.Enabled = false;
-            btn_other.Enabled = false;
-            btn_parental.Enabled = false;
-            pwd_next.Enabled = false;
+            if (update_mode == false)
+            {
+                btn_general.Enabled = true;
+                btn_personal.Enabled = false;
+                btn_contact.Enabled = false;
+                btn_educational.Enabled = false;
+                btn_employment.Enabled = false;
+                btn_type_of_skill.Enabled = false;
+                btn_organizational.Enabled = false;
+                btn_other.Enabled = false;
+                btn_parental.Enabled = false;
+                pwd_next.Enabled = false;
+            }
         }
 
         public void load_combobox_initial_selected_index()
@@ -354,7 +359,7 @@ namespace SAD_2_PTT_01
             btn_contact.BackColor = Color.FromArgb(255, 255, 255);
             btn_educational.BackColor = Color.FromArgb(255, 255, 255);
             btn_type_of_skill.BackColor = Color.FromArgb(255, 255, 255);
-            btn_educational.BackColor = Color.FromArgb(255, 255, 255);
+            btn_employment.BackColor = Color.FromArgb(255, 255, 255);
             btn_organizational.BackColor = Color.FromArgb(255, 255, 255);
             btn_other.BackColor = Color.FromArgb(255, 255, 255);
             btn_parental.BackColor = Color.FromArgb(255, 255, 255);
@@ -1088,7 +1093,7 @@ namespace SAD_2_PTT_01
                                             + "registration_no, "
                                             + "status_pwd, "
                                             + "type_of_skill, "
-                                            + "employee_id) ";
+                                            + "user_id) ";
             main_variables = "VALUES ('" + lastname
                                          + "', '"
                                          + firstname
@@ -1145,7 +1150,7 @@ namespace SAD_2_PTT_01
                                          + ", "
                                          + to_skill
                                          + ", "
-                                         + "(SELECT employee_id FROM p_dao.employee WHERE username = '" + reference_to_main.current_user + "')"
+                                         + "(SELECT employee_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "')"
                                          + ")";
             #endregion
 
@@ -1640,5 +1645,24 @@ namespace SAD_2_PTT_01
             }
         }
 
+        private void btn_add_picture_Click(object sender, EventArgs e)
+        {
+            DialogResult check_file = pwd_picture.ShowDialog();
+            if (check_file == DialogResult.OK)
+            {
+                string pic_location = pwd_picture.FileName.ToString();
+                pwd_pic_box.ImageLocation = pic_location;
+                pwd_pic_box.BackgroundImage = Image.FromFile(pic_location);
+            }
+        }
+
+        public byte[] picturetoDB(Image img)
+        {
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                return ms.ToArray();
+            }
+        }
     }
 }

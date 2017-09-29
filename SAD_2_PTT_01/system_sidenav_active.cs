@@ -83,7 +83,7 @@ namespace SAD_2_PTT_01
             {
                 reference_to_main.pnl_projects.Visible = false;
             }
-            else if (deactivate == "btn_report")
+            else if (deactivate == "btn_reports")
             {
                 reference_to_main.pnl_reports.Visible = false;
             }

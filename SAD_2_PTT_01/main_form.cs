@@ -671,6 +671,7 @@ namespace SAD_2_PTT_01
             system_sidenav.pnl_deactivate(btn_current.Name);
             btn_current = btn_settings;
             system_sidenav.lbl_current_text("settings");
+            load_accounts();
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
@@ -765,7 +766,7 @@ namespace SAD_2_PTT_01
             projects_grid.Columns["event_held"].Visible = false;
             projects_grid.Columns["budget"].Visible = false;
             projects_grid.Columns["isArchived"].Visible = false;
-            projects_grid.Columns["employee_id"].Visible = false;
+            projects_grid.Columns["user_id"].Visible = false;
             projects_grid.Columns["progress_id1"].Visible = false;
             projects_grid.Columns["project_id1"].Visible = false;
             projects_grid.Columns["progress_type"].Visible = false;
@@ -2096,5 +2097,363 @@ namespace SAD_2_PTT_01
             reports_pnl_visible();
             reports_pnl_projects.Visible = true;
         }
+
+        #region ACCOUNTS
+        //ACCOUNTS
+        bool has_accounts = false;
+        public void load_accounts()
+        {
+            has_accounts = conn_user.get_user_data(accounts_grid);
+            accounts_clear_view();
+            if (has_accounts == false)
+            {
+                accounts_grid.Columns["firstname"].Visible = false;
+                accounts_grid.Columns["middlename"].Visible = false;
+                accounts_grid.Columns["lastname"].Visible = false;
+                accounts_grid.Columns["position"].Visible = false;
+                accounts_grid.Columns["fullname"].Visible = false;
+                accounts_grid.Columns["contact_no"].Visible = false;
+                accounts_grid.Columns["status_id"].Visible = false;
+                accounts_grid.Columns["password"].Visible = false;
+                accounts_grid.Columns["username"].Visible = false;
+                accounts_grid.Columns["user_id"].Visible = false;
+                accounts_grid.Columns["display_text"].HeaderText = "Results";
+            } else
+            {
+                accounts_grid.Columns["firstname"].Visible = false;
+                accounts_grid.Columns["middlename"].Visible = false;
+                accounts_grid.Columns["lastname"].Visible = false;
+                accounts_grid.Columns["fullname"].HeaderText = "Fullname";
+                accounts_grid.Columns["position"].HeaderText = "Position";
+                accounts_grid.Columns["contact_no"].Visible = false;
+                accounts_grid.Columns["status_id"].Visible = false;
+                accounts_grid.Columns["password"].Visible = false;
+                accounts_grid.Columns["username"].HeaderText = "Username";
+                accounts_grid.Columns["user_id"].Visible = false;
+                accounts_grid.Columns["display_text"].Visible = false;
+            }
+
+            accounts_cell_color();
+        }
+        int accounts_current_index = 0;
+
+        private void accounts_grid_SelectionChanged(object sender, EventArgs e)
+        {
+            if  (accounts_grid.Rows.Count < 0 || has_accounts == false )
+            {
+                sys_func.btn_inactive(accounts_btn_edit);
+                sys_func.btn_inactive(accounts_btn_save);
+            } else
+            {
+                try
+                {
+                    accounts_current_index = accounts_grid.CurrentCell.RowIndex;
+                } catch (Exception ex)
+                {
+                    Console.WriteLine(accounts_current_index);
+                    accounts_current_index = 0;
+                }
+                accounts_selection();
+            }
+        }
+
+        public void accounts_selection()
+        {
+            accounts_name.Text = accounts_grid.Rows[accounts_current_index].Cells["fullname"].Value.ToString();
+            accounts_type.Text = accounts_grid.Rows[accounts_current_index].Cells["position"].Value.ToString();
+            accounts_contact_no.Text = accounts_grid.Rows[accounts_current_index].Cells["contact_no"].Value.ToString();
+            accounts_status.Text = accounts_grid.Rows[accounts_current_index].Cells["status_id"].Value.ToString();
+            accounts_username.Text = accounts_grid.Rows[accounts_current_index].Cells["username"].Value.ToString();
+
+            accounts_edit_firstname.Text = accounts_grid.Rows[accounts_current_index].Cells["firstname"].Value.ToString();
+            accounts_edit_middlename.Text = accounts_grid.Rows[accounts_current_index].Cells["middlename"].Value.ToString();
+            accounts_edit_lastname.Text = accounts_grid.Rows[accounts_current_index].Cells["lastname"].Value.ToString();
+            accounts_edit_account_type.Text = accounts_grid.Rows[accounts_current_index].Cells["position"].Value.ToString();
+            accounts_edit_contact_no.Text = accounts_grid.Rows[accounts_current_index].Cells["contact_no"].Value.ToString();
+            accounts_edit_status.Text = accounts_grid.Rows[accounts_current_index].Cells["status_id"].Value.ToString();
+            accounts_edit_password.Text = accounts_grid.Rows[accounts_current_index].Cells["password"].Value.ToString();
+            accounts_edit_username.Text = accounts_grid.Rows[accounts_current_index].Cells["username"].Value.ToString();
+
+        }
+
+        public bool accounts_add_check_required()
+        {
+            bool all_required = false;
+            if (accounts_add_firstname.Text.Trim() == "" || accounts_add_middlename.Text.Trim() == ""
+                || accounts_add_lastname.Text.Trim() == "" || accounts_add_account_type.Text.Trim() == ""
+                || accounts_add_status.Text.Trim() == "" || accounts_add_username.Text.Trim() == ""
+                || accounts_add_password.Text.Trim() == "" || (accounts_add_username.Text.Length < 6 || accounts_add_username.Text.Length > 12) ||
+                (accounts_add_password.Text.Length < 8 || accounts_add_password.Text.Length > 16) || accounts_add_lbl_username_error.Visible == true)
+            {
+                all_required = false;
+                sys_func.btn_inactive(accounts_btn_add);
+            } else
+            {
+                all_required = true;
+                sys_func.btn_active(accounts_btn_add);
+            }
+            return all_required;
+        }
+
+        public bool accounts_edit_check_required()
+        {
+            bool all_required = false;
+            if (accounts_edit_firstname.Text.Trim() == "" || accounts_edit_middlename.Text.Trim() == ""
+                || accounts_edit_lastname.Text.Trim() == "" || accounts_edit_account_type.Text.Trim() == ""
+                || accounts_edit_status.Text.Trim() == "" || accounts_edit_username.Text.Trim() == ""
+                || accounts_edit_password.Text.Trim() == "" || (accounts_edit_username.Text.Length < 6 || accounts_edit_username.Text.Length > 12) ||
+                (accounts_edit_password.Text.Length < 8 || accounts_edit_password.Text.Length > 16) 
+                || accounts_username.Text == "--" || accounts_edit_lbl_user_error.Visible == true)
+            {
+                all_required = false;
+                sys_func.btn_inactive(accounts_btn_save);
+            }
+            else
+            {
+                all_required = true;
+                sys_func.btn_active(accounts_btn_save);
+            }
+            return all_required;
+        }
+
+        public void accounts_add_clear()
+        {
+            accounts_add_firstname.Clear();
+            accounts_add_middlename.Clear();
+            accounts_add_lastname.Clear();
+            accounts_add_account_type.SelectedIndex = 0;
+            accounts_add_contact_no.Clear();
+            accounts_add_status.SelectedIndex = 0;
+            accounts_add_username.Clear();
+            accounts_add_password.Clear();
+        }
+
+        public void accounts_edit_clear()
+        {
+            accounts_edit_firstname.Clear();
+            accounts_edit_middlename.Clear();
+            accounts_edit_lastname.Clear();
+            accounts_edit_account_type.SelectedIndex = 0;
+            accounts_edit_contact_no.Clear();
+            accounts_edit_status.SelectedIndex = 0;
+            accounts_edit_username.Clear();
+            accounts_edit_password.Clear();
+        }
+
+        private void accounts_add_firstname_TextChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+        }
+
+        private void accounts_add_middlename_TextChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+        }
+
+        private void accounts_add_lastname_TextChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+        }
+
+        private void accounts_add_account_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+        }
+
+        private void accounts_add_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+        }
+
+        private void accounts_add_username_TextChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+            bool has_duplicate = conn_user.user_has_duplicate(accounts_add_username.Text, "");
+            if (has_duplicate == true)
+            {
+                accounts_add_lbl_username_error.Visible = true;
+            }
+            else
+            {
+                accounts_add_lbl_username_error.Visible = false;
+            }
+        }
+
+        private void accounts_add_password_TextChanged(object sender, EventArgs e)
+        {
+            accounts_add_check_required();
+        }
+
+        private void accounts_btn_edit_Click(object sender, EventArgs e)
+        {
+            accounts_pnl_edit.Visible = true;
+            sys_func.btn_inactive(accounts_btn_save);
+            accounts_grid.Enabled = false;
+        }
+
+        private void accounts_btn_save_Click(object sender, EventArgs e)
+        {
+            string firstname = accounts_edit_firstname.Text;
+            string middlename = accounts_edit_middlename.Text;
+            string lastname = accounts_edit_lastname.Text;
+            string position = (accounts_edit_account_type.SelectedIndex).ToString();
+            string contact_no = accounts_edit_contact_no.Text;
+            string status_id = accounts_edit_status.SelectedIndex.ToString();
+            string username = accounts_edit_username.Text;
+            string password = accounts_edit_password.Text;
+            string user_id = accounts_grid.Rows[accounts_current_index].Cells["user_id"].Value.ToString();
+            bool success = conn_user.update_user(firstname, middlename, lastname, position, contact_no, status_id, username, password, user_id);
+
+            if (success == false)
+            {
+                notification_ = "Invalid values, please try again.";
+            } else
+            {
+                notification_ = "Updated user successfully!";
+                accounts_edit_clear();
+                accounts_grid.Enabled = true;
+                load_accounts();
+            }
+            show_success_message();
+        }
+
+        private void accounts_btn_add_Click(object sender, EventArgs e)
+        {
+            string firstname = accounts_add_firstname.Text;
+            string middlename = accounts_add_middlename.Text;
+            string lastname = accounts_add_lastname.Text;
+            string position = (accounts_add_account_type.SelectedIndex).ToString();
+            string contact_no = accounts_add_contact_no.Text;
+            string status_id = accounts_add_status.SelectedIndex.ToString();
+            string username = accounts_add_username.Text;
+            string password = accounts_add_password.Text;
+
+            bool success = conn_user.add_user(firstname, middlename, lastname, position, contact_no, status_id, username, lastname);
+            if (success == false)
+            {
+                notification_ = "Invalid values, please try again.";
+            } else
+            {
+                notification_ = "Added user successfully!";
+                accounts_add_clear();
+                load_accounts();
+            }
+            show_success_message();
+
+        }
+
+        private void accounts_refresh_Click(object sender, EventArgs e)
+        {
+            accounts_clear_view();
+            load_accounts();
+        }
+
+        public void accounts_clear_view()
+        {
+            accounts_name.Text = "--";
+            accounts_type.Text = "--";
+            accounts_contact_no.Text = "--";
+            accounts_status.Text = "--";
+            accounts_username.Text = "--";
+        }
+
+        private void accounts_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || has_accounts == false)
+            {
+                sys_func.btn_inactive(accounts_btn_edit);
+                accounts_clear_view();
+            } else
+            {
+                accounts_current_index = e.RowIndex;
+                sys_func.btn_active(accounts_btn_edit);
+                accounts_selection();
+            }
+        }
+
+        private void accounts_btn_cancel_Click(object sender, EventArgs e)
+        {
+            accounts_pnl_edit.Visible = false;
+            accounts_grid.Enabled = true;
+        }
+
+        private void accounts_edit_firstname_TextChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+
+        private void accounts_edit_middlename_TextChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+
+        private void accounts_edit_lastname_TextChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+
+        private void accounts_edit_account_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+
+        private void accounts_edit_contact_no_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+
+        private void accounts_edit_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+
+        private void accounts_edit_username_TextChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+            if (accounts_edit_username.Text == "admin" && accounts_username.Text == "admin")
+            {
+                accounts_edit_username.Enabled = false;
+                accounts_lbl_admin.Visible = true;
+            }
+            else
+            {
+                accounts_edit_username.Enabled = true;
+                accounts_lbl_admin.Visible = false;
+                bool has_duplicate = conn_user.user_has_duplicate(accounts_edit_username.Text, accounts_username.Text);
+                if (has_duplicate == true)
+                {
+                    accounts_edit_lbl_user_error.Visible = true;
+                } else
+                {
+                    accounts_edit_lbl_user_error.Visible = false;
+                }
+            }
+        }
+
+        private void accounts_edit_password_TextChanged(object sender, EventArgs e)
+        {
+            accounts_edit_check_required();
+        }
+        public void accounts_cell_color()
+        {
+            int count = accounts_grid.Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                if (accounts_grid.Rows[i].Cells["status_id"].Value.ToString() == "Inactive") 
+                {
+                    accounts_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
+                }
+                if (accounts_grid.Rows[i].Cells["status_id"].Value.ToString() == "Break")
+                {
+                    accounts_grid.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 192, 128);
+                } 
+                if (accounts_grid.Rows[i].Cells["status_id"].Value.ToString() == "Active")
+                {
+                    accounts_grid.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(128, 255, 128);
+                }
+
+            }
+        }
+        #endregion
     }
 }

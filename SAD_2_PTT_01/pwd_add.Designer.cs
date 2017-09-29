@@ -45,6 +45,10 @@
             this.btn_general = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.panel_1_ = new System.Windows.Forms.Panel();
+            this.lbl_id_no_error = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.id_no = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
             this.lbl_regis_no_error = new System.Windows.Forms.Label();
             this.pwd_appdate = new System.Windows.Forms.DateTimePicker();
             this.disability_type = new System.Windows.Forms.ComboBox();
@@ -56,6 +60,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
             this.pwd_add_back = new System.Windows.Forms.Button();
             this.pwd_next = new System.Windows.Forms.Button();
             this.panel_2_ = new System.Windows.Forms.Panel();
@@ -211,11 +216,11 @@
             this.btn_revert = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
-            this.id_no = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.lbl_id_no_error = new System.Windows.Forms.Label();
+            this.pwd_picture = new System.Windows.Forms.OpenFileDialog();
+            this.pwd_pic_box = new System.Windows.Forms.PictureBox();
+            this.btn_add_picture = new System.Windows.Forms.Button();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.quick_panel.SuspendLayout();
             this.panel_1_.SuspendLayout();
@@ -233,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel_6_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -456,6 +462,10 @@
             // 
             // panel_1_
             // 
+            this.panel_1_.Controls.Add(this.label87);
+            this.panel_1_.Controls.Add(this.label86);
+            this.panel_1_.Controls.Add(this.btn_add_picture);
+            this.panel_1_.Controls.Add(this.pwd_pic_box);
             this.panel_1_.Controls.Add(this.lbl_id_no_error);
             this.panel_1_.Controls.Add(this.label53);
             this.panel_1_.Controls.Add(this.id_no);
@@ -477,12 +487,58 @@
             this.panel_1_.Size = new System.Drawing.Size(794, 535);
             this.panel_1_.TabIndex = 52;
             // 
+            // lbl_id_no_error
+            // 
+            this.lbl_id_no_error.AutoSize = true;
+            this.lbl_id_no_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id_no_error.ForeColor = System.Drawing.Color.Red;
+            this.lbl_id_no_error.Location = new System.Drawing.Point(197, 396);
+            this.lbl_id_no_error.Name = "lbl_id_no_error";
+            this.lbl_id_no_error.Size = new System.Drawing.Size(121, 13);
+            this.lbl_id_no_error.TabIndex = 78;
+            this.lbl_id_no_error.Text = "* ID No. already exists.";
+            this.lbl_id_no_error.Visible = false;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.Black;
+            this.label53.Location = new System.Drawing.Point(152, 396);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(39, 13);
+            this.label53.TabIndex = 76;
+            this.label53.Text = "ID No.";
+            // 
+            // id_no
+            // 
+            this.id_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.id_no.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_no.Location = new System.Drawing.Point(155, 411);
+            this.id_no.MaxLength = 10;
+            this.id_no.Multiline = true;
+            this.id_no.Name = "id_no";
+            this.id_no.Size = new System.Drawing.Size(206, 26);
+            this.id_no.TabIndex = 74;
+            this.id_no.TextChanged += new System.EventHandler(this.id_no_TextChanged);
+            this.id_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_no_KeyPress);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(152, 425);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(212, 15);
+            this.label52.TabIndex = 75;
+            this.label52.Text = "_________________________________________";
+            // 
             // lbl_regis_no_error
             // 
             this.lbl_regis_no_error.AutoSize = true;
             this.lbl_regis_no_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_regis_no_error.ForeColor = System.Drawing.Color.Red;
-            this.lbl_regis_no_error.Location = new System.Drawing.Point(499, 273);
+            this.lbl_regis_no_error.Location = new System.Drawing.Point(252, 249);
             this.lbl_regis_no_error.Name = "lbl_regis_no_error";
             this.lbl_regis_no_error.Size = new System.Drawing.Size(173, 13);
             this.lbl_regis_no_error.TabIndex = 73;
@@ -492,7 +548,7 @@
             // pwd_appdate
             // 
             this.pwd_appdate.CustomFormat = "";
-            this.pwd_appdate.Location = new System.Drawing.Point(287, 317);
+            this.pwd_appdate.Location = new System.Drawing.Point(155, 315);
             this.pwd_appdate.MaxDate = new System.DateTime(2017, 8, 18, 0, 0, 0, 0);
             this.pwd_appdate.Name = "pwd_appdate";
             this.pwd_appdate.Size = new System.Drawing.Size(206, 22);
@@ -512,13 +568,15 @@
             "Speech Impairment",
             "Orthopedic"});
             this.disability_type.DisplayMember = "1";
+            this.disability_type.DropDownHeight = 75;
             this.disability_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.disability_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.disability_type.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.disability_type.FormattingEnabled = true;
+            this.disability_type.IntegralHeight = false;
             this.disability_type.Items.AddRange(new object[] {
             ""});
-            this.disability_type.Location = new System.Drawing.Point(287, 364);
+            this.disability_type.Location = new System.Drawing.Point(155, 362);
             this.disability_type.Name = "disability_type";
             this.disability_type.Size = new System.Drawing.Size(206, 25);
             this.disability_type.TabIndex = 69;
@@ -539,7 +597,8 @@
             // 
             this.pwd_regisno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pwd_regisno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_regisno.Location = new System.Drawing.Point(287, 266);
+            this.pwd_regisno.Location = new System.Drawing.Point(155, 264);
+            this.pwd_regisno.MaxLength = 20;
             this.pwd_regisno.Multiline = true;
             this.pwd_regisno.Name = "pwd_regisno";
             this.pwd_regisno.Size = new System.Drawing.Size(206, 26);
@@ -552,7 +611,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(285, 349);
+            this.label14.Location = new System.Drawing.Point(153, 347);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(102, 13);
             this.label14.TabIndex = 65;
@@ -563,7 +622,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(285, 300);
+            this.label13.Location = new System.Drawing.Point(153, 298);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 13);
             this.label13.TabIndex = 64;
@@ -574,7 +633,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(284, 251);
+            this.label12.Location = new System.Drawing.Point(152, 249);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(101, 13);
             this.label12.TabIndex = 63;
@@ -594,7 +653,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(284, 326);
+            this.label48.Location = new System.Drawing.Point(152, 324);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(182, 15);
             this.label48.TabIndex = 71;
@@ -604,11 +663,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(284, 280);
+            this.label1.Location = new System.Drawing.Point(152, 278);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(212, 15);
             this.label1.TabIndex = 70;
             this.label1.Text = "_________________________________________";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(152, 375);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(212, 15);
+            this.label54.TabIndex = 77;
+            this.label54.Text = "_________________________________________";
             // 
             // pwd_add_back
             // 
@@ -746,9 +815,9 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(345, 247);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.Size = new System.Drawing.Size(51, 13);
             this.label9.TabIndex = 89;
-            this.label9.Text = "REGION";
+            this.label9.Text = "DISTRICT";
             // 
             // label8
             // 
@@ -897,11 +966,13 @@
             // district_type
             // 
             this.district_type.BackColor = System.Drawing.SystemColors.Window;
+            this.district_type.DropDownHeight = 75;
             this.district_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.district_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.district_type.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.district_type.FormattingEnabled = true;
             this.district_type.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.district_type.IntegralHeight = false;
             this.district_type.Items.AddRange(new object[] {
             ""});
             this.district_type.Location = new System.Drawing.Point(348, 263);
@@ -932,7 +1003,7 @@
             this.prov_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.prov_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prov_txt.Location = new System.Drawing.Point(188, 261);
-            this.prov_txt.MaxLength = 50;
+            this.prov_txt.MaxLength = 40;
             this.prov_txt.Multiline = true;
             this.prov_txt.Name = "prov_txt";
             this.prov_txt.Size = new System.Drawing.Size(154, 26);
@@ -944,7 +1015,7 @@
             this.mun_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mun_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mun_txt.Location = new System.Drawing.Point(508, 215);
-            this.mun_txt.MaxLength = 50;
+            this.mun_txt.MaxLength = 40;
             this.mun_txt.Multiline = true;
             this.mun_txt.Name = "mun_txt";
             this.mun_txt.Size = new System.Drawing.Size(154, 26);
@@ -956,7 +1027,7 @@
             this.bar_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bar_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bar_txt.Location = new System.Drawing.Point(348, 215);
-            this.bar_txt.MaxLength = 50;
+            this.bar_txt.MaxLength = 40;
             this.bar_txt.Multiline = true;
             this.bar_txt.Name = "bar_txt";
             this.bar_txt.Size = new System.Drawing.Size(154, 26);
@@ -968,7 +1039,7 @@
             this.hs_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.hs_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hs_txt.Location = new System.Drawing.Point(188, 215);
-            this.hs_txt.MaxLength = 50;
+            this.hs_txt.MaxLength = 40;
             this.hs_txt.Multiline = true;
             this.hs_txt.Name = "hs_txt";
             this.hs_txt.Size = new System.Drawing.Size(154, 26);
@@ -981,7 +1052,7 @@
             this.mn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mn_txt.ForeColor = System.Drawing.Color.Black;
             this.mn_txt.Location = new System.Drawing.Point(508, 167);
-            this.mn_txt.MaxLength = 50;
+            this.mn_txt.MaxLength = 15;
             this.mn_txt.Multiline = true;
             this.mn_txt.Name = "mn_txt";
             this.mn_txt.Size = new System.Drawing.Size(154, 26);
@@ -995,7 +1066,7 @@
             this.fn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fn_txt.ForeColor = System.Drawing.Color.Black;
             this.fn_txt.Location = new System.Drawing.Point(348, 167);
-            this.fn_txt.MaxLength = 50;
+            this.fn_txt.MaxLength = 20;
             this.fn_txt.Multiline = true;
             this.fn_txt.Name = "fn_txt";
             this.fn_txt.Size = new System.Drawing.Size(154, 26);
@@ -1009,7 +1080,7 @@
             this.ln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ln_txt.ForeColor = System.Drawing.Color.Black;
             this.ln_txt.Location = new System.Drawing.Point(188, 167);
-            this.ln_txt.MaxLength = 50;
+            this.ln_txt.MaxLength = 15;
             this.ln_txt.Multiline = true;
             this.ln_txt.Name = "ln_txt";
             this.ln_txt.Size = new System.Drawing.Size(154, 26);
@@ -1348,7 +1419,7 @@
             // 
             this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.email.Location = new System.Drawing.Point(347, 171);
-            this.email.MaxLength = 50;
+            this.email.MaxLength = 40;
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(154, 15);
             this.email.TabIndex = 62;
@@ -1760,7 +1831,7 @@
             this.philhealthno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.philhealthno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.philhealthno.Location = new System.Drawing.Point(192, 399);
-            this.philhealthno.MaxLength = 50;
+            this.philhealthno.MaxLength = 20;
             this.philhealthno.Multiline = true;
             this.philhealthno.Name = "philhealthno";
             this.philhealthno.Size = new System.Drawing.Size(154, 26);
@@ -1773,7 +1844,7 @@
             this.gsisno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gsisno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gsisno.Location = new System.Drawing.Point(350, 354);
-            this.gsisno.MaxLength = 50;
+            this.gsisno.MaxLength = 20;
             this.gsisno.Multiline = true;
             this.gsisno.Name = "gsisno";
             this.gsisno.Size = new System.Drawing.Size(154, 26);
@@ -1786,7 +1857,7 @@
             this.sssno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.sssno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sssno.Location = new System.Drawing.Point(190, 354);
-            this.sssno.MaxLength = 50;
+            this.sssno.MaxLength = 20;
             this.sssno.Multiline = true;
             this.sssno.Name = "sssno";
             this.sssno.Size = new System.Drawing.Size(154, 26);
@@ -1910,7 +1981,7 @@
             this.orgaff.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orgaff.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orgaff.Location = new System.Drawing.Point(189, 165);
-            this.orgaff.MaxLength = 50;
+            this.orgaff.MaxLength = 40;
             this.orgaff.Multiline = true;
             this.orgaff.Name = "orgaff";
             this.orgaff.Size = new System.Drawing.Size(154, 26);
@@ -2128,6 +2199,7 @@
             // 
             this.norunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.norunit.Location = new System.Drawing.Point(77, 360);
+            this.norunit.MaxLength = 50;
             this.norunit.Multiline = true;
             this.norunit.Name = "norunit";
             this.norunit.Size = new System.Drawing.Size(260, 26);
@@ -2171,6 +2243,7 @@
             this.amn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amn_txt.Location = new System.Drawing.Point(514, 290);
+            this.amn_txt.MaxLength = 15;
             this.amn_txt.Multiline = true;
             this.amn_txt.Name = "amn_txt";
             this.amn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2183,6 +2256,7 @@
             this.afn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.afn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.afn_txt.Location = new System.Drawing.Point(352, 290);
+            this.afn_txt.MaxLength = 20;
             this.afn_txt.Multiline = true;
             this.afn_txt.Name = "afn_txt";
             this.afn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2195,6 +2269,7 @@
             this.aln_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.aln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aln_txt.Location = new System.Drawing.Point(190, 290);
+            this.aln_txt.MaxLength = 15;
             this.aln_txt.Multiline = true;
             this.aln_txt.Name = "aln_txt";
             this.aln_txt.Size = new System.Drawing.Size(154, 26);
@@ -2207,6 +2282,7 @@
             this.gmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gmn_txt.Location = new System.Drawing.Point(514, 249);
+            this.gmn_txt.MaxLength = 15;
             this.gmn_txt.Multiline = true;
             this.gmn_txt.Name = "gmn_txt";
             this.gmn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2219,6 +2295,7 @@
             this.gfn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gfn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gfn_txt.Location = new System.Drawing.Point(352, 249);
+            this.gfn_txt.MaxLength = 20;
             this.gfn_txt.Multiline = true;
             this.gfn_txt.Name = "gfn_txt";
             this.gfn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2231,6 +2308,7 @@
             this.gln_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gln_txt.Location = new System.Drawing.Point(190, 249);
+            this.gln_txt.MaxLength = 15;
             this.gln_txt.Multiline = true;
             this.gln_txt.Name = "gln_txt";
             this.gln_txt.Size = new System.Drawing.Size(154, 26);
@@ -2325,6 +2403,7 @@
             this.mmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mmn_txt.Location = new System.Drawing.Point(512, 208);
+            this.mmn_txt.MaxLength = 15;
             this.mmn_txt.Multiline = true;
             this.mmn_txt.Name = "mmn_txt";
             this.mmn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2337,6 +2416,7 @@
             this.mfn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mfn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mfn_txt.Location = new System.Drawing.Point(350, 208);
+            this.mfn_txt.MaxLength = 20;
             this.mfn_txt.Multiline = true;
             this.mfn_txt.Name = "mfn_txt";
             this.mfn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2349,6 +2429,7 @@
             this.mln_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mln_txt.Location = new System.Drawing.Point(188, 208);
+            this.mln_txt.MaxLength = 15;
             this.mln_txt.Multiline = true;
             this.mln_txt.Name = "mln_txt";
             this.mln_txt.Size = new System.Drawing.Size(154, 26);
@@ -2413,6 +2494,7 @@
             this.fmn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fmn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fmn_txt.Location = new System.Drawing.Point(512, 165);
+            this.fmn_txt.MaxLength = 15;
             this.fmn_txt.Multiline = true;
             this.fmn_txt.Name = "fmn_txt";
             this.fmn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2425,6 +2507,7 @@
             this.ffn_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ffn_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ffn_txt.Location = new System.Drawing.Point(350, 165);
+            this.ffn_txt.MaxLength = 20;
             this.ffn_txt.Multiline = true;
             this.ffn_txt.Name = "ffn_txt";
             this.ffn_txt.Size = new System.Drawing.Size(154, 26);
@@ -2437,6 +2520,7 @@
             this.fln_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fln_txt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fln_txt.Location = new System.Drawing.Point(188, 165);
+            this.fln_txt.MaxLength = 15;
             this.fln_txt.Multiline = true;
             this.fln_txt.Name = "fln_txt";
             this.fln_txt.Size = new System.Drawing.Size(154, 26);
@@ -2543,60 +2627,53 @@
             this.exit_opacity.Interval = 1;
             this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
-            // id_no
+            // pwd_picture
             // 
-            this.id_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.id_no.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_no.Location = new System.Drawing.Point(287, 413);
-            this.id_no.Multiline = true;
-            this.id_no.Name = "id_no";
-            this.id_no.Size = new System.Drawing.Size(206, 26);
-            this.id_no.TabIndex = 74;
-            this.id_no.TextChanged += new System.EventHandler(this.id_no_TextChanged);
-            this.id_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_no_KeyPress);
+            this.pwd_picture.FileName = "openFileDialog1";
             // 
-            // label52
+            // pwd_pic_box
             // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(284, 427);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(212, 15);
-            this.label52.TabIndex = 75;
-            this.label52.Text = "_________________________________________";
+            this.pwd_pic_box.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
+            this.pwd_pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pwd_pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pwd_pic_box.ErrorImage = global::SAD_2_PTT_01.Properties.Resources.pwd;
+            this.pwd_pic_box.Location = new System.Drawing.Point(458, 268);
+            this.pwd_pic_box.Name = "pwd_pic_box";
+            this.pwd_pic_box.Size = new System.Drawing.Size(184, 169);
+            this.pwd_pic_box.TabIndex = 79;
+            this.pwd_pic_box.TabStop = false;
             // 
-            // label53
+            // btn_add_picture
             // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.ForeColor = System.Drawing.Color.Black;
-            this.label53.Location = new System.Drawing.Point(284, 398);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(39, 13);
-            this.label53.TabIndex = 76;
-            this.label53.Text = "ID No.";
+            this.btn_add_picture.Location = new System.Drawing.Point(616, 244);
+            this.btn_add_picture.Name = "btn_add_picture";
+            this.btn_add_picture.Size = new System.Drawing.Size(27, 23);
+            this.btn_add_picture.TabIndex = 80;
+            this.btn_add_picture.Text = "...";
+            this.btn_add_picture.UseVisualStyleBackColor = true;
+            this.btn_add_picture.Click += new System.EventHandler(this.btn_add_picture_Click);
             // 
-            // label54
+            // label86
             // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(284, 377);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(212, 15);
-            this.label54.TabIndex = 77;
-            this.label54.Text = "_________________________________________";
+            this.label86.AutoSize = true;
+            this.label86.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.ForeColor = System.Drawing.Color.Black;
+            this.label86.Location = new System.Drawing.Point(455, 252);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(49, 13);
+            this.label86.TabIndex = 81;
+            this.label86.Text = "PICTURE";
             // 
-            // lbl_id_no_error
+            // label87
             // 
-            this.lbl_id_no_error.AutoSize = true;
-            this.lbl_id_no_error.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_id_no_error.ForeColor = System.Drawing.Color.Red;
-            this.lbl_id_no_error.Location = new System.Drawing.Point(499, 415);
-            this.lbl_id_no_error.Name = "lbl_id_no_error";
-            this.lbl_id_no_error.Size = new System.Drawing.Size(121, 13);
-            this.lbl_id_no_error.TabIndex = 78;
-            this.lbl_id_no_error.Text = "* ID No. already exists.";
-            this.lbl_id_no_error.Visible = false;
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.ForeColor = System.Drawing.Color.Gray;
+            this.label87.Location = new System.Drawing.Point(460, 440);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(179, 13);
+            this.label87.TabIndex = 82;
+            this.label87.Text = "(Optional; 16 MB maximum file size.)";
             // 
             // pwd_add
             // 
@@ -2605,12 +2682,12 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1066, 611);
             this.Controls.Add(this.panel_1_);
-            this.Controls.Add(this.panel_3_);
-            this.Controls.Add(this.panel_4_);
             this.Controls.Add(this.panel_6_);
             this.Controls.Add(this.panel_5_);
-            this.Controls.Add(this.btn_revert);
+            this.Controls.Add(this.panel_4_);
+            this.Controls.Add(this.panel_3_);
             this.Controls.Add(this.panel_2_);
+            this.Controls.Add(this.btn_revert);
             this.Controls.Add(this.pwd_next);
             this.Controls.Add(this.pwd_add_back);
             this.Controls.Add(this.quick_panel);
@@ -2649,6 +2726,7 @@
             this.panel_6_.ResumeLayout(false);
             this.panel_6_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2842,5 +2920,10 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label lbl_id_no_error;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Button btn_add_picture;
+        private System.Windows.Forms.PictureBox pwd_pic_box;
+        private System.Windows.Forms.OpenFileDialog pwd_picture;
     }
 }
