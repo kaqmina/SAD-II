@@ -19,7 +19,7 @@ namespace SAD_2_PTT_01
         DataTable set;
         public connections_pwd()
         {
-            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
+            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }
 
         #region GRID-MAIN_FORM
@@ -30,22 +30,46 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT pwd_id, "
-                                             + "registration_no, "
-                                             + "id_no, "
-                                             + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), SUBSTRING(middlename, 2)) AS fullname, "
-                                             + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) as sex, "
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                             + "pwd_id, "
+                                             + "id_no ,"
+                                             + "fullname, "
+                                             + "gender, "
+                                             + "age, "
+                                             + "disability_type, "
+                                             + "educ_attainment_type, "
+                                             + "application_date, "
+                                             + "district_name, "
+                                             + "status_pwd, "
+                                             + "registration_no "
+                                             + "FROM "
+                                             + "( "
+                                             + "SELECT id_no, "
+                                             + "pwd.pwd_id, "
+                                             + "(CONCAT(lastname, ', ', firstname)) AS fullname, "
+                                             + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS gender, "
                                              + "DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age, "
                                              + "disability_type, "
-                                             + "(CASE WHEN blood_type = 1 THEN 'O' WHEN blood_type = 2 THEN 'A' WHEN blood_type = 3 THEN 'B' ELSE 'AB' END) AS blood_type, "
-                                             + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                             + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' "
+                                             + "WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' "
+                                             + "WHEN educ_attainment = 3 THEN 'High School' "
+                                             + "WHEN educ_attainment = 4 THEN 'High School Undergraduate' "
+                                             + "WHEN educ_attainment = 5 THEN 'College' "
+                                             + "WHEN educ_attainment = 6 THEN 'College Undergraduate' "
+                                             + "WHEN educ_attainment = 7 THEN 'Graduate' "
+                                             + "WHEN educ_attainment = 8 THEN 'Post Graduate' "
+                                             + "WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment_type, "
                                              + "application_date, "
-                                             + "added_date, "
-                                             + "district_id, "
-                                             + "end_date, "
                                              + "(SELECT district_name FROM pwd_district WHERE pwd.district_id = pwd_district.district_id) AS district_name, "
-                                             + "status_pwd "
-                                             + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE pwd.isArchived = 0", conn);
+                                             + "pwd.district_id, "
+                                             + "educ_attainment, "
+                                             + "sex, "
+                                             + "status_pwd, "
+                                             + "registration_no "
+                                             + "FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id "
+                                             + "JOIN pwd_district ON pwd.district_id = pwd_district.district_id "
+                                             + "WHERE pwd.isArchived != 1 AND disability.isArchived != 1 ORDER BY pwd_id ASC "
+                                             + ") t1, (SELECT @row_number:= 0) t2 ", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -58,17 +82,12 @@ namespace SAD_2_PTT_01
                 #region Columns
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "pwd_id";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "registration_no";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "id_no";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -78,7 +97,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "sex";
+                column.ColumnName = "gender";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -93,12 +112,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "blood_type";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "civil_status";
+                column.ColumnName = "educ_attainment_type";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -108,27 +122,17 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "added_date";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "district_id";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "district_name";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "end_date";
+                column.ColumnName = "status_pwd";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "status_pwd";
+                column.ColumnName = "registration_no";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -142,22 +146,18 @@ namespace SAD_2_PTT_01
                 {
                     string none = "None";
                     row = pwd_data.NewRow();
+                    row["no"] = none;
                     row["pwd_id"] = none;
-                    row["registration_no"] = none;
-                    row["id_no"] = none;
                     row["fullname"] = none;
-                    row["sex"] = none;
+                    row["gender"] = none;
                     row["age"] = none;
                     row["disability_type"] = none;
-                    row["blood_type"] = none;
-                    row["civil_status"] = none;
+                    row["educ_attainment_type"] = none;
                     row["application_date"] = none;
-                    row["added_date"] = none;
-                    row["district_id"] = none;
                     row["district_name"] = none;
-                    row["end_date"] = none;
                     row["status_pwd"] = none;
-                    row["display_text"] = "There are no PWD members registered.";
+                    row["registration_no"] = none;
+                    row["display_text"] = "There are no PWD members added.";
                     pwd_data.Rows.Add(row);
                     has_data = false;
                 }
@@ -166,24 +166,18 @@ namespace SAD_2_PTT_01
                     for (int i = 0; i < count; i++)
                     {
                         row = pwd_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
-                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
-                        row["id_no"] = set.Rows[i]["id_no"].ToString();
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
-                        row["sex"] = set.Rows[i]["sex"].ToString();
+                        row["gender"] = set.Rows[i]["gender"].ToString();
                         row["age"] = set.Rows[i]["age"].ToString();
                         row["disability_type"] = set.Rows[i]["disability_type"].ToString();
-                        row["blood_type"] = set.Rows[i]["blood_type"].ToString();
-                        row["civil_status"] = set.Rows[i]["civil_status"].ToString();
+                        row["educ_attainment_type"] = set.Rows[i]["educ_attainment_type"].ToString();
                         string[] app_date = set.Rows[i]["application_date"].ToString().Split();
                         row["application_date"] = app_date[0];
-                        string[] add_date = set.Rows[i]["added_date"].ToString().Split();
-                        row["added_date"] = add_date[0];
-                        row["district_id"] = set.Rows[i]["district_id"].ToString();
                         row["district_name"] = set.Rows[i]["district_name"].ToString();
-                        string[] end_date = set.Rows[i]["end_date"].ToString().Split();
-                        row["end_date"] = end_date[0];
                         row["status_pwd"] = set.Rows[i]["status_pwd"].ToString();
+                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                         row["display_text"] = "Please refresh the list.";
                         pwd_data.Rows.Add(row);
                     }
@@ -194,12 +188,12 @@ namespace SAD_2_PTT_01
 
                 pwd_grid.DataSource = view;
                 conn.Close();
-                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_GRID_LIST_LOADED }");
+                Console.WriteLine("[SUCCESS] - [CONNECTIONS_PWD] pwd_grid_list() ");
             }
             catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine("--->>" + e.Message + "<<---");
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_grid_list() : " + e.Message);
                 has_data = false;
             }
 
@@ -844,7 +838,7 @@ namespace SAD_2_PTT_01
         {
             try
             {
-                (pwd_grid.DataSource as DataView).RowFilter = string.Format("sex LIKE '{0}%' ", gender);
+                (pwd_grid.DataSource as DataView).RowFilter = string.Format("gender LIKE '{0}%' ", gender);
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message + Environment.NewLine + gender);
@@ -859,7 +853,7 @@ namespace SAD_2_PTT_01
 
         public void filter_status_gender (string status, string gender, DataGridView pwd_grid)
         {
-            (pwd_grid.DataSource as DataView).RowFilter = string.Format("sex LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
+            (pwd_grid.DataSource as DataView).RowFilter = string.Format("gender LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
         }
         #endregion
 

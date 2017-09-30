@@ -149,6 +149,12 @@
     <Compile Include="pwd_ask.Designer.cs">
       <DependentUpon>pwd_ask.cs</DependentUpon>
     </Compile>
+    <Compile Include="pwd_renew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwd_renew.Designer.cs">
+      <DependentUpon>pwd_renew.cs</DependentUpon>
+    </Compile>
     <Compile Include="pwd_view.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pwd_ask.resx">
       <DependentUpon>pwd_ask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pwd_renew.resx">
+      <DependentUpon>pwd_renew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pwd_view.resx">
       <DependentUpon>pwd_view.cs</DependentUpon>

@@ -190,22 +190,17 @@ namespace SAD_2_PTT_01
                 pwd_grid.DefaultCellStyle.ForeColor = Color.Gray;
                 pwd_grid.DefaultCellStyle.SelectionForeColor = Color.Gray;
                 pwd_grid.DefaultCellStyle.SelectionBackColor = Color.White;
+                pwd_grid.Columns["no"].Visible = false;
                 pwd_grid.Columns["pwd_id"].Visible = false;
-                pwd_grid.Columns["status_pwd"].Visible = false;
-                pwd_grid.Columns["district_id"].Visible = false;
-                pwd_grid.Columns["end_date"].Visible = false;
-                pwd_grid.Columns["blood_type"].Visible = false;
-                pwd_grid.Columns["civil_status"].Visible = false;
-                pwd_grid.Columns["added_date"].Visible = false;
-                pwd_grid.Columns["registration_no"].Visible = false;
                 pwd_grid.Columns["fullname"].Visible = false;
-                pwd_grid.Columns["sex"].Visible = false;
-                pwd_grid.Columns["disability_type"].Visible = false;
-                pwd_grid.Columns["application_date"].Visible = false; 
-                pwd_grid.Columns["added_date"].Visible = false;
+                pwd_grid.Columns["gender"].Visible = false;
                 pwd_grid.Columns["age"].Visible = false;
-                pwd_grid.Columns["id_no"].Visible = false;
+                pwd_grid.Columns["disability_type"].Visible = false;
+                pwd_grid.Columns["educ_attainment_type"].Visible = false;
+                pwd_grid.Columns["application_date"].Visible = false;
                 pwd_grid.Columns["district_name"].Visible = false;
+                pwd_grid.Columns["status_pwd"].Visible = false;
+                pwd_grid.Columns["registration_no"].Visible = false;
 
                 pwd_grid.Columns["display_text"].Visible = true;
                 pwd_grid.Columns["display_text"].HeaderText = "Full List";
@@ -216,37 +211,33 @@ namespace SAD_2_PTT_01
                 pwd_grid.DefaultCellStyle.SelectionForeColor = Color.Black;
                 pwd_grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 224, 224);
                 pwd_grid.Columns["pwd_id"].Visible = false;
-                pwd_grid.Columns["status_pwd"].Visible = false;
-                pwd_grid.Columns["district_id"].Visible = false;
-                pwd_grid.Columns["end_date"].Visible = false;
-                pwd_grid.Columns["blood_type"].Visible = false;
-                pwd_grid.Columns["civil_status"].Visible = false;
-                pwd_grid.Columns["added_date"].Visible = false;
                 pwd_grid.Columns["display_text"].Visible = false;
+                pwd_grid.Columns["status_pwd"].Visible = false;
+                pwd_grid.Columns["registration_no"].Visible = false;
 
-                pwd_grid.Columns["registration_no"].Visible = true;
+                pwd_grid.Columns["no"].Visible = true;
                 pwd_grid.Columns["fullname"].Visible = true;
-                pwd_grid.Columns["sex"].Visible = true;
-                pwd_grid.Columns["disability_type"].Visible = true;
-                pwd_grid.Columns["application_date"].Visible = true;
+                pwd_grid.Columns["gender"].Visible = true;
                 pwd_grid.Columns["age"].Visible = true;
-                pwd_grid.Columns["id_no"].Visible = true;
+                pwd_grid.Columns["disability_type"].Visible = true;
+                pwd_grid.Columns["educ_attainment_type"].Visible = true;
+                pwd_grid.Columns["application_date"].Visible = true;
                 pwd_grid.Columns["district_name"].Visible = true;
-                pwd_grid.Columns["registration_no"].HeaderText = "Registration #";
-                pwd_grid.Columns["fullname"].HeaderText = "Full Name";
-                pwd_grid.Columns["sex"].HeaderText = "Sex";
-                pwd_grid.Columns["disability_type"].HeaderText = "Disability";
-                pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
-                pwd_grid.Columns["added_date"].HeaderText = "Date Added";
+
+                pwd_grid.Columns["no"].HeaderText = "No.";
+                pwd_grid.Columns["fullname"].HeaderText = "Name";
+                pwd_grid.Columns["gender"].HeaderText = "Sex";
                 pwd_grid.Columns["age"].HeaderText = "Age";
-                pwd_grid.Columns["id_no"].HeaderText = "ID No.";
+                pwd_grid.Columns["disability_type"].HeaderText = "Disability";
+                pwd_grid.Columns["educ_attainment_type"].HeaderText = "Educational Attainment";
+                pwd_grid.Columns["application_date"].HeaderText = "Date Applied";
                 pwd_grid.Columns["district_name"].HeaderText = "District";
+                pwd_grid.Columns["registration_no"].HeaderText = "Registration No.";
             }
 
-            
 
-            pwd_grid.Columns["registration_no"].Width = 90;
-            pwd_grid.Columns["sex"].Width = 40;
+            pwd_grid.Columns["no"].Width = 40;
+            pwd_grid.Columns["gender"].Width = 40;
             pwd_grid.Columns["age"].Width = 40;
             pwd_cell_color();
         }
@@ -301,6 +292,7 @@ namespace SAD_2_PTT_01
                 if (pwd_grid.Rows[i].Cells["status_pwd"].Value.ToString() == "0") //inactive = 0
                 {
                     pwd_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
+                    pwd_grid.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Tomato;
                 }
             }
         }
@@ -2442,14 +2434,17 @@ namespace SAD_2_PTT_01
                 if (accounts_grid.Rows[i].Cells["status_id"].Value.ToString() == "Inactive") 
                 {
                     accounts_grid.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
+                    accounts_grid.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Tomato;
                 }
                 if (accounts_grid.Rows[i].Cells["status_id"].Value.ToString() == "Break")
                 {
                     accounts_grid.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 192, 128);
+                    accounts_grid.Rows[i].DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 128, 0);
                 } 
                 if (accounts_grid.Rows[i].Cells["status_id"].Value.ToString() == "Active")
                 {
                     accounts_grid.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(128, 255, 128);
+                    accounts_grid.Rows[i].DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 255, 0);
                 }
 
             }
