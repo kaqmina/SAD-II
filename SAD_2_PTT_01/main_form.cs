@@ -192,6 +192,7 @@ namespace SAD_2_PTT_01
                 pwd_grid.DefaultCellStyle.SelectionBackColor = Color.White;
                 pwd_grid.Columns["no"].Visible = false;
                 pwd_grid.Columns["pwd_id"].Visible = false;
+                pwd_grid.Columns["id_no"].Visible = false;
                 pwd_grid.Columns["fullname"].Visible = false;
                 pwd_grid.Columns["gender"].Visible = false;
                 pwd_grid.Columns["age"].Visible = false;
@@ -217,6 +218,7 @@ namespace SAD_2_PTT_01
 
                 pwd_grid.Columns["no"].Visible = true;
                 pwd_grid.Columns["fullname"].Visible = true;
+                pwd_grid.Columns["id_no"].Visible = true;
                 pwd_grid.Columns["gender"].Visible = true;
                 pwd_grid.Columns["age"].Visible = true;
                 pwd_grid.Columns["disability_type"].Visible = true;
@@ -226,6 +228,7 @@ namespace SAD_2_PTT_01
 
                 pwd_grid.Columns["no"].HeaderText = "No.";
                 pwd_grid.Columns["fullname"].HeaderText = "Name";
+                pwd_grid.Columns["id_no"].HeaderText = "ID No.";
                 pwd_grid.Columns["gender"].HeaderText = "Sex";
                 pwd_grid.Columns["age"].HeaderText = "Age";
                 pwd_grid.Columns["disability_type"].HeaderText = "Disability";

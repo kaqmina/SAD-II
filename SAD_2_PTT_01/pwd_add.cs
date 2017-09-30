@@ -258,15 +258,15 @@ namespace SAD_2_PTT_01
                 {
                     if(from_view)
                     {
-                        reference_to_view.notification_ = "Updated PWD Profile! Registration #:" + "\n" + registration_no;
+                        reference_to_view.notification_ = "Updated PWD Profile! ID No. #:" + "\n" + id_no_;
                     } else
                     {
-                        reference_to_main.notification_ = "Updated PWD Profile! Registration #:" + "\n" + registration_no;
+                        reference_to_main.notification_ = "Updated PWD Profile! ID No. #:" + "\n" + id_no_;
                     }
                 }
                 else
                 {
-                    reference_to_main.notification_ = "Added PWD Profile! Registration #:" + "\n" + registration_no;
+                    reference_to_main.notification_ = "Added PWD Profile! ID No. #:" + "\n" + id_no_;
                 }
                 this.Close();
             }
@@ -1155,7 +1155,6 @@ namespace SAD_2_PTT_01
                                             + "email_add, "
                                             + "civil_status, "
                                             + "nationality, "
-                                            + "end_date, "
                                             + "added_date, "
                                             + "application_date, "
                                             + "educ_attainment, "
@@ -1204,8 +1203,6 @@ namespace SAD_2_PTT_01
                                              + ", '"
                                              + natio
                                              + "', '"
-                                             + end_date
-                                             + "', '"
                                              + (DateTime.Now.ToString("yyyy-MM-dd"))
                                              + "', '"
                                              + application_date
@@ -1251,7 +1248,6 @@ namespace SAD_2_PTT_01
                                             + "email_add, "
                                             + "civil_status, "
                                             + "nationality, "
-                                            + "end_date, "
                                             + "added_date, "
                                             + "application_date, "
                                             + "educ_attainment, "
@@ -1301,8 +1297,6 @@ namespace SAD_2_PTT_01
                                          + civil_status
                                          + ", '"
                                          + natio
-                                         + "', '"
-                                         + end_date
                                          + "', '"
                                          + (DateTime.Now.ToString("yyyy-MM-dd"))
                                          + "', '"
@@ -1401,6 +1395,7 @@ namespace SAD_2_PTT_01
                                              + guardian_mn
                                              + "', (SELECT LAST_INSERT_ID()) )";
             #endregion
+            
 
             if (has_pic == false)
             {
@@ -1417,6 +1412,7 @@ namespace SAD_2_PTT_01
             {
                 string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
                 new_id = conn_pwd.get_last_insert_id_pwd();
+                conn_pwd.insert_pwd_end_date(new_id, end_date);
                 conn_pwd.usr_log_add(user_id, new_id);
                 reference_to_main.success = true;
                 reference_to_main.load_pwd();
@@ -1498,9 +1494,6 @@ namespace SAD_2_PTT_01
                                                       + "nationality = '"
                                                       + natio
                                                       + "', "
-                                                      + "end_date = '"
-                                                      + end_date
-                                                      + "', "
                                                       + "added_date = '"
                                                       + added_date
                                                       + "', "
@@ -1533,6 +1526,7 @@ namespace SAD_2_PTT_01
             else
             {
                 has_pic = true;
+                #region main_data
                 main_data = "UPDATE p_dao.pwd SET registration_no = '"
                                                       + registration_no
                                                       + "', "
@@ -1590,9 +1584,6 @@ namespace SAD_2_PTT_01
                                                       + "nationality = '"
                                                       + natio
                                                       + "', "
-                                                      + "end_date = '"
-                                                      + end_date
-                                                      + "', "
                                                       + "added_date = '"
                                                       + added_date
                                                       + "', "
@@ -1620,10 +1611,9 @@ namespace SAD_2_PTT_01
                                                       + "picture = "
                                                       + "@Image "
                                                       + "WHERE pwd_id = " + pwd_update_id;
-
+                #endregion
             }
 
-            
             #region other_data
             other_data = "UPDATE pwd_otherinfo SET sss_no = '"
                                                         + sss_no
@@ -1709,6 +1699,7 @@ namespace SAD_2_PTT_01
                 if(from_view)
                 {
                     string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                    conn_pwd.insert_pwd_end_date(pwd_update_id, end_date);
                     conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_view.success = true;
                     reference_to_view.pwd_load_data(pwd_update_id);

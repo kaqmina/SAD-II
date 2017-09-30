@@ -92,6 +92,11 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "id_no";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "fullname";
                 pwd_data.Columns.Add(column);
 
@@ -148,6 +153,7 @@ namespace SAD_2_PTT_01
                     row = pwd_data.NewRow();
                     row["no"] = none;
                     row["pwd_id"] = none;
+                    row["id_no"] = none;
                     row["fullname"] = none;
                     row["gender"] = none;
                     row["age"] = none;
@@ -168,6 +174,7 @@ namespace SAD_2_PTT_01
                         row = pwd_data.NewRow();
                         row["no"] = set.Rows[i]["no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["gender"] = set.Rows[i]["gender"].ToString();
                         row["age"] = set.Rows[i]["age"].ToString();
@@ -856,6 +863,24 @@ namespace SAD_2_PTT_01
             (pwd_grid.DataSource as DataView).RowFilter = string.Format("gender LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
         }
         #endregion
+
+        public void insert_pwd_end_date(string pwd_id, string end_date)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("INSERT INTO renew_pwd(pwd_id, end_date, is_resolved) VALUES ( " + pwd_id + ", '" + end_date + "', 0)", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] insert_pwd_end_date() : " + e.Message);
+                conn.Close();
+            }
+        }
+
 
         #region EMP_LOG
 
