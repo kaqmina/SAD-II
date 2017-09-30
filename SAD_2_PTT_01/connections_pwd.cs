@@ -454,13 +454,16 @@ namespace SAD_2_PTT_01
                 try
                 {
                     comm.ExecuteNonQuery();
+                    main_ = true;
                 } catch (Exception e)
                 {
                     main_ = false;
+                    Console.WriteLine("pwd_add_profile() main_ : " + e.Message);
                 }
 
                 if (main_ == false)
                 {
+                    conn.Close();
                     return false;
                 }
                 #endregion
@@ -469,13 +472,16 @@ namespace SAD_2_PTT_01
                 try
                 {
                     comm.ExecuteNonQuery();
+                    other_ = true;
                 } catch (Exception e )
                 {
                     other_ = false;
+                    Console.WriteLine("pwd_add_profile() other_ : " + e.Message);
                 }
 
                 if (other_ == false)
                 {
+                    conn.Close();
                     return false;
                 }
                 #endregion
@@ -484,13 +490,16 @@ namespace SAD_2_PTT_01
                 try
                 {
                     comm.ExecuteNonQuery();
+                    parent_ = true;
                 } catch (Exception e)
                 {
                     parent_ = false;
+                    Console.WriteLine("pwd_add_profile() parent_ : " + e.Message);
                 }
 
                 if (parent_ == false)
                 {
+                    conn.Close();
                     return false;
                 }
                 #endregion

@@ -230,7 +230,7 @@ namespace SAD_2_PTT_01
 
         private void id_no_KeyPress(object sender, KeyPressEventArgs e)
         {
-            key_.key_number_letter(sender, e);
+            key_.key_number(sender, e);
         }
         #endregion
 
@@ -297,21 +297,61 @@ namespace SAD_2_PTT_01
         {
             if (update_mode == false)
             {
-                btn_general.Enabled = true;
-                btn_personal.Enabled = false;
-                btn_contact.Enabled = false;
-                btn_educational.Enabled = false;
-                btn_employment.Enabled = false;
-                btn_type_of_skill.Enabled = false;
-                btn_organizational.Enabled = false;
-                btn_other.Enabled = false;
-                btn_parental.Enabled = false;
-                pwd_next.Enabled = false;
+                system_func.btn_active(btn_general);
+                system_func.btn_inactive(btn_personal);
+                system_func.btn_inactive(btn_contact);
+                system_func.btn_inactive(btn_educational);
+                system_func.btn_inactive(btn_employment);
+                system_func.btn_inactive(btn_type_of_skill);
+                system_func.btn_inactive(btn_organizational);
+                system_func.btn_inactive(btn_other);
+                system_func.btn_inactive(btn_parental);
+                system_func.btn_inactive(pwd_next);
+            } else
+            {
+                panel_1_next();
+                panel_2_next();
+                panel_3_next();
+                panel_4_next();
+                panel_5_next();
+                panel_6_next();
+            }
+        }
+
+        public void check_btn_pwd_next()
+        {
+            if (update_mode == true)
+            {
+                if (btn_general.ForeColor == Color.Red ||
+                     btn_personal.ForeColor == Color.Red ||
+                     btn_contact.ForeColor == Color.Red ||
+                     btn_educational.ForeColor == Color.Red ||
+                     btn_employment.ForeColor == Color.Red ||
+                     btn_organizational.ForeColor == Color.Red ||
+                     btn_other.ForeColor == Color.Red ||
+                     btn_type_of_skill.ForeColor == Color.Red ||
+                     btn_parental.ForeColor == Color.Red
+                    )
+                {
+                    if (pwd_next.Text != "NEXT")
+                    {
+                        system_func.btn_inactive(pwd_next);
+                    }
+                    else
+                    {
+                        system_func.btn_active(pwd_next);
+                    }
+                }
+                else
+                {
+                    system_func.btn_active(pwd_next);
+                }
             }
         }
 
         public void load_combobox_initial_selected_index()
         {
+
             disability_type.SelectedIndex = 0;
             district_type.SelectedIndex = 0;
             gender.SelectedIndex = 0;
@@ -330,6 +370,7 @@ namespace SAD_2_PTT_01
             load_panel_visibility();
             load_panel_quick_button_enabled();
             load_combobox_initial_selected_index();
+            pwd_pic_box.Image = null;
 
             btn_revert.Visible = false;
 
@@ -396,10 +437,10 @@ namespace SAD_2_PTT_01
                 pwd_next.Text = "NEXT";
                 panel_1_.Visible = false;
                 panel_2_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_2_next();
                 current_panel = 2;
-                btn_personal.Enabled = true;
+                system_func.btn_active(btn_personal);
                 current_panel_active = panel_2_;
             }
             else if (current_panel == 2) //PANEL 3
@@ -407,11 +448,11 @@ namespace SAD_2_PTT_01
                 pwd_next.Text = "NEXT";
                 panel_2_.Visible = false;
                 panel_3_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_3_next();
                 current_panel = 3;
-                btn_contact.Enabled = true;
-                btn_educational.Enabled = true;
+                system_func.btn_active(btn_contact);
+                system_func.btn_active(btn_educational);
                 current_panel_active = panel_3_;
 
             } else if (current_panel == 3) //PANEL 4
@@ -419,31 +460,31 @@ namespace SAD_2_PTT_01
                 pwd_next.Text = "NEXT";
                 panel_3_.Visible = false;
                 panel_4_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_4_next();
                 current_panel = 4;
-                btn_employment.Enabled = true;
-                btn_type_of_skill.Enabled = true;
+                system_func.btn_active(btn_employment);
+                system_func.btn_active(btn_type_of_skill);
                 current_panel_active = panel_4_;
             } else if (current_panel == 4) //PANEL 5
             {
                 pwd_next.Text = "NEXT";
                 panel_4_.Visible = false;
                 panel_5_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_5_next();
                 current_panel = 5;
-                btn_organizational.Enabled = true;
-                btn_other.Enabled = true;
+                system_func.btn_active(btn_organizational);
+                system_func.btn_active(btn_other);
                 current_panel_active = panel_5_;
             } else if (current_panel == 5) //PANEL 6
             {
                 panel_5_.Visible = false;
                 panel_6_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_6_next();
                 current_panel = 6;
-                btn_parental.Enabled = true;
+                system_func.btn_active(btn_parental);
                 current_panel_active = panel_6_;
                 if(update_mode)
                 {
@@ -456,6 +497,7 @@ namespace SAD_2_PTT_01
             {
                 pwd_add_update_profile();
             }
+            check_btn_pwd_next();
             btn_side_active();
         }
 
@@ -464,15 +506,18 @@ namespace SAD_2_PTT_01
 
         public void panel_1_next ()
         {
-            if(pwd_regisno.Text != "" && pwd_appdate.Value.ToString() != "" && disability_type.Text != "" && lbl_regis_no_error.Visible == false && lbl_id_no_error.Visible == false) 
+            if(pwd_regisno.Text != "" && pwd_appdate.Value.ToString() != "" && disability_type.Text != "" 
+                && lbl_regis_no_error.Visible == false && lbl_id_no_error.Visible == false 
+                && lbl_id_length.Visible == false && lbl_regis_no_length.Visible == false) 
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_general.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_general.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_2_next()
@@ -484,77 +529,86 @@ namespace SAD_2_PTT_01
                 bar_txt.Text != "" &&
                 mun_txt.Text != "" &&
                 prov_txt.Text != "" &&
-                district_type.SelectedIndex != 0 &&
+                district_type.SelectedIndex > 0 &&
                 dateofbirth.Value.ToString() != "" &&
                 gender.Text != "" &&
                 nationality.Text != "" &&
-                bloodtype.SelectedIndex != 0 &&
-                civilstatus.SelectedIndex != 0
+                bloodtype.SelectedIndex > 0 &&
+                civilstatus.SelectedIndex > 0
                 )
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_personal.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_personal.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_3_next()
         {
             if (telno.Text != "" && mobileno.Text != "" && email.Text != "")
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_contact.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_contact.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_4_next()
         {
             if(empstatus.SelectedIndex == 1 && noemp.SelectedIndex != 0 && typeoemp.SelectedIndex != 0)
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_employment.ForeColor = Color.FromArgb(41, 45, 56);
             } else if (empstatus.SelectedIndex > 1 && noemp.SelectedIndex == 0 && typeoemp.SelectedIndex == 0)
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_employment.ForeColor = Color.FromArgb(41, 45, 56);
             }
             else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_employment.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_5_next()
         {
-            if(orgaff.Text != "" &&
+            if( (orgaff.Text != "" &&
                 contactper.Text != "" &&
                 officeadd.Text != "" &&
-                orgtelno.Text != "" &&
+                orgtelno.Text != "") || (
                 sssno.Text != "" &&
                 gsisno.Text != "" &&
                 philhealthno.Text != "" &&
-                philhealthstatus.SelectedIndex != 0)
+                philhealthstatus.Text != ""))
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 if (orgaff.Text != "" && contactper.Text != "" && officeadd.Text != "" && orgtelno.Text != "")
                 {
                     btn_organizational.ForeColor = Color.FromArgb(41, 45, 56);
+                } else
+                {
+                    btn_organizational.ForeColor = Color.Red;
                 }
-                if (sssno.Text != "" && gsisno.Text != "" && philhealthno.Text != "" && philhealthstatus.SelectedIndex != 0)
+                if (sssno.Text != "" && gsisno.Text != "" && philhealthno.Text != "" && philhealthstatus.Text != "")
                 {
                     btn_other.ForeColor = Color.FromArgb(41, 45, 56);
+                } else
+                {
+                    btn_other.ForeColor = Color.Red;
                 }
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 if (orgaff.Text == "" || contactper.Text == "" || officeadd.Text == "" || orgtelno.Text == "")
                 {
                     btn_organizational.ForeColor = Color.Red;
@@ -564,6 +618,7 @@ namespace SAD_2_PTT_01
                     btn_other.ForeColor = Color.Red;
                 }
             }
+            check_btn_pwd_next();
         }
 
         public void panel_6_next()
@@ -583,13 +638,14 @@ namespace SAD_2_PTT_01
                 norunit.Text != "" &&
                 lbl_regis_no_error.Visible == false)
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_parental.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_parental.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
         #endregion
 
@@ -612,14 +668,20 @@ namespace SAD_2_PTT_01
             if (conn_pwd.pwd_check_registration_has_duplicate(pwd_regisno.Text, update_regis_no) == true)
             {
                 lbl_regis_no_error.Visible = true;
-                panel_1_next();
-            }
-            else
+            } else
             {
                 lbl_regis_no_error.Visible = false;
-                panel_1_next();
             }
-            
+
+            if (pwd_regisno.Text.Length < 13)
+            {
+                lbl_regis_no_length.Visible = true;
+            } else
+            {
+                lbl_regis_no_length.Visible = false;
+            }
+            panel_1_next();
+
         }
         //<---[ Panel 1 ]---> END
 
@@ -1073,6 +1135,7 @@ namespace SAD_2_PTT_01
             if (pwd_pic_box.Image == null)
             {
                 has_pic = false;
+                Console.WriteLine("has_pic = " + has_pic.ToString());
                 #region MAIN-FIELDS
                 main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
@@ -1168,6 +1231,7 @@ namespace SAD_2_PTT_01
             else
             {
                 has_pic = true;
+                Console.WriteLine("has_pic = " + has_pic.ToString());
                 #region MAIN-FIELDS-PIC
                 main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
@@ -1341,10 +1405,12 @@ namespace SAD_2_PTT_01
             if (has_pic == false)
             {
                 success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
+                Console.WriteLine("A1");
             } else
             {
                 var pic_file = picturetoDB(pwd_pic_box.Image);
                 success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables), pic_file);
+                Console.WriteLine("A2");
             }
 
             if (success == true)
@@ -1458,7 +1524,9 @@ namespace SAD_2_PTT_01
                                                       + ", "
                                                       + "status_pwd = "
                                                       + pwd_status
-                                                      + " "
+                                                      + ", "
+                                                      + "picture = "
+                                                      + "null "
                                                       + "WHERE pwd_id = " + pwd_update_id;
                 #endregion
             }
@@ -1698,6 +1766,7 @@ namespace SAD_2_PTT_01
                 }
 
             }
+            check_btn_pwd_next();
             btn_side_active();
         }
 
@@ -1884,16 +1953,23 @@ namespace SAD_2_PTT_01
 
         private void id_no_TextChanged(object sender, EventArgs e)
         {
-            if (conn_pwd.pwd_check_registration_has_duplicate(id_no.Text, update_id_no) == true)
+            if (conn_pwd.pwd_check_id_has_duplicate(id_no.Text, update_id_no) == true)
             {
                 lbl_id_no_error.Visible = true;
-                panel_1_next();
             }
             else
             {
                 lbl_id_no_error.Visible = false;
-                panel_1_next();
             }
+            
+            if(id_no.Text.Trim().Length < 18)
+            {
+                lbl_id_length.Visible = true;
+            } else
+            {
+                lbl_id_length.Visible = false;
+            }
+            panel_1_next();
         }
 
         private void btn_add_picture_Click(object sender, EventArgs e)
@@ -1904,7 +1980,7 @@ namespace SAD_2_PTT_01
                 string pic_location = pwd_picture.FileName.ToString();
                 pwd_pic_box.ImageLocation = pic_location;
                 pwd_pic_box.Image = Image.FromFile(pic_location);
-                pwd_pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 
@@ -1915,6 +1991,11 @@ namespace SAD_2_PTT_01
                 img.Save(ms, img.RawFormat);
                 return ms.ToArray();
             }
+        }
+
+        private void pwd_pic_clear_Click(object sender, EventArgs e)
+        {
+            pwd_pic_box.Image = null;
         }
     }
 }
