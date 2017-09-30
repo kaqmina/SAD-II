@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SAD_2_PTT_01
 {
@@ -57,6 +58,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region PWD DATA Paste
+
         public void pwd_load_data(string current_pwd)
         {
             DataTable main_data = new DataTable();
@@ -79,6 +81,18 @@ namespace SAD_2_PTT_01
             pwd_view_email.Text = main_data.Rows[0]["email_add"].ToString();
             pwd_view_educ_att.Text = main_data.Rows[0]["educ_attainment"].ToString();
             pwd_view_status.Text = main_data.Rows[0]["status_pwd"].ToString();
+            try
+            {
+                byte[] image = (byte[])main_data.Rows[0]["picture"];
+                MemoryStream ms = new MemoryStream(image);
+                pwd_view_pp.Image = Image.FromStream(ms);
+                pwd_view_pp.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+                pwd_view_pp.Image = SAD_2_PTT_01.Properties.Resources.PWD_1;
+                pwd_view_pp.SizeMode = PictureBoxSizeMode.Zoom;
+            }
 
             if (pwd_view_status.Text == "Active")
                 pwd_view_status.ForeColor = Color.FromArgb(0, 192, 0);

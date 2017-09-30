@@ -258,6 +258,7 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand("SELECT pwd_id, "
                                                           + "registration_no, "
                                                           + "id_no, "
+                                                          + "picture, "
                                                           + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
                                                           + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
                                                           + "disability_type, "
