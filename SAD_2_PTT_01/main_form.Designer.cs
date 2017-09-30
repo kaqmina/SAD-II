@@ -70,8 +70,10 @@
             this.pnl_dashboard = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl_pwd = new System.Windows.Forms.Panel();
+            this.label194 = new System.Windows.Forms.Label();
             this.label114 = new System.Windows.Forms.Label();
             this.label115 = new System.Windows.Forms.Label();
+            this.label195 = new System.Windows.Forms.Label();
             this.pwd_grid_row_count = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -453,8 +455,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btn_notifications_pwd = new System.Windows.Forms.Button();
-            this.label194 = new System.Windows.Forms.Label();
-            this.label195 = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -888,6 +888,17 @@
             this.pnl_pwd.Size = new System.Drawing.Size(1066, 611);
             this.pnl_pwd.TabIndex = 15;
             // 
+            // label194
+            // 
+            this.label194.AutoSize = true;
+            this.label194.BackColor = System.Drawing.Color.Transparent;
+            this.label194.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label194.Location = new System.Drawing.Point(135, 105);
+            this.label194.Name = "label194";
+            this.label194.Size = new System.Drawing.Size(10, 13);
+            this.label194.TabIndex = 52;
+            this.label194.Text = "|";
+            // 
             // label114
             // 
             this.label114.AutoSize = true;
@@ -908,6 +919,17 @@
             this.label115.Size = new System.Drawing.Size(204, 20);
             this.label115.TabIndex = 50;
             this.label115.Text = "PERSONS WITH DISABILITY";
+            // 
+            // label195
+            // 
+            this.label195.AutoSize = true;
+            this.label195.BackColor = System.Drawing.Color.Transparent;
+            this.label195.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label195.Location = new System.Drawing.Point(135, 115);
+            this.label195.Name = "label195";
+            this.label195.Size = new System.Drawing.Size(10, 13);
+            this.label195.TabIndex = 53;
+            this.label195.Text = "|";
             // 
             // pwd_grid_row_count
             // 
@@ -2402,7 +2424,7 @@
             this.device_request_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.device_request_new.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.device_request_new.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.device_request_new.Image = global::SAD_2_PTT_01.Properties.Resources.referee__1_;
+            this.device_request_new.Image = global::SAD_2_PTT_01.Properties.Resources.referee_;
             this.device_request_new.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.device_request_new.Location = new System.Drawing.Point(879, 0);
             this.device_request_new.Name = "device_request_new";
@@ -5768,36 +5790,14 @@
             this.btn_notifications_pwd.Text = "There are no new notifications..";
             this.btn_notifications_pwd.UseVisualStyleBackColor = false;
             // 
-            // label194
-            // 
-            this.label194.AutoSize = true;
-            this.label194.BackColor = System.Drawing.Color.Transparent;
-            this.label194.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label194.Location = new System.Drawing.Point(135, 105);
-            this.label194.Name = "label194";
-            this.label194.Size = new System.Drawing.Size(10, 13);
-            this.label194.TabIndex = 52;
-            this.label194.Text = "|";
-            // 
-            // label195
-            // 
-            this.label195.AutoSize = true;
-            this.label195.BackColor = System.Drawing.Color.Transparent;
-            this.label195.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label195.Location = new System.Drawing.Point(135, 115);
-            this.label195.Name = "label195";
-            this.label195.Size = new System.Drawing.Size(10, 13);
-            this.label195.TabIndex = 53;
-            this.label195.Text = "|";
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
-            this.Controls.Add(this.pnl_devices);
             this.Controls.Add(this.pnl_pwd);
+            this.Controls.Add(this.pnl_devices);
             this.Controls.Add(this.pnl_settings);
             this.Controls.Add(this.pnl_reports);
             this.Controls.Add(this.pnl_projects);

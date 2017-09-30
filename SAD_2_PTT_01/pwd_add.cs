@@ -1068,7 +1068,6 @@ namespace SAD_2_PTT_01
             bool success;
             string new_id = "0";
             bool has_pic = false;
-            var pic_file = picturetoDB(pwd_pic_box.Image);
 
             #region main_data
             if (pwd_pic_box.Image == null)
@@ -1344,6 +1343,7 @@ namespace SAD_2_PTT_01
                 success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
             } else
             {
+                var pic_file = picturetoDB(pwd_pic_box.Image);
                 success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables), pic_file);
             }
 
@@ -1370,7 +1370,6 @@ namespace SAD_2_PTT_01
             string parental_data;
             bool success;
             bool has_pic = false;
-            var pic_file = picturetoDB(pwd_pic_box.Image);
 
             if (pwd_pic_box.Image == null)
             {
@@ -1632,6 +1631,7 @@ namespace SAD_2_PTT_01
                 success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
             } else
             {
+                var pic_file = picturetoDB(pwd_pic_box.Image);
                 success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data, pic_file);
             }
 
@@ -1804,20 +1804,17 @@ namespace SAD_2_PTT_01
             telno.Text = main_data.Rows[0]["tel_no"].ToString();
             mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
             email.Text = main_data.Rows[0]["email_add"].ToString();
-            /*
-            pwd_pic_box.BackgroundImage = null;
             try
             {
                 byte[] image = (byte[])main_data.Rows[0]["picture"];
                 MemoryStream ms = new MemoryStream(image);
                 pwd_pic_box.Image = Image.FromStream(ms);
-                pwd_pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch
             {
-                pwd_pic_box.Image = SAD_2_PTT_01.Properties.Resources.pwd;
-                pwd_pic_box.SizeMode = PictureBoxSizeMode.CenterImage;
-            }*/
+                pwd_pic_box.Image = null;
+            }
 
             educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
             empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());
