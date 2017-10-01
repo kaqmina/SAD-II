@@ -20,6 +20,7 @@ namespace SAD_2_PTT_01
         system_sidenav_active system_sidenav = new system_sidenav_active();
         system_keypress key_ = new system_keypress();
         system_functions sys_func = new system_functions();
+        connections_notifications conn_noti = new connections_notifications();
         connections_pwd conn_pwd = new connections_pwd();
         connections_project conn_proj = new connections_project();
         connections_devices conn_devi = new connections_devices();
@@ -40,6 +41,11 @@ namespace SAD_2_PTT_01
 
         private void main_form_Load(object sender, EventArgs e)
         {
+            conn_noti.reference_to_main = this;
+            conn_noti.initial_rows_to_datatable();
+            notification_grid.ClearSelection();
+            notification_grid.DefaultCellStyle.ForeColor = Color.FromArgb( 64, 64, 64);
+            notification_grid.DefaultCellStyle.SelectionForeColor = Color.FromArgb(64, 64, 64);
             //<---[ System ]--->
             load_references();
             main_properties();
@@ -711,20 +717,38 @@ namespace SAD_2_PTT_01
         }
 
         bool show_notif = false;
+        bool has_notification = false;
 
         private void btn_notification_Click(object sender, EventArgs e)
         {
+            has_notification = false;
+            if (btn_notification.BackColor == Color.Red)
+            {
+                has_notification = true;
+            } else
+            {
+                has_notification = false;
+            }
+
             if (show_notif == false)
             {
                 show_notif = true;
                 pnl_notif_pp.Visible = true;
                 btn_notification.BackColor = btn_notification.FlatAppearance.MouseDownBackColor;
+                if (has_notification)
+                {
+                    btn_notification.BackColor = Color.Red;
+                }
             }
             else
             {
                 show_notif = false;
                 pnl_notif_pp.Visible = false;
                 btn_notification.BackColor = Color.Transparent;
+                if (has_notification)
+                {
+                    btn_notification.BackColor = Color.Red;
+                }
             }
         }
 
@@ -2453,5 +2477,35 @@ namespace SAD_2_PTT_01
             }
         }
         #endregion
+
+        private void notification_grid_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
+        private void notification_grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (has_notification)
+            {
+                notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.FromArgb(224, 224, 224);
+            }
+            else
+            {
+                notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+            }
+        }
+
+        private void notification_grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
+        private void notification_grid_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+        }
+
+        
+        
     }
 }

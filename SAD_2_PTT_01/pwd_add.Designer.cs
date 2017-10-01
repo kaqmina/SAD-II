@@ -45,9 +45,14 @@
             this.btn_general = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.panel_1_ = new System.Windows.Forms.Panel();
+            this.lbl_regis_no_length = new System.Windows.Forms.Label();
+            this.pwd_pic_clear = new System.Windows.Forms.Button();
+            this.lbl_id_length = new System.Windows.Forms.Label();
+            this.id_no = new System.Windows.Forms.MaskedTextBox();
             this.label87 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.btn_add_picture = new System.Windows.Forms.Button();
+            this.pwd_pic_box = new System.Windows.Forms.PictureBox();
             this.lbl_id_no_error = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.lbl_regis_no_error = new System.Windows.Forms.Label();
@@ -58,6 +63,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -91,6 +97,7 @@
             this.fn_txt = new System.Windows.Forms.TextBox();
             this.ln_txt = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label62 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
@@ -115,10 +122,12 @@
             this.educ2 = new System.Windows.Forms.RadioButton();
             this.educ1 = new System.Windows.Forms.RadioButton();
             this.label33 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.TextBox();
             this.mobileno = new System.Windows.Forms.TextBox();
             this.telno = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
@@ -139,7 +148,9 @@
             this.empstatus = new System.Windows.Forms.ComboBox();
             this.typeoemp = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel_5_ = new System.Windows.Forms.Panel();
             this.philhealthstatus = new System.Windows.Forms.ComboBox();
             this.philhealthno = new System.Windows.Forms.TextBox();
@@ -165,7 +176,9 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label34 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel_6_ = new System.Windows.Forms.Panel();
             this.label50 = new System.Windows.Forms.Label();
             this.status_ex_inactive = new System.Windows.Forms.RadioButton();
@@ -205,42 +218,29 @@
             this.label73 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btn_revert = new System.Windows.Forms.Button();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.pwd_picture = new System.Windows.Forms.OpenFileDialog();
-            this.pwd_pic_box = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.id_no = new System.Windows.Forms.MaskedTextBox();
-            this.lbl_id_length = new System.Windows.Forms.Label();
-            this.pwd_pic_clear = new System.Windows.Forms.Button();
-            this.lbl_regis_no_length = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.quick_panel.SuspendLayout();
             this.panel_1_.SuspendLayout();
-            this.panel_2_.SuspendLayout();
-            this.panel_3_.SuspendLayout();
-            this.panel_4_.SuspendLayout();
-            this.panel_5_.SuspendLayout();
-            this.panel_6_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel_2_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel_3_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel_4_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel_5_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel_6_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -483,6 +483,49 @@
             this.panel_1_.Size = new System.Drawing.Size(794, 535);
             this.panel_1_.TabIndex = 52;
             // 
+            // lbl_regis_no_length
+            // 
+            this.lbl_regis_no_length.AutoSize = true;
+            this.lbl_regis_no_length.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_regis_no_length.ForeColor = System.Drawing.Color.Red;
+            this.lbl_regis_no_length.Location = new System.Drawing.Point(153, 292);
+            this.lbl_regis_no_length.Name = "lbl_regis_no_length";
+            this.lbl_regis_no_length.Size = new System.Drawing.Size(155, 13);
+            this.lbl_regis_no_length.TabIndex = 86;
+            this.lbl_regis_no_length.Text = "(Must be atleast 13 digits long.)";
+            // 
+            // pwd_pic_clear
+            // 
+            this.pwd_pic_clear.Location = new System.Drawing.Point(594, 244);
+            this.pwd_pic_clear.Name = "pwd_pic_clear";
+            this.pwd_pic_clear.Size = new System.Drawing.Size(48, 23);
+            this.pwd_pic_clear.TabIndex = 85;
+            this.pwd_pic_clear.Text = "CLEAR";
+            this.pwd_pic_clear.UseVisualStyleBackColor = true;
+            this.pwd_pic_clear.Click += new System.EventHandler(this.pwd_pic_clear_Click);
+            // 
+            // lbl_id_length
+            // 
+            this.lbl_id_length.AutoSize = true;
+            this.lbl_id_length.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id_length.ForeColor = System.Drawing.Color.Red;
+            this.lbl_id_length.Location = new System.Drawing.Point(153, 448);
+            this.lbl_id_length.Name = "lbl_id_length";
+            this.lbl_id_length.Size = new System.Drawing.Size(120, 13);
+            this.lbl_id_length.TabIndex = 84;
+            this.lbl_id_length.Text = "(Must be 12 digits long.)";
+            // 
+            // id_no
+            // 
+            this.id_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.id_no.Location = new System.Drawing.Point(156, 434);
+            this.id_no.Mask = "00 00 00 000 - 000";
+            this.id_no.Name = "id_no";
+            this.id_no.Size = new System.Drawing.Size(100, 15);
+            this.id_no.TabIndex = 83;
+            this.id_no.TextChanged += new System.EventHandler(this.id_no_TextChanged);
+            this.id_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_no_KeyPress);
+            // 
             // label87
             // 
             this.label87.AutoSize = true;
@@ -514,6 +557,17 @@
             this.btn_add_picture.Text = "...";
             this.btn_add_picture.UseVisualStyleBackColor = true;
             this.btn_add_picture.Click += new System.EventHandler(this.btn_add_picture_Click);
+            // 
+            // pwd_pic_box
+            // 
+            this.pwd_pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pwd_pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pwd_pic_box.Location = new System.Drawing.Point(458, 268);
+            this.pwd_pic_box.Name = "pwd_pic_box";
+            this.pwd_pic_box.Size = new System.Drawing.Size(184, 169);
+            this.pwd_pic_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pwd_pic_box.TabIndex = 79;
+            this.pwd_pic_box.TabStop = false;
             // 
             // lbl_id_no_error
             // 
@@ -643,6 +697,16 @@
             this.label12.Size = new System.Drawing.Size(101, 13);
             this.label12.TabIndex = 63;
             this.label12.Text = "REGISTRATION No.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(350, 114);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
             // 
             // label48
             // 
@@ -1094,6 +1158,16 @@
             this.label18.TabIndex = 55;
             this.label18.Text = "PERSONAL INFORMATION";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num2;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox2.TabIndex = 52;
+            this.pictureBox2.TabStop = false;
+            // 
             // label62
             // 
             this.label62.AutoSize = true;
@@ -1390,6 +1464,16 @@
             this.label33.TabIndex = 65;
             this.label33.Text = "EDUCATIONAL ATTAINMENT";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num4;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(104, 262);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox4.TabIndex = 64;
+            this.pictureBox4.TabStop = false;
+            // 
             // email
             // 
             this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1434,6 +1518,16 @@
             this.label31.Size = new System.Drawing.Size(267, 30);
             this.label31.TabIndex = 57;
             this.label31.Text = "CONTACT INFORMATION";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num3;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox3.TabIndex = 56;
+            this.pictureBox3.TabStop = false;
             // 
             // label65
             // 
@@ -1708,6 +1802,16 @@
             this.label25.TabIndex = 84;
             this.label25.Text = "EMPLOYMENT STATUS";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num6;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Location = new System.Drawing.Point(104, 262);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox5.TabIndex = 64;
+            this.pictureBox5.TabStop = false;
+            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -1718,6 +1822,16 @@
             this.label27.Size = new System.Drawing.Size(313, 30);
             this.label27.TabIndex = 57;
             this.label27.Text = "EMPLOYMENT INFORMATION";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num5;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox6.TabIndex = 56;
+            this.pictureBox6.TabStop = false;
             // 
             // panel_5_
             // 
@@ -2028,6 +2142,16 @@
             this.label32.TabIndex = 84;
             this.label32.Text = "ORGANIZATIONAL AFFLIATED";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num8;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox7.Location = new System.Drawing.Point(104, 262);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox7.TabIndex = 64;
+            this.pictureBox7.TabStop = false;
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -2038,6 +2162,16 @@
             this.label34.Size = new System.Drawing.Size(359, 30);
             this.label34.TabIndex = 57;
             this.label34.Text = "ORGANIZATIONAL INFORMATION";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num7;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox8.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox8.TabIndex = 56;
+            this.pictureBox8.TabStop = false;
             // 
             // panel_6_
             // 
@@ -2516,6 +2650,16 @@
             this.label76.TabIndex = 57;
             this.label76.Text = "PARENTAL INFORMATION";
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num9;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox10.Location = new System.Drawing.Point(104, 73);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(73, 71);
+            this.pictureBox10.TabIndex = 56;
+            this.pictureBox10.TabStop = false;
+            // 
             // btn_revert
             // 
             this.btn_revert.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -2545,150 +2689,6 @@
             // pwd_picture
             // 
             this.pwd_picture.FileName = "openFileDialog1";
-            // 
-            // pwd_pic_box
-            // 
-            this.pwd_pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pwd_pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pwd_pic_box.Location = new System.Drawing.Point(458, 268);
-            this.pwd_pic_box.Name = "pwd_pic_box";
-            this.pwd_pic_box.Size = new System.Drawing.Size(184, 169);
-            this.pwd_pic_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pwd_pic_box.TabIndex = 79;
-            this.pwd_pic_box.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num1;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(350, 114);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num9;
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox10.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox10.TabIndex = 56;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num8;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.Location = new System.Drawing.Point(104, 262);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox7.TabIndex = 64;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num7;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox8.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox8.TabIndex = 56;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num6;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(104, 262);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox5.TabIndex = 64;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num5;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox6.TabIndex = 56;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num4;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(104, 262);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox4.TabIndex = 64;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num3;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox3.TabIndex = 56;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.num2;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(104, 73);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
-            this.pictureBox2.TabIndex = 52;
-            this.pictureBox2.TabStop = false;
-            // 
-            // id_no
-            // 
-            this.id_no.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.id_no.Location = new System.Drawing.Point(156, 434);
-            this.id_no.Mask = "00 00 00 000 - 000";
-            this.id_no.Name = "id_no";
-            this.id_no.Size = new System.Drawing.Size(100, 15);
-            this.id_no.TabIndex = 83;
-            this.id_no.TextChanged += new System.EventHandler(this.id_no_TextChanged);
-            this.id_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_no_KeyPress);
-            // 
-            // lbl_id_length
-            // 
-            this.lbl_id_length.AutoSize = true;
-            this.lbl_id_length.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_id_length.ForeColor = System.Drawing.Color.Red;
-            this.lbl_id_length.Location = new System.Drawing.Point(153, 448);
-            this.lbl_id_length.Name = "lbl_id_length";
-            this.lbl_id_length.Size = new System.Drawing.Size(120, 13);
-            this.lbl_id_length.TabIndex = 84;
-            this.lbl_id_length.Text = "(Must be 12 digits long.)";
-            // 
-            // pwd_pic_clear
-            // 
-            this.pwd_pic_clear.Location = new System.Drawing.Point(594, 244);
-            this.pwd_pic_clear.Name = "pwd_pic_clear";
-            this.pwd_pic_clear.Size = new System.Drawing.Size(48, 23);
-            this.pwd_pic_clear.TabIndex = 85;
-            this.pwd_pic_clear.Text = "CLEAR";
-            this.pwd_pic_clear.UseVisualStyleBackColor = true;
-            this.pwd_pic_clear.Click += new System.EventHandler(this.pwd_pic_clear_Click);
-            // 
-            // lbl_regis_no_length
-            // 
-            this.lbl_regis_no_length.AutoSize = true;
-            this.lbl_regis_no_length.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_regis_no_length.ForeColor = System.Drawing.Color.Red;
-            this.lbl_regis_no_length.Location = new System.Drawing.Point(153, 292);
-            this.lbl_regis_no_length.Name = "lbl_regis_no_length";
-            this.lbl_regis_no_length.Size = new System.Drawing.Size(155, 13);
-            this.lbl_regis_no_length.TabIndex = 86;
-            this.lbl_regis_no_length.Text = "(Must be atleast 13 digits long.)";
             // 
             // pwd_add
             // 
@@ -2722,26 +2722,26 @@
             this.quick_panel.ResumeLayout(false);
             this.panel_1_.ResumeLayout(false);
             this.panel_1_.PerformLayout();
-            this.panel_2_.ResumeLayout(false);
-            this.panel_2_.PerformLayout();
-            this.panel_3_.ResumeLayout(false);
-            this.panel_3_.PerformLayout();
-            this.panel_4_.ResumeLayout(false);
-            this.panel_4_.PerformLayout();
-            this.panel_5_.ResumeLayout(false);
-            this.panel_5_.PerformLayout();
-            this.panel_6_.ResumeLayout(false);
-            this.panel_6_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pwd_pic_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel_2_.ResumeLayout(false);
+            this.panel_2_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel_3_.ResumeLayout(false);
+            this.panel_3_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel_4_.ResumeLayout(false);
+            this.panel_4_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel_5_.ResumeLayout(false);
+            this.panel_5_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel_6_.ResumeLayout(false);
+            this.panel_6_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }

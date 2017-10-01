@@ -366,6 +366,9 @@ namespace SAD_2_PTT_01
         private void pwd_add_Load(object sender, EventArgs e)
         {
             load_date_time_picker_max_date();
+            DateTime initial = DateTime.Today.AddDays(-2);
+            pwd_appdate.Value = initial;
+
             load_combobox();
             load_panel_visibility();
             load_panel_quick_button_enabled();
