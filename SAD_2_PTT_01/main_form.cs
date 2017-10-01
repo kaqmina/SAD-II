@@ -25,6 +25,7 @@ namespace SAD_2_PTT_01
         connections_devices conn_devi = new connections_devices();
         connections_disability conn_disa = new connections_disability();
         connections_user conn_user = new connections_user();
+        connections_reports conn_rep = new connections_reports();
         disability disability_form;
         shadow shadow_;
         pwd_archive show_prompt;
@@ -65,6 +66,8 @@ namespace SAD_2_PTT_01
             device_pnl_request_new.BringToFront();
             load_handedout_data();
             device_handedout_clear_view();
+
+            load_reports();
         }
 
         private void main_properties()
@@ -2069,6 +2072,35 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region REPORTS
+
+        public DateTime from, to, end, start_t, end_t, dateTime;
+        public int format, district_num, date, function;
+        public string district, dev_stat, project, place, proposal;
+
+        public void load_reports()
+        {
+            conn_rep.report_Grid(report_grid);
+            conn_rep.device_grid(reports_device_grid);
+            conn_rep.project_grid(reports_projects_grid);
+
+            report_grid.ClearSelection();
+            reports_device_grid.ClearSelection();
+            reports_projects_grid.ClearSelection();
+
+            device_status.SelectedIndex = 1;
+            date_format.Enabled = false;
+            date_from.Visible = date_to.Visible = btn_ok.Visible = false;
+            lbl_from.Visible = lbl_to.Visible = false;
+        }
+
+        public void hide_date()
+        {
+            lbl_to.Visible = lbl_from.Visible = false;
+            date_to.Visible = date_from.Visible = false;
+            btn_ok.Visible = false;
+            date = 0;
+        }
         private void main_form_Deactivate(object sender, EventArgs e)
         {
             if (notification_data_ == true) 
@@ -2079,19 +2111,366 @@ namespace SAD_2_PTT_01
         {
             reports_pnl_visible();
             reports_pnl_pwd.Visible = true;
+
+            date_format.Items.Clear();
+            string[] pwd = { "", "Weekly", "Monthly", "Yearly", "Custom" };
+            date_format.Items.AddRange(pwd);
+            function = 0;
         }
 
         private void reports_btn_device_referral_Click(object sender, EventArgs e)
         {
             reports_pnl_visible();
             reports_pnl_device.Visible = true;
+
+            date_format.Items.Clear();
+            string[] pwd = { "", "Weekly", "Monthly", "Yearly", "Custom" };
+            date_format.Items.AddRange(pwd);
+            function = 0;
+
         }
 
         private void reports_btn_projects_Click(object sender, EventArgs e)
         {
             reports_pnl_visible();
             reports_pnl_projects.Visible = true;
+
+            date_format.Items.Clear();
+            string[] proj = { "", "Monthly", "Yearly", "Custom" };
+            date_format.Items.AddRange(proj);
+            function = 1;
         }
+
+        private void date_format_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            date = date_format.SelectedIndex;
+            if (function == 0)
+            {
+                if (date == 0)
+                {
+                    date_from.Visible = false;
+                    date_to.Visible = false;
+                    lbl_from.Visible = lbl_to.Visible = btn_ok.Visible = false;
+                    conn_rep.report_Grid(report_grid);
+                }
+                else if (date == 1)
+                {
+                    //Weekly
+                    date_to.Visible = true;
+                    date_to.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = "MMMM dd, yyyy";
+
+                    lbl_to.Text = "Start:";
+                    date_from.Visible = lbl_from.Visible = false;
+                    lbl_to.Visible = btn_ok.Visible = true;
+                }
+                else if (date == 2)
+                {
+                    //Monthly
+                    date_from.Visible = true;
+                    date_from.Format = DateTimePickerFormat.Custom;
+                    date_from.CustomFormat = "MMMM";
+                    date_from.ShowUpDown = true;
+                    lbl_from.Text = "Month:";
+
+                    date_to.Visible = true;
+                    date_to.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = "yyyy";
+                    date_to.ShowUpDown = true;
+                    lbl_to.Text = "Year:";
+
+                    lbl_from.Visible = lbl_to.Visible = btn_ok.Visible = true;
+                }
+                else if (date == 3)
+                {
+                    //Yearly
+                    date_to.Visible = true;
+                    date_to.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = "yyyy";
+                    date_to.ShowUpDown = true;
+
+                    lbl_to.Text = "Year:";
+                    date_from.Visible = lbl_from.Visible = false;
+                    lbl_to.Visible = btn_ok.Visible = true;
+                }
+                else if (date == 4)
+                {
+                    //Custom Date
+                    date_from.Visible = date_to.Visible = true;
+                    date_to.Format = date_from.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = date_from.CustomFormat = "MMMM dd, yyyy";
+                    lbl_from.Visible = lbl_to.Visible = btn_ok.Visible = true;
+                    lbl_from.Text = "From:";
+                    lbl_to.Text = "To:";
+                }
+            }
+            else if (function == 1)
+            {
+                if (date == 1)
+                {
+                    //Monthly
+                    date_from.Visible = true;
+                    date_from.Format = DateTimePickerFormat.Custom;
+                    date_from.CustomFormat = "MMMM";
+                    date_from.ShowUpDown = true;
+                    lbl_from.Text = "Month";
+
+                    date_to.Visible = true;
+                    date_to.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = "yyyy";
+                    date_to.ShowUpDown = true;
+                    lbl_to.Text = "Year";
+
+                    lbl_from.Visible = lbl_to.Visible = btn_ok.Visible = true;
+                }
+                else if (date == 2)
+                {
+                    //Yearly
+                    date_to.Visible = true;
+                    date_to.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = "yyyy";
+                    date_to.ShowUpDown = true;
+
+                    lbl_to.Text = "Year";
+                    date_from.Visible = lbl_from.Visible = false;
+                    lbl_to.Visible = btn_ok.Visible = true;
+                }
+                else if (date == 3)
+                {
+                    //Custom Date
+                    date_from.Visible = date_to.Visible = true;
+                    date_to.Format = date_from.Format = DateTimePickerFormat.Custom;
+                    date_to.CustomFormat = date_from.CustomFormat = "MMMM dd, yyyy";
+                    lbl_from.Visible = lbl_to.Visible = btn_ok.Visible = true;
+                    lbl_from.Text = "From";
+                    lbl_to.Text = "To";
+                }
+            }
+        }
+
+        private void district_format_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            district_num = district_format.SelectedIndex;
+            district = district_format.SelectedItem.ToString();
+
+            if (date != 0) conn_rep.getDateQuery(report_grid, date, from, to, end, district_num);
+            else conn_rep.getDistrictQuery(report_grid, district_num);
+        }
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            from = date_from.Value.Date;
+            to = date_to.Value.Date;
+            end = DateTime.Now;
+
+            if (date == 1) end = to.AddDays(6);
+
+            if (reports_pnl_pwd.Visible == true && reports_pnl_projects.Visible == false && reports_pnl_device.Visible == false)
+                conn_rep.getDateQuery(report_grid, date, from, to, end, district_num);
+            else if (reports_pnl_projects.Visible == true)
+                conn_rep.date_project_format(reports_projects_grid, date, from, to);
+        }
+
+        #region <-- PWD -->
+        private void btn_pwd_exportPDF_Click(object sender, EventArgs e)
+        {
+            string file = "";
+            string district_pass, date = "";
+            save_pdf.Filter = "PDF files |*.pdf";
+            save_pdf.DefaultExt = "*.pdf";
+            save_pdf.FilterIndex = 1;
+            save_pdf.ShowDialog();
+            save_pdf.Title = "Export as PDF";
+
+            #region << District & Date Format [PDF] >>
+            if (lbl_from.Text == "From" && lbl_to.Text == "To" && date_from.CustomFormat == "MMMM dd, yyyy") //custom
+            {
+                date = from.ToString("MMMM dd") + " - " + to.ToString("MMMM dd yyyy");
+            }
+            else if (lbl_from.Text == "Month" && lbl_to.Text == "Year" && date_from.CustomFormat == "MMMM") //monthly
+            {
+                date = from.ToString("MMMM") + " " + to.ToString("yyyy");
+            }
+            else if (lbl_from.Visible == false && date_from.Visible == false && date_to.CustomFormat == "yyyy") //yearly
+            {
+                date = to.ToString("yyyy");
+            }
+            else if (lbl_to.Text == "START")
+            {
+                date = to.ToString("MMMM dd") + " - " + end.ToString("dd YYYY");
+            }
+
+            if (district == null) district_pass = "OVERALL";
+            else district_pass = district_format.SelectedItem.ToString();
+            #endregion
+
+            file = save_pdf.FileName;
+
+            if (file == "") ; //pass
+            else
+            {
+                conn_rep.pwd_PDFReport(file, report_grid, district_pass, date);
+                System.Diagnostics.Process.Start(file);
+            }
+            save_pdf.FileName = "";
+        }
+
+        private void btn_pwd_exportExcel_Click(object sender, EventArgs e)
+        {
+            string sheet = "", date = "";
+            save_Excel.Filter = "Excel files |*.xlsx";
+            save_Excel.DefaultExt = "*.xlsx";
+            save_Excel.FilterIndex = 1;
+            save_Excel.ShowDialog();
+            save_Excel.Title = "Export as Excel Worksheet";
+
+            #region << District & Date Format [PDF] >>
+            if (lbl_from.Text == "From" && lbl_to.Text == "To" && date_from.CustomFormat == "MMMM dd, yyyy") //custom
+            {
+                date = from.ToString("MMMM dd") + " - " + to.ToString("MMMM dd yyyy");
+            }
+            else if (lbl_from.Text == "Month" && lbl_to.Text == "Year" && date_from.CustomFormat == "MMMM") //monthly
+            {
+                date = from.ToString("MMMM") + " " + to.ToString("yyyy");
+            }
+            else if (lbl_from.Visible == false && date_from.Visible == false && date_to.CustomFormat == "yyyy") //yearly
+            {
+                date = to.ToString("yyyy");
+            }
+            else if (lbl_to.Text == "START")
+            {
+                date = to.ToString("MMMM dd") + " - " + end.ToString("dd YYYY");
+            }
+
+            dateTime = DateTime.Now;
+            #endregion
+
+            sheet = save_Excel.FileName;
+            if (sheet == "") ; //pass
+            else
+            {
+                conn_rep.pwd_ExcelReport(sheet, dateTime);
+                System.Diagnostics.Process.Start(sheet);
+            }
+            save_Excel.FileName = "";
+        }
+        #endregion
+
+        #region <-- DEVICE -->
+        private void btn_device_exportPDF_Click(object sender, EventArgs e)
+        {
+            string file = "";
+            string district_pass, date = "";
+            save_pdf.Filter = "PDF files |*.pdf";
+            save_pdf.DefaultExt = "*.pdf";
+            save_pdf.FilterIndex = 1;
+            save_pdf.ShowDialog();
+            save_pdf.Title = "Export as PDF";
+
+            #region << District & Date Format [PDF] >>
+            if (lbl_from.Text == "From" && lbl_to.Text == "To" && date_from.CustomFormat == "MMMM dd, yyyy") //custom
+            {
+                date = from.ToString("MMMM dd") + " - " + to.ToString("MMMM dd yyyy");
+            }
+            else if (lbl_from.Text == "Month" && lbl_to.Text == "Year" && date_from.CustomFormat == "MMMM") //monthly
+            {
+                date = from.ToString("MMMM") + " " + to.ToString("yyyy");
+            }
+            else if (lbl_from.Visible == false && date_from.Visible == false && date_to.CustomFormat == "yyyy") //yearly
+            {
+                date = to.ToString("yyyy");
+            }
+            else if (lbl_to.Text == "START")
+            {
+                date = to.ToString("MMMM dd") + " - " + end.ToString("dd YYYY");
+            }
+
+            if (district == null) district_pass = "OVERALL";
+            else district_pass = district_format.SelectedItem.ToString();
+            #endregion
+
+            file = save_pdf.FileName;
+
+            if (file == "") ; //pass
+            else
+            {
+                conn_rep.pwd_PDFReport(file, report_grid, district_pass, date);
+                System.Diagnostics.Process.Start(file);
+            }
+            save_pdf.FileName = "";
+        }
+        #endregion
+
+        #region <-- PROJECTS -->
+        private void reports_btn_project_summary_Click(object sender, EventArgs e)
+        {
+            string file = "";
+            string date = "";
+            save_pdf.Filter = "PDF files |*.pdf";
+            save_pdf.DefaultExt = "*.pdf";
+            save_pdf.FilterIndex = 1;
+            save_pdf.ShowDialog();
+            save_pdf.Title = "Export as PDF";
+
+            #region << Date & Time Format [PDF] >>
+            if (lbl_from.Text == "From" && lbl_to.Text == "To" && date_from.CustomFormat == "MMMM dd, yyyy") //custom
+            {
+                date = from.ToString("MMMM dd") + " - " + to.ToString("MMMM dd yyyy");
+            }
+            else if (lbl_from.Text == "Month" && lbl_to.Text == "Year" && date_from.CustomFormat == "MMMM") //monthly
+            {
+                date = from.ToString("MMMM") + " " + to.ToString("yyyy");
+            }
+            else if (lbl_from.Visible == false && date_from.Visible == false && date_to.CustomFormat == "yyyy") //yearly
+            {
+                date = to.ToString("yyyy");
+            }
+            #endregion
+
+            file = save_pdf.FileName;
+
+            if (file == "") ; //pass
+            else
+            {
+                conn_rep.project_reportPDF(file, date, reports_projects_grid);
+                System.Diagnostics.Process.Start(file);
+            }
+            save_pdf.FileName = "";
+        }
+        private void reports_btn_project_participants_Click(object sender, EventArgs e)
+        {
+            string file = "";
+            save_pdf.Filter = "PDF files |*.pdf";
+            save_pdf.DefaultExt = "*.pdf";
+            save_pdf.FilterIndex = 1;
+            save_pdf.ShowDialog();
+            save_pdf.Title = "Export as PDF";
+
+            string time = start_t.ToString("hh:mm") + " - " + end_t.ToString("hh:mm");
+            file = save_pdf.FileName;
+            if (file == "") ; //pass
+            else
+            {
+                conn_rep.project_attendance(file, project, proposal, place, time);
+                System.Diagnostics.Process.Start(file);
+            }
+
+            save_pdf.FileName = "";
+        }
+        private void reports_projects_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.reports_projects_grid.Rows[e.RowIndex];
+            project = row.Cells["project_title"].Value.ToString();
+            place = row.Cells["event_held"].Value.ToString();
+            proposal = row.Cells["date_proposed"].Value.ToString();
+            start_t = Convert.ToDateTime(row.Cells["start_time"].Value.ToString());
+            end_t = Convert.ToDateTime(row.Cells["end_time"].Value.ToString());
+
+            conn_rep.getProjectID(project);
+        }
+        #endregion
+
+        #endregion
 
         #region ACCOUNTS
         //ACCOUNTS
