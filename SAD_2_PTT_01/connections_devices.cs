@@ -296,7 +296,7 @@ namespace SAD_2_PTT_01
 
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname,' ', pwd.middlename) AS fullname, "
                                              + "pwd.registration_no, "
-                                             + "employee.username, "
+                                             + "user.username, "
                                              + "DATE(device_log.req_date) AS req_date, "
                                              + "device.dev_name, "
                                              + "device_provider.dp_name, "
@@ -309,7 +309,7 @@ namespace SAD_2_PTT_01
                                              + "FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
                                              + "JOIN device ON device_log.device_id = device.device_id "
                                              + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
-                                             + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
+                                             + "JOIN user ON device_log.req_emp_id = user.user_id "
                                              + "JOIN disability ON disability.disability_id = pwd.disability_id "
                                              + "WHERE device_log.isArchived != 1 AND deviceLOG_id = " + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
@@ -333,7 +333,7 @@ namespace SAD_2_PTT_01
 
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname, ' ', pwd.middlename) AS fullname, "
                                              + "pwd.registration_no, "
-                                             + "employee.username, "
+                                             + "user.username, "
                                              + "DATE(device_log.req_date) AS req_date, "
                                              + "device.dev_name, "
                                              + "device_provider.dp_name, "
@@ -345,11 +345,11 @@ namespace SAD_2_PTT_01
                                              + "pwd.mobile_no, "
                                              + "pwd.tel_no, "
                                              + "disability.disability_type, "
-                                             + "(SELECT username FROM employee JOIN device_log ON employee.employee_id = device_log.in_emp_id WHERE device_log.deviceLOG_id = " + dev_id + ") AS username_in "
+                                             + "(SELECT username FROM user JOIN device_log ON user.user_id = device_log.in_emp_id WHERE device_log.deviceLOG_id = " + dev_id + ") AS username_in "
                                              + "FROM device_log JOIN pwd ON pwd.pwd_id = device_log.pwd_id "
                                              + "JOIN device ON device_log.device_id = device.device_id "
                                              + "JOIN device_provider ON device_provider.dp_id = device_log.dp_id "
-                                             + "JOIN employee ON device_log.req_emp_id = employee.employee_id "
+                                             + "JOIN user ON device_log.req_emp_id = user.user_id "
                                              + "JOIN disability ON pwd.disability_id = disability.disability_id "
                                              + "WHERE device_log.isArchived != 1 AND deviceLOG_id =" + dev_id, conn);
                 get = new MySqlDataAdapter(comm);
@@ -1510,11 +1510,11 @@ namespace SAD_2_PTT_01
                                                   + "dev_name, "
                                                   + "req_date, "
                                                   + "req_desc, "
-                                                  + "(SELECT username FROM employee WHERE employee.employee_id = device_log.req_emp_id) AS user_req,"
+                                                  + "(SELECT username FROM user WHERE user.user_id = device_log.req_emp_id) AS user_req,"
                                                   + "device_log.date_in, "
-                                                  + "(SELECT username FROM employee WHERE employee.employee_id = device_log.in_emp_id) AS user_in, "
+                                                  + "(SELECT username FROM user WHERE user.user_id = device_log.in_emp_id) AS user_in, "
                                                   + "device_log.date_out, "
-                                                  + "(SELECT username FROM employee WHERE employee.employee_id = device_log.out_emp_id) AS user_out, "
+                                                  + "(SELECT username FROM user WHERE user.user_id = device_log.out_emp_id) AS user_out, "
                                                   + "device_log.status, "
                                                   + "device_log.reference_no, "
                                                   + "disability.disability_type, "

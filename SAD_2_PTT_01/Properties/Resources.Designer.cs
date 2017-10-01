@@ -393,6 +393,16 @@ namespace SAD_2_PTT_01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PWD_1 {
+            get {
+                object obj = ResourceManager.GetObject("PWD_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pword {
             get {
                 object obj = ResourceManager.GetObject("pword", resourceCulture);
@@ -403,9 +413,9 @@ namespace SAD_2_PTT_01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap referee__1_ {
+        internal static System.Drawing.Bitmap referee_ {
             get {
-                object obj = ResourceManager.GetObject("referee (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("referee_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -456,16 +466,6 @@ namespace SAD_2_PTT_01.Properties {
         internal static System.Drawing.Bitmap skyline {
             get {
                 object obj = ResourceManager.GetObject("skyline", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TWICE_KK_01 {
-            get {
-                object obj = ResourceManager.GetObject("TWICE_KK_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

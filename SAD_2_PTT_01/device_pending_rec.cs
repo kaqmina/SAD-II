@@ -47,7 +47,7 @@ namespace SAD_2_PTT_01
                 }
                 else
                 {
-                    reference_to_main.notification_ = "Unsuccessful in Updating Record.";
+                    reference_to_main.notification_ = "Unsuccessful in updating record.";
                     btn_ok.Text = "SAVE CHANGES";
                     btn_edit.Text = "DISCARD CHANGES";
                 }

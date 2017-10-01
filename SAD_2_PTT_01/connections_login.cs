@@ -27,7 +27,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT * FROM p_dao.employee WHERE username = '" + uname + "' AND password = '" + pword + "'", conn);
+                comm = new MySqlCommand("SELECT * FROM p_dao.user WHERE username = '" + uname + "' AND password = '" + pword + "'", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -54,7 +54,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT * FROM p_dao.employee WHERE employee_id = " + emp_id, conn);
+                comm = new MySqlCommand("SELECT * FROM p_dao.user WHERE user_id = " + emp_id, conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);

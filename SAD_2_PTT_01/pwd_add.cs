@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SAD_2_PTT_01
 {
@@ -20,6 +21,7 @@ namespace SAD_2_PTT_01
         public pwd_view reference_to_view { get; set; }
         connections_pwd conn_pwd = new connections_pwd();
         connections_disability conn_disa = new connections_disability();
+        connections_user conn_user = new connections_user();
         shadow shadow_;
         pwd_ask prompt;
         system_keypress key_ = new system_keypress();
@@ -78,7 +80,7 @@ namespace SAD_2_PTT_01
         int to_skill;
         int civil_status;
         int pwd_status;
-        public int pwd_update_id = 0;
+        public string pwd_update_id = "0";
         bool all_required = false;
         public bool update_mode = false;
         public string update_regis_no = "";
@@ -228,7 +230,7 @@ namespace SAD_2_PTT_01
 
         private void id_no_KeyPress(object sender, KeyPressEventArgs e)
         {
-            key_.key_number_letter(sender, e);
+            key_.key_number(sender, e);
         }
         #endregion
 
@@ -250,20 +252,21 @@ namespace SAD_2_PTT_01
             }
             else
             {
+                //found
                 exit_opacity.Stop();
                 if (update_mode)
                 {
                     if(from_view)
                     {
-                        reference_to_view.notification_ = "Updated PWD Profile! Registration #:" + "\n" + registration_no;
+                        reference_to_view.notification_ = "Updated PWD Profile! ID No. #:" + "\n" + id_no_;
                     } else
                     {
-                        reference_to_main.notification_ = "Updated PWD Profile! Registration #:" + "\n" + registration_no;
+                        reference_to_main.notification_ = "Updated PWD Profile! ID No. #:" + "\n" + id_no_;
                     }
                 }
                 else
                 {
-                    reference_to_main.notification_ = "Added PWD Profile! Registration #:" + "\n" + registration_no;
+                    reference_to_main.notification_ = "Added PWD Profile! ID No. #:" + "\n" + id_no_;
                 }
                 this.Close();
             }
@@ -272,7 +275,7 @@ namespace SAD_2_PTT_01
         public void load_date_time_picker_max_date()
         {
             pwd_appdate.MaxDate = DateTime.Now;
-            dateofbirth.MaxDate = DateTime.Now;
+            dateofbirth.MaxDate = pwd_appdate.Value;
         }
 
         public void load_combobox()
@@ -292,20 +295,63 @@ namespace SAD_2_PTT_01
 
         public void load_panel_quick_button_enabled()
         {
-            btn_general.Enabled = true;
-            btn_personal.Enabled = false;
-            btn_contact.Enabled = false;
-            btn_educational.Enabled = false;
-            btn_employment.Enabled = false;
-            btn_type_of_skill.Enabled = false;
-            btn_organizational.Enabled = false;
-            btn_other.Enabled = false;
-            btn_parental.Enabled = false;
-            pwd_next.Enabled = false;
+            if (update_mode == false)
+            {
+                system_func.btn_active(btn_general);
+                system_func.btn_inactive(btn_personal);
+                system_func.btn_inactive(btn_contact);
+                system_func.btn_inactive(btn_educational);
+                system_func.btn_inactive(btn_employment);
+                system_func.btn_inactive(btn_type_of_skill);
+                system_func.btn_inactive(btn_organizational);
+                system_func.btn_inactive(btn_other);
+                system_func.btn_inactive(btn_parental);
+                system_func.btn_inactive(pwd_next);
+            } else
+            {
+                panel_1_next();
+                panel_2_next();
+                panel_3_next();
+                panel_4_next();
+                panel_5_next();
+                panel_6_next();
+            }
+        }
+
+        public void check_btn_pwd_next()
+        {
+            if (update_mode == true)
+            {
+                if (btn_general.ForeColor == Color.Red ||
+                     btn_personal.ForeColor == Color.Red ||
+                     btn_contact.ForeColor == Color.Red ||
+                     btn_educational.ForeColor == Color.Red ||
+                     btn_employment.ForeColor == Color.Red ||
+                     btn_organizational.ForeColor == Color.Red ||
+                     btn_other.ForeColor == Color.Red ||
+                     btn_type_of_skill.ForeColor == Color.Red ||
+                     btn_parental.ForeColor == Color.Red
+                    )
+                {
+                    if (pwd_next.Text != "NEXT")
+                    {
+                        system_func.btn_inactive(pwd_next);
+                    }
+                    else
+                    {
+                        system_func.btn_active(pwd_next);
+                    }
+                }
+                else
+                {
+                    system_func.btn_active(pwd_next);
+                }
+            }
         }
 
         public void load_combobox_initial_selected_index()
         {
+
             disability_type.SelectedIndex = 0;
             district_type.SelectedIndex = 0;
             gender.SelectedIndex = 0;
@@ -324,6 +370,7 @@ namespace SAD_2_PTT_01
             load_panel_visibility();
             load_panel_quick_button_enabled();
             load_combobox_initial_selected_index();
+            pwd_pic_box.Image = null;
 
             btn_revert.Visible = false;
 
@@ -354,7 +401,7 @@ namespace SAD_2_PTT_01
             btn_contact.BackColor = Color.FromArgb(255, 255, 255);
             btn_educational.BackColor = Color.FromArgb(255, 255, 255);
             btn_type_of_skill.BackColor = Color.FromArgb(255, 255, 255);
-            btn_educational.BackColor = Color.FromArgb(255, 255, 255);
+            btn_employment.BackColor = Color.FromArgb(255, 255, 255);
             btn_organizational.BackColor = Color.FromArgb(255, 255, 255);
             btn_other.BackColor = Color.FromArgb(255, 255, 255);
             btn_parental.BackColor = Color.FromArgb(255, 255, 255);
@@ -390,10 +437,10 @@ namespace SAD_2_PTT_01
                 pwd_next.Text = "NEXT";
                 panel_1_.Visible = false;
                 panel_2_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_2_next();
                 current_panel = 2;
-                btn_personal.Enabled = true;
+                system_func.btn_active(btn_personal);
                 current_panel_active = panel_2_;
             }
             else if (current_panel == 2) //PANEL 3
@@ -401,42 +448,43 @@ namespace SAD_2_PTT_01
                 pwd_next.Text = "NEXT";
                 panel_2_.Visible = false;
                 panel_3_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_3_next();
                 current_panel = 3;
-                btn_contact.Enabled = true;
-                btn_educational.Enabled = true;
+                system_func.btn_active(btn_contact);
+                system_func.btn_active(btn_educational);
                 current_panel_active = panel_3_;
+
             } else if (current_panel == 3) //PANEL 4
             {
                 pwd_next.Text = "NEXT";
                 panel_3_.Visible = false;
                 panel_4_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_4_next();
                 current_panel = 4;
-                btn_employment.Enabled = true;
-                btn_type_of_skill.Enabled = true;
+                system_func.btn_active(btn_employment);
+                system_func.btn_active(btn_type_of_skill);
                 current_panel_active = panel_4_;
             } else if (current_panel == 4) //PANEL 5
             {
                 pwd_next.Text = "NEXT";
                 panel_4_.Visible = false;
                 panel_5_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_5_next();
                 current_panel = 5;
-                btn_organizational.Enabled = true;
-                btn_other.Enabled = true;
+                system_func.btn_active(btn_organizational);
+                system_func.btn_active(btn_other);
                 current_panel_active = panel_5_;
             } else if (current_panel == 5) //PANEL 6
             {
                 panel_5_.Visible = false;
                 panel_6_.Visible = true;
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 panel_6_next();
                 current_panel = 6;
-                btn_parental.Enabled = true;
+                system_func.btn_active(btn_parental);
                 current_panel_active = panel_6_;
                 if(update_mode)
                 {
@@ -449,6 +497,7 @@ namespace SAD_2_PTT_01
             {
                 pwd_add_update_profile();
             }
+            check_btn_pwd_next();
             btn_side_active();
         }
 
@@ -457,15 +506,18 @@ namespace SAD_2_PTT_01
 
         public void panel_1_next ()
         {
-            if(pwd_regisno.Text != "" && pwd_appdate.Value.ToString() != "" && disability_type.Text != "" && lbl_regis_no_error.Visible == false && lbl_id_no_error.Visible == false) 
+            if(pwd_regisno.Text != "" && pwd_appdate.Value.ToString() != "" && disability_type.Text != "" 
+                && lbl_regis_no_error.Visible == false && lbl_id_no_error.Visible == false 
+                && lbl_id_length.Visible == false && lbl_regis_no_length.Visible == false) 
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_general.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_general.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_2_next()
@@ -477,77 +529,86 @@ namespace SAD_2_PTT_01
                 bar_txt.Text != "" &&
                 mun_txt.Text != "" &&
                 prov_txt.Text != "" &&
-                district_type.SelectedIndex != 0 &&
+                district_type.SelectedIndex > 0 &&
                 dateofbirth.Value.ToString() != "" &&
                 gender.Text != "" &&
                 nationality.Text != "" &&
-                bloodtype.SelectedIndex != 0 &&
-                civilstatus.SelectedIndex != 0
+                bloodtype.SelectedIndex > 0 &&
+                civilstatus.SelectedIndex > 0
                 )
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_personal.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_personal.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_3_next()
         {
             if (telno.Text != "" && mobileno.Text != "" && email.Text != "")
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_contact.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_contact.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_4_next()
         {
             if(empstatus.SelectedIndex == 1 && noemp.SelectedIndex != 0 && typeoemp.SelectedIndex != 0)
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_employment.ForeColor = Color.FromArgb(41, 45, 56);
             } else if (empstatus.SelectedIndex > 1 && noemp.SelectedIndex == 0 && typeoemp.SelectedIndex == 0)
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_employment.ForeColor = Color.FromArgb(41, 45, 56);
             }
             else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_employment.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
 
         public void panel_5_next()
         {
-            if(orgaff.Text != "" &&
+            if( (orgaff.Text != "" &&
                 contactper.Text != "" &&
                 officeadd.Text != "" &&
-                orgtelno.Text != "" &&
+                orgtelno.Text != "") || (
                 sssno.Text != "" &&
                 gsisno.Text != "" &&
                 philhealthno.Text != "" &&
-                philhealthstatus.SelectedIndex != 0)
+                philhealthstatus.Text != ""))
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 if (orgaff.Text != "" && contactper.Text != "" && officeadd.Text != "" && orgtelno.Text != "")
                 {
                     btn_organizational.ForeColor = Color.FromArgb(41, 45, 56);
+                } else
+                {
+                    btn_organizational.ForeColor = Color.Red;
                 }
-                if (sssno.Text != "" && gsisno.Text != "" && philhealthno.Text != "" && philhealthstatus.SelectedIndex != 0)
+                if (sssno.Text != "" && gsisno.Text != "" && philhealthno.Text != "" && philhealthstatus.Text != "")
                 {
                     btn_other.ForeColor = Color.FromArgb(41, 45, 56);
+                } else
+                {
+                    btn_other.ForeColor = Color.Red;
                 }
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 if (orgaff.Text == "" || contactper.Text == "" || officeadd.Text == "" || orgtelno.Text == "")
                 {
                     btn_organizational.ForeColor = Color.Red;
@@ -557,6 +618,7 @@ namespace SAD_2_PTT_01
                     btn_other.ForeColor = Color.Red;
                 }
             }
+            check_btn_pwd_next();
         }
 
         public void panel_6_next()
@@ -576,13 +638,14 @@ namespace SAD_2_PTT_01
                 norunit.Text != "" &&
                 lbl_regis_no_error.Visible == false)
             {
-                pwd_next.Enabled = true;
+                system_func.btn_active(pwd_next);
                 btn_parental.ForeColor = Color.FromArgb(41, 45, 56);
             } else
             {
-                pwd_next.Enabled = false;
+                system_func.btn_inactive(pwd_next);
                 btn_parental.ForeColor = Color.Red;
             }
+            check_btn_pwd_next();
         }
         #endregion
 
@@ -605,14 +668,20 @@ namespace SAD_2_PTT_01
             if (conn_pwd.pwd_check_registration_has_duplicate(pwd_regisno.Text, update_regis_no) == true)
             {
                 lbl_regis_no_error.Visible = true;
-                panel_1_next();
-            }
-            else
+            } else
             {
                 lbl_regis_no_error.Visible = false;
-                panel_1_next();
             }
-            
+
+            if (pwd_regisno.Text.Length < 13)
+            {
+                lbl_regis_no_length.Visible = true;
+            } else
+            {
+                lbl_regis_no_length.Visible = false;
+            }
+            panel_1_next();
+
         }
         //<---[ Panel 1 ]---> END
 
@@ -1059,8 +1128,16 @@ namespace SAD_2_PTT_01
             string parental_data;
             string parental_variables;
             bool success;
+            string new_id = "0";
+            bool has_pic = false;
+
             #region main_data
-            main_data = "INSERT INTO p_dao.pwd(lastname, "
+            if (pwd_pic_box.Image == null)
+            {
+                has_pic = false;
+                Console.WriteLine("has_pic = " + has_pic.ToString());
+                #region MAIN-FIELDS
+                main_data = "INSERT INTO p_dao.pwd(lastname, "
                                             + "firstname, "
                                             + "middlename, "
                                             + "id_no, "
@@ -1078,7 +1155,6 @@ namespace SAD_2_PTT_01
                                             + "email_add, "
                                             + "civil_status, "
                                             + "nationality, "
-                                            + "end_date, "
                                             + "added_date, "
                                             + "application_date, "
                                             + "educ_attainment, "
@@ -1088,8 +1164,105 @@ namespace SAD_2_PTT_01
                                             + "registration_no, "
                                             + "status_pwd, "
                                             + "type_of_skill, "
-                                            + "employee_id) ";
-            main_variables = "VALUES ('" + lastname
+                                            + "user_id) ";
+                #endregion
+                #region MAIN-VARIABLES
+                main_variables = "VALUES ('" + lastname
+                                             + "', '"
+                                             + firstname
+                                             + "', '"
+                                             + middlename
+                                             + "', '"
+                                             + id_no_
+                                             + "', "
+                                             + sex
+                                             + ", "
+                                             + disability
+                                             + ", '"
+                                             + has
+                                             + "', '"
+                                             + bar
+                                             + "', '"
+                                             + mun
+                                             + "', '"
+                                             + prov
+                                             + "', "
+                                             + district_id
+                                             + ", '"
+                                             + blood_type
+                                             + "', '"
+                                             + dob
+                                             + "', '"
+                                             + tel_no
+                                             + "', '"
+                                             + mobile_no
+                                             + "', '"
+                                             + e_mail
+                                             + "', "
+                                             + civil_status
+                                             + ", '"
+                                             + natio
+                                             + "', '"
+                                             + (DateTime.Now.ToString("yyyy-MM-dd"))
+                                             + "', '"
+                                             + application_date
+                                             + "', "
+                                             + educ_att
+                                             + ", "
+                                             + emp_status
+                                             + ", "
+                                             + no_emp
+                                             + ", "
+                                             + type_oemp
+                                             + ", '"
+                                             + registration_no
+                                             + "', "
+                                             + pwd_status
+                                             + ", "
+                                             + to_skill
+                                             + ", "
+                                             + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "')"
+                                             + ")";
+                #endregion
+            }
+            else
+            {
+                has_pic = true;
+                Console.WriteLine("has_pic = " + has_pic.ToString());
+                #region MAIN-FIELDS-PIC
+                main_data = "INSERT INTO p_dao.pwd(lastname, "
+                                            + "firstname, "
+                                            + "middlename, "
+                                            + "id_no, "
+                                            + "sex, "
+                                            + "disability_id, "
+                                            + "address_house_no_street, "
+                                            + "address_barangay, "
+                                            + "address_municipality, "
+                                            + "address_province, "
+                                            + "district_id, "
+                                            + "blood_type, "
+                                            + "birthdate, "
+                                            + "tel_no, "
+                                            + "mobile_no, "
+                                            + "email_add, "
+                                            + "civil_status, "
+                                            + "nationality, "
+                                            + "added_date, "
+                                            + "application_date, "
+                                            + "educ_attainment, "
+                                            + "employment_status, "
+                                            + "nature_of_employer, "
+                                            + "type_of_employment, "
+                                            + "registration_no, "
+                                            + "status_pwd, "
+                                            + "type_of_skill, "
+                                            + "user_id, "
+                                            + "picture) ";
+                #endregion
+                #region MAIN-VARIABLES-PIC
+
+                main_variables = "VALUES ('" + lastname
                                          + "', '"
                                          + firstname
                                          + "', '"
@@ -1125,8 +1298,6 @@ namespace SAD_2_PTT_01
                                          + ", '"
                                          + natio
                                          + "', '"
-                                         + end_date
-                                         + "', '"
                                          + (DateTime.Now.ToString("yyyy-MM-dd"))
                                          + "', '"
                                          + application_date
@@ -1145,8 +1316,12 @@ namespace SAD_2_PTT_01
                                          + ", "
                                          + to_skill
                                          + ", "
-                                         + "(SELECT employee_id FROM p_dao.employee WHERE username = '" + reference_to_main.current_user + "')"
+                                         + "(SELECT user_id FROM p_dao.user WHERE username = '" + reference_to_main.current_user + "'), "
+                                         + "@Image "
                                          + ")";
+
+                #endregion
+            }
             #endregion
 
             #region other_data
@@ -1220,10 +1395,25 @@ namespace SAD_2_PTT_01
                                              + guardian_mn
                                              + "', (SELECT LAST_INSERT_ID()) )";
             #endregion
-            success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
+            
+
+            if (has_pic == false)
+            {
+                success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables));
+                Console.WriteLine("A1");
+            } else
+            {
+                var pic_file = picturetoDB(pwd_pic_box.Image);
+                success = conn_pwd.pwd_add_profile((main_data + main_variables), (other_data + other_variables), (parental_data + parental_variables), pic_file);
+                Console.WriteLine("A2");
+            }
+
             if (success == true)
             {
-                conn_pwd.emp_log_add(reference_to_main.current_user, 0, "add");
+                string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                new_id = conn_pwd.get_last_insert_id_pwd();
+                conn_pwd.insert_pwd_end_date(new_id, end_date);
+                conn_pwd.usr_log_add(user_id, new_id);
                 reference_to_main.success = true;
                 reference_to_main.load_pwd();
                 exit_opacity.Start();
@@ -1235,98 +1425,197 @@ namespace SAD_2_PTT_01
             }
         }
 
-        public void pwd_update_profile(int pwd_update_id)
+        public void pwd_update_profile(string pwd_update_id)
         {
+            string main_data;
+            string other_data;
+            string parental_data;
             bool success;
-            #region main_data
-            string main_data = "UPDATE p_dao.pwd SET registration_no = '"
-                                                  + registration_no
-                                                  + "', "
-                                                  + "lastname = '"
-                                                  + lastname
-                                                  + "', "
-                                                  + "firstname = '"
-                                                  + firstname
-                                                  + "', "
-                                                  + "middlename = '"
-                                                  + middlename
-                                                  + "', "
-                                                  + "id_no = '"
-                                                  + id_no_
-                                                  + "', "
-                                                  + "sex = "
-                                                  + sex
-                                                  + ", "
-                                                  + "disability_id = "
-                                                  + disability
-                                                  + ", "
-                                                  + "address_house_no_street = '"
-                                                  + has
-                                                  + "', "
-                                                  + "address_municipality = '"
-                                                  + mun
-                                                  + "', "
-                                                  + "address_barangay = '"
-                                                  + bar
-                                                  + "', "
-                                                  + "address_province = '"
-                                                  + prov
-                                                  + "', "
-                                                  + "district_id = "
-                                                  + district_id
-                                                  + ", "
-                                                  + "blood_type = '"
-                                                  + blood_type
-                                                  + "', "
-                                                  + "birthdate = '"
-                                                  + dob
-                                                  + "', "
-                                                  + "tel_no = "
-                                                  + tel_no
-                                                  + ", "
-                                                  + "mobile_no = "
-                                                  + mobile_no
-                                                  + ", "
-                                                  + "email_add = '"
-                                                  + e_mail
-                                                  + "', "
-                                                  + "civil_status = "
-                                                  + civil_status
-                                                  + ", "
-                                                  + "nationality = '"
-                                                  + natio
-                                                  + "', "
-                                                  + "end_date = '"
-                                                  + end_date
-                                                  + "', "
-                                                  + "added_date = '"
-                                                  + added_date
-                                                  + "', "
-                                                  + "application_date = '"
-                                                  + application_date
-                                                  + "', "
-                                                  + "educ_attainment = "
-                                                  + educ_att
-                                                  + ", "
-                                                  + "employment_status = "
-                                                  + emp_status
-                                                  + ", "
-                                                  + "nature_of_employer = "
-                                                  + no_emp
-                                                  + ", "
-                                                  + "type_of_employment = "
-                                                  + type_oemp
-                                                  + ", "
-                                                  + "type_of_skill = "
-                                                  + to_skill
-                                                  + ", "
-                                                  + "status_pwd = "
-                                                  + pwd_status
-                                                  + " "
-                                                  + "WHERE pwd_id = " + pwd_update_id;
-            #endregion
+            bool has_pic = false;
+
+            if (pwd_pic_box.Image == null)
+            {
+                has_pic = false;
+                #region main_data
+                main_data = "UPDATE p_dao.pwd SET registration_no = '"
+                                                      + registration_no
+                                                      + "', "
+                                                      + "lastname = '"
+                                                      + lastname
+                                                      + "', "
+                                                      + "firstname = '"
+                                                      + firstname
+                                                      + "', "
+                                                      + "middlename = '"
+                                                      + middlename
+                                                      + "', "
+                                                      + "id_no = '"
+                                                      + id_no_
+                                                      + "', "
+                                                      + "sex = "
+                                                      + sex
+                                                      + ", "
+                                                      + "disability_id = "
+                                                      + disability
+                                                      + ", "
+                                                      + "address_house_no_street = '"
+                                                      + has
+                                                      + "', "
+                                                      + "address_municipality = '"
+                                                      + mun
+                                                      + "', "
+                                                      + "address_barangay = '"
+                                                      + bar
+                                                      + "', "
+                                                      + "address_province = '"
+                                                      + prov
+                                                      + "', "
+                                                      + "district_id = "
+                                                      + district_id
+                                                      + ", "
+                                                      + "blood_type = '"
+                                                      + blood_type
+                                                      + "', "
+                                                      + "birthdate = '"
+                                                      + dob
+                                                      + "', "
+                                                      + "tel_no = "
+                                                      + tel_no
+                                                      + ", "
+                                                      + "mobile_no = "
+                                                      + mobile_no
+                                                      + ", "
+                                                      + "email_add = '"
+                                                      + e_mail
+                                                      + "', "
+                                                      + "civil_status = "
+                                                      + civil_status
+                                                      + ", "
+                                                      + "nationality = '"
+                                                      + natio
+                                                      + "', "
+                                                      + "added_date = '"
+                                                      + added_date
+                                                      + "', "
+                                                      + "application_date = '"
+                                                      + application_date
+                                                      + "', "
+                                                      + "educ_attainment = "
+                                                      + educ_att
+                                                      + ", "
+                                                      + "employment_status = "
+                                                      + emp_status
+                                                      + ", "
+                                                      + "nature_of_employer = "
+                                                      + no_emp
+                                                      + ", "
+                                                      + "type_of_employment = "
+                                                      + type_oemp
+                                                      + ", "
+                                                      + "type_of_skill = "
+                                                      + to_skill
+                                                      + ", "
+                                                      + "status_pwd = "
+                                                      + pwd_status
+                                                      + ", "
+                                                      + "picture = "
+                                                      + "null "
+                                                      + "WHERE pwd_id = " + pwd_update_id;
+                #endregion
+            }
+            else
+            {
+                has_pic = true;
+                #region main_data
+                main_data = "UPDATE p_dao.pwd SET registration_no = '"
+                                                      + registration_no
+                                                      + "', "
+                                                      + "lastname = '"
+                                                      + lastname
+                                                      + "', "
+                                                      + "firstname = '"
+                                                      + firstname
+                                                      + "', "
+                                                      + "middlename = '"
+                                                      + middlename
+                                                      + "', "
+                                                      + "id_no = '"
+                                                      + id_no_
+                                                      + "', "
+                                                      + "sex = "
+                                                      + sex
+                                                      + ", "
+                                                      + "disability_id = "
+                                                      + disability
+                                                      + ", "
+                                                      + "address_house_no_street = '"
+                                                      + has
+                                                      + "', "
+                                                      + "address_municipality = '"
+                                                      + mun
+                                                      + "', "
+                                                      + "address_barangay = '"
+                                                      + bar
+                                                      + "', "
+                                                      + "address_province = '"
+                                                      + prov
+                                                      + "', "
+                                                      + "district_id = "
+                                                      + district_id
+                                                      + ", "
+                                                      + "blood_type = '"
+                                                      + blood_type
+                                                      + "', "
+                                                      + "birthdate = '"
+                                                      + dob
+                                                      + "', "
+                                                      + "tel_no = "
+                                                      + tel_no
+                                                      + ", "
+                                                      + "mobile_no = "
+                                                      + mobile_no
+                                                      + ", "
+                                                      + "email_add = '"
+                                                      + e_mail
+                                                      + "', "
+                                                      + "civil_status = "
+                                                      + civil_status
+                                                      + ", "
+                                                      + "nationality = '"
+                                                      + natio
+                                                      + "', "
+                                                      + "added_date = '"
+                                                      + added_date
+                                                      + "', "
+                                                      + "application_date = '"
+                                                      + application_date
+                                                      + "', "
+                                                      + "educ_attainment = "
+                                                      + educ_att
+                                                      + ", "
+                                                      + "employment_status = "
+                                                      + emp_status
+                                                      + ", "
+                                                      + "nature_of_employer = "
+                                                      + no_emp
+                                                      + ", "
+                                                      + "type_of_employment = "
+                                                      + type_oemp
+                                                      + ", "
+                                                      + "type_of_skill = "
+                                                      + to_skill
+                                                      + ", "
+                                                      + "status_pwd = "
+                                                      + pwd_status
+                                                      + ", "
+                                                      + "picture = "
+                                                      + "@Image "
+                                                      + "WHERE pwd_id = " + pwd_update_id;
+                #endregion
+            }
+
             #region other_data
-            string other_data = "UPDATE pwd_otherinfo SET sss_no = '"
+            other_data = "UPDATE pwd_otherinfo SET sss_no = '"
                                                         + sss_no
                                                         + "', "
                                                         + "gsis_no = "
@@ -1365,7 +1654,7 @@ namespace SAD_2_PTT_01
                                                         + "WHERE pwd_id = " + pwd_update_id;
             #endregion
             #region parental_data
-            string parental_data = "UPDATE p_dao.parental_info SET fatherfn = '"
+            parental_data = "UPDATE p_dao.parental_info SET fatherfn = '"
                                                                 + father_fn
                                                                 + "', "
                                                                 + "fathermn = '"
@@ -1394,17 +1683,31 @@ namespace SAD_2_PTT_01
                                                                 + "' "
                                                                 + "WHERE pwd_id = " + pwd_update_id;
             #endregion
-            success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
-            if(success == true)
+
+            if (has_pic == false)
+            {
+                success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data);
+            } else
+            {
+                var pic_file = picturetoDB(pwd_pic_box.Image);
+                success = conn_pwd.pwd_update_profile(main_data, other_data, parental_data, pic_file);
+            }
+
+
+            if (success == true)
             {
                 if(from_view)
                 {
-                    conn_pwd.emp_log_add(reference_to_main.current_user, pwd_update_id, "update");
+                    string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                    conn_pwd.insert_pwd_end_date(pwd_update_id, end_date);
+                    conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_view.success = true;
                     reference_to_view.pwd_load_data(pwd_update_id);
                     exit_opacity.Start();
                 } else
                 {
+                    string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                    conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_main.success = true;
                     reference_to_main.load_pwd();
                     exit_opacity.Start();
@@ -1452,8 +1755,10 @@ namespace SAD_2_PTT_01
                 {
                     pwd_next.Text = "ADD";
                 }
-                
+
             }
+            check_btn_pwd_next();
+            btn_side_active();
         }
 
         private void btn_general_Click(object sender, EventArgs e)
@@ -1559,6 +1864,17 @@ namespace SAD_2_PTT_01
             telno.Text = main_data.Rows[0]["tel_no"].ToString();
             mobileno.Text = main_data.Rows[0]["mobile_no"].ToString();
             email.Text = main_data.Rows[0]["email_add"].ToString();
+            try
+            {
+                byte[] image = (byte[])main_data.Rows[0]["picture"];
+                MemoryStream ms = new MemoryStream(image);
+                pwd_pic_box.Image = Image.FromStream(ms);
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+                pwd_pic_box.Image = null;
+            }
 
             educ_attainment("update", main_data.Rows[0]["educ_attainment"].ToString());
             empstatus.SelectedIndex = int.Parse(main_data.Rows[0]["employment_status"].ToString());
@@ -1628,17 +1944,49 @@ namespace SAD_2_PTT_01
 
         private void id_no_TextChanged(object sender, EventArgs e)
         {
-            if (conn_pwd.pwd_check_registration_has_duplicate(id_no.Text, update_id_no) == true)
+            if (conn_pwd.pwd_check_id_has_duplicate(id_no.Text, update_id_no) == true)
             {
                 lbl_id_no_error.Visible = true;
-                panel_1_next();
             }
             else
             {
                 lbl_id_no_error.Visible = false;
-                panel_1_next();
+            }
+            
+            if(id_no.Text.Trim().Length < 18)
+            {
+                lbl_id_length.Visible = true;
+            } else
+            {
+                lbl_id_length.Visible = false;
+            }
+            panel_1_next();
+        }
+
+        private void btn_add_picture_Click(object sender, EventArgs e)
+        {
+            DialogResult check_file = pwd_picture.ShowDialog();
+            if (check_file == DialogResult.OK)
+            {
+                string pic_location = pwd_picture.FileName.ToString();
+                pwd_pic_box.ImageLocation = pic_location;
+                pwd_pic_box.Image = Image.FromFile(pic_location);
+                pwd_pic_box.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 
+        public byte[] picturetoDB(Image img)
+        {
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private void pwd_pic_clear_Click(object sender, EventArgs e)
+        {
+            pwd_pic_box.Image = null;
+        }
     }
 }

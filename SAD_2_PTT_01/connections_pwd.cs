@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace SAD_2_PTT_01
 {
@@ -17,32 +19,57 @@ namespace SAD_2_PTT_01
         DataTable set;
         public connections_pwd()
         {
-            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
+            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }
 
         #region GRID-MAIN_FORM
+
         public bool pwd_grid_list(DataGridView pwd_grid)
         {
             bool has_data = false;
             try
             {
                 conn.Open();
-                comm = new MySqlCommand("SELECT pwd_id, "
-                                             + "registration_no, "
-                                             + "id_no, "
-                                             + "CONCAT(lastname,', ', firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), SUBSTRING(middlename, 2)) AS fullname, "
-                                             + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) as sex, "
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                             + "pwd_id, "
+                                             + "id_no ,"
+                                             + "fullname, "
+                                             + "gender, "
+                                             + "age, "
+                                             + "disability_type, "
+                                             + "educ_attainment_type, "
+                                             + "application_date, "
+                                             + "district_name, "
+                                             + "status_pwd, "
+                                             + "registration_no "
+                                             + "FROM "
+                                             + "( "
+                                             + "SELECT id_no, "
+                                             + "pwd.pwd_id, "
+                                             + "(CONCAT(lastname, ', ', firstname)) AS fullname, "
+                                             + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS gender, "
                                              + "DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age, "
                                              + "disability_type, "
-                                             + "(CASE WHEN blood_type = 1 THEN 'O' WHEN blood_type = 2 THEN 'A' WHEN blood_type = 3 THEN 'B' ELSE 'AB' END) AS blood_type, "
-                                             + "(CASE WHEN civil_status = 1 THEN 'Single' WHEN civil_status = 2 THEN 'Married' WHEN civil_status = 3 THEN 'Widow/er' WHEN civil_status = 4 THEN 'Separated' ELSE 'Co-Habitation' END) AS civil_status, "
+                                             + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' "
+                                             + "WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' "
+                                             + "WHEN educ_attainment = 3 THEN 'High School' "
+                                             + "WHEN educ_attainment = 4 THEN 'High School Undergraduate' "
+                                             + "WHEN educ_attainment = 5 THEN 'College' "
+                                             + "WHEN educ_attainment = 6 THEN 'College Undergraduate' "
+                                             + "WHEN educ_attainment = 7 THEN 'Graduate' "
+                                             + "WHEN educ_attainment = 8 THEN 'Post Graduate' "
+                                             + "WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment_type, "
                                              + "application_date, "
-                                             + "added_date, "
-                                             + "district_id, "
-                                             + "end_date, "
                                              + "(SELECT district_name FROM pwd_district WHERE pwd.district_id = pwd_district.district_id) AS district_name, "
-                                             + "status_pwd "
-                                             + "FROM pwd LEFT JOIN p_dao.disability ON (disability.disability_id = pwd.disability_id) WHERE pwd.isArchived = 0", conn);
+                                             + "pwd.district_id, "
+                                             + "educ_attainment, "
+                                             + "sex, "
+                                             + "status_pwd, "
+                                             + "registration_no "
+                                             + "FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id "
+                                             + "JOIN pwd_district ON pwd.district_id = pwd_district.district_id "
+                                             + "WHERE pwd.isArchived != 1 AND disability.isArchived != 1 ORDER BY pwd_id ASC "
+                                             + ") t1, (SELECT @row_number:= 0) t2 ", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
@@ -55,12 +82,12 @@ namespace SAD_2_PTT_01
                 #region Columns
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "pwd_id";
+                column.ColumnName = "no";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "registration_no";
+                column.ColumnName = "pwd_id";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -75,7 +102,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "sex";
+                column.ColumnName = "gender";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -90,12 +117,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "blood_type";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "civil_status";
+                column.ColumnName = "educ_attainment_type";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -105,27 +127,17 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "added_date";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "district_id";
-                pwd_data.Columns.Add(column);
-
-                column = new DataColumn();
-                column.DataType = System.Type.GetType("System.String");
                 column.ColumnName = "district_name";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "end_date";
+                column.ColumnName = "status_pwd";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "status_pwd";
+                column.ColumnName = "registration_no";
                 pwd_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -139,22 +151,19 @@ namespace SAD_2_PTT_01
                 {
                     string none = "None";
                     row = pwd_data.NewRow();
+                    row["no"] = none;
                     row["pwd_id"] = none;
-                    row["registration_no"] = none;
                     row["id_no"] = none;
                     row["fullname"] = none;
-                    row["sex"] = none;
+                    row["gender"] = none;
                     row["age"] = none;
                     row["disability_type"] = none;
-                    row["blood_type"] = none;
-                    row["civil_status"] = none;
+                    row["educ_attainment_type"] = none;
                     row["application_date"] = none;
-                    row["added_date"] = none;
-                    row["district_id"] = none;
                     row["district_name"] = none;
-                    row["end_date"] = none;
                     row["status_pwd"] = none;
-                    row["display_text"] = "There are no PWD members registered.";
+                    row["registration_no"] = none;
+                    row["display_text"] = "There are no PWD members added.";
                     pwd_data.Rows.Add(row);
                     has_data = false;
                 }
@@ -163,24 +172,19 @@ namespace SAD_2_PTT_01
                     for (int i = 0; i < count; i++)
                     {
                         row = pwd_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
-                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                         row["id_no"] = set.Rows[i]["id_no"].ToString();
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
-                        row["sex"] = set.Rows[i]["sex"].ToString();
+                        row["gender"] = set.Rows[i]["gender"].ToString();
                         row["age"] = set.Rows[i]["age"].ToString();
                         row["disability_type"] = set.Rows[i]["disability_type"].ToString();
-                        row["blood_type"] = set.Rows[i]["blood_type"].ToString();
-                        row["civil_status"] = set.Rows[i]["civil_status"].ToString();
+                        row["educ_attainment_type"] = set.Rows[i]["educ_attainment_type"].ToString();
                         string[] app_date = set.Rows[i]["application_date"].ToString().Split();
                         row["application_date"] = app_date[0];
-                        string[] add_date = set.Rows[i]["added_date"].ToString().Split();
-                        row["added_date"] = add_date[0];
-                        row["district_id"] = set.Rows[i]["district_id"].ToString();
                         row["district_name"] = set.Rows[i]["district_name"].ToString();
-                        string[] end_date = set.Rows[i]["end_date"].ToString().Split();
-                        row["end_date"] = end_date[0];
                         row["status_pwd"] = set.Rows[i]["status_pwd"].ToString();
+                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
                         row["display_text"] = "Please refresh the list.";
                         pwd_data.Rows.Add(row);
                     }
@@ -191,12 +195,12 @@ namespace SAD_2_PTT_01
 
                 pwd_grid.DataSource = view;
                 conn.Close();
-                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_GRID_LIST_LOADED }");
+                Console.WriteLine("[SUCCESS] - [CONNECTIONS_PWD] pwd_grid_list() ");
             }
             catch (Exception e)
             {
                 conn.Close();
-                Console.WriteLine("--->>" + e.Message + "<<---");
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_grid_list() : " + e.Message);
                 has_data = false;
             }
 
@@ -206,7 +210,39 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region VIEW-MODE
-        public void pwd_view_profile(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
+
+        public void pwd_view_picture(string pwd_id, PictureBox pic_box)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT picture FROM pwd WHERE pwd_id = " + pwd_id + "", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_view_picture() : " + e.Message);
+            }
+            try
+            {
+                byte[] image = (byte[])set.Rows[0]["picture"];
+                MemoryStream ms = new MemoryStream(image);
+                pic_box.Image = Image.FromStream(ms);
+                pic_box.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch
+            {
+                pic_box.Image = SAD_2_PTT_01.Properties.Resources.pwd;
+                pic_box.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+        }
+
+        public void pwd_view_profile(string current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             try
             {
@@ -223,6 +259,7 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand("SELECT pwd_id, "
                                                           + "registration_no, "
                                                           + "id_no, "
+                                                          + "picture, "
                                                           + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
                                                           + "(CASE WHEN sex = 0 THEN 'Male' ELSE 'Female' END) as sex, "
                                                           + "disability_type, "
@@ -407,15 +444,148 @@ namespace SAD_2_PTT_01
         public bool pwd_add_profile(string main_data, string other_data, string parental_data)
         {
             bool success = false;
+            bool main_ = false;
+            bool other_ = false;
+            bool parent_ = false;
             try
             {
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(main_data, conn);
-                comm.ExecuteNonQuery();
+                #region MAIN
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    main_ = true;
+                } catch (Exception e)
+                {
+                    main_ = false;
+                    Console.WriteLine("pwd_add_profile() main_ : " + e.Message);
+                }
+
+                if (main_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
                 comm = new MySqlCommand(other_data, conn);
-                comm.ExecuteNonQuery();
+                #region OTHER
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    other_ = true;
+                } catch (Exception e )
+                {
+                    other_ = false;
+                    Console.WriteLine("pwd_add_profile() other_ : " + e.Message);
+                }
+
+                if (other_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
                 comm = new MySqlCommand(parental_data, conn);
-                comm.ExecuteNonQuery();
+                #region PARENT
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    parent_ = true;
+                } catch (Exception e)
+                {
+                    parent_ = false;
+                    Console.WriteLine("pwd_add_profile() parent_ : " + e.Message);
+                }
+
+                if (parent_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
+                conn.Close();
+                success = true;
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_ADD_PROFILE_DATA }");
+            }
+            catch (Exception e)
+            {
+                success = false;
+                conn.Close();
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_ADD]");
+            }
+            return success;
+        }
+
+        public bool pwd_add_profile(string main_data, string other_data, string parental_data, byte[] image)
+        {
+            bool success = false;
+            bool main_ = false;
+            bool other_ = false;
+            bool parent_ = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(main_data, conn);
+                var parameter = new MySqlParameter("@Image", MySqlDbType.MediumBlob, image.Length);
+
+                parameter.Value = image;
+                comm.Parameters.Add(parameter);
+
+                #region MAIN
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    main_ = true;
+                }
+                catch (Exception e)
+                {
+                    main_ = false;
+                }
+
+                if (main_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
+                comm = new MySqlCommand(other_data, conn);
+                #region OTHER
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    other_ = true;
+                }
+                catch (Exception e)
+                {
+                    other_ = false;
+                }
+
+                if (other_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
+                comm = new MySqlCommand(parental_data, conn);
+                #region PARENT
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    parent_ = true;
+                }
+                catch (Exception e)
+                {
+                    parent_ = false;
+                }
+
+                if (parent_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
                 conn.Close();
                 success = true;
                 Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_ADD_PROFILE_DATA }");
@@ -433,7 +603,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region ARCHIVE-MODE
-        public void archive_profile(int current_id)
+        public void archive_profile(string current_id)
         {
             Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { ARCHIVE_PROFILE }");
             conn.Open();
@@ -447,7 +617,7 @@ namespace SAD_2_PTT_01
 
         #region EDIT-MODE
 
-        public void pwd_update_profile_data(int current_id, DataTable main, DataTable other_info, DataTable parental_info)
+        public void pwd_update_profile_data(string current_id, DataTable main, DataTable other_info, DataTable parental_info)
         {
             Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_DATA }");
             try
@@ -489,6 +659,93 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand(parental_data, conn);
                 Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_PARENTAL_DATA }");
                 comm.ExecuteNonQuery();
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                success = false;
+                conn.Close();
+                Console.WriteLine("--->>" + e.Message + "<<---");
+                MessageBox.Show("[ERROR_PWD_UPDATE_PROFILE]");
+            }
+
+            return success;
+        }
+
+        public bool pwd_update_profile(string main_data, string other_data, string parental_data, byte[] image)
+        {
+            Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_ }");
+            bool success = false;
+            bool main_ = false;
+            bool other_ = false;
+            bool parent_ = false;
+
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand(main_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_MAIN_DATA }");
+                var parameter = new MySqlParameter("@Image", MySqlDbType.MediumBlob, image.Length);
+
+                parameter.Value = image;
+                #region MAIN-DATA
+                comm.Parameters.Add(parameter);
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    main_ = true;
+                } catch (Exception e)
+                {
+                    main_ = false;
+                }
+
+                if (main_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
+
+                comm = new MySqlCommand(other_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_OTHER_DATA }");
+                #region OTHER-DATA
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    other_ = true;
+                } catch (Exception e)
+                {
+                    other_ = false;
+                }
+
+                if (other_ == false)
+                {
+                    conn.Close();
+                    return false;
+
+                }
+                #endregion
+
+                comm = new MySqlCommand(parental_data, conn);
+                Console.WriteLine("[PWD] - [CONNECTIONS_PWD]   > { PWD_UPDATE_PROFILE_PARENTAL_DATA }");
+
+                #region PARENTAL-DATA
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    parent_ = true;
+                } catch (Exception e)
+                {
+                    parent_ = false;
+                }
+
+                if (parent_ == false)
+                {
+                    conn.Close();
+                    return false;
+                }
+                #endregion
                 conn.Close();
                 success = true;
             }
@@ -572,7 +829,7 @@ namespace SAD_2_PTT_01
                                                       + lastname + " OR "
                                                       + firstname + " OR "
                                                       + middlename + " OR "
-                                                      + app_date + " AND isArchived != 1", conn);
+                                                      + app_date + " AND pwd.isArchived != 1", conn);
 
             MySqlDataAdapter getresult = new MySqlDataAdapter(comm);
             DataTable resulttable = new DataTable();
@@ -588,7 +845,7 @@ namespace SAD_2_PTT_01
         {
             try
             {
-                (pwd_grid.DataSource as DataView).RowFilter = string.Format("sex LIKE '{0}%' ", gender);
+                (pwd_grid.DataSource as DataView).RowFilter = string.Format("gender LIKE '{0}%' ", gender);
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message + Environment.NewLine + gender);
@@ -603,32 +860,92 @@ namespace SAD_2_PTT_01
 
         public void filter_status_gender (string status, string gender, DataGridView pwd_grid)
         {
-            (pwd_grid.DataSource as DataView).RowFilter = string.Format("sex LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
+            (pwd_grid.DataSource as DataView).RowFilter = string.Format("gender LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
         }
         #endregion
 
-        #region EMP_LOG
-
-        public void emp_log_add(string uname, int pwd_id, string action)
+        public void insert_pwd_end_date(string pwd_id, string end_date)
         {
             try
             {
                 conn.Open();
-                if (action == "add")
+
+                comm = new MySqlCommand("INSERT INTO renew_pwd(pwd_id, end_date, is_resolved) VALUES ( " + pwd_id + ", '" + end_date + "', 0)", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] insert_pwd_end_date() : " + e.Message);
+                conn.Close();
+            }
+        }
+
+
+        #region EMP_LOG
+
+        public string get_last_insert_id_pwd()
+        {
+            string user_id = "0";
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT LAST_INSERT_ID() AS pwd_id", conn);
+                MySqlDataAdapter get = new MySqlDataAdapter(comm);
+                DataTable set = new DataTable();
+                get.Fill(set);
+
+                if(set.Rows.Count == 0)
                 {
-                    comm = new MySqlCommand("INSERT INTO p_dao.pwd_emp_log(pwd_id, recent_emp_id, date_updated) VALUES (LAST_INSERT_ID(), (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), CURDATE())", conn);
-                }
-                else
+                    return "0";
+                } else
                 {
-                    comm = new MySqlCommand("UPDATE p_dao.pwd_emp_log SET pwd_id = " + pwd_id + ", recent_emp_id = (SELECT employee_id FROM p_dao.employee WHERE username = '" + uname + "'), date_updated = CURDATE())", conn);
-                    comm.ExecuteNonQuery();
+                    user_id = set.Rows[0]["pwd_id"].ToString();
                 }
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] get_last_insert_id_pwd() : " + e.Message);
+            }
+
+            return user_id;
+        }
+
+        public void usr_log_update(string user_id, string pwd_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE p_dao.pwd_usr_log SET recent_emp_id = "+ user_id +", date_updated = CURDATE() WHERE pwd_id = "+ pwd_id , conn);
+                comm.ExecuteNonQuery();
+
                 conn.Close();
             }
             catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message);
+                MessageBox.Show("[ERROR] - [CONNECTIONS_PWD] usr_log_update() : " + e.Message);
+            }
+        }
+
+        public void usr_log_add(string user_id, string pwd_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("INSERT INTO p_dao.pwd_usr_log(pwd_id, recent_emp_id, date_updated) VALUES (" + pwd_id + ", " + user_id + ", CURDATE())", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] usr_log_add() : " + e.Message);
             }
         }
 
