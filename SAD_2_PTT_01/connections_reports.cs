@@ -769,8 +769,8 @@ namespace SAD_2_PTT_01
 
             //Title
             var title = wsheet.Cells["A1:Q1"];
-            title.Style.HorizontalAlignment = wschild.Cells["A1:Q1"].Style.HorizontalAlignment = wsadult.Cells["A1:Q1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            title.Style.Font.Bold = wschild.Cells["A1:Q1"].Style.Font.Bold = wsadult.Cells["A1:Q1"].Style.Font.Bold = true;
+            title.Style.HorizontalAlignment = wschild.Cells[1, 1, 1, disability_count * 2 + 1].Style.HorizontalAlignment = wsadult.Cells[1, 1, 1, disability_count * 2 + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            title.Style.Font.Bold = wschild.Cells[1, 1, 1, disability_count * 2 + 1].Style.Font.Bold = wsadult.Cells[1, 1, 1, disability_count * 2 + 1].Style.Font.Bold = true;
             title.Merge = wschild.Cells[1, 1, 1, disability_count * 2 + 1].Merge = wsadult.Cells[1, 1, 1, disability_count * 2 + 1].Merge = true;
             title.Style.Font.Size = wschild.Cells["A1:Q1"].Style.Font.Size = wsadult.Cells["A1:Q1"].Style.Font.Size = 14;
 
@@ -863,7 +863,7 @@ namespace SAD_2_PTT_01
 
             #region Sheet Format
             //Title
-            wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
+            wsheet.Cells[1, 1, 1, disability_count * 2 + 1].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
             wschild.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
             wsadult.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
 

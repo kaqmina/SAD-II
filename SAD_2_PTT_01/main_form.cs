@@ -2089,6 +2089,8 @@ namespace SAD_2_PTT_01
             reports_projects_grid.ClearSelection();
 
             device_status.SelectedIndex = 1;
+            district_format.SelectedIndex = 0;
+            btn_projects_persons_attendance.Enabled = false;
             date_format.Enabled = false;
             date_from.Visible = date_to.Visible = btn_ok.Visible = false;
             lbl_from.Visible = lbl_to.Visible = false;
@@ -2112,6 +2114,9 @@ namespace SAD_2_PTT_01
             reports_pnl_visible();
             reports_pnl_pwd.Visible = true;
 
+            hide_date(); load_reports();
+            date_format.Enabled = true;
+        
             date_format.Items.Clear();
             string[] pwd = { "", "Weekly", "Monthly", "Yearly", "Custom" };
             date_format.Items.AddRange(pwd);
@@ -2123,6 +2128,8 @@ namespace SAD_2_PTT_01
             reports_pnl_visible();
             reports_pnl_device.Visible = true;
 
+            hide_date(); load_reports();
+            date_format.Enabled = true;
             date_format.Items.Clear();
             string[] pwd = { "", "Weekly", "Monthly", "Yearly", "Custom" };
             date_format.Items.AddRange(pwd);
@@ -2135,6 +2142,8 @@ namespace SAD_2_PTT_01
             reports_pnl_visible();
             reports_pnl_projects.Visible = true;
 
+            hide_date(); load_reports();
+            date_format.Enabled = true;
             date_format.Items.Clear();
             string[] proj = { "", "Monthly", "Yearly", "Custom" };
             date_format.Items.AddRange(proj);
@@ -2271,6 +2280,11 @@ namespace SAD_2_PTT_01
                 conn_rep.date_project_format(reports_projects_grid, date, from, to);
         }
 
+        private void device_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (device_status.SelectedIndex == 1) conn_rep.device_status_grid(reports_device_grid, "requested", from, to, end, date);
+            else if (device_status.SelectedIndex == 2) conn_rep.device_status_grid(reports_device_grid, "handed out", from, to, end, date);
+        }
         #region <-- PWD -->
         private void btn_pwd_exportPDF_Click(object sender, EventArgs e)
         {
@@ -2360,14 +2374,14 @@ namespace SAD_2_PTT_01
         private void btn_device_exportPDF_Click(object sender, EventArgs e)
         {
             string file = "";
-            string district_pass, date = "";
+            string date = "";
             save_pdf.Filter = "PDF files |*.pdf";
             save_pdf.DefaultExt = "*.pdf";
             save_pdf.FilterIndex = 1;
             save_pdf.ShowDialog();
             save_pdf.Title = "Export as PDF";
 
-            #region << District & Date Format [PDF] >>
+            #region << Date Format [PDF] >>
             if (lbl_from.Text == "From" && lbl_to.Text == "To" && date_from.CustomFormat == "MMMM dd, yyyy") //custom
             {
                 date = from.ToString("MMMM dd") + " - " + to.ToString("MMMM dd yyyy");
@@ -2380,13 +2394,12 @@ namespace SAD_2_PTT_01
             {
                 date = to.ToString("yyyy");
             }
-            else if (lbl_to.Text == "START")
+            else if (lbl_to.Text == "Start") // weekly
             {
-                date = to.ToString("MMMM dd") + " - " + end.ToString("dd YYYY");
+                date = to.ToString("MMMM dd") + " - " + end.ToString("MMMM dd yyyy");
             }
 
-            if (district == null) district_pass = "OVERALL";
-            else district_pass = district_format.SelectedItem.ToString();
+            dev_stat = device_status.SelectedItem.ToString();
             #endregion
 
             file = save_pdf.FileName;
@@ -2394,7 +2407,7 @@ namespace SAD_2_PTT_01
             if (file == "") ; //pass
             else
             {
-                conn_rep.pwd_PDFReport(file, report_grid, district_pass, date);
+                conn_rep.device_PDF(file, date, reports_device_grid, dev_stat);
                 System.Diagnostics.Process.Start(file);
             }
             save_pdf.FileName = "";
@@ -2459,6 +2472,8 @@ namespace SAD_2_PTT_01
         }
         private void reports_projects_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btn_projects_persons_attendance.Enabled = true;
+
             DataGridViewRow row = this.reports_projects_grid.Rows[e.RowIndex];
             project = row.Cells["project_title"].Value.ToString();
             place = row.Cells["event_held"].Value.ToString();
