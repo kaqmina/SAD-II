@@ -438,7 +438,7 @@ namespace SAD_2_PTT_01
             doc.Open();
 
             //logo
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pdao_logo, System.Drawing.Imaging.ImageFormat.Jpeg);
             logo.Alignment = Element.ALIGN_TOP | Element.ALIGN_CENTER;
             logo.ScalePercent(40);
             doc.Add(logo);
@@ -529,7 +529,7 @@ namespace SAD_2_PTT_01
             doc.Open();
 
             //logo
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pdao_logo, System.Drawing.Imaging.ImageFormat.Jpeg);
             logo.Alignment = Element.ALIGN_CENTER | Element.ALIGN_TOP;
             logo.ScalePercent(40);
             doc.Add(logo);
@@ -607,7 +607,7 @@ namespace SAD_2_PTT_01
             doc.Open();
 
             //logo
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pdao_logo, System.Drawing.Imaging.ImageFormat.Jpeg);
             logo.Alignment = Element.ALIGN_CENTER | Element.ALIGN_TOP;
             logo.SpacingAfter = 5;
             logo.ScalePercent(40);
@@ -682,7 +682,7 @@ namespace SAD_2_PTT_01
             doc.Open();
 
             //logo
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pwd, System.Drawing.Imaging.ImageFormat.Jpeg);
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(SAD_2_PTT_01.Properties.Resources.pdao_logo, System.Drawing.Imaging.ImageFormat.Jpeg);
             logo.Alignment = Element.ALIGN_CENTER | Element.ALIGN_TOP;
             logo.ScalePercent(40);
             logo.SpacingAfter = 15;
