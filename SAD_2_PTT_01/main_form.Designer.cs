@@ -41,9 +41,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -251,6 +251,7 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.pnl_projects = new System.Windows.Forms.Panel();
+            this.projects_btn_attendance = new System.Windows.Forms.Button();
             this.projects_calendar = new System.Windows.Forms.MonthCalendar();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
@@ -417,7 +418,6 @@
             this.notification_grid = new System.Windows.Forms.DataGridView();
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
-            this.projects_btn_attendance = new System.Windows.Forms.Button();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3204,6 +3204,21 @@
             this.pnl_projects.Size = new System.Drawing.Size(1066, 611);
             this.pnl_projects.TabIndex = 7;
             // 
+            // projects_btn_attendance
+            // 
+            this.projects_btn_attendance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.projects_btn_attendance.Enabled = false;
+            this.projects_btn_attendance.FlatAppearance.BorderSize = 0;
+            this.projects_btn_attendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.projects_btn_attendance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_btn_attendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.projects_btn_attendance.Location = new System.Drawing.Point(827, 567);
+            this.projects_btn_attendance.Name = "projects_btn_attendance";
+            this.projects_btn_attendance.Size = new System.Drawing.Size(227, 30);
+            this.projects_btn_attendance.TabIndex = 147;
+            this.projects_btn_attendance.Text = "LIST OF PARTICIPANTS";
+            this.projects_btn_attendance.UseVisualStyleBackColor = false;
+            // 
             // projects_calendar
             // 
             this.projects_calendar.Location = new System.Drawing.Point(828, 107);
@@ -3558,9 +3573,9 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel11.Controls.Add(this.reports_pnl_projects);
             this.panel11.Controls.Add(this.reports_pnl_device);
             this.panel11.Controls.Add(this.reports_pnl_pwd);
-            this.panel11.Controls.Add(this.reports_pnl_projects);
             this.panel11.Controls.Add(this.btn_ok);
             this.panel11.Controls.Add(this.date_to);
             this.panel11.Controls.Add(this.lbl_to);
@@ -3629,8 +3644,8 @@
             this.reports_device_grid.Name = "reports_device_grid";
             this.reports_device_grid.ReadOnly = true;
             this.reports_device_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_device_grid.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_device_grid.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.reports_device_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.reports_device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.reports_device_grid.Size = new System.Drawing.Size(800, 464);
@@ -3745,8 +3760,8 @@
             this.report_grid.Name = "report_grid";
             this.report_grid.ReadOnly = true;
             this.report_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.report_grid.Size = new System.Drawing.Size(800, 464);
@@ -3860,8 +3875,8 @@
             this.reports_projects_grid.Name = "reports_projects_grid";
             this.reports_projects_grid.ReadOnly = true;
             this.reports_projects_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.reports_projects_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.reports_projects_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.reports_projects_grid.Size = new System.Drawing.Size(800, 464);
@@ -5284,33 +5299,18 @@
             this.notification_grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseMove);
             this.notification_grid.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseUp);
             // 
-            // projects_btn_attendance
-            // 
-            this.projects_btn_attendance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.projects_btn_attendance.Enabled = false;
-            this.projects_btn_attendance.FlatAppearance.BorderSize = 0;
-            this.projects_btn_attendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.projects_btn_attendance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_btn_attendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.projects_btn_attendance.Location = new System.Drawing.Point(827, 567);
-            this.projects_btn_attendance.Name = "projects_btn_attendance";
-            this.projects_btn_attendance.Size = new System.Drawing.Size(227, 30);
-            this.projects_btn_attendance.TabIndex = 147;
-            this.projects_btn_attendance.Text = "LIST OF PARTICIPANTS";
-            this.projects_btn_attendance.UseVisualStyleBackColor = false;
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
+            this.Controls.Add(this.pnl_reports);
             this.Controls.Add(this.pnl_projects);
             this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_devices);
             this.Controls.Add(this.pnl_settings);
-            this.Controls.Add(this.pnl_reports);
             this.Controls.Add(this.pnl_dashboard);
             this.Controls.Add(this.dboard_head);
             this.Controls.Add(this.side_tab);

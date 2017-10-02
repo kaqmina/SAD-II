@@ -1941,7 +1941,7 @@ namespace SAD_2_PTT_01
 
             device_status.SelectedIndex = 1;
             district_format.SelectedIndex = 0;
-            //btn_projects_persons_attendance.Enabled = false;
+            reports_btn_project_participants.Enabled = false;
             date_format.Enabled = false;
             date_from.Visible = date_to.Visible = btn_ok.Visible = false;
             lbl_from.Visible = lbl_to.Visible = false;
@@ -2323,7 +2323,7 @@ namespace SAD_2_PTT_01
         }
         private void reports_projects_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //btn_projects_persons_attendance.Enabled = true;
+            reports_btn_project_participants.Enabled = true;
 
             DataGridViewRow row = this.reports_projects_grid.Rows[e.RowIndex];
             project = row.Cells["project_title"].Value.ToString();
