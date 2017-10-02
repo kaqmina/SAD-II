@@ -659,6 +659,20 @@ namespace SAD_2_PTT_01
         {
             application_date = pwd_appdate.Value.ToString("yyyy-MM-dd"); //date
             dateofbirth.MaxDate = pwd_appdate.Value;
+            DateTime temp = new DateTime();
+            temp = pwd_appdate.Value.AddYears(3);
+
+            if (temp < DateTime.Today)
+            {
+                status_active.Checked = false;
+                status_active.Enabled = false;
+                status_ex_inactive.Checked = true;
+            } else
+            {
+                status_active.Enabled = true;
+                status_active.Checked = true;
+                status_ex_inactive.Checked = false;
+            }
             panel_1_next();
         }
 

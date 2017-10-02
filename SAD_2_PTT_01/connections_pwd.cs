@@ -764,6 +764,7 @@ namespace SAD_2_PTT_01
 
         #region FILTER-MODE
 
+        #region OLD-LOGIC [# Hate it]
         public void pwd_search(DataGridView pwd_grid, TextBox pwd_searchbox)
         {
             conn.Open();
@@ -862,6 +863,107 @@ namespace SAD_2_PTT_01
         {
             (pwd_grid.DataSource as DataView).RowFilter = string.Format("gender LIKE '{0}%' AND CONVERT(status_pwd, System.String) LIKE '{1}%' ", gender, status);
         }
+        #endregion
+
+        public void pwd_search(string status, string gender, string field, string value, string name)
+        {
+            string cond_status;
+            string cond_gender;
+            string cond_field;
+            string cond_value;
+            string cond_name = "";
+            string lastname;
+            string firstname;
+            string firstlastname;
+            string firstmidlastname;
+            lastname = firstname = "";
+            string[] separators = { " " };
+
+            string[] temp_name = name.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            int count_words = temp_name.Length;
+            firstlastname = "firstlastname LIKE '" + name + "%'";
+            firstmidlastname = "firstmidlastname LIKE '" + name + "%'";
+            string last = temp_name.Last();
+            foreach (string word in temp_name)
+            {
+                if (word == last)
+                {
+                    lastname += ("lastname LIKE '" + word + "%' ");
+                    firstname += ("firstname LIKE '" + word + "%' ");
+                }
+                else
+                {
+                    lastname += ("lastname LIKE '" + word + "%' OR ");
+                    firstname += ("firstname LIKE '" + word + "%' OR ");
+                }
+            }
+
+            if (status == "")
+                cond_status = " status_pwd = 0 OR status_pwd = 1 ";
+            if (gender == "")
+                cond_gender = " sex = 0 OR sex = 1 ";
+            if (field == "")
+                cond_field = " educ_attainment LIKE %% ";
+
+            comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                            + "pwd_id, "
+                                            + "id_no, "
+                                            + "fullname, "
+                                            + "gender, "
+                                            + "disability_type, "
+                                            + "educ_attainment_type, "
+                                            + "application_date, "
+                                            + "district_name, "
+                                            + "status_pwd, "
+                                            + "registration_no"
+                                            + "FROM "
+                                            + "( "
+                                            + "SELECT id_no, "
+                                            + "pwd.pwd_id, "
+                                            + "(CONCAT(lastname, ', ', firstname)) AS fullname, "
+                                            + "(CONCAT(firstname, ' ', lastname)) AS firstlastname, "
+                                            + "(CONCAT(firstname, ' ', middlename, ' ', lastname)) AS firstmidlastname, "
+                                            + "firstname, "
+                                            + "lastname, "
+                                            + "middlename, "
+                                            + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS gender, "
+                                            + "disability_type, "
+                                            + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' "
+                                            + "WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' "
+                                            + "WHEN educ_attainment = 3 THEN 'High School' "
+                                            + "WHEN educ_attainment = 4 THEN 'High School Undergraduate' "
+                                            + "WHEN educ_attainment = 5 THEN 'College' "
+                                            + "WHEN educ_attainment = 6 THEN 'College Undergraduate' "
+                                            + "WHEN educ_attainment = 7 THEN 'Graduate' "
+                                            + "WHEN educ_attainment = 8 THEN 'Post Graduate' "
+                                            + "WHEN educ_attainment = 9 THEN 'Vocational' ELSE 'None' END) AS educ_attainment_type, "
+                                            + "application_date, "
+                                            + "(SELECT district_name FROM pwd_district WHERE pwd.district_id = pwd_district.district_id) AS district_name, "
+                                            + "pwd.district_id, "
+                                            + "educ_attainment, "
+                                            + "sex, "
+                                            + "status_pwd, "
+                                            + "registration_no "
+                                            + "FROM pwd JOIN disability ON pwd.disability_id = disability.disability_id "
+                                            + "JOIN pwd_district ON pwd.district_id = pwd_district.district_id "
+                                            + "WHERE pwd.isArchived != 1 AND disability.isArchived != 1 AND "
+                                            + "( "
+                                            + "(sex = 0 OR sex = 1) AND "
+                                            + "(status_pwd = 0 OR status_pwd = 1) AND "
+                                            + "(disability_type LIKE '%%') AND "
+                                            + "(educ_attainment LIKE '%%') AND "
+                                            + "(district_name LIKE '%%') AND "
+                                            + "( "
+                                            + "(firstname LIKE 'Ken%' AND middlename LIKE 'Ann%' AND lastname LIKE 'Bang%') OR "
+                                            + "(firstname LIKE 'Ken%' AND lastname LIKE 'Bang%') OR "
+                                            + "((firstname LIKE 'Ken%' OR firstname LIKE 'Bang%' OR firstname LIKE 'Ann%') OR "
+                                            + "(middlename LIKE 'Ken%' OR middlename LIKE 'Bang%' OR middlename LIKE 'Ann%') OR "
+                                            + "(lastname LIKE 'Ken%' OR lastname LIKE 'Bang%' OR lastname LIKE 'Ann%') "
+                                            + ")) "
+                                            + ") ORDER BY pwd_id ASC "
+                                            + ") t1, (SELECT @row_number:= 0) t2", conn);
+        }
+
         #endregion
 
         public void insert_pwd_end_date(string pwd_id, string end_date)

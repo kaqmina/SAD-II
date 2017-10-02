@@ -174,6 +174,7 @@ namespace SAD_2_PTT_01
             pwd_has_pwd = conn_pwd.pwd_grid_list(pwd_grid);
             pwd_grid.ClearSelection();
             pwd_format();
+            pwd_search_by.SelectedIndex = 0;
 
             pwd_load_row_count();
             if (pwd_has_pwd == false)
@@ -589,6 +590,62 @@ namespace SAD_2_PTT_01
             }
         }
         #endregion
+
+        string search_by_field = "";
+        string search_by_value_data = "";
+
+        private void pwd_search_by_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pwd_search_by.Text == "ALL")
+            {
+                search_by_field = "all";
+            } else if (pwd_search_by.Text == "Disability")
+            {
+                search_by_field = "disability";
+            } else if (pwd_search_by.Text == "Educational Attainment")
+            {
+                search_by_field = "educ_attainment";
+            } else
+            {
+                search_by_field = "district";
+            }
+
+            pwd_search_by_value_items();
+        }
+
+        public void pwd_search_by_value_items()
+        {
+            pwd_search_by_value.Items.Clear();
+            pwd_search_by_value.Enabled = true;
+            if (search_by_field == "all" )
+            {
+                pwd_search_by_value.Enabled = false;
+            } else if (search_by_field == "disability")
+            {
+                pwd_search_by_value.Items.Add("ALL");
+                pwd_search_by_value.SelectedIndex = 0;
+                conn_disa.load_disability_cbox(pwd_search_by_value);
+            } else if (search_by_field == "educ_attainment")
+            {
+                pwd_search_by_value.Items.Add("ALL");
+                pwd_search_by_value.SelectedIndex = 0;
+                pwd_search_by_value.Items.Add("Elementary");
+                pwd_search_by_value.Items.Add("Elementary Undergraduate");
+                pwd_search_by_value.Items.Add("High School");
+                pwd_search_by_value.Items.Add("High School Undergraduate");
+                pwd_search_by_value.Items.Add("College");
+                pwd_search_by_value.Items.Add("College Undergraduate");
+                pwd_search_by_value.Items.Add("Graduate");
+                pwd_search_by_value.Items.Add("Post Graduate");
+                pwd_search_by_value.Items.Add("Vocational");
+                pwd_search_by_value.Items.Add("None");
+            } else
+            {
+                pwd_search_by_value.Items.Add("ALL");
+                pwd_search_by_value.SelectedIndex = 0;
+                conn_disa.load_district_cbox(pwd_search_by_value);
+            }
+        }
 
         #endregion
 
@@ -2337,7 +2394,6 @@ namespace SAD_2_PTT_01
         #endregion
 
         #endregion
-        
 
         #region ACCOUNTS
         //ACCOUNTS
@@ -2636,6 +2692,11 @@ namespace SAD_2_PTT_01
         private void accounts_edit_account_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             accounts_edit_check_required();
+        }
+
+        private void pwd_search_by_value_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void accounts_edit_contact_no_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

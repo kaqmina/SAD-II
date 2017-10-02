@@ -266,5 +266,68 @@ namespace SAD_2_PTT_01
             }
             return ret_disability_id;
         }
+
+        public void load_disability_cbox(ComboBox disability_cbox)
+        {
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand("SELECT * FROM p_dao.disability WHERE isArchived != 1", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    MessageBox.Show("No disabilities added.");
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        disability_cbox.Items.Add(data["disability_type"].ToString());
+                    }
+                }
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_DISABILITY] load_disability_cbox() : " + e.Message);
+            }
+        }
+        public void load_district_cbox(ComboBox district_cbox)
+        {
+            try
+            {
+                conn.Open();
+                comm = new MySqlCommand("SELECT * FROM p_dao.pwd_district", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = set.Rows.Count;
+                count = set.Rows.Count;
+                if (count == 0)
+                {
+                    Console.WriteLine("No districts.");
+                }
+                else
+                {
+                    foreach (DataRow data in set.Rows)
+                    {
+                        district_cbox.Items.Add(data["district_name"].ToString());
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_DISABILITY] load_district_cbox() : " + e.Message);
+            }
+        }
     }
 }
