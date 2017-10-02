@@ -97,7 +97,7 @@ namespace SAD_2_PTT_01
 
         private void btn_close_Click(object sender, EventArgs e)
         {
-            btn_cancel_Click(sender, e);
+            this.Close();
         }
 
         public void pnl_visible_false()

@@ -865,57 +865,93 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
-        public void pwd_search(string status, string gender, string field, string value, string name)
+        public bool pwd_search(string status, string gender, string field, string value, TextBox name, DataGridView pwd_grid)
         {
+            bool has_data = false;
+            pwd_grid.DataSource = null;
+
+            #region QUERY BUILD UP
             string cond_status;
             string cond_gender;
             string cond_field;
-            string cond_value;
-            string cond_name = "";
             string lastname;
             string firstname;
             string firstlastname;
             string firstmidlastname;
             lastname = firstname = "";
-            string[] separators = { " " };
 
-            string[] temp_name = name.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            int count_words = temp_name.Length;
-            firstlastname = "firstlastname LIKE '" + name + "%'";
-            firstmidlastname = "firstmidlastname LIKE '" + name + "%'";
-            string last = temp_name.Last();
-            foreach (string word in temp_name)
+
+
+            if (name.Text.Trim() == "" )
             {
-                if (word == last)
+                lastname = " lastname LIKE '%%' ";
+                firstname = " firstname LIKE '%%' ";
+                firstlastname = "firstlastname LIKE '%%' ";
+                firstmidlastname = "firstmidlastname LIKE '%%' ";
+            } else
+            {
+                string[] separators = { " " };
+                string text = name.Text;
+                //firstlastname = " firstlastname LIKE '" + text + "%' ";
+                //firstmidlastname = " firstmidlastname LIKE '" + text + "%' ";
+                string[] temp_name = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                string last = temp_name.Last();
+                foreach (string word in temp_name)
                 {
-                    lastname += ("lastname LIKE '" + word + "%' ");
-                    firstname += ("firstname LIKE '" + word + "%' ");
-                }
-                else
-                {
-                    lastname += ("lastname LIKE '" + word + "%' OR ");
-                    firstname += ("firstname LIKE '" + word + "%' OR ");
+                    if (word == last)
+                    {
+                        lastname += ("lastname LIKE '" + word + "%' ");
+                        firstname += ("firstname LIKE '" + word + "%' ");
+                    }
+                    else
+                    {
+                        lastname += ("lastname LIKE '" + word + "%' OR ");
+                        firstname += ("firstname LIKE '" + word + "%' OR ");
+                    }
                 }
             }
 
+
             if (status == "")
                 cond_status = " status_pwd = 0 OR status_pwd = 1 ";
+            else
+                cond_status = " status_pwd = " + status + " ";
+
             if (gender == "")
                 cond_gender = " sex = 0 OR sex = 1 ";
-            if (field == "")
-                cond_field = " educ_attainment LIKE %% ";
+            else
+                cond_gender = " sex = " + gender + " ";
 
-            comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+            if (field == "" || value == "ALL")
+            {
+                cond_field = " educ_attainment LIKE '%%' AND district_name LIKE '%%' AND disability_type LIKE '%%' ";
+            }
+            else //educ_attainment, district_name, disability_type
+            {
+                if (value == "")
+                {
+                    cond_field = field + " LIKE '%%' ";
+                } else
+                {
+                    cond_field = field + " = '" + value + "' ";
+                }
+            }
+
+            #endregion
+            try
+            {
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
                                             + "pwd_id, "
                                             + "id_no, "
                                             + "fullname, "
                                             + "gender, "
+                                            + "age, "
                                             + "disability_type, "
                                             + "educ_attainment_type, "
                                             + "application_date, "
                                             + "district_name, "
                                             + "status_pwd, "
-                                            + "registration_no"
+                                            + "registration_no "
                                             + "FROM "
                                             + "( "
                                             + "SELECT id_no, "
@@ -927,6 +963,7 @@ namespace SAD_2_PTT_01
                                             + "lastname, "
                                             + "middlename, "
                                             + "(CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS gender, "
+                                            + "DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthdate, '00-%m-%d')) AS age, "
                                             + "disability_type, "
                                             + "(CASE WHEN educ_attainment = 1 THEN 'Elementary' "
                                             + "WHEN educ_attainment = 2 THEN 'Elementary Undergraduate' "
@@ -948,20 +985,150 @@ namespace SAD_2_PTT_01
                                             + "JOIN pwd_district ON pwd.district_id = pwd_district.district_id "
                                             + "WHERE pwd.isArchived != 1 AND disability.isArchived != 1 AND "
                                             + "( "
-                                            + "(sex = 0 OR sex = 1) AND "
-                                            + "(status_pwd = 0 OR status_pwd = 1) AND "
-                                            + "(disability_type LIKE '%%') AND "
-                                            + "(educ_attainment LIKE '%%') AND "
-                                            + "(district_name LIKE '%%') AND "
+                                            + "(" + cond_gender + ") AND "
+                                            + "(" + cond_status + ") AND "
+                                            + "(" + cond_field + ") AND "
                                             + "( "
-                                            + "(firstname LIKE 'Ken%' AND middlename LIKE 'Ann%' AND lastname LIKE 'Bang%') OR "
-                                            + "(firstname LIKE 'Ken%' AND lastname LIKE 'Bang%') OR "
-                                            + "((firstname LIKE 'Ken%' OR firstname LIKE 'Bang%' OR firstname LIKE 'Ann%') OR "
-                                            + "(middlename LIKE 'Ken%' OR middlename LIKE 'Bang%' OR middlename LIKE 'Ann%') OR "
-                                            + "(lastname LIKE 'Ken%' OR lastname LIKE 'Bang%' OR lastname LIKE 'Ann%') "
+                                            //+ "(" + firstmidlastname + ") OR "
+                                            //+ "(" + firstlastname + ") OR "
+                                            + "((" + firstname + ") OR "
+                                            + "(" + lastname + ") "
                                             + ")) "
                                             + ") ORDER BY pwd_id ASC "
                                             + ") t1, (SELECT @row_number:= 0) t2", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable pwd_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "pwd_id";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "id_no";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "gender";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "age";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_type";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "educ_attainment_type";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "application_date";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "district_name";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "status_pwd";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "registration_no";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "display_text";
+                pwd_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = pwd_data.NewRow();
+                    row["no"] = none;
+                    row["pwd_id"] = none;
+                    row["id_no"] = none;
+                    row["fullname"] = none;
+                    row["gender"] = none;
+                    row["age"] = none;
+                    row["disability_type"] = none;
+                    row["educ_attainment_type"] = none;
+                    row["application_date"] = none;
+                    row["district_name"] = none;
+                    row["status_pwd"] = none;
+                    row["registration_no"] = none;
+                    row["display_text"] = "No results match your search.";
+                    pwd_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = pwd_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
+                        row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
+                        row["gender"] = set.Rows[i]["gender"].ToString();
+                        row["age"] = set.Rows[i]["age"].ToString();
+                        row["disability_type"] = set.Rows[i]["disability_type"].ToString();
+                        row["educ_attainment_type"] = set.Rows[i]["educ_attainment_type"].ToString();
+                        string[] app_date = set.Rows[i]["application_date"].ToString().Split();
+                        row["application_date"] = app_date[0];
+                        row["district_name"] = set.Rows[i]["district_name"].ToString();
+                        row["status_pwd"] = set.Rows[i]["status_pwd"].ToString();
+                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                        row["display_text"] = "Please refresh the list.";
+                        pwd_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(pwd_data);
+
+                pwd_grid.DataSource = view;
+                conn.Close();
+                Console.WriteLine("[SUCCESS] - [CONNECTIONS_PWD] pwd_search() ");
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] pwd_search() : " + e.Message);
+                has_data = false;
+            }
+            return has_data;
         }
 
         #endregion

@@ -322,6 +322,8 @@ namespace SAD_2_PTT_01
             pwd_filter_inactive.Checked = false;
             pwd_filter_female.Checked = false;
             pwd_filter_male.Checked = false;
+            pwd_search_by.SelectedIndex = 0;
+            pwd_search_by_value.SelectedIndex = 0;
         }
 
         private void pwd_grid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -439,11 +441,9 @@ namespace SAD_2_PTT_01
             {
                 if (pwd_searchbox.Text.Trim() != "")
                 {
-                    conn_pwd.pwd_search(pwd_grid, pwd_searchbox); //error
-                    pwd_grid.Columns["lastname"].Visible = false;
-                    pwd_grid.Columns["firstname"].Visible = false;
-                    pwd_grid.Columns["middlename"].Visible = false;
-                    pwd_format();
+                    //conn_pwd.pwd_search(pwd_grid, pwd_searchbox); //error
+
+                    //pwd_filter_search();
                 }
                 else
                 {
@@ -451,6 +451,99 @@ namespace SAD_2_PTT_01
                 }
                 pwd_load_row_count();
             }
+        }
+
+        public void pwd_filter_search()
+        {
+            string gender = "";
+            string status = "";
+            string field = "";
+            string value = "";
+            string text = pwd_searchbox.Text;
+
+            if (pwd_search_by.Text == "ALL")
+            {
+                pwd_search_by_value.Enabled = false;
+            } else
+            {
+                pwd_search_by_value.Enabled = true;
+            }
+
+            #region QUERY
+
+            if (pwd_filter_female.Checked == true)
+            {
+                gender = "1";
+            }
+            if (pwd_filter_male.Checked == true)
+            {
+                gender = "0";
+            }
+            if (pwd_filter_female.Checked == false && pwd_filter_male.Checked == false)
+            {
+                gender = "";
+            }
+
+            if (pwd_filter_active.Checked == true)
+            {
+                status = "1";
+            }
+            if (pwd_filter_inactive.Checked == true)
+            {
+                status = "0";
+            }
+            if (pwd_filter_active.Checked == false && pwd_filter_inactive.Checked == false)
+            {
+                status = "";
+            }
+
+            value = "";
+
+            if (pwd_search_by.Text == "ALL")
+            {
+                field = "";
+                value = "";
+            }
+            else if (pwd_search_by.Text == "Disability")
+            {
+                field = "disability_type";
+                if (pwd_search_by_value.Text == "ALL")
+                {
+                    value = "";
+                } else
+                {
+                    value = pwd_search_by_value.Text;
+                }
+            }
+            else if (pwd_search_by.Text == "Educational Attainment")
+            {
+                field = "educ_attainment";
+                if (pwd_search_by_value.Text == "ALL")
+                {
+                    value = "";
+                }
+                else
+                {
+                    value = (pwd_search_by_value.SelectedIndex - 1).ToString();
+                }
+            }
+            else
+            {
+                field = "district_name";
+                if (pwd_search_by_value.Text == "ALL")
+                {
+                    value = "";
+                }
+                else
+                {
+                    value = pwd_search_by_value.Text;
+                }
+            }
+            #endregion
+
+            pwd_has_pwd = conn_pwd.pwd_search(status, gender, field, value, pwd_searchbox, pwd_grid);
+            pwd_format();
+            pwd_cell_color();
         }
 
         #endregion
@@ -504,34 +597,43 @@ namespace SAD_2_PTT_01
                 pwd_filter_inactive.Checked = true;
                 status_inactive = false;
             }
+            pwd_filter_search();
         }
 
         private void pwd_filter_male_CheckedChanged(object sender, EventArgs e)
         {
             gender_male = pwd_filter_male.Checked;
             pwd_gender_ = "M";
-            pwd_grid_filter();
+            //pwd_grid_filter();
+            pwd_filter_search();
         }
 
         private void pwd_filter_female_CheckedChanged(object sender, EventArgs e)
         {
             gender_female = pwd_filter_female.Checked;
             pwd_gender_ = "F";
-            pwd_grid_filter();
+            //pwd_grid_filter();
+            pwd_filter_search();
         }
 
         private void pwd_filter_active_CheckedChanged(object sender, EventArgs e)
         {
             status_active = pwd_filter_active.Checked;
             pwd_status_ = "1";
-            pwd_grid_filter();
+            //pwd_grid_filter();
+            pwd_filter_search();
         }
 
         private void pwd_filter_inactive_CheckedChanged(object sender, EventArgs e)
         {
             status_inactive = pwd_filter_inactive.Checked;
             pwd_status_ = "0";
-            pwd_grid_filter();
+            //pwd_grid_filter();
+            pwd_filter_search();
+        }
+        private void pwd_search_by_value_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pwd_filter_search();
         }
 
         public void pwd_grid_filter()
@@ -598,7 +700,7 @@ namespace SAD_2_PTT_01
         {
             if (pwd_search_by.Text == "ALL")
             {
-                search_by_field = "all";
+                search_by_field = "";
             } else if (pwd_search_by.Text == "Disability")
             {
                 search_by_field = "disability";
@@ -611,6 +713,7 @@ namespace SAD_2_PTT_01
             }
 
             pwd_search_by_value_items();
+            //pwd_filter_search();
         }
 
         public void pwd_search_by_value_items()
@@ -629,6 +732,7 @@ namespace SAD_2_PTT_01
             {
                 pwd_search_by_value.Items.Add("ALL");
                 pwd_search_by_value.SelectedIndex = 0;
+                pwd_search_by_value.Items.Add("None");
                 pwd_search_by_value.Items.Add("Elementary");
                 pwd_search_by_value.Items.Add("Elementary Undergraduate");
                 pwd_search_by_value.Items.Add("High School");
@@ -638,7 +742,6 @@ namespace SAD_2_PTT_01
                 pwd_search_by_value.Items.Add("Graduate");
                 pwd_search_by_value.Items.Add("Post Graduate");
                 pwd_search_by_value.Items.Add("Vocational");
-                pwd_search_by_value.Items.Add("None");
             } else
             {
                 pwd_search_by_value.Items.Add("ALL");
@@ -2694,10 +2797,6 @@ namespace SAD_2_PTT_01
             accounts_edit_check_required();
         }
 
-        private void pwd_search_by_value_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void accounts_edit_contact_no_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
