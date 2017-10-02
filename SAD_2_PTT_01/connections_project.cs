@@ -82,28 +82,116 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        public void persons_involved(int project_id, DataTable persons_grid)
+        public bool persons_involved(string project_id, DataGridView persons_grid)
         {
+            bool has_data = false;
             try
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT registration_no, "
+                comm = new MySqlCommand("SELECT @row_number := @row_number+1 AS no, "
+                                             + "id_no, "
                                              + "personsIN_id, "
-                                             + "CONCAT(UCASE(lastname), ', ', firstname, ' ', middlename) AS fullname, "
+                                             + "fullname, "
                                              + "disability_type, "
-                                             + "(CASE WHEN attendance = 0 THEN 'Absent' WHEN attendance = 1 THEN 'Present' END) as attendance "
-                                             + "FROM p_dao.project_persons LEFT JOIN p_dao.pwd ON (project_persons.pwd_id = pwd.pwd_id) "
-                                             + "LEFT JOIN p_dao.disability ON (pwd.disability_id = disability.disability_id) WHERE project_id = " + project_id, conn);
+                                             + "attendance "
+                                             + "FROM(SELECT id_no, "
+                                                         + "personsIN_id, "
+                                                         + "CONCAT(UCASE(lastname), ', ', firstname) AS fullname, "
+                                                         + "disability_type, "
+                                                         + "(CASE WHEN attendance = 0 THEN 'Absent' WHEN attendance = 1 THEN 'Present' END) AS attendance FROM p_dao.project_persons LEFT JOIN p_dao.pwd ON(project_persons.pwd_id = pwd.pwd_id) "
+                                                         + "LEFT JOIN p_dao.disability ON(pwd.disability_id = disability.disability_id) WHERE pwd.isArchived != 1 AND disability.isArchived != 1 AND project_id = 62 ORDER BY fullname ASC "
+                                                         + ") t1, (SELECT @row_number:= 0) t2", conn);
                 get = new MySqlDataAdapter(comm);
-                get.Fill(persons_grid);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable persons_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                persons_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "id_no";
+                persons_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "personsIN_id";
+                persons_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
+                persons_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "disability_type";
+                persons_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "attendance";
+                persons_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "display_text";
+                persons_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = persons_data.NewRow();
+                    row["no"] = none;
+                    row["id_no"] = none;
+                    row["personsIN_id"] = none;
+                    row["fullname"] = none;
+                    row["disability_type"] = none;
+                    row["attendance"] = none;
+                    row["display_text"] = "There are no participants added.";
+                    persons_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = persons_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
+                        row["personsIN_id"] = set.Rows[i]["personsIN_id"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
+                        row["disability_type"] = set.Rows[i]["disability_type"].ToString();
+                        row["attendance"] = set.Rows[i]["attendance"].ToString();
+                        row["display_text"] = set.Rows[i]["display_text"].ToString();
+                        persons_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(persons_data);
+
+                persons_grid.DataSource = view;
 
                 conn.Close();
             } catch (Exception e)
             {
                 conn.Close();
-                MessageBox.Show(e.Message);
+                MessageBox.Show("[ERROR] - [CONNECTIONS_PROJECT] persons_involved() : " + e.Message);
             }
+
+            return has_data;
         }
 
         public void persons_involved_attendance (string attendance, string persons_id)

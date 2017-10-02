@@ -881,7 +881,24 @@ namespace SAD_2_PTT_01
             }
         }
 
+        public void update_pwd_end_date(string pwd_id, string end_date)
+        {
+            try
+            {
+                conn.Open();
 
+                comm = new MySqlCommand("UPDATE renew_pwd SET end_date = '"+ end_date +"' WHERE pwd_id = " + pwd_id, conn);
+                comm.ExecuteNonQuery();
+
+                Console.WriteLine("END DATE : " + end_date);
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] update_pwd_end_date() : " + e.Message);
+                conn.Close();
+            }
+        }
         #region EMP_LOG
 
         public string get_last_insert_id_pwd()

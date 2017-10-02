@@ -391,7 +391,7 @@ namespace SAD_2_PTT_01
 
         private void pwd_add_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            reference_to_main.load_notifications();
         }
         #endregion
 
@@ -658,6 +658,7 @@ namespace SAD_2_PTT_01
         private void pwd_appdate_ValueChanged(object sender, EventArgs e)
         {
             application_date = pwd_appdate.Value.ToString("yyyy-MM-dd"); //date
+            dateofbirth.MaxDate = pwd_appdate.Value;
             panel_1_next();
         }
 
@@ -1061,6 +1062,7 @@ namespace SAD_2_PTT_01
             {
                 pwd_update_profile(pwd_update_id);
             }
+            reference_to_main.load_notifications();
         }
 
         public void set_data()
@@ -1702,7 +1704,7 @@ namespace SAD_2_PTT_01
                 if(from_view)
                 {
                     string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
-                    conn_pwd.insert_pwd_end_date(pwd_update_id, end_date);
+                    conn_pwd.update_pwd_end_date(pwd_update_id, end_date);
                     conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_view.success = true;
                     reference_to_view.pwd_load_data(pwd_update_id);
@@ -1710,6 +1712,7 @@ namespace SAD_2_PTT_01
                 } else
                 {
                     string user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);
+                    conn_pwd.update_pwd_end_date(pwd_update_id, end_date);
                     conn_pwd.usr_log_update(user_id, pwd_update_id);
                     reference_to_main.success = true;
                     reference_to_main.load_pwd();

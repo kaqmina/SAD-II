@@ -43,9 +43,13 @@ namespace SAD_2_PTT_01
         {
             conn_noti.reference_to_main = this;
             conn_noti.initial_rows_to_datatable();
+            conn_noti.initial_font();
             notification_grid.ClearSelection();
-            notification_grid.DefaultCellStyle.ForeColor = Color.FromArgb( 64, 64, 64);
-            notification_grid.DefaultCellStyle.SelectionForeColor = Color.FromArgb(64, 64, 64);
+
+            pnl_notif_pp.Visible = false;
+            pnl_notif_pp.BringToFront();
+            pnl_notif_pp.Size = new Size(299, 233);
+            pnl_notif_pp.Location = new Point(838, 28);
             //<---[ System ]--->
             load_references();
             main_properties();
@@ -431,7 +435,7 @@ namespace SAD_2_PTT_01
             {
                 if (pwd_searchbox.Text.Trim() != "")
                 {
-                    conn_pwd.pwd_search(pwd_grid, pwd_searchbox);
+                    conn_pwd.pwd_search(pwd_grid, pwd_searchbox); //error
                     pwd_grid.Columns["lastname"].Visible = false;
                     pwd_grid.Columns["firstname"].Visible = false;
                     pwd_grid.Columns["middlename"].Visible = false;
@@ -710,10 +714,9 @@ namespace SAD_2_PTT_01
 
         public void load_notifications()
         {
-            pnl_notif_pp.Visible = false;
-            pnl_notif_pp.BringToFront();
-            pnl_notif_pp.Size = new Size(299, 233);
-            pnl_notif_pp.Location = new Point(838, 28);
+            conn_noti.initial_font();
+            conn_noti.update_font();
+            notification_grid.ClearSelection();
         }
 
         bool show_notif = false;
@@ -722,13 +725,17 @@ namespace SAD_2_PTT_01
         private void btn_notification_Click(object sender, EventArgs e)
         {
             has_notification = false;
-            if (btn_notification.BackColor == Color.Red)
+
+            for (int i = 0; i < notification_grid.Rows.Count; i++)
             {
-                has_notification = true;
-            } else
-            {
-                has_notification = false;
+                string clicked = notification_grid.Rows[i].Cells["type_clicked"].Value.ToString();
+                if (clicked == "0")
+                {
+                    has_notification = true;
+                    break;
+                }
             }
+            btn_notification.BackColor = Color.Transparent;
 
             if (show_notif == false)
             {
@@ -767,8 +774,6 @@ namespace SAD_2_PTT_01
             projects_default_data();
 
             projects_grid.ClearSelection();
-            btn_projects_persons_involved.Enabled = false;
-            projects_panel_persons.Visible = false;
         }
 
         public void projects_format()
@@ -796,138 +801,22 @@ namespace SAD_2_PTT_01
 
         public void projects_default_data()
         {
-            string default_text = "No item selected.";
-
-            project_title.ForeColor = Color.Silver;
-            project_description.ForeColor = Color.Silver;
-            project_start_time.ForeColor = Color.Silver;
-            project_end_time.ForeColor = Color.Silver;
-            project_date_proposed.ForeColor = Color.Silver;
-            project_approved_by.ForeColor = Color.Silver;
-            project_event_held.ForeColor = Color.Silver;
-            project_budget.ForeColor = Color.Silver;
-            project_budget_description.ForeColor = Color.Silver;
-
-            Font def = new Font("Segoe UI", 9);
-
-            project_title.Font = new Font(def, FontStyle.Italic);
-            project_description.Font = new Font(def, FontStyle.Italic);
-            project_start_time.Font = new Font(def, FontStyle.Italic);
-            project_end_time.Font = new Font(def, FontStyle.Italic);
-            project_date_proposed.Font = new Font(def, FontStyle.Italic);
-            project_approved_by.Font = new Font(def, FontStyle.Italic);
-            project_event_held.Font = new Font(def, FontStyle.Italic);
-            project_budget.Font = new Font(def, FontStyle.Italic); ;
-            project_budget_description.Font = new Font(def, FontStyle.Italic);
-
-            project_title.Text = default_text;
-            project_description.Text = default_text;
-            project_start_time.Text = default_text;
-            project_end_time.Text = default_text;
-            project_date_proposed.Text = default_text;
-            project_approved_by.Text = default_text;
-            project_event_held.Text = default_text;
-            project_budget.Text = default_text;
-            project_budget_description.Text = default_text;
+            
         }
 
         public void project_load_row_count()
         {
             project_grid_row_count.Text = projects_grid.Rows.Count.ToString();
         }
-
-        public void project_load_item_row_count()
-        {
-            project_item_grid_row_count.Text = "Results : " + project_items_grid.Rows.Count.ToString();
-        }
-
-        public void project_load_persons_involved_row_count()
-        {
-            projects_persons_involved_row_count.Text = "Results : " + projects_grid_persons_involved.Rows.Count.ToString();
-        }
+        
 
         #endregion
 
         #region PROJECT-VIEW
         public int current_project_id = 0;
         int current_project_grid_index = 0;
-
-        public void projects_paste_data()
-        {
-            DataTable main_data = new DataTable();
-            DataTable item_data = new DataTable();
-            conn_proj.project_data_load(current_project_id, main_data, item_data);
-
-            project_title.ForeColor = Color.Black;
-            project_description.ForeColor = Color.Black;
-            project_start_time.ForeColor = Color.Black;
-            project_end_time.ForeColor = Color.Black;
-            project_date_proposed.ForeColor = Color.Black;
-            project_approved_by.ForeColor = Color.Black;
-            project_event_held.ForeColor = Color.Black;
-            project_budget.ForeColor = Color.Black;
-            project_budget_description.ForeColor = Color.Black;
-
-            Font def = new Font("Segoe UI", 9);
-
-            project_title.Font = new Font(def, FontStyle.Regular);
-            project_description.Font = new Font(def, FontStyle.Regular);
-            project_start_time.Font = new Font(def, FontStyle.Regular);
-            project_end_time.Font = new Font(def, FontStyle.Regular);
-            project_date_proposed.Font = new Font(def, FontStyle.Regular);
-            project_approved_by.Font = new Font(def, FontStyle.Regular);
-            project_event_held.Font = new Font(def, FontStyle.Regular);
-            project_budget.Font = new Font(def, FontStyle.Regular); ;
-            project_budget_description.Font = new Font(def, FontStyle.Regular);
-
-            project_title.Text = main_data.Rows[0]["project_title"].ToString();
-            project_description.Text = main_data.Rows[0]["project_desc"].ToString();
-            project_start_time.Text = main_data.Rows[0]["start_time"].ToString();
-            project_end_time.Text = main_data.Rows[0]["end_time"].ToString();
-            project_date_proposed.Text = main_data.Rows[0]["date_proposed"].ToString();
-            project_approved_by.Text = main_data.Rows[0]["approved_by"].ToString();
-            project_event_held.Text = main_data.Rows[0]["event_held"].ToString();
-            project_budget.Text = main_data.Rows[0]["budget"].ToString();
-
-            project_items_grid.DataSource = item_data;
-            project_load_item_row_count();
-
-            project_items_grid.Columns["item_name"].HeaderText = "Name";
-            project_items_grid.Columns["cost"].HeaderText = "Price";
-            project_items_grid.Columns["quantity"].HeaderText = "Quantity";
-
-            project_items_grid.Columns["items_id"].Visible = false;
-            project_items_grid.Columns["project_id"].Visible = false;
-
-            project_persons_involved_load();
-        }
-
-        public void project_persons_involved_load ()
-        {
-
-            DataTable persons_data = new DataTable();
-            conn_proj.persons_involved(current_project_id, persons_data);
-
-            projects_grid_persons_involved.DataSource = persons_data;
-            if (current_project_persons_index >= 0)
-            {
-                btn_projects_persons_attendance.Enabled = true;
-            }
-            else
-            {
-                btn_projects_persons_attendance.Enabled = false;
-            }
-
-            project_load_persons_involved_row_count();
-            projects_grid_persons_involved.Columns["registration_no"].HeaderText = "Registration No.";
-            projects_grid_persons_involved.Columns["fullname"].HeaderText = "Fullname";
-            projects_grid_persons_involved.Columns["disability_type"].HeaderText = "Disability";
-            projects_grid_persons_involved.Columns["attendance"].HeaderText = "Attendance";
-
-            projects_grid_persons_involved.Columns["personsIN_id"].Visible = false;
-
-            projects_grid_persons_involved.ClearSelection();
-        }
+        
+        
 
         #endregion
 
@@ -936,7 +825,7 @@ namespace SAD_2_PTT_01
         private void projects_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex < 0)
+            /*if (e.RowIndex < 0)
             {
                 btn_projects_persons_involved.Enabled = false;
             }
@@ -946,7 +835,7 @@ namespace SAD_2_PTT_01
                 current_project_grid_index = e.RowIndex;
                 projects_paste_data();
                 btn_projects_persons_involved.Enabled = true;
-            }
+            }*/
         }
 
         private void btn_projects_refresh_Click(object sender, EventArgs e)
@@ -1050,73 +939,11 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        private void btn_projects_persons_involved_Click(object sender, EventArgs e)
-        {
-            projects_pnl_information.Visible = false;
-            projects_panel_persons.Visible = true;
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            projects_panel_persons.Visible = false;
-            projects_pnl_information.Visible = true;
-        }
-
         int current_project_persons_id = 0;
         int current_project_persons_index;
         string attendance;
-
-        private void projects_grid_persons_involved_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                //pass
-            }
-            else
-            {
-                current_project_persons_id = int.Parse(projects_grid_persons_involved.Rows[e.RowIndex].Cells["personsIN_id"].Value.ToString());
-                attendance = projects_grid_persons_involved.Rows[e.RowIndex].Cells["attendance"].Value.ToString();
-                if (attendance == "Present")
-                {
-                    btn_projects_persons_attendance.Text = "MARK AS ABSENT";
-                }
-                else if (attendance == "Absent")
-                {
-                    btn_projects_persons_attendance.Text = "MARK AS PRESENT";
-                }
-                btn_projects_persons_attendance.Enabled = true;
-                current_project_persons_index = e.RowIndex;
-            }
-        }
-
-        private void btn_projects_persons_attendance_Click(object sender, EventArgs e)
-        {
-            if (attendance == "Present")
-            {
-                conn_proj.persons_involved_attendance("0", current_project_persons_id.ToString());
-                attendance = "Absent";
-            }
-            else if (attendance == "Absent")
-            {
-                conn_proj.persons_involved_attendance("1", current_project_persons_id.ToString());
-                attendance = "Present";
-            }
-            project_persons_involved_load();
-            projects_grid_persons_involved.Rows[current_project_persons_index].Selected = true;
-
-        }
-
-        private void projects_grid_persons_involved_SelectionChanged(object sender, EventArgs e)
-        {
-            if (attendance == "Present")
-            {
-                btn_projects_persons_attendance.Text = "MARK AS ABSENT";
-            }
-            else if (attendance == "Absent")
-            {
-                btn_projects_persons_attendance.Text = "MARK AS PRESENT";
-            }
-        }
+        
+        
 
         private void btn_project_add_Click(object sender, EventArgs e)
         {
@@ -2093,6 +1920,8 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region REPORTS
+
         private void main_form_Deactivate(object sender, EventArgs e)
         {
             if (notification_data_ == true) 
@@ -2116,6 +1945,9 @@ namespace SAD_2_PTT_01
             reports_pnl_visible();
             reports_pnl_projects.Visible = true;
         }
+
+
+        #endregion
 
         #region ACCOUNTS
         //ACCOUNTS
@@ -2478,6 +2310,7 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
+        #region NOTIFICATION
         private void notification_grid_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
@@ -2505,7 +2338,50 @@ namespace SAD_2_PTT_01
             notification_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
         }
 
-        
-        
+        notifications_form notif_form;
+
+        private void notification_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string type_notif = notification_grid.Rows[e.RowIndex].Cells["type_notif"].Value.ToString();
+            if (type_notif == "0" )
+            {
+                notif_form = new notifications_form();
+                notif_form.reference_to_main = this;
+                shadow_ = new shadow();
+                shadow_.reference_to_main = this;
+                shadow_.form_to_show = notif_form;
+                shadow_.ShowDialog();
+                notification_grid.Rows[e.RowIndex].Cells["type_clicked"].Value = "1";
+                conn_noti.initial_font();
+                notification_grid.ClearSelection();
+            }
+
+            for (int i = 0; i < notification_grid.Rows.Count; i++)
+            {
+                string clicked = notification_grid.Rows[i].Cells["type_clicked"].Value.ToString();
+
+                btn_notification.BackColor = Color.Transparent;
+                if (clicked == "0")
+                {
+                    has_notification = true;
+                    btn_notification.BackColor = Color.Red;
+                    break;
+                }
+            }
+        }
+
+        #endregion
+
+        private void projects_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            project_add view_project = new project_add();
+            view_project.view_mode = true;
+            view_project.id_ = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
+            view_project.reference_to_main = this;
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.form_to_show = view_project;
+            shadow_.ShowDialog();
+        }
     }
 }

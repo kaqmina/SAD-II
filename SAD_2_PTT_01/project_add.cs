@@ -20,6 +20,7 @@ namespace SAD_2_PTT_01
         connections_user conn_user = new connections_user();
         connections_project conn_proj = new connections_project();
         public main_form reference_to_main { get; set; }
+        public bool view_mode = false;
         public string update_id = "0";
         public string id_;
         bool has_pwd = false;
@@ -32,11 +33,17 @@ namespace SAD_2_PTT_01
             btn_add_enable();
             this.Opacity = 0;
             startup_opacity.Start();
-
-            sys_func.btn_inactive(btn_persons);
-            start_date.MinDate = date_proposed.Value;
-            btn_add_project.Text = "ADD PROJECT";
             btn_cancel.DialogResult = DialogResult.None;
+
+            if (view_mode == false)
+            {
+                sys_func.btn_inactive(btn_persons);
+                start_date.MinDate = date_proposed.Value;
+                btn_add_project.Text = "ADD PROJECT";
+            } else
+            {
+                view_mode_defaults();
+            }
         }
 
         public void btn_add_enable()
@@ -196,6 +203,8 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region FORMAT [GRID]
+        bool has_view_items_ = false;
+
         public void view_paste()
         {
             DataTable project = new DataTable();
@@ -207,9 +216,9 @@ namespace SAD_2_PTT_01
             view_venue.Text = project.Rows[0]["event_held"].ToString();
             view_start_date.Text = project.Rows[0]["start_time"].ToString();
             view_end_date.Text = project.Rows[0]["end_time"].ToString();
-            view_budget.Text = project.Rows[0]["budget"].ToString();
+            view_budget.Text = string.Format("{0:n}", project.Rows[0]["budget"].ToString());
 
-            bool has_view_items_ = false;
+            has_view_items_ = false;
             view_items_list.DataSource = null;
             has_view_items_ = conn_proj.projects_items(view_items_list, id_);
 
@@ -804,9 +813,15 @@ namespace SAD_2_PTT_01
             else
             {
                 double subtotal = 0.0;
-                for (int i = 0; i < items_list.Rows.Count; i++)
+                if (has_view_items_ == true)
                 {
-                    subtotal = subtotal + double.Parse(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                    for (int i = 0; i < items_list.Rows.Count; i++)
+                    {
+                        Console.WriteLine(subtotal);
+                        Console.WriteLine(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                        subtotal = subtotal + double.Parse(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                        Console.WriteLine(subtotal);
+                    }
                 }
                 lbl_items_total.Text = string.Format("{0:n}", subtotal);
             }
@@ -956,12 +971,17 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
-
-
-
-
-
-
-
+        public void view_mode_defaults()
+        {
+            btn_add_project.Text = "FINISH";
+            btn_cancel.Text = "EDIT";
+            sys_func.btn_active(btn_persons);
+            btn_persons.Location = new Point(-8, 69);
+            btn_view_info.Visible = true;
+            pnl_visible_false();
+            pnl_basic_view.Visible = true;
+            view_paste();
+            btn_mode_status.Text = "VIEW DETAILS";
+        }
     }
 }

@@ -175,7 +175,59 @@ namespace SAD_2_PTT_01
 
         public void initial_font()
         {
+            int rows_count = reference_to_main.notification_grid.Rows.Count;
+            reference_to_main.notification_grid.Sort(reference_to_main.notification_grid.Columns["type_clicked"], System.ComponentModel.ListSortDirection.Ascending);
 
+            for (int i = 0; i < rows_count; i++)
+            {
+                string click = reference_to_main.notification_grid.Rows[i].Cells["type_clicked"].Value.ToString();
+                if (click == "1")
+                {
+                    reference_to_main.notification_grid.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular);
+                    reference_to_main.notification_grid.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.Color.Gray;
+                } else
+                {
+                    reference_to_main.notification_grid.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+                    reference_to_main.notification_grid.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb( 41,45,56);
+                    reference_to_main.btn_notification.BackColor = System.Drawing.Color.Red;
+                }
+            }
+        }
+
+        public void update_font()
+        {
+            int rows_count = reference_to_main.notification_grid.Rows.Count;
+
+            if (rows_count == 0)
+            {
+                initial_font();
+                return;
+            }
+
+            reference_to_main.notification_grid.Sort(reference_to_main.notification_grid.Columns["type_clicked"], System.ComponentModel.ListSortDirection.Ascending);
+            int old_pwd_30_days = pwd_30_days;
+            int new_pwd_30_days = int.Parse(check_30_days_left());
+
+            if (old_pwd_30_days == new_pwd_30_days)
+                return;
+            else
+                pwd_30_days = new_pwd_30_days;
+
+            for (int i = 0; i < rows_count; i++)
+            {
+                string type_notif = reference_to_main.notification_grid.Rows[i].Cells["type_notif"].Value.ToString();
+                string type_trigger = reference_to_main.notification_grid.Rows[i].Cells["type_trigger"].Value.ToString();
+                if (type_notif == "0" && type_trigger == "0")
+                {
+                    if (new_pwd_30_days == 1)
+                        reference_to_main.notification_grid.Rows[i].Cells["display_text"].Value = "There is 1 PWD Membership that has less than 30 Days left of validity." + Environment.NewLine + "Click for more details.";
+                    else
+                        reference_to_main.notification_grid.Rows[i].Cells["display_text"].Value = "There are " + pwd_30_days + " PWD Memberships that has less than 30 Days left of validity." + Environment.NewLine + "Click for more details.";
+
+                    reference_to_main.notification_grid.Rows[i].Cells["type_clicked"].Value = "0";
+                }
+
+            }
         }
 
         public void add_30_days()
@@ -191,7 +243,7 @@ namespace SAD_2_PTT_01
             if (pwd_30_days == 1)
                 row["display_text"] = "There is 1 PWD Membership that has less than 30 Days left of validity." + Environment.NewLine + "Click for more details.";
             else
-                row["display_text"] = "There are " + pwd_30_days + "PWD Memberships that has " + Environment.NewLine + "less than 30 Days left of validity." + Environment.NewLine + "Click for more details.";
+                row["display_text"] = "There are " + pwd_30_days + " PWD Memberships that has less than 30 Days left of validity." + Environment.NewLine + "Click for more details.";
             list_of_notifications.Rows.Add(row);
         }
         public void add_expired()
