@@ -274,31 +274,31 @@
             this.reports_btn_pwd = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.reports_pnl_device = new System.Windows.Forms.Panel();
+            this.label123 = new System.Windows.Forms.Label();
+            this.btn_device_exportPDF = new System.Windows.Forms.Button();
+            this.reports_device_grid = new System.Windows.Forms.DataGridView();
+            this.device_status = new System.Windows.Forms.ComboBox();
+            this.label124 = new System.Windows.Forms.Label();
             this.reports_pnl_projects = new System.Windows.Forms.Panel();
             this.reports_btn_project_participants = new System.Windows.Forms.Button();
             this.label122 = new System.Windows.Forms.Label();
             this.reports_btn_project_summary = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.reports_projects_grid = new System.Windows.Forms.DataGridView();
             this.label125 = new System.Windows.Forms.Label();
-            this.reports_pnl_device = new System.Windows.Forms.Panel();
-            this.label123 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.reports_device_grid = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label124 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_ok = new System.Windows.Forms.Button();
             this.reports_pnl_pwd = new System.Windows.Forms.Panel();
             this.label121 = new System.Windows.Forms.Label();
             this.label120 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btn_pwd_exportExcel = new System.Windows.Forms.Button();
+            this.btn_pwd_exportPDF = new System.Windows.Forms.Button();
             this.report_grid = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.district_format = new System.Windows.Forms.ComboBox();
             this.label119 = new System.Windows.Forms.Label();
             this.date_to = new System.Windows.Forms.DateTimePicker();
-            this.label118 = new System.Windows.Forms.Label();
+            this.lbl_to = new System.Windows.Forms.Label();
             this.date_from = new System.Windows.Forms.DateTimePicker();
-            this.label117 = new System.Windows.Forms.Label();
+            this.lbl_from = new System.Windows.Forms.Label();
             this.date_format = new System.Windows.Forms.ComboBox();
             this.label116 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -415,6 +415,8 @@
             this.pwd_search_by_value = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.save_pdf = new System.Windows.Forms.SaveFileDialog();
+            this.save_Excel = new System.Windows.Forms.SaveFileDialog();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -445,10 +447,10 @@
             this.pnl_reports.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.reports_pnl_projects.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.reports_pnl_device.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reports_device_grid)).BeginInit();
+            this.reports_pnl_projects.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reports_projects_grid)).BeginInit();
             this.reports_pnl_pwd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).BeginInit();
             this.pnl_settings.SuspendLayout();
@@ -3474,14 +3476,14 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel11.Controls.Add(this.reports_pnl_projects);
             this.panel11.Controls.Add(this.reports_pnl_device);
-            this.panel11.Controls.Add(this.button4);
             this.panel11.Controls.Add(this.reports_pnl_pwd);
+            this.panel11.Controls.Add(this.reports_pnl_projects);
+            this.panel11.Controls.Add(this.btn_ok);
             this.panel11.Controls.Add(this.date_to);
-            this.panel11.Controls.Add(this.label118);
+            this.panel11.Controls.Add(this.lbl_to);
             this.panel11.Controls.Add(this.date_from);
-            this.panel11.Controls.Add(this.label117);
+            this.panel11.Controls.Add(this.lbl_from);
             this.panel11.Controls.Add(this.date_format);
             this.panel11.Controls.Add(this.label116);
             this.panel11.Location = new System.Drawing.Point(262, 76);
@@ -3489,12 +3491,100 @@
             this.panel11.Size = new System.Drawing.Size(804, 535);
             this.panel11.TabIndex = 32;
             // 
+            // reports_pnl_device
+            // 
+            this.reports_pnl_device.Controls.Add(this.label123);
+            this.reports_pnl_device.Controls.Add(this.btn_device_exportPDF);
+            this.reports_pnl_device.Controls.Add(this.reports_device_grid);
+            this.reports_pnl_device.Controls.Add(this.device_status);
+            this.reports_pnl_device.Controls.Add(this.label124);
+            this.reports_pnl_device.Location = new System.Drawing.Point(0, 38);
+            this.reports_pnl_device.Name = "reports_pnl_device";
+            this.reports_pnl_device.Size = new System.Drawing.Size(804, 497);
+            this.reports_pnl_device.TabIndex = 142;
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.ForeColor = System.Drawing.Color.Black;
+            this.label123.Location = new System.Drawing.Point(246, 6);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(68, 13);
+            this.label123.TabIndex = 140;
+            this.label123.Text = "Device Log :";
+            // 
+            // btn_device_exportPDF
+            // 
+            this.btn_device_exportPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_device_exportPDF.BackColor = System.Drawing.Color.White;
+            this.btn_device_exportPDF.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_device_exportPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_device_exportPDF.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_device_exportPDF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_device_exportPDF.Location = new System.Drawing.Point(317, 2);
+            this.btn_device_exportPDF.Name = "btn_device_exportPDF";
+            this.btn_device_exportPDF.Size = new System.Drawing.Size(135, 25);
+            this.btn_device_exportPDF.TabIndex = 138;
+            this.btn_device_exportPDF.Text = "Export PDF";
+            this.btn_device_exportPDF.UseVisualStyleBackColor = false;
+            this.btn_device_exportPDF.Click += new System.EventHandler(this.btn_device_exportPDF_Click);
+            // 
+            // reports_device_grid
+            // 
+            this.reports_device_grid.AllowUserToAddRows = false;
+            this.reports_device_grid.AllowUserToDeleteRows = false;
+            this.reports_device_grid.AllowUserToResizeColumns = false;
+            this.reports_device_grid.AllowUserToResizeRows = false;
+            this.reports_device_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.reports_device_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.reports_device_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reports_device_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.reports_device_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.reports_device_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.reports_device_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.reports_device_grid.Location = new System.Drawing.Point(1, 30);
+            this.reports_device_grid.MultiSelect = false;
+            this.reports_device_grid.Name = "reports_device_grid";
+            this.reports_device_grid.ReadOnly = true;
+            this.reports_device_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle90.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_device_grid.RowsDefaultCellStyle = dataGridViewCellStyle90;
+            this.reports_device_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.reports_device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.reports_device_grid.Size = new System.Drawing.Size(800, 464);
+            this.reports_device_grid.TabIndex = 47;
+            // 
+            // device_status
+            // 
+            this.device_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.device_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.device_status.FormattingEnabled = true;
+            this.device_status.Items.AddRange(new object[] {
+            "",
+            "Requested",
+            "Handed Out"});
+            this.device_status.Location = new System.Drawing.Point(68, 3);
+            this.device_status.Name = "device_status";
+            this.device_status.Size = new System.Drawing.Size(172, 21);
+            this.device_status.TabIndex = 46;
+            this.device_status.SelectedIndexChanged += new System.EventHandler(this.device_status_SelectedIndexChanged);
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.ForeColor = System.Drawing.Color.Black;
+            this.label124.Location = new System.Drawing.Point(12, 9);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(48, 13);
+            this.label124.TabIndex = 2;
+            this.label124.Text = "STATUS :";
+            // 
             // reports_pnl_projects
             // 
             this.reports_pnl_projects.Controls.Add(this.reports_btn_project_participants);
             this.reports_pnl_projects.Controls.Add(this.label122);
             this.reports_pnl_projects.Controls.Add(this.reports_btn_project_summary);
-            this.reports_pnl_projects.Controls.Add(this.dataGridView1);
+            this.reports_pnl_projects.Controls.Add(this.reports_projects_grid);
             this.reports_pnl_projects.Controls.Add(this.label125);
             this.reports_pnl_projects.Location = new System.Drawing.Point(0, 38);
             this.reports_pnl_projects.Name = "reports_pnl_projects";
@@ -3515,6 +3605,7 @@
             this.reports_btn_project_participants.TabIndex = 141;
             this.reports_btn_project_participants.Text = "Export PDF";
             this.reports_btn_project_participants.UseVisualStyleBackColor = false;
+            this.reports_btn_project_participants.Click += new System.EventHandler(this.reports_btn_project_participants_Click);
             // 
             // label122
             // 
@@ -3540,31 +3631,33 @@
             this.reports_btn_project_summary.TabIndex = 138;
             this.reports_btn_project_summary.Text = "Export PDF";
             this.reports_btn_project_summary.UseVisualStyleBackColor = false;
+            this.reports_btn_project_summary.Click += new System.EventHandler(this.reports_btn_project_summary_Click);
             // 
-            // dataGridView1
+            // reports_projects_grid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 30);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 464);
-            this.dataGridView1.TabIndex = 47;
+            this.reports_projects_grid.AllowUserToAddRows = false;
+            this.reports_projects_grid.AllowUserToDeleteRows = false;
+            this.reports_projects_grid.AllowUserToResizeColumns = false;
+            this.reports_projects_grid.AllowUserToResizeRows = false;
+            this.reports_projects_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.reports_projects_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.reports_projects_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reports_projects_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.reports_projects_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.reports_projects_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.reports_projects_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.reports_projects_grid.Location = new System.Drawing.Point(1, 30);
+            this.reports_projects_grid.MultiSelect = false;
+            this.reports_projects_grid.Name = "reports_projects_grid";
+            this.reports_projects_grid.ReadOnly = true;
+            this.reports_projects_grid.RowHeadersVisible = false;
+            dataGridViewCellStyle91.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_projects_grid.RowsDefaultCellStyle = dataGridViewCellStyle91;
+            this.reports_projects_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.reports_projects_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.reports_projects_grid.Size = new System.Drawing.Size(800, 464);
+            this.reports_projects_grid.TabIndex = 47;
+            this.reports_projects_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reports_projects_grid_CellClick);
             // 
             // label125
             // 
@@ -3576,117 +3669,30 @@
             this.label125.TabIndex = 2;
             this.label125.Text = "Project Summary :";
             // 
-            // reports_pnl_device
+            // btn_ok
             // 
-            this.reports_pnl_device.Controls.Add(this.label123);
-            this.reports_pnl_device.Controls.Add(this.button15);
-            this.reports_pnl_device.Controls.Add(this.reports_device_grid);
-            this.reports_pnl_device.Controls.Add(this.comboBox2);
-            this.reports_pnl_device.Controls.Add(this.label124);
-            this.reports_pnl_device.Location = new System.Drawing.Point(0, 38);
-            this.reports_pnl_device.Name = "reports_pnl_device";
-            this.reports_pnl_device.Size = new System.Drawing.Size(804, 497);
-            this.reports_pnl_device.TabIndex = 142;
-            // 
-            // label123
-            // 
-            this.label123.AutoSize = true;
-            this.label123.ForeColor = System.Drawing.Color.Black;
-            this.label123.Location = new System.Drawing.Point(246, 6);
-            this.label123.Name = "label123";
-            this.label123.Size = new System.Drawing.Size(68, 13);
-            this.label123.TabIndex = 140;
-            this.label123.Text = "Device Log :";
-            // 
-            // button15
-            // 
-            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button15.BackColor = System.Drawing.Color.White;
-            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button15.Location = new System.Drawing.Point(317, 2);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(135, 25);
-            this.button15.TabIndex = 138;
-            this.button15.Text = "Export PDF";
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // reports_device_grid
-            // 
-            this.reports_device_grid.AllowUserToAddRows = false;
-            this.reports_device_grid.AllowUserToDeleteRows = false;
-            this.reports_device_grid.AllowUserToResizeColumns = false;
-            this.reports_device_grid.AllowUserToResizeRows = false;
-            this.reports_device_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.reports_device_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.reports_device_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.reports_device_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.reports_device_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.reports_device_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.reports_device_grid.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.reports_device_grid.Location = new System.Drawing.Point(1, 30);
-            this.reports_device_grid.MultiSelect = false;
-            this.reports_device_grid.Name = "reports_device_grid";
-            this.reports_device_grid.ReadOnly = true;
-            this.reports_device_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_device_grid.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.reports_device_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.reports_device_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.reports_device_grid.Size = new System.Drawing.Size(800, 464);
-            this.reports_device_grid.TabIndex = 47;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "",
-            "Weekly",
-            "Monthly",
-            "Yearly",
-            "Custom"});
-            this.comboBox2.Location = new System.Drawing.Point(68, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(172, 21);
-            this.comboBox2.TabIndex = 46;
-            // 
-            // label124
-            // 
-            this.label124.AutoSize = true;
-            this.label124.ForeColor = System.Drawing.Color.Black;
-            this.label124.Location = new System.Drawing.Point(12, 9);
-            this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(48, 13);
-            this.label124.TabIndex = 2;
-            this.label124.Text = "STATUS :";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button4.Location = new System.Drawing.Point(729, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(63, 23);
-            this.button4.TabIndex = 136;
-            this.button4.Text = "OK";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ok.BackColor = System.Drawing.Color.White;
+            this.btn_ok.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_ok.Location = new System.Drawing.Point(732, 7);
+            this.btn_ok.Name = "btn_ok";
+            this.btn_ok.Size = new System.Drawing.Size(63, 23);
+            this.btn_ok.TabIndex = 136;
+            this.btn_ok.Text = "OK";
+            this.btn_ok.UseVisualStyleBackColor = false;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // reports_pnl_pwd
             // 
             this.reports_pnl_pwd.Controls.Add(this.label121);
             this.reports_pnl_pwd.Controls.Add(this.label120);
-            this.reports_pnl_pwd.Controls.Add(this.button13);
-            this.reports_pnl_pwd.Controls.Add(this.button11);
+            this.reports_pnl_pwd.Controls.Add(this.btn_pwd_exportExcel);
+            this.reports_pnl_pwd.Controls.Add(this.btn_pwd_exportPDF);
             this.reports_pnl_pwd.Controls.Add(this.report_grid);
-            this.reports_pnl_pwd.Controls.Add(this.comboBox1);
+            this.reports_pnl_pwd.Controls.Add(this.district_format);
             this.reports_pnl_pwd.Controls.Add(this.label119);
             this.reports_pnl_pwd.Location = new System.Drawing.Point(0, 38);
             this.reports_pnl_pwd.Name = "reports_pnl_pwd";
@@ -3713,35 +3719,37 @@
             this.label120.TabIndex = 140;
             this.label120.Text = "Master List :";
             // 
-            // button13
+            // btn_pwd_exportExcel
             // 
-            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button13.BackColor = System.Drawing.Color.White;
-            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button13.Location = new System.Drawing.Point(570, 2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(135, 25);
-            this.button13.TabIndex = 139;
-            this.button13.Text = "Export EXCEL";
-            this.button13.UseVisualStyleBackColor = false;
+            this.btn_pwd_exportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_pwd_exportExcel.BackColor = System.Drawing.Color.White;
+            this.btn_pwd_exportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_pwd_exportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pwd_exportExcel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pwd_exportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_pwd_exportExcel.Location = new System.Drawing.Point(570, 2);
+            this.btn_pwd_exportExcel.Name = "btn_pwd_exportExcel";
+            this.btn_pwd_exportExcel.Size = new System.Drawing.Size(135, 25);
+            this.btn_pwd_exportExcel.TabIndex = 139;
+            this.btn_pwd_exportExcel.Text = "Export EXCEL";
+            this.btn_pwd_exportExcel.UseVisualStyleBackColor = false;
+            this.btn_pwd_exportExcel.Click += new System.EventHandler(this.btn_pwd_exportExcel_Click);
             // 
-            // button11
+            // btn_pwd_exportPDF
             // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.BackColor = System.Drawing.Color.White;
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button11.Location = new System.Drawing.Point(317, 2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(135, 25);
-            this.button11.TabIndex = 138;
-            this.button11.Text = "Export PDF";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btn_pwd_exportPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_pwd_exportPDF.BackColor = System.Drawing.Color.White;
+            this.btn_pwd_exportPDF.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_pwd_exportPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pwd_exportPDF.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pwd_exportPDF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_pwd_exportPDF.Location = new System.Drawing.Point(317, 2);
+            this.btn_pwd_exportPDF.Name = "btn_pwd_exportPDF";
+            this.btn_pwd_exportPDF.Size = new System.Drawing.Size(135, 25);
+            this.btn_pwd_exportPDF.TabIndex = 138;
+            this.btn_pwd_exportPDF.Text = "Export PDF";
+            this.btn_pwd_exportPDF.UseVisualStyleBackColor = false;
+            this.btn_pwd_exportPDF.Click += new System.EventHandler(this.btn_pwd_exportPDF_Click);
             // 
             // report_grid
             // 
@@ -3761,28 +3769,38 @@
             this.report_grid.Name = "report_grid";
             this.report_grid.ReadOnly = true;
             this.report_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle92.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_grid.RowsDefaultCellStyle = dataGridViewCellStyle92;
             this.report_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.report_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.report_grid.Size = new System.Drawing.Size(800, 464);
             this.report_grid.TabIndex = 47;
             // 
-            // comboBox1
+            // district_format
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.district_format.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.district_format.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.district_format.FormattingEnabled = true;
+            this.district_format.Items.AddRange(new object[] {
             "",
-            "Weekly",
-            "Monthly",
-            "Yearly",
-            "Custom"});
-            this.comboBox1.Location = new System.Drawing.Point(68, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 21);
-            this.comboBox1.TabIndex = 46;
+            "Agdao",
+            "Baguio",
+            "Buhangin",
+            "Bunawan",
+            "Calinan",
+            "City-A",
+            "City-B",
+            "Marilog",
+            "Paquibato",
+            "Talomo-A",
+            "Talomo-B",
+            "Toril",
+            "Tugbok"});
+            this.district_format.Location = new System.Drawing.Point(68, 3);
+            this.district_format.Name = "district_format";
+            this.district_format.Size = new System.Drawing.Size(172, 21);
+            this.district_format.TabIndex = 46;
+            this.district_format.SelectedIndexChanged += new System.EventHandler(this.district_format_SelectedIndexChanged);
             // 
             // label119
             // 
@@ -3796,37 +3814,37 @@
             // 
             // date_to
             // 
-            this.date_to.Location = new System.Drawing.Point(522, 5);
+            this.date_to.Location = new System.Drawing.Point(523, 7);
             this.date_to.Name = "date_to";
             this.date_to.Size = new System.Drawing.Size(200, 22);
             this.date_to.TabIndex = 49;
             // 
-            // label118
+            // lbl_to
             // 
-            this.label118.AutoSize = true;
-            this.label118.ForeColor = System.Drawing.Color.Black;
-            this.label118.Location = new System.Drawing.Point(492, 10);
-            this.label118.Name = "label118";
-            this.label118.Size = new System.Drawing.Size(24, 13);
-            this.label118.TabIndex = 48;
-            this.label118.Text = "To :";
+            this.lbl_to.AutoSize = true;
+            this.lbl_to.ForeColor = System.Drawing.Color.Black;
+            this.lbl_to.Location = new System.Drawing.Point(494, 11);
+            this.lbl_to.Name = "lbl_to";
+            this.lbl_to.Size = new System.Drawing.Size(24, 13);
+            this.lbl_to.TabIndex = 48;
+            this.lbl_to.Text = "To :";
             // 
             // date_from
             // 
-            this.date_from.Location = new System.Drawing.Point(285, 5);
+            this.date_from.Location = new System.Drawing.Point(289, 8);
             this.date_from.Name = "date_from";
             this.date_from.Size = new System.Drawing.Size(200, 22);
             this.date_from.TabIndex = 47;
             // 
-            // label117
+            // lbl_from
             // 
-            this.label117.AutoSize = true;
-            this.label117.ForeColor = System.Drawing.Color.Black;
-            this.label117.Location = new System.Drawing.Point(245, 11);
-            this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(39, 13);
-            this.label117.TabIndex = 46;
-            this.label117.Text = "From :";
+            this.lbl_from.AutoSize = true;
+            this.lbl_from.ForeColor = System.Drawing.Color.Black;
+            this.lbl_from.Location = new System.Drawing.Point(246, 12);
+            this.lbl_from.Name = "lbl_from";
+            this.lbl_from.Size = new System.Drawing.Size(39, 13);
+            this.lbl_from.TabIndex = 46;
+            this.lbl_from.Text = "From :";
             // 
             // date_format
             // 
@@ -3839,16 +3857,17 @@
             "Monthly",
             "Yearly",
             "Custom"});
-            this.date_format.Location = new System.Drawing.Point(68, 5);
+            this.date_format.Location = new System.Drawing.Point(68, 11);
             this.date_format.Name = "date_format";
             this.date_format.Size = new System.Drawing.Size(172, 21);
             this.date_format.TabIndex = 45;
+            this.date_format.SelectedIndexChanged += new System.EventHandler(this.date_format_SelectedIndexChanged);
             // 
             // label116
             // 
             this.label116.AutoSize = true;
             this.label116.ForeColor = System.Drawing.Color.Black;
-            this.label116.Location = new System.Drawing.Point(12, 12);
+            this.label116.Location = new System.Drawing.Point(8, 11);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(56, 13);
             this.label116.TabIndex = 1;
@@ -5336,12 +5355,12 @@
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.reports_pnl_projects.ResumeLayout(false);
-            this.reports_pnl_projects.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.reports_pnl_device.ResumeLayout(false);
             this.reports_pnl_device.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reports_device_grid)).EndInit();
+            this.reports_pnl_projects.ResumeLayout(false);
+            this.reports_pnl_projects.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reports_projects_grid)).EndInit();
             this.reports_pnl_pwd.ResumeLayout(false);
             this.reports_pnl_pwd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_grid)).EndInit();
@@ -5592,30 +5611,29 @@
         private System.Windows.Forms.Button reports_btn_pwd;
         private System.Windows.Forms.Label label116;
         private System.Windows.Forms.DateTimePicker date_to;
-        private System.Windows.Forms.Label label118;
+        private System.Windows.Forms.Label lbl_to;
         private System.Windows.Forms.DateTimePicker date_from;
-        private System.Windows.Forms.Label label117;
+        private System.Windows.Forms.Label lbl_from;
         public System.Windows.Forms.ComboBox date_format;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Panel reports_pnl_pwd;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox district_format;
         private System.Windows.Forms.Label label119;
         public System.Windows.Forms.DataGridView report_grid;
         private System.Windows.Forms.Label label121;
         private System.Windows.Forms.Label label120;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btn_pwd_exportExcel;
+        private System.Windows.Forms.Button btn_pwd_exportPDF;
         private System.Windows.Forms.Panel reports_pnl_device;
         private System.Windows.Forms.Label label123;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btn_device_exportPDF;
         public System.Windows.Forms.DataGridView reports_device_grid;
-        public System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label124;
         private System.Windows.Forms.Panel reports_pnl_projects;
         private System.Windows.Forms.Button reports_btn_project_participants;
         private System.Windows.Forms.Label label122;
         private System.Windows.Forms.Button reports_btn_project_summary;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView reports_projects_grid;
         private System.Windows.Forms.Label label125;
         private System.Windows.Forms.Label label145;
         private System.Windows.Forms.Label label150;
@@ -5727,6 +5745,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox pwd_search_by_value;
         private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.ComboBox device_status;
+        private System.Windows.Forms.SaveFileDialog save_pdf;
+        private System.Windows.Forms.SaveFileDialog save_Excel;
     }
 }
 
