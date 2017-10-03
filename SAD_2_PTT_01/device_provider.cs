@@ -43,8 +43,10 @@ namespace SAD_2_PTT_01
         public void load_provider_list()
         {
             has_provider_data = conn_devi.get_provider_list(provider_list);
+            Console.WriteLine("has_provider_data : " + has_provider_data);
             provider_list_format();
             count_results.Text = conn_devi.count_rows_provider();
+            Console.WriteLine("count : " + count_results.Text);
             if (has_provider_data == false)
             {
                 provider_list.DefaultCellStyle.SelectionForeColor = Color.Gray;

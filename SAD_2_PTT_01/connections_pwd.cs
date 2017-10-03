@@ -1139,8 +1139,9 @@ namespace SAD_2_PTT_01
 
         #region END-DATE
 
-        public void insert_pwd_end_date(string pwd_id, string end_date)
+        public bool insert_pwd_end_date(string pwd_id, string end_date)
         {
+            bool success = false;
             try
             {
                 conn.Open();
@@ -1149,11 +1150,14 @@ namespace SAD_2_PTT_01
                 comm.ExecuteNonQuery();
 
                 conn.Close();
+                success = true;
             } catch (Exception e)
             {
                 Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] insert_pwd_end_date() : " + e.Message);
                 conn.Close();
+                success = false;
             }
+            return success;
         }
 
         public void update_pwd_end_date(string pwd_id, string end_date)
@@ -1270,7 +1274,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT renewPWD_id, renew_pwd.pwd_id, renew_pwd.end_date, id_no FROM renew_pwd JOIN pwd ON renew_pwd.pwd_id = pwd.pwd_id WHERE renew_pwd.pwd_id = " + pwd_id +" AND renewPWD_id = (SELECT MAX(renewPWD_id) FROM renew_pwd WHERE renew_pwd.pwd_id = "+ pwd_id +")", conn);
+                comm = new MySqlCommand("SELECT renewPWD_id, CONCAT(lastname, ' ', firstname) AS fullname, renew_pwd.pwd_id, renew_pwd.end_date, id_no, application_date FROM renew_pwd JOIN pwd ON renew_pwd.pwd_id = pwd.pwd_id WHERE renew_pwd.pwd_id = " + pwd_id +" AND renewPWD_id = (SELECT MAX(renewPWD_id) FROM renew_pwd WHERE renew_pwd.pwd_id = "+ pwd_id +")", conn);
                 get = new MySqlDataAdapter(comm);
                 get.Fill(renew_data);
 
@@ -1283,23 +1287,51 @@ namespace SAD_2_PTT_01
             }
         }
         
-        public void update_application_date(string pwd_id, string date_renewed)
+        public bool update_application_date(string pwd_id, string date_renewed)
         {
+            bool success = false;
             try
             {
                 conn.Open();
 
-                comm = new MySqlCommand("UPDATE pwd SET application_date = '"+ date_renewed +"' WHERE pwd_id = " + pwd_id, conn);
+                comm = new MySqlCommand("UPDATE pwd SET application_date = '"+ date_renewed +"', status_pwd = 1 WHERE pwd_id = " + pwd_id, conn);
                 comm.ExecuteNonQuery();
 
                 Console.WriteLine("APPLICATION DATE : " + date_renewed);
                 conn.Close();
+                success = true;
             }
             catch (Exception e)
             {
                 Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] update_application_date() : " + e.Message);
                 conn.Close();
+                success = false;
             }
+            return success;
         }
+
+        public bool update_renew_date(string renew_pwd_id, string date_renewed, string dc, string cod)
+        {
+            bool success = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE renew_pwd SET daterenewed = '" + date_renewed + "', dcertificate = 1, certificate_of_disability = 1, dc_reference_no = '"+ dc +"' , cod_reference_no = '"+ cod +"' WHERE renewPWD_id = " + renew_pwd_id, conn);
+                comm.ExecuteNonQuery();
+
+                Console.WriteLine("DATE RENEWED DATE : " + date_renewed);
+                conn.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PWD] update_renew_date() : " + e.Message);
+                conn.Close();
+                success = false;
+            }
+            return success;
+        }
+
     }
 }

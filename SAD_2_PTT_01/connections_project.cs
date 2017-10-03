@@ -178,6 +178,33 @@ namespace SAD_2_PTT_01
 
         #endregion
 
+        #region ARCHIVE MODE
+
+        public bool project_archive(int project_id)
+        {
+            bool success = false;
+
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE project SET isArchived = 1 WHERE project_id = " + project_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+                success = true;
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] project_archive() : " + e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+        #endregion
+
         #region FILTER-MODE
 
         public void filter_status(string status, DataGridView projects_grid)
@@ -187,6 +214,8 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        #region PERSONS
 
         public bool persons_involved(string project_id, DataGridView persons_grid)
         {
@@ -206,7 +235,7 @@ namespace SAD_2_PTT_01
                                                          + "CONCAT(UCASE(lastname), ', ', firstname) AS fullname, "
                                                          + "disability_type, "
                                                          + "(CASE WHEN attendance = 0 THEN 'Absent' WHEN attendance = 1 THEN 'Present' END) AS attendance FROM p_dao.project_persons LEFT JOIN p_dao.pwd ON(project_persons.pwd_id = pwd.pwd_id) "
-                                                         + "LEFT JOIN p_dao.disability ON(pwd.disability_id = disability.disability_id) WHERE pwd.isArchived != 1 AND disability.isArchived != 1 AND project_id = 62 ORDER BY fullname ASC "
+                                                         + "LEFT JOIN p_dao.disability ON (pwd.disability_id = disability.disability_id) WHERE pwd.isArchived != 1 AND disability.isArchived != 1 AND project_id = "+ project_id +" ORDER BY fullname ASC "
                                                          + ") t1, (SELECT @row_number:= 0) t2", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
@@ -280,7 +309,7 @@ namespace SAD_2_PTT_01
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["disability_type"] = set.Rows[i]["disability_type"].ToString();
                         row["attendance"] = set.Rows[i]["attendance"].ToString();
-                        row["display_text"] = set.Rows[i]["display_text"].ToString();
+                        row["display_text"] = "Please refresh the grid.";
                         persons_data.Rows.Add(row);
                     }
                     has_data = true;
@@ -341,6 +370,10 @@ namespace SAD_2_PTT_01
                 conn.Close();
             }
         }
+
+        #endregion
+
+        #region ADD-UPDATE
 
         public bool project_add_data(string query)
         {
@@ -411,6 +444,10 @@ namespace SAD_2_PTT_01
             return project_id;
         }
 
+        #endregion
+
+        #region PROGRESS
+
         public bool project_add_progress(string query)
         {
             bool success = false;
@@ -477,6 +514,10 @@ namespace SAD_2_PTT_01
             return success;
         }
 
+        #endregion
+
+        #region ITEMS
+
         public bool project_add_items(string query)
         {
             bool success = false;
@@ -520,6 +561,8 @@ namespace SAD_2_PTT_01
 
             return success;
         }
+
+        #endregion
 
         public bool get_pwd_persons_involved(DataGridView persons_grid, string project_id)
         {
@@ -1162,6 +1205,135 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] project_progress_update() : " + e.Message);
             }
+        }
+
+        public bool project_selection_range(string start_time, string end_time, DataGridView projects_grid)
+        {
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                             + "project_id, "
+                                             + "project_title, "
+                                             + "start_time, "
+                                             + "end_time, "
+                                             + "date_proposed, "
+                                             + "progress_type "
+                                             + "FROM "
+                                             + "( "
+                                             + "SELECT DISTINCT project.project_id, "
+                                             + "project_title, "
+                                             + "start_time, "
+                                             + "end_time, "
+                                             + "date_proposed, "
+                                             + "(CASE WHEN progress_type = 1 THEN 'Proposed' "
+                                             + "WHEN progress_type = 2 THEN 'Ongoing' "
+                                             + "WHEN progress_type = 3 THEN 'Cancelled' "
+                                             + "WHEN progress_type = 4 THEN 'Finished' END "
+                                             + ") AS progress_type "
+                                             + "FROM project LEFT JOIN project_progress ON project.project_id = project_progress.project_id "
+                                             + "WHERE project.isArchived != 1 AND ((DATE(start_time) BETWEEN '"+ start_time +"' AND '"+ end_time +"')) ORDER BY project_id ASC "
+                                             + ") t1, (SELECT @row_number:= 0) t2 ", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable projects_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "project_id";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "project_title";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "start_time";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "end_time";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "date_proposed";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "progress_type";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "display_text";
+                projects_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = projects_data.NewRow();
+                    row["no"] = none;
+                    row["project_id"] = none;
+                    row["project_title"] = none;
+                    row["start_time"] = none;
+                    row["end_time"] = none;
+                    row["date_proposed"] = none;
+                    row["progress_type"] = none;
+                    row["display_text"] = "There are no projects held at these dates.";
+                    projects_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = projects_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
+                        row["project_id"] = set.Rows[i]["project_id"].ToString();
+                        row["project_title"] = set.Rows[i]["project_title"].ToString();
+                        row["start_time"] = set.Rows[i]["start_time"].ToString();
+                        row["end_time"] = set.Rows[i]["end_time"].ToString();
+                        row["date_proposed"] = set.Rows[i]["date_proposed"].ToString();
+                        row["progress_type"] = set.Rows[i]["progress_type"].ToString();
+                        row["display_text"] = "Please refresh the grid.";
+                        projects_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(projects_data);
+
+                projects_grid.DataSource = view;
+
+                conn.Close();
+                Console.WriteLine("[SUCCESS] - [CONNECTIONS_PROJECT] project_selection_range() ");
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] project_selection_range() : " + e.Message);
+            }
+
+            return has_data;
         }
     }
 }

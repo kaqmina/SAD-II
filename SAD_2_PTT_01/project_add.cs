@@ -93,6 +93,7 @@ namespace SAD_2_PTT_01
                 btn_add_project.Text = "FINISH";
                 btn_persons.Location = new Point(-8, 69);
                 sys_func.btn_active(btn_persons);
+                btn_mode_status.Text = "VIEW DETAILS";
                 btn_cancel.Text = "EDIT";
                 Console.WriteLine("Discard.");
                 view_mode = true;
@@ -603,19 +604,25 @@ namespace SAD_2_PTT_01
             DataTable item_data = new DataTable();
             has_update_items_ = conn_proj.projects_items(item_data, id_);
 
-            if (item_data.Rows.Count > 0)
+            if (has_update_items_ == false)
             {
-                for (int i = 0; i < item_data.Rows.Count; i++)
+                items_list.Rows.Clear();
+            } else
+            {
+                if (item_data.Rows.Count > 0)
                 {
-                    string name = item_data.Rows[i]["name"].ToString();
-                    string cost = item_data.Rows[i]["cost"].ToString();
-                    string quantity = item_data.Rows[i]["quantity"].ToString();
-                    string subtotal = item_data.Rows[i]["subtotal"].ToString();
-                    items_insert(name, cost, quantity, subtotal);
+                    for (int i = 0; i < item_data.Rows.Count; i++)
+                    {
+                        string name = item_data.Rows[i]["name"].ToString();
+                        string cost = item_data.Rows[i]["cost"].ToString();
+                        string quantity = item_data.Rows[i]["quantity"].ToString();
+                        string subtotal = item_data.Rows[i]["subtotal"].ToString();
+                        items_insert(name, cost, quantity, subtotal);
+                    }
                 }
-            }
 
-            calculate_items_total();
+                calculate_items_total();
+            }
         }
 
         #endregion
@@ -837,13 +844,29 @@ namespace SAD_2_PTT_01
                 double subtotal = 0.0;
                 if (items_list.Rows.Count > 0)
                 {
-                    for (int i = 0; i < items_list.Rows.Count; i++)
+                    if (view_mode == true)
                     {
-                        Console.WriteLine(subtotal);
-                        Console.WriteLine(items_list.Rows[i].Cells["subtotal"].Value.ToString());
-                        subtotal = subtotal + double.Parse(items_list.Rows[i].Cells["subtotal"].Value.ToString());
-                        Console.WriteLine(subtotal);
+                        if (has_view_items_ == true)
+                        {
+                            for (int i = 0; i < items_list.Rows.Count; i++)
+                            {
+                                Console.WriteLine(subtotal);
+                                Console.WriteLine(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                                subtotal = subtotal + double.Parse(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                                Console.WriteLine(subtotal);
+                            }
+                        }
+                    } else
+                    {
+                        for (int i = 0; i < items_list.Rows.Count; i++)
+                        {
+                            Console.WriteLine(subtotal);
+                            Console.WriteLine(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                            subtotal = subtotal + double.Parse(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                            Console.WriteLine(subtotal);
+                        }
                     }
+                    
                 }
                 lbl_items_total.Text = string.Format("{0:n}", subtotal);
             }
@@ -972,8 +995,6 @@ namespace SAD_2_PTT_01
             }
         }
 
-
-
         private void btn_remove_persons_Click(object sender, EventArgs e)
         {
             if (has_persons == true)
@@ -998,12 +1019,30 @@ namespace SAD_2_PTT_01
             btn_add_project.Text = "FINISH";
             btn_cancel.Text = "EDIT";
             sys_func.btn_active(btn_persons);
+            sys_func.btn_active(btn_add_project);
             btn_persons.Location = new Point(-8, 69);
             btn_view_info.Visible = true;
             pnl_visible_false();
             pnl_basic_view.Visible = true;
             view_paste();
             btn_mode_status.Text = "VIEW DETAILS";
+        }
+
+        private void closing_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+            else
+            {
+                closing_opacity.Stop();
+            }
+        }
+
+        private void project_add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closing_opacity.Start();
         }
     }
 }

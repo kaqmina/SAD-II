@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_basic = new System.Windows.Forms.Panel();
             this.lbl_date_error = new System.Windows.Forms.Label();
             this.lbl_start_date = new System.Windows.Forms.Label();
@@ -534,7 +534,6 @@
             // 
             this.btn_add_project.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_add_project.BackColor = System.Drawing.Color.White;
-            this.btn_add_project.Enabled = false;
             this.btn_add_project.FlatAppearance.BorderSize = 0;
             this.btn_add_project.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_project.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -781,8 +780,8 @@
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
             this.items_list.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.items_list.Size = new System.Drawing.Size(321, 308);
@@ -1154,8 +1153,8 @@
             this.persons_grid.Name = "persons_grid";
             this.persons_grid.ReadOnly = true;
             this.persons_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.persons_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.persons_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.persons_grid.Size = new System.Drawing.Size(503, 305);
@@ -1250,8 +1249,8 @@
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(523, 305);
@@ -1276,6 +1275,7 @@
             // closing_opacity
             // 
             this.closing_opacity.Interval = 1;
+            this.closing_opacity.Tick += new System.EventHandler(this.closing_opacity_Tick);
             // 
             // pnl_basic_view
             // 
@@ -1366,8 +1366,8 @@
             this.view_items_list.Name = "view_items_list";
             this.view_items_list.ReadOnly = true;
             this.view_items_list.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.view_items_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_items_list.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.view_items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.view_items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.view_items_list.Size = new System.Drawing.Size(321, 308);
@@ -1377,7 +1377,7 @@
             // 
             this.view_date_proposed.AutoSize = true;
             this.view_date_proposed.ForeColor = System.Drawing.Color.Black;
-            this.view_date_proposed.Location = new System.Drawing.Point(20, 223);
+            this.view_date_proposed.Location = new System.Drawing.Point(20, 243);
             this.view_date_proposed.MaximumSize = new System.Drawing.Size(153, 52);
             this.view_date_proposed.Name = "view_date_proposed";
             this.view_date_proposed.Size = new System.Drawing.Size(99, 13);
@@ -1388,7 +1388,7 @@
             // 
             this.view_venue.AutoSize = true;
             this.view_venue.ForeColor = System.Drawing.Color.Black;
-            this.view_venue.Location = new System.Drawing.Point(20, 162);
+            this.view_venue.Location = new System.Drawing.Point(20, 182);
             this.view_venue.MaximumSize = new System.Drawing.Size(153, 52);
             this.view_venue.Name = "view_venue";
             this.view_venue.Size = new System.Drawing.Size(78, 13);
@@ -1399,7 +1399,7 @@
             // 
             this.view_desc.AutoSize = true;
             this.view_desc.ForeColor = System.Drawing.Color.Black;
-            this.view_desc.Location = new System.Drawing.Point(20, 97);
+            this.view_desc.Location = new System.Drawing.Point(20, 117);
             this.view_desc.MaximumSize = new System.Drawing.Size(153, 52);
             this.view_desc.Name = "view_desc";
             this.view_desc.Size = new System.Drawing.Size(120, 13);
@@ -1410,6 +1410,7 @@
             // 
             this.view_title.AutoSize = true;
             this.view_title.Location = new System.Drawing.Point(20, 50);
+            this.view_title.MaximumSize = new System.Drawing.Size(153, 52);
             this.view_title.Name = "view_title";
             this.view_title.Size = new System.Drawing.Size(82, 13);
             this.view_title.TabIndex = 151;
@@ -1420,7 +1421,7 @@
             this.view_start_date.AutoSize = true;
             this.view_start_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.view_start_date.ForeColor = System.Drawing.Color.Black;
-            this.view_start_date.Location = new System.Drawing.Point(33, 271);
+            this.view_start_date.Location = new System.Drawing.Point(33, 291);
             this.view_start_date.Name = "view_start_date";
             this.view_start_date.Size = new System.Drawing.Size(15, 13);
             this.view_start_date.TabIndex = 149;
@@ -1431,7 +1432,7 @@
             this.view_end_date.AutoSize = true;
             this.view_end_date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.view_end_date.ForeColor = System.Drawing.Color.Black;
-            this.view_end_date.Location = new System.Drawing.Point(33, 315);
+            this.view_end_date.Location = new System.Drawing.Point(33, 335);
             this.view_end_date.Name = "view_end_date";
             this.view_end_date.Size = new System.Drawing.Size(15, 13);
             this.view_end_date.TabIndex = 144;
@@ -1452,7 +1453,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.Color.Black;
-            this.label40.Location = new System.Drawing.Point(10, 205);
+            this.label40.Location = new System.Drawing.Point(10, 225);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(92, 13);
             this.label40.TabIndex = 123;
@@ -1463,7 +1464,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(10, 299);
+            this.label41.Location = new System.Drawing.Point(10, 319);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(57, 13);
             this.label41.TabIndex = 122;
@@ -1474,7 +1475,7 @@
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.ForeColor = System.Drawing.Color.Black;
-            this.label45.Location = new System.Drawing.Point(10, 143);
+            this.label45.Location = new System.Drawing.Point(10, 163);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(42, 13);
             this.label45.TabIndex = 95;
@@ -1485,7 +1486,7 @@
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.Color.Black;
-            this.label46.Location = new System.Drawing.Point(10, 258);
+            this.label46.Location = new System.Drawing.Point(10, 278);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(64, 13);
             this.label46.TabIndex = 91;
@@ -1496,7 +1497,7 @@
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(10, 78);
+            this.label48.Location = new System.Drawing.Point(10, 98);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(75, 13);
             this.label48.TabIndex = 86;
@@ -1519,8 +1520,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(801, 451);
-            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.pnl_basic_view);
+            this.Controls.Add(this.pnl_budget_items);
             this.Controls.Add(this.pnl_basic);
             this.Controls.Add(this.pnl_persons_involved);
             this.Controls.Add(this.pnl_pwd_list);
@@ -1534,6 +1535,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "project_add";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.project_add_FormClosing);
             this.Load += new System.EventHandler(this.project_add_Load);
             this.pnl_basic.ResumeLayout(false);
             this.pnl_basic.PerformLayout();

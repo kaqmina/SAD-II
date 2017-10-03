@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.header_text = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_title = new System.Windows.Forms.Label();
-            this.projects_grid_persons_involved = new System.Windows.Forms.DataGridView();
+            this.btn_toggle = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.pwd_search = new System.Windows.Forms.TextBox();
             this.btn_projects_refresh = new System.Windows.Forms.Button();
-            this.btn_toggle = new System.Windows.Forms.Button();
+            this.projects_grid_persons_involved = new System.Windows.Forms.DataGridView();
+            this.lbl_title = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).BeginInit();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).BeginInit();
             this.SuspendLayout();
             // 
             // header_text
@@ -117,60 +120,21 @@
             this.panel1.Size = new System.Drawing.Size(795, 394);
             this.panel1.TabIndex = 125;
             // 
-            // label12
+            // btn_toggle
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label12.Location = new System.Drawing.Point(10, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 17);
-            this.label12.TabIndex = 51;
-            this.label12.Text = "PROJECT";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 13);
-            this.label1.TabIndex = 52;
-            this.label1.Text = ":";
-            // 
-            // lbl_title
-            // 
-            this.lbl_title.AutoSize = true;
-            this.lbl_title.Location = new System.Drawing.Point(79, 12);
-            this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(38, 13);
-            this.lbl_title.TabIndex = 53;
-            this.lbl_title.Text = "label2";
-            // 
-            // projects_grid_persons_involved
-            // 
-            this.projects_grid_persons_involved.AllowUserToAddRows = false;
-            this.projects_grid_persons_involved.AllowUserToDeleteRows = false;
-            this.projects_grid_persons_involved.AllowUserToResizeColumns = false;
-            this.projects_grid_persons_involved.AllowUserToResizeRows = false;
-            this.projects_grid_persons_involved.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.projects_grid_persons_involved.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.projects_grid_persons_involved.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.projects_grid_persons_involved.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.projects_grid_persons_involved.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.projects_grid_persons_involved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.projects_grid_persons_involved.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.projects_grid_persons_involved.Location = new System.Drawing.Point(13, 51);
-            this.projects_grid_persons_involved.MultiSelect = false;
-            this.projects_grid_persons_involved.Name = "projects_grid_persons_involved";
-            this.projects_grid_persons_involved.ReadOnly = true;
-            this.projects_grid_persons_involved.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.projects_grid_persons_involved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.projects_grid_persons_involved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.projects_grid_persons_involved.Size = new System.Drawing.Size(770, 314);
-            this.projects_grid_persons_involved.TabIndex = 145;
-            this.projects_grid_persons_involved.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projects_grid_persons_involved_CellClick);
+            this.btn_toggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_toggle.BackColor = System.Drawing.Color.White;
+            this.btn_toggle.FlatAppearance.BorderSize = 0;
+            this.btn_toggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_toggle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_toggle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_toggle.Location = new System.Drawing.Point(653, 371);
+            this.btn_toggle.Name = "btn_toggle";
+            this.btn_toggle.Size = new System.Drawing.Size(132, 20);
+            this.btn_toggle.TabIndex = 148;
+            this.btn_toggle.Text = "MARK AS PRESENT";
+            this.btn_toggle.UseVisualStyleBackColor = false;
+            this.btn_toggle.Click += new System.EventHandler(this.btn_toggle_Click);
             // 
             // panel13
             // 
@@ -219,22 +183,70 @@
             this.btn_projects_refresh.TabIndex = 146;
             this.btn_projects_refresh.UseVisualStyleBackColor = false;
             // 
-            // btn_toggle
+            // projects_grid_persons_involved
             // 
-            this.btn_toggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_toggle.BackColor = System.Drawing.Color.White;
-            this.btn_toggle.Enabled = false;
-            this.btn_toggle.FlatAppearance.BorderSize = 0;
-            this.btn_toggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_toggle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_toggle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_toggle.Location = new System.Drawing.Point(653, 371);
-            this.btn_toggle.Name = "btn_toggle";
-            this.btn_toggle.Size = new System.Drawing.Size(132, 20);
-            this.btn_toggle.TabIndex = 148;
-            this.btn_toggle.Text = "MARK AS PRESENT";
-            this.btn_toggle.UseVisualStyleBackColor = false;
-            this.btn_toggle.Click += new System.EventHandler(this.btn_toggle_Click);
+            this.projects_grid_persons_involved.AllowUserToAddRows = false;
+            this.projects_grid_persons_involved.AllowUserToDeleteRows = false;
+            this.projects_grid_persons_involved.AllowUserToResizeColumns = false;
+            this.projects_grid_persons_involved.AllowUserToResizeRows = false;
+            this.projects_grid_persons_involved.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.projects_grid_persons_involved.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.projects_grid_persons_involved.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.projects_grid_persons_involved.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.projects_grid_persons_involved.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.projects_grid_persons_involved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.projects_grid_persons_involved.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.projects_grid_persons_involved.Location = new System.Drawing.Point(13, 51);
+            this.projects_grid_persons_involved.MultiSelect = false;
+            this.projects_grid_persons_involved.Name = "projects_grid_persons_involved";
+            this.projects_grid_persons_involved.ReadOnly = true;
+            this.projects_grid_persons_involved.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projects_grid_persons_involved.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.projects_grid_persons_involved.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.projects_grid_persons_involved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.projects_grid_persons_involved.Size = new System.Drawing.Size(770, 314);
+            this.projects_grid_persons_involved.TabIndex = 145;
+            this.projects_grid_persons_involved.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projects_grid_persons_involved_CellClick);
+            // 
+            // lbl_title
+            // 
+            this.lbl_title.AutoSize = true;
+            this.lbl_title.Location = new System.Drawing.Point(79, 12);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(82, 13);
+            this.lbl_title.TabIndex = 53;
+            this.lbl_title.Text = "<Project Title>";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(70, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.TabIndex = 52;
+            this.label1.Text = ":";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label12.Location = new System.Drawing.Point(10, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 17);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "PROJECT";
+            // 
+            // startup_opacity
+            // 
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
+            // 
+            // exit_opacity
+            // 
+            this.exit_opacity.Interval = 1;
+            this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
             // project_attendance
             // 
@@ -249,13 +261,15 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "project_attendance";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "project_attendance";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.project_attendance_FormClosing);
             this.Load += new System.EventHandler(this.project_attendance_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projects_grid_persons_involved)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,5 +289,7 @@
         private System.Windows.Forms.TextBox pwd_search;
         private System.Windows.Forms.Button btn_projects_refresh;
         private System.Windows.Forms.Button btn_toggle;
+        private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Timer exit_opacity;
     }
 }

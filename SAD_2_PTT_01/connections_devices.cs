@@ -24,28 +24,27 @@ namespace SAD_2_PTT_01
         #region PENDING-REQUESTS
         public void get_pending_requests(DataGridView pending_requests)
         {
-            Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [DEVICE_PENDING_REQUESTS_LOAD] }");
             try
             {
                 conn.Open();
                 comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
                                              + "fullname, "
                                              + "deviceLOG_id, "
-                                             + "registration_no, "
+                                             + "id_no, "
                                              + "dp_name, "
                                              + "reference_no, "
                                              + "pwd_id, "
                                              + "req_date "
-                                             + "FROM (SELECT (CONCAT(lastname, ',', firstname,' ' ,SUBSTRING(middlename, 1, 1), '.')) AS fullname, "
+                                             + "FROM (SELECT (CONCAT(lastname, ',', firstname,' ')) AS fullname, "
                                                           + "deviceLOG_id, "
-                                                          + "registration_no, "
+                                                          + "id_no, "
                                                           + "dp_name, "
                                                           + "reference_no, "
                                                           + "device_log.pwd_id, "
                                                           + "req_date "
                                                           + "FROM device_log "
                                                           + "JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
-                                                          + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id WHERE device_log.status = 1 AND device_log.isArchived != 1 "
+                                                          + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id WHERE pwd.isArchived != 1 AND device_log.status = 1 AND device_log.isArchived != 1 "
                                                           + "ORDER BY dp_name ASC) t1, (SELECT @row_number:=0) t2;", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
@@ -74,7 +73,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "registration_no";
+                column.ColumnName = "id_no";
                 pending_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -111,7 +110,7 @@ namespace SAD_2_PTT_01
                     row["no"] = none;
                     row["fullname"] = none;
                     row["deviceLOG_id"] = none;
-                    row["registration_no"] = none;
+                    row["id_no"] = none;
                     row["dp_name"] = none;
                     row["pwd_id"] = none;
                     row["req_date"] = none;
@@ -128,13 +127,13 @@ namespace SAD_2_PTT_01
                         row["no"] = set.Rows[i]["no"].ToString();
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
-                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
                         row["dp_name"] = set.Rows[i]["dp_name"].ToString();
                         row["reference_no"] = set.Rows[i]["reference_no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
                         string[] req = set.Rows[i]["req_date"].ToString().Split();
                         row["req_date"] = req[0];
-                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["fullname"].ToString() + Environment.NewLine +  set.Rows[i]["dp_name"].ToString();
+                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "PWD ID: " + set.Rows[i]["id_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["fullname"].ToString() + Environment.NewLine +  set.Rows[i]["dp_name"].ToString();
                         row["request_text"] = text;
                         pending_data.Rows.Add(row);
                     }
@@ -163,20 +162,20 @@ namespace SAD_2_PTT_01
                 comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
                                              + "fullname, "
                                              + "deviceLOG_id, "
-                                             + "registration_no, "
+                                             + "id_no, "
                                              + "dp_name, "
                                              + "reference_no, "
                                              + "pwd_id, "
                                              + "date_in "
                                              + "FROM (SELECT CONCAT(lastname, ',' , firstname, ' ', SUBSTRING(middlename, 1, 1), '.') AS fullname, "
                                                           + "deviceLOG_id, "
-                                                          + "registration_no, "
+                                                          + "id_no, "
                                                           + "dp_name, "
                                                           + "reference_no, "
                                                           + "device_log.pwd_id, "
                                                           + "date_in "
                                                           + "FROM device_log JOIN device_provider ON device_log.dp_id = device_provider.dp_id "
-                                                          + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id WHERE device_log.status = 2 AND device_log.isArchived != 1 "
+                                                          + "JOIN pwd ON device_log.pwd_id = pwd.pwd_id WHERE pwd.isArchived != 1 AND device_log.status = 2 AND device_log.isArchived != 1 "
                                                           + "ORDER BY dp_name ASC) t1, (SELECT @row_number:=0) t2;", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
@@ -205,7 +204,7 @@ namespace SAD_2_PTT_01
 
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.String");
-                column.ColumnName = "registration_no";
+                column.ColumnName = "id_no";
                 pending_data.Columns.Add(column);
 
                 column = new DataColumn();
@@ -242,7 +241,7 @@ namespace SAD_2_PTT_01
                     row["no"] = none;
                     row["fullname"] = none;
                     row["deviceLOG_id"] = none;
-                    row["registration_no"] = none;
+                    row["id_no"] = none;
                     row["dp_name"] = none;
                     row["pwd_id"] = none;
                     row["date_in"] = none;
@@ -260,13 +259,13 @@ namespace SAD_2_PTT_01
                         row["no"] = set.Rows[i]["no"].ToString();
                         row["fullname"] = set.Rows[i]["fullname"].ToString();
                         row["deviceLOG_id"] = set.Rows[i]["deviceLOG_id"].ToString();
-                        row["registration_no"] = set.Rows[i]["registration_no"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
                         row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
                         row["dp_name"] = set.Rows[i]["dp_name"].ToString();
                         row["reference_no"] = set.Rows[i]["reference_no"].ToString();
                         string[] req = set.Rows[i]["date_in"].ToString().Split();
                         row["date_in"] = req[0];
-                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "RID: " + set.Rows[i]["registration_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["fullname"].ToString() + Environment.NewLine + set.Rows[i]["dp_name"].ToString();
+                        string text = "# " + set.Rows[i]["no"].ToString() + " " + "PWD ID: " + set.Rows[i]["id_no"].ToString() + ", " + req[0] + Environment.NewLine + set.Rows[i]["fullname"].ToString() + Environment.NewLine + set.Rows[i]["dp_name"].ToString();
                         row["recieved_text"] = text;
                         pending_data.Rows.Add(row);
                     }
@@ -291,7 +290,6 @@ namespace SAD_2_PTT_01
         {
             try
             {
-                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [LOAD_PENDING_RECEIVED] }");
                 conn.Open();
 
                 comm = new MySqlCommand("SELECT CONCAT(pwd.lastname, ', ', pwd.firstname,' ', pwd.middlename) AS fullname, "
@@ -494,7 +492,7 @@ namespace SAD_2_PTT_01
             {
                 conn.Open();
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > { [ GET_DEVICE_LIST ] }");
-                comm = new MySqlCommand("SELECT * FROM device WHERE isArchived != 1 AND disability_id = " + for_disability, conn);
+                comm = new MySqlCommand("SELECT * FROM device JOIN disability ON device.disability_id = disability.disability_id WHERE disability.isArchived != 1 AND device.isArchived != 1 AND device.disability_id = " + for_disability, conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);

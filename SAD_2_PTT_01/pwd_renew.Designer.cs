@@ -28,10 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.header_text = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.view_panel = new System.Windows.Forms.Panel();
+            this.cod_reference_no = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dc_reference_no = new System.Windows.Forms.TextBox();
+            this.date_renewed = new System.Windows.Forms.DateTimePicker();
+            this.certificate_of_disability = new System.Windows.Forms.CheckBox();
+            this.dcertificate = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lbl_end_date = new System.Windows.Forms.Label();
@@ -47,17 +59,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.dcertificate = new System.Windows.Forms.CheckBox();
-            this.certificate_of_disability = new System.Windows.Forms.CheckBox();
-            this.date_renewed = new System.Windows.Forms.DateTimePicker();
-            this.dc_reference_no = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cod_reference_no = new System.Windows.Forms.TextBox();
+            this.startup_opacity = new System.Windows.Forms.Timer(this.components);
+            this.exit_opacity = new System.Windows.Forms.Timer(this.components);
             this.view_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,6 +149,115 @@
             this.view_panel.Name = "view_panel";
             this.view_panel.Size = new System.Drawing.Size(576, 356);
             this.view_panel.TabIndex = 55;
+            // 
+            // cod_reference_no
+            // 
+            this.cod_reference_no.Location = new System.Drawing.Point(193, 257);
+            this.cod_reference_no.MaxLength = 20;
+            this.cod_reference_no.Name = "cod_reference_no";
+            this.cod_reference_no.Size = new System.Drawing.Size(161, 22);
+            this.cod_reference_no.TabIndex = 129;
+            this.cod_reference_no.TextChanged += new System.EventHandler(this.cod_reference_no_TextChanged);
+            this.cod_reference_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cod_reference_no_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(182, 260);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 13);
+            this.label8.TabIndex = 128;
+            this.label8.Text = ":";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(182, 211);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(10, 13);
+            this.label7.TabIndex = 127;
+            this.label7.Text = ":";
+            // 
+            // dc_reference_no
+            // 
+            this.dc_reference_no.Location = new System.Drawing.Point(193, 208);
+            this.dc_reference_no.MaxLength = 20;
+            this.dc_reference_no.Name = "dc_reference_no";
+            this.dc_reference_no.Size = new System.Drawing.Size(161, 22);
+            this.dc_reference_no.TabIndex = 126;
+            this.dc_reference_no.TextChanged += new System.EventHandler(this.dc_reference_no_TextChanged);
+            this.dc_reference_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dc_reference_no_KeyPress);
+            // 
+            // date_renewed
+            // 
+            this.date_renewed.Location = new System.Drawing.Point(154, 130);
+            this.date_renewed.Name = "date_renewed";
+            this.date_renewed.Size = new System.Drawing.Size(200, 22);
+            this.date_renewed.TabIndex = 125;
+            // 
+            // certificate_of_disability
+            // 
+            this.certificate_of_disability.AutoSize = true;
+            this.certificate_of_disability.Location = new System.Drawing.Point(37, 240);
+            this.certificate_of_disability.Name = "certificate_of_disability";
+            this.certificate_of_disability.Size = new System.Drawing.Size(142, 17);
+            this.certificate_of_disability.TabIndex = 124;
+            this.certificate_of_disability.Text = "Certificate of Disability";
+            this.certificate_of_disability.UseVisualStyleBackColor = true;
+            this.certificate_of_disability.CheckedChanged += new System.EventHandler(this.certificate_of_disability_CheckedChanged);
+            // 
+            // dcertificate
+            // 
+            this.dcertificate.AutoSize = true;
+            this.dcertificate.Location = new System.Drawing.Point(37, 191);
+            this.dcertificate.Name = "dcertificate";
+            this.dcertificate.Size = new System.Drawing.Size(124, 17);
+            this.dcertificate.TabIndex = 123;
+            this.dcertificate.Text = "Doctor\'s Certificate";
+            this.dcertificate.UseVisualStyleBackColor = true;
+            this.dcertificate.CheckedChanged += new System.EventHandler(this.dcertificate_CheckedChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(134, 163);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(10, 13);
+            this.label21.TabIndex = 122;
+            this.label21.Text = ":";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label20.Location = new System.Drawing.Point(11, 163);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 13);
+            this.label20.TabIndex = 121;
+            this.label20.Text = "Requirements ";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label19.Location = new System.Drawing.Point(62, 260);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(124, 26);
+            this.label19.TabIndex = 120;
+            this.label19.Text = "Certificate of Disability\r\n               Reference No.";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label17.Location = new System.Drawing.Point(62, 211);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(105, 26);
+            this.label17.TabIndex = 118;
+            this.label17.Text = "Doctor\'s Cerfificate\r\n       Reference No.";
             // 
             // label10
             // 
@@ -291,6 +403,7 @@
             this.btn_ok.TabIndex = 57;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_edit
             // 
@@ -308,108 +421,15 @@
             this.btn_edit.Text = "CANCEL";
             this.btn_edit.UseVisualStyleBackColor = false;
             // 
-            // label17
+            // startup_opacity
             // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label17.Location = new System.Drawing.Point(62, 211);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(105, 26);
-            this.label17.TabIndex = 118;
-            this.label17.Text = "Doctor\'s Cerfificate\r\n       Reference No.";
+            this.startup_opacity.Interval = 1;
+            this.startup_opacity.Tick += new System.EventHandler(this.startup_opacity_Tick);
             // 
-            // label19
+            // exit_opacity
             // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label19.Location = new System.Drawing.Point(62, 260);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(124, 26);
-            this.label19.TabIndex = 120;
-            this.label19.Text = "Certificate of Disability\r\n               Reference No.";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label20.Location = new System.Drawing.Point(11, 163);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 13);
-            this.label20.TabIndex = 121;
-            this.label20.Text = "Requirements ";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(134, 163);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(10, 13);
-            this.label21.TabIndex = 122;
-            this.label21.Text = ":";
-            // 
-            // dcertificate
-            // 
-            this.dcertificate.AutoSize = true;
-            this.dcertificate.Location = new System.Drawing.Point(37, 191);
-            this.dcertificate.Name = "dcertificate";
-            this.dcertificate.Size = new System.Drawing.Size(124, 17);
-            this.dcertificate.TabIndex = 123;
-            this.dcertificate.Text = "Doctor\'s Certificate";
-            this.dcertificate.UseVisualStyleBackColor = true;
-            // 
-            // certificate_of_disability
-            // 
-            this.certificate_of_disability.AutoSize = true;
-            this.certificate_of_disability.Location = new System.Drawing.Point(37, 240);
-            this.certificate_of_disability.Name = "certificate_of_disability";
-            this.certificate_of_disability.Size = new System.Drawing.Size(142, 17);
-            this.certificate_of_disability.TabIndex = 124;
-            this.certificate_of_disability.Text = "Certificate of Disability";
-            this.certificate_of_disability.UseVisualStyleBackColor = true;
-            // 
-            // date_renewed
-            // 
-            this.date_renewed.Location = new System.Drawing.Point(154, 130);
-            this.date_renewed.Name = "date_renewed";
-            this.date_renewed.Size = new System.Drawing.Size(200, 22);
-            this.date_renewed.TabIndex = 125;
-            // 
-            // dc_reference_no
-            // 
-            this.dc_reference_no.Location = new System.Drawing.Point(193, 208);
-            this.dc_reference_no.MaxLength = 20;
-            this.dc_reference_no.Name = "dc_reference_no";
-            this.dc_reference_no.Size = new System.Drawing.Size(161, 22);
-            this.dc_reference_no.TabIndex = 126;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(182, 211);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
-            this.label7.TabIndex = 127;
-            this.label7.Text = ":";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(182, 260);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 13);
-            this.label8.TabIndex = 128;
-            this.label8.Text = ":";
-            // 
-            // cod_reference_no
-            // 
-            this.cod_reference_no.Location = new System.Drawing.Point(193, 257);
-            this.cod_reference_no.MaxLength = 20;
-            this.cod_reference_no.Name = "cod_reference_no";
-            this.cod_reference_no.Size = new System.Drawing.Size(161, 22);
-            this.cod_reference_no.TabIndex = 129;
+            this.exit_opacity.Interval = 1;
+            this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
             // pwd_renew
             // 
@@ -425,7 +445,10 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "pwd_renew";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "pwd_renew";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.pwd_renew_FormClosing);
+            this.Load += new System.EventHandler(this.pwd_renew_Load);
             this.view_panel.ResumeLayout(false);
             this.view_panel.PerformLayout();
             this.ResumeLayout(false);
@@ -464,5 +487,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Timer startup_opacity;
+        private System.Windows.Forms.Timer exit_opacity;
     }
 }

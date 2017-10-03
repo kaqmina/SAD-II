@@ -70,9 +70,11 @@ namespace SAD_2_PTT_01
             pwd_view_fullname.Text = main_data.Rows[0]["fullname"].ToString();
             pwd_view_disability.Text = main_data.Rows[0]["disability_type"].ToString();
             pwd_view_regis_no.Text = main_data.Rows[0]["registration_no"].ToString();
-            pwd_view_app_date.Text = main_data.Rows[0]["application_date"].ToString();
+            string[] app_date = (main_data.Rows[0]["application_date"].ToString()).Split();
+            pwd_view_app_date.Text = app_date[0];
             pwd_view_district.Text = main_data.Rows[0]["district_name"].ToString();
-            pwd_view_dob.Text = main_data.Rows[0]["birthdate"].ToString();
+            string[] b_day = (main_data.Rows[0]["birthdate"].ToString()).Split();
+            pwd_view_dob.Text = b_day[0];
             pwd_view_nationality.Text = main_data.Rows[0]["nationality"].ToString();
             pwd_view_address1.Text = main_data.Rows[0]["address"].ToString();
             pwd_view_civil_status.Text = main_data.Rows[0]["civil_status"].ToString();

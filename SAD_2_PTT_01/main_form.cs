@@ -693,6 +693,24 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
+        #region PWD-RENEW
+
+
+        private void btn_renew_Click(object sender, EventArgs e)
+        {
+            pwd_renew renew = new pwd_renew();
+            renew.reference_to_main = this;
+            renew.current_pwd_id = pwd_grid.Rows[current_pwd_grid_index].Cells["pwd_id"].Value.ToString();
+
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.form_to_show = renew;
+
+            shadow_.ShowDialog();
+        }
+
+        #endregion
+
         string search_by_field = "";
         string search_by_value_data = "";
 
@@ -931,6 +949,7 @@ namespace SAD_2_PTT_01
 
         public void load_projects()
         {
+            projects_grid.DataSource = null;
             project_has_data = conn_proj.project_grid_list(projects_grid);
             projects_format();
 
@@ -943,6 +962,7 @@ namespace SAD_2_PTT_01
         public void projects_format()
         {
             projects_grid.Columns["project_title"].HeaderText = "Title";
+            projects_grid.Columns["no"].HeaderText = "No.";
             projects_grid.Columns["start_time"].HeaderText = "Start Time";
             projects_grid.Columns["end_time"].HeaderText = "End Time";
             projects_grid.Columns["date_proposed"].HeaderText = "Date Proposed";
@@ -953,21 +973,23 @@ namespace SAD_2_PTT_01
             if (project_has_data == false)
             {
                 projects_grid.Columns["project_title"].Visible = false;
+                projects_grid.Columns["no"].Visible = false;
+                projects_grid.Columns["progress_type"].Visible = false;
                 projects_grid.Columns["start_time"].Visible = false;
                 projects_grid.Columns["end_time"].Visible = false;
                 projects_grid.Columns["date_proposed"].Visible = false;
                 projects_grid.Columns["display_text"].Visible = true;
             } else
             {
+                projects_grid.Columns["no"].Visible = true;
                 projects_grid.Columns["project_title"].Visible = true;
                 projects_grid.Columns["start_time"].Visible = true;
                 projects_grid.Columns["end_time"].Visible = true;
                 projects_grid.Columns["date_proposed"].Visible = true;
+                projects_grid.Columns["progress_type"].Visible = true;
                 projects_grid.Columns["display_text"].Visible = false;
             }
             
-
-            //projects_grid.Columns["project_id"].Width = 35;
         }
 
         public void projects_default_data()
@@ -1005,7 +1027,8 @@ namespace SAD_2_PTT_01
                 current_project_id = int.Parse(projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString());
                 current_project_grid_index = e.RowIndex;
                 projects_status_type.Text = projects_grid.Rows[e.RowIndex].Cells["progress_type"].Value.ToString();
-                
+
+                sys_func.btn_active(projects_btn_status_type);
                 sys_func.btn_active(projects_btn_attendance);
             }
         }
@@ -1015,6 +1038,8 @@ namespace SAD_2_PTT_01
             conn_proj.project_update_approved_by(projects_approved_by.Text, current_project_id);
             string progress_type = (projects_status_type.SelectedIndex + 1).ToString();
             conn_proj.project_progress_update(current_project_id, progress_type);
+            sys_func.btn_inactive(projects_btn_status_type);
+            projects_approved_by.Clear();
             load_projects();
         }
 
@@ -1032,6 +1057,8 @@ namespace SAD_2_PTT_01
 
         private void btn_projects_refresh_Click(object sender, EventArgs e)
         {
+            projects_calendar.SelectionStart = DateTime.Today;
+            projects_calendar.SelectionEnd = DateTime.Today;
             load_projects();
         }
 
@@ -1039,10 +1066,10 @@ namespace SAD_2_PTT_01
         {
             if (projects_status_type.Text == "Approved")
             {
-                sys_func.btn_active(projects_btn_status_type);
+                projects_approved_by.Enabled = true;
             } else
             {
-                sys_func.btn_inactive(projects_btn_status_type);
+                projects_approved_by.Enabled = false;
             }
         }
 
@@ -1175,6 +1202,81 @@ namespace SAD_2_PTT_01
             shadow_.ShowDialog();
         }
 
+        #region CELL-DOUBLECLICK-CALENDAR
+
+        private void projects_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (project_has_data == false)
+            {
+                //disable buttons
+            }
+            else
+            {
+                if (e.RowIndex >= 0)
+                {
+                    project_add view_project = new project_add();
+                    view_project.view_mode = true;
+                    view_project.id_ = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
+                    view_project.update_id = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
+                    view_project.reference_to_main = this;
+                    shadow_ = new shadow();
+                    shadow_.reference_to_main = this;
+                    shadow_.form_to_show = view_project;
+                    shadow_.ShowDialog();
+                }
+                else
+                {
+                    //disable buttons
+                }
+            }
+        }
+
+        private void projects_calendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            string start_date = projects_calendar.SelectionRange.Start.ToString("yyyy-MM-dd");
+            string end_date = projects_calendar.SelectionRange.End.ToString("yyyy-MM-dd");
+            projects_grid.DataSource = null;
+            project_has_data = conn_proj.project_selection_range(start_date, end_date, projects_grid);
+            projects_format();
+            Console.WriteLine(project_has_data);
+        }
+
+        #endregion
+
+        #region ATTENDANCE-ARCHIVE
+
+        private void projects_btn_attendance_Click(object sender, EventArgs e)
+        {
+            project_attendance attendance = new project_attendance();
+            attendance.reference_to_main = this;
+            attendance.title = projects_grid.Rows[current_project_grid_index].Cells["project_title"].Value.ToString();
+            attendance.project_id = projects_grid.Rows[current_project_grid_index].Cells["project_id"].Value.ToString();
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.form_to_show = attendance;
+            shadow_.ShowDialog();
+
+        }
+
+
+
+        private void project_btn_archive_Click(object sender, EventArgs e)
+        {
+            bool success = conn_proj.project_archive(current_project_id);
+            if (success)
+            {
+                notification_ = "Archived project successfully!";
+                show_success_message();
+                load_projects();
+            } else
+            {
+                notification_ = "Unsuccessfull in archiving project.";
+                show_success_message();
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region DEVICE-MODULE
@@ -1229,7 +1331,7 @@ namespace SAD_2_PTT_01
         {
             device_requests.Columns["no"].Visible = false;
             device_requests.Columns["deviceLOG_id"].Visible = false;
-            device_requests.Columns["registration_no"].Visible = false;
+            device_requests.Columns["id_no"].Visible = false;
             device_requests.Columns["pwd_id"].Visible = false;
             device_requests.Columns["dp_name"].Visible = false;
             device_requests.Columns["req_date"].Visible = false;
@@ -1241,7 +1343,7 @@ namespace SAD_2_PTT_01
         {
             device_recieved.Columns["no"].Visible = false;
             device_recieved.Columns["deviceLOG_id"].Visible = false;
-            device_recieved.Columns["registration_no"].Visible = false;
+            device_recieved.Columns["id_no"].Visible = false;
             device_recieved.Columns["pwd_id"].Visible = false;
             device_recieved.Columns["dp_name"].Visible = false;
             device_recieved.Columns["date_in"].Visible = false;
@@ -2991,34 +3093,6 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        private void projects_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (project_has_data == false)
-            {
-                //disable buttons
-            } else
-            {
-                if (e.RowIndex >= 0)
-                {
-                    project_add view_project = new project_add();
-                    view_project.view_mode = true;
-                    view_project.id_ = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
-                    view_project.update_id = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
-                    view_project.reference_to_main = this;
-                    shadow_ = new shadow();
-                    shadow_.reference_to_main = this;
-                    shadow_.form_to_show = view_project;
-                    shadow_.ShowDialog();
-                } else
-                {
-                    //disable buttons
-                }
-            }
-        }
-
-        private void projects_calendar_DateSelected(object sender, DateRangeEventArgs e)
-        {
-
-        }
+        
     }
 }
