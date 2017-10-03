@@ -317,9 +317,14 @@ namespace SAD_2_PTT_01
             bool success = false;
             success = conn_devi.provider_add(provider_name_add.Text, provider_address_add.Text, provider_type_add.SelectedIndex - 1, provider_mobile_no_add.Text, provider_tel_no_add.Text, provider_email_add.Text);
             if (success)
+            {
                 reference_to_main.notification_ = "Successfully Added!";
+                reference_to_main.device_requests_btn_refresh();
+            }
             else
+            {
                 reference_to_main.notification_ = "Add unsuccessfull!";
+            }
             reference_to_main.show_success_message();
 
             reset_add_values();
@@ -351,11 +356,15 @@ namespace SAD_2_PTT_01
                 string current_id = provider_list.Rows[current_index].Cells["dp_id"].Value.ToString();
                 success = conn_devi.provider_update(provider_name_edit.Text, provider_address_edit.Text, provider_type_edit.SelectedIndex - 1, provider_mobile_no_edit.Text, provider_tel_no_edit.Text, provider_email_edit.Text, current_id);
                 if (success)
+                {
                     reference_to_main.notification_ = "Successfully Updated!";
+                    reference_to_main.device_requests_btn_refresh();
+                }
                 else
+                {
                     reference_to_main.notification_ = "Update unsuccessfull!";
+                }
                 reference_to_main.show_success_message();
-
                 load_provider_list();
                 reset_edit_values();
                 reset_view();
@@ -384,15 +393,22 @@ namespace SAD_2_PTT_01
             bool success = false;
             if (ask == System.Windows.Forms.DialogResult.Yes)
             {
-                success = conn_devi.provider_archive(provider_list.Rows[current_index].Cells["dp_id"].Value.ToString());
-                if (success)
-                    reference_to_main.notification_ = "Successfully Archived: " + current_data;
-                else
-                    reference_to_main.notification_ = "Archived unsuccessfull!";
-                reference_to_main.show_success_message();
-                load_provider_list();
-                reset_edit_values();
-                reset_view();
+                int count = int.Parse(provider_list.Rows[current_index].Cells["result"].Value.ToString());
+                if (count > 0)
+                {
+                    MessageBox.Show("Cannot archive provider because there are connections to other tables.", caption, MessageBoxButtons.OK);
+                } else
+                {
+                    success = conn_devi.provider_archive(provider_list.Rows[current_index].Cells["dp_id"].Value.ToString());
+                    if (success)
+                        reference_to_main.notification_ = "Successfully Archived: " + current_data;
+                    else
+                        reference_to_main.notification_ = "Archived unsuccessfull!";
+                    reference_to_main.show_success_message();
+                    load_provider_list();
+                    reset_edit_values();
+                    reset_view();
+                }
             }
             else
             {
@@ -431,5 +447,10 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            load_provider_list();
+        }
     }
 }

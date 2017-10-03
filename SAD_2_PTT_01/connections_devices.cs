@@ -806,8 +806,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-
-                Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > Archive device");
+                
                 comm = new MySqlCommand("UPDATE p_dao.device SET isArchived = 1 WHERE device_id = " + device_id, conn);
                 comm.ExecuteNonQuery();
 
@@ -819,6 +818,36 @@ namespace SAD_2_PTT_01
                 conn.Close();
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICE] > Archived device error : " + e.Message);
             }
+        }
+
+        public bool device_has_data(string device_id)
+        {
+            bool has_data = false;
+
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT COUNT(*) AS count FROM device_log WHERE device_id = " + device_id, conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                int count = int.Parse(set.Rows[0]["count"].ToString());
+                if (count > 0)
+                {
+                    has_data = true;
+                }
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_DEVICE] device_has_data() : " + e.Message);
+                has_data = false;
+            }
+
+            return has_data;
         }
 
         #endregion
@@ -942,7 +971,7 @@ namespace SAD_2_PTT_01
                                              + "mobile_no, "
                                              + "tel_no, "
                                              + "email_add, "
-                                             + "COUNT(device_log.dp_id) as result "
+                                             + "(SELECT COUNT(device_log.dp_id) FROM device_log WHERE status = 3 AND device_log.dp_id = device_provider.dp_id) as result "
                                              + "FROM device_provider LEFT JOIN device_log ON device_provider.dp_id = device_log.dp_id WHERE device_provider.isArchived != 1 GROUP BY dp_id", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
@@ -1059,7 +1088,7 @@ namespace SAD_2_PTT_01
                 conn.Open();
 
                 Console.WriteLine("[DVC] - [CONNECTIONS_DEVICES] > { [PROVIDER_DEVICE_PROVIDED] }");
-                comm = new MySqlCommand("SELECT dev_name, COUNT(*) AS result FROM device_log JOIN device ON device_log.device_id = device.device_id WHERE dp_id = " + dp_id + " GROUP BY dev_name", conn);
+                comm = new MySqlCommand("SELECT dev_name, COUNT(*) AS result FROM device_log JOIN device ON device_log.device_id = device.device_id WHERE device_log.status = 3 AND dp_id = " + dp_id + " GROUP BY dev_name", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);

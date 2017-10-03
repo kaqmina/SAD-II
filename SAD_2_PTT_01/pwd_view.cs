@@ -103,7 +103,7 @@ namespace SAD_2_PTT_01
             pwd_view_noemp.Text = main_data.Rows[0]["nature_of_employer"].ToString();
             pwd_view_toemp.Text = main_data.Rows[0]["type_of_employment"].ToString();
             pwd_view_toskill.Text = main_data.Rows[0]["type_of_skill"].ToString();
-            lbl_id_no.Text = "ID No. : " + main_data.Rows[0]["id_no"].ToString();
+            lbl_id_no.Text = main_data.Rows[0]["id_no"].ToString();
             //<-----[OTHER INFO]----->
             pwd_view_org_aff.Text = other_data.Rows[0]["organization_aff"].ToString();
             pwd_view_contact_person.Text = other_data.Rows[0]["contact_person"].ToString();
@@ -122,8 +122,6 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
-        
-
         private void pwd_view_edit_Click(object sender, EventArgs e)
         {
             int loc_x = reference_to_main.Location.X + 71;
@@ -137,6 +135,7 @@ namespace SAD_2_PTT_01
             edit.from_view = true;
             edit.update_mode = true;
             edit.update_regis_no = pwd_view_regis_no.Text;
+            edit.update_id_no = lbl_id_no.Text;
             Console.WriteLine("[PWD] ->> [EDIT-MODE]");
             edit.ShowDialog();
             if (success == true)

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_basic = new System.Windows.Forms.Panel();
             this.lbl_date_error = new System.Windows.Forms.Label();
             this.lbl_start_date = new System.Windows.Forms.Label();
@@ -118,6 +118,7 @@
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.closing_opacity = new System.Windows.Forms.Timer(this.components);
             this.pnl_basic_view = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
             this.view_budget = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -135,7 +136,6 @@
             this.label46 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.pnl_basic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lasts_for_day)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lasts_for_minute)).BeginInit();
@@ -780,8 +780,8 @@
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
             this.items_list.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.items_list.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.items_list.Size = new System.Drawing.Size(321, 308);
@@ -1153,8 +1153,8 @@
             this.persons_grid.Name = "persons_grid";
             this.persons_grid.ReadOnly = true;
             this.persons_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.persons_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.persons_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.persons_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.persons_grid.Size = new System.Drawing.Size(503, 305);
@@ -1249,8 +1249,8 @@
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(523, 305);
@@ -1303,6 +1303,18 @@
             this.pnl_basic_view.TabIndex = 151;
             this.pnl_basic_view.Visible = false;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(241, 369);
+            this.label27.MaximumSize = new System.Drawing.Size(351, 36);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(14, 15);
+            this.label27.TabIndex = 172;
+            this.label27.Text = "₱";
+            // 
             // view_budget
             // 
             this.view_budget.AutoSize = true;
@@ -1353,8 +1365,8 @@
             this.view_items_list.Name = "view_items_list";
             this.view_items_list.ReadOnly = true;
             this.view_items_list.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.view_items_list.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_items_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.view_items_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.view_items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.view_items_list.Size = new System.Drawing.Size(321, 308);
@@ -1500,26 +1512,14 @@
             this.label49.TabIndex = 85;
             this.label49.Text = "TITLE";
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(241, 369);
-            this.label27.MaximumSize = new System.Drawing.Size(351, 36);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(14, 15);
-            this.label27.TabIndex = 172;
-            this.label27.Text = "₱";
-            // 
             // project_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(801, 451);
-            this.Controls.Add(this.pnl_basic_view);
             this.Controls.Add(this.pnl_budget_items);
+            this.Controls.Add(this.pnl_basic_view);
             this.Controls.Add(this.pnl_basic);
             this.Controls.Add(this.pnl_persons_involved);
             this.Controls.Add(this.pnl_pwd_list);

@@ -443,7 +443,7 @@ namespace SAD_2_PTT_01
                 {
                     //conn_pwd.pwd_search(pwd_grid, pwd_searchbox); //error
 
-                    //pwd_filter_search();
+                    pwd_filter_search();
                 }
                 else
                 {
@@ -1349,6 +1349,7 @@ namespace SAD_2_PTT_01
         {
             device_device_add_ = true;
             dev_add = new device_device_add();
+            dev_add.reference_to_main = this;
             shadow_ = new shadow();
             shadow_.reference_to_main = this;
             shadow_.form_to_show = dev_add;
@@ -1644,6 +1645,18 @@ namespace SAD_2_PTT_01
         }
 
         #endregion
+
+
+        private void device_requests_refresh_Click(object sender, EventArgs e)
+        {
+            device_requests_btn_refresh();
+        }
+
+        public void device_requests_btn_refresh()
+        {
+            load_device_request_defaults();
+            device_request_clear();
+        }
 
         #endregion
 
@@ -2796,7 +2809,6 @@ namespace SAD_2_PTT_01
         {
             accounts_edit_check_required();
         }
-
 
         private void accounts_edit_contact_no_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {

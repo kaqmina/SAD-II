@@ -105,13 +105,17 @@
             this.pwd_view_fullname = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.pwd_view_status = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pwd_view_district = new System.Windows.Forms.Button();
             this.pnl_anon = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pwd_view_app_date = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pwd_view_regis_no = new System.Windows.Forms.Button();
             this.pnl_member = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -120,10 +124,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pwd_view_pp = new System.Windows.Forms.PictureBox();
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
-            this.pwd_view_regis_no = new System.Windows.Forms.Button();
-            this.pwd_view_app_date = new System.Windows.Forms.Button();
-            this.pwd_view_district = new System.Windows.Forms.Button();
-            this.pwd_view_status = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -212,6 +213,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.label3);
             this.panel7.Controls.Add(this.tabControl1);
             this.panel7.Controls.Add(this.panel10);
@@ -1021,6 +1023,23 @@
             this.panel8.Size = new System.Drawing.Size(183, 42);
             this.panel8.TabIndex = 55;
             // 
+            // pwd_view_status
+            // 
+            this.pwd_view_status.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_status.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pwd_view_status.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_status.FlatAppearance.BorderSize = 0;
+            this.pwd_view_status.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_status.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwd_view_status.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_status.Location = new System.Drawing.Point(0, 0);
+            this.pwd_view_status.Name = "pwd_view_status";
+            this.pwd_view_status.Size = new System.Drawing.Size(183, 42);
+            this.pwd_view_status.TabIndex = 59;
+            this.pwd_view_status.Text = "STATUS_TYPE";
+            this.pwd_view_status.UseVisualStyleBackColor = false;
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
@@ -1050,6 +1069,23 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(183, 42);
             this.panel4.TabIndex = 48;
+            // 
+            // pwd_view_district
+            // 
+            this.pwd_view_district.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_district.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pwd_view_district.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_district.FlatAppearance.BorderSize = 0;
+            this.pwd_view_district.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_district.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_district.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwd_view_district.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_district.Location = new System.Drawing.Point(0, 0);
+            this.pwd_view_district.Name = "pwd_view_district";
+            this.pwd_view_district.Size = new System.Drawing.Size(183, 42);
+            this.pwd_view_district.TabIndex = 0;
+            this.pwd_view_district.Text = "DISTRICT_NAME";
+            this.pwd_view_district.UseVisualStyleBackColor = false;
             // 
             // pnl_anon
             // 
@@ -1081,6 +1117,22 @@
             this.panel3.Size = new System.Drawing.Size(183, 42);
             this.panel3.TabIndex = 47;
             // 
+            // pwd_view_app_date
+            // 
+            this.pwd_view_app_date.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pwd_view_app_date.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_app_date.FlatAppearance.BorderSize = 0;
+            this.pwd_view_app_date.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_app_date.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_app_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwd_view_app_date.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_app_date.Location = new System.Drawing.Point(0, 0);
+            this.pwd_view_app_date.Name = "pwd_view_app_date";
+            this.pwd_view_app_date.Size = new System.Drawing.Size(183, 42);
+            this.pwd_view_app_date.TabIndex = 0;
+            this.pwd_view_app_date.Text = "APPLICATION_DATE";
+            this.pwd_view_app_date.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1089,6 +1141,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(183, 42);
             this.panel1.TabIndex = 46;
+            // 
+            // pwd_view_regis_no
+            // 
+            this.pwd_view_regis_no.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pwd_view_regis_no.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_regis_no.FlatAppearance.BorderSize = 0;
+            this.pwd_view_regis_no.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_regis_no.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pwd_view_regis_no.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwd_view_regis_no.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_view_regis_no.Location = new System.Drawing.Point(0, 0);
+            this.pwd_view_regis_no.Name = "pwd_view_regis_no";
+            this.pwd_view_regis_no.Size = new System.Drawing.Size(183, 42);
+            this.pwd_view_regis_no.TabIndex = 0;
+            this.pwd_view_regis_no.Text = "REGISTRATION_NO";
+            this.pwd_view_regis_no.UseVisualStyleBackColor = true;
             // 
             // pnl_member
             // 
@@ -1116,9 +1184,9 @@
             this.panel5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel5.Controls.Add(this.lbl_id_no);
             this.panel5.ForeColor = System.Drawing.SystemColors.Window;
-            this.panel5.Location = new System.Drawing.Point(4, 180);
+            this.panel5.Location = new System.Drawing.Point(2, 190);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(182, 36);
+            this.panel5.Size = new System.Drawing.Size(182, 27);
             this.panel5.TabIndex = 49;
             // 
             // lbl_id_no
@@ -1133,7 +1201,7 @@
             this.lbl_id_no.ForeColor = System.Drawing.Color.Black;
             this.lbl_id_no.Location = new System.Drawing.Point(0, 0);
             this.lbl_id_no.Name = "lbl_id_no";
-            this.lbl_id_no.Size = new System.Drawing.Size(182, 36);
+            this.lbl_id_no.Size = new System.Drawing.Size(182, 27);
             this.lbl_id_no.TabIndex = 0;
             this.lbl_id_no.Text = "ID_NO";
             this.lbl_id_no.UseVisualStyleBackColor = true;
@@ -1174,71 +1242,15 @@
             this.exit_opacity.Interval = 1;
             this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
             // 
-            // pwd_view_regis_no
+            // label1
             // 
-            this.pwd_view_regis_no.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pwd_view_regis_no.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_regis_no.FlatAppearance.BorderSize = 0;
-            this.pwd_view_regis_no.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_regis_no.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_regis_no.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_view_regis_no.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_regis_no.Location = new System.Drawing.Point(0, 0);
-            this.pwd_view_regis_no.Name = "pwd_view_regis_no";
-            this.pwd_view_regis_no.Size = new System.Drawing.Size(183, 42);
-            this.pwd_view_regis_no.TabIndex = 0;
-            this.pwd_view_regis_no.Text = "REGISTRATION_NO";
-            this.pwd_view_regis_no.UseVisualStyleBackColor = true;
-            // 
-            // pwd_view_app_date
-            // 
-            this.pwd_view_app_date.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pwd_view_app_date.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_app_date.FlatAppearance.BorderSize = 0;
-            this.pwd_view_app_date.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_app_date.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_app_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_view_app_date.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_app_date.Location = new System.Drawing.Point(0, 0);
-            this.pwd_view_app_date.Name = "pwd_view_app_date";
-            this.pwd_view_app_date.Size = new System.Drawing.Size(183, 42);
-            this.pwd_view_app_date.TabIndex = 0;
-            this.pwd_view_app_date.Text = "APPLICATION_DATE";
-            this.pwd_view_app_date.UseVisualStyleBackColor = true;
-            // 
-            // pwd_view_district
-            // 
-            this.pwd_view_district.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_district.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pwd_view_district.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_district.FlatAppearance.BorderSize = 0;
-            this.pwd_view_district.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_district.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_district.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_view_district.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_district.Location = new System.Drawing.Point(0, 0);
-            this.pwd_view_district.Name = "pwd_view_district";
-            this.pwd_view_district.Size = new System.Drawing.Size(183, 42);
-            this.pwd_view_district.TabIndex = 0;
-            this.pwd_view_district.Text = "DISTRICT_NAME";
-            this.pwd_view_district.UseVisualStyleBackColor = false;
-            // 
-            // pwd_view_status
-            // 
-            this.pwd_view_status.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_status.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pwd_view_status.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_status.FlatAppearance.BorderSize = 0;
-            this.pwd_view_status.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_status.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pwd_view_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pwd_view_status.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_view_status.Location = new System.Drawing.Point(0, 0);
-            this.pwd_view_status.Name = "pwd_view_status";
-            this.pwd_view_status.Size = new System.Drawing.Size(183, 42);
-            this.pwd_view_status.TabIndex = 59;
-            this.pwd_view_status.Text = "STATUS_TYPE";
-            this.pwd_view_status.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 133;
+            this.label1.Text = "ID No.";
             // 
             // pwd_view
             // 
@@ -1391,5 +1403,6 @@
         private System.Windows.Forms.Button pwd_view_district;
         private System.Windows.Forms.Button pwd_view_app_date;
         private System.Windows.Forms.Button pwd_view_regis_no;
+        private System.Windows.Forms.Label label1;
     }
 }

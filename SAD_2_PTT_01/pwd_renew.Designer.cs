@@ -32,29 +32,32 @@
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.view_panel = new System.Windows.Forms.Panel();
-            this.btn_cancel = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lbl_end_date = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.lbl_pwd_name = new System.Windows.Forms.Label();
+            this.lbl_id_no = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btn_hand_out = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.dcertificate = new System.Windows.Forms.CheckBox();
+            this.certificate_of_disability = new System.Windows.Forms.CheckBox();
+            this.date_renewed = new System.Windows.Forms.DateTimePicker();
+            this.dc_reference_no = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cod_reference_no = new System.Windows.Forms.TextBox();
             this.view_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,31 +112,34 @@
             this.btn_mode_status.Name = "btn_mode_status";
             this.btn_mode_status.Size = new System.Drawing.Size(582, 28);
             this.btn_mode_status.TabIndex = 52;
-            this.btn_mode_status.Text = "RENEW PWD";
+            this.btn_mode_status.Text = "RENEW MEMBERSHIP";
             this.btn_mode_status.UseVisualStyleBackColor = false;
             // 
             // view_panel
             // 
             this.view_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.view_panel.Controls.Add(this.label12);
-            this.view_panel.Controls.Add(this.label13);
-            this.view_panel.Controls.Add(this.label14);
+            this.view_panel.Controls.Add(this.cod_reference_no);
+            this.view_panel.Controls.Add(this.label8);
             this.view_panel.Controls.Add(this.label7);
+            this.view_panel.Controls.Add(this.dc_reference_no);
+            this.view_panel.Controls.Add(this.date_renewed);
+            this.view_panel.Controls.Add(this.certificate_of_disability);
+            this.view_panel.Controls.Add(this.dcertificate);
+            this.view_panel.Controls.Add(this.label21);
+            this.view_panel.Controls.Add(this.label20);
+            this.view_panel.Controls.Add(this.label19);
+            this.view_panel.Controls.Add(this.label17);
             this.view_panel.Controls.Add(this.label10);
             this.view_panel.Controls.Add(this.label11);
-            this.view_panel.Controls.Add(this.label4);
+            this.view_panel.Controls.Add(this.lbl_end_date);
             this.view_panel.Controls.Add(this.label5);
             this.view_panel.Controls.Add(this.label6);
-            this.view_panel.Controls.Add(this.label2);
-            this.view_panel.Controls.Add(this.btn_cancel);
             this.view_panel.Controls.Add(this.lbl_pwd_name);
+            this.view_panel.Controls.Add(this.lbl_id_no);
             this.view_panel.Controls.Add(this.label16);
             this.view_panel.Controls.Add(this.label15);
             this.view_panel.Controls.Add(this.label31);
             this.view_panel.Controls.Add(this.label32);
-            this.view_panel.Controls.Add(this.label9);
-            this.view_panel.Controls.Add(this.label8);
-            this.view_panel.Controls.Add(this.btn_hand_out);
             this.view_panel.Controls.Add(this.label3);
             this.view_panel.Controls.Add(this.label1);
             this.view_panel.Location = new System.Drawing.Point(3, 54);
@@ -141,35 +147,81 @@
             this.view_panel.Size = new System.Drawing.Size(576, 356);
             this.view_panel.TabIndex = 55;
             // 
-            // btn_cancel
+            // label10
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_cancel.FlatAppearance.BorderSize = 0;
-            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_cancel.Location = new System.Drawing.Point(460, 29);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(73, 22);
-            this.btn_cancel.TabIndex = 107;
-            this.btn_cancel.Text = "CANCEL";
-            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(134, 137);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(10, 13);
+            this.label10.TabIndex = 113;
+            this.label10.Text = ":";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label11.Location = new System.Drawing.Point(11, 137);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 112;
+            this.label11.Text = "Date Renewed";
+            // 
+            // lbl_end_date
+            // 
+            this.lbl_end_date.AutoSize = true;
+            this.lbl_end_date.ForeColor = System.Drawing.Color.Black;
+            this.lbl_end_date.Location = new System.Drawing.Point(151, 111);
+            this.lbl_end_date.Name = "lbl_end_date";
+            this.lbl_end_date.Size = new System.Drawing.Size(77, 13);
+            this.lbl_end_date.TabIndex = 111;
+            this.lbl_end_date.Text = "Requested By";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(134, 111);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(10, 13);
+            this.label5.TabIndex = 110;
+            this.label5.Text = ":";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label6.Location = new System.Drawing.Point(11, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 109;
+            this.label6.Text = "End Date";
             // 
             // lbl_pwd_name
             // 
             this.lbl_pwd_name.AutoSize = true;
             this.lbl_pwd_name.ForeColor = System.Drawing.Color.Black;
-            this.lbl_pwd_name.Location = new System.Drawing.Point(143, 61);
+            this.lbl_pwd_name.Location = new System.Drawing.Point(151, 86);
             this.lbl_pwd_name.Name = "lbl_pwd_name";
             this.lbl_pwd_name.Size = new System.Drawing.Size(77, 13);
-            this.lbl_pwd_name.TabIndex = 87;
+            this.lbl_pwd_name.TabIndex = 108;
             this.lbl_pwd_name.Text = "Requested By";
+            // 
+            // lbl_id_no
+            // 
+            this.lbl_id_no.AutoSize = true;
+            this.lbl_id_no.ForeColor = System.Drawing.Color.Black;
+            this.lbl_id_no.Location = new System.Drawing.Point(151, 61);
+            this.lbl_id_no.Name = "lbl_id_no";
+            this.lbl_id_no.Size = new System.Drawing.Size(77, 13);
+            this.lbl_id_no.TabIndex = 87;
+            this.lbl_id_no.Text = "Requested By";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(126, 86);
+            this.label16.Location = new System.Drawing.Point(134, 86);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(10, 13);
             this.label16.TabIndex = 83;
@@ -179,7 +231,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(126, 61);
+            this.label15.Location = new System.Drawing.Point(134, 61);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(10, 13);
             this.label15.TabIndex = 82;
@@ -205,49 +257,15 @@
             this.label32.TabIndex = 77;
             this.label32.Text = "ID No.";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(443, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 63;
-            this.label9.Text = "RECEIVED";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(381, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 17);
-            this.label8.TabIndex = 62;
-            this.label8.Text = "STATUS :";
-            // 
-            // btn_hand_out
-            // 
-            this.btn_hand_out.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_hand_out.FlatAppearance.BorderSize = 0;
-            this.btn_hand_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_hand_out.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_hand_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_hand_out.Location = new System.Drawing.Point(384, 29);
-            this.btn_hand_out.Name = "btn_hand_out";
-            this.btn_hand_out.Size = new System.Drawing.Size(75, 22);
-            this.btn_hand_out.TabIndex = 61;
-            this.btn_hand_out.Text = "HANDOUT";
-            this.btn_hand_out.UseVisualStyleBackColor = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(11, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 13);
+            this.label3.Size = new System.Drawing.Size(140, 13);
             this.label3.TabIndex = 43;
-            this.label3.Text = "ASSISTIVE DEVICES";
+            this.label3.Text = "PERSONS WITH DISABILITY";
             // 
             // label1
             // 
@@ -278,6 +296,7 @@
             // 
             this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_edit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_edit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_edit.FlatAppearance.BorderSize = 0;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,108 +305,111 @@
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(287, 33);
             this.btn_edit.TabIndex = 56;
-            this.btn_edit.Text = "EDIT";
+            this.btn_edit.Text = "CANCEL";
             this.btn_edit.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // label17
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(143, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 108;
-            this.label2.Text = "Requested By";
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label17.Location = new System.Drawing.Point(62, 211);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(105, 26);
+            this.label17.TabIndex = 118;
+            this.label17.Text = "Doctor\'s Cerfificate\r\n       Reference No.";
             // 
-            // label4
+            // label19
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(143, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
-            this.label4.TabIndex = 111;
-            this.label4.Text = "Requested By";
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label19.Location = new System.Drawing.Point(62, 260);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(124, 26);
+            this.label19.TabIndex = 120;
+            this.label19.Text = "Certificate of Disability\r\n               Reference No.";
             // 
-            // label5
+            // label20
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(126, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 13);
-            this.label5.TabIndex = 110;
-            this.label5.Text = ":";
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.label20.Location = new System.Drawing.Point(11, 163);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 13);
+            this.label20.TabIndex = 121;
+            this.label20.Text = "Requirements ";
             // 
-            // label6
+            // label21
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label6.Location = new System.Drawing.Point(11, 111);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
-            this.label6.TabIndex = 109;
-            this.label6.Text = "Name";
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(134, 163);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(10, 13);
+            this.label21.TabIndex = 122;
+            this.label21.Text = ":";
+            // 
+            // dcertificate
+            // 
+            this.dcertificate.AutoSize = true;
+            this.dcertificate.Location = new System.Drawing.Point(37, 191);
+            this.dcertificate.Name = "dcertificate";
+            this.dcertificate.Size = new System.Drawing.Size(124, 17);
+            this.dcertificate.TabIndex = 123;
+            this.dcertificate.Text = "Doctor\'s Certificate";
+            this.dcertificate.UseVisualStyleBackColor = true;
+            // 
+            // certificate_of_disability
+            // 
+            this.certificate_of_disability.AutoSize = true;
+            this.certificate_of_disability.Location = new System.Drawing.Point(37, 240);
+            this.certificate_of_disability.Name = "certificate_of_disability";
+            this.certificate_of_disability.Size = new System.Drawing.Size(142, 17);
+            this.certificate_of_disability.TabIndex = 124;
+            this.certificate_of_disability.Text = "Certificate of Disability";
+            this.certificate_of_disability.UseVisualStyleBackColor = true;
+            // 
+            // date_renewed
+            // 
+            this.date_renewed.Location = new System.Drawing.Point(154, 130);
+            this.date_renewed.Name = "date_renewed";
+            this.date_renewed.Size = new System.Drawing.Size(200, 22);
+            this.date_renewed.TabIndex = 125;
+            // 
+            // dc_reference_no
+            // 
+            this.dc_reference_no.Location = new System.Drawing.Point(193, 208);
+            this.dc_reference_no.MaxLength = 20;
+            this.dc_reference_no.Name = "dc_reference_no";
+            this.dc_reference_no.Size = new System.Drawing.Size(161, 22);
+            this.dc_reference_no.TabIndex = 126;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(143, 137);
+            this.label7.Location = new System.Drawing.Point(182, 211);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
-            this.label7.TabIndex = 114;
-            this.label7.Text = "Requested By";
+            this.label7.Size = new System.Drawing.Size(10, 13);
+            this.label7.TabIndex = 127;
+            this.label7.Text = ":";
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(126, 137);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(10, 13);
-            this.label10.TabIndex = 113;
-            this.label10.Text = ":";
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(182, 260);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 13);
+            this.label8.TabIndex = 128;
+            this.label8.Text = ":";
             // 
-            // label11
+            // cod_reference_no
             // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label11.Location = new System.Drawing.Point(11, 137);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 13);
-            this.label11.TabIndex = 112;
-            this.label11.Text = "Name";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(143, 165);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
-            this.label12.TabIndex = 117;
-            this.label12.Text = "Requested By";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(126, 165);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(10, 13);
-            this.label13.TabIndex = 116;
-            this.label13.Text = ":";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label14.Location = new System.Drawing.Point(11, 165);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 13);
-            this.label14.TabIndex = 115;
-            this.label14.Text = "Name";
+            this.cod_reference_no.Location = new System.Drawing.Point(193, 257);
+            this.cod_reference_no.MaxLength = 20;
+            this.cod_reference_no.Name = "cod_reference_no";
+            this.cod_reference_no.Size = new System.Drawing.Size(161, 22);
+            this.cod_reference_no.TabIndex = 129;
             // 
             // pwd_renew
             // 
@@ -416,28 +438,31 @@
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_mode_status;
         private System.Windows.Forms.Panel view_panel;
-        private System.Windows.Forms.Button btn_cancel;
-        public System.Windows.Forms.Label lbl_pwd_name;
+        public System.Windows.Forms.Label lbl_id_no;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.Button btn_hand_out;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Button btn_edit;
-        public System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label lbl_end_date;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lbl_pwd_name;
+        private System.Windows.Forms.TextBox cod_reference_no;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox dc_reference_no;
+        private System.Windows.Forms.DateTimePicker date_renewed;
+        private System.Windows.Forms.CheckBox certificate_of_disability;
+        private System.Windows.Forms.CheckBox dcertificate;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label17;
     }
 }

@@ -124,6 +124,8 @@ namespace SAD_2_PTT_01
         {
             device_rec_req_date date = new device_rec_req_date();
             date.reference_to_received = this;
+            date.Text = "Mark as Handed Out.";
+            date.caption.Text = "Select date handed out: ";
             date.state = 1;
             date.rec_date = Convert.ToDateTime(lbl_date_in.Text);
             string current_user_id = conn_user.get_user_id_by_name(reference_to_main.current_user);

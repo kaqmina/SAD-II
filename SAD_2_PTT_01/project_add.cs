@@ -80,8 +80,10 @@ namespace SAD_2_PTT_01
                 btn_view_info.Visible = false;
                 edit_paste();
                 btn_persons.Location = new Point(-8, 99);
+                sys_func.btn_inactive(btn_persons);
                 Console.WriteLine("Edit.");
                 btn_mode_status.Text = "EDIT PROJECT";
+                view_mode = false;
             }
             else
             {
@@ -89,8 +91,11 @@ namespace SAD_2_PTT_01
                 pnl_basic_view.Visible = true;
                 btn_view_info.Visible = true;
                 btn_add_project.Text = "FINISH";
+                btn_persons.Location = new Point(-8, 69);
+                sys_func.btn_active(btn_persons);
                 btn_cancel.Text = "EDIT";
                 Console.WriteLine("Discard.");
+                view_mode = true;
             }
         }
 
@@ -453,6 +458,7 @@ namespace SAD_2_PTT_01
                     pnl_basic_view.Visible = true;
                     view_paste();
                     btn_mode_status.Text = "VIEW DETAILS";
+                    view_mode = true;
                 }
             }
             #endregion
@@ -804,7 +810,7 @@ namespace SAD_2_PTT_01
             lbl_subtotal.Text = string.Format("{0:n}", total_cost);
         }
 
-        public void calculate_items_total()
+        public void calculate_items_total_view_mode()
         {
             if (items_list.Rows.Count == 0)
             {
@@ -814,6 +820,29 @@ namespace SAD_2_PTT_01
             {
                 double subtotal = 0.0;
                 if (has_view_items_ == true)
+                {
+                    for (int i = 0; i < items_list.Rows.Count; i++)
+                    {
+                        Console.WriteLine(subtotal);
+                        Console.WriteLine(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                        subtotal = subtotal + double.Parse(items_list.Rows[i].Cells["subtotal"].Value.ToString());
+                        Console.WriteLine(subtotal);
+                    }
+                }
+                lbl_items_total.Text = string.Format("{0:n}", subtotal);
+            }
+        }
+
+        public void calculate_items_total()
+        {
+            if (items_list.Rows.Count == 0)
+            {
+                lbl_items_total.Text = "0.00";
+            }
+            else
+            {
+                double subtotal = 0.0;
+                if (items_list.Rows.Count > 0)
                 {
                     for (int i = 0; i < items_list.Rows.Count; i++)
                     {

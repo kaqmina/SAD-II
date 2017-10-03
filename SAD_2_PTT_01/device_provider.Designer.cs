@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_mode_status = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -110,6 +110,7 @@
             this.provider_list = new System.Windows.Forms.DataGridView();
             this.startup_opacity = new System.Windows.Forms.Timer(this.components);
             this.exit_opacity = new System.Windows.Forms.Timer(this.components);
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnl_edit.SuspendLayout();
@@ -149,6 +150,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.btn_refresh);
             this.panel1.Controls.Add(this.lbl_error_edit);
             this.panel1.Controls.Add(this.count_results);
             this.panel1.Controls.Add(this.pnl_edit);
@@ -180,7 +182,7 @@
             this.count_results.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.count_results.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.count_results.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.count_results.Location = new System.Drawing.Point(125, 56);
+            this.count_results.Location = new System.Drawing.Point(133, 558);
             this.count_results.Name = "count_results";
             this.count_results.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.count_results.Size = new System.Drawing.Size(213, 13);
@@ -612,7 +614,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.label16.Location = new System.Drawing.Point(9, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(106, 17);
@@ -683,7 +685,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.label3.Location = new System.Drawing.Point(358, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 17);
@@ -758,14 +760,14 @@
             this.device_provided_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.device_provided_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.device_provided_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.device_provided_list.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.device_provided_list.DefaultCellStyle = dataGridViewCellStyle7;
             this.device_provided_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.device_provided_list.Location = new System.Drawing.Point(369, 21);
             this.device_provided_list.MultiSelect = false;
@@ -773,8 +775,8 @@
             this.device_provided_list.ReadOnly = true;
             this.device_provided_list.RowHeadersVisible = false;
             this.device_provided_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.device_provided_list.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.device_provided_list.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.device_provided_list.RowTemplate.Height = 25;
             this.device_provided_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.device_provided_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1000,7 +1002,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
@@ -1018,14 +1020,14 @@
             this.provider_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.provider_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.provider_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.provider_list.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.provider_list.DefaultCellStyle = dataGridViewCellStyle5;
             this.provider_list.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.provider_list.Location = new System.Drawing.Point(16, 72);
             this.provider_list.MultiSelect = false;
@@ -1033,13 +1035,13 @@
             this.provider_list.ReadOnly = true;
             this.provider_list.RowHeadersVisible = false;
             this.provider_list.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.provider_list.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.provider_list.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.provider_list.RowTemplate.Height = 25;
             this.provider_list.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.provider_list.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.provider_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.provider_list.Size = new System.Drawing.Size(327, 489);
+            this.provider_list.Size = new System.Drawing.Size(327, 480);
             this.provider_list.TabIndex = 46;
             this.provider_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.provider_list_CellClick);
             this.provider_list.SelectionChanged += new System.EventHandler(this.provider_list_SelectionChanged);
@@ -1053,6 +1055,22 @@
             // 
             this.exit_opacity.Interval = 1;
             this.exit_opacity.Tick += new System.EventHandler(this.exit_opacity_Tick);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_refresh.BackgroundImage = global::SAD_2_PTT_01.Properties.Resources.reload;
+            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_refresh.FlatAppearance.BorderSize = 0;
+            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refresh.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.btn_refresh.Location = new System.Drawing.Point(321, 41);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(22, 25);
+            this.btn_refresh.TabIndex = 233;
+            this.btn_refresh.UseVisualStyleBackColor = false;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // device_provider
             // 
@@ -1163,5 +1181,6 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Timer startup_opacity;
         private System.Windows.Forms.Timer exit_opacity;
+        public System.Windows.Forms.Button btn_refresh;
     }
 }

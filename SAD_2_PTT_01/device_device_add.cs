@@ -301,6 +301,7 @@ namespace SAD_2_PTT_01
                 string current_id = device_list.Rows[current_index].Cells["device_id"].Value.ToString();
                 string disability_id = conn_disa.get_disability_by_name(device_disability_edit.Text);
                 conn_devi.device_update(device_name_edit.Text, device_desc_edit.Text, disability_id, current_id);
+                reference_to_main.device_requests_btn_refresh();
                 refresh_device_grid();
                 reset_values_edit();
                 reset_view();
@@ -321,6 +322,7 @@ namespace SAD_2_PTT_01
         {
             string disability_id = conn_disa.get_disability_by_name(device_disability_add.Text);
             conn_devi.device_add(device_name_add.Text, device_desc_add.Text, disability_id);
+            reference_to_main.device_requests_btn_refresh();
             reset_values_add();
             refresh_device_grid();
             device_list.Rows[device_list.CurrentCell.RowIndex].Selected = false;
@@ -347,10 +349,18 @@ namespace SAD_2_PTT_01
 
             if (ask == System.Windows.Forms.DialogResult.Yes)
             {
-                conn_devi.device_archive(device_list.Rows[current_index].Cells["device_id"].Value.ToString());
-                refresh_device_grid();
-                reset_values_edit();
-                reset_view();
+                string device_id = device_list.Rows[current_index].Cells["device_id"].Value.ToString();
+                bool check_connections = conn_devi.device_has_data(device_id);
+                if (check_connections == true )
+                {
+                    MessageBox.Show("Cannot archive device because there are connections to other tables.", caption, MessageBoxButtons.OK);
+                } else
+                {
+                    conn_devi.device_archive(device_id);
+                    refresh_device_grid();
+                    reset_values_edit();
+                    reset_view();
+                }
             }
             else
             {
