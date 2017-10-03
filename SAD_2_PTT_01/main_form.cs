@@ -2939,6 +2939,7 @@ namespace SAD_2_PTT_01
             project_add view_project = new project_add();
             view_project.view_mode = true;
             view_project.id_ = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
+            view_project.update_id = projects_grid.Rows[e.RowIndex].Cells["project_id"].Value.ToString();
             view_project.reference_to_main = this;
             shadow_ = new shadow();
             shadow_.reference_to_main = this;
