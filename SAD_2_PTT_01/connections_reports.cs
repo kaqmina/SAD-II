@@ -29,7 +29,7 @@ namespace SAD_2_PTT_01
         public List<string> disability;
         public int disability_count;
 
-        public main_form main { get; set; }
+        public main_form ref_main { get; set; }
 
         public connections_reports() //ano naaa
         {
@@ -868,9 +868,9 @@ namespace SAD_2_PTT_01
             wsadult.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
 
             //SubTitle
-            if (date.ToString("MMMM") == "January") format_date = "JANUARY " + DateTime.Now.ToString("yyyy");
+            if (date.ToString("MMMM") == "January") ;
             else format_date = "JANUARY - " + DateTime.Now.ToString("MMMM yyyy").ToUpper();
-            wsheet.Cells["A2:Q2"].Value = wschild.Cells[2, 1, 2, disability_count * 2 + 1].Value = wsadult.Cells[2, 1, 2, disability_count * 2 + 1].Value = format_date;
+            wsheet.Cells["A2:Q2"].Value = wschild.Cells[2, 1, 2, disability_count * 2 + 1].Value = wsadult.Cells[2, 1, 2, disability_count * 2 + 1].Value = date.ToString("yyyy");
             wsheet.Cells["A3:Q3"].Value = "(CHILDREN & ADULT CATEGORY)";
             wschild.Cells[3, 1, 3, disability_count * 2 + 1].Value = "(CHILD CATEGORY)";
             wsadult.Cells[3, 1, 3, disability_count * 2 + 1].Value = "(ADULT CATEGORY)";
@@ -1084,6 +1084,7 @@ namespace SAD_2_PTT_01
         public List<int> TalomoB;
         public List<int> Toril;
         public List<int> Tugbok;
+        main_form main_ = new main_form();
 
 
         public string[] ageQuery = { " BETWEEN 0 AND 2 AND sex = 0", " BETWEEN 0 AND 2 AND sex = 1", " BETWEEN 3 AND 4 AND sex = 0", " BETWEEN 3 AND 4 AND sex = 1" ,
@@ -1093,7 +1094,7 @@ namespace SAD_2_PTT_01
         public string[] distQuery = { " AND district_id = 1;", " AND district_id = 2;", " AND district_id = 3;", " AND district_id = 4;", " AND district_id = 5;", " AND district_id = 6;",
                                       " AND district_id = 7;", " AND district_id = 8;", " AND district_id = 9;", " AND district_id = 10;", " AND district_id = 11;", " AND district_id = 12;",
                                       " AND district_id = 13;"};
-        public string year = " AND year(application_date) = " + DateTime.Now.ToString("yyyy") + "";
+
 
         public void pwd_Districts()
         {
@@ -1102,6 +1103,7 @@ namespace SAD_2_PTT_01
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
             string query = "";
             int num = 0;
+            string year = " AND year(application_date) = " + ref_main.dateTime.ToString("yyyy") + "";
 
             // add district id paaa >.<
             for (num = 0; num < 13; num++)
@@ -1429,6 +1431,7 @@ namespace SAD_2_PTT_01
             string query5 = "", query6 = "", query7 = "", query8 = "", query9 = "";
             string query10 = "", query11 = "", query12 = "";
             int i;
+            string year = " AND year(application_date) = " + ref_main.dateTime.ToString("yyyy") + "";
 
             for (i = 1; i < disability_count + 1; i++)
             {
@@ -1489,6 +1492,7 @@ namespace SAD_2_PTT_01
             string query5 = "", query6 = "", query7 = "", query8 = "", query9 = "";
             string query10 = "", query11 = "", query12 = "";
             int i;
+            string year = " AND year(application_date) = " + ref_main.dateTime.ToString("yyyy") + "";
 
             for (i = 1; i < disability_count + 1; i++)
             {

@@ -2155,7 +2155,7 @@ namespace SAD_2_PTT_01
 
         #region REPORTS 
         //cry
-        public DateTime from, to, end, start_t, end_t, dateTime;
+        public DateTime from, to, end, start_t, end_t, dateTime, year;
         public int format, district_num, date, function;
         public string district, dev_stat, project, place, proposal;
 
@@ -2168,6 +2168,10 @@ namespace SAD_2_PTT_01
             report_grid.ClearSelection();
             reports_device_grid.ClearSelection();
             reports_projects_grid.ClearSelection();
+
+            year_format.Format = DateTimePickerFormat.Custom;
+            year_format.CustomFormat = "yyyy";
+            year_format.ShowUpDown = true;
 
             device_status.SelectedIndex = 1;
             district_format.SelectedIndex = 0;
@@ -2338,6 +2342,11 @@ namespace SAD_2_PTT_01
             }
         }
 
+        private void year_format_ValueChanged(object sender, EventArgs e)
+        { 
+            dateTime = year_format.Value.Date;
+        }
+
         private void district_format_SelectedIndexChanged(object sender, EventArgs e)
         {
             district_num = district_format.SelectedIndex;
@@ -2436,15 +2445,13 @@ namespace SAD_2_PTT_01
             {
                 date = to.ToString("MMMM dd") + " - " + end.ToString("dd YYYY");
             }
-
-            dateTime = DateTime.Now;
             #endregion
 
             sheet = save_Excel.FileName;
             if (sheet == "") ; //pass
             else
             {
-                conn_rep.pwd_ExcelReport(sheet, dateTime);
+                conn_rep.pwd_ExcelReport(sheet, year);
                 System.Diagnostics.Process.Start(sheet);
             }
             save_Excel.FileName = "";

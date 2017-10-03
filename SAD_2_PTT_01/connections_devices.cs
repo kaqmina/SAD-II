@@ -1765,3 +1765,15 @@ namespace SAD_2_PTT_01
         }
     }
 }
+
+//Device
+/*
+"SELECT pwd_id,
+CONCAT(lastname, ', ' , firstname, ' ', middlename) AS fullname 
+FROM pwd 
+WHERE CONCAT(lastname, ', ' , firstname, ' ', middlename) LIKE '%" + search + "%' 
+OR lastname  LIKE '%" + search + "%' 
+OR firstname  LIKE '%" + search + "%' 
+OR middlename  LIKE '%" + search + "%' 
+OR registration_no LIKE '%" + search + "%'";
+*/
