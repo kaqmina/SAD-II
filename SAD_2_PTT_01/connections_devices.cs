@@ -1385,6 +1385,8 @@ namespace SAD_2_PTT_01
         }
         #endregion
 
+        #region STATUS
+
         public void mark_as_received(string deviceLOG_id, string in_emp_id, string date)
         {
             try
@@ -1761,5 +1763,7 @@ namespace SAD_2_PTT_01
             }
             return success;
         }
+
+        #endregion
     }
 }
