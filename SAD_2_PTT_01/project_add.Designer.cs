@@ -655,6 +655,7 @@
             this.label28.TabIndex = 136;
             this.label28.Text = "* You can add the PWDs involved once you\'ve\r\n                       added the pro" +
     "ject.";
+            this.label28.Visible = false;
             // 
             // btn_persons
             // 

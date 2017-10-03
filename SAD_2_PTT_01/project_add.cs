@@ -482,7 +482,6 @@ namespace SAD_2_PTT_01
                 bool try_ = conn_proj.project_update_data(query);
                 bool items_ = false;
                 bool items_update_ = false;
-                bool progress_ = false;
                 if (try_ == true)
                 {
                     items_update_ = items_update();
@@ -496,12 +495,6 @@ namespace SAD_2_PTT_01
                         {
                             items_ = true;
                         }
-                    }
-                    progress_ = conn_proj.project_add_progress("INSERT INTO project_progress(project_id, progress_type, date_changed) VALUES (" + update_id + ", 1, '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')");
-
-                    if (progress_ == true)
-                    {
-                        conn_proj.project_progress_update(id_);
                     }
                 }
                 #endregion

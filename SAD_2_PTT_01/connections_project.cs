@@ -17,32 +17,138 @@ namespace SAD_2_PTT_01
         DataTable set;
         public connections_project()
         {
-            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root");
+            conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root; Allow User Variables=True");
         }
 
         #region GRID-MAINFORM
 
-        public void project_grid_list(DataGridView projects_grid)
+        public bool project_grid_list(DataGridView projects_grid)
         {
-            Console.WriteLine("[PJT] - [CONNECTIONS_PROJECT] > { [PROJECTS_GRID_LOADED] }");
+            bool has_data = false;
             try
             {
                 conn.Open();
 
-                comm = new MySqlCommand("SELECT * FROM p_dao.project LEFT JOIN p_dao.project_progress ON project.project_id = project_progress.project_id WHERE project.isArchived = 0", conn);
+                comm = new MySqlCommand("SELECT @row_number:=@row_number+1 AS no, "
+                                                + "project_id, "
+                                                + "project_title, "
+                                                + "start_time, "
+                                                + "end_time, "
+                                                + "date_proposed, "
+                                                + "progress_type "
+                                                + "FROM "
+                                                + "( "
+                                                + "SELECT DISTINCT project.project_id, "
+                                                + "project_title, "
+                                                + "start_time, "
+                                                + "end_time, "
+                                                + "date_proposed, "
+                                                + "(CASE WHEN progress_type = 1 THEN 'Proposed' "
+                                                + "WHEN progress_type = 2 THEN 'Approved' "
+                                                + "WHEN progress_type = 3 THEN 'Cancelled' "
+                                                + "WHEN progress_type = 4 THEN 'Finished' END "
+                                                + ") AS progress_type "
+                                                + "FROM project LEFT JOIN project_progress ON project.project_id = project_progress.project_id "
+                                                + "WHERE project.isArchived != 1 ORDER BY project_id ASC "
+                                                + ") t1, (SELECT @row_number:= 0) t2 ", conn);
                 get = new MySqlDataAdapter(comm);
                 set = new DataTable();
                 get.Fill(set);
 
-                projects_grid.DataSource = set;
+                DataTable projects_data = new DataTable();
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "no";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "project_id";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "project_title";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "start_time";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "end_time";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "date_proposed";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "progress_type";
+                projects_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "display_text";
+                projects_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = projects_data.NewRow();
+                    row["no"] = none;
+                    row["project_id"] = none;
+                    row["project_title"] = none;
+                    row["start_time"] = none;
+                    row["end_time"] = none;
+                    row["date_proposed"] = none;
+                    row["progress_type"] = none;
+                    row["display_text"] = "There are no projects added";
+                    projects_data.Rows.Add(row);
+                    has_data = false;
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = projects_data.NewRow();
+                        row["no"] = set.Rows[i]["no"].ToString();
+                        row["project_id"] = set.Rows[i]["project_id"].ToString();
+                        row["project_title"] = set.Rows[i]["project_title"].ToString();
+                        row["start_time"] = set.Rows[i]["start_time"].ToString();
+                        row["end_time"] = set.Rows[i]["end_time"].ToString();
+                        row["date_proposed"] = set.Rows[i]["date_proposed"].ToString();
+                        row["progress_type"] = set.Rows[i]["progress_type"].ToString();
+                        row["display_text"] = "Please refresh the grid.";
+                        projects_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                }
+
+                view = new DataView(projects_data);
+
+                projects_grid.DataSource = view;
 
                 conn.Close();
+                Console.WriteLine("[SUCCESS] - [CONNECTIONS_PROJECT] project_grid_list() ");
+
             } catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 conn.Close();
-                MessageBox.Show("[ERROR_PROJECT_GRID]");
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] project_grid_list() : " + e.Message);
             }
+            return has_data;
         }
 
         public void project_data_load (int project_id, DataTable main, DataTable item)
@@ -76,7 +182,7 @@ namespace SAD_2_PTT_01
 
         public void filter_status(string status, DataGridView projects_grid)
         {
-            (projects_grid.DataSource as DataTable).DefaultView.RowFilter = string.Format("CONVERT(progress_type, System.String) Like '%{0}%' ", status);
+            (projects_grid.DataSource as DataView).RowFilter = string.Format("CONVERT(progress_type, System.String) Like '%{0}%' ", status);
 
         }
 
@@ -1021,6 +1127,41 @@ namespace SAD_2_PTT_01
                 has_data = false;
             }
             return has_data;
+        }
+
+        public void project_progress_update(int project_id, string progress_type)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE project_progress SET progress_type = "+ progress_type +", date_changed = '"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +"' WHERE project_id = " + project_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] project_progress_update() : " + e.Message);
+            }
+        }
+
+        public void project_update_approved_by(string name, int project_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE project SET approved_by = '" + name + "' WHERE project_id = " + project_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_PROJECT] project_progress_update() : " + e.Message);
+            }
         }
     }
 }
