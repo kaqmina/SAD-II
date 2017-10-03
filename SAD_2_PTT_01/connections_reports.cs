@@ -70,20 +70,20 @@ namespace SAD_2_PTT_01
             if (format == 0) report_Grid(rep);
             //Monthly
             else if (format == 2)
-                if (format == 2 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + "ORDER BY lastname ASC";
-                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' ORDER BY lastname ASC";
+                if (format == 2 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + "ORDER BY lastname ASC";
+                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE month(application_date) = '" + from.ToString("MM") + "' AND year(application_date) = '" + to.ToString("yyyy") + "' ORDER BY lastname ASC";
             //Yearly
             else if (format == 3)
-                if (format == 3 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + " ORDER BY lastname ASC";
-                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' ORDER BY lastname ASC";
+                if (format == 3 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' AND district_id = " + district + " ORDER BY lastname ASC";
+                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate," + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE year(application_date) = '" + to.ToString("yyyy") + "' ORDER BY lastname ASC";
             //Custom
             else if (format == 4)
-                if (format == 4 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
-                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                if (format == 4 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
+                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
             //Weekly
             else if (format == 1)
-                if (format == 1 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app,disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
-                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname,  ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                if (format == 1 && district != 0) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app,disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' AND district_id = " + district + " ORDER BY lastname ASC";
+                else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + "AS address, date_format(application_date, '%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE application_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
             try
             {
                 conn.Open();
@@ -106,7 +106,7 @@ namespace SAD_2_PTT_01
         public void getDistrictQuery(DataGridView rep, int district)
         {
 
-            string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + " AS address, date_format(application_date, '%m/%d/%Y') AS app,disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE district_id = '" + district + "' ORDER BY lastname ASC";
+            string query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname," + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + " AS address, date_format(application_date, '%m/%d/%Y') AS app,disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id WHERE district_id = '" + district + "' ORDER BY lastname ASC";
             try
             {
                 conn.Open();
@@ -133,7 +133,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand(no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + " AS address, date_format(application_date,'%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC", conn);
+                comm = new MySqlCommand(no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, " + age + "AS age, (CASE WHEN sex = 0 THEN 'M' ELSE 'F' END) AS sex, date_format(birthdate, '%m/%d/%Y') AS birthdate, " + educ_at + addr + " AS address, date_format(application_date,'%m/%d/%Y') AS app, disability_type FROM p_dao.pwd JOIN p_dao.disability ON pwd.disability_id = disability.disability_id ORDER BY lastname ASC", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -191,7 +191,7 @@ namespace SAD_2_PTT_01
             try
             {
                 conn.Open();
-                comm = new MySqlCommand(no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 ORDER BY lastname ASC", conn);
+                comm = new MySqlCommand(no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 ORDER BY lastname ASC", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -216,16 +216,16 @@ namespace SAD_2_PTT_01
                 string query = "";
                 //Monthly
                 if (format == "requested" || format == "default")
-                    if (format == "requested" && dformat == 2) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
-                    else if (format == "requested" && dformat == 1) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/&d/&Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 AND req_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
-                    else if (format == "requested" && dformat == 3) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
-                    else query = "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 ORDER BY lastname ASC";
+                    if (format == "requested" && dformat == 2) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else if (format == "requested" && dformat == 1) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(req_date, '%m/&d/&Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 AND req_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                    else if (format == "requested" && dformat == 3) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else query = "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 1 ORDER BY lastname ASC";
                 //Yearly
                 else if (format == "handed out")
-                    if (format == "handed out" && dformat == 3) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
-                    else if (format == "handed out" && dformat == 2) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, SELECT lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
-                    else if (format == "handed out" && dformat == 1) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(req_date, '%m/&d/&Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 AND req_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
-                    else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, CONCAT(firstname, ' ', UCASE(SUBSTRING(middlename,1,1)), '.') AS firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 ORDER BY lastname ASC";
+                    if (format == "handed out" && dformat == 3) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else if (format == "handed out" && dformat == 2) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(req_date, '%m/%d/%Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 AND month(date_out) = '" + from.ToString("MM") + "' AND year(date_out) = '" + to.ToString("yyyy") + "'  ORDER BY lastname ASC";
+                    else if (format == "handed out" && dformat == 1) query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(req_date, '%m/&d/&Y') AS req_date FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 AND req_date BETWEEN '" + to.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' ORDER BY lastname ASC";
+                    else query = no + "SELECT CONCAT((@num:=@num + 1),'.') AS num, lastname, firstname, dev_name, dp_name, date_format(date_out, '%m/%d/%Y') AS date_out FROM p_dao.device_log JOIN p_dao.pwd ON device_log.pwd_id = pwd.pwd_id JOIN p_dao.device ON device_log.device_id = device.device_id JOIN p_dao.device_provider ON device_log.dp_id = device_provider.dp_id WHERE status = 3 ORDER BY lastname ASC";
 
 
                 conn.Open();
@@ -863,13 +863,14 @@ namespace SAD_2_PTT_01
 
             #region Sheet Format
             //Title
-            wsheet.Cells[1, 1, 1, disability_count * 2 + 1].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
-            wschild.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
-            wsadult.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
+            wschild.Cells[1, 1, 1, disability_count * 2 + 1].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
+            wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
+            wsadult.Cells[1, 1, 1, disability_count * 2 + 1].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
 
             //SubTitle
-            if (date.ToString("MMMM") == "January") format_date = "JANUARY " + DateTime.Now.ToString("yyyy");
-            else format_date = "JANUARY - " + DateTime.Now.ToString("MMMM yyyy").ToUpper();
+            if (date.ToString("yyyy") == DateTime.Now.ToString("yyyy")) format_date = "JANUARY - " + date.ToString("MMMM yyyy").ToUpper();
+            else format_date = "JANUARY - DECEMBER " + date.ToString("yyyy").ToUpper();
+
             wsheet.Cells["A2:Q2"].Value = wschild.Cells[2, 1, 2, disability_count * 2 + 1].Value = wsadult.Cells[2, 1, 2, disability_count * 2 + 1].Value = format_date;
             wsheet.Cells["A3:Q3"].Value = "(CHILDREN & ADULT CATEGORY)";
             wschild.Cells[3, 1, 3, disability_count * 2 + 1].Value = "(CHILD CATEGORY)";
@@ -911,7 +912,7 @@ namespace SAD_2_PTT_01
             // Body
             #region << Values >>
             #region -- Sheet1 --
-            pwd_Districts();
+            pwd_Districts(date);
             int b = 2;
             foreach (var num in Agdao) wsheet.Cells[6, b++].Value = num;
             b = 2;
@@ -943,7 +944,7 @@ namespace SAD_2_PTT_01
             CityB.Clear(); Marilog.Clear(); Paquibato.Clear(); TalomoA.Clear(); TalomoB.Clear(); Toril.Clear(); Tugbok.Clear();
             #endregion
             #region -- Sheet2 --
-            pwd_Children();
+            pwd_Children(date);
 
             b = 2;
             foreach (var num in Agdao) wschild.Cells[6, b++, 18, disability_count * 2 + 1].Value = num;
@@ -977,7 +978,7 @@ namespace SAD_2_PTT_01
 
             #endregion
             #region -- Sheet3 -- 
-            pwd_Adults();
+            pwd_Adults(date);
             b = 2;
             foreach (var num in Agdao) wsadult.Cells[6, b++].Value = num;
             b = 2;
@@ -1093,16 +1094,16 @@ namespace SAD_2_PTT_01
         public string[] distQuery = { " AND district_id = 1;", " AND district_id = 2;", " AND district_id = 3;", " AND district_id = 4;", " AND district_id = 5;", " AND district_id = 6;",
                                       " AND district_id = 7;", " AND district_id = 8;", " AND district_id = 9;", " AND district_id = 10;", " AND district_id = 11;", " AND district_id = 12;",
                                       " AND district_id = 13;"};
-        public string year = " AND year(application_date) = " + DateTime.Now.ToString("yyyy") + "";
+       
 
-        public void pwd_Districts()
+        public void pwd_Districts(DateTime date)
         {
             string select = "SELECT COUNT(" + age + ") AS c FROM p_dao.pwd WHERE ";
             string cm1, cm2, cm3, cm4, cm5, cm6, cm7, cm8;
             string cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8;
             string query = "";
             int num = 0;
-
+            string year = " AND year(application_date) = " + date.ToString("yyyy") + "";
             // add district id paaa >.<
             for (num = 0; num < 13; num++)
             {
@@ -1417,7 +1418,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region << Child >>
-        public void pwd_Children()
+        public void pwd_Children(DateTime date)
         {
 
             string select = "SELECT COUNT(lastname) AS c FROM p_dao.pwd WHERE ";
@@ -1429,6 +1430,7 @@ namespace SAD_2_PTT_01
             string query5 = "", query6 = "", query7 = "", query8 = "", query9 = "";
             string query10 = "", query11 = "", query12 = "";
             int i;
+            string year = " AND year(application_date) = " + date.ToString("yyyy") + "";
 
             for (i = 1; i < disability_count + 1; i++)
             {
@@ -1477,7 +1479,7 @@ namespace SAD_2_PTT_01
         #endregion
 
         #region << Adult >>
-        public void pwd_Adults()
+        public void pwd_Adults(DateTime date)
         {
 
             string select = "SELECT COUNT(lastname) AS c FROM p_dao.pwd WHERE ";
@@ -1489,6 +1491,7 @@ namespace SAD_2_PTT_01
             string query5 = "", query6 = "", query7 = "", query8 = "", query9 = "";
             string query10 = "", query11 = "", query12 = "";
             int i;
+            string year = " AND year(application_date) = " + date.ToString("yyyy") + "";
 
             for (i = 1; i < disability_count + 1; i++)
             {
