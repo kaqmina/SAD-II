@@ -31,7 +31,7 @@ namespace SAD_2_PTT_01
 
         public main_form main { get; set; }
 
-        public connections_reports()
+        public connections_reports() //ano naaa
         {
             conn = new MySqlConnection("Server=localhost;Database=p_dao;Uid=root;Pwd=root;Allow User Variables=True");
         }

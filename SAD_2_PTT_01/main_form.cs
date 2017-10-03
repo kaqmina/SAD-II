@@ -2096,8 +2096,8 @@ namespace SAD_2_PTT_01
 
         #endregion
 
-        #region REPORTS
-
+        #region REPORTS 
+        //cry
         public DateTime from, to, end, start_t, end_t, dateTime;
         public int format, district_num, date, function;
         public string district, dev_stat, project, place, proposal;
