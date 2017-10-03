@@ -497,11 +497,11 @@ namespace SAD_2_PTT_01
                             items_ = true;
                         }
                     }
-                    //progress_ = conn_proj.project_add_progress("INSERT INTO project_progress(project_id, progress_type, date_changed) VALUES (" + update_id + ", 1, '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                    progress_ = conn_proj.project_add_progress("INSERT INTO project_progress(project_id, progress_type, date_changed) VALUES (" + update_id + ", 1, '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')");
 
                     if (progress_ == true)
                     {
-                        //conn_proj.project_progress_update(id_);
+                        conn_proj.project_progress_update(id_);
                     }
                 }
                 #endregion
