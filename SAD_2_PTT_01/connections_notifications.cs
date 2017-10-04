@@ -397,6 +397,106 @@ namespace SAD_2_PTT_01
             }
             return has_data;
         }
+
+        public bool get_pwd_data(DataGridView pwd_grid )
+        {
+            bool has_data = false;
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("SELECT renewPWD_id, "
+                                             + "renew_pwd.pwd_id, "
+                                             + "id_no, (CONCAT(lastname, ', ', firstname)) AS fullname, "
+                                             + "(DATEDIFF(renew_pwd.end_date, CURDATE())) AS days_left "
+                                             + "FROM p_dao.renew_pwd JOIN pwd WHERE((DATEDIFF(renew_pwd.end_date, CURDATE()) BETWEEN 0 AND 30)) "
+                                             + "AND renewPWD_id = (SELECT MAX(renewPWD_id) FROM renew_pwd WHERE renew_pwd.pwd_id = pwd.pwd_id) AND is_resolved = 0 ", conn);
+                get = new MySqlDataAdapter(comm);
+                set = new DataTable();
+                get.Fill(set);
+
+                DataTable pwd_data = new DataTable();
+
+                DataColumn column;
+                DataRow row;
+                DataView view;
+
+                #region Columns
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "renewPWD_id";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "pwd_id";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "id_no";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "fullname";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "days_left";
+                pwd_data.Columns.Add(column);
+
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "display_text";
+                pwd_data.Columns.Add(column);
+                #endregion
+
+                int count = set.Rows.Count;
+                if (count == 0)
+                {
+                    string none = "None";
+                    row = pwd_data.NewRow();
+                    row["renewPWD_id"] = none;
+                    row["pwd_id"] = none;
+                    row["id_no"] = none;
+                    row["fullname"] = none;
+                    row["days_left"] = none;
+                    row["display_text"] = "No memberships that is about to expire.";
+                    pwd_data.Rows.Add(row);
+                    has_data = false;
+                    Console.WriteLine(has_data);
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        row = pwd_data.NewRow();
+                        row["renewPWD_id"] = set.Rows[i]["renewPWD_id"].ToString();
+                        row["pwd_id"] = set.Rows[i]["pwd_id"].ToString();
+                        row["id_no"] = set.Rows[i]["id_no"].ToString();
+                        row["fullname"] = set.Rows[i]["fullname"].ToString();
+                        row["days_left"] = set.Rows[i]["days_left"].ToString();
+                        row["display_text"] = "";
+                        pwd_data.Rows.Add(row);
+                    }
+                    has_data = true;
+                    Console.WriteLine(has_data);
+                }
+
+                view = new DataView(pwd_data);
+
+                pwd_grid.DataSource = view;
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_NOTIFICATION] get_pwd_data() : " + e.Message);
+            }
+            return has_data;
+        }
         
         public void update_seen()
         {

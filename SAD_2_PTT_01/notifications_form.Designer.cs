@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_close = new System.Windows.Forms.Button();
             this.header_text = new System.Windows.Forms.Button();
             this.btn_mode_status = new System.Windows.Forms.Button();
@@ -126,12 +126,13 @@
             this.btn_resolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_resolve.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_resolve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_resolve.Location = new System.Drawing.Point(197, 338);
+            this.btn_resolve.Location = new System.Drawing.Point(196, 338);
             this.btn_resolve.Name = "btn_resolve";
             this.btn_resolve.Size = new System.Drawing.Size(132, 20);
             this.btn_resolve.TabIndex = 152;
             this.btn_resolve.Text = "RESOLVE";
             this.btn_resolve.UseVisualStyleBackColor = false;
+            this.btn_resolve.Click += new System.EventHandler(this.btn_resolve_Click);
             // 
             // btn_project_refresh
             // 
@@ -187,8 +188,8 @@
             this.project_grid.Name = "project_grid";
             this.project_grid.ReadOnly = true;
             this.project_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.project_grid.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.project_grid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.project_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.project_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.project_grid.Size = new System.Drawing.Size(330, 302);
@@ -226,8 +227,8 @@
             this.pwd_grid.Name = "pwd_grid";
             this.pwd_grid.ReadOnly = true;
             this.pwd_grid.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwd_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.pwd_grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.pwd_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pwd_grid.Size = new System.Drawing.Size(320, 302);
