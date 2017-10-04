@@ -64,10 +64,7 @@
             this.lbl_current = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button17 = new System.Windows.Forms.Button();
-            this.heading1 = new System.Windows.Forms.Label();
             this.pnl_dashboard = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnl_pwd = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.pwd_search_by_value = new System.Windows.Forms.ComboBox();
@@ -426,9 +423,9 @@
             this.notification_grid = new System.Windows.Forms.DataGridView();
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pnl_dashboard.SuspendLayout();
             this.pnl_pwd.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -772,64 +769,22 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.panel1.Controls.Add(this.button17);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1066, 28);
             this.panel1.TabIndex = 4;
             // 
-            // button17
-            // 
-            this.button17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.Location = new System.Drawing.Point(0, 0);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(82, 28);
-            this.button17.TabIndex = 3;
-            this.button17.Text = "QUICKLINKS";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // heading1
-            // 
-            this.heading1.AutoSize = true;
-            this.heading1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heading1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.heading1.Location = new System.Drawing.Point(33, 34);
-            this.heading1.Name = "heading1";
-            this.heading1.Size = new System.Drawing.Size(136, 30);
-            this.heading1.TabIndex = 13;
-            this.heading1.Text = "DASHBOARD";
-            // 
             // pnl_dashboard
             // 
-            this.pnl_dashboard.Controls.Add(this.heading1);
-            this.pnl_dashboard.Controls.Add(this.panel1);
+            this.pnl_dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
             this.pnl_dashboard.Controls.Add(this.label2);
+            this.pnl_dashboard.Controls.Add(this.panel1);
             this.pnl_dashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_dashboard.Location = new System.Drawing.Point(71, 28);
             this.pnl_dashboard.Name = "pnl_dashboard";
             this.pnl_dashboard.Size = new System.Drawing.Size(1066, 611);
             this.pnl_dashboard.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label2.Image = global::SAD_2_PTT_01.Properties.Resources.dashboard;
-            this.label2.Location = new System.Drawing.Point(11, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 25);
-            this.label2.TabIndex = 14;
-            this.label2.Text = " ";
             // 
             // pnl_pwd
             // 
@@ -5437,19 +5392,31 @@
             this.notification_grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseMove);
             this.notification_grid.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseUp);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(110)))));
+            this.label2.Location = new System.Drawing.Point(121, 219);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(825, 172);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "PERSONS WITH DISABILITY \r\n         AFFAIRS OFFICE";
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
+            this.Controls.Add(this.pnl_dashboard);
             this.Controls.Add(this.pnl_devices);
             this.Controls.Add(this.pnl_projects);
             this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_reports);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_settings);
-            this.Controls.Add(this.pnl_dashboard);
             this.Controls.Add(this.dboard_head);
             this.Controls.Add(this.side_tab);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5466,7 +5433,6 @@
             this.side_tab.ResumeLayout(false);
             this.dboard_head.ResumeLayout(false);
             this.dboard_head.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.pnl_dashboard.ResumeLayout(false);
             this.pnl_dashboard.PerformLayout();
             this.pnl_pwd.ResumeLayout(false);
@@ -5553,9 +5519,6 @@
         public System.Windows.Forms.Button btn_notification;
         public System.Windows.Forms.Button btn_close;
         public System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label heading1;
         public System.Windows.Forms.Panel pnl_dashboard;
         public System.Windows.Forms.Panel pnl_pwd;
         public System.Windows.Forms.Panel panel2;
@@ -5915,6 +5878,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.RadioButton project_filter_finished;
         private System.Windows.Forms.Button project_btn_archive;
+        private System.Windows.Forms.Label label2;
     }
 }
 

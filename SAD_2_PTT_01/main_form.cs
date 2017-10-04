@@ -3064,18 +3064,16 @@ namespace SAD_2_PTT_01
         private void notification_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string type_notif = notification_grid.Rows[e.RowIndex].Cells["type_notif"].Value.ToString();
-            if (type_notif == "0" )
-            {
-                notif_form = new notifications_form();
-                notif_form.reference_to_main = this;
-                shadow_ = new shadow();
-                shadow_.reference_to_main = this;
-                shadow_.form_to_show = notif_form;
-                shadow_.ShowDialog();
-                notification_grid.Rows[e.RowIndex].Cells["type_clicked"].Value = "1";
-                conn_noti.initial_font();
-                notification_grid.ClearSelection();
-            }
+            notif_form = new notifications_form();
+            notif_form.reference_to_main = this;
+            shadow_ = new shadow();
+            shadow_.reference_to_main = this;
+            shadow_.form_to_show = notif_form;
+            shadow_.ShowDialog();
+            notification_grid.Rows[e.RowIndex].Cells["type_clicked"].Value = "1";
+            conn_noti.update_seen();
+            conn_noti.initial_font();
+            notification_grid.ClearSelection();
 
             for (int i = 0; i < notification_grid.Rows.Count; i++)
             {

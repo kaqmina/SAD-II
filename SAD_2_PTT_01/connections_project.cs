@@ -432,7 +432,6 @@ namespace SAD_2_PTT_01
                 get.Fill(set);
 
                 project_id = set.Rows[0]["X"].ToString();
-                MessageBox.Show(project_id);
                 Console.WriteLine(project_id);
 
                 conn.Close();

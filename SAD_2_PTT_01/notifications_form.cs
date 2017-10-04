@@ -16,6 +16,7 @@ namespace SAD_2_PTT_01
         {
             InitializeComponent();
         }
+        connections_notifications conn_noti = new connections_notifications();
 
         public main_form reference_to_main { get; set; }
 
@@ -47,8 +48,9 @@ namespace SAD_2_PTT_01
         {
             this.Opacity = 0;
             startup_opacity.Start();
+            conn_noti.get_7_days_data(project_grid);
         }
 
-
+        //public 
     }
 }
