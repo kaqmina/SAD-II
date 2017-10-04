@@ -17,6 +17,7 @@ namespace SAD_2_PTT_01
             InitializeComponent();
         }
         connections_notifications conn_noti = new connections_notifications();
+        system_functions sys_func = new system_functions();
 
         public main_form reference_to_main { get; set; }
 
@@ -52,6 +53,7 @@ namespace SAD_2_PTT_01
             startup_opacity.Start();
             load_pwd();
             load_project();
+            sys_func.btn_inactive(btn_resolve);
         }
 
         public void load_pwd()
@@ -112,7 +114,52 @@ namespace SAD_2_PTT_01
 
         private void btn_resolve_Click(object sender, EventArgs e)
         {
-            
+            conn_noti.update_resolved(renew_pwd_id);
+            load_pwd();
+            pwd_grid.ClearSelection();
+            sys_func.btn_inactive(btn_resolve);
+        }
+
+        string renew_pwd_id;
+        int current_pwd_index = 0;
+
+        private void pwd_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (has_pwd == false)
+            {
+                sys_func.btn_inactive(btn_resolve);
+            }
+            else
+            {
+                if (e.RowIndex >= 0)
+                {
+                    sys_func.btn_active(btn_resolve);
+                    current_pwd_index = e.RowIndex;
+                    renew_pwd_id = pwd_grid.Rows[e.RowIndex].Cells["renewPWD_id"].Value.ToString();
+                }
+                else
+                {
+                    sys_func.btn_inactive(btn_resolve);
+                }
+            }
+        }
+
+        private void pwd_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //pwd_view view_pwd = new pwd_view();
+            //shadow shadow_ = new shadow();
+
+            //view_pwd.current_pwd = renew_pwd_id;
+            //shadow_.reference_to_main = this.reference_to_main;
+            //view_pwd.reference_to_main = this.reference_to_main;
+            //int loc_x = reference_to_main.Location.X + 71;
+            //int loc_y = reference_to_main.Location.Y + 28;
+
+            //view_pwd.Location = new Point (loc_x, loc_y);
+            //shadow_.form_to_show = view_pwd;
+            //this.Hide();
+            //shadow_.ShowDialog();
+            //this.Show();
         }
     }
 }

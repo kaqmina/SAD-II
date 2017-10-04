@@ -514,5 +514,22 @@ namespace SAD_2_PTT_01
             }
         }
 
+        public void update_resolved(string renew_pwd_id)
+        {
+            try
+            {
+                conn.Open();
+
+                comm = new MySqlCommand("UPDATE renew_pwd SET is_resolved = 1 WHERE renewPWD_id = " + renew_pwd_id, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+            } catch (Exception e)
+            {
+                conn.Close();
+                Console.WriteLine("[ERROR] - [CONNECTIONS_NOTIFICATIONS] update_resolved() : " + e.Message);
+            }
+        }
+
     }
 }
