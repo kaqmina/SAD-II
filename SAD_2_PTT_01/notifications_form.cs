@@ -18,5 +18,37 @@ namespace SAD_2_PTT_01
         }
 
         public main_form reference_to_main { get; set; }
+
+        #region OPACITY
+        private void startup_opacity_Tick(object sender, EventArgs e)
+        {
+
+            if (this.Opacity < 1)
+                this.Opacity += 0.1;
+            else
+                startup_opacity.Stop();
+        }
+
+        private void exit_opacity_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+            else
+            {
+                exit_opacity.Stop();
+            }
+        }
+        #endregion
+
+
+        private void notifications_form_Load(object sender, EventArgs e)
+        {
+            this.Opacity = 0;
+            startup_opacity.Start();
+        }
+
+
     }
 }
