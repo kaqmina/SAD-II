@@ -65,6 +65,7 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_dashboard = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnl_pwd = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.pwd_search_by_value = new System.Windows.Forms.ComboBox();
@@ -423,7 +424,6 @@
             this.notification_grid = new System.Windows.Forms.DataGridView();
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
-            this.label2 = new System.Windows.Forms.Label();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.pnl_dashboard.SuspendLayout();
@@ -785,6 +785,18 @@
             this.pnl_dashboard.Name = "pnl_dashboard";
             this.pnl_dashboard.Size = new System.Drawing.Size(1066, 611);
             this.pnl_dashboard.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(110)))));
+            this.label2.Location = new System.Drawing.Point(121, 219);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(825, 172);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "PERSONS WITH DISABILITY \r\n         AFFAIRS OFFICE";
             // 
             // pnl_pwd
             // 
@@ -2170,6 +2182,7 @@
             this.label32.Size = new System.Drawing.Size(44, 13);
             this.label32.TabIndex = 151;
             this.label32.Text = "FILTER :";
+            this.label32.Visible = false;
             // 
             // device_filter_by
             // 
@@ -2184,6 +2197,7 @@
             this.device_filter_by.Name = "device_filter_by";
             this.device_filter_by.Size = new System.Drawing.Size(206, 21);
             this.device_filter_by.TabIndex = 150;
+            this.device_filter_by.Visible = false;
             // 
             // device_handout_archive
             // 
@@ -3316,7 +3330,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(575, 61);
+            this.label24.Location = new System.Drawing.Point(579, 91);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(75, 13);
             this.label24.TabIndex = 131;
@@ -3327,10 +3341,11 @@
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.button9);
             this.panel13.Controls.Add(this.textBox1);
-            this.panel13.Location = new System.Drawing.Point(580, 76);
+            this.panel13.Location = new System.Drawing.Point(576, 33);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(202, 25);
             this.panel13.TabIndex = 130;
+            this.panel13.Visible = false;
             // 
             // button9
             // 
@@ -3349,9 +3364,9 @@
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(-1, -1);
+            this.textBox1.Location = new System.Drawing.Point(17, -1);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 25);
+            this.textBox1.Size = new System.Drawing.Size(149, 25);
             this.textBox1.TabIndex = 0;
             // 
             // btn_projects_refresh
@@ -3386,7 +3401,7 @@
             this.project_grid_row_count.AutoSize = true;
             this.project_grid_row_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.project_grid_row_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.project_grid_row_count.Location = new System.Drawing.Point(740, 61);
+            this.project_grid_row_count.Location = new System.Drawing.Point(744, 91);
             this.project_grid_row_count.Name = "project_grid_row_count";
             this.project_grid_row_count.Size = new System.Drawing.Size(31, 13);
             this.project_grid_row_count.TabIndex = 49;
@@ -3397,7 +3412,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.label9.Location = new System.Drawing.Point(690, 61);
+            this.label9.Location = new System.Drawing.Point(694, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 48;
@@ -5392,29 +5407,17 @@
             this.notification_grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseMove);
             this.notification_grid.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseUp);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(110)))));
-            this.label2.Location = new System.Drawing.Point(121, 219);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(825, 172);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "PERSONS WITH DISABILITY \r\n         AFFAIRS OFFICE";
-            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 639);
             this.ControlBox = false;
-            this.Controls.Add(this.pnl_dashboard);
             this.Controls.Add(this.pnl_devices);
-            this.Controls.Add(this.pnl_projects);
-            this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_reports);
+            this.Controls.Add(this.pnl_projects);
+            this.Controls.Add(this.pnl_dashboard);
+            this.Controls.Add(this.pnl_pwd);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_settings);
             this.Controls.Add(this.dboard_head);
