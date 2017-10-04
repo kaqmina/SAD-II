@@ -2257,7 +2257,8 @@ namespace SAD_2_PTT_01
 
         #region REPORTS 
         //cry
-        public DateTime from, to, end, start_t, end_t, dateTime;
+        public DateTime from, to, end, start_t, end_t;
+        public DateTime dateTime = DateTime.Now;
         public int format, district_num, date, function;
         public string district, dev_stat, project, place, proposal;
 
@@ -2270,6 +2271,10 @@ namespace SAD_2_PTT_01
             report_grid.ClearSelection();
             reports_device_grid.ClearSelection();
             reports_projects_grid.ClearSelection();
+
+            date_year.Format = DateTimePickerFormat.Custom;
+            date_year.CustomFormat = "yyyy";
+            date_year.ShowUpDown = true;
 
             device_status.SelectedIndex = 1;
             district_format.SelectedIndex = 0;
@@ -2299,10 +2304,11 @@ namespace SAD_2_PTT_01
 
             hide_date(); load_reports();
             date_format.Enabled = true;
-        
+            date_year.Value = DateTime.Now;
             date_format.Items.Clear();
-            string[] pwd = { "", "Weekly", "Monthly", "Yearly", "Custom" };
+            string[] pwd = { "ALL", "Weekly", "Monthly", "Yearly", "Custom" };
             date_format.Items.AddRange(pwd);
+            date_format.SelectedIndex = 0;
             function = 0;
         }
 
@@ -2314,8 +2320,9 @@ namespace SAD_2_PTT_01
             hide_date(); load_reports();
             date_format.Enabled = true;
             date_format.Items.Clear();
-            string[] pwd = { "", "Weekly", "Monthly", "Yearly", "Custom" };
+            string[] pwd = { "ALL", "Weekly", "Monthly", "Yearly", "Custom" };
             date_format.Items.AddRange(pwd);
+            date_format.SelectedIndex = 0;
             function = 0;
 
         }
@@ -2328,8 +2335,9 @@ namespace SAD_2_PTT_01
             hide_date(); load_reports();
             date_format.Enabled = true;
             date_format.Items.Clear();
-            string[] proj = { "", "Monthly", "Yearly", "Custom" };
+            string[] proj = { "ALL", "Monthly", "Yearly", "Custom" };
             date_format.Items.AddRange(proj);
+            date_format.SelectedIndex = 0;
             function = 1;
         }
 
@@ -2446,7 +2454,13 @@ namespace SAD_2_PTT_01
             district = district_format.SelectedItem.ToString();
 
             if (date != 0) conn_rep.getDateQuery(report_grid, date, from, to, end, district_num);
+            else if (district_num == 0 && date == 0) conn_rep.report_Grid(report_grid);
             else conn_rep.getDistrictQuery(report_grid, district_num);
+        }
+
+        private void date_year_ValueChanged(object sender, EventArgs e)
+        {
+            dateTime = date_year.Value.Date;
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
@@ -2539,7 +2553,6 @@ namespace SAD_2_PTT_01
                 date = to.ToString("MMMM dd") + " - " + end.ToString("dd YYYY");
             }
 
-            dateTime = DateTime.Now;
             #endregion
 
             sheet = save_Excel.FileName;

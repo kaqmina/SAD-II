@@ -426,6 +426,7 @@
             this.notification_grid = new System.Windows.Forms.DataGridView();
             this.save_pdf = new System.Windows.Forms.SaveFileDialog();
             this.save_Excel = new System.Windows.Forms.SaveFileDialog();
+            this.date_year = new System.Windows.Forms.DateTimePicker();
             this.side_tab.SuspendLayout();
             this.dboard_head.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3711,8 +3712,8 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel11.Controls.Add(this.reports_pnl_projects);
             this.panel11.Controls.Add(this.reports_pnl_device);
+            this.panel11.Controls.Add(this.reports_pnl_projects);
             this.panel11.Controls.Add(this.reports_pnl_pwd);
             this.panel11.Controls.Add(this.btn_ok);
             this.panel11.Controls.Add(this.date_to);
@@ -3906,6 +3907,7 @@
             // 
             // reports_pnl_pwd
             // 
+            this.reports_pnl_pwd.Controls.Add(this.date_year);
             this.reports_pnl_pwd.Controls.Add(this.label121);
             this.reports_pnl_pwd.Controls.Add(this.label120);
             this.reports_pnl_pwd.Controls.Add(this.btn_pwd_exportExcel);
@@ -3922,7 +3924,7 @@
             // 
             this.label121.AutoSize = true;
             this.label121.ForeColor = System.Drawing.Color.Black;
-            this.label121.Location = new System.Drawing.Point(458, 6);
+            this.label121.Location = new System.Drawing.Point(473, 6);
             this.label121.Name = "label121";
             this.label121.Size = new System.Drawing.Size(111, 13);
             this.label121.TabIndex = 141;
@@ -3946,7 +3948,7 @@
             this.btn_pwd_exportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pwd_exportExcel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pwd_exportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.btn_pwd_exportExcel.Location = new System.Drawing.Point(570, 2);
+            this.btn_pwd_exportExcel.Location = new System.Drawing.Point(664, 2);
             this.btn_pwd_exportExcel.Name = "btn_pwd_exportExcel";
             this.btn_pwd_exportExcel.Size = new System.Drawing.Size(135, 25);
             this.btn_pwd_exportExcel.TabIndex = 139;
@@ -4001,7 +4003,7 @@
             this.district_format.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.district_format.FormattingEnabled = true;
             this.district_format.Items.AddRange(new object[] {
-            "",
+            "ALL",
             "Agdao",
             "Baguio",
             "Buhangin",
@@ -4025,7 +4027,7 @@
             // 
             this.label119.AutoSize = true;
             this.label119.ForeColor = System.Drawing.Color.Black;
-            this.label119.Location = new System.Drawing.Point(12, 9);
+            this.label119.Location = new System.Drawing.Point(7, 6);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(57, 13);
             this.label119.TabIndex = 2;
@@ -4087,12 +4089,12 @@
             this.date_format.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.date_format.FormattingEnabled = true;
             this.date_format.Items.AddRange(new object[] {
-            "",
+            "ALL",
             "Weekly",
             "Monthly",
             "Yearly",
             "Custom"});
-            this.date_format.Location = new System.Drawing.Point(68, 11);
+            this.date_format.Location = new System.Drawing.Point(68, 10);
             this.date_format.Name = "date_format";
             this.date_format.Size = new System.Drawing.Size(172, 21);
             this.date_format.TabIndex = 45;
@@ -4102,7 +4104,7 @@
             // 
             this.label116.AutoSize = true;
             this.label116.ForeColor = System.Drawing.Color.Black;
-            this.label116.Location = new System.Drawing.Point(8, 11);
+            this.label116.Location = new System.Drawing.Point(7, 12);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(56, 13);
             this.label116.TabIndex = 1;
@@ -5437,6 +5439,14 @@
             this.notification_grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseMove);
             this.notification_grid.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.notification_grid_CellMouseUp);
             // 
+            // date_year
+            // 
+            this.date_year.Location = new System.Drawing.Point(585, 3);
+            this.date_year.Name = "date_year";
+            this.date_year.Size = new System.Drawing.Size(73, 22);
+            this.date_year.TabIndex = 144;
+            this.date_year.ValueChanged += new System.EventHandler(this.date_year_ValueChanged);
+            // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5446,7 +5456,6 @@
             this.Controls.Add(this.pnl_devices);
             this.Controls.Add(this.pnl_projects);
             this.Controls.Add(this.pnl_pwd);
-            this.Controls.Add(this.pnl_reports);
             this.Controls.Add(this.pnl_notif_pp);
             this.Controls.Add(this.pnl_settings);
             this.Controls.Add(this.pnl_dashboard);
@@ -5915,6 +5924,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.RadioButton project_filter_finished;
         private System.Windows.Forms.Button project_btn_archive;
+        private System.Windows.Forms.DateTimePicker date_year;
     }
 }
 
