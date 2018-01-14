@@ -269,7 +269,8 @@ namespace SAD_2_PTT_01
         {
             if (pwd_has_pwd == false)
             {
-
+                sys_func.btn_inactive(btn_pwd_edit);
+                sys_func.btn_inactive(btn_pwd_viewmore);
             } else
             {
                 if (e.RowIndex < 0)
@@ -324,6 +325,8 @@ namespace SAD_2_PTT_01
             pwd_filter_male.Checked = false;
             pwd_search_by.SelectedIndex = 0;
             pwd_search_by_value.SelectedIndex = 0;
+            sys_func.btn_inactive(btn_pwd_edit);
+            sys_func.btn_inactive(btn_pwd_viewmore);
         }
 
         private void pwd_grid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -1021,6 +1024,7 @@ namespace SAD_2_PTT_01
             {
                 sys_func.btn_inactive(projects_btn_status_type);
                 sys_func.btn_inactive(projects_btn_attendance);
+                sys_func.btn_inactive(project_btn_archive);
             }
             else
             {
@@ -1030,6 +1034,7 @@ namespace SAD_2_PTT_01
 
                 sys_func.btn_active(projects_btn_status_type);
                 sys_func.btn_active(projects_btn_attendance);
+                sys_func.btn_active(project_btn_archive);
             }
         }
 

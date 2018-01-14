@@ -1043,6 +1043,7 @@ namespace SAD_2_PTT_01
         private void project_add_FormClosing(object sender, FormClosingEventArgs e)
         {
             reference_to_main.load_notifications();
+            reference_to_main.load_projects();
             closing_opacity.Start();
         }
     }
