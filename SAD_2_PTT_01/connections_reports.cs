@@ -863,9 +863,9 @@ namespace SAD_2_PTT_01
 
             #region Sheet Format
             //Title
-            wsheet.Cells[1, 1, 1, disability_count * 2 + 1].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
-            wschild.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
-            wsadult.Cells["A1:Q1"].Value = wsheet.Cells["A1:Q1"].Value;
+            wsheet.Cells["A1:Q1"].Value = "CONSOLIDATED REPORT ON PWD ISSUED WITH ID'S";
+            wschild.Cells[1, 1, 1, disability_count * 2 + 1].Value = wsheet.Cells["A1:Q1"].Value;
+            wsadult.Cells[1, 1, 1, disability_count * 2 + 1].Value = wsheet.Cells["A1:Q1"].Value;
 
             //SubTitle
             if (date.ToString("MMMM") == "January") format_date = "JANUARY " + DateTime.Now.ToString("yyyy");
